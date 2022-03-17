@@ -1,0 +1,3 @@
+[submodule "Data"]
+	path = Data
+	url = git@github.com:WolfireGames/overgrowth_data.git
