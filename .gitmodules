@@ -1,3 +1,6 @@
 [submodule "Data"]
 	path = Data
 	url = git@github.com:WolfireGames/overgrowth_data.git
+[submodule "Proprietary"]
+	path = Proprietary
+	url = git@github.com:WolfireGames/overgrowth_proprietary.git
