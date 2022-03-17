@@ -1,0 +1,6 @@
+[submodule "Proprietary"]
+	path = Proprietary
+	url = git@github.com:WolfireGames/overgrowth_proprietary.git
+[submodule "Auxiliary"]
+	path = Auxiliary
+	url = git@github.com:WolfireGames/overgrowth_aux.git
