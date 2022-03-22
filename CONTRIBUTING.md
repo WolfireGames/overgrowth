@@ -4,7 +4,11 @@ Here you can read about different ways you can help the project, and how it’s 
 
 ## How We’re Organized
 
-The project has a group of trusted maintainers who run the project, and together they have the final say in decisions. They are listed [SOMEWHERE].
+The project has a group of trusted maintainers who run the project, together they have the final say in decisions. They are‥
+
+- [@akien-mga]
+- [@Conan-Kudo]
+- [@kavika13]
 
 ## Code of Conduct
 
@@ -44,6 +48,8 @@ You don't need to be a master programmer to submit code. This is a place for lea
 
 When two of the maintainers have reviewed and accepted a code contribution, it is accepted into the code base. If the code was written by a maintainer, only one other maintainer needs to accept it.
 
-[README.md]: README.md
+[@akien-mga]: https://github.com/akien-mga
+[@Conan-Kudo]: https://github.com/Conan-Kudo
+[@kavika13]: https://github.com/kavika13
 [issues]: https://github.com/WolfireGames/overgrowth/issues
 [pull requests]: https://github.com/WolfireGames/overgrowth/pulls
