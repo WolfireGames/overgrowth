@@ -1,13 +1,13 @@
 # Overgrowth Open Source
 This is the official repository for [Overgrowth]'s source code. Only the code is available here; the game data (such as art assets and levels) can only be legally obtained by purchasing Overgrowth from [Wolfire Games].
 
-This repository intends to allow people to‥
+This repository lets you‥
 
 - Run the open source code with the commercial data to perform experiments for educational purposes.
 - Propose changes to be merged back into the commercial game.
 - Create modifications for Overgrowth that would otherwise be impossible.
-- Use helpful code snippets in their projects.
-- Create their own commercial "total conversions" that use an entirely new set of assets.
+- Use helpful code snippets in your projects.
+- Create your own commercial "total conversions" that use an entirely new set of assets.
 
 If you would like to distribute any of the original Overgrowth assets, you must obtain explicit written permission from Wolfire Games.
 
@@ -15,32 +15,32 @@ If you would like to distribute any of the original Overgrowth assets, you must 
 [COMPILING.md] contains instructions on compiling and running the commercial Overgrowth game using the open source code.
 
 ## Contributing
-This repository is entirely community-owned. That means you are welcome to submit improvements, and volunteer maintainers will review, give feedback, and consider your code for inclusion when they have time.
+This repository is entirely community-operated. This means you can help by submitting bug reports, reviewing other people's code, contributing your own code, and so on.
 
-[CONTRIBUTING.md] has more information on this process.
+Read [CONTRIBUTING.md] for more information.
 
 ## License
-The code in this repository is licensed under `Apache-2.0`.
+The code in this repository is licensed under `Apache-2.0`. Read [LICENSE.md] for the full license.
 
-`Apache-2.0` is a "permissive" open source license, meaning you are allowed to use it for more or less whatever you want, including in closed source projects. [LICENSE.md] contains the full license. Please read and understand it before contributing or using the code for anything other than personal use.
+`Apache-2.0` is a "permissive" open source license, meaning you can use it for more or less whatever you want, including in closed source projects.
 
-Licenses are hard to understand, and the `Apache-2.0` license is no exception. Reading [tl;drLegal's summary of `Apache-2.0`] will give you an overview, and below is a summary in plain English of what the license means in practice.
+Licenses are hard to understand, and the `Apache-2.0` license is no exception. Reading [tl;drLegal's summary of `Apache-2.0`] will give you an overview, and here is a summary in plain English of what the license means in practice:
 
-If you distribute a compiled program using the code, or the code itself, you must do the following:
+If you distribute a compiled program using the code, or you distribute the code itself, modified or not, you must do the following:
 
 ### Include the entire contents of the `LICENSE` file
 
-The license can be somewhere in the program itself or a separate file. The purpose is to clarify under what license you're using the code. For example, you can have a file called `LICENSES`, and there you can have a line saying `This software uses code from Overgrowth under the Apache-2.0 license, read the full license in the file named LICENSE_APACHE.`.
+The license can be somewhere in the program itself or in a separate file. The purpose is to clarify under what license you're using the code. For example, you can have a file called `LICENSES`, and there you can have a line saying `This software uses code from Overgrowth under the Apache-2.0 license, read the full license in the file named LICENSE_APACHE.`.
 
 ### Mark files you've changed with a notice
 
-If you distribute the code itself, in each file you modify, write that you have modified it. For instance, the files have some text at the top called a "boilerplate notice", you can put a notice that you have changed it there, so it looks something like this:
+If you distribute the code itself, in each file you modify, write that you have modified it. For instance, the files have some text at the top called a "boilerplate notice", you can write that you have changed it there, so it looks something like this:
 
 ```
 // This file is part of Overgrowth
 // Copyright 2022 Wolfire Games
 //
-// John Doe modified this file.
+// Firstname Lastname modified this file.
 //
 // <the license boilerplate comes here>
 ```
