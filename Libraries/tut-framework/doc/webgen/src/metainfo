@@ -1,0 +1,33 @@
+--- name:alcn
+
+index.*.html:
+  sort_info: 1
+
+news.en.html:
+  sort_info: 2
+
+download.*.html:
+  sort_info: 3
+
+example.*.html:
+  sort_info: 4
+
+howto.*.html:
+  sort_info: 5
+
+faq.*.html:
+  sort_info: 6
+
+authors.*.html:
+  sort_info: 7
+
+source.*.html:
+  sort_info: 8
+
+links.*.html:
+  sort_info: 9
+
+copyright.*.html:
+  sort_info: 10
+
+

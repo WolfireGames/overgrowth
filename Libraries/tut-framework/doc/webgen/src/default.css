@@ -1,0 +1,137 @@
+body
+{
+    margin: 5pt;
+    margin-left: 25pt;
+    margin-right: 25pt;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: #000000;
+}
+
+#header, #menu, #body, #footer {
+    background-color: #EEEEEE;
+    border: 1px solid black;
+    padding: 10pt;
+    margin: 0;
+    margin-bottom: 5pt;
+}
+
+/* header */
+
+#header h1 {
+    font-size: 28pt;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+#header h1 img {
+    border: 0;
+    vertical-align: middle;
+    margin-right: 5pt;
+}
+
+/* menu */
+
+#menu {
+    float: left;
+    width: 150pt;
+    padding: 0;
+    padding-left: 5pt;
+}
+
+#menu a, #menu span {
+    color: #FF9900;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+#menu a:hover {
+    text-decoration: underline;
+}
+
+#menu .webgen-menu-item-selected {
+    border-left: 3pt solid black;
+}
+
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 5pt;
+}
+
+#menu li {
+    margin: 0;
+    padding: 5pt 10pt 5pt 10pt;
+    border-left: 3pt solid #CCCCCC;
+}
+
+/* body */
+
+#body {
+    margin-left: 162pt;
+}
+
+#body h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 5pt;
+}
+
+#body h1 span {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 0;
+    margin-left: 30pt;
+    display: block;
+    text-align: right;
+    float: right;
+    color: #777777;
+}
+
+#body h2 {
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+#body em {
+    color: #FF9900;
+    font-weight: bold;
+}
+
+#body .code {
+    font-family: Courier New, monospace;
+    background-color: #f3f3f3;
+    margin: 5pt;
+    padding: 10pt;
+    border: 1pt black dashed;
+}
+
+/* footer */
+
+#footer {
+    margin-left: 162pt;
+    padding: 5pt;
+}
+
+#footer h1 {
+    font-size: 12pt;
+    padding: 0;
+    margin: 0;
+}
+
+#footer h1 span {
+    font-size: 11pt;
+    display: block;
+    text-align: right;
+    float: right;
+    color: #777777;
+}
+
+#footer h1 img {
+    border: 0;
+    vertical-align: middle;
+    margin-right: 5pt;
+}

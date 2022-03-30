@@ -1,0 +1,276 @@
+---
+title: News
+desc: changelog, releases and whatnot
+in_menu: true
+---
+
+Move to Github
+--------------
+
+Long time no see!
+
+I've decided to move the project to Github, to decrease amount of typing needed
+to get a long-overdue release out.
+
+
+Doxygen documentation
+---------------------
+
+Thanks to Achill Hasler, we now have a complete, Doxygen-based, reference manual.
+
+Switch to Waf
+-------------------
+
+The build/installation system has been changed from hand-maintained makefiles to a modern
+alternative, [Waf](http://code.google.com/p/waf/). This means that official process
+of building/installing TUT requires Python. For now Waf scripts used in TUT handle GCC,
+MinGW and various versions of MSVC. Support for Intel/Sun/Borland compilers is not there yet.
+
+TUT is now also somewhat customizable during build/installation, using `./waf configure`
+shell command. You can even check the self-test coverage if you have
+[bcov](http://sourceforge.net/projects/bcov/) installed on your machine.
+
+However, you can still 'just copy the files' using the default `tut_config.hpp`.
+Bear in mind that by doing that you miss much goodies, e.g. generated `pkg-config` file.
+
+TUT-2009-08-30
+--------------
+This is a bugfix release.
+
+TUT-2008-11-30
+--------------
+Introduces a whole new feature of multi-process testing. This includes forking, reporting
+failed tests in children, controlling their exit status and cleanup code:
+
+{coderay:: c}
+pid_t childPid = fork();
+if(childPid == 0)
+{
+	ensure("Child failed", false);
+}
+
+// this is going to fail
+ensure_child_exit(childPid, 0);
+{coderay}
+
+Added ensure\_errno test for meaningful reporting of failed system calls.
+
+Both features are available only on \*nix platforms.
+
+TUT-2007-07-06
+--------------
+Introduced new header include style. There are two ways you can include the TUT headers:
+
+{coderay:: c}
+#include <tut.h>
+#include <tut/tut.hpp>
+{coderay}
+
+The second option is preferred method whereas the first option is to provide backward 
+compatibility with clients of the previous releases.
+
+Minor fixes for Borland C++ Builder 6 and Microsoft Visual Studio 2005.
+
+TUT-2007-03-19
+--------------
+Introduced a new exception `tut_error` as base for all TUT exceptions.
+I have two reasons to do it:
+
+*   To avoid interference with `std::logic_error` leading to annoying pitfalls
+    in inaccurate test code. For example:
+
+{coderay:: c}
+// function to test
+void foo(bool cond)
+{
+    if (!cond) 
+    {
+        throw logic_error("condition is not set");
+    }
+}
+
+// inside a test
+try
+{
+    ensure("something", some_expression); // can throw logic_error
+    foo(false);
+}
+catch (const logic_error&)
+{
+    // ok or pitfall?
+}
+{coderay}
+
+Howewer, because of that `tut_error` is derived from 
+`std::exception`, you should avoid catching `std::exception`
+in your test code without appropriate checks.
+*   Some implementations of Standard C++ Library restrict size of a message passed into
+    a standard exception (from `stdexcept`) within narrow limits 
+    (usually, 256 bytes). Sometimes, it leads to incomplete messages in TUT reports. 
+
+Minor changes:
+*   actual and expected values are quoted to increase failure messages readability;
+*   if `ensure_distance` fails it will output a range in round brackets
+    because range borders are excluded from range (thanks to Koolin Timofey).
+*   New function added: `ensure_not`. I've found that `ensure_not(condition)` is a bit
+    more readable than `ensure(!condition)`
+
+TUT-2007-02-03
+--------------
+Microsoft Visual C++ 2005 is supported. This version of compiler supports
+standard C++ exception handling in accordance with the C++ standard. It means 
+that only synchronous C++ exceptions thrown with a throw statement will be 
+caught in a catch block. 
+
+TUT uses two models of exception: handling SEH and standard C++ exception 
+handling. TUT expects that if any structured exception is raised it will be 
+handled by nearer C++ catch handler. It was default behavior of the previous
+version of compiler (option /EHs). But for the new version I have to turn on
+asynchronous exception handling (option /EHa).
+
+TUT-2006-11-04
+--------------
+Fix: lost changes from version `TUT-2006-03-29` are restored.
+
+Fix: errors appeared while compiling restartable example are fixed. 
+But there are a lot of outstanding works to support completely
+the last changes.
+
+Jamfiles for examples added.
+
+TUT-2006-10-31
+--------------
+Today's update is the work of a new TUT's contributor, Denis Kononenko.
+
+Jamfile added to build TUT Framework using [Boost Build System v2](http://boost.sourceforge.net/boost-build2/)
+
+It builds TUT itself and automatically executes the selftest. 
+Further enchancements are coming soon.
+
+New functionality is added: now we can optionally specify the test name right from inside the test.
+
+{coderay:: c}
+template<>
+template<>
+void my_object_tests::test<1>() 
+{ 
+    set_test_name("test basic scenario"); 
+    ... 
+}
+{coderay}
+
+If the test fails the test name will appear in the test report, e.g.:
+
+    ---> group: my_object_tests, test: test<1> test basic scenario 
+         problem: assertion failed 
+         failed assertion: "not implemented"
+
+Also a custom reporter can retrieve the test name using `tut::test_result::name` attribute.
+
+Minor fix: TUT selftest didn't exit with code 0 if there have been failed tests.
+
+TUT-2006-03-29
+--------------
+New callback events: `group_started()` and `group_completed()`. 
+Thanks to Mateusz Loskot and Bartlomiej Kalinowski for pointing out to the incompleteness of the interface.
+
+TUT-2005-06-22
+--------------
+`ensure()` now is a template and thus accepts both `const char*` and `std::string`
+
+Optimization level is reduced to -g for GCC 3.x in samples since otherwise I have a sigsegv.
+
+TUT-2005-05-19
+--------------
+Fix: Win32 doesn't allow to mix `try` / `catch` and `_try` / `_catch`. Mea culpa.
+
+TUT-2005-05-16
+--------------
+Bugfix release (thanks to Denis Kononenko).
+
+An exception in test group constructor was causing all tests in the group
+to be marked as failed, even including dummy methods, i.e. those not written by the developer.
+The result is usually a list of 50 "errors" only few of them are actual tests.
+
+An exception in test group ctor terminates the whole group. No tests in this group are executed in this run.
+
+First failed test has reason set to ex\_ctor, and default reporter shows it as \[1=C\].
+
+TUT-2004-03-26
+--------------
+Minor, really minor change: dropped extra `&&` from
+end of declaration which prevented TUT from being used
+with Sun C++ compiler (thanks to Andrey Sidorenko)
+
+TUT-2003-08-17
+--------------
+Usablility changes (thanks to Justin Sampson):
+
+*   Class tut::reporter has new method `bool all_ok() const` to check if everything goes/gone fine.
+
+*   Template methods `ensure()`, `ensure_equals()`, `ensure_distance()` and `fail()` can
+	now be called not only inside test object methods, but from any code location.
+
+TUT-2003-07-04
+--------------
+TUT now works under VC7 2003. VC7 2002 is not supported,
+and will not be supported due to lack of standard features.
+
+Tests are now should be specialized more standard-way, i.e.  with using two `template<>` statements:
+
+{coderay:: c}
+template<>
+template<>
+void object::test<1>()
+{
+}
+{coderay}
+
+All compilers except for VC allow to specify only one template
+line, but it is not standard, and going to change soon.
+
+Since VC forbids to use \_\_try and try in same context, minor
+changes are made in SEH code to replace throw with good old return.
+
+Makefiles organization is refactored.
+
+TUT-2003-06-25
+--------------
+Default results callback handler is moved into separate optional 
+header `tut_reporter.h` and refactored to increase verbosity
+level. There are also a few more self-tests to cover the reporter.  Usage: 
+
+{coderay:: c}
+#include <tut.h>
+#include <tut_reporter.h>
+
+namespace tut
+{
+    test_runner_singleton runner;
+}
+
+int main()
+{
+    tut::reporter reporter;
+    tut::runner.get().set_callback(&reporter);
+    tut::runner.get().run_tests();          
+    ...
+}
+{coderay}
+
+Makefile structure for selftest is refactored finally to
+reuse common dependencies Makefile.common. Shame on me not
+done it early.
+
+SCO platforms are no longer supported. 
+SCO is no more a software company, it produces only sues.
+
+TUT-2003-04-28
+--------------
+Tar.gz is now built using real TAR and GZIP applications, not 7ZIP.
+
+Fixed missed STL includes required for some platforms.
+
+Removed outdated dependencies in Makefiles.
+
+Supressed useless and mistaken compiler warnings.

@@ -1,0 +1,122 @@
+//   Copyright 2022 Wolfire Games LLC
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+//-----------------------------------------------------------------------------
+#version 400
+
+layout(vertices = 3) out;
+in vec3 world_vert[];
+in mat3 tan_to_obj[];
+#ifdef TERRAIN
+in vec3 frag_tangent[];
+in vec4 frag_tex_coords[];
+#else
+in vec2 frag_tex_coords[];
+#endif
+flat in int instance_id[];
+
+out vec3 world_vert_out[];
+out mat3 tan_to_obj_out[];
+#ifdef TERRAIN
+out vec3 frag_tangent_out[];
+out vec4 frag_tex_coords_out[];
+#else
+out vec2 frag_tex_coords_out[];
+#endif
+flat out int instance_id_out[];
+
+#ifdef CHARACTER
+    in vec2 fur_tex_coord[];
+    out vec2 fur_tex_coord_out[];
+    #ifndef DEPTH_ONLY
+	    in vec3 concat_bone1[];
+	    in vec3 concat_bone2[];
+	    in vec2 tex_coord[];
+	    in vec2 morphed_tex_coord[];
+	    in vec3 orig_vert[];
+
+	    out vec3 concat_bone1_out[];
+	    out vec3 concat_bone2_out[];
+	    out vec2 tex_coord_out[];
+	    out vec2 morphed_tex_coord_out[];
+	    out vec3 orig_vert_out[];
+
+	    #ifndef NO_VELOCITY_BUF
+	        in vec3 vel[];
+	        out vec3 vel_out[];
+	    #endif
+    #endif
+#endif
+
+uniform float time;
+uniform vec3 cam_pos;
+
+float GetLOD(vec3 point){
+	float dist = distance(cam_pos, point);
+	float val = min(64, max(1, 10000 / dist / dist));
+	return pow(2, ceil(log(val)/log(2))); // Round to nearest high power of 2
+}
+
+float GetLOD(vec3 a, vec3 b, float scale){
+	float val = distance(a, b) * scale / distance((a+b)*0.5, cam_pos);
+	return max(1, min(64, pow(2, ceil(log(val)/log(2))))); // Round to nearest high power of 2
+}
+
+void main()
+{
+    #if !defined(FRACTAL_DISPLACE)
+	    float val = 1;
+
+	    gl_TessLevelOuter[0] = val;
+	    gl_TessLevelOuter[1] = val;
+	    gl_TessLevelOuter[2] = val;
+	    
+	    gl_TessLevelInner[0] = val;
+    #else
+    	float scale = 20;
+    	vec3 verts[3];
+    	for(int i=0; i<3; ++i){
+    		verts[i] = world_vert[i];
+    	}
+	     gl_TessLevelOuter[0] = GetLOD(verts[1], verts[2], scale);
+	     gl_TessLevelOuter[1] = GetLOD(verts[0], verts[2], scale);
+	     gl_TessLevelOuter[2] = GetLOD(verts[0], verts[1], scale);
+
+     	gl_TessLevelInner[0] = min(gl_TessLevelOuter[0], min(gl_TessLevelOuter[1], gl_TessLevelOuter[2]));
+	#endif
+    
+    #ifdef TERRAIN
+    	frag_tangent_out[gl_InvocationID] = frag_tangent[gl_InvocationID];
+    #endif
+     
+     gl_out[gl_InvocationID].gl_Position = gl_in[gl_InvocationID].gl_Position;
+     world_vert_out[gl_InvocationID] = world_vert[gl_InvocationID];
+     tan_to_obj_out[gl_InvocationID] = tan_to_obj[gl_InvocationID];
+     frag_tex_coords_out[gl_InvocationID] = frag_tex_coords[gl_InvocationID];
+     instance_id_out[gl_InvocationID] = instance_id[gl_InvocationID];
+
+	#ifdef CHARACTER
+	    fur_tex_coord_out[gl_InvocationID] = fur_tex_coord[gl_InvocationID];
+	    #ifndef DEPTH_ONLY
+		    concat_bone1_out[gl_InvocationID] = concat_bone1[gl_InvocationID];
+		    concat_bone2_out[gl_InvocationID] = concat_bone2[gl_InvocationID];
+		    tex_coord_out[gl_InvocationID] = tex_coord[gl_InvocationID];
+		    morphed_tex_coord_out[gl_InvocationID] = morphed_tex_coord[gl_InvocationID];
+		    orig_vert_out[gl_InvocationID] = orig_vert[gl_InvocationID];
+		    #ifndef NO_VELOCITY_BUF
+		        vel_out[gl_InvocationID] = vel[gl_InvocationID];
+		    #endif
+	    #endif
+	#endif
+}

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <OVR_PRODUCT_VERSION>1</OVR_PRODUCT_VERSION>
+    <OVR_MAJOR_VERSION>1</OVR_MAJOR_VERSION>
+    <OVR_MINOR_VERSION>12</OVR_MINOR_VERSION>
+    <OVR_PATCH_VERSION>0</OVR_PATCH_VERSION>
+    <OVR_BUILD_VERSION>0</OVR_BUILD_VERSION>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="OVR_PRODUCT_VERSION">
+      <Value>$(OVR_PRODUCT_VERSION)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OVR_MAJOR_VERSION">
+      <Value>$(OVR_MAJOR_VERSION)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OVR_MINOR_VERSION">
+      <Value>$(OVR_MINOR_VERSION)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OVR_PATCH_VERSION">
+      <Value>$(OVR_PATCH_VERSION)</Value>
+    </BuildMacro>
+    <BuildMacro Include="OVR_BUILD_VERSION">
+      <Value>$(OVR_BUILD_VERSION)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

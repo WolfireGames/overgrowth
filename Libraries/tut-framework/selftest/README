@@ -1,0 +1,14 @@
+TUT Selftest README
+===================
+
+NB: If you're here looking for an example of how to use TUT framework,
+it's the wrong place: testing TUT using TUT itself produces messed
+code where one test runner controls lifecycle of another, and tests
+of outer runner are mixed with tests of inner. Selftest is a VERY
+special case, so you'd better look into example/ directory.
+
+TUT Selftest is to show that TUT framework works correctly under 
+your combination of platform and compiler (or to show opposite). In
+any case you'll get a deterministic answer. TUT is considered as working
+IF AND ONLY IF all tests of Selftest are passed, no exceptions and no
+failures encountered.

@@ -1,0 +1,27 @@
+<?xml version="2.0" ?>
+<!-- Root node -->
+<Job name="main game data">
+    <!-- Here we list the items we want to be sourced in our build -->
+    <Items>
+        <Item type="level">Levels/max_dev_1.xml</Item>
+        <Item type="generic" recursive="true" path_pattern_re=".*\.png$">UI/</Item>
+        <Item type="texture" recursive="true" path_pattern_re=".*\.tga$">Textures/</Item>
+    </Items>
+
+    <!-- Searchers pass through Items of a particular type and searches for additional dependencies -->
+    <Searchers>
+        <!-- A searcher that goes through levels looking for decals to add to the item list -->
+        <!--<Searcher type_pattern_re="level" path_pattern_re=".*" searcher="level_decal"></Searcher>-->
+    </Searchers>
+
+    <!-- Builders does the final pass on all items and does the final transfer to the destinations -->
+    <Builders>
+        <!-- Apply the dxt5 converter to all texture types that ends in .tga --> 
+        <Builder type_pattern_re="texture" path_pattern_re=".*\.tga$" builder="dxt5"></Builder>
+        <!-- Generate a navmesh for all files which are of type level -->
+        <!--<Builder type_pattern_re="level" path_pattern_re="Levels/.*\.xml$" builder="navmesh"></Builder>-->
+        <!-- Copy all levels to the destination as they are -->
+        <Builder type_pattern_re="level" path_pattern_re="Levels/.*\.xml$" builder="copy"></Builder>
+        <Builder type_pattern_re="generic" path_pattern_re=".*" builder="copy"></Builder>
+    </Builders>
+</Job>

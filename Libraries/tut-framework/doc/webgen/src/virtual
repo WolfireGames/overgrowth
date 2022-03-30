@@ -1,0 +1,11 @@
+\--- !omap
+
+- issues.html:
+    title: Issues
+    in_menu: true
+    dest_path: 'https://github.com/mrzechonek/tut-framework/issues'
+
+- source.html:
+    title: Reference Manual
+    in_menu: true
+    dest_path: 'doxygen/index.html'

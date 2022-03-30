@@ -1,0 +1,1128 @@
+********* Start testing of orgQhull::QhullVertex_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullVertex_test::initTestCase()
+PASS   : orgQhull::QhullVertex_test::t_constructConvert()
+5
+3
+2
+1
+6
+0
+7
+8
+XFAIL  : orgQhull::QhullVertex_test::t_getSet() ListIterator copy constructor not reset to BOT
+..\..\src\qhulltest\QhullVertex_test.cpp(107) : failure location
+Point 1:
+p1:  0.15707 -0.521517 0.673312
+
+Point 0:
+p0:  -0.0992431 0.442941 0.737533
+
+Point 2:
+p2:  0.554717 0.664895 0.0142947
+
+Point 3:
+p3:  0.81103 -0.299563 -0.0499261
+
+Point 6:
+p6:  -0.15707 0.521517 -0.673312
+
+Point 4:
+p4:  -0.81103 0.299563 0.0499261
+
+Point 5:
+p5:  -0.554717 -0.664895 -0.0142947
+
+Point 7:
+p7:  0.0992431 -0.442941 -0.737533
+
+PASS   : orgQhull::QhullVertex_test::t_getSet()
+PASS   : orgQhull::QhullVertex_test::t_foreach()
+Vertex and vertices w/o runId:
+- p4 (v1):  0.5 -0.5 -0.5
+ neighborFacets: f1 f2 f9
+ p6(v6) p2(v2) p4(v1) p0(v0)
+Vertex and vertices w/ runId:
+- p4 (v1):  0.5 -0.5 -0.5
+ neighborFacets: f1 f2 f9
+vertices: p6(v6) p2(v2) p4(v1) p0(v0)
+
+Try again with simplicial facets.  No neighboring facets listed for vertices.
+Vertex and vertices w/o runId:
+- p0 (v5):  -0.0222149 -0.366435 0.327062
+This time with neighborFacets() defined for all vertices:
+- p0 (v5):  -0.0222149 -0.366435 0.327062
+ neighborFacets: f5 f6 f7 f8
+
+Try again with Voronoi diagram of simplicial facets.  Neighboring facets automatically defined for vertices.
+Vertex and vertices w/o runId:
+- p7 (v1):  0.386746 0.0449288 0.118336 0.165595
+ neighborFacets: f1 f6 f9 f13 f14 f15 f16 f18 f19 f21
+PASS   : orgQhull::QhullVertex_test::t_io()
+PASS   : orgQhull::QhullVertex_test::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullVertex_test *********
+********* Start testing of orgQhull::Coordinates_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::Coordinates_test::initTestCase()
+PASS   : orgQhull::Coordinates_test::t_construct()
+PASS   : orgQhull::Coordinates_test::t_convert()
+PASS   : orgQhull::Coordinates_test::t_element()
+PASS   : orgQhull::Coordinates_test::t_readonly()
+PASS   : orgQhull::Coordinates_test::t_operator()
+PASS   : orgQhull::Coordinates_test::t_const_iterator()
+PASS   : orgQhull::Coordinates_test::t_iterator()
+PASS   : orgQhull::Coordinates_test::t_coord_iterator()
+PASS   : orgQhull::Coordinates_test::t_mutable_coord_iterator()
+PASS   : orgQhull::Coordinates_test::t_readwrite()
+PASS   : orgQhull::Coordinates_test::t_search()
+Coordinates 1-2-3
+1 2 3 PASS   : orgQhull::Coordinates_test::t_io()
+PASS   : orgQhull::Coordinates_test::cleanupTestCase()
+Totals: 14 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::Coordinates_test *********
+********* Start testing of orgQhull::PointCoordinates_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::PointCoordinates_test::initTestCase()
+PASS   : orgQhull::PointCoordinates_test::t_construct()
+PASS   : orgQhull::PointCoordinates_test::t_convert()
+INFO   : Caught QH10063 Qhull error: can not change PointCoordinates dimension (from 3 to 2)
+PASS   : orgQhull::PointCoordinates_test::t_getset()
+PASS   : orgQhull::PointCoordinates_test::t_element()
+PASS   : orgQhull::PointCoordinates_test::t_foreach()
+PASS   : orgQhull::PointCoordinates_test::t_search()
+PASS   : orgQhull::PointCoordinates_test::t_modify()
+PASS   : orgQhull::PointCoordinates_test::t_append_points()
+PASS   : orgQhull::PointCoordinates_test::t_coord_iterator()
+PointCoordinates 0-d
+0
+0
+PointCoordinates 1-3-2
+2
+3
+1 2 
+3 1 
+2 3 
+PASS   : orgQhull::PointCoordinates_test::t_io()
+PASS   : orgQhull::PointCoordinates_test::cleanupTestCase()
+Totals: 12 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::PointCoordinates_test *********
+********* Start testing of orgQhull::QhullFacet_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullFacet_test::initTestCase()
+PASS   : orgQhull::QhullFacet_test::t_constructConvert()
+18
+19
+22
+24
+26
+27
+30
+31
+34
+35
+38
+39
+XFAIL  : orgQhull::QhullFacet_test::t_getSet() ListIterator copy constructor not reset to BOT
+..\..\src\qhulltest\QhullFacet_test.cpp(106) : failure location
+Hyperplane:  0.711787 0.143377 0.687607 -0.5
+
+InnerPlane:  0.711787 0.143377 0.687607 -0.5
+innerOffset+0.5 1.16573e-015
+OuterPlane:  0.711787 0.143377 0.687607 -0.5
+outerOffset+0.5 -2.22045e-015
+Center: p10487712:  0.355893 0.0716887 0.343803
+
+Hyperplane:  0.711787 0.143377 0.687607 -0.5
+
+InnerPlane:  0.711787 0.143377 0.687607 -0.5
+innerOffset+0.5 1.16573e-015
+OuterPlane:  0.711787 0.143377 0.687607 -0.5
+outerOffset+0.5 -2.22045e-015
+Center: p10487712:  0.355893 0.0716887 0.343803
+
+Hyperplane:  -0.256313 0.964458 0.0642208 -0.5
+
+InnerPlane:  -0.256313 0.964458 0.0642208 -0.5
+innerOffset+0.5 1.11022e-015
+OuterPlane:  -0.256313 0.964458 0.0642208 -0.5
+outerOffset+0.5 -2.33147e-015
+Center: p10488224:  -0.128156 0.482229 0.0321104
+
+Hyperplane:  -0.256313 0.964458 0.0642208 -0.5
+
+InnerPlane:  -0.256313 0.964458 0.0642208 -0.5
+innerOffset+0.5 1.11022e-015
+OuterPlane:  -0.256313 0.964458 0.0642208 -0.5
+outerOffset+0.5 -2.33147e-015
+Center: p10488224:  -0.128156 0.482229 0.0321104
+
+Hyperplane:  -0.65396 -0.221954 0.723238 -0.5
+
+InnerPlane:  -0.65396 -0.221954 0.723238 -0.5
+innerOffset+0.5 1.22125e-015
+OuterPlane:  -0.65396 -0.221954 0.723238 -0.5
+outerOffset+0.5 -2.33147e-015
+Center: p10497256:  -0.32698 -0.110977 0.361619
+
+Hyperplane:  -0.65396 -0.221954 0.723238 -0.5
+
+InnerPlane:  -0.65396 -0.221954 0.723238 -0.5
+innerOffset+0.5 1.22125e-015
+OuterPlane:  -0.65396 -0.221954 0.723238 -0.5
+outerOffset+0.5 -2.33147e-015
+Center: p10497256:  -0.32698 -0.110977 0.361619
+
+Hyperplane:  0.65396 0.221954 -0.723238 -0.5
+
+InnerPlane:  0.65396 0.221954 -0.723238 -0.5
+innerOffset+0.5 1.11022e-015
+OuterPlane:  0.65396 0.221954 -0.723238 -0.5
+outerOffset+0.5 -2.22045e-015
+Center: p10488096:  0.32698 0.110977 -0.361619
+
+Hyperplane:  0.65396 0.221954 -0.723238 -0.5
+
+InnerPlane:  0.65396 0.221954 -0.723238 -0.5
+innerOffset+0.5 1.11022e-015
+OuterPlane:  0.65396 0.221954 -0.723238 -0.5
+outerOffset+0.5 -2.22045e-015
+Center: p10488096:  0.32698 0.110977 -0.361619
+
+Hyperplane:  0.256313 -0.964458 -0.0642208 -0.5
+
+InnerPlane:  0.256313 -0.964458 -0.0642208 -0.5
+innerOffset+0.5 1.22125e-015
+OuterPlane:  0.256313 -0.964458 -0.0642208 -0.5
+outerOffset+0.5 -2.33147e-015
+Center: p10497112:  0.128156 -0.482229 -0.0321104
+
+Hyperplane:  0.256313 -0.964458 -0.0642208 -0.5
+
+InnerPlane:  0.256313 -0.964458 -0.0642208 -0.5
+innerOffset+0.5 1.22125e-015
+OuterPlane:  0.256313 -0.964458 -0.0642208 -0.5
+outerOffset+0.5 -2.33147e-015
+Center: p10497112:  0.128156 -0.482229 -0.0321104
+
+Hyperplane:  -0.711787 -0.143377 -0.687607 -0.5
+
+InnerPlane:  -0.711787 -0.143377 -0.687607 -0.5
+innerOffset+0.5 1.11022e-015
+OuterPlane:  -0.711787 -0.143377 -0.687607 -0.5
+outerOffset+0.5 -2.22045e-015
+Center: p10497280:  -0.355893 -0.0716887 -0.343803
+
+Hyperplane:  -0.711787 -0.143377 -0.687607 -0.5
+
+InnerPlane:  -0.711787 -0.143377 -0.687607 -0.5
+innerOffset+0.5 1.11022e-015
+OuterPlane:  -0.711787 -0.143377 -0.687607 -0.5
+outerOffset+0.5 -2.22045e-015
+Center: p10497280:  -0.355893 -0.0716887 -0.343803
+
+Voronoi vertex:   0 4.996e-016 4.996e-016
+ DistanceEpsilon 1e-012
+PASS   : orgQhull::QhullFacet_test::t_getSet()
+PASS   : orgQhull::QhullFacet_test::t_value()
+PASS   : orgQhull::QhullFacet_test::t_foreach()
+- f1
+    - flags: bottom tested seen coplanar
+    - merges: 1
+    - normal:  -0 -0 -1
+    - offset:  -0.5
+    - center: 0 0 -0.5 
+    - vertices: p6(v6) p2(v2) p4(v1) p0(v0)
+    - neighboring facets: f2 f3 f9 f10
+    - ridges:
+     - r4 tested
+           vertices: p2(v2) p0(v0)
+           between f1 and f3
+     - r3 tested
+           vertices: p4(v1) p0(v0)
+           between f2 and f1
+     - r1 tested
+           vertices: p6(v6) p4(v1)
+           between f9 and f1
+     - r2 tested
+           vertices: p6(v6) p2(v2)
+           between f1 and f10
+- f1
+    - flags: bottom tested seen coplanar
+    - merges: 1
+    - normal:  -0 -0 -1
+    - offset:  -0.5
+    - center: 0 0 -0.5 
+    - vertices: p6(v6) p2(v2) p4(v1) p0(v0)
+    - neighboring facets: f2 f3 f9 f10
+    - flags: bottom tested seen coplanar
+    - center:0 0 -0.5 
+    - ridges:
+     - r4 tested
+           vertices: p2(v2) p0(v0)
+           between f1 and f3
+     - r3 tested
+           vertices: p4(v1) p0(v0)
+           between f2 and f1
+     - r1 tested
+           vertices: p6(v6) p4(v1)
+           between f9 and f1
+     - r2 tested
+           vertices: p6(v6) p2(v2)
+           between f1 and f10
+PASS   : orgQhull::QhullFacet_test::t_io()
+PASS   : orgQhull::QhullFacet_test::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullFacet_test *********
+********* Start testing of orgQhull::QhullFacetList_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullFacetList_test::initTestCase()
+PASS   : orgQhull::QhullFacetList_test::t_construct()
+PASS   : orgQhull::QhullFacetList_test::t_convert()
+PASS   : orgQhull::QhullFacetList_test::t_readonly()
+PASS   : orgQhull::QhullFacetList_test::t_foreach()
+Vertices for 3 facets
+- p1 (v5):  0.15707 -0.521517 0.673312
+ neighborFacets: f6 f4 f11
+- p0 (v3):  -0.0992431 0.442941 0.737533
+ neighborFacets: f3 f4 f6
+- p2 (v2):  0.554717 0.664895 0.0142947
+ neighborFacets: f3 f4 f8
+- p3 (v1):  0.81103 -0.299563 -0.0499261
+ neighborFacets: f4 f8 f11
+- p6 (v6):  -0.15707 0.521517 -0.673312
+ neighborFacets: f8 f3 f13
+- p4 (v0):  -0.81103 0.299563 0.0499261
+ neighborFacets: f3 f6 f13
+- p5 (v7):  -0.554717 -0.664895 -0.0142947
+ neighborFacets: f11 f6 f13
+- f4
+    - flags: top tested seen
+    - merges: 1
+    - normal:  0.711787 0.143377 0.687607
+    - offset:  -0.5
+    - center: 0.355893 0.0716887 0.343803 
+    - vertices: p1(v5) p0(v3) p2(v2) p3(v1)
+    - neighboring facets: f8 f3 f11 f6
+    - ridges:
+     - r4 tested
+           vertices: p0(v3) p2(v2)
+           between f4 and f3
+     - r3 tested
+           vertices: p2(v2) p3(v1)
+           between f4 and f8
+     - r1 tested
+           vertices: p1(v5) p3(v1)
+           between f11 and f4
+     - r2 tested
+           vertices: p1(v5) p0(v3)
+           between f4 and f6
+- f3
+    - flags: bottom tested seen
+    - merges: 1
+    - normal:  -0.256313 0.964458 0.0642208
+    - offset:  -0.5
+    - center: -0.128156 0.482229 0.0321104 
+    - vertices: p6(v6) p0(v3) p2(v2) p4(v0)
+    - neighboring facets: f13 f6 f4 f8
+    - ridges:
+     - r4 tested
+           vertices: p0(v3) p2(v2)
+           between f4 and f3
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+     - r6 tested
+           vertices: p6(v6) p4(v0)
+           between f13 and f3
+     - r10 tested
+           vertices: p6(v6) p2(v2)
+           between f3 and f8
+- f6
+    - flags: bottom tested seen coplanar
+    - merges: 1
+    - normal:  -0.65396 -0.221954 0.723238
+    - offset:  -0.5
+    - center: -0.32698 -0.110977 0.361619 
+    - vertices: p5(v7) p1(v5) p0(v3) p4(v0)
+    - neighboring facets: f3 f4 f13 f11
+    - ridges:
+     - r2 tested
+           vertices: p1(v5) p0(v3)
+           between f4 and f6
+     - r14 tested
+           vertices: p5(v7) p1(v5)
+           between f11 and f6
+     - r13 tested
+           vertices: p5(v7) p4(v0)
+           between f6 and f13
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+
+Facets only
+- f4
+    - flags: top tested seen
+    - merges: 1
+    - normal:  0.711787 0.143377 0.687607
+    - offset:  -0.5
+    - center: 0.355893 0.0716887 0.343803 
+    - vertices: p1(v5) p0(v3) p2(v2) p3(v1)
+    - neighboring facets: f8 f3 f11 f6
+    - ridges:
+     - r4 tested
+           vertices: p0(v3) p2(v2)
+           between f4 and f3
+     - r3 tested
+           vertices: p2(v2) p3(v1)
+           between f4 and f8
+     - r1 tested
+           vertices: p1(v5) p3(v1)
+           between f11 and f4
+     - r2 tested
+           vertices: p1(v5) p0(v3)
+           between f4 and f6
+- f3
+    - flags: bottom tested seen
+    - merges: 1
+    - normal:  -0.256313 0.964458 0.0642208
+    - offset:  -0.5
+    - center: -0.128156 0.482229 0.0321104 
+    - vertices: p6(v6) p0(v3) p2(v2) p4(v0)
+    - neighboring facets: f13 f6 f4 f8
+    - ridges:
+     - r4 tested
+           vertices: p0(v3) p2(v2)
+           between f4 and f3
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+     - r6 tested
+           vertices: p6(v6) p4(v0)
+           between f13 and f3
+     - r10 tested
+           vertices: p6(v6) p2(v2)
+           between f3 and f8
+- f6
+    - flags: bottom tested seen coplanar
+    - merges: 1
+    - normal:  -0.65396 -0.221954 0.723238
+    - offset:  -0.5
+    - center: -0.32698 -0.110977 0.361619 
+    - vertices: p5(v7) p1(v5) p0(v3) p4(v0)
+    - neighboring facets: f3 f4 f13 f11
+    - ridges:
+     - r2 tested
+           vertices: p1(v5) p0(v3)
+           between f4 and f6
+     - r14 tested
+           vertices: p5(v7) p1(v5)
+           between f11 and f6
+     - r13 tested
+           vertices: p5(v7) p4(v0)
+           between f6 and f13
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+PASS   : orgQhull::QhullFacetList_test::t_io()
+PASS   : orgQhull::QhullFacetList_test::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullFacetList_test *********
+********* Start testing of orgQhull::QhullFacetSet_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullFacetSet_test::initTestCase()
+PASS   : orgQhull::QhullFacetSet_test::t_construct()
+PASS   : orgQhull::QhullFacetSet_test::t_convert()
+PASS   : orgQhull::QhullFacetSet_test::t_readonly()
+PASS   : orgQhull::QhullFacetSet_test::t_foreach()
+- f3
+    - flags: bottom tested seen
+    - merges: 1
+    - normal:  -0.256313 0.964458 0.0642208
+    - offset:  -0.5
+    - center: -0.128156 0.482229 0.0321104 
+    - vertices: p6(v6) p0(v3) p2(v2) p4(v0)
+    - neighboring facets: f13 f6 f4 f8
+    - ridges:
+     - r4 tested
+           vertices: p0(v3) p2(v2)
+           between f4 and f3
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+     - r6 tested
+           vertices: p6(v6) p4(v0)
+           between f13 and f3
+     - r10 tested
+           vertices: p6(v6) p2(v2)
+           between f3 and f8
+- f6
+    - flags: bottom tested seen coplanar
+    - merges: 1
+    - normal:  -0.65396 -0.221954 0.723238
+    - offset:  -0.5
+    - center: -0.32698 -0.110977 0.361619 
+    - vertices: p5(v7) p1(v5) p0(v3) p4(v0)
+    - neighboring facets: f3 f4 f13 f11
+    - ridges:
+     - r2 tested
+           vertices: p1(v5) p0(v3)
+           between f4 and f6
+     - r14 tested
+           vertices: p5(v7) p1(v5)
+           between f11 and f6
+     - r13 tested
+           vertices: p5(v7) p4(v0)
+           between f6 and f13
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+
+Facet identifiers:  f3 f6
+PASS   : orgQhull::QhullFacetSet_test::t_io()
+PASS   : orgQhull::QhullFacetSet_test::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullFacetSet_test *********
+********* Start testing of orgQhull::QhullHyperplane_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullHyperplane_test::initTestCase()
+PASS   : orgQhull::QhullHyperplane_test::t_construct()
+PASS   : orgQhull::QhullHyperplane_test::t_convert()
+h18
+h19
+h22
+h24
+h26
+h27
+h30
+h31
+h34
+h35
+h38
+h39
+PASS   : orgQhull::QhullHyperplane_test::t_readonly()
+PASS   : orgQhull::QhullHyperplane_test::t_define()
+PASS   : orgQhull::QhullHyperplane_test::t_value()
+PASS   : orgQhull::QhullHyperplane_test::t_operator()
+PASS   : orgQhull::QhullHyperplane_test::t_iterator()
+PASS   : orgQhull::QhullHyperplane_test::t_const_iterator()
+PASS   : orgQhull::QhullHyperplane_test::t_qhullHyperplane_iterator()
+Hyperplane:
+ -0 -0 -1 -0.5
+Hyperplane w/ runId:
+ -0 -0 -1 -0.5
+ and a message  -0 -0 -1 offset  -0.5
+PASS   : orgQhull::QhullHyperplane_test::t_io()
+PASS   : orgQhull::QhullHyperplane_test::cleanupTestCase()
+Totals: 12 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullHyperplane_test *********
+********* Start testing of orgQhull::QhullLinkedList_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullLinkedList_test::initTestCase()
+PASS   : orgQhull::QhullLinkedList_test::t_construct()
+PASS   : orgQhull::QhullLinkedList_test::t_convert()
+PASS   : orgQhull::QhullLinkedList_test::t_element()
+PASS   : orgQhull::QhullLinkedList_test::t_search()
+PASS   : orgQhull::QhullLinkedList_test::t_iterator()
+PASS   : orgQhull::QhullLinkedList_test::t_const_iterator()
+PASS   : orgQhull::QhullLinkedList_test::t_QhullLinkedList_iterator()
+INFO:     empty QhullVertextList
+INFO:   - p0 (v3):  -0.0992431 0.442941 0.737533
+ neighborFacets: f3 f4 f6
+- p7 (v8):  0.0992431 -0.442941 -0.737533
+ neighborFacets: f8 f11 f13
+- p6 (v6):  -0.15707 0.521517 -0.673312
+ neighborFacets: f8 f3 f13
+- p3 (v1):  0.81103 -0.299563 -0.0499261
+ neighborFacets: f4 f8 f11
+- p5 (v7):  -0.554717 -0.664895 -0.0142947
+ neighborFacets: f11 f6 f13
+- p2 (v2):  0.554717 0.664895 0.0142947
+ neighborFacets: f3 f4 f8
+- p1 (v5):  0.15707 -0.521517 0.673312
+ neighborFacets: f6 f4 f11
+- p4 (v0):  -0.81103 0.299563 0.0499261
+ neighborFacets: f3 f6 f13
+
+PASS   : orgQhull::QhullLinkedList_test::t_io()
+PASS   : orgQhull::QhullLinkedList_test::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullLinkedList_test *********
+********* Start testing of orgQhull::QhullPoint_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullPoint_test::initTestCase()
+PASS   : orgQhull::QhullPoint_test::t_construct()
+PASS   : orgQhull::QhullPoint_test::t_convert()
+p1
+p0
+p2
+p3
+p6
+p4
+p5
+p7
+PASS   : orgQhull::QhullPoint_test::t_readonly()
+PASS   : orgQhull::QhullPoint_test::t_define()
+PASS   : orgQhull::QhullPoint_test::t_operator()
+PASS   : orgQhull::QhullPoint_test::t_iterator()
+PASS   : orgQhull::QhullPoint_test::t_const_iterator()
+PASS   : orgQhull::QhullPoint_test::t_qhullpoint_iterator()
+Point w/o runId:
+p4:  0.5 -0.5 -0.5
+Point w/ runId:
+p4:  0.5 -0.5 -0.5
+ and a message   0.5 -0.5 -0.5
+ Point with id and a message  p4:  0.5 -0.5 -0.5
+PASS   : orgQhull::QhullPoint_test::t_io()
+PASS   : orgQhull::QhullPoint_test::cleanupTestCase()
+Totals: 11 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullPoint_test *********
+********* Start testing of orgQhull::QhullPoints_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullPoints_test::initTestCase()
+PASS   : orgQhull::QhullPoints_test::t_construct()
+PASS   : orgQhull::QhullPoints_test::t_convert()
+PASS   : orgQhull::QhullPoints_test::t_getset()
+PASS   : orgQhull::QhullPoints_test::t_element()
+PASS   : orgQhull::QhullPoints_test::t_iterator()
+PASS   : orgQhull::QhullPoints_test::t_const_iterator()
+PASS   : orgQhull::QhullPoints_test::t_search()
+PASS   : orgQhull::QhullPoints_test::t_points_iterator()
+Empty QhullPoints
+
+QhullPoints from c[]
+p1241312:  0 1 2
+p1241336:  3 4 5
+
+QhullPoints
+p0:  -0.0992431 0.442941 0.737533
+p1:  0.15707 -0.521517 0.673312
+p2:  0.554717 0.664895 0.0142947
+p3:  0.81103 -0.299563 -0.0499261
+p4:  -0.81103 0.299563 0.0499261
+p5:  -0.554717 -0.664895 -0.0142947
+p6:  -0.15707 0.521517 -0.673312
+p7:  0.0992431 -0.442941 -0.737533
+RunId
+p0:  -0.0992431 0.442941 0.737533
+p1:  0.15707 -0.521517 0.673312
+p2:  0.554717 0.664895 0.0142947
+p3:  0.81103 -0.299563 -0.0499261
+p4:  -0.81103 0.299563 0.0499261
+p5:  -0.554717 -0.664895 -0.0142947
+p6:  -0.15707 0.521517 -0.673312
+p7:  0.0992431 -0.442941 -0.737533
+RunId w/ message
+ -0.0992431 0.442941 0.737533
+ 0.15707 -0.521517 0.673312
+ 0.554717 0.664895 0.0142947
+ 0.81103 -0.299563 -0.0499261
+ -0.81103 0.299563 0.0499261
+ -0.554717 -0.664895 -0.0142947
+ -0.15707 0.521517 -0.673312
+ 0.0992431 -0.442941 -0.737533
+RunId w/ identifiers
+p0:  -0.0992431 0.442941 0.737533
+p1:  0.15707 -0.521517 0.673312
+p2:  0.554717 0.664895 0.0142947
+p3:  0.81103 -0.299563 -0.0499261
+p4:  -0.81103 0.299563 0.0499261
+p5:  -0.554717 -0.664895 -0.0142947
+p6:  -0.15707 0.521517 -0.673312
+p7:  0.0992431 -0.442941 -0.737533
+PASS   : orgQhull::QhullPoints_test::t_io()
+PASS   : orgQhull::QhullPoints_test::cleanupTestCase()
+Totals: 11 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullPoints_test *********
+********* Start testing of orgQhull::QhullPointSet_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullPointSet_test::initTestCase()
+PASS   : orgQhull::QhullPointSet_test::t_construct()
+PASS   : orgQhull::QhullPointSet_test::t_convert()
+PASS   : orgQhull::QhullPointSet_test::t_element()
+PASS   : orgQhull::QhullPointSet_test::t_iterator()
+PASS   : orgQhull::QhullPointSet_test::t_const_iterator()
+PASS   : orgQhull::QhullPointSet_test::t_search()
+PASS   : orgQhull::QhullPointSet_test::t_pointset_iterator()
+QhullPointSet from coplanarPoints
+p21:  0.368247 0.129543 0.5
+p51:  0.35127 -0.210684 0.5
+p80:  0.313266 0.0568358 0.5
+p27:  0.0344498 -0.00151988 0.5
+p34:  -0.000258967 -0.352467 0.5
+p19:  0.44098 -0.449916 0.5
+p57:  -0.300445 0.416634 0.5
+p97:  -0.336919 0.403301 0.5
+p108:  -0.442525 0.486883 0.5
+p48:  0.100394 0.317561 0.5
+p50:  0.188981 0.202207 0.5
+p75:  0.196243 0.25294 0.5
+p5:  -0.082514 0.186773 0.5
+p12:  -0.22729 -0.0635886 0.5
+p23:  -0.148985 0.0132737 0.5
+p29:  -0.340232 -0.287248 0.5
+p87:  -0.17844 -0.0395658 0.5
+p100:  -0.114231 0.126861 0.5
+p7:  -0.0840006 0.201191 0.5
+p0:  -0.499992 -0.368462 0.5
+p110:  0.076173 0.238959 0.5
+p28:  0.0545838 0.390737 0.5
+p15:  0.404653 0.00452289 0.5
+
+
+RunId
+p21:  0.368247 0.129543 0.5
+p51:  0.35127 -0.210684 0.5
+p80:  0.313266 0.0568358 0.5
+p27:  0.0344498 -0.00151988 0.5
+p34:  -0.000258967 -0.352467 0.5
+p19:  0.44098 -0.449916 0.5
+p57:  -0.300445 0.416634 0.5
+p97:  -0.336919 0.403301 0.5
+p108:  -0.442525 0.486883 0.5
+p48:  0.100394 0.317561 0.5
+p50:  0.188981 0.202207 0.5
+p75:  0.196243 0.25294 0.5
+p5:  -0.082514 0.186773 0.5
+p12:  -0.22729 -0.0635886 0.5
+p23:  -0.148985 0.0132737 0.5
+p29:  -0.340232 -0.287248 0.5
+p87:  -0.17844 -0.0395658 0.5
+p100:  -0.114231 0.126861 0.5
+p7:  -0.0840006 0.201191 0.5
+p0:  -0.499992 -0.368462 0.5
+p110:  0.076173 0.238959 0.5
+p28:  0.0545838 0.390737 0.5
+p15:  0.404653 0.00452289 0.5
+
+RunId w/ message
+p21:  0.368247 0.129543 0.5
+p51:  0.35127 -0.210684 0.5
+p80:  0.313266 0.0568358 0.5
+p27:  0.0344498 -0.00151988 0.5
+p34:  -0.000258967 -0.352467 0.5
+p19:  0.44098 -0.449916 0.5
+p57:  -0.300445 0.416634 0.5
+p97:  -0.336919 0.403301 0.5
+p108:  -0.442525 0.486883 0.5
+p48:  0.100394 0.317561 0.5
+p50:  0.188981 0.202207 0.5
+p75:  0.196243 0.25294 0.5
+p5:  -0.082514 0.186773 0.5
+p12:  -0.22729 -0.0635886 0.5
+p23:  -0.148985 0.0132737 0.5
+p29:  -0.340232 -0.287248 0.5
+p87:  -0.17844 -0.0395658 0.5
+p100:  -0.114231 0.126861 0.5
+p7:  -0.0840006 0.201191 0.5
+p0:  -0.499992 -0.368462 0.5
+p110:  0.076173 0.238959 0.5
+p28:  0.0545838 0.390737 0.5
+p15:  0.404653 0.00452289 0.5
+PASS   : orgQhull::QhullPointSet_test::t_io()
+PASS   : orgQhull::QhullPointSet_test::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullPointSet_test *********
+********* Start testing of orgQhull::QhullRidge_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullRidge_test::initTestCase()
+PASS   : orgQhull::QhullRidge_test::t_construct()
+4
+3
+1
+2
+XFAIL  : orgQhull::QhullRidge_test::t_getSet() SetIterator copy constructor not reset to BOT
+..\..\src\qhulltest\QhullRidge_test.cpp(105) : failure location
+PASS   : orgQhull::QhullRidge_test::t_getSet()
+PASS   : orgQhull::QhullRidge_test::t_foreach()
+Ridges Without runId
+     - r4 tested
+           vertices: p2(v2) p0(v0)
+           between f1 and f3
+     - r3 tested
+           vertices: p4(v1) p0(v0)
+           between f2 and f1
+     - r1 tested
+           vertices: p6(v6) p4(v1)
+           between f9 and f1
+     - r2 tested
+           vertices: p6(v6) p2(v2)
+           between f1 and f10
+Ridge
+     - r4 tested
+           vertices: p2(v2) p0(v0)
+           between f1 and f3
+Ridge with runId
+     - r4 tested
+           vertices: p2(v2) p0(v0)
+           between f1 and f3
+PASS   : orgQhull::QhullRidge_test::t_io()
+PASS   : orgQhull::QhullRidge_test::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullRidge_test *********
+********* Start testing of orgQhull::QhullSet_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullSet_test::initTestCase()
+PASS   : orgQhull::QhullSet_test::t_qhullsetbase()
+PASS   : orgQhull::QhullSet_test::t_convert()
+PASS   : orgQhull::QhullSet_test::t_element()
+PASS   : orgQhull::QhullSet_test::t_search()
+PASS   : orgQhull::QhullSet_test::t_iterator()
+PASS   : orgQhull::QhullSet_test::t_const_iterator()
+PASS   : orgQhull::QhullSet_test::t_qhullset_iterator()
+INFO:     empty set
+INFO:   Neighboring facets
+- f8
+    - flags: bottom tested seen coplanar
+    - merges: 1
+    - normal:  0.65396 0.221954 -0.723238
+    - offset:  -0.5
+    - center: 0.32698 0.110977 -0.361619 
+    - vertices: p7(v8) p6(v6) p2(v2) p3(v1)
+    - neighboring facets: f4 f3 f11 f13
+    - ridges:
+     - r3 tested
+           vertices: p2(v2) p3(v1)
+           between f4 and f8
+     - r10 tested
+           vertices: p6(v6) p2(v2)
+           between f3 and f8
+     - r17 tested
+           vertices: p7(v8) p6(v6)
+           between f13 and f8
+     - r16 tested
+           vertices: p7(v8) p3(v1)
+           between f8 and f11
+- f3
+    - flags: bottom tested seen
+    - merges: 1
+    - normal:  -0.256313 0.964458 0.0642208
+    - offset:  -0.5
+    - center: -0.128156 0.482229 0.0321104 
+    - vertices: p6(v6) p0(v3) p2(v2) p4(v0)
+    - neighboring facets: f13 f6 f4 f8
+    - ridges:
+     - r4 tested
+           vertices: p0(v3) p2(v2)
+           between f4 and f3
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+     - r6 tested
+           vertices: p6(v6) p4(v0)
+           between f13 and f3
+     - r10 tested
+           vertices: p6(v6) p2(v2)
+           between f3 and f8
+- f11
+    - flags: top tested seen coplanar
+    - merges: 1
+    - normal:  0.256313 -0.964458 -0.0642208
+    - offset:  -0.5
+    - center: 0.128156 -0.482229 -0.0321104 
+    - vertices: p7(v8) p5(v7) p1(v5) p3(v1)
+    - neighboring facets: f4 f8 f6 f13
+    - ridges:
+     - r1 tested
+           vertices: p1(v5) p3(v1)
+           between f11 and f4
+     - r16 tested
+           vertices: p7(v8) p3(v1)
+           between f8 and f11
+     - r19 tested
+           vertices: p7(v8) p5(v7)
+           between f11 and f13
+     - r14 tested
+           vertices: p5(v7) p1(v5)
+           between f11 and f6
+- f6
+    - flags: bottom tested seen coplanar
+    - merges: 1
+    - normal:  -0.65396 -0.221954 0.723238
+    - offset:  -0.5
+    - center: -0.32698 -0.110977 0.361619 
+    - vertices: p5(v7) p1(v5) p0(v3) p4(v0)
+    - neighboring facets: f3 f4 f13 f11
+    - ridges:
+     - r2 tested
+           vertices: p1(v5) p0(v3)
+           between f4 and f6
+     - r14 tested
+           vertices: p5(v7) p1(v5)
+           between f11 and f6
+     - r13 tested
+           vertices: p5(v7) p4(v0)
+           between f6 and f13
+     - r11 tested
+           vertices: p0(v3) p4(v0)
+           between f3 and f6
+
+INFO:   Ridges for a facet
+     - r4 tested
+           vertices: p0(v3) p2(v2)
+           between f4 and f3
+     - r3 tested
+           vertices: p2(v2) p3(v1)
+           between f4 and f8
+     - r1 tested
+           vertices: p1(v5) p3(v1)
+           between f11 and f4
+     - r2 tested
+           vertices: p1(v5) p0(v3)
+           between f4 and f6
+
+PASS   : orgQhull::QhullSet_test::t_io()
+PASS   : orgQhull::QhullSet_test::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullSet_test *********
+********* Start testing of orgQhull::QhullVertex_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::QhullVertex_test::initTestCase()
+PASS   : orgQhull::QhullVertex_test::t_constructConvert()
+5
+3
+2
+1
+6
+0
+7
+8
+XFAIL  : orgQhull::QhullVertex_test::t_getSet() ListIterator copy constructor not reset to BOT
+..\..\src\qhulltest\QhullVertex_test.cpp(107) : failure location
+Point 1:
+p1:  0.15707 -0.521517 0.673312
+
+Point 0:
+p0:  -0.0992431 0.442941 0.737533
+
+Point 2:
+p2:  0.554717 0.664895 0.0142947
+
+Point 3:
+p3:  0.81103 -0.299563 -0.0499261
+
+Point 6:
+p6:  -0.15707 0.521517 -0.673312
+
+Point 4:
+p4:  -0.81103 0.299563 0.0499261
+
+Point 5:
+p5:  -0.554717 -0.664895 -0.0142947
+
+Point 7:
+p7:  0.0992431 -0.442941 -0.737533
+
+PASS   : orgQhull::QhullVertex_test::t_getSet()
+PASS   : orgQhull::QhullVertex_test::t_foreach()
+Vertex and vertices w/o runId:
+- p4 (v1):  0.5 -0.5 -0.5
+ neighborFacets: f1 f2 f9
+ p6(v6) p2(v2) p4(v1) p0(v0)
+Vertex and vertices w/ runId:
+- p4 (v1):  0.5 -0.5 -0.5
+ neighborFacets: f1 f2 f9
+vertices: p6(v6) p2(v2) p4(v1) p0(v0)
+
+Try again with simplicial facets.  No neighboring facets listed for vertices.
+Vertex and vertices w/o runId:
+- p0 (v5):  -0.0222149 -0.366435 0.327062
+This time with neighborFacets() defined for all vertices:
+- p0 (v5):  -0.0222149 -0.366435 0.327062
+ neighborFacets: f5 f6 f7 f8
+
+Try again with Voronoi diagram of simplicial facets.  Neighboring facets automatically defined for vertices.
+Vertex and vertices w/o runId:
+- p7 (v1):  0.386746 0.0449288 0.118336 0.165595
+ neighborFacets: f1 f6 f9 f13 f14 f15 f16 f18 f19 f21
+PASS   : orgQhull::QhullVertex_test::t_io()
+PASS   : orgQhull::QhullVertex_test::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::QhullVertex_test *********
+********* Start testing of orgQhull::RboxPoints_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::RboxPoints_test::initTestCase()
+PASS   : orgQhull::RboxPoints_test::t_construct()
+INFO   : Caught QH6189 rbox error: dimension, D0, out of bounds (>=200 or <=0)
+INFO   : Caught QH10062 Qhull error: can not set PointCoordinates dimension to -1
+PASS   : orgQhull::RboxPoints_test::t_error()
+PASS   : orgQhull::RboxPoints_test::t_test()
+INFO   : Caught QH10063 Qhull error: can not change PointCoordinates dimension (from 2 to 102)
+PASS   : orgQhull::RboxPoints_test::t_getSet()
+PASS   : orgQhull::RboxPoints_test::t_foreach()
+INFO   : Caught QH10012 Qhull error: expected 4 2-d PointCoordinates but read 3 PointCoordinates plus 1 extra coordinates
+PASS   : orgQhull::RboxPoints_test::t_change()
+PASS   : orgQhull::RboxPoints_test::t_ostream()
+PASS   : orgQhull::RboxPoints_test::cleanupTestCase()
+Totals: 9 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::RboxPoints_test *********
+********* Start testing of orgQhull::UsingLibQhull_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::UsingLibQhull_test::initTestCase()
+MachineEpsilon 2.22045e-016 angleEpsilon 8.9706e-015 distanceEpsilon 9.87561e-015
+ Global angleEpsilon 1 distanceEpsilon 1
+INFO     Caught error -- QH10057 Qhull error: missing definition for currentVertexDimension().  Need currentQhull() or setGlobalVertexDimension()
+
+PASS   : orgQhull::UsingLibQhull_test::t_classMembers()
+pointsBegin 003E9ED0 pointsEnd 003EA010 dimension 4
+INFO     Caught error -- QH10059 Qhull error: missing definition for currentPoints().  Need currentQhull() or setGlobalDistanceEpsilon()
+
+PASS   : orgQhull::UsingLibQhull_test::t_globalPoints()
+INFO   : Caught QH10049 Qhull error: UsingLibQhull already in use by QhullQh.runId 330525930
+PASS   : orgQhull::UsingLibQhull_test::t_UsingLibQhull()
+INFO   : Caught QH1 
+INFO   : QH10054 Report previous NOthrow error
+
+Qhull output at end
+qhull: no message for error.  Check cerr or error stream
+PASS   : orgQhull::UsingLibQhull_test::t_methods()
+PASS   : orgQhull::UsingLibQhull_test::t_cleanuptestcase()
+PASS   : orgQhull::UsingLibQhull_test::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::UsingLibQhull_test *********
+********* Start testing of orgQhull::Qhull_test *********
+Config: Using QTest library 4.7.4, Qt 4.7.4
+PASS   : orgQhull::Qhull_test::initTestCase()
+INFO   : Caught QH10023 Qhull error: checkIfQhullInitialized failed.  Call runQhull() first.
+INFO   : Caught QH10069 Qhull error: can not use Qhull copy constructor if initialized() is true
+INFO   : Caught QH10070 Qhull error: can not use Qhull copy assignment if initialized() is true
+INFO   : Caught QH10070 Qhull error: can not use Qhull copy assignment if initialized() is true
+PASS   : orgQhull::Qhull_test::t_construct()
+Expecting summary of halfspace intersect
+
+Halfspace intersection by the convex hull of 4 points in 2-d:
+
+  Number of halfspaces: 4
+  Number of non-redundant halfspaces: 4
+  Number of intersection points: 4
+
+Statistics for: normals of square | qhull H
+
+  Number of points processed: 4
+  Number of hyperplanes created: 6
+  Number of distance tests for qhull: 4
+  CPU seconds to compute hull (after input):  0
+
+Expecting no output from qh_fprintf() in Qhull.cpp
+
+Qhull output at end
+
+Halfspace intersection by the convex hull of 4 points in 2-d:
+
+  Number of halfspaces: 4
+  Number of non-redundant halfspaces: 4
+  Number of intersection points: 4
+
+Statistics for: normals of square | qhull H
+
+  Number of points processed: 4
+  Number of hyperplanes created: 6
+  Number of distance tests for qhull: 4
+  CPU seconds to compute hull (after input):  0
+
+PASS   : orgQhull::Qhull_test::t_attribute()
+INFO   : Caught QH6029 qhull error: option 'Fd' is not used with this program.
+             It may be used with qhull.
+
+While executing:  | 
+Options selected for Qhull 2012.1 2012/01/22:
+  run-id 330525930
+INFO   : Error stream without output stream
+qhull error: option 'Fd' is not used with this program.
+             It may be used with qhull.
+
+While executing:  | 
+Options selected for Qhull 2012.1 2012/01/22:
+  run-id 330525930
+INFO   : Caught QH6029 
+INFO   : Error output sent to output stream without error stream
+qhull input error: feasible point is not clearly inside halfspace
+feasible point:      0      0 
+     halfspace:   -0.5   -0.5 
+     at offset:    0.5  and distance:    0.5 
+The halfspace was at index 1
+
+While executing: rbox "c" | qhull Tz H0
+Options selected for Qhull 2012.1 2012/01/22:
+  run-id 330525930  Tz-stdout  Halfspace-about  0
+INFO   : Caught QH6023 
+INFO   : No error stream or output stream
+INFO   : Caught QH6029 qhull error: option 'Fd' is not used with this program.
+             It may be used with qhull.
+
+While executing:  | 
+Options selected for Qhull 2012.1 2012/01/22:
+  run-id 330525930
+PASS   : orgQhull::Qhull_test::t_message()
+
+Convex hull of 8 points in 3-d:
+
+  Number of vertices: 8
+  Number of facets: 6
+  Number of non-simplicial facets: 6
+
+Statistics for: rbox "c" | qhull s
+
+  Number of points processed: 8
+  Number of hyperplanes created: 11
+  Number of distance tests for qhull: 35
+  Number of distance tests for merging: 84
+  Number of distance tests for checking: 56
+  Number of merged facets: 6
+  CPU seconds to compute hull (after input):  0
+
+
+Convex hull of 8 points in 3-d:
+
+  Number of vertices: 8
+  Number of facets: 6
+  Number of non-simplicial facets: 6
+
+Statistics for: rbox "c" | qhull 
+
+  Number of points processed: 8
+  Number of hyperplanes created: 11
+  Number of distance tests for qhull: 35
+  Number of distance tests for merging: 84
+  Number of distance tests for checking: 56
+  Number of merged facets: 6
+  CPU seconds to compute hull (after input):  0
+
+PASS   : orgQhull::Qhull_test::t_getSet()
+PASS   : orgQhull::Qhull_test::t_getQh()
+PASS   : orgQhull::Qhull_test::t_getValue()
+PASS   : orgQhull::Qhull_test::t_foreach()
+Expecting vertexList and facetList of a 3-d diamond.
+3
+6 8 12
+     0      0   -0.5 
+     0      0    0.5 
+     0   -0.5      0 
+     0    0.5      0 
+  -0.5      0      0 
+   0.5      0      0 
+3 3 1 4 
+3 1 3 5 
+3 0 3 4 
+3 3 0 5 
+3 2 1 5 
+3 1 2 4 
+3 2 0 4 
+3 0 2 5 
+Expecting normals of a 3-d diamond.
+4
+8
+-0.5773502691896258 0.5773502691896258 0.5773502691896258 -0.2886751345948129 
+0.5773502691896258 0.5773502691896258 0.5773502691896258 -0.2886751345948129 
+-0.5773502691896258 0.5773502691896258 -0.5773502691896258 -0.2886751345948129 
+0.5773502691896258 0.5773502691896258 -0.5773502691896258 -0.2886751345948129 
+0.5773502691896258 -0.5773502691896258 0.5773502691896258 -0.2886751345948129 
+-0.5773502691896258 -0.5773502691896258 0.5773502691896258 -0.2886751345948129 
+-0.5773502691896258 -0.5773502691896258 -0.5773502691896258 -0.2886751345948129 
+0.5773502691896258 -0.5773502691896258 -0.5773502691896258 -0.2886751345948129 
+PASS   : orgQhull::Qhull_test::t_modify()
+PASS   : orgQhull::Qhull_test::cleanupTestCase()
+Totals: 10 passed, 0 failed, 0 skipped
+********* Finished testing of orgQhull::Qhull_test *********
+Passed 121 tests.
+Finished test of libqhullcpp.  Test libqhull with eg/q_test

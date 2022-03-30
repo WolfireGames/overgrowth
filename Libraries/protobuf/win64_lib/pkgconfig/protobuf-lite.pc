@@ -1,0 +1,11 @@
+prefix=C:/sdk/protobuf-amd64
+exec_prefix=C:/sdk/protobuf-amd64
+libdir=C:/sdk/protobuf-amd64/lib
+includedir=C:/sdk/protobuf-amd64/include
+
+Name: Protocol Buffers
+Description: Google's Data Interchange Format
+Version: 3.5.2
+Libs: -L${libdir} -lprotobuf-lite 
+Cflags: -I${includedir} 
+Conflicts: protobuf

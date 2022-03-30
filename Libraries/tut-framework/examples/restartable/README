@@ -1,0 +1,7 @@
+This catalog contains example implementation of restartable 
+unit tests. The tests get SIGSEGV which terminates test application
+(four times!) but after restart tests are continued from the point 
+AFTER test that forced crash, so you may get more complete image 
+of what's broken. 
+
+It could be especially useful at night tests.

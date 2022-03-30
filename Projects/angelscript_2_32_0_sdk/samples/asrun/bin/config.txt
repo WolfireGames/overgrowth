@@ -1,0 +1,228 @@
+// AngelScript 2.32.0 WIP
+// Lib options  AS_64BIT_PTR AS_WIN AS_X64_MSVC 
+// Engine properties
+ep 0 0
+ep 1 0
+ep 2 1
+ep 3 1
+ep 4 0
+ep 5 0
+ep 6 0
+ep 7 0
+ep 8 0
+ep 9 1
+ep 10 0
+ep 11 1
+ep 12 0
+ep 13 0
+ep 14 2
+ep 15 0
+ep 16 1
+ep 17 0
+ep 18 0
+ep 19 1
+ep 20 0
+ep 21 0
+ep 22 0
+ep 23 0
+ep 24 0
+ep 25 0
+ep 26 1
+ep 27 100
+
+// Enums
+
+// Types
+access ffffffff
+objtype "string" 7938
+objtype "array<T>" 69
+objtype "dictionaryValue" 1922
+objtype "dictionary" 5
+objtype "file" 1
+objtype "filesystem" 1
+objtype "datetime" 6922
+funcdef "bool array::less(const T&in, const T&in)"
+funcdef "void coroutine(dictionary@)"
+
+// Template type members
+objbeh "array<T>" 3 "array<T>@ array(int&in)"
+objbeh "array<T>" 3 "array<T>@ array(int&in, uint)"
+objbeh "array<T>" 3 "array<T>@ array(int&in, uint, const T&in)"
+objbeh "array<T>" 5 "void $beh5()"
+objbeh "array<T>" 6 "void $beh6()"
+objbeh "array<T>" 9 "int $beh9()"
+objbeh "array<T>" 10 "void $beh10()"
+objbeh "array<T>" 11 "bool $beh11()"
+objbeh "array<T>" 12 "void $beh12(int&in)"
+objbeh "array<T>" 13 "void $beh13(int&in)"
+objbeh "array<T>" 8 "bool $beh8(int&in, bool&out)"
+objbeh "array<T>" 4 "array<T>@ $beh4(int&in, int&in) { repeat T }"
+objmthd "array<T>" "T& opIndex(uint)"
+objmthd "array<T>" "const T& opIndex(uint) const"
+objmthd "array<T>" "array<T>& opAssign(const array<T>&in)"
+objmthd "array<T>" "void insertAt(uint, const T&in)"
+objmthd "array<T>" "void insertAt(uint, const array<T>&inout)"
+objmthd "array<T>" "void insertLast(const T&in)"
+objmthd "array<T>" "void removeAt(uint)"
+objmthd "array<T>" "void removeLast()"
+objmthd "array<T>" "void removeRange(uint, uint)"
+objmthd "array<T>" "uint length() const"
+objmthd "array<T>" "void reserve(uint)"
+objmthd "array<T>" "void resize(uint)"
+objmthd "array<T>" "void sortAsc()"
+objmthd "array<T>" "void sortAsc(uint, uint)"
+objmthd "array<T>" "void sortDesc()"
+objmthd "array<T>" "void sortDesc(uint, uint)"
+objmthd "array<T>" "void reverse()"
+objmthd "array<T>" "int find(const T&in) const"
+objmthd "array<T>" "int find(uint, const T&in) const"
+objmthd "array<T>" "int findByRef(const T&in) const"
+objmthd "array<T>" "int findByRef(uint, const T&in) const"
+objmthd "array<T>" "bool opEquals(const array<T>&in) const"
+objmthd "array<T>" "bool isEmpty() const"
+objmthd "array<T>" "void sort(array::less&in, uint = 0, uint = uint ( - 1 ))"
+objmthd "array<T>" "uint get_length() const"
+objmthd "array<T>" "void set_length(uint)"
+
+// Type members
+objbeh "string" 2 "void string()"
+objbeh "string" 0 "void string()"
+objbeh "string" 0 "void string(const string&in)"
+objmthd "string" "string& opAssign(const string&in)"
+objmthd "string" "string& opAddAssign(const string&in)"
+objmthd "string" "bool opEquals(const string&in) const"
+objmthd "string" "int opCmp(const string&in) const"
+objmthd "string" "string opAdd(const string&in) const"
+objmthd "string" "uint length() const"
+objmthd "string" "void resize(uint)"
+objmthd "string" "uint get_length() const"
+objmthd "string" "void set_length(uint)"
+objmthd "string" "bool isEmpty() const"
+objmthd "string" "uint8& opIndex(uint)"
+objmthd "string" "const uint8& opIndex(uint) const"
+objmthd "string" "string& opAssign(double)"
+objmthd "string" "string& opAddAssign(double)"
+objmthd "string" "string opAdd(double) const"
+objmthd "string" "string opAdd_r(double) const"
+objmthd "string" "string& opAssign(float)"
+objmthd "string" "string& opAddAssign(float)"
+objmthd "string" "string opAdd(float) const"
+objmthd "string" "string opAdd_r(float) const"
+objmthd "string" "string& opAssign(int64)"
+objmthd "string" "string& opAddAssign(int64)"
+objmthd "string" "string opAdd(int64) const"
+objmthd "string" "string opAdd_r(int64) const"
+objmthd "string" "string& opAssign(uint64)"
+objmthd "string" "string& opAddAssign(uint64)"
+objmthd "string" "string opAdd(uint64) const"
+objmthd "string" "string opAdd_r(uint64) const"
+objmthd "string" "string& opAssign(bool)"
+objmthd "string" "string& opAddAssign(bool)"
+objmthd "string" "string opAdd(bool) const"
+objmthd "string" "string opAdd_r(bool) const"
+objmthd "string" "string substr(uint = 0, int = - 1) const"
+objmthd "string" "int findFirst(const string&in, uint = 0) const"
+objmthd "string" "int findFirstOf(const string&in, uint = 0) const"
+objmthd "string" "int findFirstNotOf(const string&in, uint = 0) const"
+objmthd "string" "int findLast(const string&in, int = - 1) const"
+objmthd "string" "int findLastOf(const string&in, int = - 1) const"
+objmthd "string" "int findLastNotOf(const string&in, int = - 1) const"
+objmthd "string" "void insert(uint, const string&in)"
+objmthd "string" "void erase(uint, int = - 1)"
+objmthd "string" "array<string>@ split(const string&in) const"
+objbeh "dictionaryValue" 2 "void dictionaryValue()"
+objbeh "dictionaryValue" 0 "void dictionaryValue()"
+objmthd "dictionaryValue" "dictionaryValue& opAssign(const dictionaryValue&in)"
+objmthd "dictionaryValue" "dictionaryValue& opHndlAssign(const ?&in)"
+objmthd "dictionaryValue" "dictionaryValue& opAssign(const ?&in)"
+objmthd "dictionaryValue" "dictionaryValue& opAssign(double)"
+objmthd "dictionaryValue" "dictionaryValue& opAssign(int64)"
+objmthd "dictionaryValue" "void opCast(?&out)"
+objmthd "dictionaryValue" "void opConv(?&out)"
+objmthd "dictionaryValue" "int64 opConv()"
+objmthd "dictionaryValue" "double opConv()"
+objbeh "dictionary" 3 "dictionary@ dictionary()"
+objbeh "dictionary" 5 "void $beh5()"
+objbeh "dictionary" 6 "void $beh6()"
+objbeh "dictionary" 9 "int $beh9()"
+objbeh "dictionary" 10 "void $beh10()"
+objbeh "dictionary" 11 "bool $beh11()"
+objbeh "dictionary" 12 "void $beh12(int&in)"
+objbeh "dictionary" 13 "void $beh13(int&in)"
+objbeh "dictionary" 4 "dictionary@ $beh4(int&in) { repeat { string, ? } }"
+objmthd "dictionary" "dictionary& opAssign(const dictionary&in)"
+objmthd "dictionary" "void set(const string&in, const ?&in)"
+objmthd "dictionary" "bool get(const string&in, ?&out) const"
+objmthd "dictionary" "void set(const string&in, const int64&in)"
+objmthd "dictionary" "bool get(const string&in, int64&out) const"
+objmthd "dictionary" "void set(const string&in, const double&in)"
+objmthd "dictionary" "bool get(const string&in, double&out) const"
+objmthd "dictionary" "bool exists(const string&in) const"
+objmthd "dictionary" "bool isEmpty() const"
+objmthd "dictionary" "uint getSize() const"
+objmthd "dictionary" "bool delete(const string&in)"
+objmthd "dictionary" "void deleteAll()"
+objmthd "dictionary" "array<string>@ getKeys() const"
+objmthd "dictionary" "dictionaryValue& opIndex(const string&in)"
+objmthd "dictionary" "const dictionaryValue& opIndex(const string&in) const"
+objbeh "file" 3 "file@ file()"
+objbeh "file" 5 "void $beh5()"
+objbeh "file" 6 "void $beh6()"
+objmthd "file" "int open(const string&in, const string&in)"
+objmthd "file" "int close()"
+objmthd "file" "int getSize() const"
+objmthd "file" "bool isEndOfFile() const"
+objmthd "file" "string readString(uint)"
+objmthd "file" "string readLine()"
+objmthd "file" "int64 readInt(uint)"
+objmthd "file" "uint64 readUInt(uint)"
+objmthd "file" "float readFloat()"
+objmthd "file" "double readDouble()"
+objmthd "file" "int writeString(const string&in)"
+objmthd "file" "int writeInt(int64, uint)"
+objmthd "file" "int writeUInt(uint64, uint)"
+objmthd "file" "int writeFloat(float)"
+objmthd "file" "int writeDouble(double)"
+objmthd "file" "int getPos() const"
+objmthd "file" "int setPos(int)"
+objmthd "file" "int movePos(int)"
+objprop "file" "bool mostSignificantByteFirst"
+objbeh "filesystem" 3 "filesystem@ filesystem()"
+objbeh "filesystem" 5 "void $beh5()"
+objbeh "filesystem" 6 "void $beh6()"
+objmthd "filesystem" "bool changeCurrentPath(const string&in)"
+objmthd "filesystem" "string getCurrentPath() const"
+objmthd "filesystem" "array<string>@ getDirs()"
+objmthd "filesystem" "array<string>@ getFiles()"
+objmthd "filesystem" "bool isDir(const string&in)"
+objbeh "datetime" 0 "void datetime()"
+objbeh "datetime" 0 "void datetime(const datetime&in)"
+objmthd "datetime" "datetime& opAssign(const datetime&in)"
+objmthd "datetime" "uint get_year() const"
+objmthd "datetime" "uint get_month() const"
+objmthd "datetime" "uint get_day() const"
+objmthd "datetime" "uint get_hour() const"
+objmthd "datetime" "uint get_minute() const"
+objmthd "datetime" "uint get_second() const"
+
+// Functions
+func "string formatInt(int64, const string&in = \"\", uint = 0)"
+func "string formatUInt(uint64, const string&in = \"\", uint = 0)"
+func "string formatFloat(double, const string&in = \"\", uint = 0, uint = 0)"
+func "int64 parseInt(const string&in, uint = 10, uint&out = 0)"
+func "uint64 parseUInt(const string&in, uint = 10, uint&out = 0)"
+func "double parseFloat(const string&in, uint&out = 0)"
+func "string join(const array<string>&in, const string&in)"
+func "void print(const string&in)"
+func "string getInput()"
+func "array<string>@ getCommandLineArgs()"
+func "int exec(const string&in)"
+func "void yield()"
+func "void createCoRoutine(coroutine@, dictionary@)"
+
+// Properties
+
+// String factory
+strfactory "const string&"
+
+// Default array type

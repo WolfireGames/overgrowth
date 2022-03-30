@@ -1,0 +1,99 @@
+<?xml version="2.0" ?>
+<Job name="main game data">
+    <Inputs>
+	<Input>Data/</Input>
+	<Input>Auxiliary/Data</Input>
+    </Inputs>
+
+    <!-- Generators just generate some output with no input -->
+    <Generators>
+        <Generator generator="versionxml"></Generator>
+        <Generator generator="shortversion"></Generator>
+        <Generator generator="levellist"></Generator>
+    </Generators>
+
+    <!-- Searchers pass through Items of a particular type and searches for additional dependencies -->
+    <Searchers>
+        <Searcher type_pattern_re="generic" path_ending="" searchers="void"></Searcher>
+    </Searchers>
+
+    <!-- Builders does the final pass on all items and does the final transfer to the destinations -->
+    <Builders>
+        <Builder type_pattern_re="generic"              path_ending=".tga" 		 builder="dxt5"></Builder>
+        <Builder type_pattern_re="generic"              path_ending=".png" 		 builder="dxt5"></Builder>
+
+        <!-- Generate a navmesh for all files which are of type level -->
+	<!-- This feature is not yet supported in OGDA -->
+        <!--<Builder type_pattern_re="level" path_ending=".png" builder="navmesh"></Builder>-->
+
+
+        <Builder type_pattern_re="generic"              path_ending="" builder="copy"></Builder>
+    </Builders>
+
+    <!-- Here we list the items we want to be sourced in our build -->
+    <Items>
+	<!-- Generic includes, these should in the long term be replaced by searchers and not be necessary, 
+		but the folder structure, flow, data-type handling, etc need to be improved before this work flow
+		can work as intended, so this is a fallback to ensure that all the commonly necessary source files
+		are included into the build. The type-based serchers and file identifiers are still useful and necessary however.
+		as they are the basis for the conversion step, used for baking data and among other things converting textures into .dds files
+	-->
+        <Item type="generic" recursive="true">Objects/</Item>
+        <Item type="generic" recursive="true">Prototypes/</Item>
+        <Item type="generic" recursive="true">Prefabs/</Item>
+        <Item type="generic" recursive="true">UI/</Item>
+        <Item type="generic" recursive="true">Custom/</Item>
+        <Item type="generic" recursive="true">BlenderScript/</Item>
+        <Item type="generic" recursive="true">BlendFiles/</Item>
+	<Item type="generic" recursive="true">Campaign/</Item>
+	<Item type="generic" recursive="true">LevelSets/</Item>
+	<Item type="generic" recursive="true">Levels/</Item>
+	<Item type="generic" recursive="true">LevelNavmeshes/</Item>
+        <Item type="generic" recursive="true">Scripts/</Item>
+        <Item type="generic" recursive="true">Sounds/</Item>
+        <Item type="generic" recursive="true">Skeletons/</Item>
+	<Item type="generic" recursive="true">Particles/</Item>
+	<Item type="generic" recursive="true">Models/</Item>
+        <Item type="generic" recursive="true">LevelLoading/</Item>
+        <Item type="generic" recursive="true">Materials/</Item>
+        <Item type="generic" recursive="true">GLSL/</Item>
+        <Item type="generic" recursive="true">Fonts/</Item>
+        <Item type="generic" recursive="true">Dialogues/</Item>
+        <Item type="generic" recursive="true">Attacks/</Item>
+        <Item type="generic" recursive="true">Music/</Item>
+        <Item type="generic" recursive="true">Animations/</Item>
+	<Item type="generic" recursive="true">Items/</Item>
+	<Item type="generic" recursive="true">Textures/</Item>
+	<Item type="generic" recursive="true">Images/</Item>
+	<Item type="generic" recursive="true">Characters/</Item>
+	<Item type="generic" recursive="true">GrassTest/</Item>
+
+
+	<!-- We lump-inclue all the mod folders, assuming that all the files in them is intended for release.
+		We should always consider adding an additional file include pattern for images and other types
+		of files that need to be baked
+	-->
+        <Item type="generic" recursive="true">Mods/wolfire_arena</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_overgrowth_core</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_sandbox_levels</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_versus</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_versus_online</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_overgrowth_campaign</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_lugaru_campaign</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_timbles_therium</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_machine_translations</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_drika</Item>
+        <Item type="generic" recursive="true">Mods/wolfire_overgrowth_prototype</Item>
+        <Item type="generic" recursive="true">Mods/constance_ouruin</Item>
+        <Item type="generic" recursive="true">Mods/fnb_mods_simple_shapes</Item>
+        <Item type="generic" recursive="true">Mods/gyrth_drika_hotspot</Item>
+        <Item type="generic" recursive="true">ExampleMods/</Item>
+
+	<!-- These are include as the are one-off specialized files -->
+        <Item type="generic">shader_preload.xml</Item>
+        <Item type="generic">preload.xml</Item>
+        <Item type="generic">Animations/dialogue_poses.txt</Item>
+        <Item type="generic">defaults.txt</Item>
+        <Item type="generic">gamecontrollerdb.txt</Item>
+    </Items>
+</Job>

@@ -1,0 +1,25 @@
+### Makefile.am for the qhull package (eg)
+### Author: Rafael Laboissiere <rafael@debian.org>
+### Created: Mon Dec  3 21:36:21 CET 2001
+### Update for 2010.1: O. Lahaye, jun'10
+### Draft update for 2011.2: B. Barber, dec'11
+
+### Documentation files
+
+# to:
+docdir = $(prefix)/share/doc/$(PACKAGE)
+examplesdir = $(docdir)/examples
+
+# which:
+examples_DATA = \
+  q_eg          \
+  q_egtest      \
+  q_test        \
+  q_test-ok.txt \
+  q_test.bat    \
+  Qhull-go.bat  \
+  qhulltest-ok.txt
+
+### Extra files to be included in the tarball
+
+EXTRA_DIST = $(examples_DATA)

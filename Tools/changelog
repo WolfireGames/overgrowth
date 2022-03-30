@@ -1,0 +1,356 @@
+- Fixes a bug where openAL break from NaN value in camera.
+
+- Disable the FAQ button in the main menu.
+
+- Adds extra check for null when printing object overwrite warning
+
+- Adds -l flag for quickloading a level.
+
+- Fix so that lipsync searches for files based on relative path.
+
+- Improved debug output for incorrect ref counting.
+
+- Update windows crash message to contain more instructions
+
+- Changes so that instead of deduplication of object in the same position we give the user a warning when saving a level
+
+- Adding callback for JavaScript console messages to the log.
+
+- Moves graphics warning to log instead of popupdialog
+
+- Adds Log() function in AS (with file and line info)
+
+- Makes map_id_ clear on dispose to prevent Get of invalid object pointers.
+
+- Make inherited class constructor virtual to ensure correct execution
+
+- Make unbind explicit to prevent accidental skip for rebind on reused id.
+* This fixes a crash issue when opening the menu in the arena level.
+
+- Strips project from alut libraries
+
+- Removes alut dependency by replacing wav loading in filters.
+
+- Fix OpenAL crash on exit (for linux atleast).
+
+- Adds print warning for NONE volume request in skeleton
+
+- JSON support for c++ and AngelScript.
+
+- Converted all previous prints to logging system output
+
+- Adds a logging utility with support for multiplexing and different debug levels.
+
+- Adds mod folder support
+
+- Adds routine to check for particular model loading error presented in FB #4289
+
+- Fixes IEEE NaN generation in terrain normal FB #4303
+
+- Adds a half-fix for bloodsurface texture binding crash by checking id.
+
+- Adds --version flag to game binary
+
+- Makes lack of extra_data_path a non fatal error.
+
+- Adds max test level used for mod integration.
+
+- Makes the FindFilePath more leanient regarding the trailing slash
+
+- Removes version.xml use in crashbugreport for win32
+* Replaced with internal version string.
+
+- Moves away from version.xml file in main menu.
+
+- Exposes git version number and build timestamp to AS.
+The following functions were added to AS.
+GetBuildVersion()
+GetBuildTimestamp()
+
+- Adds DebugDrawPoint to AS interface
+
+- Repairs DebugDrawPoint by GL 2.1 -> GL 3.2
+
+- Adds additional control to debug draw text (screenspace and scale)
+
+- Replace old billboard with new generated geom version.
+
+- Adds clip space size locked billboard rendering (for text)
+
+- Adds DebugDrawCircle in AS.
+
+- Fixes DebugDrawWireMesh rendering
+
+- Simple shadow map is updated when objects are added or deleted
+
+- Make sure as_context is valid before updating in Hotspot
+
+- Reduce drawing for debug cylinder, box and sphere to single codepath.
+
+- Adds cylinder debug drawing.
+
+- Adds git version code generation for windows.
+
+- Adds git revision to build (UNIX only atm)
+
+- Adds rain and snow particle systems as hotspots
+
+- Can load dds files if tga is missing
+
+- Terrain uses averagecolor class
+
+- Correctly catch 'missing font' errors
+
+- Improved nav mesh rendering
+* The geometry has a brown fill light from the camera instead of being
+the normal of the surface.
+* The nav mesh surface is stippled in different patterns depending on
+distance from camera to give a sense of distance and the ability to more
+clearly see through parts of the nav mesh.
+* Nav mesh surface has a distance-based linear interpolation between two
+colors to make distant parts of the nave mesh less visually prominent.
+
+- Adds finer control of nav mesh in editor settings.
+
+- Adds thick lines for navmesh edges.
+
+- Adds edge rendering and stipple
+
+- Adds basic rendering of nav mesh
+
+- Fixes rendering loaded navmesh, and missing Levels folder issue.
+* Levels folder missing was causing navmesh saving to failed.
+* Shifts into rendering InputGeom mesh rather than NavMesh mesh to allow
+  loaded mesh to render correctly.
+* Shifts nav mesh loading into the Draw call as NavMesh loading can be
+  threaded sometimes, causing a secondary thread to call opengl.
+
+- - Fixes for multiple script loading/parsing/execution bugs in the engine. - Modular arena spawn control. - Battle instance logic.
+
+- Remove fast inverse square root that violates the C++ standard--it was almost unused already Add compile flag to prevent Boost errors from variadic templates
+
+- Only grab mouse if window has focus
+
+- "Simple shadow" toggle stored in config and moved to graphics tab
+
+- Adds support for Geomtry shaders in the shader loader.
+
+- Update Overlay to use Textures. Affects Textures.
+* Adds functions in Textures to modify the data of the texture after and
+  when creating.
+* Changes Overlay to user a Textures texture rather then a pure OpenGL
+  texture. This means that it can be passed to DrawBillboard.
+
+- Add a SIGSEV handler for linux, stacktrace in debug.
+* Limited to only compile into Linux and GCC compiled programs.
+
+- Adds available video device listing.
+* Program now lists available SDL video renderers, was needed for
+        debugging on Linux.
+
+- Fix Linux compile flags.
+* Added -03 for Release and RelWithDebInfo
+* Added -DNO_GL_ERORR_CHECKING for Release and RelWithDebInfo
+
+- Adding the ability to execute scripts (i.e. script fragments) in arbitrarily specified files from within scripts (attached to the Level object).
+
+- Added simple shadows toggle in settings
+
+- Added Depth Prepass option which is true by default
+
+- Fixed z-prepass location
+
+- Using Bullet for tetrahedron/aabb collision checks
+
+- Super-initial first pass of multi-arena.
+
+- Adding: - Main menu option to start Arena campaign - Persistent support for arena progress - Started seperating functionality for including in all arena levels - Additions to ScriptableUI - GUI to start and restart Arena campaign
+
+- Progress on better light probe grid selection
+
+- Add case sensitivity back (only through FindFilePath, and currently not for write dirs)
+
+- Slightly cleaner way to load without editor
+
+- Tiny fixes (fail whale error and correctly starting in rabbot mode if "Start level in editor" is disabled)
+
+- Completely stop all playing sounds when exiting a level. This fixes two annoying issues: music continuing when loading a level with no music (such as the arena) and sudden bursts of sound while loading a level.
+
+- Clamp the player skill before producing win and loss texts, to avoid displaying an incorrect level
+
+- Tet mesh grid lookup acceleration
+
+- Fixed problem with levels that have no terrain
+
+- Testing out two-bounce global illumination
+
+- Finished simple shadow toggle
+
+- Fixed another 'bug' on Intel cards by unrolling another loop
+
+- Unrolled a shader loop to fix error in Intel card
+
+- Fixed problem with getting size of uniform buffer blocks; ignored an Intel GL warning
+
+- Testing static shadow map
+
+- use SDL2 message box API instead of FLTK
+
+- update linux libs and headers
+- now uses static ogg, vorbis, theora, png, and jpeg
+- drop fltk for linux port (use SDL2 dialogs)
+- update openal
+- drop SDL1.2 libs
+
+- Finished shadow view frustum culling
+
+- Updated Dialog::readFile to use FindFilePath
+
+- Adding a new script for super charged arena, option in the editor to set the script for the currently edited level (and support for the later).
+
+- Terrain patches are frustum culled when drawing to depth map
+
+- Patrol paths are hidden during gameplay
+
+- Fixed rounding issue on ATI cards (need to check if it still works on other vendors)
+
+- Exposing support for dictionaries in Angelscript.
+
+- No longer check for availability of occlusion query -- it has been core since OpenGL 1.5
+
+- Very distant pixels have no shadow, instead of wrapping from other shadows
+
+- Improved shadow cache texel alignment
+
+- Shadow cache renders are snapped to texel
+
+- Fixed some shadow cache issues
+
+- Progress on GPU shadow cache analysis
+
+- Fixed more mac shader warnings
+
+- Fixed envobject shader issue on windows
+
+- Fixed warnings on mac when linking envobject shader
+
+- Fixed slash direction for Mac
+
+- More robust uniform buffer index lookups
+
+- Create parent dir when saving config
+
+- Testing out software depth map rasterization
+
+- Progress removing backfaces from shadow cache
+
+- Testing z-prepass
+
+- More progress on cascade shadows
+
+- Progress on envobject depth_only pass
+
+- Voxelization works with plants
+
+- Tetmesh lighting on detail objects
+
+- Terrain receives tet mesh lighting
+
+- Cubemapalpha shader merged into envobject
+
+- Make sure models have normalized normals; cubemap and cubemapobj shaders just use envobject
+
+- Ensure fur_tex_coord is set
+
+- Update OpenGL calls and constants to 3.x core
+
+- Characters are affected by light probe tet mesh
+
+- Applying ambient tet mesh lighting to more shaders
+
+- Scene can be drawn with post effects or without
+
+- Updated Physics::GetWind
+
+- Fixed problem with terrain detail texture weights
+
+- Fixed cubemap shader
+
+- Fixed plant shader
+
+- More instancing progress
+
+- Progress making more shaders work with instancing
+
+- Progress on instanced env object rendering
+
+- One path for rendering env objects
+
+- Draw light probes in batches of 128
+
+- Switched to edward rudd glew branch
+
+- Added edward rudd glew branch
+
+- Mac path fixes
+
+- Mac fixes
+
+- Smoother shadow map filtering; fixed shader live update; engine allocated on stack allocator
+
+- Fixed script live update; saving camera location/rotation
+
+- Ignore useless GL debug warning
+
+- ItemObject has depth only variant
+
+- Fixed problem with item shadow receiving
+
+- Added "Extra data path"
+
+- Added ARB debug messages
+
+- New FileExists check
+
+- New write path
+
+- Fixed problem with sound paths
+
+- Testing out ATI debug output
+
+- Unconscious characters close their eyes more
+
+- Included mac libraries in normal libraries folder
+
+- Fixed memory alignment problem in BulletObject::GetTransform
+
+- Fixed problem with allocating too many terrain framebuffers
+
+- Fixed VBOContainer bug
+
+- Removed some unused shaders and 'parallax scene' code
+
+- Removed fixed size for blood surface points
+
+- Merged in fix for asset reference counting and syncedanimationgroup disposal
+
+- Ambient sound object makes sure scenegraph exists before changing sound position
+
+- Fixed box selector
+
+- Item attachments hidden in-game
+
+- Bloom progress
+
+- Progress on color grading
+
+- Simplifying mapeditor
+- Removed unused transform tools
+- More mapeditor simplification
+- More mapeditor cleanup
+- Further simplifying map editor state
+- Simplifying map editor state
+
+- Simplifying transformable entity
+
+- Draw() then Update() then Swap() instead of Update() then Draw() then Swap().

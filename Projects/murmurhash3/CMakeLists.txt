@@ -1,0 +1,20 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0)
+PROJECT(murmurhash3)
+
+IF(WIN32)
+	#SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4018 /wd4244")
+ENDIF()
+
+SET(SRCDIR "${CMAKE_SOURCE_DIR}/../Libraries/murmurhash3/")
+SET(LIBDIR "${CMAKE_SOURCE_DIR}/../Libraries")
+
+INCLUDE_DIRECTORIES(
+    ${LIBDIR}/murmurhash3
+)
+
+SET(MURMURHASH3_SRCS
+    ${LIBDIR}/murmurhash3/MurmurHash3.cpp
+)
+
+ADD_LIBRARY(murmurhash3 STATIC ${MURMURHASH3_SRCS})
+

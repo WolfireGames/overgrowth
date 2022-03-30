@@ -1,0 +1,229 @@
+//   Copyright 2022 Wolfire Games LLC
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//       http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+//-----------------------------------------------------------------------------
+#version 400
+
+layout(triangles, equal_spacing, ccw) in;
+in vec3 world_vert_out[];
+in mat3 tan_to_obj_out[];
+#ifdef TERRAIN
+in vec3 frag_tangent_out[];
+in vec4 frag_tex_coords_out[];
+#else
+in vec2 frag_tex_coords_out[];
+#endif
+flat in int instance_id_out[];
+
+out vec3 world_vert;
+out mat3 tan_to_obj;
+#ifdef TERRAIN
+out vec3 frag_tangent;
+out vec4 frag_tex_coords;
+#else
+out vec2 frag_tex_coords;
+#endif
+flat out int instance_id;
+
+#ifdef CHARACTER
+    out vec2 fur_tex_coord;
+    in vec2 fur_tex_coord_out[];
+    #ifndef DEPTH_ONLY
+        out vec3 concat_bone1;
+        out vec3 concat_bone2;
+        out vec2 tex_coord;
+        out vec2 morphed_tex_coord;
+        out vec3 orig_vert;
+
+        in vec3 concat_bone1_out[];
+        in vec3 concat_bone2_out[];
+        in vec2 tex_coord_out[];
+        in vec2 morphed_tex_coord_out[];
+        in vec3 orig_vert_out[];
+
+        #ifndef NO_VELOCITY_BUF
+            out vec3 vel;
+            in vec3 vel_out[];
+        #endif
+    #endif
+#endif
+
+uniform float time;
+uniform mat4 projection_view_mat;
+uniform vec3 cam_pos;
+
+float hash( vec2 p )
+{
+    float h = dot(p,vec2(127.1,311.7));
+    
+    return -1.0 + 2.0*fract(sin(h)*43758.5453123);
+}
+
+float noise( in vec2 p )
+{
+    vec2 i = floor( p );
+    vec2 f = fract( p );
+    
+    vec2 u = f*f*(3.0-2.0*f);
+
+    return mix( mix( hash( i + vec2(0.0,0.0) ), 
+                     hash( i + vec2(1.0,0.0) ), u.x),
+                mix( hash( i + vec2(0.0,1.0) ), 
+                     hash( i + vec2(1.0,1.0) ), u.x), u.y);
+}
+
+float fractal( in vec2 uv){
+    uv= fract(uv / 100.0 + vec2(0.5)) * 100.0;
+    float f = 0.0;
+    mat2 m = mat2( 1.6,  1.2, -1.2,  1.6 );
+    f  = 0.5000*noise( uv ); uv = m*uv;
+    f += 0.2500*noise( uv ); uv = m*uv;
+    f += 0.1250*noise( uv ); uv = m*uv;
+    f += 0.0625*noise( uv ); uv = m*uv;
+    f += 0.03125*noise( uv ); uv = m*uv;
+    f += 0.016625*noise( uv ); uv = m*uv;
+    return f;
+}
+
+#define Interp(val) (gl_TessCoord[0] * val[0] + gl_TessCoord[1] * val[1] + gl_TessCoord[2] * val[2])
+
+vec3 eval_pos(vec3 bary_coord) {
+    vec3 pos = world_vert_out[0] * bary_coord[0] + world_vert_out[1] * bary_coord[1] + world_vert_out[2] * bary_coord[2];
+    float val = 0.2;
+    float density = 1.0;
+    val /= (distance(pos, cam_pos)*0.1 + 1.0);
+    pos.x += fractal(pos.zy*density)*val;
+    pos.y += fractal(pos.xz*density)*val;
+    pos.z += fractal(pos.xy*density)*val;
+    return pos;
+}
+
+void main()
+{
+    vec4 p0 = gl_TessCoord.x * gl_in[0].gl_Position;
+    vec4 p1 = gl_TessCoord.y * gl_in[1].gl_Position;
+    vec4 p2 = gl_TessCoord.z * gl_in[2].gl_Position;
+    gl_Position = p0 + p1 + p2;
+
+    world_vert = Interp(world_vert_out);
+    tan_to_obj = Interp(tan_to_obj_out);
+    frag_tex_coords = Interp(frag_tex_coords_out);
+
+    #ifdef CHARACTER
+        fur_tex_coord = Interp(fur_tex_coord_out);
+        #ifndef DEPTH_ONLY
+            concat_bone1 = Interp(concat_bone1_out);
+            concat_bone2 = Interp(concat_bone2_out);
+            tex_coord = Interp(tex_coord_out);
+            morphed_tex_coord = Interp(morphed_tex_coord_out);
+            orig_vert = Interp(orig_vert_out);
+
+            #ifndef NO_VELOCITY_BUF
+                vel = Interp(vel_out);
+            #endif
+        #endif
+        //world_vert.y += fractal(world_vert.xz*100)*0.01;
+    #endif
+
+
+    instance_id = instance_id_out[0];
+    
+    #ifdef TERRAIN
+        frag_tangent = Interp(frag_tangent_out);
+    #endif
+    
+    #if defined(FRACTAL_DISPLACE)
+        world_vert = eval_pos(gl_TessCoord);
+    #endif
+
+    /*if(gl_TessCoord != vec3(1,0,0) && gl_TessCoord != vec3(0,1,0) && gl_TessCoord != vec3(0,0,1)){
+        world_vert.y += 1.0;
+    }*/
+/*
+    if(gl_TessCoord[0] != 0.0 && gl_TessCoord[1] != 0.0 && gl_TessCoord[2] != 0.0){
+        world_vert = eval_pos(vec3(1.0, 0.0, 0.0));
+        world_vert += eval_pos(vec3(0.0, 1.0, 0.0));
+        world_vert += eval_pos(vec3(0.0, 0.0, 1.0));
+        world_vert /= 3.0;
+    }*/
+/*
+    if(gl_TessCoord[0] != 0.0 && gl_TessCoord[1] != 0.0 && gl_TessCoord[2] != 0.0){
+        float level = max(2.0, ceil(gl_TessLevelInner[0]));
+        float val;
+        if(level == 2){
+            val = 1.0;
+        } else if(level == 4){
+            val = 3.0;
+        }
+        else {
+            level = 3.0 * (level / 4.0) * (level / 4.0);
+            val = 12.0;
+        }
+        float old_val = val;
+        bool temp = false;
+        if(abs(round(gl_TessCoord[0] * val) - (gl_TessCoord[0] * val)) < 0.001 && 
+           abs(round(gl_TessCoord[1] * val) - (gl_TessCoord[1] * val)) < 0.001 && 
+           abs(round(gl_TessCoord[2] * val) - (gl_TessCoord[2] * val)) < 0.001)
+        {
+        } else {
+            if(level == 2){
+                val = 3.0;
+            } else {                
+                val *= 4.0;
+            }
+            if(abs(round(gl_TessCoord[0] * val) - (gl_TessCoord[0] * val)) < 0.001 && 
+               abs(round(gl_TessCoord[1] * val) - (gl_TessCoord[1] * val)) < 0.001 && 
+               abs(round(gl_TessCoord[2] * val) - (gl_TessCoord[2] * val)) < 0.001)
+            {
+                vec3 temp;
+                if(gl_TessCoord[0] <= 1.0/3.0){
+                    temp[0] = ceil(gl_TessCoord[0]*old_val)/old_val;
+                } else {
+                    temp[0] = floor(gl_TessCoord[0]*old_val)/old_val;
+                }
+                temp[1] = gl_TessCoord[1] + (gl_TessCoord[0]-temp[0]);
+                if(temp[1] <= 1.0/3.0){
+                    temp[1] = ceil(temp[1]*old_val)/old_val;
+                } else {
+                    temp[1] = floor(temp[1]*old_val)/old_val;
+                }
+                temp[2] = 1.0 - temp[0] - temp[1];
+                world_vert = mix(eval_pos(gl_TessCoord),
+                                 eval_pos(temp),
+                                 1.0 - (ceil(gl_TessLevelInner[0]) - gl_TessLevelInner[0]));
+            }
+        }
+    }
+
+    for(int i=0; i<3; ++i){
+        if(gl_TessCoord[i] == 0.0 && gl_TessLevelOuter[i] > 1.0){
+            float level = ceil(gl_TessLevelOuter[i]);
+            int prev = (i+2)%3;
+            if(gl_TessCoord[prev] * level == floor(gl_TessCoord[prev] * level) &&
+               gl_TessCoord[prev] * level * 0.5 != floor(gl_TessCoord[prev] * level * 0.5))
+            {
+                vec3 offset = vec3(0.0);
+                offset[(i+1)%3] = 1.0/level;
+                offset[(i+2)%3] = -1.0/level;
+                world_vert = mix((eval_pos(gl_TessCoord + offset) + eval_pos(gl_TessCoord - offset))*0.5,
+                                 world_vert,
+                                 level - gl_TessLevelOuter[i]);
+                //world_vert.y += 1.0;
+            }
+        }
+    }
+*/
+    gl_Position = projection_view_mat * vec4(world_vert, 1.0);
+
+}

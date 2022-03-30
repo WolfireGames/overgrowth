@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <SharedLibDependencies>
+    zlib.lib;    steam_api.lib;    tinyxml.lib;    nvtt.lib;    FreeImage.lib;    libogg.lib;    SDL_mixer.lib;    dbghelp.lib;    libtheora.lib;    nvapi.lib;    fftw3.lib;    glu32.lib;    opengl32.lib;    glew32.lib;    sdlmain.lib;    sdl.lib;    openal32.lib;    alut.lib;    libvorbis.lib;    libvorbisfile.lib;    ws2_32.lib;    user32.lib;    comdlg32.lib;    awesomium.lib;    xinput.lib;    Netapi32.lib;    version.lib;    </SharedLibDependencies>
+    <ReleaseLibDependencies>BulletCollision_vs2010.lib;BulletDynamics_vs2010.lib;LinearMath_vs2010.lib;MixKit.lib;libgfx.lib;libittnotify.lib;angelscript.lib;ode_single.lib;</ReleaseLibDependencies>
+    <DebugLibDependencies>BulletCollision_vs2010_debug.lib;BulletDynamics_vs2010_debug.lib;LinearMath_vs2010_debug.lib;Mixkitd.lib;libgfxd.lib;angelscriptd.lib;ode_singled.lib;</DebugLibDependencies>
+    <DebugUniqueDependencies>kernel32.lib;gdi32.lib;winspool.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;comsuppwd.lib;</DebugUniqueDependencies>
+    <ReleaseUniqueDependencies>comsuppw.lib;</ReleaseUniqueDependencies>
+    <SharedIncludeDirectories>..\Libraries\boost_1_52_0;
+    ..\Libraries\zlib1.2.7\include;
+    ..\Libraries\ode-0.11\include;
+    ..\Libraries\steamworks\include;
+    ..\Libraries\qslim-2.1\mixkit\src;
+    ..\Source\QSlim;
+    ..\Libraries\theora\include;
+    ..\Libraries\vtune\include\;
+    ..\Libraries\nvapi;
+    ..\Libraries\angelscript_2.24.a\include;
+    ..\Libraries\v8\include;
+    ..\Libraries\freealut-1.1.0-bin\include\AL;
+    ..\Source\;
+    ..\Source\AI\;
+    ..\Source\Game\;
+    ..\Source\Scripting\;
+    ..\Source\TheoraPlayer;
+    ..\Source\Recast\;
+    ..\Source\Internal\sigar;
+    ..\Source\Internal\sigar\os\win32;
+    ..\Source\Scripting\angelscript;
+    ..\Source\Scripting\v8;
+    ..\Source\Math\Boost Extensions;
+    ..\Source\Math\pbaker;
+    ..\Source\XML;
+    ..\Source\UserInput;
+    ..\Source\Sound;
+    ..\Source\Simplification;
+    ..\Source\Physics;
+    ..\Source\Objects;
+    ..\Source\Network;
+    ..\Source\Math;
+    ..\Source\Main;
+    ..\Source\Internal;
+    ..\Source\Images;
+    ..\Source\GUI;
+    ..\Source\Graphics;
+    ..\Source\Editors;
+    ..\Libraries\nvidia-texture-tools-read-only\include;
+    ..\Libraries\FreeImage\include;
+    ..\Libraries\fftw-3.0.1-w32-pl1;
+    ..\Libraries\bullet-2.81\src;
+    ..\Libraries\vld-10;
+    ..\Libraries;
+    ..\Libraries\GLEW\include;
+    ..\Libraries\LIB_SDL\include;
+    ..\Libraries\ogg\include;
+    ..\Libraries\OpenAL 1.1 SDK\include;
+    ..\Libraries\tinyxml;
+    ..\Libraries\SDL_mixer-1.2.8\include;
+    ..\Libraries\vorbis\include;
+    ..\Libraries\awesomium-1.6.6\include;
+    ..\Libraries\xinput\include;</SharedIncludeDirectories>
+    <SharedLibraryDirectories>
+    ..\Libraries\fftw-3.0.1-w32-pl1;    ..\Libraries\vld-10;    ..\Libraries\zlib1.2.7\lib;    ..\Libraries\vtune\lib32;    ..\Libraries\steamworks\lib;    ..\Libraries\qslim-2.1\lib;    ..\Libraries\theora\lib;    ..\Libraries\angelscript_2.24.a\lib;    ..\Libraries\freealut-1.1.0-bin\lib;    ..\Libraries\nvidia-texture-tools-read-only\lib;    ..\Libraries\ode-0.11\lib;    ..\Libraries\Misc;    ..\Libraries\SDL_mixer-1.2.8\lib;    ..\Libraries\LIB_SDL\lib;    ..\Libraries\GLEW\lib;    ..\Libraries\ftgl-2.1.3~rc5\msvc\build;    ..\Libraries\freetype-2.3.7\objs;    ..\Libraries\SDL_image-devel-1.2.5-VC6\SDL_image-1.2.5\lib;    ..\Libraries\ogg\lib;    ..\Libraries\vorbis\lib;    ..\Libraries\OpenAL 1.1 SDK\libs\Win32;    ..\Libraries\OpenGL;    ..\Libraries\SDL_image-devel-1.2.5-VC6\SDL_image-1.2.5;    ..\Libraries\freetype-2.1.8-lib\lib;    ..\Libraries\LibPNG\Lib;    ..\Libraries\lua5.1\lib;    ..\Libraries\zlib\lib;    ..\Libraries\xinput\Lib\x86;    ..\Libraries\bullet-2.81\lib;    ..\Libraries\boost_1_52_0\winlibs;    ..\Libraries\awesomium-1.6.6\lib;    ..\Libraries\nvapi\x86;    </SharedLibraryDirectories>
+    <DebugReleaseLibraryDirectories>..\Libraries\steamworks\lib;</DebugReleaseLibraryDirectories>
+    <DebugLibraryDirectories>..\Libraries\tinyxml\Debugtinyxml;..\Libraries\FreeImage\lib\Debug;</DebugLibraryDirectories>
+    <ReleaseLibraryDirectories>..\Libraries\tinyxml\Releasetinyxml;..\Libraries\FreeImage\lib\Release;</ReleaseLibraryDirectories>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="SharedLibDependencies">
+      <Value>$(SharedLibDependencies)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ReleaseLibDependencies">
+      <Value>$(ReleaseLibDependencies)</Value>
+    </BuildMacro>
+    <BuildMacro Include="DebugLibDependencies">
+      <Value>$(DebugLibDependencies)</Value>
+    </BuildMacro>
+    <BuildMacro Include="DebugUniqueDependencies">
+      <Value>$(DebugUniqueDependencies)</Value>
+    </BuildMacro>
+    <BuildMacro Include="ReleaseUniqueDependencies">
+      <Value>$(ReleaseUniqueDependencies)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

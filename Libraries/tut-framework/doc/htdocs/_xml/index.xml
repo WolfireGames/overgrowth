@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tut>
+<section>Introduction</section>
+<chapter>TUT Introduction</chapter>
+<annotation>brief information about what TUT is and where can it be useful</annotation>
+<content>
+
+    <p>
+	TUT is a C++ unit test framework.
+    </p>
+
+    <p>
+        TUT simplifies tests organization and provides basic
+        framework to run them. TUT tests are easy to read and maintain:
+    </p>
+
+<pre>
+  template&lt;&gt;
+  template&lt;&gt;
+  void object::test&lt;4&gt;()
+  {
+      std::auto_ptr&lt;foo&gt; ap(new foo());
+      foo* p1 = ap.get();
+      std::auto_ptr&lt;foo&gt; ap2(ap.release());
+      ensure("same pointer",p1==ap2.get());
+      ensure("lost ownership",ap.get()==0);
+  }
+</pre>
+
+		<p>TUT provides all features required for unit testing: </p>
+
+		<ul>
+			<li>
+				Similar tests can be grouped into test groups. Each test group has
+				its unique user-readable name and is located in a separate compilation unit. 
+				One group can contain almost unlimited number of tests (actually, the limit is the
+				compiler template recursion depth).
+			</li>
+			<li>
+				User can run all the tests (regression), just some selected groups or even
+				specified tests in selected groups.
+			</li>
+			<li>
+				TUT provides functions to check the condition validity at run-time. 
+			</li>
+			<li>
+				TUT contains callback interface that can be implemented by the calling code.
+				This callback notifies listener on various events during test run, such as
+				test start or test failure. This could be used to integrate with an IDE or with
+				any external tool such as CruiseControl. The callbacks also allow users to 
+				produce their own visualization format for test	process and results.</li>
+			<li>
+				Being a template library, TUT doesn't need compilation. Just include the
+				&lt;tut.h&gt; header into the test modules.
+			</li>
+		</ul>
+		
+
+
+    <p>
+        TUT is a pure C++ application. It heavily uses C++ template
+        engine. Unlike other unit test frameworks for C++, TUT doesn't use macros.
+    </p>
+
+    <p>
+        TUT completely fits into a single header file. No library 
+        compilation is required. All you need to do is to include
+        &lt;tut.h&gt; into the test source file.
+    </p>
+
+    <p>
+        TUT is a free software and is distributed under 
+        the BSD-like License.
+    </p>
+
+</content>
+</tut>

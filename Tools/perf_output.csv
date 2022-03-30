@@ -1,0 +1,24 @@
+[336, 996, 1451, 1613, 1705, 1729, 1741, 1747, 1748, 20672, 39596, 40884, 40962, 41664, 42097, 44365, 44527, 45461, 45651, 45841, 46589, 47193]
+/Users/max/dev/Overgrowth/Source/Graphics/cubemap.cpp:109,31855.7142857
+/Users/max/dev/Overgrowth/Source/Graphics/flares.cpp:44,161096.363636
+/Users/max/dev/Overgrowth/Source/Graphics/hudimage.cpp:128,155274.549451
+/Users/max/dev/Overgrowth/Source/Graphics/model.cpp:1095,264038.518519
+/Users/max/dev/Overgrowth/Source/Graphics/particles.cpp:924,338793.043478
+/Users/max/dev/Overgrowth/Source/Graphics/sky.cpp:379,478650.0
+/Users/max/dev/Overgrowth/Source/Graphics/sky.cpp:411,85373.3333333
+/Users/max/dev/Overgrowth/Source/Graphics/sky.cpp:445,95986.6666667
+/Users/max/dev/Overgrowth/Source/Graphics/terrain.cpp:526,6752560.0
+/Users/max/dev/Overgrowth/Source/Graphics/text.cpp:984,1200.33819488
+/Users/max/dev/Overgrowth/Source/Graphics/text.cpp:991,860.333967449
+/Users/max/dev/Overgrowth/Source/Graphics/textures.cpp:1045,104875.465839
+/Users/max/dev/Overgrowth/Source/GUI/immediate_mode_gui.cpp:633,42943.5897436
+/Users/max/dev/Overgrowth/Source/GUI/immediate_mode_gui.cpp:789,4407.29344729
+/Users/max/dev/Overgrowth/Source/GUI/overlay.cpp:130,327360.923788
+/Users/max/dev/Overgrowth/Source/Main/engine.cpp:1482,210578.730159
+/Users/max/dev/Overgrowth/Source/Main/scenegraph.cpp:317,646481.481481
+/Users/max/dev/Overgrowth/Source/Objects/envobject.cpp:537,906844.625268
+/Users/max/dev/Overgrowth/Source/Objects/riggedobject.cpp:1977,4955916.63158
+/Users/max/dev/Overgrowth/Source/Objects/riggedobject.cpp:2026,160421.052632
+/Users/max/dev/Overgrowth/Source/Objects/terrainobject.cpp:88,4429018.93048
+/Users/max/dev/Overgrowth/Source/Objects/terrainobject.cpp:227,58479.4701987
+/Users/max/dev/Overgrowth/Source/Objects/terrainobject.cpp:243,8471.6

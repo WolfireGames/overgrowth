@@ -1,0 +1,35 @@
+#! /bin/sh -e
+## QHpointer.dpatch by Rafael Laboissiere <rafael@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Access Qhull globals via a pointer to allocated memory
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+if [ $# -ne 1 ]; then
+  echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+  exit 1
+fi
+case "$1" in
+  -patch)
+    patch $patch_opts -p1 < $0;;
+  -unpatch)
+    patch $patch_opts -p1 -R < $0;;
+  *)
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1;;
+esac
+
+exit 0
+--- qhull-orig/src/user.h	2002-04-29 11:01:46.000000000 +0200
++++ qhull/src/user.h	2004-02-02 11:04:47.000000000 +0100
+@@ -509,7 +509,7 @@
+   see:
+     user_eg.c for an example
+ */
+-#define qh_QHpointer 0
++#define qh_QHpointer 1
+ #if 0  /* sample code */
+     qhT *oldqhA, *oldqhB;
+ 

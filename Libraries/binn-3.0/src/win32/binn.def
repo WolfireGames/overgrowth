@@ -1,0 +1,146 @@
+
+EXPORTS binn_create_type
+EXPORTS binn_get_type_info
+EXPORTS binn_get_write_storage
+EXPORTS binn_get_read_storage
+
+EXPORTS binn_create
+EXPORTS binn_create_list
+EXPORTS binn_create_map
+EXPORTS binn_create_object
+
+EXPORTS binn_new
+EXPORTS binn_list
+EXPORTS binn_map
+EXPORTS binn_object
+
+EXPORTS binn_copy
+
+EXPORTS binn_ptr
+EXPORTS binn_size
+EXPORTS binn_count
+EXPORTS binn_type
+
+EXPORTS binn_free
+EXPORTS binn_release
+
+EXPORTS binn_is_valid
+EXPORTS binn_is_struct
+
+EXPORTS binn_list_add
+EXPORTS binn_map_set
+EXPORTS binn_object_set
+
+EXPORTS binn_list_add_new
+EXPORTS binn_map_set_new
+EXPORTS binn_object_set_new
+
+EXPORTS binn_add_value
+
+EXPORTS binn_value
+EXPORTS binn_set_string
+EXPORTS binn_set_blob
+
+EXPORTS binn_get_int32
+EXPORTS binn_get_int64
+EXPORTS binn_get_double
+EXPORTS binn_get_bool
+EXPORTS binn_get_str
+
+EXPORTS binn_load
+EXPORTS binn_open
+
+EXPORTS binn_list_get
+EXPORTS binn_map_get
+EXPORTS binn_object_get
+
+EXPORTS binn_list_get_value
+EXPORTS binn_map_get_value
+EXPORTS binn_object_get_value
+
+EXPORTS binn_list_int8
+EXPORTS binn_list_int16
+EXPORTS binn_list_int32
+EXPORTS binn_list_int64
+EXPORTS binn_list_uint8
+EXPORTS binn_list_uint16
+EXPORTS binn_list_uint32
+EXPORTS binn_list_uint64
+EXPORTS binn_list_float
+EXPORTS binn_list_double
+EXPORTS binn_list_bool
+EXPORTS binn_list_null
+EXPORTS binn_list_str
+EXPORTS binn_list_blob
+EXPORTS binn_list_list
+EXPORTS binn_list_map
+EXPORTS binn_list_object
+EXPORTS binn_list_value
+
+EXPORTS binn_map_int8
+EXPORTS binn_map_int16
+EXPORTS binn_map_int32
+EXPORTS binn_map_int64
+EXPORTS binn_map_uint8
+EXPORTS binn_map_uint16
+EXPORTS binn_map_uint32
+EXPORTS binn_map_uint64
+EXPORTS binn_map_float
+EXPORTS binn_map_double
+EXPORTS binn_map_bool
+EXPORTS binn_map_null
+EXPORTS binn_map_str
+EXPORTS binn_map_blob
+EXPORTS binn_map_list
+EXPORTS binn_map_map
+EXPORTS binn_map_object
+EXPORTS binn_map_value
+
+EXPORTS binn_object_int8
+EXPORTS binn_object_int16
+EXPORTS binn_object_int32
+EXPORTS binn_object_int64
+EXPORTS binn_object_uint8
+EXPORTS binn_object_uint16
+EXPORTS binn_object_uint32
+EXPORTS binn_object_uint64
+EXPORTS binn_object_float
+EXPORTS binn_object_double
+EXPORTS binn_object_bool
+EXPORTS binn_object_null
+EXPORTS binn_object_str
+EXPORTS binn_object_blob
+EXPORTS binn_object_list
+EXPORTS binn_object_map
+EXPORTS binn_object_object
+EXPORTS binn_object_value
+
+EXPORTS binn_list_read
+EXPORTS binn_map_read
+EXPORTS binn_object_read
+
+EXPORTS binn_map_get_pair
+EXPORTS binn_object_get_pair
+
+EXPORTS binn_map_pair
+EXPORTS binn_object_pair
+
+EXPORTS binn_map_read_pair
+EXPORTS binn_object_read_pair
+
+EXPORTS binn_iter_init
+
+EXPORTS binn_list_next
+EXPORTS binn_map_next
+EXPORTS binn_object_next
+
+EXPORTS binn_list_next_value
+EXPORTS binn_map_next_value
+EXPORTS binn_object_next_value
+
+EXPORTS binn_list_read_next
+EXPORTS binn_map_read_next
+EXPORTS binn_object_read_next
+
+EXPORTS binn_set_alloc_functions
+EXPORTS binn_is_container

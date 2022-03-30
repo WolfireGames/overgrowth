@@ -1,0 +1,15 @@
+<?xml version="2.0" ?>
+<path key="char_player"     path="Data/Objects/IGF_Characters/pale_turner_actor.xml"/>
+<path key="weap_knife"      path="Data/Items/DogWeapons/DogKnife.xml"/>
+<path key="weap_big_sword"  path="Data/Items/DogWeapons/DogBroadSword.xml"/>
+<path key="weap_sword"      path="Data/Items/DogWeapons/DogSword.xml"/>
+<path key="weap_spear"      path="Data/Items/DogWeapons/DogSpear.xml"/>
+<path key="spawn_preview"   path="Data/Objects/IGF_Characters/IGF_Guard.xml"/>
+<path key="weap_preview"    path="Data/Objects/Weapons/DogWeapons/DogBroadSword.xml"/>
+<path key="char_civ"        path="Data/Objects/IGF_Characters/IGF_RabbitCivActor.xml"/>
+<path key="char_raider"     path="Data/Objects/characters/raider_rabbit_actor.xml"/>
+<path key="char_guard"      path="Data/Objects/IGF_Characters/IGF_GuardActor.xml"/>
+<path key="diffuse_tex"     path="Data/Textures/diffuse.tga"/>
+<path key="alt_stance_anim" path="Data/Animations/r_idle2.xml"/>
+<path key="crowd_sound"     path="Data/Sounds/crowd/crowd_arena_general_1.wav"/>
+<path key="font"            path="Data/UI/arena/images/arabtype.ttf"/>

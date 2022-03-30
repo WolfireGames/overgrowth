@@ -1,0 +1,30 @@
+Autotools configuration for Qhull
+---------------------------------
+
+This directory contains all the files needed to bootstrap the Qhull package
+for using Autoconf, Automake, and Libtool.
+
+See ../README.txt for instructions on building with make, cmake, qt, and Microsoft DevStudio
+
+WARNING -- Reworked for qhull-2012.1 but not tested.
+           Produces qhull.so
+           Ignores the C++ interface and libqhull_p.so
+           The patch subdirectory is out-of-date.  
+              It was not used for Qhull 2009.1
+              user.h sets qh_QHpointer=0 (static allocation of qh_qh)
+           Brad Barber <bradb@shore.net>, 2012-01-27
+
+Go to the top source dir and type:
+
+    config/bootstrap.sh
+    
+And then the usual:
+
+    ./configure --prefix=/your/preferred/path/here
+    make
+    make install
+
+
+ -- Rafael Laboissiere <rafael@debian.org>, Sun Feb  1 13:43:54 CET 2004
+
+

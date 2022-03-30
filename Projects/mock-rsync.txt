@@ -1,0 +1,84 @@
+- build/
+- *.m
+- *.mm
+- .git/
++ CMakeLists.txt
+
++ /Libraries
++ /Libraries/opengl.h
++ /Libraries/FL
++ /Libraries/FL/*
++ /Libraries/Linux
++ /Libraries/Linux/**
++ /Libraries/glew-1.9.0
++ /Libraries/glew-1.9.0/**
++ /Libraries/ode-0.11
++ /Libraries/ode-0.11/**
++ /Libraries/boost_1_52_0
++ /Libraries/boost_1_52_0/**
++ /Libraries/angelscript_2.26.3
++ /Libraries/angelscript_2.26.3/**
++ /Libraries/OpenAL 1.1 SDK
++ /Libraries/OpenAL 1.1 SDK/include
++ /Libraries/OpenAL 1.1 SDK/include/*
++ /Libraries/Telemetry2SDKLinux_20P3
++ /Libraries/Telemetry2SDKLinux_20P3/include
++ /Libraries/Telemetry2SDKLinux_20P3/include/*
++ /Libraries/awesomium-1.6.3
++ /Libraries/awesomium-1.6.3/**
++ /Libraries/FreeImage
++ /Libraries/FreeImage/include
++ /Libraries/FreeImage/include/**
++ /Libraries/freetype-2.4.11
++ /Libraries/freetype-2.4.11/include
++ /Libraries/freetype-2.4.11/include/**
++ /Libraries/ogg
++ /Libraries/ogg/include
++ /Libraries/ogg/include/**
++ /Libraries/vorbis
++ /Libraries/vorbis/include
++ /Libraries/vorbis/include/**
++ /Libraries/bullet-2.81/
++ /Libraries/bullet-2.81/**
++ /Libraries/theora
++ /Libraries/theora/include
++ /Libraries/theora/include/**
++ /Libraries/tinyxml
++ /Libraries/tinyxml/tiny*.cpp
++ /Libraries/tinyxml/tiny*.h
++ /Libraries/qslim-2.1
++ /Libraries/qslim-2.1/mixkit
++ /Libraries/qslim-2.1/mixkit/src
++ /Libraries/qslim-2.1/mixkit/src/**
++ /Libraries/qslim-2.1/tools
++ /Libraries/qslim-2.1/tools/qslim
++ /Libraries/qslim-2.1/tools/qslim/*
++ /Libraries/nvidia-texture-tools-read-only
++ /Libraries/nvidia-texture-tools-read-only/**
++ /Libraries/fftw-3.3
++ /Libraries/fftw-3.3/**
++ /Libraries/nvapi
++ /Libraries/nvapi/**
++ /Libraries/freealut-1.1.0-bin
++ /Libraries/freealut-1.1.0-bin/**
++ /Libraries/SDL2-2.0.3
++ /Libraries/SDL2-2.0.3/**
++ /Libraries/glm-0.9.4.2
++ /Libraries/glm-0.9.4.2/**
+
+
++ /Projects
++ Projects/cmake
++ Projects/cmake/**
++ /Projects/Recast
++ /Projects/sigar
++ /Projects/TheoraPlayer
++ /Projects/qslim
++ /Projects/triangle
++ /Projects/minizip
++ /Projects/glew
+
++ /Source
++ /Source/**
+
+- *

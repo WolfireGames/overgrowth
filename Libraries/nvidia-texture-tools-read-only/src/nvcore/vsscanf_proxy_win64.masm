@@ -1,0 +1,124 @@
+; MASM x64 version of
+; vsscanf for Win32
+; originally written 5/2003 by <mgix@mgix.com>
+;
+; This was done because MSVC does not accept inline assembly code
+; for the x64 platform, so this file implements almost the whole
+; module in assembly using the amd64 ABI
+;
+; 06/17/2008 by edgarv [at] nvidia com
+
+; Definition of memcpy
+memcpy	PROTO dest:Ptr, src:Ptr, numbytes:QWORD
+
+; Definition of sscanf
+sscanf PROTO buffer:Ptr Byte, format:Ptr Byte, args:VARARG
+
+
+
+; Start a code segment named "_TEXT" by default
+.CODE
+
+; Entry point of our function: at this point we can use
+; named parameters
+ALIGN 16
+PUBLIC vsscanf_proxy_win64
+
+; Because the x64 code uses the fast call convention, only
+; the arguments beyond the 4th one are available from the stack.
+; The first four parameters are in RCX, RDX, R8 and R9
+
+; Parameters:
+;    const char* buffer
+;    const char* format
+;    va_list argPtr
+;    size_t  count
+vsscanf_proxy_win64 PROC, \
+	buffer:PTR Byte, format:PTR Byte, argPtr:PTR, count:QWORD
+	
+  ; Allocates space for our local variable, savedRDP
+  sub rsp, 08h
+  
+  ; Copies the parameters from the registers to the memory: before warping to
+  ; sscanf we will call memcpy, and those registers can just dissapear!
+  mov buffer, rcx
+  mov format, rdx
+  mov argPtr, r8
+  mov count,  r9
+
+
+  ; Allocate extra space in the stack for (2+count)*sizeof(void*),
+  ; this is (2+count)*(8)
+  mov r10, r9
+  add r10, 2		; count += 2
+  sal r10, 3		; count *= 8
+  add r10, 0fh	; To force alignment to 16bytes
+  and r10, 0fffffffffffffff0h
+  sub rsp, r10	; Actual stack allocation
+  
+  
+  ; Continues by copying all the arguments in the "alloca" space  
+  mov [rsp], rcx		    ; newStack[0] = (void*)buffer;
+  mov [rsp + 08h], rdx		; newStack[1] = (void*)format;
+  
+  ; Calls memcpy(newStack+2, argPtr, count*sizeof(void*));
+  mov rcx, rsp
+  add rcx, 010h		; newStack+2
+  mov rdx, r8		; argPtr
+  mov r8, r9
+  sal r8, 3			; count*sizeof(void*)
+  
+  ; Prepares extra stack space as required by the ABI for 4 arguments, and calls memcpy
+  sub rsp, 020h
+  call memcpy
+  
+  ; Restore the stack
+  add rsp, 020h
+  
+  ; Saves rsp in memory
+  mov qword ptr [rbp - 8], rsp
+  
+  ; Does exactly the same trick as before: warp into system sscanf with the new stack,
+  ; but this time we also setup the arguments in the registers according to the amd64 ABI
+  
+  ; If there was at least one argument (after buffer and format), we need to copy that
+  ; to r8, and if there was a second one we must copy that to r9
+  ; (the first arguments to sscanf are always the buffer and the format)
+  mov r10, count
+  
+  ; Copy the first argument to r8 (if it exists)
+  cmp r10, 0
+  je args_memcpy
+  mov r8, [rsp + 10h]
+  
+  ; Copy the second argument to r9 (if it exists)
+  cmp r10, 1
+  je args_memcpy
+  mov r9, [rsp + 18h]
+    
+args_memcpy:
+  
+  ; Copies the buffer and format to rcx and rdx
+  mov rdx, [rsp + 08h]
+  mov rcx, [rsp]
+  
+  ; Finally, calls sscanf using the current stack
+  call sscanf
+  
+  ; At this point the return value is alreay in rax
+  
+  ; Restores rsp
+  mov rsp, qword ptr [rbp - 8]
+  
+  ; Undoes the alloca
+  add rsp, r10
+  
+  ; Restores the space for local variables
+  add rsp, 08h
+  
+  ; Remember, the return value is already in rax since the sscanf call
+  ret
+
+vsscanf_proxy_win64 ENDP
+
+END

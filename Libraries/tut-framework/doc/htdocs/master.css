@@ -1,0 +1,128 @@
+html {
+    height: 100%;
+}
+
+body {
+	height: 100%;
+	font-family: sans-serif;
+	color: #000000;
+}
+
+div#content {
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    width: 90%;
+    background-color: white;
+    padding: 0px;
+}
+
+div#sidebar {
+    text-align: left;
+    height: 100%;
+    width: 275px;
+    float: left;
+}
+
+div#header {
+	border: solid 1px black;
+  	background-color: #eeeeee;
+
+	padding: 10px;
+	margin-bottom: 5px;
+
+	font-weight: bold;
+	font-size : 48px;
+}
+
+div#main {
+	border: solid 1px black;
+  	background-color: #eeeeee;
+  	margin-top: 5px;
+  	margin-left: 280px;
+  	padding: 10px;
+	font-size: 16px;
+}
+
+.text {
+}
+
+
+ul {
+	list-style-type : square;
+}
+
+pre {
+  	background-color: #f3f3f3;
+  	border: dashed 1px black;
+	margin: 10px;
+  	padding: 15px;
+}
+
+ul.menu {
+	list-style-type: none;
+ 	margin: 0px 10px 0px 10px; 
+ 	padding: 10px;
+}
+
+ul.menu li {
+	padding: 0px 0px 4px 0px;
+}
+
+ul.menu li a {
+	color: #ff9900;
+    text-decoration: none;
+	font-weight: bold;
+}
+
+ul.menu li a:hover {
+    text-decoration: underline;
+}
+
+a.menulink {
+	font-size : 20px;
+}
+
+a.dlink {
+	font-size: 40px; 
+	font-variant: small-caps;
+}
+
+div.menusection {
+	margin: 0px 0px 5px 0px;
+  	background-color: #eeeeee;
+	border: 1px solid black;
+}
+
+.menuitem {
+	font-size: 20px;
+	font-weight: bold;
+	color: #ff9900;
+	text-decoration: none;
+}
+
+div.menucomment {
+	font-size : 14px;
+	font-weight: bold;
+}
+
+.pagetitle {
+	font-weight: bold;
+	font-size: 36px;
+}
+
+.subheader {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.accent {
+	font-weight: bold;
+	font-size: 20px;
+	color: #ff9900;
+}
+
+.question {
+	font-weight: bold;
+	font-size: 16px;
+}

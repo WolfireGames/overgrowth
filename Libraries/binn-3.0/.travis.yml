@@ -1,0 +1,6 @@
+language: c
+
+script:
+  - make
+  - sudo make install
+  - make test

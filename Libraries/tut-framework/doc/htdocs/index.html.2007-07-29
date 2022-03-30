@@ -1,0 +1,1242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>TUT: C++ Template Unit Test Framework</title>
+	<meta name="keywords" content="C++ Unit Test Simple" />
+	<meta name="description" content="TUT: C++ Template Unit Test Framework" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link type="text/css" rel="stylesheet" href="master.css" />
+
+<script type="text/javascript">
+function get(id) {
+  return document.getElementById(id);
+}
+
+function hide(id) {
+  var o = get(id);
+  if( o != null ) o.style.display = "none";
+}
+
+function show(id) {
+  hide('intro'); 
+  hide('example');
+  hide('howto');
+  hide('copyright');
+  hide('download');
+  hide('links');
+  hide('author');
+  hide('faq');
+
+  var o = get(id);
+  if( o == null ) return;
+
+  o.style.display = "block";
+}
+</script>
+</head>
+
+<body onload="show('intro');">
+<div id="content">
+	<div id="header" class='header'>
+		TUT: C++ Template Unit Test Framework
+	</div>
+	<div id="sidebar">
+		<div class="menusection">
+		<ul class="menu">
+			<li>
+				<a class="dlink" href="javascript:show('download');">Download</a>
+				<div class="menucomment">the latest version of TUT</div>
+			</li>
+		</ul>
+		</div>
+		<div class="menusection">
+		<ul class="menu">
+			<li>
+            	<a class="menulink" id='intro.menu' href="javascript:show('intro');">Introduction</a>
+				<div class="menucomment">an elevator pitch</div>
+            </li>
+        </ul>
+        <ul class="menu">
+            <li>
+				<a class="menulink" id='example.menu' href="javascript:show('example');">Example</a>
+				<div class="menucomment">it&rsquo;s better to see once...</div>
+            </li>
+        	<li>
+				<a class='menulink' href="javascript:show('howto')">How To</a>
+				<div class="menucomment">minimum steps to make TUT work for you</div>
+        	</li>
+        </ul>
+        <ul class="menu">
+        	<li>
+				<a class='menulink' href="javascript:show('faq')">FAQ</a>
+				<div class="menucomment">frequently asked questions</div>
+        	</li>
+        	<li>
+				<a class='menulink' href="javascript:show('author')">Authors</a>
+				<div class="menucomment">author and credits</div>
+        	</li>
+        	<li>
+				<a class='menulink' href="javascript:show('links')">Links</a>
+				<div class="menucomment">related projects and concepts</div>
+        	</li>
+        	<li>
+				<a class='menulink' href="javascript:show('copyright')">Copyright</a>
+				<div class="menucomment">BSD license: almost no restrictions</div>
+        	</li>
+        </ul>
+		</div>
+	</div>
+	<div id="main">
+	<!--
+		===================================================================
+		INDEX PAGE
+		===================================================================
+	-->
+	<div id="intro" class="text">
+		<div class="pagetitle">TUT Introduction</div>
+		<p>
+			TUT is a small and portable unit test framework for C++. 
+		</p>
+		<ul>
+			<li>
+				TUT is <span class='accent'>very portable</span>: no matter what compiler or OS do you use.
+			</li>
+			<li>
+				TUT consists of <span class='accent'>one header file only</span>. No libraries required.
+			</li>
+			<li>
+				Custom <span class='accent'>reporter interface</span> allows to integrate TUT with virtually any IDE or tool in the world.
+			</li>
+			<li>
+				Tests are organised into <span class='accent'>named test groups</span>. 
+			</li>
+			<li>
+				<span class='accent'>Regression</span> (all tests in the application), <span class='accent'>one-group</span> or <span class='accent'>one-test</span> execution.
+			</li>
+			<li>
+				<span class='accent'>Pure C++</span>, no macros!
+			</li>
+			<li>
+   				TUT is <span class='accent'>free</span> and distributed under a BSD-like license.
+			</li>
+		</ul>
+		<p>
+			TUT tests are easy to read and maintain. Here&#39;s the simplest test file possible:
+		</p>
+<pre>
+#include &lt;tut.h&gt;
+
+namespace tut
+{
+  struct basic{};
+  typedef test_group&lt;basic&gt; factory;
+  typedef factory::object object;
+}
+
+namespace
+{
+  tut::factory tf("basic test");
+}
+
+namespace tut
+{
+  template&lt;&gt; template&lt;&gt;
+
+  void object::test&lt;1&gt;()
+  {
+    ensure_equals("2+2=?",2+2,4);
+  }
+}
+</pre>
+	</div>
+
+	<!--
+		===================================================================
+		EXAMPLE
+		===================================================================
+	-->
+
+	<div id='example' class='text'>
+		<div class="pagetitle">An example of TUT usage</div>
+		An example testgroup which tests a std::auto_ptr implementation.
+		Of course, those tests are far from complete.
+
+<pre>
+#include &lt;tut.h&gt;
+#include &lt;set&gt;
+#include &lt;memory&gt;
+
+namespace tut
+{
+  /**
+   * Struct which may contain test data members.
+   * Test object (class that contains test methods)
+   * will inherite from it, so each test method can
+   * access members directly.
+   *
+   * Additionally, for each test, test object is re-created
+   * using defaut constructor. Thus, any prepare work can be put
+   * into default constructor.
+   *
+   * Finally, after each test, test object is destroyed independently
+   * of test result, so any cleanup work should be located in destructor.
+   */
+  struct auto_ptr_data
+  { 
+    /**
+     * Type used to check scope lifetime of auto_ptr object.
+     * Sets extern boolean value into true at constructor, and
+     * to false at destructor.
+     */
+    bool exists;
+    struct existing
+    {
+      bool&amp; s_;
+      existing(bool&amp; s) : s_(s){ s_ = true; };
+      ~existing(){ s_ = false; };
+    };
+  };
+
+  /**
+   * This group of declarations is just to register
+   * test group in test-application-wide singleton.
+   * Name of test group object (auto_ptr_group) shall
+   * be unique in tut:: namespace. Alternatively, you
+   * you may put it into anonymous namespace.
+   */
+  typedef test_group&lt;auto_ptr_data&gt; tf;
+  typedef tf::object object;
+  tf auto_ptr_group("std::auto_ptr");
+
+  /**
+   * Checks default constructor.
+   */
+  template&lt;&gt;
+
+  template&lt;&gt;
+  void object::test&lt;1&gt;()
+  {
+    std::auto_ptr&lt;existing&gt; ap;
+    ensure(ap.get()==0);
+    ensure(ap.operator-&gt;()==0);
+  }
+
+  /**
+   * Checks constructor with object
+   */
+  template&lt;&gt;
+  template&lt;&gt;
+  void object::test&lt;2&gt;()
+  {
+    {
+      std::auto_ptr&lt;existing&gt; ap(new existing(exists));
+      ensure("get",ap.get()!=0);
+      ensure_equals("constructed",exists,true);
+    }
+    // ptr left scope
+    ensure_equals("destructed",exists,false);
+  }
+
+  /**
+   * Checks operator -&gt; and get()
+   */
+  template&lt;&gt;
+
+  template&lt;&gt;
+  void object::test&lt;3&gt;()
+  {
+    std::auto_ptr&lt;existing&gt; ap(new existing(exists));
+    existing* p1 = ap.get();
+    existing* p2 = ap.operator-&gt;();
+    ensure("get equiv -&gt;",p1==p2);
+    // ensure no losing ownership
+    p1 = ap.get();
+    ensure("still owner",p1==p2);
+  }
+
+  /**
+   * Checks release()
+   */
+  template&lt;&gt;
+  template&lt;&gt;
+  void object::test&lt;4&gt;()
+  {
+    {
+      std::auto_ptr&lt;existing&gt; ap(new existing(exists));
+      existing* p1 = ap.get();
+      std::auto_ptr&lt;existing&gt; ap2(ap.release());
+      ensure("same pointer",p1==ap2.get());
+      ensure("lost ownership",ap.get()==0);
+    }
+    ensure("destructed",exists==false);
+  }
+
+  /**
+   * Checks assignment.
+   */
+  template&lt;&gt;
+
+  template&lt;&gt;
+  void object::test&lt;5&gt;()
+  {
+    {
+      std::auto_ptr&lt;existing&gt; ap(new existing(exists));
+      existing* p1 = ap.get();
+      std::auto_ptr&lt;existing&gt; ap2;
+      ap2 = ap;
+      ensure("same pointer",p1==ap2.get());
+      ensure("lost ownership",ap.get()==0);
+    }
+    ensure("destructed",exists==false);
+  }
+
+  /**
+   * Checks copy constructor.
+   */
+  template&lt;&gt;
+  template&lt;&gt;
+
+  void object::test&lt;6&gt;()
+  {
+    {
+      std::auto_ptr&lt;existing&gt; ap(new existing(exists));
+      existing* p1 = ap.get();
+      std::auto_ptr&lt;existing&gt; ap2(ap);
+      ensure("same pointer",p1==ap2.get());
+      ensure("lost ownership",ap.get()==0);
+    }
+    ensure("destructed",exists==false);
+  }
+}
+
+</pre>
+
+	</div>
+
+	<!--
+		===================================================================
+		HOWTO
+		===================================================================
+	-->
+
+	<div id="howto" class="text">
+		<div class='pagetitle'>How to start using TUT</div>
+		<p class="subheader">Tests organization</p>
+		<p> Tests are compiled into a single binary (a test application). </p>
+		<p> 
+			The test application contains tests organized into test groups. Every test group
+			has a human-readable name (such as "payroll"). Normally every group is located
+			in it&#39;s own source file. A group can contain an unlimited number
+			of tests. Every test has an unique number as test identifier (
+			C++ templates do not support specialization by a string value). 
+		</p>
+		<p class="subheader">Tests</p>
+		<p> 
+			A test is a function (method) implementing some specific scenario and checking 
+			if the code (unit) works as required. Every test usually checks only one specific 
+			bit of functionality. In every test we have a preparation phase, execution phase and
+			verification phase. For instance, if we need to test our container&#39;s clear() method, we need to:
+		</p>
+		<ul>
+			<li>create a container instance and fill it with some data (preparation phase)</li>
+			<li>call clear() method (execution phase)</li>
+			<li>ensure that size() now returns zero (verification phase)</li>
+		</ul> 
+		<p>Let&#39;s implement this scenario as a example TUT test.</p>
+		<p class="subheader">Creating a test group</p>
+		<p> To begin we need to create a new source file for our test group. 
+			Let&#39;s call it test.cpp.
+		</p>
+<pre> 
+// test.cpp 
+#include &lt;tut.h&gt; 
+namespace tut 
+{ 
+	struct data // (1)
+	{ 
+	};
+	
+	typedef	test_group&lt;data&gt; tg; // (2)
+	tg test_group("my first test");    // (3)
+}; 
+</pre>
+
+		<p>
+			Let&#39;s outline what we&#39;ve just done. 
+		</p>
+		<ul>
+			<li>We included TUT header file (an obvious step).</li>
+			<li>We defined test data structure. Any data that should be available to every test could be located in
+				this data structure. An instance of the structure is created before every test starts and is destroyed
+				right after the test ends, so you may use the structure&#39;s constructor and destructor 
+				for initialization and cleanup purposes.
+			</li>
+			<li>We created an instance of the test group with the name "my first test". Behind the scene the instance
+				registers itself with a global test runner, so the name shall be unique within the test application.
+			</li>
+		</ul>
+
+		<p class="subheader">Creating a test</p>
+		<p> In TUT all tests have an unique <span class='accent'>numbers</span>, not names, within their test group.
+			You can provide an optional name to the test by calling set_test_name() method.
+	 	</p>
+<pre> 
+#include &lt;my_set.h&gt; 	
+	
+#include &lt;tut.h&gt; 
+namespace tut 
+{ 
+	struct data //
+	{ 
+	};
+	
+	typedef	test_group&lt;data&gt; tg;
+	tg test_group("my first test");
+	
+	typedef tg::object testobject;
+	
+	template&lt;&gt; 
+	template&lt;&gt; 
+	void testobject::test&lt;1&gt;() 
+	{ 
+		set_test_name("clear");
+
+		my::set s('a','b','c');
+		ensure_equals("has elements",s.size(),3);
+
+		s.clear();
+		ensure_equals("has no elements",s.size(),0);	
+	}	
+}; 
+
+</pre>
+
+		<p>
+			Our test is completed. Let walk through the code:
+		</p>
+		<ul>
+			<li>For the sake of brevity we had created yet another typedef for test object.</li>
+			<li>We defined our test as a test <span class='accent'>number 1</span>. We also gave it a human-readable name "clear".</li>
+			<li>We created an instance of our proprietary <span class='accent'>set class</span> with three elements in it.</li>
+			<li>We checked that the size() method in fact returns 3.</li>
+			<li>We cleared the set.</li>
+			<li>We verified that the size() returns zero now.</li>
+		</ul>
+
+		<p class="subheader">Finally, the main module of the test application</p>
+
+<pre>
+#include &lt;tut.h&gt;
+#include &lt;tut_reporter.h&gt;
+#include &lt;iostream&gt;
+
+using std::exception;
+using std::cerr;
+using std::endl;
+
+namespace tut
+{
+    test_runner_singleton runner;
+}
+
+int main()
+{
+    tut::reporter reporter;
+    tut::runner.get().set_callback(&amp;reporter);
+
+    try
+    {
+        tut::runner.get().run_tests();
+    }
+    catch (const std::exception&amp; ex)
+    {
+        cerr &lt;&lt; "tut raised ex: " &lt;&lt; ex.what() &lt;&lt; endl;
+        return 1;
+    }
+
+    return 0;
+}
+
+</pre>
+
+		<p>
+			Here we see the minimum required implementation of the main module. It contains the instance of the 
+			runner (a singleton, as class name suggests), where test groups register themselves. It creates an
+			instance of a reporter (which can be extended or replaced to support virtually any target and style 
+			of the report. And finally, it runs all the tests in one batch.
+		</p>
+
+		<p>
+			Runner support a few more precise methods to run tests as well, such as "run all tests within a group"
+			or even "run a specific test within a group".
+		</p>
+
+		<p>
+			<span class='accent'>We&#39;re done.</span>
+		</p>
+
+
+		<p class="subheader">Tip: data structure constructor/destructor as setUp/tearDown methods</p>
+		<p>
+			To aquire resources before the test and to release them right after the test 
+			use constructor and destructor of the data structure:
+		</p>
+
+<pre> 
+	...
+	struct complex_data 
+	{ 
+		connection* con;
+		complex_data() { con = db_pool.get_connection(); } 
+		~complex_data() { db_pool.release_connection(con); } 
+	};
+
+	template&lt;&gt; 
+	template&lt;&gt; 
+	void testobject::test&lt;1&gt;() 
+	{ 
+		...
+		con->commit();
+	}
+
+</pre>
+
+		<p>
+				Each test in the group from now on will have the connection initialized by 
+				constructor and released in destructor.
+		</p>
+
+		<p> 
+			What would happen if the constructor throws an exception? TUT will treat it as if test itself
+			failed with an exception. The test body won&#39;t be executed and it will be reported as failed with
+			exception. But the destructor of the data structure will be executed anyway!
+		</p>
+
+		<p> 
+			An exception in the destructor is threated differently though. Reaching destruction phase means
+			that the <span class='accent'>test itself</span> has finished successfuly. In this case TUT marks 
+			the test with a warning status.
+		</p>
+
+		<p class="subheader">Tip: more than 50 tests per group</p>
+		<p> 
+			A newly created group has a predefined set of dummy tests (i.e. test placeholders).
+			By default, there are 50 tests in a group. To create a test group with a higher 
+			volume (e.g. when tests are generated by a script) provide a higher border of 
+			test group size when it is instantiated: 
+		</p>
+
+<pre> 
+// test group with maximum 500 tests 
+typedef test_group&lt;huge_test_data,500&gt; testgroup;
+</pre>
+
+		<p> 
+			Note that your compiler would possibly need a command-line switch or pragma to enlarge
+			the recursive instantiation depth. For g++, for example, you should specify 
+			--ftemplate-depth-501 to make example above compile. Please consult your compiler&#39;s documentation. 
+		</p>
+
+	</div>
+
+	<!--
+		===================================================================
+		FAQ
+		===================================================================
+	-->
+
+	<div id='faq' class='text'>
+		<div class="pagetitle">F.A.Q.</div>
+
+		<div class="question">What is TUT?</div>
+
+		<p>
+			TUT is a small and portable unit test framework for C++. It&#39;s so small that it fits into
+			one header file. It&#39;s so portable that it could be used on almost any C++ platform, including
+			Windows, MacOS, Unices and embedded devices.
+		</p>
+
+		<div class="question">Can we use strings as test names, please?</div>
+		<p>
+			No and yes. C++ template engine doesn&#39;t support usage of run-time objects (and string <span class='accent'>is</span>
+			a run-time object) for specialization. Compile-time constants is the only way.
+		</p>
+
+		<p>
+			On the other hand, there is a method set_test_name("a name") which you can call in the beginning of a test to make it look
+			prettier in the failed build report. &lt;grin&gt;
+		</p>
+
+		<div class="question">Can we test private methods?</div>
+		<p>
+			Alas.
+		</p>
+
+		<p>
+			First, from a pure theoretical POV, testing private methods is considered harmful as it exposes class internals, while traditional testing focuses on public interface only.
+		</p>
+
+		<p>
+			Second, it&#39;s just plain impossible in C++ without making TUT a friend of tested class (which can be done, I guess, I just never tried).
+		</p>
+
+		<div class="question">
+			How it&#39;s different from C++Unit (boost::test, ...)?
+		</div>
+		<p>
+			C++Unit, boost::test and other frameworks has similar goals.
+		</p> 
+
+		<p>
+			But there are some issues with many of them: 
+		</p>
+		<ul>
+			<li>they require to use a library</li>
+			<li>tests depend on preprocessor macros</li>
+			<li>they often overloaded with features</li>
+		</ul>
+
+		<p>
+			TUT, in contrast, is located in a single header file (20K). 
+			All you should do is to include it into the test module. No linking at all.
+		</p>
+
+		<p>
+			TUT uses C++ template engine to dispatch calls to test methods. Therefore 
+			you shouldn&#39;t even register methods as tests; template will do it for you automatically. 
+			As a result, the test code is more readable.
+		</p>
+
+		<p>
+			And finally, TUT is a minimal software. It only does what it&#39;s designed for. 
+			It doesn&#39;t integrate with MSDN or control production processes. It just runs tests.
+		</p>
+
+		<div class="question">
+			Which compilers are supported?
+		</div>
+
+		<p>
+			Most modern compilers are supported.
+			Some outdated compilers are unable to handle templates in TUT, alas.
+		</p>
+
+		<p>Supported:
+		</p>
+		<ul>
+			<li>GNU GCC 2.95</li>
+			<li>GNU GCC 3.x (both under unix and <a href="http://www.mingw.org">MinGW</a>)</li>
+			<li>Borland 5.6 (Borland C++ Builder 6)</li>
+			<li>Intel C++ Compiler 6.x</li>
+  			<li>Intel C++ Compiler 8.1</li>
+  			<li>Sun Studio 9: C++ 5.6 Compiler</li>
+  			<li>Microsoft VC7 (Microsoft VS.NET 2003 and later)</li>
+  			<li>Sun WorkShop 6 update 2 C++ 5.3 (probably, previous versions as well)</li>
+		</ul>
+		<p>Unsupported:
+		</p>
+		<ul>
+			<li>Borland 5.5.x (Borland C++ Builder 5)</li>
+			<li>Microsoft VC6 (including SP5)</li>
+			<li>Microsoft VC7 (Microsoft VS.NET 2002)</li>
+			<li>C for AIX Compiler, Version 6</li>
+			<li>KAI C++ Compiler</li>
+			<li>Portland Group Compiler, Version 5.2-4</li>
+		</ul>
+
+		<p>
+			If you use TUT with any other compiler or environment please let me know.
+		</p>
+
+		<p>
+			Some broken compiler/linker/platform combinations require to make methods ensure(),
+			ensure_equals and fail() to be inline, and not in anonymous namespace. Try to
+			change tut.h accordingly if you see "duplicate symbol ensure" or "ensure is not found" 
+			during linking stage.
+		</p>
+
+		<div class="question">
+			I&#39;ve taken a look at the selftest code and it looks awful
+		</div>
+
+		<p>
+			Self tests are very special beasties, and actually you&#39;ve seen 
+			two(!) TUT frameworks running one under control of another. The case is 
+			quite extreme. Regular TUT tests are very simple to read.
+		</p>
+
+		<div class="question">
+			I&#39;ve used ensure_equals() method and compiler refused to build my code complaining that there is ambiguous overload for operator &lt;&lt;.
+		</div>
+		<p>
+			One or both types you&#39;ve provided to ensure_equals() have no operator &lt;&lt; at all. 
+			Since the diagnostic message is built using std::stringstream, compiler needs the 
+			operator to format your objects. Either add the operator or use ensure() method 
+			(which doesn&#39;t tell you the exact values the objects had, just the fact they were not equal).
+		</p>
+
+		<div class="question">
+			What about segmentation faults in code being tested? What about deadlocks?
+		</div>
+
+		<p>
+			C++ Standard doesn&#39;t specify what happens if the code references
+			wrong address. Thus, segmentation fault processing is system and compiler dependent,
+			and shall be handled differently for each system/compiler pair.
+		</p>
+
+		<p>
+			If you want TUT to react correctly to tests failures caused by segfaults,
+			you must somehow convert hardware faults into C++ exceptions.
+		</p>
+
+		<p>
+			For Win32 TUT uses SEH. You need to specify -DTUT_USE_SEH at the test build time.
+		</p>
+
+		<p>
+			For unixes there is no standard way to convert SIGSEGV into an exception.
+			Consult your platform/compiler documentation for possible ways to do that.
+		</p>
+      
+		<p>
+			You may also use restartable wrapper defined in optional header 
+			tut_restartable.h. It runs the tests the same way
+			as regular runner does, but also logs the progress. If a test crashes the test 
+			application, and then test application is started again, the wrapper will load last 
+			log record, and continue test execution from position after the crashed one.
+		</p>
+
+		<p>
+			Of course, this requires helper script that runs test application
+			until all tests will be runned. The script might be is as simple as
+		</p>
+
+<pre>
+while true
+do
+  ./restartable &amp;&amp; exit 0
+done
+</pre>
+
+		<p>Directory examples/restartable contains a simple restartable test application.</p>
+
+		<p>
+			This approach can be extended to support deadlocks in code. The script
+			must be modified to automatically kill test application after specified
+			period of time.
+		</p>
+
+	</div>
+
+	<!--
+		===================================================================
+		AUTHORS
+		===================================================================
+	-->
+
+
+	<div id='author' class='text'>
+
+		<div class="pagetitle">Authors</div>
+
+		<p>
+			This software (TUT) was designed and written by Vladimir Dyuzhev,
+			who currently lives in Toronto, Canada. His personal site is
+			<a href="http://vladimir-dyuzhev.net">vladimir-dyuzhev.net</a>.
+		</p>
+
+		<p>
+			In recent years TUT was part-time maintained by 
+			Denis Kononenko.
+		</p>
+
+		<p>
+			Please post your comments and bug-reports to <a href="http://sourceforge.net/forum/forum.php?forum_id=719643">SourceForge TUT forum</a>
+		</p>
+
+	</div>
+
+	<div id='links' class='text'>
+    	<p>
+    		<a href="http://www.armaties.com/testfram.htm">www.armaties.com/testfram.htm</a> 
+    		- Kent Beck&#39;s paper on Smalltalk unit test framework xUnit
+        	"Simple Smalltalk Testing:With Patterns".        
+      	</p>
+
+		<p>
+       		<a href="http://cppunit.sourceforge.net/cgi-bin/moin.cgi">cppUnit</a> - 
+         	Another popular C++ unit test framework.
+       	</p>
+
+       <p>
+       		<a href="http://junit.org/">junit.org</a> - 
+         	Most popular framework for Java: JUnit.
+       </p>
+
+    	<p>
+    		<a href="http://maxkir.com/">maxkir.com</a> - 
+        		Kir &amp; Sashka Maximov&#39;s site: people who
+        		are translating a lot of Xtreme Programming
+        		books and articles into Russian. A must
+        		for any Russian who&#39;re interested in Agile
+        		development.
+
+       			Kir was also my coach in Java, and Sashka 
+        		translated most of this site into English. Thank you both!
+    	</p>
+
+    	<p>
+    		<a href="http://stlport.com/">stlport.com</a>
+        	Industrial-quality free STL implementation: STLport.
+    	</p>
+
+	</div>
+
+	<div id='copyright' class='text'>
+		<b>Copyright 2002-2006 Vladimir Dyuzhev</b><br/>
+		<b>Copyright 2007 Denis Kononenko</b><br/>
+
+		<p>
+			Redistribution and use in source and binary forms, 
+			with or without modification, are permitted provided 
+			that the following conditions are met:
+        </p>
+
+		<ul>
+        	<li>
+				Redistributions of source code must retain the above copyright notice, 
+				this list of conditions and the following disclaimer. 
+        	</li>
+			<li>
+				Redistributions in binary form must reproduce the above copyright notice, 
+				this list of conditions and the following disclaimer in the documentation 
+				and/or other materials provided with the distribution.
+			</li>
+		</ul>
+
+		<p>
+			<b>
+				THIS SOFTWARE IS PROVIDED &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+				INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY 
+				AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL 
+				THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+				SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, 
+				PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
+				OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+				WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR 
+				OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+				ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+			</b>
+		</p>
+	</div>
+<!--
+	===================================================================
+	DOWNLOAD
+	===================================================================
+-->
+<div id='download' class='text'>
+
+<div class="pagetitle">TUT Downloads</div>
+
+<p>
+        Latest versions of TUT:
+    </p>
+
+<!-- downloadable files >> -->
+<p><strong>TUT-2007-07-06</strong></p>
+<p>Changes:</p>
+<p>
+Introduced new header include style. There are two ways you can include the TUT headers:
+</p>
+<pre>#include &lt;tut.h&gt;</pre>
+or:
+<pre>#include &lt;tut/tut.hpp&gt;</pre>
+<p>
+The second option is preferred method whereas the first option is to provide backward 
+compatibility with clients of the previous releases.
+</p>
+<p>
+Minor fixes for Borland C++ Builder 6 and Microsoft Visual Studio 2005.
+</p>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2007-07-06.tar.gz">TUT-2007-07-06.tar.gz</a><br/></li>
+<li><a href="_src/TUT-2007-07-06.zip">TUT-2007-07-06.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2007-03-19</strong></p>
+<p>Changes:</p>
+<p>
+Introduced a new exception <code>tut_error</code> as base for all TUT exceptions.
+I have two reasons to do it:
+</p>
+<ul>
+	<li>
+
+		To avoid interference with <code>std::logic_error</code> leading to annoyed pitfalls
+		in inaccurate test code. For example:<pre>
+
+  // function to test
+  void foo(bool cond)
+  {
+      if (!cond) 
+      {
+          throw logic_error("condition is not set");
+      }
+  }
+	
+  // inside a test
+  try
+  {
+      ensure("something", some_expression); // can throw logic_error
+      foo(false);
+  }
+  catch (const logic_error&amp;)
+  {
+      // ok or pitfall?
+  }
+</pre>
+		Howewer, because of that <code>tut_error</code> is derived from 
+		<code>std::exception</code>, you should avoid catching <code>std::exception</code> 
+		in your test code without appropriate checks.
+	</li>
+
+	<li>
+
+		Some implementations of Standard C++ Library restrict size of a message passed into
+		a standard exception (from &lt;stdexcept&gt;) within narrow limits 
+		(usually, 256 bytes). Sometimes, it leads to incomplete messages in TUT reports. 
+	</li>
+</ul>
+<p>
+Minors: 
+</p>
+	<ul>
+		<li>
+			actual and expected values are quoted to increase failure messages readability;
+		</li>
+
+		<li>
+
+			if <code>ensure_distance</code> fails it will output a range in round brackets
+			because range borders are excluded from range (thanks to Koolin Timofey).
+		</li>
+	</ul>
+<p>
+New function added: <code>ensure_not</code>. I found that <code>ensure_not(condition)</code>
+
+is more readable than <code>ensure(!condition)</code>.
+
+</p>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2007-03-19.tar.gz">TUT-2007-03-19.tar.gz</a><br/></li>
+<li><a href="_src/TUT-2007-03-19.zip">TUT-2007-03-19.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2007-02-03</strong></p>
+<p>Changes:</p>
+<p>
+
+Microsoft Visual C++ 2005 is supported. This version of compiler supports
+standard C++ exception handling in accordance with the C++ standard. It means 
+that only synchronous C++ exceptions thrown with a throw statement will be 
+caught in a catch block. 
+</p>
+<p>
+
+TUT uses two models of exception: handling SEH and standard C++ exception 
+handling. TUT expects that if any structured exception is raised it will be 
+handled by nearer C++ catch handler. It was default behavior of the previous
+version of compiler (option /EHs). But for the new version I have to turn on
+asynchronous exception handling (option /EHa).
+</p>
+<p>
+Minors: Some polish work.
+</p>
+<p>
+Note: I consider to stop maintain a lot of Makefiles due to lack of time and
+support only Jamfile.
+</p>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2007-02-03.tar.gz">TUT-2007-02-03.tar.gz</a><br/></li>
+
+<li><a href="_src/TUT-2007-02-03.zip">TUT-2007-02-03.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2006-11-04</strong></p>
+
+<p>Changes:</p>
+<p>
+Fix: lost changes from version <b>TUT-2006-03-29</b> are restored.
+</p>
+<p>
+Fix: errors appeared while compiling restartable example are fixed. 
+But there are a lot of outstanding works to support completely
+the last changes.
+</p>
+
+<p>
+Jamfiles for examples added.
+</p>
+<p>Download:</p>
+<ul>
+
+<li><a href="_src/TUT-2006-11-04.tar.gz">TUT-2006-11-04.tar.gz</a><br/></li>
+<li><a href="_src/TUT-2006-11-04.zip">TUT-2006-11-04.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2006-10-31</strong></p>
+<p>Changes:</p>
+<p>
+
+	Today's update is the work of a new TUT's contributor, Denis Kononenko.
+</p>
+
+<p>
+	Jamfile added to build TUT Framework using
+	<a href="http://boost.sourceforge.net/boost-build2/">Boost Build System V2.</a>
+
+	It builds TUT itself and automatically executes the selftest. 
+	Further enchancements are coming soon.
+</p>
+<p>
+  New functionality is added: now we can optionally specify the test name right from inside the test.
+</p>
+<pre>
+
+    template &lt;&nbsp;&gt; template &lt;&nbsp;&gt; 
+    void my_object_tests::test &lt; 1 &gt; () 
+    { 
+        set_test_name("test basic scenario"); 
+        ... 
+    }</pre>
+<p>
+	If the test fails the test name will appear in the test report, e.g.:
+</p>
+<pre>
+    ---&gt; group: my_object_tests, test: test&lt;1&gt; : test basic scenario 
+         problem: assertion failed 
+         failed assertion: "not implemented"</pre>
+<p>
+	Also a custom reporter can retrieve the test name using <code>tut::test_result::name</code> member.
+
+</p>
+<p>
+  	Minor fix: TUT selftest didn&#39;t exit with code 0 if there have been failed tests.
+</p>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2006-10-31.tar.gz">TUT-2006-10-31.tar.gz</a><br/></li>
+
+<li><a href="_src/TUT-2006-10-31.zip">TUT-2006-10-31.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2006-03-29</strong></p>
+<p>Changes:</p>
+
+<p>
+New callback events: group_started() and group_completed(). 
+Thanks to Mateusz Loskot and Bartlomiej Kalinowski for pointing out to the incompleteness of the interface.
+</p>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2006-03-29.zip">TUT-2006-03-29.zip</a><br/></li>
+</ul>
+
+<p><strong>TUT-2005-06-22</strong></p>
+<p>Changes:</p>
+<ul>
+  <li>ensure() now is a template and thus accepts both const char* and std::string</li>
+
+  <li>optimization level is reduced to -g for GCC3 in samples since otherwise I have a sigsegv</li>
+  </ul>
+<p>Download:</p>
+<ul>
+
+<li><a href="_src/TUT-2005-06-22.tar.gz">TUT-2005-06-22.tar.gz</a><br/></li>
+<li><a href="_src/TUT-2005-06-22.zip">TUT-2005-06-22.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2005-05-19</strong></p>
+<p>Changes:</p>
+
+Bugfixing: Win32 doesn&#39;t allow to mix try/catch and _try/_catch. Mea culpa.
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2005-05-19.tar.gz">TUT-2005-05-19.tar.gz</a><br/></li>
+
+<li><a href="_src/TUT-2005-05-19.zip">TUT-2005-05-19.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2005-05-16</strong></p>
+<p>Changes:</p>
+<p>Bugfixing release (thanks to Denis Kononenko).</p>
+
+  <p>An exception in test group constructor was causing all tests in the group
+  to be marked as [F]: failed, even including dummy methods, i.e. those not written by the developer.
+  The result is usually a list of 50 "errors" only few of them are actual tests.</p> 
+
+  <p>Fix:</p>
+
+  <ul>
+
+  <li>An exception in test group ctor terminates the whole group. No tests in this group are executed in this run.</li>
+  <li>First failed test has reason set to ex_ctor, and default reporter shows it as [1=C].</li>
+  </ul>
+
+  <p>Also, unix makefiles are converted to 0xA again (CVS converts them to 0xD 0xA when it checks out to Windows machine;
+  now I marked them binary, so it shouldn&#39;t happen again).</p>
+<p>Download:</p>
+<ul>
+
+<li><a href="_src/TUT-2005-05-16.tar.gz">TUT-2005-05-16.tar.gz</a><br/></li>
+<li><a href="_src/TUT-2005-05-16.zip">TUT-2005-05-16.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2004-03-26</strong></p>
+<p>Changes:</p>
+Minor, really minor change: dropped extra &#39;;&#39; from
+  end of declaration which prevented TUT from being used
+  with Sun C++ compiler (thanks to Andrey Sidorenko)
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2004-03-26.tar.gz">TUT-2004-03-26.tar.gz</a><br/></li>
+
+<li><a href="_src/TUT-2004-03-26.zip">TUT-2004-03-26.zip</a><br/></li>
+
+</ul>
+<p><strong>TUT-2003-08-17</strong></p>
+<p>Changes:</p>
+<p>Usablility changes (thanks to Justin Sampson):</p>
+<ul>
+    <li>
+	Class tut::reporter has new method 
+        <pre>
+        bool all_ok() const;
+        </pre>
+
+        to check if everything goes/gone fine.
+    </li>
+
+    <li>
+	Template methods ensure(), ensure_equals(), ensure_distance() and fail() can
+	now be called not only inside test object methods, but from
+	any code location.
+    </li>
+
+  </ul>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2003-08-17.tar.gz">TUT-2003-08-17.tar.gz</a><br/></li>
+
+<li><a href="_src/TUT-2003-08-17.zip">TUT-2003-08-17.zip</a><br/></li>
+</ul>
+
+<p><strong>TUT-2003-07-04</strong></p>
+<p>Changes:</p>
+<ul>
+    <li>
+    TUT now works under VC7 2003. VC7 2002 is not supported,
+    and will not be supported due to lack of standard features.
+    </li>
+
+    <li>
+
+    Tests are now should be specialized more standard-way, i.e.
+    with using two template&lt;&gt; statements:
+    <pre>
+
+      template&lt;&gt;
+      template&lt;&gt;
+      void object::test&lt;1&gt;()
+      {
+      }
+    </pre>
+
+    All compilers except for VC allow to specify only one template
+    line, but it is not standard, and going to change soon.
+    </li>
+
+    <li>
+
+    Since VC forbids to use __try and try in same context, minor
+    changes are made in SEH code to replace throw with good old return.
+    </li>
+
+    <li>
+    Makefiles organization is refactored.
+    </li>
+
+  </ul>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2003-07-04.tar.gz">TUT-2003-07-04.tar.gz</a><br/></li>
+
+<li><a href="_src/TUT-2003-07-04.zip">TUT-2003-07-04.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2003-06-25</strong></p>
+<p>Changes:</p>
+<ul>
+
+    <li>Default results callback handler is moved into separate optional 
+        header tut_reporter.h and refactored to increase verbosity
+        level. There are also a few more self-tests to cover the reporter.
+        Usage: 
+        <pre>
+        #include &lt;tut.h&gt;
+        #include &lt;tut_reporter.h&gt;
+
+        namespace tut
+        {
+          test_runner_singleton runner;
+        }
+ 
+        int main()
+        {
+          tut::reporter reporter;
+          tut::runner.get().set_callback(&amp;reporter);
+          tut::runner.get().run_tests();          
+          ...
+        }
+        </pre>
+    </li>
+
+    <li>
+    Makefile structure for selftest is refactored finally to
+    reuse common dependencies Makefile.common. Shame on me not
+    done it early.
+    </li>
+
+    <li>
+    SCO platforms are no longer supported. 
+    SCO is no more a software company, it produces only sues.
+    </li>
+
+  </ul>
+<p>Download:</p>
+
+<ul>
+<li><a href="_src/TUT-2003-06-25.tar.gz">TUT-2003-06-25.tar.gz</a><br/></li>
+<li><a href="_src/TUT-2003-06-25.zip">TUT-2003-06-25.zip</a><br/></li>
+</ul>
+<p><strong>TUT-2003-04-28</strong></p>
+<p>Changes:</p>
+<ul>
+    <li>Tar.gz is now built using real TAR and GZIP applications, not 7ZIP.</li>
+
+    <li>Fixed missed STL includes required for some platforms.</li>
+
+    <li>Removed outdated dependencies in Makefiles.</li>
+    <li>Supressed useless and mistaken compiler warnings.</li>
+  </ul>
+<p>Download:</p>
+<ul>
+<li><a href="_src/TUT-2003-04-28.tar.gz">TUT-2003-04-28.tar.gz</a><br/></li>
+<li><a href="_src/TUT-2003-04-28.zip">TUT-2003-04-28.zip</a><br/></li>
+
+</ul>
+
+<!-- downloadable files << -->
+</div>
+	</div>
+</div>
+
+</body>
+
+</html>

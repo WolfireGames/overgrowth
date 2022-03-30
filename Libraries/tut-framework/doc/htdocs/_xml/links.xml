@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tut>
+<section>Support</section>
+<chapter>Links</chapter>
+<annotation>related projects and concepts</annotation>
+<content>
+
+    <link>
+      <p><a href="http://www.armaties.com/testfram.htm">www.armaties.com/testfram.htm</a> - 
+        Kent Beck' paper on Smalltalk unit test framework xUnit
+        "Simple Smalltalk Testing:With Patterns".        
+      </p>
+    </link>
+
+    <link>
+       <p><a href="http://cppunit.sourceforge.net/cgi-bin/moin.cgi">cppUnit</a> - 
+         Another popular C++ unit test framework.
+       </p>
+    </link>
+
+    <link>
+       <p><a href="http://junit.org/">junit.org</a> - 
+         Most popular framework for Java: JUnit.
+       </p>
+    </link>
+
+    <link>
+		<p><a href="http://c2.com/cgi/wiki?TestingFramework">c2.com/cgi/wiki?TestingFramework</a> - 
+        Links to unit test frameworks for various languages, from
+        Basic to SQL (including C++, of course).
+    </p>
+    </link>
+
+    <link>
+    <p><a href="http://mockobjects.com/">mockobjects.com</a> - 
+        MockObjects main site.
+    </p>
+    </link>
+
+    <link>
+    <p><a href="http://xprogramming.com/">xprogramming.com</a> - 
+        Extreme Programming main site.
+    </p>
+    </link>
+
+    <link>
+    <p><a href="http://xprogramming.ru/">xprogramming.ru</a> - 
+        Extreme Programming Russian site.
+    </p>
+    </link>
+
+    <link>
+		<p><a href="http://maxkir.com/">maxkir.com</a> - 
+        Kir &amp; Sashka Maximov's site: people who
+        are translating a lot of Xtreme Programming
+        books and articles into Russian. Is the must
+        for any Russian speaker who interested in Agile
+        development.
+
+        Kir was also my coach in XP and Java, and Sashka 
+        translated most of this site into English. Thank you both!</p>
+    </p>
+    </link>
+
+    <link>
+    <a href="http://stlport.com/">stlport.com</a>
+        Industrial-quality free STL implementation: STLport.
+    </p>
+    </link>
+
+</content>
+</tut>

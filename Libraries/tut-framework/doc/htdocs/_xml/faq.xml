@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tut>
+<section>Support</section>
+<chapter>TUT Frequently Asked Questions</chapter>
+<annotation>often asked questions and answers for them</annotation>
+<content>
+
+<p class="question">What is TUT?</p>
+<p>
+TUT is a small and portable unit test framework for C++. It's so small that it fits into
+one header file. It's so portable that it could be used on almost any C++ platform, including
+Windows, MacOS and unices.
+</p>
+
+
+<p class="question">
+How it's different from C++Unit (boost::test, ...)?
+</p>
+<p>
+C++Unit, boost::test and other frameworks perform similar tasks.
+</p> 
+
+<p>
+But there are some issues with most of them: 
+<ul>
+<li>they require to build them as a library</li>
+<li>tests depend on preprocessor macros</li>
+<li>they often overloaded with features</li>
+</ul>
+</p>
+
+<p>
+TUT, in contrast, is located in a single header file (20K). 
+All you should do is to include it into the test module. No linking at all.
+</p>
+
+<p>
+TUT uses C++ template engine to dispatch calls to test methods. Therefore 
+you shouldn't even register methods as tests: template will do it for you automatically. 
+As a result, the test code will be more readable.
+</p>
+
+<p>
+And finally, TUT is a minimal software. It only does what it's designed for. 
+It doesn't attempt to integrate with MSDN or to control production processes. It just runs tests.
+</p>
+
+
+<p class="question">
+What compilers are supported?
+</p>
+
+<p>
+Most modern compilers are supported.
+Some outdated compilers are unable to handle templates in TUT, though
+</p>
+
+<p>Supported:
+<ul>
+  <li>GNU GCC 2.95</li>
+  <li>GNU GCC 3.x (both under unix and <a href="http://www.mingw.org">MinGW</a>)</li>
+  <li>Borland 5.6 (Borland C++ Builder 6)</li>
+  <li>Intel C++ Compiler 6.x</li>
+  <li>Intel C++ Compiler 8.1</li>
+  <li>Sun Studio 9: C++ 5.6 Compiler</li>
+  <li>Microsoft VC7 (Microsoft VS.NET 2003 and later)</li>
+  <li>Sun WorkShop 6 update 2 C++ 5.3 (probably, previous versions as well)</li>
+</ul>
+</p>
+<p>Unsupported:
+<ul>
+  <li>Borland 5.5.x (Borland C++ Builder 5)</li>
+  <li>Microsoft VC6 (including SP5)</li>
+  <li>Microsoft VC7 (Microsoft VS.NET 2002)</li>
+  <li>C for AIX Compiler, Version 6</li>
+  <li>KAI C++ Compiler</li>
+  <li>Portland Group Compiler, Version 5.2-4</li>
+</ul>
+</p>
+
+<p>
+  If you use TUT with any other compiler or environment please let me know.
+</p>
+
+<p>
+Some broken compiler/linker/platform combinations require to make methods ensure(),
+ensure_equals and fail() to be inline, and not in anonymous namespace. Try to
+change tut.h accordingly if you see "duplicate symbol ensure" or "ensure is not found" 
+during linking stage.
+</p>
+
+
+<p class="question">
+I've taken a look at the selftest code and it looks awful
+</p>
+
+<p>
+Self tests are very special beasties, and actually you've seen 
+two(!) TUT frameworks running one under control of another. The case is 
+quite extreme. Regular TUT tests are very simple to read; you'd better look 
+at the online <a href="/example">example</a>.
+</p>
+
+
+<p class="question">
+Why don't you provide methods to catch user-code exceptions?
+</p>
+
+<p>
+First of all, the user-code exceptions are intercepted inside the test runner, 
+and afterwards  user receives them along with the test_result status. For std 
+exceptions, a textual message is included into results. For the others there 
+will be a message that an unknown exception was generated.
+</p>
+
+
+<p class="question">
+I've used ensure_equals() method and compiler refused to build my code complaining that there is ambiguous overload for operator &lt;&lt;.
+</p>
+<p>
+One or both types you've provided to ensure_equals() have no operator &lt;&lt; at all. 
+Since the diagnostic message is built using std::stringstream, compiler needs the 
+operator to format your objects. Either add the operator or use ensure() method 
+(which doesn't tell you the exact values the objects had, just the fact they were not equal).
+</p>
+
+
+<p class="question">
+What about segmentation faults in code being tested? What about deadlocks?
+</p>
+
+<p>
+C++ Standard doesn't specify what happens if the code references
+wrong address. Thus, segmentation fault processing is system and compiler dependent,
+and shall be handled differently in each system/compiler pair.
+</p>
+
+<p>
+If you want TUT to react correctly to tests failures caused by segfaults,
+you must somehow convert hardware faults into C++ exceptions.
+</p>
+
+<p>
+For Win32 TUT uses SEH. You need to specify -DTUT_USE_SEH at build time.
+</p>
+
+<p>
+For unixes there is no standard way to convert SIGSEGV into an exception.
+Consult your platform/compiler documentation for possible ways to do that.
+</p>
+      
+<p>
+You may also use restartable wrapper defined in optional header 
+tut_restartable.h. It runs the tests the same way
+as regular runner does, but also logs the progress. If a test crashes the test 
+application, and then test application runs again, the wrapper will load last 
+log record, and continue test execution from position after the crashed test.
+</p>
+
+<p>
+Of course, this requires helper script that runs test application
+until all tests will be runned. The script might be is as simple as
+</p>
+
+      <pre>
+while true
+do
+  ./restartable &amp;&amp; exit 0
+done
+      </pre>
+
+<p>Directory examples/restartable contains simple restartable test application.</p>
+
+<p>
+This approach can be extended to support deadlocks in code. The script
+must be modified to automatically kill test application after specified
+period of time.
+</p>
+
+</content>
+</tut>

@@ -1,0 +1,128 @@
+Qhull 2012.1 2012/02/02
+ - Add config to distribution
+ - Add testqset to config build
+ - config/bootstrap.sh copies program files into src/libqhull
+ 
+Qhull 2011.2 (qhull6) 2011/12/02
+ - Removed Make-conf.sh (from the qhull 2003.1 release)
+ - The original changelog follows
+ - Adjusted the Makefiles for the new directory structure.
+ - Kept qh_QHpointer=0 (static global data structure, qh_qh).  It is faster.
+   Qhull 2012 may have a new interface which passes qh_qh as a parameter.
+
+Qhull 2009.1.2 2011/11/21
+ - Revert to LF line endings [P. Cheeseman]
+ - Remove out-of-date material from qhull-go.bat
+ - Replaced QHULL-GO with a lnk file
+
+qhull 2009.1.1 2010/01/09
+- Patch release of 2009.1.
+  qh_gethash allowed a negative result, causing overwrite or segfault
+  See git:qhull/project/patch/qhull-2003.1/poly.c-qh_gethash.patch
+  Compared results of q_test, q_eg, q_egtest with patched poly.c, qhull-2003.1
+
+qhull (2009.1, qhull5)
+
+This is a maintenance release done by Rafael Laboissiere <rafael@debian.org>.
+ - src/rbox.c (main): Avoid problems of evaluation order when
+   pre-incrementing arguments of strtod
+ - src/io.c (qh_produce_output), src/stat.c (qh_initstatistics): Use %lu
+   instead of %d in the format string for arguments of type size_t
+ - html/qhull.man, html/rbox.man: Fix several syntax, macros, and hyphen
+   problems in man pages
+ - The Autotools files have been generated with modern version of autoconf (2.63),
+   automake/aclocal (1.10.2), and libtool (2.2.6)
+ - Some character issues in the man pages are fixed
+
+qhull (2003.1-1, qhull5) unstable; urgency=low
+
+  * New upstream release.  There are backward incompatibilities in the code
+    and the soversion was bumped to libqhull5.
+  * debian/rules:
+    - Major rewrite of build and install rules, since we are using now the
+      upstream tarball generated with "make dist".
+    - Added config rule.
+    - Use dpatch to patch src/user.h (enable qh_QHpointer).
+  * debian/control:
+    - Removed build-dependencies on autoconf, automake, and libtool.
+    - Build-depends on dpatch.
+    - Changed section of libqhull-dev package to libdevel.
+  * debian/libqhull-dev.files: Added usr/share/doc/libqhull5/src
+    directory.
+
+ -- Rafael Laboissiere <rafael@debian.org>  Sun,  1 Feb 2004 01:14:13 +0100
+
+qhull (2002.1-4) unstable; urgency=low
+
+  * src/Make-config.sh: Patched upstream file for proper initialization of
+    the Autotools.
+  * debian/install-src-html.sh: Added script for including src/*.htm
+    source documentation files into html doc dir.
+  * debian/control:
+    - Bumped Standards-Version to 3.6.1 (no changes needed).
+    - Changed build-dependencies to autoconf and automake1.7 (instead of
+      autoconf2.13 and automake1.6).  Added eperl.
+  * debian/libqhull-dev.files: Added dir usr/share/doc/libqhull4/src.
+  * debian/manpage.in: Added template for missing man pages.
+  * debian/rules:
+    - Call debian/install-src-html.sh.
+    - Generate manpages for qconvex, qdelaunay, qhalf, and qvoronoi
+      commands. Lintian is happy now.
+
+ -- Rafael Laboissiere <rafael@debian.org>  Thu, 18 Dec 2003 21:20:14 +0100
+
+qhull (2002.1-3) unstable; urgency=low
+
+  * New maintainer (as per http://lists.debian.org/debian-devel/1999
+    /debian-devel-199911/msg01061.html).
+  * debian/rules: Use the upstream script Make-config.sh, which sets up
+    the autoconf/automake/libtool files.  Also, clean up all the generated
+    files in the clean rule.
+  * debian/control: Bumped Standards-Version to 3.5.7.  Added
+    Build-Dependencies to autoconf/automake/libtool.
+
+ -- Rafael Laboissiere <rafael@debian.org>  Wed, 25 Sep 2002 10:39:30 +0200
+
+qhull (2002.1-2) unstable; urgency=low
+
+  * use shared char* qh_version in library
+
+ -- Barak Pearlmutter <bap@cs.unm.edu>  Sat,  7 Sep 2002 10:34:13 -0600
+
+qhull (2002.1-1) unstable; urgency=low
+
+  * new upstream source
+
+ -- Barak Pearlmutter <bap@cs.unm.edu>  Thu,  5 Sep 2002 20:51:10 -0600
+
+qhull (3.1-5) unstable; urgency=low
+
+  * rephrase descriptions (closes: #141027)
+
+ -- Barak Pearlmutter <bap@cs.unm.edu>  Thu, 11 Apr 2002 22:12:33 -0600
+
+qhull (3.1-4) unstable; urgency=low
+
+  * include executables qconvex, qhalf, qvoronoi, qdelaunay
+  * break executables out into separate package qhull-bin
+
+ -- Barak Pearlmutter <bap@cs.unm.edu>  Wed, 27 Mar 2002 20:26:44 -0700
+
+qhull (3.1-3) unstable; urgency=low
+
+  * rename executable qhull-rbox back to rbox
+
+ -- Barak Pearlmutter <bap@cs.unm.edu>  Mon, 25 Mar 2002 09:13:57 -0700
+
+qhull (3.1-2) unstable; urgency=low
+
+  * src/qconvex.c did not belong in the library
+  * qh_version was multiply defined, now defined only in qhull.c
+
+ -- Barak Pearlmutter <bap@cs.unm.edu>  Mon, 25 Mar 2002 08:55:45 -0700
+
+qhull (3.1-1) unstable; urgency=low
+
+  * Initial Release.  (closes: #108115)
+
+ -- Barak Pearlmutter <bap@cs.unm.edu>  Sun, 24 Mar 2002 21:53:13 -0700

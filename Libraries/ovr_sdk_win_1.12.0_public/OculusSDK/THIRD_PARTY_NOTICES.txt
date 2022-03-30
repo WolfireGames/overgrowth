@@ -1,0 +1,5654 @@
+﻿THE FOLLOWING SETS FORTH ATTRIBUTION NOTICES FOR THIRD PARTY SOFTWARE THAT MAY BE CONTAINED IN PORTIONS OF THE OCULUS PRODUCT.
+
+-----
+
+The following software may be included in this product: cereal. This software contains the following license and notice below:
+
+Copyright (c) 2014, Randolph Voorhies, Shane Grant
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+* Neither the name of cereal nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL RANDOLPH VOORHIES OR SHANE GRANT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-----
+
+The following software may be included in this product: curl. This software contains the following license and notice below:
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1996 - 2011, Daniel Stenberg, <daniel@haxx.se>.
+
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization of the copyright holder.
+
+-----
+
+The following software may be included in this product: directx-sdk-samples. This software contains the following license and notice below:
+
+                               The MIT License (MIT)
+
+Copyright (c) 2015 Microsoft Corp
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this 
+software and associated documentation files (the "Software"), to deal in the Software 
+without restriction, including without limitation the rights to use, copy, modify, 
+merge, publish, distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so, subject to the following 
+conditions: 
+
+The above copyright notice and this permission notice shall be included in all copies 
+or substantial portions of the Software.  
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF 
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----
+
+The following software may be included in this product: electron. This software contains the following license and notice below:
+
+Copyright (c) 2014 GitHub Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+-----
+
+The following software may be included in this product: gflags. This software contains the following license and notice below:
+
+Copyright (c) 2006, Google Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. 
+* Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-----
+
+The following software may be included in this product: breakpad. This software contains the following license and notice below:
+
+Copyright (c) 2012, Google Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+* Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-----
+
+The following software may be included in this product: google-glog. This software contains the following license and notice below:
+
+  Copyright (c) 2008, Google Inc.
+  All rights reserved.
+  
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are
+  met:
+  
+      * Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+      * Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the following disclaimer
+  in the documentation and/or other materials provided with the
+  distribution.
+      * Neither the name of Google Inc. nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  
+  
+  A function gettimeofday in utilities.cc is based on
+  
+  http://www.google.com/codesearch/p?hl=en#dR3YEbitojA/COPYING&q=GetSystemTimeAsFileTime%20license:bsd
+  
+  The license of this code is:
+  
+  Copyright (c) 2003-2008, Jouni Malinen <j@w1.fi> and contributors
+  All Rights Reserved.
+  
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are
+  met:
+  
+  1. Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+  
+  2. Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+  
+  3. Neither the name(s) of the above-listed copyright holder(s) nor the
+     names of its contributors may be used to endorse or promote products
+     derived from this software without specific prior written permission.
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+-----
+
+The following software may be included in this product: gtest. This software contains the following license and notice below:
+
+Copyright 2005, Google Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+* Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Author: wan@google.com (Zhanyong Wan)
+
+The Google C++ Testing Framework (Google Test)
+
+-----
+
+The following software may be included in this product: gtest. This software contains the following license and notice below:
+
+// Copyright 2005, Google Inc.
+// All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// Author: wan@google.com (Zhanyong Wan)
+//
+// The Google C++ Testing Framework (Google Test)
+
+-----
+
+The following software may be included in this product: gyp. This software contains the following license and notice below:
+
+Copyright (c) 2009 Google Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+ * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-----
+
+The following software may be included in this product: libevent. This software contains the following license and notice below:
+
+Copyright (c) 2000-2007 Niels Provos <provos@citi.umich.edu>
+Copyright (c) 2007-2012 Niels Provos and Nick Mathewson
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. The name of the author may not be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+==============================
+
+Portions of Libevent are based on works by others, also made available by them under the three-clause BSD license above. The copyright notices are available in the corresponding source files; the license is as above. Here's a list:
+
+log.c:
+   Copyright (c) 2000 Dug Song <dugsong@monkey.org>
+   Copyright (c) 1993 The Regents of the University of California.
+
+strlcpy.c:
+   Copyright (c) 1998 Todd C. Miller <Todd.Miller@courtesan.com>
+
+win32select.c:
+   Copyright (c) 2003 Michael A. Davis <mike@datanerds.net>
+
+evport.c:
+   Copyright (c) 2007 Sun Microsystems
+
+ht-internal.h:
+   Copyright (c) 2002 Christopher Clark
+
+minheap-internal.h:
+   Copyright (c) 2006 Maxim Yegorushkin <maxim.yegorushkin@gmail.com>
+
+-----
+
+The following software may be included in this product: librsync. You may request a copy of the source code by sending a request to opensource@fb.com. This software contains the following license and notice below:
+
+Copyright 1999-2016 Martin Pool and other contributors.
+
+librsync contains the BLAKE2 hash algorithm, written by Samuel Neves and released under the CC0 public domain dedication.
+
+                  GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 2.1, February 1999
+
+ Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+     59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+[This is the first released version of the Lesser GPL.  It also counts
+ as the successor of the GNU Library Public License, version 2, hence
+ the version number 2.1.]
+
+                            Preamble
+
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+Licenses are intended to guarantee your freedom to share and change
+free software--to make sure the software is free for all its users.
+
+  This license, the Lesser General Public License, applies to some
+specially designated software packages--typically libraries--of the
+Free Software Foundation and other authors who decide to use it.  You
+can use it too, but we suggest you first think carefully about whether
+this license or the ordinary General Public License is the better
+strategy to use in any particular case, based on the explanations
+below.
+
+  When we speak of free software, we are referring to freedom of use,
+not price.  Our General Public Licenses are designed to make sure that
+you have the freedom to distribute copies of free software (and charge
+for this service if you wish); that you receive source code or can get
+it if you want it; that you can change the software and use pieces of
+it in new free programs; and that you are informed that you can do
+these things.
+
+  To protect your rights, we need to make restrictions that forbid
+distributors to deny you these rights or to ask you to surrender these
+rights.  These restrictions translate to certain responsibilities for
+you if you distribute copies of the library or if you modify it.
+
+  For example, if you distribute copies of the library, whether gratis
+or for a fee, you must give the recipients all the rights that we gave
+you.  You must make sure that they, too, receive or can get the source
+code.  If you link other code with the library, you must provide
+complete object files to the recipients, so that they can relink them
+with the library after making changes to the library and recompiling
+it.  And you must show them these terms so they know their rights.
+
+  We protect your rights with a two-step method: (1) we copyright the
+library, and (2) we offer you this license, which gives you legal
+permission to copy, distribute and/or modify the library.
+
+  To protect each distributor, we want to make it very clear that
+there is no warranty for the free library.  Also, if the library is
+modified by someone else and passed on, the recipients should know
+that what they have is not the original version, so that the original
+author's reputation will not be affected by problems that might be
+introduced by others.
+^L
+  Finally, software patents pose a constant threat to the existence of
+any free program.  We wish to make sure that a company cannot
+effectively restrict the users of a free program by obtaining a
+restrictive license from a patent holder.  Therefore, we insist that
+any patent license obtained for a version of the library must be
+consistent with the full freedom of use specified in this license.
+
+  Most GNU software, including some libraries, is covered by the
+ordinary GNU General Public License.  This license, the GNU Lesser
+General Public License, applies to certain designated libraries, and
+is quite different from the ordinary General Public License.  We use
+this license for certain libraries in order to permit linking those
+libraries into non-free programs.
+
+  When a program is linked with a library, whether statically or using
+a shared library, the combination of the two is legally speaking a
+combined work, a derivative of the original library.  The ordinary
+General Public License therefore permits such linking only if the
+entire combination fits its criteria of freedom.  The Lesser General
+Public License permits more lax criteria for linking other code with
+the library.
+
+  We call this license the "Lesser" General Public License because it
+does Less to protect the user's freedom than the ordinary General
+Public License.  It also provides other free software developers Less
+of an advantage over competing non-free programs.  These disadvantages
+are the reason we use the ordinary General Public License for many
+libraries.  However, the Lesser license provides advantages in certain
+special circumstances.
+
+  For example, on rare occasions, there may be a special need to
+encourage the widest possible use of a certain library, so that it
+becomes
+a de-facto standard.  To achieve this, non-free programs must be
+allowed to use the library.  A more frequent case is that a free
+library does the same job as widely used non-free libraries.  In this
+case, there is little to gain by limiting the free library to free
+software only, so we use the Lesser General Public License.
+
+  In other cases, permission to use a particular library in non-free
+programs enables a greater number of people to use a large body of
+free software.  For example, permission to use the GNU C Library in
+non-free programs enables many more people to use the whole GNU
+operating system, as well as its variant, the GNU/Linux operating
+system.
+
+  Although the Lesser General Public License is Less protective of the
+users' freedom, it does ensure that the user of a program that is
+linked with the Library has the freedom and the wherewithal to run
+that program using a modified version of the Library.
+
+  The precise terms and conditions for copying, distribution and
+modification follow.  Pay close attention to the difference between a
+"work based on the library" and a "work that uses the library".  The
+former contains code derived from the library, whereas the latter must
+be combined with the library in order to run.
+^L
+                  GNU LESSER GENERAL PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. This License Agreement applies to any software library or other
+program which contains a notice placed by the copyright holder or
+other authorized party saying it may be distributed under the terms of
+this Lesser General Public License (also called "this License").
+Each licensee is addressed as "you".
+
+  A "library" means a collection of software functions and/or data
+prepared so as to be conveniently linked with application programs
+(which use some of those functions and data) to form executables.
+
+  The "Library", below, refers to any such software library or work
+which has been distributed under these terms.  A "work based on the
+Library" means either the Library or any derivative work under
+copyright law: that is to say, a work containing the Library or a
+portion of it, either verbatim or with modifications and/or translated
+straightforwardly into another language.  (Hereinafter, translation is
+included without limitation in the term "modification".)
+
+  "Source code" for a work means the preferred form of the work for
+making modifications to it.  For a library, complete source code means
+all the source code for all modules it contains, plus any associated
+interface definition files, plus the scripts used to control
+compilation
+and installation of the library.
+
+  Activities other than copying, distribution and modification are not
+covered by this License; they are outside its scope.  The act of
+running a program using the Library is not restricted, and output from
+such a program is covered only if its contents constitute a work based
+on the Library (independent of the use of the Library in a tool for
+writing it).  Whether that is true depends on what the Library does
+and what the program that uses the Library does.
+
+  1. You may copy and distribute verbatim copies of the Library's
+complete source code as you receive it, in any medium, provided that
+you conspicuously and appropriately publish on each copy an
+appropriate copyright notice and disclaimer of warranty; keep intact
+all the notices that refer to this License and to the absence of any
+warranty; and distribute a copy of this License along with the
+Library.
+
+  You may charge a fee for the physical act of transferring a copy,
+and you may at your option offer warranty protection in exchange for a
+fee.
+
+  2. You may modify your copy or copies of the Library or any portion
+of it, thus forming a work based on the Library, and copy and
+distribute such modifications or work under the terms of Section 1
+above, provided that you also meet all of these conditions:
+
+    a) The modified work must itself be a software library.
+
+    b) You must cause the files modified to carry prominent notices
+    stating that you changed the files and the date of any change.
+
+    c) You must cause the whole of the work to be licensed at no
+    charge to all third parties under the terms of this License.
+
+    d) If a facility in the modified Library refers to a function or a
+    table of data to be supplied by an application program that uses
+    the facility, other than as an argument passed when the facility
+    is invoked, then you must make a good faith effort to ensure that,
+    in the event an application does not supply such function or
+    table, the facility still operates, and performs whatever part of
+    its purpose remains meaningful.
+
+    (For example, a function in a library to compute square roots has
+    a purpose that is entirely well-defined independent of the
+    application.  Therefore, Subsection 2d requires that any
+    application-supplied function or table used by this function must
+    be optional: if the application does not supply it, the square
+    root function must still compute square roots.)
+
+These requirements apply to the modified work as a whole.  If
+identifiable sections of that work are not derived from the Library,
+and can be reasonably considered independent and separate works in
+themselves, then this License, and its terms, do not apply to those
+sections when you distribute them as separate works.  But when you
+distribute the same sections as part of a whole which is a work based
+on the Library, the distribution of the whole must be on the terms of
+this License, whose permissions for other licensees extend to the
+entire whole, and thus to each and every part regardless of who wrote
+it.
+
+Thus, it is not the intent of this section to claim rights or contest
+your rights to work written entirely by you; rather, the intent is to
+exercise the right to control the distribution of derivative or
+collective works based on the Library.
+
+In addition, mere aggregation of another work not based on the Library
+with the Library (or with a work based on the Library) on a volume of
+a storage or distribution medium does not bring the other work under
+the scope of this License.
+
+  3. You may opt to apply the terms of the ordinary GNU General Public
+License instead of this License to a given copy of the Library.  To do
+this, you must alter all the notices that refer to this License, so
+that they refer to the ordinary GNU General Public License, version 2,
+instead of to this License.  (If a newer version than version 2 of the
+ordinary GNU General Public License has appeared, then you can specify
+that version instead if you wish.)  Do not make any other change in
+these notices.
+^L
+  Once this change is made in a given copy, it is irreversible for
+that copy, so the ordinary GNU General Public License applies to all
+subsequent copies and derivative works made from that copy.
+
+  This option is useful when you wish to copy part of the code of
+the Library into a program that is not a library.
+
+  4. You may copy and distribute the Library (or a portion or
+derivative of it, under Section 2) in object code or executable form
+under the terms of Sections 1 and 2 above provided that you accompany
+it with the complete corresponding machine-readable source code, which
+must be distributed under the terms of Sections 1 and 2 above on a
+medium customarily used for software interchange.
+
+  If distribution of object code is made by offering access to copy
+from a designated place, then offering equivalent access to copy the
+source code from the same place satisfies the requirement to
+distribute the source code, even though third parties are not
+compelled to copy the source along with the object code.
+
+  5. A program that contains no derivative of any portion of the
+Library, but is designed to work with the Library by being compiled or
+linked with it, is called a "work that uses the Library".  Such a
+work, in isolation, is not a derivative work of the Library, and
+therefore falls outside the scope of this License.
+
+  However, linking a "work that uses the Library" with the Library
+creates an executable that is a derivative of the Library (because it
+contains portions of the Library), rather than a "work that uses the
+library".  The executable is therefore covered by this License.
+Section 6 states terms for distribution of such executables.
+
+  When a "work that uses the Library" uses material from a header file
+that is part of the Library, the object code for the work may be a
+derivative work of the Library even though the source code is not.
+Whether this is true is especially significant if the work can be
+linked without the Library, or if the work is itself a library.  The
+threshold for this to be true is not precisely defined by law.
+
+  If such an object file uses only numerical parameters, data
+structure layouts and accessors, and small macros and small inline
+functions (ten lines or less in length), then the use of the object
+file is unrestricted, regardless of whether it is legally a derivative
+work.  (Executables containing this object code plus portions of the
+Library will still fall under Section 6.)
+
+  Otherwise, if the work is a derivative of the Library, you may
+distribute the object code for the work under the terms of Section 6.
+Any executables containing that work also fall under Section 6,
+whether or not they are linked directly with the Library itself.
+^L
+  6. As an exception to the Sections above, you may also combine or
+link a "work that uses the Library" with the Library to produce a
+work containing portions of the Library, and distribute that work
+under terms of your choice, provided that the terms permit
+modification of the work for the customer's own use and reverse
+engineering for debugging such modifications.
+
+  You must give prominent notice with each copy of the work that the
+Library is used in it and that the Library and its use are covered by
+this License.  You must supply a copy of this License.  If the work
+during execution displays copyright notices, you must include the
+copyright notice for the Library among them, as well as a reference
+directing the user to the copy of this License.  Also, you must do one
+of these things:
+
+    a) Accompany the work with the complete corresponding
+    machine-readable source code for the Library including whatever
+    changes were used in the work (which must be distributed under
+    Sections 1 and 2 above); and, if the work is an executable linked
+    with the Library, with the complete machine-readable "work that
+    uses the Library", as object code and/or source code, so that the
+    user can modify the Library and then relink to produce a modified
+    executable containing the modified Library.  (It is understood
+    that the user who changes the contents of definitions files in the
+    Library will not necessarily be able to recompile the application
+    to use the modified definitions.)
+
+    b) Use a suitable shared library mechanism for linking with the
+    Library.  A suitable mechanism is one that (1) uses at run time a
+    copy of the library already present on the user's computer system,
+    rather than copying library functions into the executable, and (2)
+    will operate properly with a modified version of the library, if
+    the user installs one, as long as the modified version is
+    interface-compatible with the version that the work was made with.
+
+    c) Accompany the work with a written offer, valid for at
+    least three years, to give the same user the materials
+    specified in Subsection 6a, above, for a charge no more
+    than the cost of performing this distribution.
+
+    d) If distribution of the work is made by offering access to copy
+    from a designated place, offer equivalent access to copy the above
+    specified materials from the same place.
+
+    e) Verify that the user has already received a copy of these
+    materials or that you have already sent this user a copy.
+
+  For an executable, the required form of the "work that uses the
+Library" must include any data and utility programs needed for
+reproducing the executable from it.  However, as a special exception,
+the materials to be distributed need not include anything that is
+normally distributed (in either source or binary form) with the major
+components (compiler, kernel, and so on) of the operating system on
+which the executable runs, unless that component itself accompanies
+the executable.
+
+  It may happen that this requirement contradicts the license
+restrictions of other proprietary libraries that do not normally
+accompany the operating system.  Such a contradiction means you cannot
+use both them and the Library together in an executable that you
+distribute.
+^L
+  7. You may place library facilities that are a work based on the
+Library side-by-side in a single library together with other library
+facilities not covered by this License, and distribute such a combined
+library, provided that the separate distribution of the work based on
+the Library and of the other library facilities is otherwise
+permitted, and provided that you do these two things:
+
+    a) Accompany the combined library with a copy of the same work
+    based on the Library, uncombined with any other library
+    facilities.  This must be distributed under the terms of the
+    Sections above.
+
+    b) Give prominent notice with the combined library of the fact
+    that part of it is a work based on the Library, and explaining
+    where to find the accompanying uncombined form of the same work.
+
+  8. You may not copy, modify, sublicense, link with, or distribute
+the Library except as expressly provided under this License.  Any
+attempt otherwise to copy, modify, sublicense, link with, or
+distribute the Library is void, and will automatically terminate your
+rights under this License.  However, parties who have received copies,
+or rights, from you under this License will not have their licenses
+terminated so long as such parties remain in full compliance.
+
+  9. You are not required to accept this License, since you have not
+signed it.  However, nothing else grants you permission to modify or
+distribute the Library or its derivative works.  These actions are
+prohibited by law if you do not accept this License.  Therefore, by
+modifying or distributing the Library (or any work based on the
+Library), you indicate your acceptance of this License to do so, and
+all its terms and conditions for copying, distributing or modifying
+the Library or works based on it.
+
+  10. Each time you redistribute the Library (or any work based on the
+Library), the recipient automatically receives a license from the
+original licensor to copy, distribute, link with or modify the Library
+subject to these terms and conditions.  You may not impose any further
+restrictions on the recipients' exercise of the rights granted herein.
+You are not responsible for enforcing compliance by third parties with
+this License.
+^L
+  11. If, as a consequence of a court judgment or allegation of patent
+infringement or for any other reason (not limited to patent issues),
+conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot
+distribute so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you
+may not distribute the Library at all.  For example, if a patent
+license would not permit royalty-free redistribution of the Library by
+all those who receive copies directly or indirectly through you, then
+the only way you could satisfy both it and this License would be to
+refrain entirely from distribution of the Library.
+
+If any portion of this section is held invalid or unenforceable under
+any particular circumstance, the balance of the section is intended to
+apply, and the section as a whole is intended to apply in other
+circumstances.
+
+It is not the purpose of this section to induce you to infringe any
+patents or other property right claims or to contest validity of any
+such claims; this section has the sole purpose of protecting the
+integrity of the free software distribution system which is
+implemented by public license practices.  Many people have made
+generous contributions to the wide range of software distributed
+through that system in reliance on consistent application of that
+system; it is up to the author/donor to decide if he or she is willing
+to distribute software through any other system and a licensee cannot
+impose that choice.
+
+This section is intended to make thoroughly clear what is believed to
+be a consequence of the rest of this License.
+
+  12. If the distribution and/or use of the Library is restricted in
+certain countries either by patents or by copyrighted interfaces, the
+original copyright holder who places the Library under this License
+may add an explicit geographical distribution limitation excluding those
+countries, so that distribution is permitted only in or among
+countries not thus excluded.  In such case, this License incorporates
+the limitation as if written in the body of this License.
+
+  13. The Free Software Foundation may publish revised and/or new
+versions of the Lesser General Public License from time to time.
+Such new versions will be similar in spirit to the present version,
+but may differ in detail to address new problems or concerns.
+
+Each version is given a distinguishing version number.  If the Library
+specifies a version number of this License which applies to it and
+"any later version", you have the option of following the terms and
+conditions either of that version or of any later version published by
+the Free Software Foundation.  If the Library does not specify a
+license version number, you may choose any version ever published by
+the Free Software Foundation.
+^L
+  14. If you wish to incorporate parts of the Library into other free
+programs whose distribution conditions are incompatible with these,
+write to the author to ask for permission.  For software which is
+copyrighted by the Free Software Foundation, write to the Free
+Software Foundation; we sometimes make exceptions for this.  Our
+decision will be guided by the two goals of preserving the free status
+of all derivatives of our free software and of promoting the sharing
+and reuse of software generally.
+
+                            NO WARRANTY
+
+  15. BECAUSE THE LIBRARY IS LICENSED FREE OF CHARGE, THERE IS NO
+WARRANTY FOR THE LIBRARY, TO THE EXTENT PERMITTED BY APPLICABLE LAW.
+EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR
+OTHER PARTIES PROVIDE THE LIBRARY "AS IS" WITHOUT WARRANTY OF ANY
+KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE
+LIBRARY IS WITH YOU.  SHOULD THE LIBRARY PROVE DEFECTIVE, YOU ASSUME
+THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+  16. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN
+WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY
+AND/OR REDISTRIBUTE THE LIBRARY AS PERMITTED ABOVE, BE LIABLE TO YOU
+FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR
+CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE
+LIBRARY (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING
+RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A
+FAILURE OF THE LIBRARY TO OPERATE WITH ANY OTHER SOFTWARE), EVEN IF
+SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES.
+
+                     END OF TERMS AND CONDITIONS
+^L
+           How to Apply These Terms to Your New Libraries
+
+  If you develop a new library, and you want it to be of the greatest
+possible use to the public, we recommend making it free software that
+everyone can redistribute and change.  You can do so by permitting
+redistribution under these terms (or, alternatively, under the terms
+of the ordinary General Public License).
+
+  To apply these terms, attach the following notices to the library.
+It is safest to attach them to the start of each source file to most
+effectively convey the exclusion of warranty; and each file should
+have at least the "copyright" line and a pointer to where the full
+notice is found.
+
+
+    <one line to give the library's name and a brief idea of what it
+does.>
+    Copyright (C) <year>  <name of author>
+
+    This library is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Lesser General Public
+    License as published by the Free Software Foundation; either
+    version 2 of the License, or (at your option) any later version.
+
+    This library is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public
+    License along with this library; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
+
+Also add information on how to contact you by electronic and paper
+mail.
+
+You should also get your employer (if you work as a programmer) or
+your
+school, if any, to sign a "copyright disclaimer" for the library, if
+necessary.  Here is a sample; alter the names:
+
+  Yoyodyne, Inc., hereby disclaims all copyright interest in the
+  library `Frob' (a library for tweaking knobs) written by James
+Random Hacker.
+
+  <signature of Ty Coon>, 1 April 1990
+  Ty Coon, President of Vice
+
+That's all there is to it!
+
+
+
+
+
+-----
+
+The following software may be included in this product: Mozilla CA Cert Store. A copy of the source code may be downloaded from https://curl.haxx.se/docs/caextract.html. This software contains the following license and notice below:
+
+Mozilla Public License Version 2.0
+==================================
+
+1. Definitions
+--------------
+
+1.1. "Contributor"
+    means each individual or legal entity that creates, contributes to
+    the creation of, or owns Covered Software.
+
+1.2. "Contributor Version"
+    means the combination of the Contributions of others (if any) used
+    by a Contributor and that particular Contributor's Contribution.
+
+1.3. "Contribution"
+    means Covered Software of a particular Contributor.
+
+1.4. "Covered Software"
+    means Source Code Form to which the initial Contributor has attached
+    the notice in Exhibit A, the Executable Form of such Source Code
+    Form, and Modifications of such Source Code Form, in each case
+    including portions thereof.
+
+1.5. "Incompatible With Secondary Licenses"
+    means
+
+    (a) that the initial Contributor has attached the notice described
+        in Exhibit B to the Covered Software; or
+
+    (b) that the Covered Software was made available under the terms of
+        version 1.1 or earlier of the License, but not also under the
+        terms of a Secondary License.
+
+1.6. "Executable Form"
+    means any form of the work other than Source Code Form.
+
+1.7. "Larger Work"
+    means a work that combines Covered Software with other material, in 
+    a separate file or files, that is not Covered Software.
+
+1.8. "License"
+    means this document.
+
+1.9. "Licensable"
+    means having the right to grant, to the maximum extent possible,
+    whether at the time of the initial grant or subsequently, any and
+    all of the rights conveyed by this License.
+
+1.10. "Modifications"
+    means any of the following:
+
+    (a) any file in Source Code Form that results from an addition to,
+        deletion from, or modification of the contents of Covered
+        Software; or
+
+    (b) any new file in Source Code Form that contains any Covered
+        Software.
+
+1.11. "Patent Claims" of a Contributor
+    means any patent claim(s), including without limitation, method,
+    process, and apparatus claims, in any patent Licensable by such
+    Contributor that would be infringed, but for the grant of the
+    License, by the making, using, selling, offering for sale, having
+    made, import, or transfer of either its Contributions or its
+    Contributor Version.
+
+1.12. "Secondary License"
+    means either the GNU General Public License, Version 2.0, the GNU
+    Lesser General Public License, Version 2.1, the GNU Affero General
+    Public License, Version 3.0, or any later versions of those
+    licenses.
+
+1.13. "Source Code Form"
+    means the form of the work preferred for making modifications.
+
+1.14. "You" (or "Your")
+    means an individual or a legal entity exercising rights under this
+    License. For legal entities, "You" includes any entity that
+    controls, is controlled by, or is under common control with You. For
+    purposes of this definition, "control" means (a) the power, direct
+    or indirect, to cause the direction or management of such entity,
+    whether by contract or otherwise, or (b) ownership of more than
+    fifty percent (50%) of the outstanding shares or beneficial
+    ownership of such entity.
+
+2. License Grants and Conditions
+--------------------------------
+
+2.1. Grants
+
+Each Contributor hereby grants You a world-wide, royalty-free,
+non-exclusive license:
+
+(a) under intellectual property rights (other than patent or trademark)
+    Licensable by such Contributor to use, reproduce, make available,
+    modify, display, perform, distribute, and otherwise exploit its
+    Contributions, either on an unmodified basis, with Modifications, or
+    as part of a Larger Work; and
+
+(b) under Patent Claims of such Contributor to make, use, sell, offer
+    for sale, have made, import, and otherwise transfer either its
+    Contributions or its Contributor Version.
+
+2.2. Effective Date
+
+The licenses granted in Section 2.1 with respect to any Contribution
+become effective for each Contribution on the date the Contributor first
+distributes such Contribution.
+
+2.3. Limitations on Grant Scope
+
+The licenses granted in this Section 2 are the only rights granted under
+this License. No additional rights or licenses will be implied from the
+distribution or licensing of Covered Software under this License.
+Notwithstanding Section 2.1(b) above, no patent license is granted by a
+Contributor:
+
+(a) for any code that a Contributor has removed from Covered Software;
+    or
+
+(b) for infringements caused by: (i) Your and any other third party's
+    modifications of Covered Software, or (ii) the combination of its
+    Contributions with other software (except as part of its Contributor
+    Version); or
+
+(c) under Patent Claims infringed by Covered Software in the absence of
+    its Contributions.
+
+This License does not grant any rights in the trademarks, service marks,
+or logos of any Contributor (except as may be necessary to comply with
+the notice requirements in Section 3.4).
+
+2.4. Subsequent Licenses
+
+No Contributor makes additional grants as a result of Your choice to
+distribute the Covered Software under a subsequent version of this
+License (see Section 10.2) or under the terms of a Secondary License (if
+permitted under the terms of Section 3.3).
+
+2.5. Representation
+
+Each Contributor represents that the Contributor believes its
+Contributions are its original creation(s) or it has sufficient rights
+to grant the rights to its Contributions conveyed by this License.
+
+2.6. Fair Use
+
+This License is not intended to limit any rights You have under
+applicable copyright doctrines of fair use, fair dealing, or other
+equivalents.
+
+2.7. Conditions
+
+Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
+in Section 2.1.
+
+3. Responsibilities
+-------------------
+
+3.1. Distribution of Source Form
+
+All distribution of Covered Software in Source Code Form, including any
+Modifications that You create or to which You contribute, must be under
+the terms of this License. You must inform recipients that the Source
+Code Form of the Covered Software is governed by the terms of this
+License, and how they can obtain a copy of this License. You may not
+attempt to alter or restrict the recipients' rights in the Source Code
+Form.
+
+3.2. Distribution of Executable Form
+
+If You distribute Covered Software in Executable Form then:
+
+(a) such Covered Software must also be made available in Source Code
+    Form, as described in Section 3.1, and You must inform recipients of
+    the Executable Form how they can obtain a copy of such Source Code
+    Form by reasonable means in a timely manner, at a charge no more
+    than the cost of distribution to the recipient; and
+
+(b) You may distribute such Executable Form under the terms of this
+    License, or sublicense it under different terms, provided that the
+    license for the Executable Form does not attempt to limit or alter
+    the recipients' rights in the Source Code Form under this License.
+
+3.3. Distribution of a Larger Work
+
+You may create and distribute a Larger Work under terms of Your choice,
+provided that You also comply with the requirements of this License for
+the Covered Software. If the Larger Work is a combination of Covered
+Software with a work governed by one or more Secondary Licenses, and the
+Covered Software is not Incompatible With Secondary Licenses, this
+License permits You to additionally distribute such Covered Software
+under the terms of such Secondary License(s), so that the recipient of
+the Larger Work may, at their option, further distribute the Covered
+Software under the terms of either this License or such Secondary
+License(s).
+
+3.4. Notices
+
+You may not remove or alter the substance of any license notices
+(including copyright notices, patent notices, disclaimers of warranty,
+or limitations of liability) contained within the Source Code Form of
+the Covered Software, except that You may alter any license notices to
+the extent required to remedy known factual inaccuracies.
+
+3.5. Application of Additional Terms
+
+You may choose to offer, and to charge a fee for, warranty, support,
+indemnity or liability obligations to one or more recipients of Covered
+Software. However, You may do so only on Your own behalf, and not on
+behalf of any Contributor. You must make it absolutely clear that any
+such warranty, support, indemnity, or liability obligation is offered by
+You alone, and You hereby agree to indemnify every Contributor for any
+liability incurred by such Contributor as a result of warranty, support,
+indemnity or liability terms You offer. You may include additional
+disclaimers of warranty and limitations of liability specific to any
+jurisdiction.
+
+4. Inability to Comply Due to Statute or Regulation
+---------------------------------------------------
+
+If it is impossible for You to comply with any of the terms of this
+License with respect to some or all of the Covered Software due to
+statute, judicial order, or regulation then You must: (a) comply with
+the terms of this License to the maximum extent possible; and (b)
+describe the limitations and the code they affect. Such description must
+be placed in a text file included with all distributions of the Covered
+Software under this License. Except to the extent prohibited by statute
+or regulation, such description must be sufficiently detailed for a
+recipient of ordinary skill to be able to understand it.
+
+5. Termination
+--------------
+
+5.1. The rights granted under this License will terminate automatically
+if You fail to comply with any of its terms. However, if You become
+compliant, then the rights granted under this License from a particular
+Contributor are reinstated (a) provisionally, unless and until such
+Contributor explicitly and finally terminates Your grants, and (b) on an
+ongoing basis, if such Contributor fails to notify You of the
+non-compliance by some reasonable means prior to 60 days after You have
+come back into compliance. Moreover, Your grants from a particular
+Contributor are reinstated on an ongoing basis if such Contributor
+notifies You of the non-compliance by some reasonable means, this is the
+first time You have received notice of non-compliance with this License
+from such Contributor, and You become compliant prior to 30 days after
+Your receipt of the notice.
+
+5.2. If You initiate litigation against any entity by asserting a patent
+infringement claim (excluding declaratory judgment actions,
+counter-claims, and cross-claims) alleging that a Contributor Version
+directly or indirectly infringes any patent, then the rights granted to
+You by any and all Contributors for the Covered Software under Section
+2.1 of this License shall terminate.
+
+5.3. In the event of termination under Sections 5.1 or 5.2 above, all
+end user license agreements (excluding distributors and resellers) which
+have been validly granted by You or Your distributors under this License
+prior to termination shall survive termination.
+
+************************************************************************
+*                                                                      *
+*  6. Disclaimer of Warranty                                           *
+*  -------------------------                                           *
+*                                                                      *
+*  Covered Software is provided under this License on an "as is"       *
+*  basis, without warranty of any kind, either expressed, implied, or  *
+*  statutory, including, without limitation, warranties that the       *
+*  Covered Software is free of defects, merchantable, fit for a        *
+*  particular purpose or non-infringing. The entire risk as to the     *
+*  quality and performance of the Covered Software is with You.        *
+*  Should any Covered Software prove defective in any respect, You     *
+*  (not any Contributor) assume the cost of any necessary servicing,   *
+*  repair, or correction. This disclaimer of warranty constitutes an   *
+*  essential part of this License. No use of any Covered Software is   *
+*  authorized under this License except under this disclaimer.         *
+*                                                                      *
+************************************************************************
+
+************************************************************************
+*                                                                      *
+*  7. Limitation of Liability                                          *
+*  --------------------------                                          *
+*                                                                      *
+*  Under no circumstances and under no legal theory, whether tort      *
+*  (including negligence), contract, or otherwise, shall any           *
+*  Contributor, or anyone who distributes Covered Software as          *
+*  permitted above, be liable to You for any direct, indirect,         *
+*  special, incidental, or consequential damages of any character      *
+*  including, without limitation, damages for lost profits, loss of    *
+*  goodwill, work stoppage, computer failure or malfunction, or any    *
+*  and all other commercial damages or losses, even if such party      *
+*  shall have been informed of the possibility of such damages. This   *
+*  limitation of liability shall not apply to liability for death or   *
+*  personal injury resulting from such party's negligence to the       *
+*  extent applicable law prohibits such limitation. Some               *
+*  jurisdictions do not allow the exclusion or limitation of           *
+*  incidental or consequential damages, so this exclusion and          *
+*  limitation may not apply to You.                                    *
+*                                                                      *
+************************************************************************
+
+8. Litigation
+-------------
+
+Any litigation relating to this License may be brought only in the
+courts of a jurisdiction where the defendant maintains its principal
+place of business and such litigation shall be governed by laws of that
+jurisdiction, without reference to its conflict-of-law provisions.
+Nothing in this Section shall prevent a party's ability to bring
+cross-claims or counter-claims.
+
+9. Miscellaneous
+----------------
+
+This License represents the complete agreement concerning the subject
+matter hereof. If any provision of this License is held to be
+unenforceable, such provision shall be reformed only to the extent
+necessary to make it enforceable. Any law or regulation which provides
+that the language of a contract shall be construed against the drafter
+shall not be used to construe this License against a Contributor.
+
+10. Versions of the License
+---------------------------
+
+10.1. New Versions
+
+Mozilla Foundation is the license steward. Except as provided in Section
+10.3, no one other than the license steward has the right to modify or
+publish new versions of this License. Each version will be given a
+distinguishing version number.
+
+10.2. Effect of New Versions
+
+You may distribute the Covered Software under the terms of the version
+of the License under which You originally received the Covered Software,
+or under the terms of any subsequent version published by the license
+steward.
+
+10.3. Modified Versions
+
+If you create software not governed by this License, and you want to
+create a new license for such software, you may create and use a
+modified version of this License if you rename the license and remove
+any references to the name of the license steward (except to note that
+such modified license differs from this License).
+
+10.4. Distributing Source Code Form that is Incompatible With Secondary
+Licenses
+
+If You choose to distribute Source Code Form that is Incompatible With
+Secondary Licenses under the terms of this version of the License, the
+notice described in Exhibit B of this License must be attached.
+
+Exhibit A - Source Code Form License Notice
+-------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+
+You may add additional accurate notices of copyright ownership.
+
+Exhibit B - "Incompatible With Secondary Licenses" Notice
+---------------------------------------------------------
+
+  This Source Code Form is "Incompatible With Secondary Licenses", as
+  defined by the Mozilla Public License, v. 2.0.
+
+
+-----
+
+
+Base64
+License: WTFPL
+Repository: https://github.com/davidchambers/Base64.js
+License File: Base64/LICENSE
+
+abab
+License: ISC
+Repository: https://github.com/jsdom/abab
+
+abbrev
+License: ISC
+Repository: https://github.com/isaacs/abbrev-js
+License File: abbrev/LICENSE
+
+accepts3
+License: MIT
+Repository: https://github.com/jshttp/accepts
+License File: accepts/LICENSE
+
+acorn
+License: MIT
+Repository: https://github.com/ternjs/acorn
+License File: acorn/LICENSE
+
+acorn-globals
+License: MIT
+Repository: https://github.com/ForbesLindesay/acorn-globals
+License File: acorn-globals/LICENSE
+
+acorn-to-esprima
+License: MIT
+Repository: https://github.com/babel/acorn-to-esprima
+License File: acorn-to-esprima/LICENSE
+
+align-text
+License: MIT
+Repository: https://github.com/jonschlinkert/align-text
+License File: align-text/LICENSE
+
+alphanum-sort
+License: MIT
+Repository: https://github.com/TrySound/alphanum-sort
+License File: alphanum-sort/LICENSE
+
+amdefine
+License: BSD-3-Clause AND MIT
+Repository: https://github.com/jrburke/amdefine
+License File: amdefine/LICENSE
+
+ansi
+License: MIT
+Repository: https://github.com/TooTallNate/ansi.js
+
+ansi-escapes
+License: MIT
+Repository: https://github.com/sindresorhus/ansi-escapes
+License File: ansi-escapes/license
+
+ansi-green
+License: MIT
+Repository: https://github.com/jonschlinkert/ansi-green
+License File: ansi-green/LICENSE
+
+ansi-regex
+License: MIT
+Repository: https://github.com/sindresorhus/ansi-regex
+
+ansi-regex
+License: MIT
+Repository: https://github.com/sindresorhus/ansi-regex
+License File: webpack-hot-middleware/node_modules/ansi-regex/license
+
+ansi-regex
+License: MIT
+Repository: https://github.com/sindresorhus/ansi-regex
+License File: ansi-regex/license
+
+ansi-styles
+License: MIT
+Repository: https://github.com/sindresorhus/ansi-styles
+
+ansi-styles
+License: MIT
+Repository: https://github.com/chalk/ansi-styles
+License File: ansi-styles/license
+
+ansi-wrap
+License: MIT
+Repository: https://github.com/jonschlinkert/ansi-wrap
+License File: ansi-wrap/LICENSE
+
+anymatch
+License: ISC
+Repository: https://github.com/es128/anymatch
+License File: anymatch/LICENSE
+
+are-we-there-yet
+License: ISC
+Repository: https://github.com/iarna/are-we-there-yet
+
+argparse
+License: MIT
+Repository: https://github.com/nodeca/argparse
+License File: argparse/LICENSE
+
+arr-diff
+License: MIT
+Repository: https://github.com/jonschlinkert/arr-diff
+License File: arr-diff/LICENSE
+
+arr-flatten
+License: MIT
+Repository: https://github.com/jonschlinkert/arr-flatten
+License File: arr-flatten/LICENSE
+
+array-find
+License: MIT
+Repository: https://github.com/stefanduberg/array-find
+License File: array-find/LICENSE
+
+array-flatten
+License: MIT
+Repository: https://github.com/blakeembrey/array-flatten
+License File: array-flatten/LICENSE
+
+array-union
+License: MIT
+Repository: https://github.com/sindresorhus/array-union
+
+array-uniq
+License: MIT
+Repository: https://github.com/sindresorhus/array-uniq
+
+array-unique
+License: MIT
+Repository: https://github.com/jonschlinkert/array-unique
+License File: array-unique/LICENSE
+
+arrify
+License: MIT
+Repository: https://github.com/sindresorhus/arrify
+License File: arrify/license
+
+asap
+License: MIT
+License File: less/node_modules/asap/LICENSE.md
+
+asap
+License: MIT
+Repository: https://github.com/kriskowal/asap
+License File: asap/LICENSE.md
+
+asar
+License: MIT
+Repository: https://github.com/atom/asar
+License File: asar/LICENSE
+
+asn11
+License: MIT
+Repository: https://github.com/mcavage/node-asn1
+License File: mksnapshot/node_modules/asn1/LICENSE
+
+asn1
+License: MIT
+Repository: https://github.com/mcavage/node-asn1
+License File: asn1/LICENSE
+
+assert
+License: MIT
+Repository: https://github.com/defunctzombie/commonjs-assert
+License File: assert/LICENSE
+
+assert-plus
+License: MIT
+Repository: https://github.com/mcavage/node-assert-plus
+
+assert-plus
+License: MIT
+Repository: https://github.com/mcavage/node-assert-plus
+
+ast-types2
+License: MIT
+Repository: https://github.com/benjamn/ast-types
+License File: ast-types/LICENSE
+
+async0
+License: MIT
+Repository: https://github.com/caolan/async
+License File: uglify-js/node_modules/async/LICENSE
+
+async
+License: MIT
+Repository: https://github.com/caolan/async
+License File: mksnapshot/node_modules/async/LICENSE
+
+async
+License: MIT
+Repository: https://github.com/caolan/async
+License File: async/LICENSE
+
+async-each
+License: MIT
+Repository: https://github.com/paulmillr/async-each
+
+autoprefixer
+License: MIT
+Repository: https://github.com/postcss/autoprefixer
+License File: react-crop/node_modules/autoprefixer/LICENSE
+
+autoprefixer
+License: MIT
+Repository: https://github.com/postcss/autoprefixer
+License File: autoprefixer/LICENSE
+
+autoprefixer-core
+License: MIT
+Repository: https://github.com/postcss/autoprefixer-core
+License File: autoprefixer-core/LICENSE
+
+aws-sign2
+License: Apache
+Repository: https://github.com/mikeal/aws-sign
+License File: mksnapshot/node_modules/aws-sign2/LICENSE
+
+aws-sign2
+License: Apache-2.0
+Repository: https://github.com/mikeal/aws-sign
+License File: aws-sign2/LICENSE
+
+babel-cli7
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-cli
+
+babel-code-frame3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-code-frame
+
+babel-core6
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-core
+
+babel-eslint-beta6
+License: MIT
+Repository: https://github.com/babel/babel-eslint
+License File: babel-eslint/LICENSE
+
+babel-generator6
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-generator
+
+babel-helper-bindify-decorators3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-bindify-decorators
+
+babel-helper-builder-binary-assignment-operator-visitor3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-builder-binary-assignment-operator-visitor
+
+babel-helper-builder-react-jsx3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-builder-react-jsx
+
+babel-helper-call-delegate3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-call-delegate
+
+babel-helper-define-map3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-define-map
+
+babel-helper-explode-assignable-expression3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-explode-assignable-expression
+
+babel-helper-explode-class3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-explode-class
+
+babel-helper-function-name5
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-function-name
+
+babel-helper-get-function-arity3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-get-function-arity
+
+babel-helper-hoist-variables3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-hoist-variables
+
+babel-helper-optimise-call-expression3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-optimise-call-expression
+
+babel-helper-regex3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-regex
+
+babel-helper-remap-async-to-generator3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-remap-async-to-generator
+
+babel-helper-replace-supers3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helper-replace-supers
+
+babel-helpers3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-helpers
+
+babel-jest
+License: MIT*
+Repository: https://github.com/babel/babel-jest
+License File: babel-jest/LICENSE
+
+babel-loader
+License: MIT
+Repository: https://github.com/babel/babel-loader
+License File: babel-loader/LICENSE
+
+babel-messages8
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-messages
+
+babel-plugin-check-es2015-constants3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-check-es2015-constants
+
+babel-plugin-react-transform
+License: MIT
+Repository: https://github.com/gaearon/babel-plugin-react-transform
+
+babel-plugin-syntax-async-functions3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-async-functions
+
+babel-plugin-syntax-class-constructor-call3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-class-constructor-call
+
+babel-plugin-syntax-class-properties3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-class-properties
+
+babel-plugin-syntax-decorators3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-decorators
+
+babel-plugin-syntax-do-expressions3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-do-expressions
+
+babel-plugin-syntax-exponentiation-operator3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-exponentation-operator
+
+babel-plugin-syntax-export-extensions3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-export-extensions
+
+babel-plugin-syntax-flow3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-flow
+
+babel-plugin-syntax-function-bind3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-function-bind
+
+babel-plugin-syntax-jsx3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-jsx
+
+babel-plugin-syntax-object-rest-spread3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-object-rest-spread
+
+babel-plugin-syntax-trailing-function-commas3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-syntax-trailing-function-commas
+
+babel-plugin-transform-async-to-generator3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-async-to-generator
+
+babel-plugin-transform-class-constructor-call3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-class-constructor-call
+
+babel-plugin-transform-class-properties3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-class-properties
+
+babel-plugin-transform-decorators3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-decorators
+
+babel-plugin-transform-do-expressions3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-do-expressions
+
+babel-plugin-transform-es2015-arrow-functions3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-arrow-functions
+
+babel-plugin-transform-es2015-block-scoped-functions3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-block-scoped-functions
+
+babel-plugin-transform-es2015-block-scoping3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-block-scoping
+
+babel-plugin-transform-es2015-classes5
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-classes
+
+babel-plugin-transform-es2015-computed-properties3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-computed-properties
+
+babel-plugin-transform-es2015-destructuring5
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-destructuring
+
+babel-plugin-transform-es2015-for-of3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-for-of
+
+babel-plugin-transform-es2015-function-name9
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-function-name
+
+babel-plugin-transform-es2015-literals3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-literals
+
+babel-plugin-transform-es2015-modules-commonjs6
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-modules-commonjs
+
+babel-plugin-transform-es2015-object-super3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-object-super
+
+babel-plugin-transform-es2015-parameters8
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-parameters
+
+babel-plugin-transform-es2015-shorthand-properties3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-shorthand-properties
+
+babel-plugin-transform-es2015-spread4
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-spread
+
+babel-plugin-transform-es2015-sticky-regex3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-sticky-regex
+
+babel-plugin-transform-es2015-template-literals3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-template-literals
+
+babel-plugin-transform-es2015-typeof-symbol3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-typeof-symbol
+
+babel-plugin-transform-es2015-unicode-regex3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-es2015-unicode-regex
+
+babel-plugin-transform-exponentiation-operator3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-exponentiation-operator
+
+babel-plugin-transform-export-extensions3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-export-extensions
+
+babel-plugin-transform-flow-strip-types5
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-flow-strip-types
+
+babel-plugin-transform-function-bind3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-function-bind
+
+babel-plugin-transform-object-rest-spread3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-object-rest-spread
+
+babel-plugin-transform-react-display-name3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-display-name
+
+babel-plugin-transform-react-jsx3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-jsx
+
+babel-plugin-transform-react-jsx-source3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-source
+
+babel-plugin-transform-regenerator8
+License: BSD
+License File: babel-plugin-transform-regenerator/LICENSE
+
+babel-plugin-transform-runtime3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-runtime
+
+babel-plugin-transform-strict-mode3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-strict-mode
+
+babel-polyfill4
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-polyfill
+
+babel-preset-es20153
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-preset-es2015
+
+babel-preset-react3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-preset-react
+
+babel-preset-stage-03
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-preset-stage-0
+
+babel-preset-stage-13
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-preset-stage-1
+
+babel-preset-stage-23
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-preset-stage-2
+
+babel-preset-stage-33
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-preset-stage-3
+
+babel-regenerator-runtime3
+License: BSD
+License File: babel-regenerator-runtime/LICENSE
+
+babel-register3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-register
+
+babel-relay-plugin
+License: BSD-3-Clause
+Repository: https://github.com/facebook/relay
+License File: babel-relay-plugin/LICENSE
+
+babel-runtime4
+License: MIT
+Repository: https://github.com/babel/babel
+
+babel-runtime4
+License: MIT
+Repository: https://github.com/babel/babel
+
+babel-template3
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-template
+
+babel-traverse9
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-traverse
+
+babel-traverse6
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-traverse
+
+babel-types0
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-types
+
+babel-types4
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babel-types
+
+babylon0
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babylon
+License File: babylon/LICENSE
+
+babylon6
+License: MIT
+Repository: https://github.com/babel/babel/tree/master/packages/babylon
+License File: babel-generator/node_modules/babylon/LICENSE
+
+balanced-match
+License: MIT
+Repository: https://github.com/juliangruber/balanced-match
+
+balanced-match
+License: MIT
+Repository: https://github.com/juliangruber/balanced-match
+License File: balanced-match/LICENSE.md
+
+base62
+License: MIT*
+Repository: https://github.com/andrew/base62.js
+License File: base62/LICENSE
+
+base64-js
+License: MIT
+Repository: https://github.com/beatgammit/base64-js
+License File: base64-js/LICENSE.MIT
+
+big.js
+License: MIT
+Repository: https://github.com/MikeMcl/big.js
+License File: big.js/LICENCE
+
+bin-check
+License: MIT
+Repository: https://github.com/kevva/bin-check
+
+bin-version
+License: MIT
+Repository: https://github.com/sindresorhus/bin-version
+License File: bin-version/license
+
+bin-version-check
+License: MIT
+Repository: https://github.com/sindresorhus/bin-version-check
+
+bin-wrapper
+License: MIT
+Repository: https://github.com/kevva/bin-wrapper
+License File: bin-wrapper/LICENSE.md
+
+binary
+License: MIT
+Repository: https://github.com/substack/node-binary
+
+binary-extensions
+License: MIT
+Repository: https://github.com/sindresorhus/binary-extensions
+License File: binary-extensions/license
+
+bl
+License: MIT
+Repository: https://github.com/rvagg/bl
+License File: mksnapshot/node_modules/bl/LICENSE.md
+
+bl
+License: MIT
+Repository: https://github.com/rvagg/bl
+License File: bl/LICENSE.md
+
+block-stream
+License: ISC
+Repository: https://github.com/isaacs/block-stream
+License File: fsevents/node_modules/block-stream/LICENSE
+
+bluebird2
+License: MIT
+Repository: https://github.com/petkaantonov/bluebird
+License File: bluebird/LICENSE
+
+boom1
+License: BSD-3-Clause
+Repository: https://github.com/hapijs/boom
+License File: boom/LICENSE
+
+brace-expansion
+License: MIT
+Repository: https://github.com/juliangruber/brace-expansion
+
+braces
+License: MIT
+Repository: https://github.com/jonschlinkert/braces
+License File: braces/LICENSE
+
+browserify-zlib
+License: MIT
+Repository: https://github.com/devongovett/browserify-zlib
+
+browserslist
+License: MIT
+Repository: https://github.com/ai/browserslist
+License File: autoprefixer-core/node_modules/browserslist/LICENSE
+
+browserslist
+License: MIT
+Repository: https://github.com/ai/browserslist
+License File: browserslist/LICENSE
+
+bser
+License: Apache-2.0
+Repository: https://github.com/facebook/watchman
+
+buffer
+License: MIT
+Repository: https://github.com/feross/buffer
+License File: buffer/LICENSE
+
+buffers
+License: UNKNOWN
+Repository: https://github.com/substack/node-buffers
+
+builtin-modules
+License: MIT
+Repository: https://github.com/sindresorhus/builtin-modules
+License File: builtin-modules/license
+
+camelcase
+License: MIT
+Repository: https://github.com/sindresorhus/camelcase
+License File: uglify-js/node_modules/camelcase/license
+
+camelcase
+License: MIT
+Repository: https://github.com/sindresorhus/camelcase
+License File: camelcase/license
+
+camelcase-keys
+License: MIT
+Repository: https://github.com/sindresorhus/camelcase-keys
+
+camelcase-keys
+License: MIT
+Repository: https://github.com/sindresorhus/camelcase-keys
+License File: camelcase-keys/license
+
+caniuse-db0000377
+License: CC-BY-4.0
+Repository: https://github.com/Fyrd/caniuse
+
+caniuse-db0000384
+License: CC-BY-4.0
+Repository: https://github.com/Fyrd/caniuse
+
+caseless0
+License: Apache-2.0
+Repository: https://github.com/mikeal/caseless
+License File: caseless/LICENSE
+
+caseless
+License: BSD
+Repository: https://github.com/mikeal/caseless
+
+center-align
+License: MIT
+Repository: https://github.com/jonschlinkert/center-align
+License File: center-align/LICENSE
+
+chainsaw
+License: MIT/X11
+Repository: https://github.com/substack/node-chainsaw
+
+chalk
+License: MIT
+Repository: https://github.com/sindresorhus/chalk
+
+chalk
+License: MIT
+Repository: https://github.com/chalk/chalk
+License File: chalk/license
+
+chokidar
+License: MIT
+Repository: https://github.com/paulmillr/chokidar
+
+chromium-pickle-js
+License: MIT
+Repository: https://github.com/atom/node-chromium-pickle-js
+
+clap0
+License: MIT
+Repository: https://github.com/lahmatiy/clap
+License File: clap/LICENSE
+
+classnames
+License: MIT
+Repository: https://github.com/JedWatson/classnames
+License File: classnames/LICENSE
+
+cli-cursor
+License: MIT
+Repository: https://github.com/sindresorhus/cli-cursor
+License File: cli-cursor/license
+
+cli-table
+License: MIT*
+
+cli-width
+License: ISC
+Repository: https://github.com/knownasilya/cli-width
+License File: cli-width/LICENSE
+
+cliui
+License: ISC
+Repository: https://github.com/bcoe/cliui
+License File: uglify-js/node_modules/cliui/LICENSE.txt
+
+cliui
+License: ISC
+Repository: https://github.com/bcoe/cliui
+License File: cliui/LICENSE.txt
+
+clone
+License: MIT
+Repository: https://github.com/pvorb/node-clone
+License File: clone/LICENSE
+
+clone
+License: MIT
+Repository: https://github.com/pvorb/node-clone
+License File: webpack/node_modules/clone/LICENSE
+
+clone-stats
+License: MIT
+Repository: https://github.com/hughsk/clone-stats
+License File: clone-stats/LICENSE.md
+
+co
+License: MIT
+Repository: https://github.com/visionmedia/co
+
+coa
+License: MIT
+Repository: https://github.com/veged/coa
+
+code-point-at
+License: MIT
+Repository: https://github.com/sindresorhus/code-point-at
+License File: code-point-at/license
+
+color1
+License: MIT
+Repository: https://github.com/MoOx/color
+License File: color/LICENSE
+
+color-convert
+License: MIT*
+Repository: https://github.com/harthur/color-convert
+License File: color-convert/LICENSE
+
+color-name
+License: MIT
+Repository: https://github.com/dfcreative/color-name
+License File: color-name/LICENSE
+
+color-string
+License: MIT
+Repository: https://github.com/harthur/color-string
+License File: color-string/LICENSE
+
+colormin
+License: MIT
+Repository: https://github.com/ben-eb/colormin
+License File: colormin/LICENSE-MIT
+
+colors
+License: MIT*
+Repository: https://github.com/Marak/colors.js
+License File: cli-table/node_modules/colors/MIT-LICENSE.txt
+
+colors
+License: MIT
+Repository: https://github.com/Marak/colors.js
+License File: colors/LICENSE
+
+combined-stream
+License: MIT*
+Repository: https://github.com/felixge/node-combined-stream
+License File: mksnapshot/node_modules/combined-stream/License
+
+combined-stream
+License: MIT
+Repository: https://github.com/felixge/node-combined-stream
+License File: combined-stream/License
+
+commander
+License: MIT*
+Repository: https://github.com/visionmedia/commander.js
+
+commander
+License: MIT
+Repository: https://github.com/tj/commander.js
+License File: seek-bzip/node_modules/commander/LICENSE
+
+commander
+License: MIT
+Repository: https://github.com/tj/commander.js
+License File: commander/LICENSE
+
+concat-map
+License: MIT
+Repository: https://github.com/substack/node-concat-map
+License File: concat-map/LICENSE
+
+concat-stream
+License: MIT
+Repository: https://github.com/maxogden/concat-stream
+License File: concat-stream/LICENSE
+
+console-browserify
+License: MIT
+Repository: https://github.com/Raynos/console-browserify
+License File: console-browserify/LICENCE
+
+console-stream
+License: MIT
+Repository: https://github.com/Raynos/console-stream
+License File: console-stream/LICENCE
+
+constants-browserify
+License: MIT
+Repository: https://github.com/juliangruber/constants-browserify
+
+content-disposition
+License: MIT
+Repository: https://github.com/jshttp/content-disposition
+License File: content-disposition/LICENSE
+
+content-type
+License: MIT
+Repository: https://github.com/jshttp/content-type
+License File: content-type/LICENSE
+
+convert-source-map
+License: MIT
+Repository: https://github.com/thlorenz/convert-source-map
+License File: convert-source-map/LICENSE
+
+cookie
+License: MIT
+Repository: https://github.com/jshttp/cookie
+License File: cookie/LICENSE
+
+cookie-signature
+License: MIT
+Repository: https://github.com/visionmedia/node-cookie-signature
+
+core-js
+License: MIT
+Repository: https://github.com/zloirock/core-js
+License File: core-js/LICENSE
+
+core-util-is
+License: MIT
+Repository: https://github.com/isaacs/core-util-is
+License File: core-util-is/LICENSE
+
+cover
+License: MIT/X11
+Repository: https://github.com/itay/node-cover
+
+cryptiles
+License: BSD-3-Clause
+Repository: https://github.com/hapijs/cryptiles
+License File: cryptiles/LICENSE
+
+crypto-browserify
+License: MIT
+Repository: https://github.com/dominictarr/crypto-browserify
+License File: crypto-browserify/LICENSE
+
+css-color-names
+License: MIT
+Repository: https://github.com/bahamas10/css-color-names
+
+css-loader1
+License: MIT
+Repository: https://github.com/webpack/css-loader
+
+css-selector-tokenizer
+License: MIT
+Repository: https://github.com/css-modules/css-selector-tokenizer
+
+cssesc
+License: MIT
+Repository: https://github.com/mathiasbynens/cssesc
+License File: cssesc/LICENSE-MIT.txt
+
+cssnano
+License: MIT
+Repository: https://github.com/ben-eb/cssnano
+License File: cssnano/LICENSE-MIT
+
+csso
+License: MIT
+Repository: https://github.com/css/csso
+License File: csso/LICENSE
+
+cssom
+License: MIT
+Repository: https://github.com/NV/CSSOM
+License File: cssom/MIT-LICENSE.txt
+
+cssstyle0
+License: MIT
+Repository: https://github.com/chad3814/CSSStyleDeclaration
+License File: cssstyle/MIT-LICENSE.txt
+
+ctype
+License: MIT*
+Repository: https://github.com/rmustacc/node-ctype
+License File: ctype/LICENSE
+
+cuint
+License: MIT
+Repository: https://github.com/pierrec/js-cuint
+
+d
+License: MIT
+Repository: https://github.com/medikoo/d
+License File: d/LICENCE
+
+dashdash1
+License: MIT
+Repository: https://github.com/trentm/node-dashdash
+
+data-uri-to-blob
+License: MIT
+
+date-now
+License: MIT
+Repository: https://github.com/Colingo/date-now
+License File: date-now/LICENCE
+
+debug
+License: MIT*
+Repository: https://github.com/visionmedia/debug
+
+debug
+License: MIT
+Repository: https://github.com/visionmedia/debug
+
+decamelize
+License: MIT
+Repository: https://github.com/sindresorhus/decamelize
+License File: decamelize/license
+
+decompress-tar
+License: MIT
+Repository: https://github.com/kevva/decompress-tar
+
+decompress-tarbz2
+License: MIT
+Repository: https://github.com/kevva/decompress-tarbz2
+
+decompress-targz
+License: MIT
+Repository: https://github.com/kevva/decompress-targz
+
+decompress-unzip
+License: MIT
+Repository: https://github.com/kevva/decompress-unzip
+License File: decompress-unzip/license
+
+decompress-zip
+License: MIT
+Repository: https://github.com/bower/decompress-zip
+
+deep-equal
+License: MIT
+Repository: https://github.com/substack/node-deep-equal
+License File: deep-equal/LICENSE
+
+deep-extend1
+License: MIT
+Repository: https://github.com/unclechu/node-deep-extend
+License File: download/node_modules/deep-extend/LICENSE
+
+deep-extend
+License: MIT
+Repository: https://github.com/unclechu/node-deep-extend
+License File: deep-extend/LICENSE
+
+deep-is
+License: MIT
+Repository: https://github.com/thlorenz/deep-is
+License File: deep-is/LICENSE
+
+defaults
+License: MIT
+Repository: https://github.com/tmpvar/defaults
+License File: defaults/LICENSE
+
+defined
+License: MIT
+Repository: https://github.com/substack/defined
+License File: defined/LICENSE
+
+del
+License: MIT
+Repository: https://github.com/sindresorhus/del
+License File: del/license
+
+delayed-stream
+License: MIT*
+Repository: https://github.com/felixge/node-delayed-stream
+License File: mksnapshot/node_modules/delayed-stream/License
+
+delayed-stream
+License: MIT
+Repository: https://github.com/felixge/node-delayed-stream
+License File: delayed-stream/License
+
+delegates
+License: MIT
+Repository: https://github.com/visionmedia/node-delegates
+
+depd
+License: MIT
+Repository: https://github.com/dougwilson/nodejs-depd
+License File: depd/LICENSE
+
+destroy
+License: MIT
+Repository: https://github.com/stream-utils/destroy
+
+detect-indent
+License: MIT
+Repository: https://github.com/sindresorhus/detect-indent
+License File: detect-indent/license
+
+diff
+License: BSD-3-Clause
+Repository: https://github.com/kpdecker/jsdiff
+License File: diff/LICENSE
+
+doctrine
+License: BSD
+Repository: https://github.com/eslint/doctrine
+License File: doctrine/LICENSE.esprima
+
+dom-helpers
+License: MIT
+Repository: https://github.com/jquense/dom-helpers
+
+dom-walk
+License: MIT
+Repository: https://github.com/Raynos/dom-walk
+License File: dom-walk/LICENCE
+
+domain-browser
+License: MIT
+Repository: https://github.com/bevry/domain-browser
+License File: domain-browser/LICENSE.md
+
+download
+License: MIT
+Repository: https://github.com/kevva/download
+License File: download/LICENSE.md
+
+download-status
+License: MIT
+Repository: https://github.com/kevva/download-status
+License File: download-status/license
+
+duplexer
+License: MIT
+Repository: https://github.com/Raynos/duplexer
+License File: duplexer/LICENCE
+
+each-async
+License: MIT
+Repository: https://github.com/sindresorhus/each-async
+License File: each-async/license
+
+ecc-jsbn
+License: MIT
+Repository: https://github.com/quartzjer/ecc-jsbn
+License File: ecc-jsbn/LICENSE
+
+ee-first
+License: MIT
+Repository: https://github.com/jonathanong/ee-first
+License File: ee-first/LICENSE
+
+electron-download
+License: BSD-3-Clause
+Repository: https://github.com/maxogden/electron-download
+
+electron-packager
+License: BSD-2-Clause
+Repository: https://github.com/maxogden/electron-packager
+License File: electron-packager/LICENSE
+
+electron-prebuilt2
+License: MIT
+Repository: https://github.com/mafintosh/electron-prebuilt
+License File: electron-prebuilt/LICENSE
+
+end-of-stream
+License: MIT
+Repository: https://github.com/mafintosh/end-of-stream
+License File: end-of-stream/LICENSE
+
+enhanced-resolve
+License: MIT
+Repository: https://github.com/webpack/enhanced-resolve
+
+envify
+License: MIT
+Repository: https://github.com/hughsk/envify
+
+errno
+License: MIT
+Repository: https://github.com/rvagg/node-errno
+
+error-ex
+License: MIT
+Repository: https://github.com/qix-/node-error-ex
+License File: error-ex/LICENSE
+
+error-stack-parser
+License: Unlicense
+Repository: https://github.com/stacktracejs/error-stack-parser
+License File: error-stack-parser/LICENSE
+
+es5-ext11
+License: MIT
+Repository: https://github.com/medikoo/es5-ext
+License File: es5-ext/LICENSE
+
+es6-iterator
+License: MIT
+Repository: https://github.com/medikoo/es6-iterator
+License File: es6-iterator/LICENSE
+
+es6-map
+License: MIT
+Repository: https://github.com/medikoo/es6-map
+License File: es6-map/LICENSE
+
+es6-promise
+License: MIT
+Repository: https://github.com/jakearchibald/ES6-Promises
+License File: es6-promise/LICENSE
+
+es6-set
+License: MIT
+Repository: https://github.com/medikoo/es6-set
+License File: es6-set/LICENSE
+
+es6-symbol
+License: MIT
+Repository: https://github.com/medikoo/es6-symbol
+License File: es6-symbol/LICENSE
+
+es6-weak-map
+License: MIT
+Repository: https://github.com/medikoo/es6-weak-map
+License File: es6-weak-map/LICENSE
+
+escape-html
+License: MIT
+Repository: https://github.com/component/escape-html
+License File: escape-html/LICENSE
+
+escape-string-regexp
+License: MIT
+Repository: https://github.com/sindresorhus/escape-string-regexp
+License File: escape-string-regexp/license
+
+escodegen
+License: BSD-2-Clause
+Repository: https://github.com/estools/escodegen
+License File: escodegen/LICENSE.source-map
+
+escope
+License: BSD-2-Clause
+Repository: https://github.com/estools/escope
+License File: escope/LICENSE.BSD
+
+eslint3
+License: MIT
+Repository: https://github.com/eslint/eslint
+License File: eslint/LICENSE
+
+eslint-plugin-flow-vars
+License: MIT
+Repository: https://github.com/zertosh/eslint-plugin-flow-vars
+
+eslint-plugin-react1
+License: MIT
+Repository: https://github.com/yannickcr/eslint-plugin-react
+License File: eslint-plugin-react/LICENSE
+
+espree
+License: BSD
+Repository: https://github.com/eslint/espree
+
+esprima
+License: BSD
+Repository: https://github.com/ariya/esprima
+License File: escodegen/node_modules/esprima/LICENSE.BSD
+
+esprima
+License: BSD-2-Clause
+Repository: https://github.com/jquery/esprima
+License File: istanbul/node_modules/esprima/LICENSE.BSD
+
+esprima
+License: BSD-2-Clause
+Repository: https://github.com/jquery/esprima
+License File: esprima/LICENSE.BSD
+
+esprima-fb.1001.0-dev-harmony-fb
+License: BSD
+Repository: https://github.com/facebook/esprima
+
+esprima-fb.1001.0-dev-harmony-fb
+License: BSD
+Repository: https://github.com/facebook/esprima
+
+esprima-fb1001.0-dev-harmony-fb
+License: BSD
+Repository: https://github.com/facebook/esprima
+
+esrecurse
+License: BSD
+Repository: https://github.com/estools/esrecurse
+
+estraverse
+License: BSD
+Repository: https://github.com/estools/estraverse
+License File: escodegen/node_modules/estraverse/LICENSE.BSD
+
+estraverse
+License: BSD
+Repository: https://github.com/estools/estraverse
+License File: esrecurse/node_modules/estraverse/LICENSE.BSD
+
+estraverse
+License: BSD-2-Clause
+Repository: https://github.com/estools/estraverse
+License File: estraverse/LICENSE.BSD
+
+estraverse-fb
+License: MIT
+Repository: https://github.com/rreverser/estraverse-fb
+License File: estraverse-fb/LICENSE
+
+esutils
+License: BSD
+Repository: https://github.com/Constellation/esutils
+License File: doctrine/node_modules/esutils/LICENSE.BSD
+
+esutils
+License: BSD
+Repository: https://github.com/estools/esutils
+License File: esutils/LICENSE.BSD
+
+etag
+License: MIT
+Repository: https://github.com/jshttp/etag
+License File: etag/LICENSE
+
+event-emitter
+License: MIT
+Repository: https://github.com/medikoo/event-emitter
+License File: event-emitter/LICENSE
+
+events
+License: MIT
+Repository: https://github.com/Gozala/events
+License File: events/LICENSE
+
+exec-sh
+License: MIT
+Repository: https://github.com/tsertkov/exec-sh
+License File: exec-sh/LICENSE
+
+executable
+License: MIT
+Repository: https://github.com/kevva/executable
+License File: executable/license
+
+exit-hook
+License: MIT
+Repository: https://github.com/sindresorhus/exit-hook
+
+expand-brackets
+License: MIT
+Repository: https://github.com/jonschlinkert/expand-brackets
+License File: expand-brackets/LICENSE
+
+expand-range
+License: MIT
+Repository: https://github.com/jonschlinkert/expand-range
+License File: expand-range/LICENSE
+
+express3
+License: MIT
+Repository: https://github.com/strongloop/express
+License File: express/LICENSE
+
+extend
+License: MIT
+Repository: https://github.com/justmoon/node-extend
+License File: extend/LICENSE
+
+extglob
+License: MIT
+Repository: https://github.com/jonschlinkert/extglob
+License File: extglob/LICENSE
+
+extract-zip
+License: BSD-2-Clause
+Repository: https://github.com/maxogden/extract-zip
+
+extsprintf
+License: MIT*
+Repository: https://github.com/davepacheco/node-extsprintf
+License File: extsprintf/LICENSE
+
+fast-levenshtein
+License: MIT
+Repository: https://github.com/hiddentao/fast-levenshtein
+License File: fast-levenshtein/LICENSE.md
+
+fastparse
+License: MIT
+Repository: https://github.com/webpack/fastparse
+
+fb-watchman
+License: Apache-2.0
+Repository: https://github.com/facebook/watchman
+
+fbemitter
+License: BSD-3-Clause
+Repository: https://github.com/facebook/emitter
+License File: fbemitter/LICENSE
+
+fbjs-alpha.7
+License: BSD-3-Clause
+Repository: https://github.com/facebook/fbjs
+License File: fbemitter/node_modules/fbjs/LICENSE
+
+fbjs
+License: BSD-3-Clause
+Repository: https://github.com/facebook/fbjs
+License File: react-relay/node_modules/fbjs/LICENSE
+
+fbjs
+License: BSD-3-Clause
+Repository: https://github.com/facebook/fbjs
+License File: fbjs/LICENSE
+
+fd-slicer
+License: MIT
+Repository: https://github.com/andrewrk/node-fd-slicer
+License File: fd-slicer/LICENSE
+
+figures
+License: MIT
+Repository: https://github.com/sindresorhus/figures
+License File: figures/license
+
+file-entry-cache
+License: MIT
+Repository: https://github.com/royriojas/file-entry-cache
+License File: file-entry-cache/LICENSE
+
+file-loader
+License: MIT
+Repository: https://github.com/webpack/file-loader
+
+filename-regex
+License: MIT
+Repository: https://github.com/regexps/filename-regex
+
+fileset
+License: MIT
+Repository: https://github.com/mklabs/node-fileset
+License File: fileset/LICENSE-MIT
+
+filesize
+License: BSD-3-Clause
+Repository: https://github.com/avoidwork/filesize.js
+License File: filesize/LICENSE
+
+fill-range
+License: MIT
+Repository: https://github.com/jonschlinkert/fill-range
+License File: fill-range/LICENSE
+
+finalhandler
+License: MIT
+Repository: https://github.com/pillarjs/finalhandler
+License File: finalhandler/LICENSE
+
+find-index
+License: MIT
+Repository: https://github.com/jsdf/find-index
+
+find-up
+License: MIT
+Repository: https://github.com/sindresorhus/find-up
+License File: find-up/license
+
+find-versions
+License: MIT
+Repository: https://github.com/sindresorhus/find-versions
+License File: find-versions/license
+
+first-chunk-stream
+License: MIT
+Repository: https://github.com/sindresorhus/first-chunk-stream
+
+flat-cache0
+License: MIT
+Repository: https://github.com/royriojas/flat-cache
+License File: flat-cache/LICENSE
+
+flatten
+License: MIT*
+Repository: https://github.com/jesusabdullah/node-flatten
+
+flow-bin0
+License: MIT
+Repository: https://github.com/sindresorhus/flow-bin
+License File: flow-bin/license
+
+flux
+License: BSD-3-Clause
+Repository: https://github.com/facebook/flux
+License File: flux/LICENSE
+
+for-in
+License: MIT
+Repository: https://github.com/jonschlinkert/for-in
+License File: for-in/LICENSE
+
+for-own
+License: MIT
+Repository: https://github.com/jonschlinkert/for-own
+License File: for-own/LICENSE
+
+forever-agent
+License: Apache-2.0
+Repository: https://github.com/mikeal/forever-agent
+License File: forever-agent/LICENSE
+
+form-data
+License: MIT
+Repository: https://github.com/felixge/node-form-data
+License File: mksnapshot/node_modules/form-data/License
+
+form-data-rc3
+License: MIT
+Repository: https://github.com/form-data/form-data
+License File: form-data/License
+
+forwarded
+License: MIT
+Repository: https://github.com/jshttp/forwarded
+License File: forwarded/LICENSE
+
+fresh
+License: MIT
+Repository: https://github.com/jshttp/fresh
+License File: fresh/LICENSE
+
+fs-extra2
+License: MIT
+Repository: https://github.com/jprichardson/node-fs-extra
+License File: mksnapshot/node_modules/fs-extra/LICENSE
+
+fs-extra4
+License: MIT
+Repository: https://github.com/jprichardson/node-fs-extra
+License File: react-crop/node_modules/fs-extra/LICENSE
+
+fs-extra3
+License: MIT
+Repository: https://github.com/jprichardson/node-fs-extra
+License File: fs-extra/LICENSE
+
+fs-readdir-recursive
+License: MIT
+Repository: https://github.com/fs-utils/fs-readdir-recursive
+License File: fs-readdir-recursive/LICENSE
+
+fsevents
+License: MIT
+Repository: https://github.com/strongloop/fsevents
+License File: fsevents/LICENSE
+
+fstream
+License: ISC
+Repository: https://github.com/isaacs/fstream
+License File: fsevents/node_modules/fstream/LICENSE
+
+fstream-ignore
+License: ISC
+Repository: https://github.com/isaacs/fstream-ignore
+License File: fsevents/node_modules/fstream-ignore/LICENSE
+
+gather-stream
+License: ISC
+Repository: https://github.com/natevw/gather-stream
+
+gauge
+License: ISC
+Repository: https://github.com/iarna/gauge
+License File: fsevents/node_modules/gauge/LICENSE
+
+gaze
+License: MIT
+Repository: https://github.com/shama/gaze
+License File: gaze/LICENSE-MIT
+
+generate-function
+License: MIT
+Repository: https://github.com/mafintosh/generate-function
+
+generate-object-property
+License: MIT
+Repository: https://github.com/mafintosh/generate-object-property
+License File: generate-object-property/LICENSE
+
+get-stdin
+License: MIT
+Repository: https://github.com/sindresorhus/get-stdin
+
+get-stdin
+License: MIT
+Repository: https://github.com/sindresorhus/get-stdin
+
+glob1
+License: BSD
+Repository: https://github.com/isaacs/node-glob
+License File: globule/node_modules/glob/LICENSE
+
+glob
+License: ISC
+Repository: https://github.com/isaacs/node-glob
+License File: glob-stream/node_modules/glob/LICENSE
+
+glob5
+License: ISC
+Repository: https://github.com/isaacs/node-glob
+License File: babel-cli/node_modules/glob/LICENSE
+
+glob
+License: ISC
+Repository: https://github.com/isaacs/node-glob
+License File: del/node_modules/glob/LICENSE
+
+glob-base
+License: MIT
+Repository: https://github.com/jonschlinkert/glob-base
+License File: glob-base/LICENSE
+
+glob-parent
+License: ISC
+Repository: https://github.com/es128/glob-parent
+License File: glob-parent/LICENSE
+
+glob-stream8
+License: MIT
+Repository: https://github.com/wearefractal/glob-stream
+License File: glob-stream/LICENSE
+
+glob-watcher
+License: MIT
+Repository: https://github.com/wearefractal/glob-watcher
+License File: glob-watcher/LICENSE
+
+glob2base2
+License: MIT
+Repository: https://github.com/wearefractal/glob2base
+License File: glob2base/LICENSE
+
+global
+License: MIT
+Repository: https://github.com/Raynos/global
+License File: global/LICENCE
+
+globals0
+License: MIT
+Repository: https://github.com/sindresorhus/globals
+License File: globals/license
+
+globby
+License: MIT
+Repository: https://github.com/sindresorhus/globby
+License File: globby/license
+
+globby
+License: MIT
+Repository: https://github.com/sindresorhus/globby
+License File: del/node_modules/globby/license
+
+globule
+License: MIT
+Repository: https://github.com/cowboy/node-globule
+License File: globule/LICENSE-MIT
+
+graceful-fs
+License: BSD
+Repository: https://github.com/isaacs/node-graceful-fs
+License File: globule/node_modules/graceful-fs/LICENSE
+
+graceful-fs
+License: ISC
+Repository: https://github.com/isaacs/node-graceful-fs
+License File: decompress-zip/node_modules/graceful-fs/LICENSE
+
+graceful-fs
+License: ISC
+Repository: https://github.com/isaacs/node-graceful-fs
+License File: graceful-fs/LICENSE
+
+graceful-readlink
+License: MIT
+Repository: https://github.com/zhiyelee/graceful-readlink
+License File: graceful-readlink/LICENSE
+
+graphql3
+License: BSD-3-Clause
+Repository: https://github.com/graphql/graphql-js
+License File: graphql/LICENSE
+
+gulp-rename
+License: MIT
+Repository: https://github.com/hparra/gulp-rename
+
+handlebars
+License: MIT
+Repository: https://github.com/wycats/handlebars.js
+License File: handlebars/LICENSE
+
+har-validator
+License: ISC
+Repository: https://github.com/ahmadnassri/har-validator
+License File: mksnapshot/node_modules/har-validator/LICENSE
+
+har-validator
+License: ISC
+Repository: https://github.com/ahmadnassri/har-validator
+License File: har-validator/LICENSE
+
+has-ansi
+License: MIT
+Repository: https://github.com/sindresorhus/has-ansi
+
+has-ansi
+License: MIT
+Repository: https://github.com/sindresorhus/has-ansi
+License File: has-ansi/license
+
+has-flag
+License: MIT
+Repository: https://github.com/sindresorhus/has-flag
+License File: has-flag/license
+
+has-own
+License: MIT
+Repository: https://github.com/pebble/has-own
+License File: has-own/LICENSE
+
+has-unicode
+License: ISC
+Repository: https://github.com/iarna/has-unicode
+License File: fsevents/node_modules/has-unicode/LICENSE
+
+hawk
+License: BSD
+Repository: https://github.com/hueniverse/hawk
+License File: mksnapshot/node_modules/hawk/LICENSE
+
+hawk
+License: BSD-3-Clause
+Repository: https://github.com/hueniverse/hawk
+License File: hawk/LICENSE
+
+history0
+License: MIT
+Repository: https://github.com/rackt/history
+License File: history/LICENSE.md
+
+hoek3
+License: BSD-3-Clause
+Repository: https://github.com/hapijs/hoek
+License File: hoek/LICENSE
+
+home-or-tmp
+License: MIT
+Repository: https://github.com/sindresorhus/home-or-tmp
+License File: home-or-tmp/license
+
+home-path
+License: MIT
+Repository: https://github.com/75lb/home-path
+License File: home-path/LICENSE
+
+hosted-git-info
+License: ISC
+Repository: https://github.com/npm/hosted-git-info
+License File: hosted-git-info/LICENSE
+
+http-browserify
+License: MIT/X11
+Repository: https://github.com/substack/http-browserify
+License File: http-browserify/LICENSE
+
+http-errors
+License: MIT
+Repository: https://github.com/jshttp/http-errors
+License File: http-errors/LICENSE
+
+http-signature1
+License: MIT
+Repository: https://github.com/joyent/node-http-signature
+License File: mksnapshot/node_modules/http-signature/LICENSE
+
+http-signature
+License: MIT
+Repository: https://github.com/joyent/node-http-signature
+License File: http-signature/LICENSE
+
+https-browserify
+License: MIT
+Repository: https://github.com/substack/https-browserify
+License File: https-browserify/LICENSE
+
+icss-replace-symbols
+License: ISC
+Repository: https://github.com/css-modules/icss-replace-symbols
+
+ieee754
+License: MIT
+Repository: https://github.com/feross/ieee754
+License File: ieee754/LICENSE
+
+image-size
+License: MIT
+Repository: https://github.com/netroy/image-size
+License File: image-size/LICENSE
+
+immutable
+License: BSD-3-Clause
+Repository: https://github.com/facebook/immutable-js
+License File: immutable/LICENSE
+
+indent-string
+License: MIT
+Repository: https://github.com/sindresorhus/indent-string
+License File: download/node_modules/indent-string/license
+
+indent-string
+License: MIT
+Repository: https://github.com/sindresorhus/indent-string
+License File: indent-string/license
+
+indexes-of
+License: MIT
+Repository: https://github.com/dominictarr/indexes-of
+License File: indexes-of/LICENSE
+
+indexof
+License: MIT*
+
+inflight
+License: ISC
+Repository: https://github.com/isaacs/inflight
+License File: inflight/LICENSE
+
+inherit
+License: MIT
+Repository: https://github.com/dfilatov/node-inherit
+
+inherits
+License: ISC*
+Repository: https://github.com/isaacs/inherits
+License File: globule/node_modules/inherits/LICENSE
+
+inherits
+License: ISC
+Repository: https://github.com/isaacs/inherits
+License File: inherits/LICENSE
+
+ini
+License: ISC
+Repository: https://github.com/isaacs/ini
+License File: ini/LICENSE
+
+inquirer1
+License: MIT
+Repository: https://github.com/sboudrias/Inquirer.js
+
+interpret
+License: MIT
+Repository: https://github.com/tkellen/node-interpret
+License File: interpret/LICENSE
+
+invariant
+License: BSD-3-Clause
+Repository: https://github.com/zertosh/invariant
+
+invert-kv
+License: MIT
+Repository: https://github.com/sindresorhus/invert-kv
+
+ip-regex
+License: MIT
+Repository: https://github.com/sindresorhus/ip-regex
+License File: ip-regex/license
+
+ipaddr.js
+License: MIT
+Repository: https://github.com/whitequark/ipaddr.js
+License File: ipaddr.js/LICENSE
+
+is-absolute
+License: MIT
+Repository: https://github.com/jonschlinkert/is-absolute
+License File: is-absolute/LICENSE
+
+is-absolute-url
+License: MIT
+Repository: https://github.com/sindresorhus/is-absolute-url
+License File: is-absolute-url/license
+
+is-arrayish
+License: MIT
+Repository: https://github.com/qix-/node-is-arrayish
+License File: is-arrayish/LICENSE
+
+is-binary-path
+License: MIT
+Repository: https://github.com/sindresorhus/is-binary-path
+License File: is-binary-path/license
+
+is-buffer
+License: MIT
+Repository: https://github.com/feross/is-buffer
+License File: is-buffer/LICENSE
+
+is-builtin-module
+License: MIT
+Repository: https://github.com/sindresorhus/is-builtin-module
+License File: is-builtin-module/license
+
+is-bzip2
+License: MIT
+Repository: https://github.com/kevva/is-bzip2
+
+is-dotfile
+License: MIT
+Repository: https://github.com/jonschlinkert/is-dotfile
+License File: is-dotfile/LICENSE
+
+is-equal-shallow
+License: MIT
+Repository: https://github.com/jonschlinkert/is-equal-shallow
+License File: is-equal-shallow/LICENSE
+
+is-extendable
+License: MIT
+Repository: https://github.com/jonschlinkert/is-extendable
+License File: is-extendable/LICENSE
+
+is-extglob
+License: MIT
+Repository: https://github.com/jonschlinkert/is-extglob
+License File: is-extglob/LICENSE
+
+is-finite
+License: MIT
+Repository: https://github.com/sindresorhus/is-finite
+License File: is-finite/license
+
+is-fullwidth-code-point
+License: MIT
+Repository: https://github.com/sindresorhus/is-fullwidth-code-point
+License File: is-fullwidth-code-point/license
+
+is-glob
+License: MIT
+Repository: https://github.com/jonschlinkert/is-glob
+License File: is-glob/LICENSE
+
+is-gzip
+License: MIT
+Repository: https://github.com/kevva/is-gzip
+
+is-integer
+License: WTFPL
+Repository: https://github.com/parshap/js-is-integer
+License File: is-integer/LICENSE
+
+is-my-json-valid3
+License: MIT
+Repository: https://github.com/mafintosh/is-my-json-valid
+License File: is-my-json-valid/LICENSE
+
+is-natural-number
+License: MIT
+Repository: https://github.com/shinnn/is-natural-number.js
+License File: is-natural-number/LICENSE
+
+is-number
+License: MIT
+Repository: https://github.com/jonschlinkert/is-number
+License File: is-number/LICENSE
+
+is-path-cwd
+License: MIT
+Repository: https://github.com/sindresorhus/is-path-cwd
+
+is-path-global
+License: MIT
+Repository: https://github.com/kevva/is-path-global
+License File: is-path-global/license
+
+is-path-in-cwd
+License: MIT
+Repository: https://github.com/sindresorhus/is-path-in-cwd
+
+is-path-inside
+License: MIT
+Repository: https://github.com/sindresorhus/is-path-inside
+
+is-plain-obj
+License: MIT
+Repository: https://github.com/sindresorhus/is-plain-obj
+License File: is-plain-obj/license
+
+is-primitive
+License: MIT
+Repository: https://github.com/jonschlinkert/is-primitive
+License File: is-primitive/LICENSE
+
+is-property
+License: MIT
+Repository: https://github.com/mikolalysenko/is-property
+License File: is-property/LICENSE
+
+is-relative
+License: MIT
+Repository: https://github.com/jonschlinkert/is-relative
+License File: is-relative/LICENSE-MIT
+
+is-resolvable
+License: MIT
+Repository: https://github.com/shinnn/is-resolvable
+License File: is-resolvable/LICENSE
+
+is-svg
+License: MIT
+Repository: https://github.com/sindresorhus/is-svg
+License File: is-svg/license
+
+is-tar
+License: MIT
+Repository: https://github.com/kevva/is-tar
+
+is-typedarray
+License: MIT
+Repository: https://github.com/hughsk/is-typedarray
+License File: is-typedarray/LICENSE.md
+
+is-utf8
+License: BSD
+Repository: https://github.com/wayfind/is-utf8
+
+is-zip
+License: MIT
+Repository: https://github.com/kevva/is-zip
+
+isarray
+License: MIT
+Repository: https://github.com/juliangruber/isarray
+
+isarray
+License: MIT
+Repository: https://github.com/juliangruber/isarray
+
+isobject
+License: MIT
+Repository: https://github.com/jonschlinkert/isobject
+License File: isobject/LICENSE
+
+isstream
+License: MIT
+Repository: https://github.com/rvagg/isstream
+License File: isstream/LICENSE.md
+
+istanbul2
+License: BSD-3-Clause
+Repository: https://github.com/gotwarlost/istanbul
+License File: istanbul/LICENSE
+
+jest-cli
+License: BSD-3-Clause
+Repository: https://github.com/facebook/jest
+License File: jest-cli/LICENSE
+
+jodid25519
+License: MIT
+Repository: https://github.com/meganz/jodid25519
+License File: jodid25519/LICENSE
+
+js-base64
+License: BSD
+Repository: https://github.com/dankogai/js-base64
+License File: js-base64/LICENSE.md
+
+js-tokens
+License: MIT
+Repository: https://github.com/lydell/js-tokens
+License File: js-tokens/LICENSE
+
+js-yaml
+License: MIT
+Repository: https://github.com/nodeca/js-yaml
+License File: eslint/node_modules/js-yaml/LICENSE
+
+js-yaml
+License: MIT
+Repository: https://github.com/nodeca/js-yaml
+License File: js-yaml/LICENSE
+
+jsbn
+License: BSD
+Repository: https://github.com/andyperlitch/jsbn
+License File: jsbn/LICENSE
+
+jsdom
+License: MIT
+Repository: https://github.com/tmpvar/jsdom
+License File: jsdom/LICENSE.txt
+
+jsesc
+License: MIT
+Repository: https://github.com/mathiasbynens/jsesc
+License File: jsesc/LICENSE-MIT.txt
+
+json-schema
+licenses
+│  0: AFLv2.1
+│  1: BSD
+Repository: https://github.com/kriszyp/json-schema
+
+json-stable-stringify
+License: MIT
+Repository: https://github.com/substack/json-stable-stringify
+License File: json-stable-stringify/LICENSE
+
+json-stringify-safe
+License: ISC
+Repository: https://github.com/isaacs/json-stringify-safe
+License File: json-stringify-safe/LICENSE
+
+json5
+License: MIT
+Repository: https://github.com/aseemk/json5
+
+jsonfile
+License: MIT
+Repository: https://github.com/jprichardson/node-jsonfile
+License File: jsonfile/LICENSE
+
+jsonify
+License: Public Domain
+Repository: https://github.com/substack/jsonify
+
+jsonpointer
+License: MIT
+Repository: https://github.com/janl/node-jsonpointer
+
+jsprim
+License: MIT
+Repository: https://github.com/davepacheco/node-jsprim
+License File: jsprim/LICENSE
+
+jstransform0
+License: Apache-2.0
+Repository: https://github.com/facebook/jstransform
+License File: jstransform/LICENSE
+
+kind-of
+License: MIT
+Repository: https://github.com/jonschlinkert/kind-of
+License File: align-text/node_modules/kind-of/LICENSE
+
+kind-of
+License: MIT
+Repository: https://github.com/jonschlinkert/kind-of
+License File: kind-of/LICENSE
+
+klaw
+License: MIT
+Repository: https://github.com/jprichardson/node-klaw
+
+lazy-cache
+License: MIT
+Repository: https://github.com/jonschlinkert/lazy-cache
+License File: lazy-cache/LICENSE
+
+lcid
+License: MIT
+Repository: https://github.com/sindresorhus/lcid
+License File: lcid/license
+
+left-pad
+License: BSD
+Repository: https://github.com/azer/left-pad
+
+less
+License: Apache-2.0
+Repository: https://github.com/less/less.js
+License File: less/LICENSE
+
+less-loader
+License: MIT
+Repository: https://github.com/webpack/less-loader
+License File: less-loader/LICENSE
+
+levn
+License: MIT
+Repository: https://github.com/gkz/levn
+License File: levn/LICENSE
+
+line-numbers
+License: MIT
+Repository: https://github.com/lydell/line-numbers
+License File: line-numbers/LICENSE
+
+lnfs
+License: MIT
+Repository: https://github.com/kevva/lnfs
+License File: lnfs/license
+
+load-json-file
+License: MIT
+Repository: https://github.com/sindresorhus/load-json-file
+License File: load-json-file/license
+
+loader-utils2
+License: MIT
+Repository: https://github.com/webpack/loader-utils
+License File: loader-utils/LICENSE
+
+lodash
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: globule/node_modules/lodash/LICENSE.txt
+
+lodash1
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash/LICENSE
+
+lodash._arraycopy
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._arraycopy/LICENSE.txt
+
+lodash._arrayeach
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._arrayeach/LICENSE.txt
+
+lodash._arraymap
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._arraymap/LICENSE.txt
+
+lodash._baseassign
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._baseassign/LICENSE.txt
+
+lodash._baseclone
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._baseclone/LICENSE
+
+lodash._basecopy
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._basecopy/LICENSE.txt
+
+lodash._basedifference
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._basedifference/LICENSE
+
+lodash._baseflatten
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._baseflatten/LICENSE
+
+lodash._basefor
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._basefor/LICENSE.txt
+
+lodash._baseindexof
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._baseindexof/LICENSE.txt
+
+lodash._basetostring
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._basetostring/LICENSE
+
+lodash._bindcallback
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._bindcallback/LICENSE.txt
+
+lodash._cacheindexof
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._cacheindexof/LICENSE.txt
+
+lodash._createassigner
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._createassigner/LICENSE.txt
+
+lodash._createcache
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._createcache/LICENSE
+
+lodash._createcompounder
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._createcompounder/LICENSE.txt
+
+lodash._createpadding
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: fsevents/node_modules/lodash._createpadding/LICENSE
+
+lodash._getnative
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._getnative/LICENSE
+
+lodash._isiterateecall
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._isiterateecall/LICENSE.txt
+
+lodash._pickbyarray
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._pickbyarray/LICENSE.txt
+
+lodash._pickbycallback
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash._pickbycallback/LICENSE.txt
+
+lodash.assign
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.assign/LICENSE.txt
+
+lodash.camelcase
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.camelcase/LICENSE.txt
+
+lodash.clonedeep
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.clonedeep/LICENSE
+
+lodash.deburr
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.deburr/LICENSE.txt
+
+lodash.isarguments
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.isarguments/LICENSE
+
+lodash.isarray
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.isarray/LICENSE
+
+lodash.isplainobject
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.isplainobject/LICENSE
+
+lodash.istypedarray
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.istypedarray/LICENSE.txt
+
+lodash.keys
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.keys/LICENSE
+
+lodash.keysin
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.keysin/LICENSE.txt
+
+lodash.merge
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.merge/LICENSE
+
+lodash.omit
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.omit/LICENSE.txt
+
+lodash.pad
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: fsevents/node_modules/lodash.pad/LICENSE
+
+lodash.padleft
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: fsevents/node_modules/lodash.padleft/LICENSE.txt
+
+lodash.padright
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: fsevents/node_modules/lodash.padright/LICENSE.txt
+
+lodash.pick
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.pick/LICENSE.txt
+
+lodash.repeat
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: fsevents/node_modules/lodash.repeat/LICENSE
+
+lodash.restparam
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.restparam/LICENSE.txt
+
+lodash.toplainobject
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.toplainobject/LICENSE.txt
+
+lodash.words
+License: MIT
+Repository: https://github.com/lodash/lodash
+License File: lodash.words/LICENSE
+
+log-symbols
+License: MIT
+Repository: https://github.com/sindresorhus/log-symbols
+License File: log-symbols/license
+
+logalot
+License: MIT
+Repository: https://github.com/imagemin/logalot
+License File: logalot/LICENSE.md
+
+longest
+License: MIT
+Repository: https://github.com/jonschlinkert/longest
+License File: longest/LICENSE
+
+loose-envify
+License: MIT
+Repository: https://github.com/zertosh/loose-envify
+
+loud-rejection
+License: MIT
+Repository: https://github.com/sindresorhus/loud-rejection
+License File: loud-rejection/license
+
+lpad
+License: MIT
+Repository: https://github.com/sindresorhus/lpad
+License File: lpad/license
+
+lpad-align
+License: MIT
+Repository: https://github.com/kevva/lpad-align
+License File: lpad-align/license
+
+lru-cache
+License: ISC
+Repository: https://github.com/isaacs/node-lru-cache
+License File: lru-cache/LICENSE
+
+makeerror1
+License: BSD-3-Clause
+Repository: https://github.com/daaku/nodejs-makeerror
+License File: makeerror/license
+
+map-obj
+License: MIT
+Repository: https://github.com/sindresorhus/map-obj
+License File: map-obj/license
+
+media-typer
+License: MIT
+Repository: https://github.com/jshttp/media-typer
+License File: media-typer/LICENSE
+
+memory-fs
+License: MIT
+Repository: https://github.com/webpack/memory-fs
+
+memory-fs
+License: MIT
+Repository: https://github.com/webpack/memory-fs
+
+meow
+License: MIT
+Repository: https://github.com/sindresorhus/meow
+License File: download/node_modules/meow/license
+
+meow
+License: MIT
+Repository: https://github.com/sindresorhus/meow
+License File: meow/license
+
+merge
+License: MIT
+Repository: https://github.com/yeikos/js.merge
+License File: merge/LICENSE
+
+merge-descriptors
+License: MIT
+Repository: https://github.com/component/merge-descriptors
+License File: merge-descriptors/LICENSE
+
+methods
+License: MIT
+Repository: https://github.com/jshttp/methods
+License File: methods/LICENSE
+
+micromatch
+License: MIT
+Repository: https://github.com/jonschlinkert/micromatch
+License File: micromatch/LICENSE
+
+mime
+License: MIT
+Repository: https://github.com/broofa/node-mime
+License File: mime/LICENSE
+
+mime-db0
+License: MIT
+Repository: https://github.com/jshttp/mime-db
+License File: mksnapshot/node_modules/mime-db/LICENSE
+
+mime-db0
+License: MIT
+Repository: https://github.com/jshttp/mime-db
+License File: fsevents/node_modules/mime-db/LICENSE
+
+mime-db0
+License: MIT
+Repository: https://github.com/jshttp/mime-db
+License File: mime-db/LICENSE
+
+mime-types4
+License: MIT
+Repository: https://github.com/jshttp/mime-types
+License File: mksnapshot/node_modules/mime-types/LICENSE
+
+mime-types
+License: MIT
+Repository: https://github.com/jshttp/mime-types
+License File: fsevents/node_modules/mime-types/LICENSE
+
+mime-types
+License: MIT
+Repository: https://github.com/jshttp/mime-types
+License File: mime-types/LICENSE
+
+min-document0
+License: MIT
+Repository: https://github.com/Raynos/min-document
+License File: min-document/LICENCE
+
+minimatch4
+License: MIT
+Repository: https://github.com/isaacs/minimatch
+License File: globule/node_modules/minimatch/LICENSE
+
+minimatch0
+License: ISC
+Repository: https://github.com/isaacs/minimatch
+License File: minimatch/LICENSE
+
+minimatch
+License: MIT
+Repository: https://github.com/isaacs/minimatch
+License File: asar/node_modules/minimatch/LICENSE
+
+minimatch
+License: ISC
+Repository: https://github.com/isaacs/minimatch
+License File: eslint/node_modules/minimatch/LICENSE
+
+minimist0
+License: MIT
+Repository: https://github.com/substack/minimist
+License File: optimist/node_modules/minimist/LICENSE
+
+minimist
+License: MIT
+Repository: https://github.com/substack/minimist
+License File: mkdirp/node_modules/minimist/LICENSE
+
+minimist
+License: MIT
+Repository: https://github.com/substack/minimist
+License File: minimist/LICENSE
+
+mkdirp
+License: MIT
+Repository: https://github.com/substack/node-mkdirp
+License File: extract-zip/node_modules/mkdirp/LICENSE
+
+mkdirp
+License: MIT
+Repository: https://github.com/substack/node-mkdirp
+License File: mkdirp/LICENSE
+
+mkpath
+License: MIT
+Repository: https://github.com/jrajav/mkpath
+License File: mkpath/LICENSE
+
+mksnapshot
+License: MIT
+Repository: https://github.com/atom/node-mksnapshot
+License File: mksnapshot/LICENSE.md
+
+ms
+License: MIT*
+Repository: https://github.com/guille/ms.js
+License File: ms/LICENSE
+
+mute-stream
+License: ISC
+Repository: https://github.com/isaacs/mute-stream
+License File: mute-stream/LICENSE
+
+mv
+License: MIT
+Repository: https://github.com/andrewrk/node-mv
+License File: mv/LICENSE
+
+nan
+License: MIT
+Repository: https://github.com/nodejs/nan
+License File: nan/LICENSE.md
+
+ncp
+License: MIT
+Repository: https://github.com/AvianFlu/ncp
+License File: ncp/LICENSE.md
+
+negotiator
+License: MIT
+Repository: https://github.com/jshttp/negotiator
+License File: negotiator/LICENSE
+
+neo-async
+License: MIT
+Repository: https://github.com/suguru03/neo-async
+License File: neo-async/LICENSE
+
+node-haste
+License: Apache*
+Repository: https://github.com/facebook/node-haste
+License File: node-haste/LICENSE
+
+node-int64
+License: MIT
+Repository: https://github.com/broofa/node-int64
+License File: node-int64/LICENSE
+
+node-libs-browser
+License: MIT
+Repository: https://github.com/webpack/node-libs-browser
+
+node-pre-gyp7
+License: BSD
+Repository: https://github.com/mapbox/node-pre-gyp
+License File: fsevents/node_modules/node-pre-gyp/LICENSE
+
+node-uuid
+License: MIT
+Repository: https://github.com/broofa/node-uuid
+License File: node-uuid/LICENSE.md
+
+nopt0
+License: MIT
+Repository: https://github.com/isaacs/nopt
+License File: touch/node_modules/nopt/LICENSE
+
+nopt
+License: ISC
+Repository: https://github.com/npm/nopt
+License File: nopt/LICENSE
+
+normalize-package-data
+License: BSD-2-Clause
+Repository: https://github.com/npm/normalize-package-data
+License File: normalize-package-data/LICENSE
+
+normalize-path
+License: MIT
+Repository: https://github.com/jonschlinkert/normalize-path
+License File: normalize-path/LICENSE
+
+normalize-range
+License: MIT
+Repository: https://github.com/jamestalmage/normalize-range
+License File: normalize-range/license
+
+normalize-url
+License: MIT
+Repository: https://github.com/sindresorhus/normalize-url
+License File: normalize-url/license
+
+npm-installed
+License: MIT
+Repository: https://github.com/kevva/npm-installed
+
+npm-path
+License: MIT
+Repository: https://github.com/timoxley/npm-path
+License File: npm-path/LICENSE
+
+npm-which
+License: MIT
+Repository: https://github.com/timoxley/npm-which
+License File: npm-which/LICENSE
+
+npmlog
+License: ISC
+Repository: https://github.com/npm/npmlog
+License File: fsevents/node_modules/npmlog/LICENSE
+
+nugget
+License: BSD
+Repository: https://github.com/maxogden/nugget
+
+num2fraction
+License: MIT
+Repository: https://github.com/yisibl/num2fraction
+License File: num2fraction/LICENSE
+
+number-is-nan
+License: MIT
+Repository: https://github.com/sindresorhus/number-is-nan
+License File: number-is-nan/license
+
+nwmatcher
+License: MIT
+Repository: https://github.com/dperini/nwmatcher
+License File: nwmatcher/LICENSE
+
+oauth-sign
+License: Apache*
+Repository: https://github.com/mikeal/oauth-sign
+License File: mksnapshot/node_modules/oauth-sign/LICENSE
+
+oauth-sign
+License: Apache-2.0
+Repository: https://github.com/mikeal/oauth-sign
+License File: oauth-sign/LICENSE
+
+object-assign
+License: MIT
+Repository: https://github.com/sindresorhus/object-assign
+License File: download-status/node_modules/object-assign/license
+
+object-assign
+License: MIT
+Repository: https://github.com/sindresorhus/object-assign
+License File: object-assign/license
+
+object-keys
+License: MIT
+Repository: https://github.com/ljharb/object-keys
+
+object.omit
+License: MIT
+Repository: https://github.com/jonschlinkert/object.omit
+License File: object.omit/LICENSE
+
+oculus-client
+License: UNKNOWN
+
+on-finished
+License: MIT
+Repository: https://github.com/jshttp/on-finished
+License File: on-finished/LICENSE
+
+once
+License: BSD
+Repository: https://github.com/isaacs/once
+License File: fsevents/node_modules/once/LICENSE
+
+once
+License: ISC
+Repository: https://github.com/isaacs/once
+License File: once/LICENSE
+
+onetime
+License: MIT
+Repository: https://github.com/sindresorhus/onetime
+
+optimist
+License: MIT/X11
+Repository: https://github.com/substack/node-optimist
+License File: optimist/LICENSE
+
+optionator
+License: MIT
+Repository: https://github.com/gkz/optionator
+License File: escodegen/node_modules/optionator/LICENSE
+
+optionator
+License: MIT
+Repository: https://github.com/gkz/optionator
+License File: optionator/LICENSE
+
+ordered-read-streams
+License: MIT
+Repository: https://github.com/armed/ordered-read-streams
+License File: ordered-read-streams/LICENSE
+
+os-browserify
+License: MIT
+Repository: https://github.com/drewyoung1/os-browserify
+License File: os-browserify/LICENSE
+
+os-filter-obj
+License: MIT
+Repository: https://github.com/kevva/os-filter-obj
+License File: os-filter-obj/license
+
+os-homedir
+License: MIT
+Repository: https://github.com/sindresorhus/os-homedir
+License File: os-homedir/license
+
+os-locale
+License: MIT
+Repository: https://github.com/sindresorhus/os-locale
+License File: os-locale/license
+
+os-shim
+License: MIT
+Repository: https://github.com/h2non/node-os-shim
+License File: os-shim/LICENSE
+
+os-tmpdir
+License: MIT
+Repository: https://github.com/sindresorhus/os-tmpdir
+License File: os-tmpdir/license
+
+output-file-sync
+License: MIT
+Repository: https://github.com/shinnn/output-file-sync
+License File: output-file-sync/LICENSE
+
+pako
+License: MIT
+Repository: https://github.com/nodeca/pako
+License File: pako/LICENSE
+
+parse-glob
+License: MIT
+Repository: https://github.com/jonschlinkert/parse-glob
+License File: parse-glob/LICENSE
+
+parse-json
+License: MIT
+Repository: https://github.com/sindresorhus/parse-json
+License File: parse-json/license
+
+parse5
+License: MIT
+Repository: https://github.com/inikulin/parse5
+License File: parse5/LICENSE
+
+parseurl
+License: MIT
+Repository: https://github.com/expressjs/parseurl
+License File: parseurl/LICENSE
+
+path-browserify
+License: MIT
+Repository: https://github.com/substack/path-browserify
+License File: path-browserify/LICENSE
+
+path-exists
+License: MIT
+Repository: https://github.com/sindresorhus/path-exists
+License File: path-exists/license
+
+path-exists
+License: MIT
+Repository: https://github.com/sindresorhus/path-exists
+License File: find-up/node_modules/path-exists/license
+
+path-is-absolute
+License: MIT
+Repository: https://github.com/sindresorhus/path-is-absolute
+License File: path-is-absolute/license
+
+path-is-inside
+License: WTFPL
+Repository: https://github.com/domenic/path-is-inside
+License File: path-is-inside/LICENSE.txt
+
+path-to-regexp
+License: MIT
+Repository: https://github.com/component/path-to-regexp
+License File: path-to-regexp/LICENSE
+
+path-type
+License: MIT
+Repository: https://github.com/sindresorhus/path-type
+License File: path-type/license
+
+pbkdf2-compat
+License: MIT
+Repository: https://github.com/dcousens/pbkdf2-compat
+License File: pbkdf2-compat/LICENSE
+
+pend
+License: MIT
+Repository: https://github.com/andrewrk/node-pend
+License File: pend/LICENSE
+
+pify
+License: MIT
+Repository: https://github.com/sindresorhus/pify
+License File: pify/license
+
+pinkie
+License: MIT
+Repository: https://github.com/floatdrop/pinkie
+License File: pinkie/license
+
+pinkie-promise
+License: MIT
+Repository: https://github.com/floatdrop/pinkie-promise
+License File: pinkie-promise/license
+
+plist
+License: MIT
+Repository: https://github.com/TooTallNate/node-plist
+License File: plist/LICENSE
+
+postcss6
+License: MIT
+Repository: https://github.com/postcss/postcss
+License File: autoprefixer-core/node_modules/postcss/LICENSE
+
+postcss3
+License: MIT
+Repository: https://github.com/postcss/postcss
+License File: postcss/LICENSE
+
+postcss-calc
+License: MIT
+Repository: https://github.com/postcss/postcss-calc
+License File: postcss-calc/LICENSE
+
+postcss-cli
+License: MIT
+Repository: https://github.com/code42day/postcss-cli
+
+postcss-colormin
+License: MIT
+Repository: https://github.com/ben-eb/postcss-colormin
+License File: postcss-colormin/LICENSE-MIT
+
+postcss-convert-values
+License: MIT
+Repository: https://github.com/ben-eb/postcss-convert-values
+License File: postcss-convert-values/LICENSE-MIT
+
+postcss-discard-comments
+License: MIT
+Repository: https://github.com/ben-eb/postcss-discard-comments
+License File: postcss-discard-comments/LICENSE-MIT
+
+postcss-discard-duplicates
+License: MIT
+Repository: https://github.com/ben-eb/postcss-discard-duplicates
+License File: postcss-discard-duplicates/LICENSE-MIT
+
+postcss-discard-empty
+License: MIT
+Repository: https://github.com/ben-eb/postcss-discard-empty
+License File: postcss-discard-empty/LICENSE-MIT
+
+postcss-discard-unused
+License: MIT
+Repository: https://github.com/ben-eb/postcss-discard-unused
+License File: postcss-discard-unused/LICENSE-MIT
+
+postcss-filter-plugins
+License: MIT
+Repository: https://github.com/postcss/postcss-filter-plugins
+License File: postcss-filter-plugins/LICENSE-MIT
+
+postcss-merge-idents
+License: MIT
+Repository: https://github.com/ben-eb/postcss-merge-idents
+License File: postcss-merge-idents/LICENSE-MIT
+
+postcss-merge-longhand
+License: MIT
+Repository: https://github.com/ben-eb/postcss-merge-longhand
+License File: postcss-merge-longhand/LICENSE-MIT
+
+postcss-merge-rules
+License: MIT
+Repository: https://github.com/ben-eb/postcss-merge-rules
+License File: postcss-merge-rules/LICENSE-MIT
+
+postcss-message-helpers
+License: MIT
+Repository: https://github.com/MoOx/postcss-message-helpers
+License File: postcss-message-helpers/LICENSE
+
+postcss-minify-font-values
+License: MIT
+Repository: https://github.com/TrySound/postcss-minify-font-values
+License File: postcss-minify-font-values/LICENSE
+
+postcss-minify-gradients
+License: MIT
+Repository: https://github.com/ben-eb/postcss-minify-gradients
+License File: postcss-minify-gradients/LICENSE-MIT
+
+postcss-minify-params
+License: MIT
+Repository: https://github.com/trysound/postcss-minify-params
+License File: postcss-minify-params/LICENSE
+
+postcss-minify-selectors
+License: MIT
+Repository: https://github.com/ben-eb/postcss-minify-selectors
+License File: postcss-minify-selectors/LICENSE-MIT
+
+postcss-modules-extract-imports
+License: ISC
+Repository: https://github.com/css-modules/postcss-modules-extract-imports
+
+postcss-modules-local-by-default
+License: MIT
+Repository: https://github.com/css-modules/postcss-modules-local-by-default
+License File: postcss-modules-local-by-default/LICENSE
+
+postcss-modules-scope
+License: ISC
+Repository: https://github.com/geelen/postcss-modules-scope
+
+postcss-modules-values
+License: ISC
+Repository: https://github.com/css-modules/postcss-modules-constants
+
+postcss-normalize-charset
+License: MIT
+Repository: https://github.com/trysound/postcss-charset
+License File: postcss-normalize-charset/LICENSE
+
+postcss-normalize-url
+License: MIT
+Repository: https://github.com/ben-eb/postcss-normalize-url
+License File: postcss-normalize-url/LICENSE-MIT
+
+postcss-ordered-values
+License: MIT
+Repository: https://github.com/ben-eb/postcss-ordered-values
+License File: postcss-ordered-values/LICENSE-MIT
+
+postcss-reduce-idents
+License: MIT
+Repository: https://github.com/ben-eb/postcss-reduce-idents
+License File: postcss-reduce-idents/LICENSE-MIT
+
+postcss-reduce-transforms
+License: MIT
+Repository: https://github.com/ben-eb/postcss-reduce-transforms
+License File: postcss-reduce-transforms/LICENSE-MIT
+
+postcss-selector-parser
+License: MIT
+Repository: https://github.com/postcss/postcss-selector-parser
+License File: postcss-selector-parser/LICENSE-MIT
+
+postcss-svgo
+License: MIT
+Repository: https://github.com/ben-eb/postcss-svgo
+License File: postcss-svgo/LICENSE-MIT
+
+postcss-unique-selectors
+License: MIT
+Repository: https://github.com/ben-eb/postcss-unique-selectors
+License File: postcss-unique-selectors/LICENSE-MIT
+
+postcss-value-parser
+License: MIT
+Repository: https://github.com/TrySound/postcss-value-parser
+License File: postcss-value-parser/LICENSE
+
+postcss-zindex
+License: MIT
+Repository: https://github.com/ben-eb/postcss-zindex
+License File: postcss-zindex/LICENSE-MIT
+
+prelude-ls
+License: MIT
+Repository: https://github.com/gkz/prelude-ls
+License File: prelude-ls/LICENSE
+
+prepend-http
+License: MIT
+Repository: https://github.com/sindresorhus/prepend-http
+License File: prepend-http/license
+
+preserve
+License: MIT
+Repository: https://github.com/jonschlinkert/preserve
+License File: preserve/LICENSE
+
+pretty-bytes
+License: MIT
+Repository: https://github.com/sindresorhus/pretty-bytes
+License File: pretty-bytes/license
+
+private
+License: MIT
+Repository: https://github.com/benjamn/private
+License File: private/LICENSE
+
+process2
+License: MIT
+Repository: https://github.com/shtylman/node-process
+License File: process/LICENSE
+
+process
+License: MIT*
+Repository: https://github.com/shtylman/node-process
+License File: global/node_modules/process/LICENSE
+
+process-nextick-args
+License: MIT
+Repository: https://github.com/calvinmetcalf/process-nextick-args
+License File: process-nextick-args/license.md
+
+progress
+License: MIT*
+Repository: https://github.com/visionmedia/node-progress
+License File: progress/LICENSE
+
+progress-stream
+License: BSD-2-Clause
+Repository: https://github.com/freeall/progress-stream
+License File: progress-stream/LICENSE
+
+promise
+License: MIT
+Repository: https://github.com/then/promise
+License File: less/node_modules/promise/LICENSE
+
+promise
+License: MIT
+Repository: https://github.com/then/promise
+License File: promise/LICENSE
+
+proxy-addr0
+License: MIT
+Repository: https://github.com/jshttp/proxy-addr
+License File: proxy-addr/LICENSE
+
+prr
+License: MIT
+Repository: https://github.com/rvagg/prr
+License File: prr/LICENSE
+
+punycode
+License: MIT
+Repository: https://github.com/bestiejs/punycode.js
+License File: url/node_modules/punycode/LICENSE-MIT.txt
+
+punycode
+License: MIT
+Repository: https://github.com/bestiejs/punycode.js
+License File: punycode/LICENSE-MIT.txt
+
+q
+License: MIT
+Repository: https://github.com/kriskowal/q
+License File: q/LICENSE
+
+qs
+License: BSD
+Repository: https://github.com/hapijs/qs
+License File: mksnapshot/node_modules/qs/LICENSE
+
+qs
+License: BSD-3-Clause
+Repository: https://github.com/hapijs/qs
+License File: express/node_modules/qs/LICENSE
+
+qs
+License: BSD-3-Clause
+Repository: https://github.com/hapijs/qs
+License File: qs/LICENSE
+
+query-string
+License: MIT
+Repository: https://github.com/sindresorhus/query-string
+License File: query-string/license
+
+querystring
+License: MIT
+Repository: https://github.com/Gozala/querystring
+License File: querystring/License.md
+
+querystring-es3
+License: MIT
+Repository: https://github.com/mike-spainhower/querystring
+License File: querystring-es3/License.md
+
+randomatic
+License: MIT
+Repository: https://github.com/jonschlinkert/randomatic
+License File: randomatic/LICENSE
+
+range-parser
+License: MIT
+Repository: https://github.com/jshttp/range-parser
+License File: range-parser/LICENSE
+
+rc
+licenses
+│  0: Apache2
+│  1: BSD
+│  2: MIT
+Repository: https://github.com/dominictarr/rc
+License File: download/node_modules/rc/LICENSE.MIT
+
+rc
+License: (BSD-2-Clause OR MIT OR Apache-2.0)
+Repository: https://github.com/dominictarr/rc
+License File: rc/LICENSE.MIT
+
+rcedit
+License: MIT
+Repository: https://github.com/atom/node-rcedit
+License File: rcedit/LICENSE
+
+react5
+License: BSD-3-Clause
+Repository: https://github.com/facebook/react
+License File: react/LICENSE
+
+react-addons-test-utils5
+License: BSD-3-Clause
+Repository: https://github.com/facebook/react
+License File: react-addons-test-utils/LICENSE
+
+react-crop
+License: MIT
+Repository: https://github.com/instructure-react/react-crop
+
+react-deep-force-update
+License: MIT
+Repository: https://github.com/gaearon/react-deep-force-update
+License File: react-deep-force-update/LICENSE.md
+
+react-dom5
+License: BSD-3-Clause
+Repository: https://github.com/facebook/react
+License File: react-dom/LICENSE
+
+react-overlays
+License: MIT
+Repository: https://github.com/react-bootstrap/react-overlays
+License File: react-overlays/LICENSE
+
+react-prop-types
+License: MIT
+Repository: https://github.com/react-bootstrap/react-prop-types
+License File: react-prop-types/LICENSE
+
+react-proxy
+License: MIT
+Repository: https://github.com/gaearon/react-proxy
+
+react-relay
+License: BSD-3-Clause
+Repository: https://github.com/facebook/relay
+License File: react-relay/LICENSE
+
+react-router
+License: MIT
+Repository: https://github.com/rackt/react-router
+License File: react-router/LICENSE.md
+
+react-router-relay
+License: MIT
+Repository: https://github.com/relay-tools/react-router-relay
+License File: react-router-relay/LICENSE.md
+
+react-static-container
+License: BSD-3-Clause
+Repository: https://github.com/reactjs/react-static-container
+License File: react-static-container/LICENSE
+
+react-transform-catch-errors
+License: MIT
+Repository: https://github.com/gaearon/react-transform-catch-errors
+
+react-transform-hmr
+License: MIT
+Repository: https://github.com/gaearon/react-transform-hmr
+
+read-file-stdin
+License: MIT
+Repository: https://github.com/ianstormtaylor/read-file-stdin
+
+read-json-sync
+License: MIT
+Repository: https://github.com/shinnn/read-json-sync
+License File: read-json-sync/LICENSE
+
+read-pkg
+License: MIT
+Repository: https://github.com/sindresorhus/read-pkg
+License File: read-pkg/license
+
+read-pkg-up
+License: MIT
+Repository: https://github.com/sindresorhus/read-pkg-up
+License File: read-pkg-up/license
+
+readable-stream3
+License: MIT
+Repository: https://github.com/isaacs/readable-stream
+License File: mksnapshot/node_modules/readable-stream/LICENSE
+
+readable-stream3
+License: MIT
+Repository: https://github.com/isaacs/readable-stream
+License File: decompress-zip/node_modules/readable-stream/LICENSE
+
+readable-stream
+License: MIT
+Repository: https://github.com/nodejs/readable-stream
+License File: readable-stream/LICENSE
+
+readdirp
+License: MIT
+Repository: https://github.com/thlorenz/readdirp
+License File: readdirp/LICENSE
+
+readline2
+License: MIT
+Repository: https://github.com/sboudrias/readline2
+
+recast39
+License: MIT
+Repository: https://github.com/benjamn/recast
+License File: recast/LICENSE
+
+redbox-react
+License: MIT
+Repository: https://github.com/KeywordBrain/redbox-react
+License File: redbox-react/LICENSE.md
+
+redent
+License: MIT
+Repository: https://github.com/sindresorhus/redent
+License File: redent/license
+
+reduce-css-calc
+License: MIT
+Repository: https://github.com/MoOx/reduce-css-calc
+License File: reduce-css-calc/LICENSE
+
+reduce-function-call
+License: MIT
+Repository: https://github.com/MoOx/reduce-function-call
+License File: reduce-function-call/LICENSE
+
+regenerate
+License: MIT
+Repository: https://github.com/mathiasbynens/regenerate
+License File: regenerate/LICENSE-MIT.txt
+
+regex-cache
+License: MIT
+Repository: https://github.com/jonschlinkert/regex-cache
+License File: regex-cache/LICENSE
+
+regexpu
+License: MIT
+Repository: https://github.com/mathiasbynens/regexpu
+License File: regexpu/LICENSE-MIT.txt
+
+regjsgen
+License: MIT
+Repository: https://github.com/d10/regjsgen
+License File: regjsgen/LICENSE.txt
+
+regjsparser
+License: BSD
+Repository: https://github.com/jviereck/regjsparser
+License File: regjsparser/LICENSE.BSD
+
+repeat-element
+License: MIT
+Repository: https://github.com/jonschlinkert/repeat-element
+License File: repeat-element/LICENSE
+
+repeat-string
+License: MIT
+Repository: https://github.com/jonschlinkert/repeat-string
+License File: repeat-string/LICENSE
+
+repeating
+License: MIT
+Repository: https://github.com/sindresorhus/repeating
+License File: repeating/license
+
+repeating
+License: MIT
+Repository: https://github.com/sindresorhus/repeating
+License File: indent-string/node_modules/repeating/license
+
+request0
+License: Apache-2.0
+Repository: https://github.com/request/request
+License File: mksnapshot/node_modules/request/LICENSE
+
+request0
+License: Apache-2.0
+Repository: https://github.com/request/request
+License File: request/LICENSE
+
+resolve
+License: MIT
+Repository: https://github.com/substack/node-resolve
+License File: resolve/LICENSE
+
+restore-cursor
+License: MIT
+Repository: https://github.com/sindresorhus/restore-cursor
+License File: restore-cursor/license
+
+right-align
+License: MIT
+Repository: https://github.com/jonschlinkert/right-align
+License File: right-align/LICENSE
+
+rimraf
+License: MIT
+Repository: https://github.com/isaacs/rimraf
+License File: fsevents/node_modules/tar-pack/node_modules/rimraf/LICENSE
+
+rimraf
+License: ISC
+Repository: https://github.com/isaacs/rimraf
+License File: rimraf/LICENSE
+
+ripemd160
+License: UNKNOWN
+Repository: https://github.com/cryptocoinjs/ripemd160
+
+run-async
+License: MIT
+Repository: https://github.com/SBoudrias/run-async
+License File: run-async/LICENSE
+
+run-series
+License: MIT
+Repository: https://github.com/feross/run-series
+License File: run-series/LICENSE
+
+rx-lite
+License: Apache License, Version 2.0
+Repository: https://github.com/Reactive-Extensions/RxJS
+
+sane
+License: MIT
+Repository: https://github.com/amasad/sane
+
+sax
+License: ISC
+Repository: https://github.com/isaacs/sax-js
+License File: sax/LICENSE-W3C.html
+
+seek-bzip
+License: MIT
+Repository: https://github.com/cscott/seek-bzip
+
+semver
+License: ISC
+Repository: https://github.com/npm/node-semver
+License File: semver/LICENSE
+
+semver
+License: ISC
+Repository: https://github.com/npm/node-semver
+License File: semver-truncate/node_modules/semver/LICENSE
+
+semver-regex
+License: MIT
+Repository: https://github.com/sindresorhus/semver-regex
+
+semver-truncate
+License: MIT
+Repository: https://github.com/sindresorhus/semver-truncate
+License File: semver-truncate/license
+
+send0
+License: MIT
+Repository: https://github.com/pillarjs/send
+License File: send/LICENSE
+
+serve-static0
+License: MIT
+Repository: https://github.com/expressjs/serve-static
+License File: serve-static/LICENSE
+
+set-immediate-shim
+License: MIT
+Repository: https://github.com/sindresorhus/set-immediate-shim
+
+sha.js
+License: MIT
+Repository: https://github.com/dominictarr/sha.js
+License File: sha.js/LICENSE
+
+shebang-regex
+License: MIT
+Repository: https://github.com/sindresorhus/shebang-regex
+License File: shebang-regex/license
+
+shelljs
+License: BSD*
+Repository: https://github.com/arturadib/shelljs
+License File: shelljs/LICENSE
+
+sigmund
+License: ISC
+Repository: https://github.com/isaacs/sigmund
+License File: sigmund/LICENSE
+
+signal-exit
+License: ISC
+Repository: https://github.com/bcoe/signal-exit
+License File: signal-exit/LICENSE.txt
+
+single-line-log
+License: MIT*
+Repository: https://github.com/freeall/single-line-log
+
+slash
+License: MIT
+Repository: https://github.com/sindresorhus/slash
+
+sntp
+License: BSD
+Repository: https://github.com/hueniverse/sntp
+License File: sntp/LICENSE
+
+sort-keys
+License: MIT
+Repository: https://github.com/sindresorhus/sort-keys
+License File: sort-keys/license
+
+source-list-map
+License: MIT
+Repository: https://github.com/webpack/source-list-map
+
+source-map1
+License: BSD
+Repository: https://github.com/mozilla/source-map
+License File: jstransform/node_modules/source-map/LICENSE
+
+source-map2
+License: BSD
+Repository: https://github.com/mozilla/source-map
+License File: source-map-support/node_modules/source-map/LICENSE
+
+source-map
+License: BSD
+Repository: https://github.com/mozilla/source-map
+License File: escodegen/node_modules/source-map/LICENSE
+
+source-map
+License: BSD-3-Clause
+Repository: https://github.com/mozilla/source-map
+
+source-map
+License: BSD-3-Clause
+Repository: https://github.com/mozilla/source-map
+
+source-map-support0
+License: MIT
+Repository: https://github.com/evanw/node-source-map-support
+License File: source-map-support/LICENSE.md
+
+spawn-sync4
+License: MIT
+Repository: https://github.com/ForbesLindesay/spawn-sync
+License File: spawn-sync/LICENSE
+
+spdx-correct
+License: Apache-2.0
+Repository: https://github.com/kemitchell/spdx-correct.js
+License File: spdx-correct/LICENSE
+
+spdx-exceptions
+License: CC-BY-3.0
+Repository: https://github.com/kemitchell/spdx-exceptions.json
+
+spdx-expression-parse
+License: (MIT AND CC-BY-3.0)
+Repository: https://github.com/kemitchell/spdx-expression-parse.js
+License File: spdx-expression-parse/LICENSE
+
+spdx-license-ids
+License: Unlicense
+Repository: https://github.com/shinnn/spdx-license-ids
+License File: spdx-license-ids/spdx-license-ids.json
+
+speedometer
+License: MIT*
+Repository: https://github.com/mafintosh/speedometer
+License File: speedometer/LICENSE
+
+sprintf-js
+License: BSD-3-Clause
+Repository: https://github.com/alexei/sprintf.js
+License File: sprintf-js/LICENSE
+
+squeak
+License: MIT
+Repository: https://github.com/kevva/squeak
+License File: squeak/license
+
+sshpk
+License: MIT
+Repository: https://github.com/arekinath/node-sshpk
+License File: fsevents/node_modules/sshpk/LICENSE
+
+sshpk
+License: MIT
+Repository: https://github.com/arekinath/node-sshpk
+License File: sshpk/LICENSE
+
+stackframe
+License: SEE LICENSE IN LICENSE
+Repository: https://github.com/stacktracejs/stackframe
+License File: stackframe/LICENSE
+
+statuses
+License: MIT
+Repository: https://github.com/jshttp/statuses
+License File: statuses/LICENSE
+
+stream-browserify
+License: MIT
+Repository: https://github.com/substack/stream-browserify
+License File: stream-browserify/LICENSE
+
+stream-combiner
+License: MIT
+Repository: https://github.com/dominictarr/stream-combiner
+License File: stream-combiner/LICENSE
+
+strict-uri-encode
+License: MIT
+Repository: https://github.com/kevva/strict-uri-encode
+License File: strict-uri-encode/license
+
+string-width
+License: MIT
+Repository: https://github.com/sindresorhus/string-width
+License File: string-width/license
+
+string_decoder31
+License: MIT
+Repository: https://github.com/rvagg/string_decoder
+License File: string_decoder/LICENSE
+
+stringstream
+License: MIT
+Repository: https://github.com/mhart/StringStream
+License File: stringstream/LICENSE.txt
+
+strip-ansi
+License: MIT
+Repository: https://github.com/sindresorhus/strip-ansi
+
+strip-ansi
+License: MIT
+Repository: https://github.com/sindresorhus/strip-ansi
+
+strip-ansi
+License: MIT
+Repository: https://github.com/sindresorhus/strip-ansi
+License File: strip-ansi/license
+
+strip-bom
+License: MIT
+Repository: https://github.com/sindresorhus/strip-bom
+
+strip-bom
+License: MIT
+Repository: https://github.com/sindresorhus/strip-bom
+License File: strip-bom/license
+
+strip-dirs
+License: MIT
+Repository: https://github.com/shinnn/node-strip-dirs
+License File: strip-dirs/LICENSE
+
+strip-dirs
+License: MIT
+Repository: https://github.com/shinnn/node-strip-dirs
+License File: decompress-targz/node_modules/strip-dirs/LICENSE
+
+strip-indent
+License: MIT
+Repository: https://github.com/sindresorhus/strip-indent
+License File: strip-indent/license
+
+strip-json-comments
+License: MIT
+Repository: https://github.com/sindresorhus/strip-json-comments
+
+strip-json-comments
+License: MIT
+Repository: https://github.com/sindresorhus/strip-json-comments
+License File: strip-json-comments/license
+
+style-loader0
+License: MIT
+Repository: https://github.com/webpack/style-loader
+
+success-symbol
+License: MIT
+Repository: https://github.com/jonschlinkert/success-symbol
+License File: success-symbol/LICENSE
+
+sum-up
+License: MIT
+Repository: https://github.com/shinnn/sum-up
+License File: sum-up/LICENSE
+
+supports-color
+License: MIT
+Repository: https://github.com/sindresorhus/supports-color
+
+supports-color
+License: MIT
+Repository: https://github.com/chalk/supports-color
+License File: supports-color/license
+
+supports-color
+License: MIT
+Repository: https://github.com/chalk/supports-color
+License File: postcss/node_modules/supports-color/license
+
+svgo
+License: MIT
+Repository: https://github.com/svg/svgo
+License File: svgo/LICENSE
+
+symbol-tree
+License: MIT
+Repository: https://github.com/jsdom/js-symbol-tree
+License File: symbol-tree/LICENSE
+
+tapable0
+License: MIT
+Repository: https://github.com/webpack/tapable
+
+tar
+License: ISC
+Repository: https://github.com/isaacs/node-tar
+License File: fsevents/node_modules/tar/LICENSE
+
+tar-pack
+License: BSD
+Repository: https://github.com/ForbesLindesay/tar-pack
+License File: fsevents/node_modules/tar-pack/LICENSE
+
+tar-stream
+License: MIT
+Repository: https://github.com/%3Amafintosh/tar-stream
+License File: tar-stream/LICENSE
+
+tar-stream
+License: MIT
+Repository: https://github.com/mafintosh/tar-stream
+License File: decompress-targz/node_modules/tar-stream/LICENSE
+
+text-table
+License: MIT
+Repository: https://github.com/substack/text-table
+License File: text-table/LICENSE
+
+throttleit
+License: MIT
+Repository: https://github.com/component/throttle
+
+through
+License: MIT
+Repository: https://github.com/dominictarr/through
+License File: through/LICENSE.MIT
+
+through2
+License: MIT
+Repository: https://github.com/rvagg/through2
+License File: through2/LICENSE
+
+through2
+License: MIT
+Repository: https://github.com/rvagg/through2
+License File: decompress-tar/node_modules/through2/LICENSE
+
+timers-browserify
+License: MIT
+Repository: https://github.com/jryans/timers-browserify
+License File: timers-browserify/LICENSE.md
+
+tmpl
+License: BSD-3-Clause
+Repository: https://github.com/daaku/nodejs-tmpl
+License File: tmpl/license
+
+to-fast-properties
+License: MIT
+Repository: https://github.com/sindresorhus/to-fast-properties
+License File: to-fast-properties/license
+
+touch
+License: ISC
+Repository: https://github.com/isaacs/node-touch
+License File: touch/LICENSE
+
+tough-cookie
+License: BSD-3-Clause
+Repository: https://github.com/SalesforceEng/tough-cookie
+License File: tough-cookie/LICENSE
+
+tr46
+License: MIT
+Repository: https://github.com/Sebmaster/tr46.js
+
+traverse
+License: MIT/X11
+Repository: https://github.com/substack/js-traverse
+License File: traverse/LICENSE
+
+trim-newlines
+License: MIT
+Repository: https://github.com/sindresorhus/trim-newlines
+License File: trim-newlines/license
+
+trim-right
+License: MIT
+Repository: https://github.com/sindresorhus/trim-right
+License File: trim-right/license
+
+tryit
+License: MIT
+Repository: https://github.com/HenrikJoreteg/tryit
+
+tty-browserify
+License: MIT
+Repository: https://github.com/substack/tty-browserify
+License File: tty-browserify/LICENSE
+
+tunnel-agent
+License: Apache*
+Repository: https://github.com/mikeal/tunnel-agent
+License File: fsevents/node_modules/tunnel-agent/LICENSE
+
+tunnel-agent
+License: Apache-2.0
+Repository: https://github.com/mikeal/tunnel-agent
+License File: tunnel-agent/LICENSE
+
+tweetnacl2
+License: CC0-1.0
+Repository: https://github.com/dchest/tweetnacl-js
+
+type-check
+License: MIT
+Repository: https://github.com/gkz/type-check
+License File: type-check/LICENSE
+
+type-is0
+License: MIT
+Repository: https://github.com/jshttp/type-is
+License File: type-is/LICENSE
+
+typedarray
+License: MIT
+Repository: https://github.com/substack/typedarray
+License File: typedarray/LICENSE
+
+ua-parser-js0
+licenses
+│  0: GPLv2
+│  1: MIT
+Repository: https://github.com/faisalman/ua-parser-js
+
+uglify-js
+License: BSD-2-Clause
+Repository: https://github.com/mishoo/UglifyJS2
+License File: uglify-js/LICENSE
+
+uglify-to-browserify
+License: MIT
+Repository: https://github.com/ForbesLindesay/uglify-to-browserify
+License File: uglify-to-browserify/LICENSE
+
+uid-number
+License: BSD
+Repository: https://github.com/isaacs/uid-number
+License File: fsevents/node_modules/uid-number/LICENCE
+
+underscore
+License: MIT*
+Repository: https://github.com/documentcloud/underscore
+License File: underscore/LICENSE
+
+underscore.string
+License: MIT
+Repository: https://github.com/epeli/underscore.string
+
+uniq
+License: MIT
+Repository: https://github.com/mikolalysenko/uniq
+License File: uniq/LICENSE
+
+uniqid
+License: MIT
+Repository: https://github.com/adamhalasz/uniqid
+
+uniqs
+License: MIT
+Repository: https://github.com/fgnass/uniqs
+
+unique-stream
+License: BSD
+Repository: https://github.com/eugeneware/unique-stream
+License File: unique-stream/LICENSE
+
+unpipe
+License: MIT
+Repository: https://github.com/stream-utils/unpipe
+License File: unpipe/LICENSE
+
+url3
+License: MIT
+Repository: https://github.com/defunctzombie/node-url
+License File: url/LICENSE
+
+url-regex
+License: MIT
+Repository: https://github.com/kevva/url-regex
+License File: url-regex/license
+
+user-home
+License: MIT
+Repository: https://github.com/sindresorhus/user-home
+License File: user-home/license
+
+user-home
+License: MIT
+Repository: https://github.com/sindresorhus/user-home
+License File: eslint/node_modules/user-home/license
+
+util3
+License: MIT
+Repository: https://github.com/defunctzombie/node-util
+License File: util/LICENSE
+
+util-deprecate
+License: MIT
+Repository: https://github.com/TooTallNate/util-deprecate
+License File: util-deprecate/LICENSE
+
+utils-merge
+License: MIT
+Repository: https://github.com/jaredhanson/utils-merge
+License File: utils-merge/LICENSE
+
+v8flags0
+License: MIT
+Repository: https://github.com/tkellen/node-v8flags
+License File: v8flags/LICENSE
+
+validate-npm-package-license
+License: Apache-2.0
+Repository: https://github.com/kemitchell/validate-npm-package-license.js
+License File: validate-npm-package-license/LICENSE
+
+vary
+License: MIT
+Repository: https://github.com/jshttp/vary
+License File: vary/LICENSE
+
+verror
+License: MIT*
+Repository: https://github.com/davepacheco/node-verror
+License File: verror/LICENSE
+
+vinyl
+License: MIT
+Repository: https://github.com/wearefractal/vinyl
+License File: vinyl/LICENSE
+
+vinyl-fs4
+License: MIT
+Repository: https://github.com/wearefractal/vinyl-fs
+License File: vinyl-fs/LICENSE
+
+vm-browserify
+License: MIT
+Repository: https://github.com/substack/vm-browserify
+License File: vm-browserify/LICENSE
+
+walker
+License: Apache-2.0
+Repository: https://github.com/daaku/nodejs-walker
+License File: walker/LICENSE
+
+ware
+License: MIT
+Repository: https://github.com/segmentio/ware
+
+warning
+License: BSD-2-Clause
+Repository: https://github.com/r3dm/warning
+License File: warning/LICENSE.md
+
+watch0
+License: Apache*
+Repository: https://github.com/mikeal/watch
+License File: watch/LICENSE
+
+watchpack
+License: MIT
+Repository: https://github.com/webpack/watchpack
+
+webidl-conversions
+License: BSD-2-Clause
+Repository: https://github.com/jsdom/webidl-conversions
+License File: webidl-conversions/LICENSE.md
+
+webpack9
+License: MIT
+Repository: https://github.com/webpack/webpack
+License File: webpack/LICENSE
+
+webpack-core
+License: MIT
+Repository: https://github.com/webpack/core
+
+webpack-dev-middleware
+License: MIT
+Repository: https://github.com/webpack/webpack-dev-middleware
+
+webpack-hot-middleware
+License: MIT
+Repository: https://github.com/glenjamin/webpack-hot-middleware
+
+webpack-target-electron-renderer
+License: MIT
+Repository: https://github.com/chentsulin/webpack-target-electron-renderer
+License File: webpack-target-electron-renderer/LICENSE
+
+whatwg-fetch
+License: MIT
+Repository: https://github.com/github/fetch
+License File: whatwg-fetch/LICENSE
+
+whatwg-url-compat
+License: MIT
+Repository: https://github.com/jsdom/whatwg-url
+License File: whatwg-url-compat/LICENSE.txt
+
+whet.extend
+License: MIT
+Repository: https://github.com/Meettya/whet.extend
+License File: whet.extend/LICENSE
+
+which
+License: ISC
+Repository: https://github.com/isaacs/node-which
+License File: cover/node_modules/which/LICENSE
+
+which
+License: ISC
+Repository: https://github.com/isaacs/node-which
+License File: which/LICENSE
+
+window-size
+License: MIT
+Repository: https://github.com/jonschlinkert/window-size
+License File: uglify-js/node_modules/window-size/LICENSE-MIT
+
+window-size
+License: MIT
+Repository: https://github.com/jonschlinkert/window-size
+License File: window-size/LICENSE
+
+wordwrap
+License: MIT/X11
+Repository: https://github.com/substack/node-wordwrap
+
+wordwrap
+License: MIT
+Repository: https://github.com/substack/node-wordwrap
+License File: wordwrap/LICENSE
+
+wordwrap
+License: MIT
+Repository: https://github.com/substack/node-wordwrap
+License File: istanbul/node_modules/wordwrap/LICENSE
+
+worker-farm
+License: MIT
+Repository: https://github.com/rvagg/node-worker-farm
+License File: worker-farm/LICENSE.md
+
+wrap-ansi
+License: MIT
+Repository: https://github.com/chalk/wrap-ansi
+License File: wrap-ansi/license
+
+wrap-fn
+License: MIT*
+Repository: https://github.com/matthewmueller/wrap-fn
+
+wrappy
+License: ISC
+Repository: https://github.com/npm/wrappy
+License File: wrappy/LICENSE
+
+write
+License: MIT
+Repository: https://github.com/jonschlinkert/write
+License File: write/LICENSE
+
+xml-escape
+License: MIT License
+Repository: https://github.com/miketheprogrammer/xml-escape
+License File: xml-escape/LICENSE
+
+xml-name-validator
+License: WTFPL
+Repository: https://github.com/jsdom/xml-name-validator
+License File: xml-name-validator/LICENSE.txt
+
+xmlbuilder
+License: MIT
+Repository: https://github.com/oozcitak/xmlbuilder-js
+License File: xmlbuilder/LICENSE
+
+xmldom9
+License: MIT
+Repository: https://github.com/jindw/xmldom
+License File: xmldom/LICENSE
+
+xtend
+License: MIT
+Repository: https://github.com/Raynos/xtend
+License File: through2/node_modules/xtend/LICENCE
+
+xtend
+License: MIT
+Repository: https://github.com/Raynos/xtend
+License File: xtend/LICENCE
+
+y18n
+License: ISC
+Repository: https://github.com/bcoe/y18n
+
+yargs0
+License: MIT
+Repository: https://github.com/bcoe/yargs
+License File: uglify-js/node_modules/yargs/LICENSE
+
+yargs0
+License: MIT
+Repository: https://github.com/bcoe/yargs
+License File: yargs/LICENSE
+
+yauzl
+License: MIT
+Repository: https://github.com/thejoshwolfe/yauzl
+License File: yauzl/LICENSE
+
+-----
+
+The following software may be included in this product: OpenSSL. This software contains the following license and notice below:
+
+  
+    LICENSE ISSUES
+    ==============
+  
+    The OpenSSL toolkit stays under a dual license, i.e. both the conditions of
+    the OpenSSL License and the original SSLeay license apply to the toolkit.
+    See below for the actual license texts. Actually both licenses are BSD-style
+    Open Source licenses. In case of any license issues related to OpenSSL
+    please contact openssl-core@openssl.org.
+  
+    OpenSSL License
+    ---------------
+  
+  /* ====================================================================
+   * Copyright (c) 1998-2011 The OpenSSL Project.  All rights reserved.
+   *
+   * Redistribution and use in source and binary forms, with or without
+   * modification, are permitted provided that the following conditions
+   * are met:
+   *
+   * 1. Redistributions of source code must retain the above copyright
+   *    notice, this list of conditions and the following disclaimer. 
+   *
+   * 2. Redistributions in binary form must reproduce the above copyright
+   *    notice, this list of conditions and the following disclaimer in
+   *    the documentation and/or other materials provided with the
+   *    distribution.
+   *
+   * 3. All advertising materials mentioning features or use of this
+   *    software must display the following acknowledgment:
+   *    "This product includes software developed by the OpenSSL Project
+   *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
+   *
+   * 4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to
+   *    endorse or promote products derived from this software without
+   *    prior written permission. For written permission, please contact
+   *    openssl-core@openssl.org.
+   *
+   * 5. Products derived from this software may not be called "OpenSSL"
+   *    nor may "OpenSSL" appear in their names without prior written
+   *    permission of the OpenSSL Project.
+   *
+   * 6. Redistributions of any form whatsoever must retain the following
+   *    acknowledgment:
+   *    "This product includes software developed by the OpenSSL Project
+   *    for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+   *
+   * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
+   * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+   * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
+   * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+   * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+   * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+   * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+   * OF THE POSSIBILITY OF SUCH DAMAGE.
+   * ====================================================================
+   *
+   * This product includes cryptographic software written by Eric Young
+   * (eay@cryptsoft.com).  This product includes software written by Tim
+   * Hudson (tjh@cryptsoft.com).
+   *
+   */
+  
+   Original SSLeay License
+   -----------------------
+  
+  /* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+   * All rights reserved.
+   *
+   * This package is an SSL implementation written
+   * by Eric Young (eay@cryptsoft.com).
+   * The implementation was written so as to conform with Netscapes SSL.
+   * 
+   * This library is free for commercial and non-commercial use as long as
+   * the following conditions are aheared to.  The following conditions
+   * apply to all code found in this distribution, be it the RC4, RSA,
+   * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
+   * included with this distribution is covered by the same copyright terms
+   * except that the holder is Tim Hudson (tjh@cryptsoft.com).
+   * 
+   * Copyright remains Eric Young's, and as such any Copyright notices in
+   * the code are not to be removed.
+   * If this package is used in a product, Eric Young should be given attribution
+   * as the author of the parts of the library used.
+   * This can be in the form of a textual message at program startup or
+   * in documentation (online or textual) provided with the package.
+   * 
+   * Redistribution and use in source and binary forms, with or without
+   * modification, are permitted provided that the following conditions
+   * are met:
+   * 1. Redistributions of source code must retain the copyright
+   *    notice, this list of conditions and the following disclaimer.
+   * 2. Redistributions in binary form must reproduce the above copyright
+   *    notice, this list of conditions and the following disclaimer in the
+   *    documentation and/or other materials provided with the distribution.
+   * 3. All advertising materials mentioning features or use of this software
+   *    must display the following acknowledgement:
+   *    "This product includes cryptographic software written by
+   *     Eric Young (eay@cryptsoft.com)"
+   *    The word 'cryptographic' can be left out if the rouines from the library
+   *    being used are not cryptographic related :-).
+   * 4. If you include any Windows specific code (or a derivative thereof) from 
+   *    the apps directory (application code) you must include an acknowledgement:
+   *    "This product includes software written by Tim Hudson (tjh@cryptsoft.com)"
+   * 
+   * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
+   * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+   * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+   * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+   * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+   * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+   * SUCH DAMAGE.
+   * 
+   * The licence and distribution terms for any publically available version or
+   * derivative of this code cannot be changed.  i.e. this code cannot simply be
+   * copied and put under another distribution licence
+   * [including the GNU Public Licence.]
+   */
+  
+
+
+-----
+
+The following software may be included in this product: protobuf. This software contains the following license and notice below:
+
+Copyright 2008, Google Inc.
+All rights reserved.
+ 
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+ * Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-----
+
+The following software may be included in this product: WiX Toolset. This software contains the following license and notice below:
+
+Copyright (c) 2004, Outercurve Foundation
+
+Microsoft Reciprocal License (MS-RL)
+
+This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
+
+    Definitions
+
+    The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here as under U.S. copyright law.
+
+    A "contribution" is the original software, or any additions or changes to the software.
+
+    A "contributor" is any person that distributes its contribution under this license.
+
+    "Licensed patents" are a contributor's patent claims that read directly on its contribution.
+
+    Grant of Rights
+
+    (A) Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.
+
+    (B) Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, sell, offer for sale, import, and/or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.
+
+    Conditions and Limitations
+
+    (A) Reciprocal Grants- For any file you distribute that contains code from the software (in source code or binary format), you must provide recipients the source code to that file along with a copy of this license, which license will govern that file. You may license other files that are entirely your own work and do not contain code from the software under any terms you choose.
+
+    (B) No Trademark License- This license does not grant you rights to use any contributors' name, logo, or trademarks.
+
+    (C) If you bring a patent claim against any contributor over patents that you claim are infringed by the software, your patent license from such contributor to the software ends automatically.
+
+    (D) If you distribute any portion of the software, you must retain all copyright, patent, trademark, and attribution notices that are present in the software.
+
+    (E) If you distribute any portion of the software in source code form, you may do so only under this license by including a complete copy of this license with your distribution. If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.
+
+    (F) The software is licensed "as-is." You bear the risk of using it. The contributors give no express warranties, guarantees or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+
+-----
+
+The following software may be included in this product: Virtual Gamepad Emulation Driver (ViGEm). This software contains the following license and notice below:
+
+/*
+MIT License
+
+Copyright (c) 2016 Benjamin "Nefarius" Höglinger
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/

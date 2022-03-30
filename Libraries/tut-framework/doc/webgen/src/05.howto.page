@@ -1,0 +1,144 @@
+---
+title: How To
+desc: minimum steps to make TUT work for you
+in_menu: true
+---
+
+Tests organization
+------------------
+
+Tests are compiled into a single binary (a test application).
+
+The test application contains tests organized into test groups. Every test group
+has a human-readable name (such as "payroll"). Normally every group is located
+in it's own source file. A group can contain an unlimited number
+of tests. Every test has an unique number as test identifier (
+C++ templates do not support specialization by a string value). 
+
+Tests
+-----
+
+A test is a function (method) implementing some specific scenario and checking 
+if the code (unit) works as required. Every test usually checks only one specific 
+bit of functionality. In every test we have a preparation phase, execution phase and
+verification phase. For instance, if we need to test our container's clear() method, we need to:
+
+*    create a container instance and fill it with some data (preparation phase)
+*    call clear() method (execution phase)
+*    ensure that size() now returns zero (verification phase)
+
+Let's implement this scenario as a example TUT test.
+
+Creating a test group
+---------------------
+
+To begin we need to create a new source file for our test group. Let's call it test.cpp:
+
+{coderay:: c}
+#include <tut/tut.hpp> 
+namespace tut 
+{ 
+    struct data // (1)
+    { 
+    };
+    
+    typedef test_group<data> tg; // (2)
+    tg test_group("my first test");    // (3)
+}
+{coderay}
+
+
+Let's outline what we've just done. 
+
+*    We included TUT header file (an obvious step).
+*    We defined test data structure. Any data that should be available to every test could be located in
+     this data structure. An instance of the structure is created before every test starts and is destroyed
+     right after the test ends, so you may use the structure's constructor and destructor 
+     for initialization and cleanup purposes.
+*    We created an instance of the test group with the name "my first test". Behind the scene the instance
+     registers itself with a global test runner, so the name shall be unique within the test application.
+
+Creating a test
+---------------
+
+In TUT all tests have an unique <span class='accent'>numbers</span>, not names, within their test group.
+You can provide an optional name to the test by calling set\_test\_name() method.
+
+{coderay:: c}
+#include <my_set.h>     
+    
+#include <tut/tut.hpp> 
+namespace tut 
+{ 
+    struct data //
+    { 
+    };
+    
+    typedef test_group<data> tg;
+    tg test_group("my first test");
+    
+    typedef tg::object testobject;
+    
+    template<> 
+    template<> 
+    void testobject::test<1>() 
+    { 
+        set_test_name("clear");
+
+        my::set s('a','b','c');
+        ensure_equals("has elements",s.size(),3);
+
+        s.clear();
+        ensure_equals("has no elements",s.size(),0);    
+    }   
+}; 
+{coderay}
+
+Our test is completed. Let walk through the code:
+
+*    For the sake of brevity we had created yet another typedef for test object.
+*    We defined our test as a test *number 1*. We also gave it a human-readable name "clear".
+*    We created an instance of our proprietary *set class* with three elements in it.
+*    We checked that the size() method in fact returns 3.
+*    We cleared the set.
+*    We verified that the size() returns zero now.
+
+Finally, the main module of the test application
+------------------------------------------------
+
+{coderay:: c}
+#include <tut/tut.hpp>
+#include <tut_reporter.h>
+#include <iostream>
+
+using std::exception;
+using std::cerr;
+using std::endl;
+
+namespace tut
+{
+    test_runner_singleton runner;
+}
+
+int main()
+{
+    tut::reporter reporter;
+    tut::runner.get().set_callback(&amp;reporter);
+
+    tut::runner.get().run_tests();
+
+    return !reporter.all_ok();
+}
+{coderay}
+
+Here we see the minimum required implementation of the main module. It contains the instance of the 
+runner (a singleton, as class name suggests), where test groups register themselves. It creates an
+instance of a reporter (which can be extended or replaced to support virtually any target and style 
+of the report. And finally, it runs all the tests in one batch.
+
+Runner support a few more precise methods to run tests as well, such as "run all tests within a group"
+or even "run a specific test within a group".
+
+*We're done.*
+
+

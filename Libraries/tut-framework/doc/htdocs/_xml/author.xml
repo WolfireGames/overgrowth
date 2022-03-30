@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tut>
+<section>Support</section>
+<chapter>TUT Author</chapter>
+<annotation>who is the author</annotation>
+<content>
+
+<p>
+This software (TUT) was designed and written by Vladimir Dyuzhev,
+who currently lives in Toronto, Canada. You can contact him 
+via <a href="mailto:Vladimir.Dyuzhev@gmail.com">email</a>.
+</p>
+
+<img src="http://vladimir-dyuzhev.net/_img/me.drinking.coffie.jpg"/>
+
+<p>
+More complete information about author (contacts, other projects, resume, etc) 
+is available on his personal <a href="http://vladimir-dyuzhev.net/">site</a>.
+</p>
+
+</content>
+</tut>

@@ -1,0 +1,26 @@
+<Shaders>
+    <!-- Particles -->
+    <Shader name="envobject #GPU_PARTICLE_FIELD #ASH" suffix="true" />
+    <Shader name="envobject #GPU_PARTICLE_FIELD #BUGS" suffix="true" />
+    <Shader name="envobject #GPU_PARTICLE_FIELD #BUGS #FIREFLY" suffix="true" />
+    <Shader name="envobject #GPU_PARTICLE_FIELD #BUGS #FIREFLY #WATER_DELETE" suffix="true" />
+    <Shader name="envobject #GPU_PARTICLE_FIELD #RAIN" suffix="true" />
+    <Shader name="envobject #GPU_PARTICLE_FIELD #SNOW" suffix="true" />
+    <Shader name="envobject #GPU_PARTICLE_FIELD #SNOW #MED" suffix="true" />
+    <Shader name="envobject #PARTICLE #WATER #INSTANCED" suffix="true" />
+    <Shader name="envobject #PARTICLE #INSTANCED" suffix="true" />
+    <Shader name="envobject #PARTICLE #GLOW #INSTANCED" suffix="true" />
+    <Shader name="envobject #PARTICLE #NORMAL_MAP_TRANSLUCENT #INSTANCED" suffix="true" />
+    <Shader name="envobject #PARTICLE #SPLAT" suffix="true" />
+    <Shader name="envobject #PARTICLE #SPLAT #INSTANCED" suffix="true" />
+    <!-- Water -->
+    <Shader name="envobject #TANGENT #WATER" suffix="true" />
+    <!-- Misc shaders -->
+    <Shader name="debug_fill #STIPPLING #NO_VELOCITY_BUF" suffix="false" />
+    <Shader name="3d_color #COLOR_UNIFORM #NO_VELOCITY_BUF" suffix="false" />
+    <Shader name="3d_color #COLOR_ATTRIB #NO_VELOCITY_BUF" suffix="false" />
+    <Shader name="3d_color #COLOR_ATTRIB #FIRE" suffix="false" />
+    <Shader name="billboard #ALPHA_TO_COVERAGE #FLIP_Y" suffix="false" optional="geometry" />
+    <Shader name="billboard #FLIP_Y" suffix="false" optional="geometry" />
+    <Shader name="3d_color #FLIP_Y" suffix="false" />
+</Shaders>

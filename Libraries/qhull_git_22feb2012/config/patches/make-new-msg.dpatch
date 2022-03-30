@@ -1,0 +1,40 @@
+#! /bin/sh -e
+## QHpointer.dpatch by Rafael Laboissiere <rafael@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Access Qhull globals via a pointer to allocated memory
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch}"
+
+if [ $# -ne 1 ]; then
+  echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+  exit 1
+fi
+case "$1" in
+  -patch)
+    patch $patch_opts -p1 < $0;;
+  -unpatch)
+    patch $patch_opts -p1 -R < $0;;
+  *)
+    echo >&2 "`basename $0`: script expects -patch|-unpatch as argument"
+    exit 1;;
+esac
+
+exit 0
+--- qhull-orig/src/io.c	2004-01-31 12:00:15.000000000 +0100
++++ qhull/src/io.c	2004-02-06 09:54:18.000000000 +0100
+@@ -4017,11 +4017,8 @@
+     qh rbox_command[strlen(qh rbox_command)-1]= '\0';
+     if (!strcmp (qh rbox_command, "./rbox D4")) 
+       fprintf (qh ferr, "\n\
+-This is the qhull test case.  If any errors or core dumps occur,\n\
+-recompile qhull with 'make new'.  If errors still occur, there is\n\
+-an incompatibility.  You should try a different compiler.  You can also\n\
+-change the choices in user.h.  If you discover the source of the problem,\n\
+-please send mail to qhull_bug@qhull.org.\n\
++This is the qhull test case.  If any errors or core dumps occur,\n\
++fill a bug report against the libqhull<soversion> Debian package.\n\
+ \n\
+ Type 'qhull' for a short list of options.\n");
+   }
