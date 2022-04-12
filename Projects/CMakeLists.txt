@@ -57,7 +57,7 @@ OPTION(OPEN_CONSOLE "Open a console on startup on windows" On)
 OPTION(FORCE_OPENGL_ERROR_CHECKING "Force OpenGL error checking in Release" Off)
 OPTION(DEPLOY "Set the codebase to compile for Deploy, this means compiling for final release to end-user, in practice, by setting the _DEPLOY define it activates a working directory change on start to force it to be the path of the binary. It also impacts some error messages. This is automatically turned on if BUILD_SERVER is On" Off)
 OPTION(ENABLE_STEAMWORKS "Build with Steamworks Support" Off)
-OPTION(AUX_DATA "Auxiliary Data sourced path, used when using a Data folder from an additional path, like an already installed version of the game" "")
+SET(AUX_DATA "" CACHE PATH "Auxiliary Data sourced path, used when using a Data folder from an additional path, like an already installed version of the game")
 
 #Assume we want steamworks support if we're building on the build server, until we start supporting more targets
 IF(BUILD_SERVER)
