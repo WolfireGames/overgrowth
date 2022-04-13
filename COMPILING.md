@@ -16,16 +16,13 @@ To compile Overgrowth on windows you'll need the following to be installed befor
 
 ## MacOSX
 
-Overgrowth uses the MacOS 10.9 sdk, this is pretty old and isn't included in XCode anymore, so you'll have to find it somewhere else. One alternative is ```https://github.com/phracker/MacOSX-SDKs```
-After that you'll need to install Xcode from the apple store.
+On MacOSX, you'll need to install XCode and CMake before you can compile the project.
 
-To install the SDK into Xcode, you'll need to copy the folder ```MacOSX10.9.sdk``` into ```~/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs```
-
-After that you may need to start xcode once before building the project, to ensure that everything is configured.
+After that you may need to start XCode once before building the project, to ensure that everything is configured. You may also have to install the command line XCode tools.
 
 ## Generic Linux
 
-Todo
+You'll need a GCC compiler, OpenGL, CMake, SDL2, SDL2-Net, libgtk2.0, libogg, libvorbis, libfreeimage, libopenal, libjpeg, libtheora, libbz2 and libfreetype.
 
 ## Ubuntu
 
@@ -42,7 +39,7 @@ The following command should install all necessary dependencies to build Overgro
 
 3. Open a windows cmd (alternatively a git bash console) in the build folder you just created.
 
-4. Run the following command ```cmake ../Projects -DAUX_DATA="E:/SteamLibrary/steamapps/common/Overgrowth"```. Replace the path with your own Overgrowth install, and remember to switch the path separators from ```\``` to ```/```
+4. Run the following command ```cmake ../Projects -DAUX_DATA="E:/SteamLibrary/steamapps/common/Overgrowth"```. Replace the path with your own Overgrowth install, and switch the path separators from ```\``` to ```/```
 
 5. Open the generated ```Overgrowth.sln``` file using Visual Studio 2022
 
@@ -51,19 +48,17 @@ The following command should install all necessary dependencies to build Overgro
 ## MacOSX
 
 1. Go to the folder of the project
-2. Create a build directory ```mkdir Build```
-3. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth"```
-4. Run make to build the game ```make```
-5. Run the game by first moving to the project directory ```cd ..```
-6. Then start the game ```Build/Release/Overgrowth.x86_64```
+2. Create a build directory ```% mkdir Build```
+3. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```% cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth.app/Contents/MacOS"```
+4. Run make to build the game ```% make```
+5. Run the game by first moving to the project directory ```% cd ..```
+6. Then start the game ```% ./Build/Overgrowth.app/Contents/MacOS/Overgrowth```
 
 ## Linux
 
 1. Go to the folder of the project
-2. Create a build directory ```mkdir Build```
-3. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth"```
-4. Run make to build the game ```make```
-5. Run the game by first moving to the project directory ```cd ..```
-6. Then start the game ```Build/Release/Overgrowth.x86_64```
-
-1.Clone the repository to a local folder 
+2. Create a build directory ```$ mkdir Build```
+3. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```$ cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth"```
+4. Run make to build the game ```$ make```
+5. Run the game by first moving to the project directory ```$ cd ..```
+6. Then start the game ```$ Build/Release/Overgrowth.x86_64```
