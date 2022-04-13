@@ -1630,9 +1630,14 @@ IF(BUILD_OVERGROWTH)
             vorbis
             vorbisfile
             theoradec
-            steam_api
             bz2
         )
+	IF(ENABLE_STEAMWORKS)
+            TARGET_LINK_LIBRARIES(Overgrowth
+		    steam_api
+	    )
+	ENDIF()
+            
         SET_TARGET_PROPERTIES(Overgrowth PROPERTIES LINK_FLAGS "-F${LIBDIR}/libogg-1.3.3/include")
         SET_TARGET_PROPERTIES(Overgrowth PROPERTIES LINK_FLAGS "-F${LIBDIR}/libvorbis-1.3.6/include")
         #SET_TARGET_PROPERTIES(Overgrowth PROPERTIES LINK_FLAGS "-F${CMAKE_SOURCE_DIR}/../MacInterfaces")
