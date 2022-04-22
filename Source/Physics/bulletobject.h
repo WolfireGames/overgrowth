@@ -56,7 +56,7 @@ public:
     std::vector<mat4> transform_history;
     btRigidBody *body;
     SharedShapePtr shape;
-    std::auto_ptr<ShapeDisposalData> shape_disposal_data;
+    std::unique_ptr<ShapeDisposalData> shape_disposal_data;
     bool visible;
     vec3 com_offset;
     short collision_group;
