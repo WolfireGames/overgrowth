@@ -267,6 +267,8 @@ IF(LINUX)
     FIND_PACKAGE(GTK2 REQUIRED)
     FIND_PACKAGE(SDL2 REQUIRED)
     FIND_PACKAGE(SDL2NET REQUIRED)
+    FIND_PACKAGE(Freetype REQUIRED)
+    FIND_PACKAGE(OpenAL REQUIRED)
 ENDIF()
 
 #Build static libraries only for FFTW
@@ -434,6 +436,10 @@ ENDIF()
 #define _DEPLOY for Release target
 IF(DEPLOY)
 	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_DEPLOY")
+ELSE()
+  # if not building release target, export compile commands for use with a
+  # language server
+  set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ENDIF()
 
 SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG")
