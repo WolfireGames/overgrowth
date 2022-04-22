@@ -22,7 +22,7 @@ After that you may need to start XCode once before building the project, to ensu
 
 ## Generic Linux
 
-You'll need a GCC compiler, OpenGL, CMake, SDL2, SDL2-Net, libgtk2.0, libogg, libvorbis, libfreeimage, libopenal, libjpeg, libtheora, libbz2 and libfreetype.
+You'll need a GCC compiler, OpenGL, CMake, SDL2, SDL2_net, GTK 2, Ogg, Vorbis, FreeImage, OpenAL, libjpeg, Theora, bzip2 and FreeType.
 
 ## Ubuntu
 
