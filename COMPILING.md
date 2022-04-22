@@ -24,6 +24,11 @@ After that you may need to start XCode once before building the project, to ensu
 
 You'll need a GCC compiler, OpenGL, CMake, SDL2, SDL2_net, GTK 2, Ogg, Vorbis, FreeImage, OpenAL, libjpeg, Theora, bzip2 and FreeType.
 
+## Fedora
+
+The following command should install all necessary dependencies to build Overgrowth.
+```sudo dnf install gcc-c++ cmake make 'pkgconfig(gl)' 'pkgconfig(glu)' 'pkgconfig(sdl2)' 'pkgconfig(SDL2_net)' 'pkgconfig(gtk+-2.0)' 'pkgconfig(ogg)' 'pkgconfig(vorbis)' freeimage-devel 'pkgconfig(openal)' 'pkgconfig(libjpeg)' 'pkgconfig(theora)' 'pkgconfig(bzip2)' 'pkgconfig(freetype2)'```
+
 ## Ubuntu
 
 The following command should install all necessary dependencies to build Overgrowth.
