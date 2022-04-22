@@ -1,50 +1,52 @@
-name: Build
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
+name: Analyze
+
+on: [push, pull_request]
+
 jobs:
-  build:
-    name: Build
+  sonarqube:
     runs-on: ubuntu-latest
+    container: 'registry.fedoraproject.org/fedora:latest'
     env:
       SONAR_SCANNER_VERSION: 4.7.0.2747
       SONAR_SERVER_URL: "https://sonarcloud.io"
       BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
     steps:
-      - uses: actions/checkout@v2
+      - name: Set up DNF download cache
+        id: dnf-cache
+        uses: actions/cache@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
+          path: /var/cache/dnf
+          key: ${{ runner.os }}-dnfcache
+      - name: Install pre-requisites
+        run: dnf --assumeyes --setopt=install_weak_deps=False install
+              gcc-c++ cmake make /usr/bin/git java-11-openjdk-headless curl unzip
+              'pkgconfig(gl)' 'pkgconfig(glu)'
+              'pkgconfig(sdl2)' 'pkgconfig(SDL2_net)'
+              'pkgconfig(gtk+-2.0)' 'pkgconfig(ogg)' 'pkgconfig(vorbis)'
+              freeimage-devel 'pkgconfig(openal)' 'pkgconfig(libjpeg)'
+              'pkgconfig(theora)' 'pkgconfig(bzip2)' 'pkgconfig(freetype2)'
       - name: Download and set up sonar-scanner
         env:
           SONAR_SCANNER_DOWNLOAD_URL: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-${{ env.SONAR_SCANNER_VERSION }}-linux.zip
         run: |
           mkdir -p $HOME/.sonar
-          curl -sSLo $HOME/.sonar/sonar-scanner.zip ${{ env.SONAR_SCANNER_DOWNLOAD_URL }} 
+          curl -sSLo $HOME/.sonar/sonar-scanner.zip ${{ env.SONAR_SCANNER_DOWNLOAD_URL }}
           unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
-          echo "$HOME/.sonar/sonar-scanner-${{ env.SONAR_SCANNER_VERSION }}-linux/bin" >> $GITHUB_PATH
       - name: Download and set up build-wrapper
         env:
           BUILD_WRAPPER_DOWNLOAD_URL: ${{ env.SONAR_SERVER_URL }}/static/cpp/build-wrapper-linux-x86.zip
         run: |
           curl -sSLo $HOME/.sonar/build-wrapper-linux-x86.zip ${{ env.BUILD_WRAPPER_DOWNLOAD_URL }}
           unzip -o $HOME/.sonar/build-wrapper-linux-x86.zip -d $HOME/.sonar/
-          echo "$HOME/.sonar/build-wrapper-linux-x86" >> $GITHUB_PATH
-      - name: Install dependencies
+      - uses: actions/checkout@v2
+      - name: compile with build-wrapper
         run: |
-          sudo apt-get install -y build-essential cmake mesa-common-dev libsdl2-dev libsdl2-net-dev libgtk2.0-dev libogg-dev libvorbis-dev libfreeimage-dev libopenal-dev libjpeg-dev libtheora-dev libbz2-dev libfreetype-dev
-      - name: Run build-wrapper
-        run: |
+          export PATH="$PATH:$HOME/.sonar/sonar-scanner-${{ env.SONAR_SCANNER_VERSION }}-linux/bin:$HOME/.sonar/build-wrapper-linux-x86"
           build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} make
       - name: Run sonar-scanner
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
+          export PATH="$PATH:$HOME/.sonar/sonar-scanner-${{ env.SONAR_SCANNER_VERSION }}-linux/bin:$HOME/.sonar/build-wrapper-linux-x86"
           sonar-scanner --define sonar.host.url="${{ env.SONAR_SERVER_URL }}" --define sonar.cfamily.build-wrapper-output="${{ env.BUILD_WRAPPER_OUT_DIR }}"
