@@ -93,7 +93,7 @@ struct MaterialParticle;
 class EnvObject: public Object {
     public:
         float timestamp_for_sendoff = 0.0f;
-        std::auto_ptr<PlantComponent> plant_component_;
+        std::unique_ptr<PlantComponent> plant_component_;
         ObjectFileRef ofr;
 
         BulletObject* bullet_object_;

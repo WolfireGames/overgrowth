@@ -145,7 +145,7 @@ class Sound {
 
         Soundtrack m_soundtrack;
 
-        typedef std::auto_ptr<ambientSound> ambient_ptr;
+        typedef std::unique_ptr<ambientSound> ambient_ptr;
         ambient_ptr m_air_whoosh_sound;
         int whoosh_active_countdown; //Kill whoosh if not updated in given frameperiod.
 

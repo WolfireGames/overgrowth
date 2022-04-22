@@ -59,7 +59,7 @@ public:
     virtual void NotifyDeleted(Object* o);
     virtual EntityType GetType() const { return _hotspot_object; }
 
-	std::auto_ptr<ASCollisions> as_collisions;
+    std::unique_ptr<ASCollisions> as_collisions;
 
 	void Reset();
 	virtual void SetEnabled(bool val);

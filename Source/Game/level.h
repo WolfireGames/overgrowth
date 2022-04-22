@@ -187,7 +187,7 @@ private:
     // vvv These are just here to avoid per-frame mallocs vvv
     CollisionPtrMap old_col_ptr_map;
 
-	std::auto_ptr<ASCollisions> as_collisions;
+    std::unique_ptr<ASCollisions> as_collisions;
 
     Path FindScript(const std::string& path);
 };

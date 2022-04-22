@@ -130,7 +130,7 @@ public:
     std::string character_path;
     ReactionScriptGetter reaction_script_getter;
     CharacterScriptGetter character_script_getter;
-    std::auto_ptr<ASContext> as_context;
+    std::unique_ptr<ASContext> as_context;
     OGPalette palette;
     int connected_pathpoint_id;
     std::vector<ItemConnection> item_connection_vec;
@@ -150,7 +150,7 @@ public:
     std::string nametag_string;
 	vec3 nametag_last_position;
 
-    std::auto_ptr<ASCollisions> as_collisions;
+    std::unique_ptr<ASCollisions> as_collisions;
 
     ActorFileRef actor_file_ref;
     std::set<SoundGroupRef> touched_surface_refs;
@@ -248,7 +248,7 @@ public:
 	std::string GetTeamString();
     void StartPoseAnimation(std::string path);
 private:
-    std::auto_ptr<RiggedObject> rigged_object_;
+    std::unique_ptr<RiggedObject> rigged_object_;
     std::string current_control_script_path;
     std::string actor_script_path;
     BulletObject* char_sphere;

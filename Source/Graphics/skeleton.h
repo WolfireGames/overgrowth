@@ -99,7 +99,7 @@ class Skeleton {
 
 
 public:    
-    std::auto_ptr<BulletWorld> col_bullet_world;
+    std::unique_ptr<BulletWorld> col_bullet_world;
     std::vector<int> parents;
     std::vector<PhysicsBone> physics_bones;
     std::vector<PhysicsJoint> physics_joints;
