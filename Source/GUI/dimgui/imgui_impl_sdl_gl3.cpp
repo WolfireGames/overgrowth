@@ -40,8 +40,8 @@
 #include "imgui_impl_sdl_gl3.h"
 
 
-#include <imgui-1.85/implot.h>
-#include <imgui-1.85/implot_internal.h>
+#include <implot.h>
+#include <implot_internal.h>
 
 #include <SDL.h>
 #include <SDL_syswm.h>
@@ -367,9 +367,6 @@ bool    ImGui_ImplSdlGL3_Init(SDL_Window* window)
     io.KeyMap[ImGuiKey_X] = KeyRemap(SDLK_x);
     io.KeyMap[ImGuiKey_Y] = KeyRemap(SDLK_y);
     io.KeyMap[ImGuiKey_Z] = KeyRemap(SDLK_z);
-    io.KeyMap[ImGuiKey_LShift] = KeyRemap(SDLK_LSHIFT);
-    io.KeyMap[ImGuiKey_RShift] = KeyRemap(SDLK_RSHIFT);
-    io.KeyMap[ImGuiKey_NumEnter] = KeyRemap(SDLK_KP_ENTER);
 
     //io.RenderDrawListsFn = ImGui_ImplSdlGL3_RenderDrawLists;   // Alternatively you can set this to NULL and call ImGui::GetDrawData() after ImGui::Render() to get the same ImDrawData pointer.
     io.SetClipboardTextFn = ImGui_ImplSdlGL3_SetClipboardText;

@@ -8,7 +8,7 @@
 #include <imgui.h>
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui_internal.h> // ImSaturate
-#include <imgui_color_picker.h>
+#include "imgui_color_picker.h"
 
 bool ColorPicker(float* col, float* overbright, bool show_alpha, bool show_overbright)
 {

@@ -83,8 +83,8 @@
 //#define IMGUI_DISABLE_OBSOLETE_FUNCTIONS
 #include <imgui_internal.h>
 #include <imgui.h>
-#include <imgui_color_picker.h>
 #include <implot.h>
+#include "imgui_color_picker.h"
 
 #include <SDL.h>
 
@@ -1632,7 +1632,7 @@ static void DrawTreeScenegraphElement( SceneGraph* scenegraph, GUI* gui, Object*
 
         const Keyboard& keyboard = Input::Instance()->getKeyboard();
 
-        if(ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_LShift)) || ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_RShift))) {
+        if(ImGui::GetIO().KeyMods & ImGuiKeyModFlags_Shift) {
             if(select_start_index == -1) {
                 select_start_index = index;
                 select_elements = obj->Selected();
