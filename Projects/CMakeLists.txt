@@ -650,7 +650,8 @@ INCLUDE_DIRECTORIES(SYSTEM
 INCLUDE_DIRECTORIES(
     ${SRCDIR}
     ${LIBDIR}
-    ${LIBDIR}/imgui-1.85
+    ${LIBDIR}/imgui
+    ${LIBDIR}/implot
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Include
     ${LIBDIR}/openvr-master/headers
     ${LIBDIR}/glm-0.9.4.2/
