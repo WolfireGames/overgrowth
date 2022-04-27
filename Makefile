@@ -1,4 +1,4 @@
-PROCS = $(shell nproc)
+PROCS ?= $(shell nproc)
 
 default: setup build
 setup:
@@ -29,7 +29,7 @@ deactivate-ogda:
 	cd Build; cmake -DBUILD_OGDA=Off ../Projects
 
 build: 
-	make --no-print-directory -j$(PROCS) -C Build
+	$(MAKE) --no-print-directory -j$(PROCS) -C Build
 run:
 	cd Build; ./Overgrowth.bin.x86_64
 
@@ -39,4 +39,4 @@ debug:
 test: 
 	cd Build; ./Overgrowth.bin.x86_64 --run-unit-tests
 clean:
-	make --no-print-directory -j$(PROCS) -C Build clean
+	$(MAKE) --no-print-directory -j$(PROCS) -C Build clean
