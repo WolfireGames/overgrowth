@@ -23,6 +23,7 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
+#define IMGUI_ENABLE_FREETYPE
 #include <imgui.cpp>
 #include <imgui_demo.cpp>
 #include <imgui_draw.cpp>
@@ -31,3 +32,4 @@
 #include <imgui_color_picker.cpp>
 #include <implot.cpp>
 #include <implot_items.cpp>
+#include <imgui_freetype.cpp>
