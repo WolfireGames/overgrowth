@@ -30,11 +30,6 @@
 
 #include <map>
 #include <vector>
-//#ifdef WIN32
-	//#define NOMINMAX
-    //#include <windows.h>
-    //#include <XInput.h>
-//#endif
 
 struct CStrCmp
 {
@@ -52,39 +47,6 @@ static std::map<std::string, SDL_Scancode> str_to_key_map;
 static std::map<SDL_Scancode, const char*> key_to_str_map;
 static InputToStrMap input_to_string_map;
 static StrToControllerMap str_to_controller_map;
-
-/*#ifdef WIN32
-#include <XInput.h>
-int XBoxToXInput(const std::string &s)
-{
-    static std::map<std::string, WORD> xbox_map;
-    if(xbox_map.empty()){
-        xbox_map["A"] = XINPUT_GAMEPAD_A;
-        xbox_map["B"] = XINPUT_GAMEPAD_B;
-        xbox_map["X"] = XINPUT_GAMEPAD_X;
-        xbox_map["Y"] = XINPUT_GAMEPAD_Y;
-        xbox_map["LB"] = XINPUT_GAMEPAD_LEFT_SHOULDER;
-        xbox_map["RB"] = XINPUT_GAMEPAD_RIGHT_SHOULDER;
-        xbox_map["L3"] = XINPUT_GAMEPAD_LEFT_THUMB;
-        xbox_map["R3"] = XINPUT_GAMEPAD_RIGHT_THUMB;
-        xbox_map["LT"] = 0x0400;
-        xbox_map["RT"] = 0x0800;
-        xbox_map["DPAD_L"] = XINPUT_GAMEPAD_DPAD_LEFT;
-        xbox_map["DPAD_U"] = XINPUT_GAMEPAD_DPAD_UP;
-        xbox_map["DPAD_R"] = XINPUT_GAMEPAD_DPAD_RIGHT;
-        xbox_map["DPAD_D"] = XINPUT_GAMEPAD_DPAD_DOWN;
-        xbox_map["START"] = XINPUT_GAMEPAD_START;
-        xbox_map["BACK"] = XINPUT_GAMEPAD_BACK;
-    }
-
-    std::map<std::string, WORD>::iterator iter = xbox_map.find(s);
-    if(iter != xbox_map.end()){
-        return iter->second;
-    } else {
-        return 0;
-    }
-}
-#endif*/
 
 uint32_t SDL_SCANCODES[] = {
     SDL_SCANCODE_A,
