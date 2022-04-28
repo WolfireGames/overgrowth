@@ -1161,7 +1161,6 @@ IF(LINUX)
         ${SRCDIR}/Compat/Linux/linux_compat.cpp
         ${SRCDIR}/Compat/Linux/linux_compat.h
         ${SRCDIR}/Compat/Linux/linux_hardware_info.cpp
-        ${SRCDIR}/Compat/Linux/linux_time.cpp
     )
 ENDIF()
 
@@ -1174,7 +1173,6 @@ IF(APPLE)
         ${SRCDIR}/Compat/Mac/mac_compat.mm
         ${SRCDIR}/Compat/Mac/mac_compat.h
         ${SRCDIR}/Compat/Mac/mac_hardware_info.cpp
-        ${SRCDIR}/Compat/Mac/mac_time.cpp
     )
 ENDIF()
 
@@ -1185,7 +1183,6 @@ IF(WIN32)
             ${SRCDIR}/Compat/Win/win_compat.cpp 
             ${SRCDIR}/Compat/Win/win_compat.h
             ${SRCDIR}/Compat/Win/win_hardware_info.cpp
-            ${SRCDIR}/Compat/Win/win_time.cpp
 	)
 
 	IF(MSVC_VERSION LESS 1911)
