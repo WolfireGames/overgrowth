@@ -24,6 +24,8 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
+#include <Compat/platform.h>
+
 inline uint64_t GetTimestamp() {
         // Use rdtsc instruction to get the tsc or Time Stamp Counter
 #if (defined(PLATFORM_LINUX) || defined(PLATFORM_MACOSX)) && (defined(__i386__) || defined(__x86_64__))
