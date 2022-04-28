@@ -1,6 +1,3 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0)
-PROJECT(minizip)
-
 SET(SRCDIR "${CMAKE_SOURCE_DIR}/../Libraries/minizip")
 SET(LIBDIR "${CMAKE_SOURCE_DIR}/../Libraries")
 
