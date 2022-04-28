@@ -32,6 +32,7 @@ distribution.
 
 #include "tinyxml.h"
 
+#include <Compat/platform.h>
 #ifdef PLATFORM_WINDOWS
 #include <windows.h>
 #endif

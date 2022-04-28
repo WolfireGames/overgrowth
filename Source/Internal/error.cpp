@@ -32,6 +32,7 @@
 #include <Graphics/graphics.h>
 #include <Threading/thread_sanity.h>
 #include <Compat/os_dialogs.h>
+#include <Compat/platform.h>
 #include <Utility/stacktrace.h>
 
 #include <map>

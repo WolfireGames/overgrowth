@@ -22,6 +22,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
+#include <Compat/platform.h>
 #if defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600 
 #include <intrin.h>
 #endif

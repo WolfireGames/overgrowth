@@ -22,6 +22,7 @@
 //-----------------------------------------------------------------------------
 #include <sstream>
 
+#include <Compat/platform.h>
 #if PLATFORM_LINUX || PLATFORM_MACOSX
 #include <Memory/allocation.h>
 #include <sys/time.h>

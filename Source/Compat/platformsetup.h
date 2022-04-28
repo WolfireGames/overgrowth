@@ -22,11 +22,11 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
+#include <Compat/compat.h>
+
 #if !PLATFORM_UNIX
 	#define _WIN32 1
 #endif
-
-#include <Compat/compat.h>
 
 //Disable console
 #ifdef _WIN32

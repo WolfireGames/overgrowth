@@ -20,6 +20,7 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
+#include <Compat/platform.h>
 #if !PLATFORM_UNIX
 #error Do not compile this.
 #endif
