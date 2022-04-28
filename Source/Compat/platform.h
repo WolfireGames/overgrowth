@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
-//           Name: platformsetup.h
+//           Name: compat.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description: Compiler macros to detect the target platform
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,22 +22,29 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <Compat/compat.h>
-
-#if !PLATFORM_UNIX
-	#define _WIN32 1
+// Check pointer size
+#if defined _M_X64 || defined _M_AMD64 || defined __amd64__ || defined __amd64 || defined __x86_64__ || defined __x86_64 || defined _WIN64 || defined __64BIT__ || defined __LP64 || defined _LP64 || defined __LP64__ || defined _ADDR64
+#define PLATFORM_64 1
+#else
+#define PLATFORM_32 1
 #endif
 
-//Disable console
-#ifdef _WIN32
-	#pragma comment( linker, "/subsystem:\"windows\" \
-							  /entry:\"mainCRTStartup\"" )
+// Check windows
+#if defined _WIN32 || defined_WIN64
+#define PLATFORM_WINDOWS 1
 #endif
 
-#if PLATFORM_UNIX
-	#include "FreeImage.h"
-#endif 
+// Check unix
+#if defined __unix__
+#define PLATFORM_UNIX 1
+#endif
 
+// Check Linux
+#if defined linux || defined __linux
+#define PLATFORM_LINUX 1
+#endif
 
-void SetUpEnvironment(char* program_path, const char* overloaded_write_dir, const char* overloaded_working_dir);
-void DisposeEnvironment();
+// Check macos
+#if defined __APPLE__
+#define PLATFORM_MACOSX 1
+#endif

@@ -232,7 +232,6 @@ if(LINUX)
         SET(ARCH_OUT "amd64")
         SET(TOOL_BIN_NAME "bin64")
         set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS ON)
-        ADD_DEFINITIONS(-DPLATFORM_64=1)
     ELSE()
         SET(LIB_SUFFIX "lib")
         SET(BIN_SUFFIX ".bin.x86")
@@ -243,7 +242,6 @@ if(LINUX)
         ### Ensure LargeFileSupport on 32bit linux
         set(CMAKE_C_FLAGS           "${CMAKE_C_FLAGS} -D_FILE_OFFSET_BITS=64")
         set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -D_FILE_OFFSET_BITS=64")
-        ADD_DEFINITIONS(-DPLATFORM_32=1)
     ENDIF()
 endif()
 
@@ -408,11 +406,7 @@ ELSE()
 ENDIF()
 
 # Add preprocessor definitions so that the code can use platform #ifdefs
-IF(UNIX)
-    ADD_DEFINITIONS(-DPLATFORM_UNIX=1)
-ENDIF()
 IF(LINUX)
-    ADD_DEFINITIONS(-DPLATFORM_LINUX=1)
     ADD_DEFINITIONS(${GTK2_DEFINITIONS})
 
     #-no-strict-aliasing for the sake of angelscript
@@ -424,7 +418,6 @@ IF(LINUX)
 ENDIF()
 
 IF(APPLE)
-    ADD_DEFINITIONS(-DPLATFORM_MACOSX=1)
     #-no-strict-aliasing for the sake of angelscript
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-strict-aliasing")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -fno-strict-aliasing")
@@ -447,7 +440,6 @@ SET(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG")
 #enable .pdb symbol generation for Release target on Windows
 IF(WIN32) 
     #Disable warnings when using standard c functions in visual studio
-    ADD_DEFINITIONS(-DPLATFORM_WINDOWS=1)
     ADD_DEFINITIONS(-D_CRT_SECURE_NO_WARNINGS)
 
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GF -D_CRT_SECURE_NO_WARNINGS -DNEED_SNPRINTF_ONLY /EHsc")

@@ -1,6 +1,7 @@
 #ifndef __CONFIG_TYPES_H__
 #define __CONFIG_TYPES_H__
 
+#include <Compat/platform.h>
 #if PLATFORM_UNIX
 #include <stdint.h>
 #endif

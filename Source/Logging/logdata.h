@@ -28,6 +28,7 @@
 #include <cstring>
 
 #include "Utility/compiler_macros.h"
+#include <Compat/platform.h>
 
 #define LOGGER_LIMIT 4
 

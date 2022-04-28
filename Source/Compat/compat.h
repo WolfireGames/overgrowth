@@ -51,6 +51,7 @@ bool checkFileAccess(const char* path);
 void createParentDirs(const char* abs_path);
 bool areSame(const char* path1, const char* path2 );
 
+#include <Compat/platform.h>
 #if PLATFORM_UNIX == 1  //This is shared on mac and linux.
 #include <Compat/UNIX/unix_compat.h>
 #endif
