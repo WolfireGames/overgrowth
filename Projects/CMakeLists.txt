@@ -1147,6 +1147,7 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Compat/compat.h
     ${SRCDIR}/Compat/filepath.h
     ${SRCDIR}/Compat/hardware_info.h
+    ${SRCDIR}/Compat/time.cpp
     ${SRCDIR}/Compat/time.h
     ${SRCDIR}/Compat/os_dialogs.h
     ${SRCDIR}/Compat/fileio.cpp
@@ -1171,7 +1172,6 @@ IF(LINUX)
         ${SRCDIR}/Compat/Linux/linux_compat.cpp
         ${SRCDIR}/Compat/Linux/linux_compat.h
         ${SRCDIR}/Compat/Linux/linux_hardware_info.cpp
-        ${SRCDIR}/Compat/Linux/linux_time.cpp
     )
 ENDIF()
 
@@ -1184,7 +1184,6 @@ IF(APPLE)
         ${SRCDIR}/Compat/Mac/mac_compat.mm
         ${SRCDIR}/Compat/Mac/mac_compat.h
         ${SRCDIR}/Compat/Mac/mac_hardware_info.cpp
-        ${SRCDIR}/Compat/Mac/mac_time.cpp
     )
 ENDIF()
 
@@ -1195,7 +1194,6 @@ IF(WIN32)
             ${SRCDIR}/Compat/Win/win_compat.cpp 
             ${SRCDIR}/Compat/Win/win_compat.h
             ${SRCDIR}/Compat/Win/win_hardware_info.cpp
-            ${SRCDIR}/Compat/Win/win_time.cpp
 	)
 
 	IF(MSVC_VERSION LESS 1911)

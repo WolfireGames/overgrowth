@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------
-//           Name: mac_time.cpp
+//           Name: time.cpp
 //      Developer: Wolfire Games LLC
 //    Description: 
 //        License: Read below
@@ -20,16 +20,16 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#include <Compat/time.h>
-
-#include <CoreServices/CoreServices.h>
+#include "time.h"
+#include <SDL.h>
 
 uint64_t GetPrecisionTime() {
-    AbsoluteTime upTime = UpTime();
-    return *(uint64_t*)&upTime;
+    return SDL_GetPerformanceCounter();
 }
 
 uint64_t ToNanoseconds(uint64_t time){
-    Nanoseconds elapsedNano = AbsoluteToNanoseconds(*(AbsoluteTime*)&time );
-    return *(uint64_t*)&elapsedNano;
+    uint64_t ticksPerSecond = SDL_GetPerformanceFrequency();
+
+    // Multiply with 1e9 to get nanoseconds
+    return time * 1e9 / ticksPerSecond;
 }
