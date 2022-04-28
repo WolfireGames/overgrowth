@@ -1,34 +1,34 @@
-MACRO(AddGroupedSource folder)
-    FILE(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
+macro(target_add_grouped_source target folder)
+    file(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
         ${SRCDIR}/${folder}/*.cpp
         ${SRCDIR}/${folder}/*.h
         ${SRCDIR}/${folder}/*.hpp
     )
-    LIST(APPEND OVERGROWTH_SRCS ${GROUPED_SRCS})
-    STRING(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
-    SOURCE_GROUP(${folder_backslash} FILES ${GROUPED_SRCS})
-ENDMACRO()
+    target_sources(${target} PRIVATE ${GROUPED_SRCS})
+    string(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
+    source_group(${folder_backslash} FILES ${GROUPED_SRCS})
+endmacro()
 
-MACRO(AddGroupedScript folder)
-    IF(EXISTS "${DATADIR}/")
-        FILE(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
+macro(target_add_grouped_script target folder)
+    if(EXISTS "${DATADIR}/")
+        file(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
             ${DATADIR}/${folder}/*.as
         )
-        LIST(APPEND OVERGROWTH_SRCS ${GROUPED_SRCS})
-        STRING(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
-        SOURCE_GROUP(${folder_backslash} FILES ${GROUPED_SRCS})
-    ENDIF()
-ENDMACRO()
+        target_sources(${target} PRIVATE ${GROUPED_SRCS})
+        string(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
+        source_group(${folder_backslash} FILES ${GROUPED_SRCS})
+    endif()
+endmacro()
 
-MACRO(AddGroupedShaders folder)
-    IF(EXISTS "${DATADIR}/")
-        FILE(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
+macro(target_add_grouped_shaders target folder)
+    if(EXISTS "${DATADIR}/")
+        file(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
             ${DATADIR}/${folder}/*.glsl
             ${DATADIR}/${folder}/*.vert
             ${DATADIR}/${folder}/*.frag
         )
-        LIST(APPEND OVERGROWTH_SRCS ${GROUPED_SRCS})
-        STRING(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
-        SOURCE_GROUP(${folder_backslash} FILES ${GROUPED_SRCS})
-    ENDIF()
-ENDMACRO()
+        target_sources(${target} PRIVATE ${GROUPED_SRCS})
+        string(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
+        source_group(${folder_backslash} FILES ${GROUPED_SRCS})
+    endif()
+endmacro()
