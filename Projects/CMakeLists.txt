@@ -13,13 +13,11 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #-----------------------------------------------------------------------------
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7) #Version of cmake in steam-runtime
-SET_PROPERTY(GLOBAL PROPERTY CXX_STANDARD 11)
-SET_PROPERTY(GLOBAL PROPERTY CXX_STANDARD_REQUIRED ON) 
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5) #Version of cmake in steam-runtime
 
-set(ZSTD_BUILD_PROGRAMS Off)
-set(ZSTD_BUILD_STATIC ON)
-set(ZSTD_BUILD_SHARED Off)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 PROJECT(Overgrowth)        
 
@@ -184,10 +182,6 @@ SET(OS_OUT "Unknown")
 SET(OVERGROWTH_OUTPUT_NAME "Overgrowth")
 SET(OVERGROWTH_WORKER_OUTPUT_NAME "OvergrowthWorker")
 
-#Globally set compile flags
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
 IF(APPLE)
     IF(BUILD_SERVER)
         SET(CMAKE_OSX_DEPLOYMENT_TARGET "10.9")
@@ -280,6 +274,9 @@ SET(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
 ADD_SUBDIRECTORY(../Libraries/glad glad)
+set(ZSTD_BUILD_PROGRAMS Off)
+set(ZSTD_BUILD_STATIC ON)
+set(ZSTD_BUILD_SHARED Off)
 ADD_SUBDIRECTORY(../Libraries/zstd-1.5.0/build/cmake zstd)
 ADD_SUBDIRECTORY(../Libraries/freetype-2.12.1 freetype)
 
