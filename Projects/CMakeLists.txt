@@ -1137,6 +1137,7 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Compat/compat.h
     ${SRCDIR}/Compat/filepath.h
     ${SRCDIR}/Compat/hardware_info.h
+    ${SRCDIR}/Compat/time.cpp
     ${SRCDIR}/Compat/time.h
     ${SRCDIR}/Compat/os_dialogs.h
     ${SRCDIR}/Compat/fileio.cpp
