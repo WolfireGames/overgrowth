@@ -640,6 +640,7 @@ ADD_DEFINITIONS(
     -DHAVE_MIXCFG_H
     -DGLEW_STATIC
     -DTIXML_USE_STL
+    -DIMGUI_ENABLE_FREETYPE
 ) 
 
 INCLUDE_DIRECTORIES(SYSTEM
@@ -765,6 +766,24 @@ if(APPLE)
 ENDIF()
 
 
+SET(IMGUI_SRCS
+    ${LIBDIR}/imgui-1.85/imgui.cpp
+    ${LIBDIR}/imgui-1.85/imgui_demo.cpp
+    ${LIBDIR}/imgui-1.85/imgui_draw.cpp
+    ${LIBDIR}/imgui-1.85/imgui_widgets.cpp
+    ${LIBDIR}/imgui-1.85/imgui_tables.cpp
+    ${LIBDIR}/imgui-1.85/imgui_color_picker.cpp
+    ${LIBDIR}/imgui-1.85/implot.cpp
+    ${LIBDIR}/imgui-1.85/implot_items.cpp
+    ${LIBDIR}/imgui-1.85/misc/freetype/imgui_freetype.cpp
+)
+
+ADD_LIBRARY( imgui STATIC
+    ${IMGUI_SRCS}
+)
+
+SET_PROPERTY(TARGET imgui PROPERTY FOLDER "Support")
+
 FILE(GLOB TINYXML_SRCS
     ${LIBDIR}/tinyxml/tinystr.cpp
     ${LIBDIR}/tinyxml/tinyxml.cpp
@@ -773,7 +792,6 @@ FILE(GLOB TINYXML_SRCS
     ${LIBDIR}/tinyxml/tinystr.h
     ${LIBDIR}/tinyxml/tinyxml.h
 )
-
 
 ADD_LIBRARY( tinyxml STATIC
     ${TINYXML_SRCS}
@@ -1207,6 +1225,7 @@ LIST(APPEND OVERGROWTH_SRCS
 )
 
 SOURCE_GROUP(Internal FILES ${OVERGROWTH_INTERNAL_SRCS})
+SOURCE_GROUP(ImGui FILES ${IMGUI_SRCS})
 SOURCE_GROUP(TinyXML FILES ${TINYXML_SRCS})
 SOURCE_GROUP(Logging FILES ${LOGGING_SRCS})
 
@@ -1539,6 +1558,7 @@ IF(BUILD_OVERGROWTH)
         freeimage
         triangle
         angelscript
+        imgui
         tinyxml
         trex
         logging
