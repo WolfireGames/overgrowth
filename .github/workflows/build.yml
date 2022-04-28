@@ -10,6 +10,7 @@ jobs:
       matrix:
         docker:
           - 'registry.fedoraproject.org/fedora:latest'
+          - 'quay.io/centoshyperscale/centos:stream8'
       fail-fast: false
 
     container: ${{ matrix.docker }}
