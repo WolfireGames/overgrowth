@@ -378,7 +378,6 @@ public:
     bool DoButtonMouseOver( int id, bool mouse_over, UIState& ui_state);
     void ClearHot();
     void Init();
-    void SetDebugVizEnabled(bool enabled);
     vec2 getMousePosition();
     ButtonState getLeftMouseState();
     
@@ -469,13 +468,11 @@ private:
         vec2 top_left, bottom_right;
     };
     
-    bool debug_viz_enabled_;
     int hot_;
     int active_;
     vec2 mouse_pos;
     
     ButtonState lmb_state;
-    std::vector<DebugVizSquare> debug_viz_squares;
     std::vector<IMUIRenderableType*> renderables;
     
     void Draw();
