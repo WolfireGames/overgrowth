@@ -615,7 +615,7 @@ void Textures::setFilters(GLenum min, GLenum mag) {
 
 void GetCompletePath(std::string *path_utf8_ptr) {
     std::string &path_utf8 = *path_utf8_ptr;
-    const int buf_size = 2048;
+    const int buf_size = 4096;
     #ifdef _WIN32    
         WCHAR path_utf16[buf_size];
         if(!MultiByteToWideChar(CP_UTF8, 0, path_utf8.c_str(), -1, path_utf16, buf_size)){
