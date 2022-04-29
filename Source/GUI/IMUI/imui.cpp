@@ -187,7 +187,6 @@ void IMUIContext::Init() {
     hot_ = -1;
     active_ = -1;
     lmb_state = kMouseStillUp;
-    debug_viz_enabled_ = false;
     
     gl_state.blend = true;
     gl_state.cull_face = false;
@@ -201,13 +200,6 @@ bool IMUIContext::DoButton( int id, vec2 top_left, vec2 bottom_right, UIState& u
        mouse_pos[1] > top_left[1] && mouse_pos[1] < bottom_right[1])
     {
         mouse_over = true;
-    }
-
-    if(debug_viz_enabled_){
-        debug_viz_squares.resize(debug_viz_squares.size() + 1);
-        debug_viz_squares.back().top_left = top_left;
-        debug_viz_squares.back().bottom_right = bottom_right;
-        debug_viz_squares.back().ui_state = ui_state;
     }
     
     return DoButtonMouseOver(id, mouse_over, ui_state);
@@ -269,74 +261,6 @@ void IMUIContext::UpdateControls() {
             }
             break;
     }
-    if(debug_viz_enabled_){
-        Draw();
-    }
-}
-
-
-void IMUIContext::Draw() {
-    Graphics* gi = Graphics::Instance();
-    gi->setGLState(gl_state); 
-    Shaders::Instance()->noProgram();
-
-    glMatrixMode(GL_PROJECTION);
-    glPushMatrix();
-    glLoadIdentity();
-    glOrtho(0, gi->window_dims[0],
-        0, gi->window_dims[1],
-        -100,100);
-    glMatrixMode(GL_MODELVIEW);
-    glPushMatrix();
-    glLoadIdentity();
-    glPushAttrib(GL_POLYGON_BIT);
-    
-    for(unsigned i=0; i<debug_viz_squares.size(); ++i){
-        const DebugVizSquare &square = debug_viz_squares[i];
-        switch(square.ui_state){
-            case kActive:
-                glColor4f(0.1f,0.1f,0.1f,0.5f); break;
-            case kNothing:
-                glColor4f(0.5f,0.5f,0.5f,0.5f); break;
-            case kHot:
-                glColor4f(0.8f,0.8f,0.8f,0.5f); break;
-        }
-        int border_offset_y = 2;
-        int border_offset_x = 2;
-        int x1 = (int)square.top_left[0];
-        int x2 = (int)square.bottom_right[0];
-        int y1 = (int)square.top_left[1];
-        int y2 = (int)square.bottom_right[1];
-        if (y2 > y1) border_offset_y *= -1;
-        if (x2 < x1) border_offset_x *= -1;
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-        //TODO: set stipple
-        glBegin(GL_QUADS);
-            glVertex3f((GLfloat)(x1+border_offset_x),(GLfloat)(y1-border_offset_y),0);
-            glVertex3f((GLfloat)(x2-border_offset_x),(GLfloat)(y1-border_offset_y),0);
-            glVertex3f((GLfloat)(x2-border_offset_x),(GLfloat)(y2+border_offset_y),0);
-            glVertex3f((GLfloat)(x1+border_offset_x),(GLfloat)(y2+border_offset_y),0);
-        glEnd();
-        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-        Graphics::Instance()->SetLineWidth(2);
-        glColor4f(0,0,0,1);
-        glBegin(GL_QUADS);
-            glVertex3f((GLfloat)x1,(GLfloat)y1,0);
-            glVertex3f((GLfloat)x2,(GLfloat)y1,0);
-            glVertex3f((GLfloat)x2,(GLfloat)y2,0);
-            glVertex3f((GLfloat)x1,(GLfloat)y2,0);
-        glEnd();
-    }
-    glPopAttrib();
-    glPopMatrix();
-    glMatrixMode(GL_PROJECTION);
-    glPopMatrix();
-    glMatrixMode(GL_MODELVIEW);
-    debug_viz_squares.clear();
-}
-
-void IMUIContext::SetDebugVizEnabled( bool enabled ) {
-    debug_viz_enabled_ = enabled;
 }
 
 vec2 IMUIContext::getMousePosition() {
