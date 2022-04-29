@@ -23,7 +23,6 @@
 #pragma once
 
 #include <Graphics/drawbatch.h>
-#include <Graphics/texturepack.h>
 #include <Graphics/lightprobecollection.hpp>
 #include <Graphics/dynamiclightcollection.hpp>
 #include <Graphics/flares.h>
