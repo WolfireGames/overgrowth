@@ -171,17 +171,7 @@
 #include <vector>
 
 /* -- INTERFACE FUNCTION PROTOTYPES -------------------------------------------------- */
-
-GLuint GetBoxDisplayList(const vec3 &sides);
-GLuint GetSphereDisplayList(float radius);
-GLuint GetMultiSphereDisplayList(const vec3 *positions, const float *radii, int num_spheres);
-    
-void renderSolidSphere(GLdouble radius, GLint slices, GLint stacks);
-
-void renderWireCylinder(GLdouble radius, GLdouble height, GLint slices, GLint stacks);
-
-GLuint GetWireCylinderDisplayList( float radius, float height, GLint slices, GLint stacks );
-
+   
 void GetWireCylinderVertArray(GLint slices, std::vector<vec3> &data);
 void GetWireSphereVertArray(GLdouble radius, GLint slices, GLint stacks, std::vector<float> &data);
 void GetWireBoxVertArray( std::vector<vec3> &data );
