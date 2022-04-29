@@ -27,6 +27,7 @@
 #include <Logging/logdata.h>
 #include <Utility/assert.h>
 #include <Main/engine.h>
+#include <Online/online.h>
 
 #include <tinyxml.h>
 

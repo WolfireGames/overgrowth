@@ -23,6 +23,7 @@
 #include "timed_slow_motion.h"
 
 #include <Main/engine.h>
+#include <Online/online.h>
 
 extern Timer game_timer;
 

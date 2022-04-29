@@ -34,6 +34,7 @@
 #include <Editors/map_editor.h>
 #include <Utility/ieee.h>
 #include <GUI/gui.h>
+#include <Online/online.h>
 
 #include <tinyxml.h>
 #include <SDL_assert.h>

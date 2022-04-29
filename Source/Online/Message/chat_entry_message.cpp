@@ -24,6 +24,7 @@
 
 #include <Main/engine.h>
 #include <Utility/binn_util.h>
+#include <Online/online.h>
 #include <Online/online_utility.h>
 
 namespace OnlineMessages {

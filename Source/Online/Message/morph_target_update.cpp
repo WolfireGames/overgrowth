@@ -23,6 +23,7 @@
 #include "morph_target_update.h"
 
 #include <Main/engine.h>
+#include <Online/online.h>
 
 namespace OnlineMessages {
     MorphTargetUpdate::MorphTargetUpdate() :
