@@ -36,7 +36,6 @@
 #include <Main/engine.h>
 
 #include <utf8/utf8.h>
-#include <SDL.h>
 
 #include <cmath>
 #include <algorithm>

@@ -77,7 +77,6 @@
 #include <Scripting/angelscript/ascontext.h>
 #include <Online/online.h>
 
-#include <SDL.h>
 #include <tinyxml.h>
 
 #include <cmath>

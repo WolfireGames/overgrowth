@@ -50,8 +50,6 @@
 #include <Wrappers/glm.h>
 #include <Utility/compiler_macros.h>
 
-#include <SDL.h>
-
 extern bool g_simple_shadows;
 extern bool g_level_shadows;
 extern char* global_shader_suffix;

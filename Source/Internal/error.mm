@@ -28,7 +28,6 @@
 
 #include <map>
 #include <string>
-#include <SDL.h>
 
 #import <AppKit/NSAlert.h>
 #import <AppKit/NSTextField.h>

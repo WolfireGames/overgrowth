@@ -128,8 +128,6 @@
 #include <Graphics/text.h>
 #include <Graphics/vboringcontainer.h>
 
-#include <SDL.h>
-
 #if defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600 
 #include <intrin.h>
 #endif
