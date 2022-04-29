@@ -35,8 +35,6 @@
 using std::string;
 using std::endl;
 
-class ProfilerContext;
-
 //TODO: Maybe modifying this to be Adler32 would be a little better CRC32 even more so, lowering the risk for collisions for small changes. 
 //(If you make a 'b' a 'c' and another 'b' an 'a' in a file, this function will give you the same checksum value, i would consider this a possible common change)
 unsigned short Checksum(const string& abs_path) {

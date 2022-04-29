@@ -27,6 +27,7 @@
 #include <Asset/Asset/texture.h>
 #include <Graphics/modelsurfacewalker.h>
 
+#include <opengl.h>
 #include <list>
 #include <map>
 

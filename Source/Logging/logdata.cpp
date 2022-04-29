@@ -23,7 +23,6 @@
 
 #include <Logging/logdata.h>
 #include <Logging/loghandler.h>
-#include <Logging/consolehandler.h>
 
 #include <Utility/strings.h>
 

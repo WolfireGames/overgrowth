@@ -23,15 +23,6 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <Asset/assetbase.h>
-#include <Asset/assetinfobase.h>
-
-#include <Math/quaternions.h>
-#include <Graphics/textureref.h>
-
-#include <vector>
-#include <string>
-
 class TheoraVideoManager;
 
 class AnimationEffectSystem

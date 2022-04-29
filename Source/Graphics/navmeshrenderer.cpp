@@ -37,6 +37,7 @@
 
 #include <Memory/allocation.h>
 #include <AI/mesh_loader_obj.h>
+#include <AI/navmesh.h>
 #include <Logging/logdata.h>
 
 NavMeshRenderer::NavMeshRenderer() :

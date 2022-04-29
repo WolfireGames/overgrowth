@@ -66,7 +66,7 @@ namespace {
         return true;
     }
 
-    void GetVertexDuplicates( const std::vector<GLfloat> &vertices, std::vector<int> &first_dup ) {
+    void GetVertexDuplicates( const std::vector<float> &vertices, std::vector<int> &first_dup ) {
         // For each vertex, store the id of the first vertex with the same position
         first_dup.resize(vertices.size()/3);
         std::map<vec3, int> point_map;

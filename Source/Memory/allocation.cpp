@@ -25,8 +25,6 @@
 #include <Internal/error.h>
 
 #include <cstdlib>
-#include <map>
-#include <cassert>
 
 #if MONITOR_MEMORY 
 //POSIX variant, win version necessary.

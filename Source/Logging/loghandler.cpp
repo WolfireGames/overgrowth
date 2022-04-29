@@ -23,9 +23,6 @@
 
 #include <Logging/loghandler.h>
 
-#include <ostream>
-#include <iostream>
-
 LogHandler::LogHandler()
 {
 }

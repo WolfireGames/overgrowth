@@ -23,19 +23,7 @@
 //-----------------------------------------------------------------------------
 #include "animationeffectsystem.h"
 
-#include <Internal/common.h>
-#include <Internal/filesystem.h>
-#include <Internal/timer.h>
-
 #include <TheoraPlayer/TheoraVideoManager.h>
-#include <TheoraPlayer/TheoraDataSource.h>
-#include <TheoraPlayer/TheoraVideoFrame.h>
-
-#include <XML/xml_helper.h>
-#include <Graphics/textures.h>
-#include <Logging/logdata.h>
-
-#include <tinyxml.h>
 
 #include <cstdio>
 

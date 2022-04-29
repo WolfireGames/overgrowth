@@ -23,14 +23,11 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <Asset/assetbase.h>
-#include <Asset/assetinfobase.h>
-
-#include <Math/vec3.h>
-#include <Graphics/palette.h>
+#include <Internal/path_set.h>
 
 #include <string>
-#include <vector>
+
+class TiXmlElement;
 
 enum CollisionType {_none, _static, _plant};
 

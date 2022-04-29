@@ -23,15 +23,6 @@
 //-----------------------------------------------------------------------------
 #pragma once 
 
-#include <Game/EntityDescription.h>
-#include <Game/detailobjectlayer.h>
-
-#include <Math/mat4.h>
-#include <Math/quaternions.h>
-
-#include <Asset/assets.h>
-#include <Scripting/scriptparams.h>
-
 struct OutOfDateInfo {
     bool shadow;
     bool ao;
