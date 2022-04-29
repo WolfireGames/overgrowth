@@ -27,7 +27,6 @@
 #include <Graphics/animationflags.h>
 
 #include <Asset/Asset/animation.h>
-#include <Scripting/angelscript/ascontext.h>
 
 class Skeleton;
 class ASContext;
@@ -89,7 +88,7 @@ class AnimationClient {
     std::string retarget_new;
 
     struct {
-        ASFunctionHandle layer_removed;
+        int32_t layer_removed;
     } as_funcs;
 
     void ApplyAnimationFlags( AnimationReader &reader, AnimationAssetRef &new_ref, char flags);
