@@ -20,5 +20,5 @@ jobs:
       - name: "Build inside SteamRT container"
         run: >
           ID=$(docker run -d -t -v ${{ github.workspace }}:/og -it ${{ matrix.steamrt }}:latest) &&
-          docker exec -w /og/ -it $ID sh -c
+          docker exec -t -w /og/ -it $ID sh -c
           "cmake -S Projects -B Build -DCMAKE_BUILD_TYPE=Release -DSLIM_TIMING=No -DDBUILD_SERVER=On && cmake --build ./Build -- -j4"
