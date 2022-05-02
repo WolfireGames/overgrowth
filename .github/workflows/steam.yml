@@ -17,10 +17,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones speed things up
-      - uses: addnab/docker-run-action@v3
-        with:
-          image: ${{ matrix.docker }}:latest
-          options: -v ${{ github.workspace }}:/og
-          run: |
-            cmake -S /og/Projects -B /og/Build -DCMAKE_BUILD_TYPE=Release -DSLIM_TIMING=No -DDBUILD_SERVER=On |
-            && cmake --build ./Build --verbose -j4
+      - name: "Build inside SteamRT container"
+        run: |
+          ID=$(docker run -d -v ${{ github.workspace }}:/og -it ${{ matrix.docker }}:latest) && |
+          docker exec -w /og/ -it $ID sh -c |
+          "cmake -S Projects -B Build -DCMAKE_BUILD_TYPE=Release -DSLIM_TIMING=No -DDBUILD_SERVER=On && cmake --build ./Build -- -j4"
