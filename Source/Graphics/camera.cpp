@@ -259,31 +259,24 @@ void Camera::applyViewpoint() {
     viewport[2]=gi->window_dims[0];
     viewport[3]=gi->window_dims[1];
 
-    GLdouble mouserayx,mouserayy,mouserayz;
-    gluUnProject ( mouse.x(), mouse.y(), mouse.z(),
-                   modelview_matrix,
-                   projection_matrix,
-                   viewport,
-                   &mouserayx,
-                   &mouserayy,
-                   &mouserayz);
-    
-    mouseray.x() = (float)mouserayx;
-    mouseray.y() = (float)mouserayy;
-    mouseray.z() = (float)mouserayz;
+    glm::vec3 ray = glm::unProject(glm::vec3(mouse.x(), mouse.y(), mouse.z()),
+                                   glm::make_mat4(modelview_matrix),
+                                   glm::make_mat4(projection_matrix),
+                                   glm::make_vec4(viewport));
+
+    mouseray.x() = (float)ray.x;
+    mouseray.y() = (float)ray.y;
+    mouseray.z() = (float)ray.z;
     
     mouse.x()=(float)(gi->window_dims[0])/2.0f;
     mouse.y()=(float)(gi->window_dims[1])/2.0f;
     
-    gluUnProject ( mouse.x(), mouse.y(), mouse.z(),
-                   modelview_matrix,
-                   projection_matrix,
-                   viewport,
-                   &mouserayx,
-                   &mouserayy,
-                   &mouserayz);
+    ray = glm::unProject(glm::vec3(mouse.x(), mouse.y(), mouse.z()),
+                         glm::make_mat4(modelview_matrix),
+                         glm::make_mat4(projection_matrix),
+                         glm::make_vec4(viewport));
     
-    vec3 center = vec3((float)mouserayx,(float)mouserayy,(float)mouserayz);
+    vec3 center = vec3((float)ray.x,(float)ray.y,(float)ray.z);
     center-=interp_pos;
     float ray_length = length(center);
     
@@ -302,30 +295,22 @@ vec3 Camera::GetRayThroughPixel(int x, int y) {
 
 vec3 Camera::UnProjectPixel(int x, int y) {
     float z = 0.5f;
-    GLdouble world_x, world_y, world_z;
-    gluUnProject ( x, y, z,
-                   modelview_matrix,
-                   projection_matrix,
-                   viewport,
-                   &world_x,
-                   &world_y,
-                   &world_z);
-    
-    vec3 world_coords((float)world_x, (float)world_y, (float)world_z);
+    glm::vec3 ray = glm::unProject(glm::vec3(x, y, z),
+                                   glm::make_mat4(modelview_matrix),
+                                   glm::make_mat4(projection_matrix),
+                                   glm::make_vec4(viewport));
+
+    vec3 world_coords(ray.x, ray.y, ray.z);
     return world_coords;
 }
 
 vec3 Camera::ProjectPoint(const vec3 &point) {
-    GLdouble screen_x, screen_y, screen_z;
-    gluProject (point[0], point[1], point[2], 
-                modelview_matrix,
-                projection_matrix,
-                viewport,
-                &screen_x,
-                &screen_y,
-                &screen_z);
+    glm::vec3 screen_pos = glm::project(glm::vec3(point.x(), point.y(), point.z()),
+                                        glm::make_mat4(modelview_matrix),
+                                        glm::make_mat4(projection_matrix),
+                                        glm::make_vec4(viewport));
     
-    vec3 screen_coords((float)screen_x, (float)screen_y, (float)screen_z);
+    vec3 screen_coords(screen_pos.x, screen_pos.y, screen_pos.z);
     return screen_coords;
 }
 
@@ -335,19 +320,15 @@ vec3 Camera::ProjectPoint(float x, float y, float z) {
 
 //Transform from world coordinates to screen coordinates
 vec3 Camera::worldToScreen(const vec3 point) const {
-    GLdouble windowx,windowy,windowz;
-    gluProject ( point.x(), point.y(), point.z(),
-                   modelview_matrix,
-                   projection_matrix,
-                   viewport,
-                   &windowx,
-                   &windowy,
-                   &windowz);
+    glm::vec3 window_pos = glm::project(glm::vec3(point.x(), point.y(), point.z()),
+                                       glm::make_mat4(modelview_matrix),
+                                       glm::make_mat4(projection_matrix),
+                                       glm::make_vec4(viewport));
 
     vec3 window;
-    window.x() = (float)windowx;
-    window.y() = (float)windowy;
-    window.z() = (float)windowz;
+    window.x() = window_pos.x;
+    window.y() = window_pos.y;
+    window.z() = window_pos.z;
 
     return window;
 }
