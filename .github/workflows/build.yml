@@ -49,3 +49,15 @@ jobs:
         run: cmake -S ./Projects -B ./Build
       - name: compile with cmake
         run: cmake --build ./Build
+
+  macos:
+    runs-on: macos-11
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones speed things up
+      - name: cmake configure
+        run: cmake -S ./Projects -B ./Build
+      - name: compile with cmake
+        run: cmake --build ./Build
