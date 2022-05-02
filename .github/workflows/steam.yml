@@ -19,6 +19,6 @@ jobs:
           fetch-depth: 0  # Shallow clones speed things up
       - name: "Build inside SteamRT container"
         run: >
-          ID=$(docker run -d -v ${{ github.workspace }}:/og -it ${{ matrix.docker }}:latest) &&
+          ID=$(docker run -d -v ${{ github.workspace }}:/og -it ${{ matrix.steamrt }}:latest) &&
           docker exec -w /og/ -it $ID sh -c
           "cmake -S Projects -B Build -DCMAKE_BUILD_TYPE=Release -DSLIM_TIMING=No -DDBUILD_SERVER=On && cmake --build ./Build -- -j4"
