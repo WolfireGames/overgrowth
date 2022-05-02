@@ -331,64 +331,20 @@ bool Image::setImage( int width, int height, GLenum format, GLenum type, const v
         case GL_ALPHA:
             switch (type) {
                 case GL_UNSIGNED_BYTE:
-                    internalFormat = GL_ALPHA8;
+                    internalFormat = GL_R8;
                     elementSize = 1;
                     break;
                 case GL_UNSIGNED_SHORT:
-                    internalFormat = GL_ALPHA16;
+                    internalFormat = GL_R16;
                     elementSize = 2;
                     break;
                 case GL_FLOAT:
-                    internalFormat = GL_ALPHA32F_ARB;
+                    internalFormat = GL_R32F;
                     elementSize = 4;
                     break;
                 case GL_HALF_FLOAT:
-                    internalFormat = GL_ALPHA16F_ARB;
+                    internalFormat = GL_R16F;
                     elementSize = 2;
-                    break;
-                default:
-                    return false; //format/type combo not supported
-            }
-            break;
-        case GL_LUMINANCE:
-            switch (type) {
-                case GL_UNSIGNED_BYTE:
-                    internalFormat = GL_LUMINANCE8;
-                    elementSize = 1;
-                    break;
-                case GL_UNSIGNED_SHORT:
-                    internalFormat = GL_LUMINANCE16;
-                    elementSize = 2;
-                    break;
-                case GL_FLOAT:
-                    internalFormat = GL_LUMINANCE32F_ARB;
-                    elementSize = 4;
-                    break;
-                case GL_HALF_FLOAT:
-                    internalFormat = GL_LUMINANCE16F_ARB;
-                    elementSize = 2;
-                    break;
-                default:
-                    return false; //format/type combo not supported
-            }
-            break;
-        case GL_LUMINANCE_ALPHA:
-            switch (type) {
-                case GL_UNSIGNED_BYTE:
-                    internalFormat = GL_LUMINANCE8_ALPHA8;
-                    elementSize = 2;
-                    break;
-                case GL_UNSIGNED_SHORT:
-                    internalFormat = GL_LUMINANCE16_ALPHA16;
-                    elementSize = 4;
-                    break;
-                case GL_FLOAT:
-                    internalFormat = GL_LUMINANCE_ALPHA32F_ARB;
-                    elementSize = 8;
-                    break;
-                case GL_HALF_FLOAT:
-                    internalFormat = GL_LUMINANCE_ALPHA16F_ARB;
-                    elementSize = 4;
                     break;
                 default:
                     return false; //format/type combo not supported
