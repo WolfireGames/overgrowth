@@ -1001,13 +1001,13 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
 				g_gamma_correct_final_output = checkbox_val;
 			}
 
-            // if (GLEW_VERSION_4_0) {
-            //     checkbox_val = config["single_pass_shadow_cascade"].toNumber<bool>();
-            //     if(ImGui::Checkbox("Single-Pass Shadow Cascade", &checkbox_val)){
-            //         config.GetRef("single_pass_shadow_cascade") = checkbox_val;
-            //         g_single_pass_shadow_cascade = checkbox_val;
-            //     }
-            // }
+            if (GLAD_GL_VERSION_4_0) {
+                checkbox_val = config["single_pass_shadow_cascade"].toNumber<bool>();
+                if(ImGui::Checkbox("Single-Pass Shadow Cascade", &checkbox_val)){
+                    config.GetRef("single_pass_shadow_cascade") = checkbox_val;
+                    g_single_pass_shadow_cascade = checkbox_val;
+                }
+            }
 
             checkbox_val = config["no_detailmaps"].toNumber<bool>();
             if(ImGui::Checkbox("Disable detail maps", &checkbox_val)){
