@@ -6277,11 +6277,11 @@ void Engine::Initialize() {
     show_mp_settings = config["menu_show_mp_settings"].toBool();
     break_on_script_change = config["asdebugger_break_on_script_change"].toBool();
 
-    // if (!GLEW_VERSION_4_0 && g_single_pass_shadow_cascade) {
-    //     LOGW << "OpenGL 4.0 not found, disabling single-pass shadow cascade" << std::endl;
-    //     g_single_pass_shadow_cascade = false;
-    //     config.GetRef("single_pass_shadow_cascade") = false;
-    // }
+    if (!GLAD_GL_VERSION_4_0 && g_single_pass_shadow_cascade) {
+        LOGW << "OpenGL 4.0 not found, disabling single-pass shadow cascade" << std::endl;
+        g_single_pass_shadow_cascade = false;
+        config.GetRef("single_pass_shadow_cascade") = false;
+    }
 
     game_timer.SetStepFrequency(120);
     ui_timer.SetStepFrequency(120);
