@@ -31,6 +31,7 @@
 class Skeleton;
 class ASContext;
 const float _default_fade_speed = 5.0f;
+typedef int32_t ASFunctionHandle;
 
 struct AnimationFadeOut {
     AnimationReader reader;
@@ -88,7 +89,7 @@ class AnimationClient {
     std::string retarget_new;
 
     struct {
-        int32_t layer_removed;
+        ASFunctionHandle layer_removed;
     } as_funcs;
 
     void ApplyAnimationFlags( AnimationReader &reader, AnimationAssetRef &new_ref, char flags);
