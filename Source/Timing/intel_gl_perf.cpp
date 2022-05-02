@@ -77,7 +77,7 @@ void IntelGLPerf::Init() {
 	LOGI << "Initializing IntelGLPerf" << std::endl;
 
 	//Check if this plugin is available.
-	if( GLEW_INTEL_performance_query ) {
+	if( GLAD_GL_INTEL_performance_query ) {
 		perf_available = true;
 		
 		GLuint query_id;

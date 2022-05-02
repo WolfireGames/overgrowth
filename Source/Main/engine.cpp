@@ -480,7 +480,7 @@ void PushGPUProfileRange(const char* cstr){
 #endif
 
 #ifdef GLDEBUG
-    if (GLEW_KHR_debug) {
+    if (GLAD_GL_KHR_debug) {
         glPushDebugGroup(GL_DEBUG_SOURCE_APPLICATION , 1, -1, cstr);
     }
 #endif  // GLDEBUG
@@ -492,7 +492,7 @@ void PopGPUProfileRange(){
 #endif
 
 #ifdef GLDEBUG
-    if (GLEW_KHR_debug) {
+    if (GLAD_GL_KHR_debug) {
         glPopDebugGroup();
     }
 #endif  // GLDEBUG
@@ -6277,11 +6277,11 @@ void Engine::Initialize() {
     show_mp_settings = config["menu_show_mp_settings"].toBool();
     break_on_script_change = config["asdebugger_break_on_script_change"].toBool();
 
-    if (!GLEW_VERSION_4_0 && g_single_pass_shadow_cascade) {
-        LOGW << "OpenGL 4.0 not found, disabling single-pass shadow cascade" << std::endl;
-        g_single_pass_shadow_cascade = false;
-        config.GetRef("single_pass_shadow_cascade") = false;
-    }
+    // if (!GLEW_VERSION_4_0 && g_single_pass_shadow_cascade) {
+    //     LOGW << "OpenGL 4.0 not found, disabling single-pass shadow cascade" << std::endl;
+    //     g_single_pass_shadow_cascade = false;
+    //     config.GetRef("single_pass_shadow_cascade") = false;
+    // }
 
     game_timer.SetStepFrequency(120);
     ui_timer.SetStepFrequency(120);

@@ -130,10 +130,10 @@ void ProcessCubeMap(TextureRef src_ref, TextureRef ref, GLuint framebuffer, GLui
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
             glBindFramebuffer(GL_READ_FRAMEBUFFER, framebuffer);
             glFramebufferTexture2D(GL_READ_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, 
-                GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT+i, Textures::Instance()->returnTexture(src_ref), mip);
+                GL_TEXTURE_CUBE_MAP_POSITIVE_X+i, Textures::Instance()->returnTexture(src_ref), mip);
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, framebuffer2);
             glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, 
-                GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT+i, Textures::Instance()->returnTexture(ref), 0);
+                GL_TEXTURE_CUBE_MAP_POSITIVE_X+i, Textures::Instance()->returnTexture(ref), 0);
 
             //LOG_ASSERT(glCheckFramebufferStatus(GL_READ_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE);
             //LOG_ASSERT(glCheckFramebufferStatus(GL_DRAW_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE);
@@ -236,7 +236,7 @@ void Sky::RenderCubeMap(int flags, const TextureRef* land_texture_ref) {
         CHECK_GL_ERROR();
         // Attach cube map face to framebuffer
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, 
-                                  GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT+i, cube_map_texture, 0);
+                                  GL_TEXTURE_CUBE_MAP_POSITIVE_X+i, cube_map_texture, 0);
         // Set up shader
         int shader_id = shaders->returnProgram(simple_tex_3d_flipped);
         CHECK_GL_ERROR();
