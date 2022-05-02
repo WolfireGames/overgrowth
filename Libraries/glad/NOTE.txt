@@ -1,0 +1,7 @@
+Generated https://glad.dav1d.de/ 
+
+GL 3.2 CORE profile
+
+Extensions:
+GL_EXT_texture_compression_s3tc
+GL_EXT_texture_sRGB

@@ -1027,12 +1027,12 @@ void Graphics::InitScreen(){
         LOGI << "SDL OpenGL Context Result: " << sdl_gl_major << "." << sdl_gl_minor << " With a " << SDL_GLprofile_string((SDL_GLprofile)sdl_gl_profile_mask) << " profile context" << std::endl; 
 
         // Initialize GLEW
-        GLenum err = glewInit();
-		GL_PERF_INIT( );
-        if (err != GLEW_OK) {
-            FatalError("Error", "GLEW error: %s", glewGetErrorString(err));
-        }        
-        LOGI << "GLEW Version loaded: " << glewGetString(GLEW_VERSION) << std::endl;
+        // GLenum err = glewInit();
+		// GL_PERF_INIT( );
+        // if (err != GLEW_OK) {
+        //     FatalError("Error", "GLEW error: %s", glewGetErrorString(err));
+        // }        
+        // LOGI << "GLEW Version loaded: " << glewGetString(GLEW_VERSION) << std::endl;
 
         GLint gl_major = 0, gl_minor = 0;
         if( sdl_gl_major >= 3 ) {
