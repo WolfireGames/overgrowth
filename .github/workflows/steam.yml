@@ -21,6 +21,6 @@ jobs:
         run: docker pull ${{ matrix.docker }}
       - name: cmake configure
         uses: docker://steamrt_scout_amd64:latest
-        run: cmake -S ./Projects -B ./Build -DCMAKE_BUILD_TYPE=Release -DSLIM_TIMING=No -DDBUILD_SERVER=On
+        # run: cmake -S ./Projects -B ./Build -DCMAKE_BUILD_TYPE=Release -DSLIM_TIMING=No -DDBUILD_SERVER=On
       # - name: compile with cmake
       #   run: cmake --build ./Build --verbose -j4
