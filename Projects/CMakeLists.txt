@@ -655,6 +655,7 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/zstd-1.5.0/lib
     ${LIBDIR}/binn-3.0/src
     ${LIBDIR}/TheoraPlayer/Source
+    ${LIBDIR}/freetype-2.12.1/include
 )
 
 IF(ENABLE_STEAMWORKS)
