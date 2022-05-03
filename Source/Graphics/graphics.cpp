@@ -621,15 +621,37 @@ void Graphics::Dispose() {
     }
 }
 
+const char* glErrorString(GLenum errCode)
+{
+    switch (errCode)
+    {
+    case GL_NO_ERROR:
+        return "No error";
+    case GL_INVALID_ENUM:
+        return "Invalid enum";
+    case GL_INVALID_VALUE:
+        return "Invalid value";
+    case GL_INVALID_OPERATION:
+        return "Invalid operation";
+    case GL_INVALID_FRAMEBUFFER_OPERATION:
+        return "Invalid framebuffer operation";
+    case GL_OUT_OF_MEMORY:
+        return "Out of memory";
+    case GL_STACK_UNDERFLOW:
+        return "Stack underflow";
+    case GL_STACK_OVERFLOW:
+        return "Stack overflow";
+    default:
+        return "Unknown GL error code";
+    }
+}
+
 bool CheckGLError(int line, const char* file, const char* exterrmsg) {
     GLenum errCode;
     const char *errString;
     errCode = glGetError();
     if (errCode != GL_NO_ERROR) {
-        errString = (const char*)gluErrorString(errCode);
-        if(errCode == 0x0506) {
-            errString = "Invalid framebuffer operation";    
-        }
+        errString = glErrorString(errCode);
         char error_msg[1024];
         int i = 0;
         int last_slash = 0;
@@ -654,10 +676,7 @@ bool CheckGLErrorStr(char* output, unsigned length) {
     const char *errString;
     errCode = glGetError();
     if (errCode != GL_NO_ERROR) {
-        errString = (const char*)gluErrorString(errCode);
-        if(errCode == 0x0506) {
-            errString = "Invalid framebuffer operation";    
-        }
+        errString = glErrorString(errCode);
         FormatString(output,length,"%s",errString);
         return true;
     }
@@ -757,7 +776,7 @@ static void ApplyVsync(bool val) {
 }
 
 void Graphics::SetAnisotropy(float val){
-    if(GLEW_EXT_texture_filter_anisotropic){
+    if(GLAD_GL_EXT_texture_filter_anisotropic){
         static float max_anisotropy = -1.0f;
         if(max_anisotropy == -1.0f){
             glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &max_anisotropy);
@@ -1026,13 +1045,13 @@ void Graphics::InitScreen(){
 
         LOGI << "SDL OpenGL Context Result: " << sdl_gl_major << "." << sdl_gl_minor << " With a " << SDL_GLprofile_string((SDL_GLprofile)sdl_gl_profile_mask) << " profile context" << std::endl; 
 
-        // Initialize GLEW
-        GLenum err = glewInit();
-		GL_PERF_INIT( );
-        if (err != GLEW_OK) {
-            FatalError("Error", "GLEW error: %s", glewGetErrorString(err));
+        // Initialize GLAD
+        if(!gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress)) {
+            FatalError("Error", "GLAD error: failed to load OpenGL functions");
         }        
-        LOGI << "GLEW Version loaded: " << glewGetString(GLEW_VERSION) << std::endl;
+        LOGI << "GLAD loaded succesfully" << std::endl;
+
+        GL_PERF_INIT( );
 
         GLint gl_major = 0, gl_minor = 0;
         if( sdl_gl_major >= 3 ) {
@@ -1047,11 +1066,11 @@ void Graphics::InitScreen(){
             LOGI << "OpenGL has no self reporting routine for 1.x contexts." << std::endl;
         }
 
-        if (!GLEW_VERSION_3_2) {
+        if (!GLAD_GL_VERSION_3_2) {
             LOGE << "GLEW claims it doesn't have an OpenGL 3.2 context" << std::endl;
         }
 
-        if( GLEW_VERSION_3_2 || (sdl_gl_major == 3 && sdl_gl_minor >= 2) || sdl_gl_major > 3 ) {
+        if( GLAD_GL_VERSION_3_2 || (sdl_gl_major == 3 && sdl_gl_minor >= 2) || sdl_gl_major > 3 ) {
             LOGI << "Context seems acceptable for running the application, continuing." << std::endl;
         } else {
             FatalError("Error", "OpenGL-3.2-compatible graphics drivers not found");
@@ -1069,10 +1088,10 @@ void Graphics::InitScreen(){
 
 		if(config["opengl_callback_errors"].toNumber<bool>()) {
 			LOGI << "Activating OpenGL callback errors, [opengl_callback_errors]" << std::endl;
-			if(GLEW_ARB_debug_output){
+			if(GLAD_GL_ARB_debug_output){
 				glDebugMessageCallbackARB(&arb_debug_callback, NULL);
 				glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-			} else if(GLEW_AMD_debug_output){
+			} else if(GLAD_GL_AMD_debug_output){
 				glDebugMessageEnableAMD(0, 0, 0, NULL, true);
 				glDebugMessageCallbackAMD(&amd_debug_callback, NULL);
                 // GL_DEBUG_OUTPUT_SYNCHRONOUS is part of the KHR and ARB
@@ -1088,14 +1107,14 @@ void Graphics::InitScreen(){
         }
         CHECK_GL_ERROR();
         // Determine what framebuffer features are supported
-        if (GLEW_VERSION_3_0 || GLEW_EXT_framebuffer_object || GLEW_ARB_framebuffer_object) {
+        if (GLAD_GL_VERSION_3_0 || GLAD_GL_EXT_framebuffer_object || GLAD_GL_ARB_framebuffer_object) {
         } else {
             FatalError("Error", "No support for Framebuffer Objects detected");
         }
-        features_.SetFrameBufferFSAAEnabled(GLEW_EXT_framebuffer_multisample!=0);
+        features_.SetFrameBufferFSAAEnabled(GLAD_GL_EXT_framebuffer_multisample!=0);
         CHECK_GL_ERROR();
         // Determine what instanced array features are supported
-        if (GLEW_VERSION_3_3 || GLEW_ARB_instanced_arrays) {
+        if (GLAD_GL_VERSION_3_3 || GLAD_GL_ARB_instanced_arrays) {
             g_attrib_envobj_intancing_support = true;
         } else {
             g_attrib_envobj_intancing_support = false;
@@ -1116,7 +1135,7 @@ void Graphics::InitScreen(){
         vendor = GetGLVendor();
         SetAnisotropy(config_.anisotropy());
   
-        features_.SetHDREnable( GLEW_VERSION_3_0 || GLEW_ARB_texture_float );
+        features_.SetHDREnable( GLAD_GL_VERSION_3_0 || GLAD_GL_ARB_texture_float );
 
         // Set initial GL state so it is in sync with shadow state
         glDisable(GL_DEPTH_TEST);
@@ -1164,7 +1183,7 @@ void Graphics::InitScreen(){
         DecalTextures::Instance()->Init();
         PROFILER_LEAVE(g_profiler_ctx);
 
-        if(GLEW_ARB_tessellation_shader){
+        if(GLAD_GL_ARB_tessellation_shader){
             glPatchParameteri( GL_PATCH_VERTICES, 3 );
         }
     }
@@ -1319,18 +1338,18 @@ void Graphics::InitScreen(){
     glBindVertexArray(vao);
     CHECK_GL_ERROR();
 
-    if(GLEW_ARB_texture_cube_map_array){
-        LOGI << "GLEW_ARB_texture_cube_map_array is available" << std::endl;
+    if(GLAD_GL_ARB_texture_cube_map_array){
+        LOGI << "GLAD_ARB_texture_cube_map_array is available" << std::endl;
     } else {
-        LOGI << "GLEW_ARB_texture_cube_map_array is NOT available" << std::endl;
+        LOGI << "GLAD_ARB_texture_cube_map_array is NOT available" << std::endl;
     }
 
-	if( !GLEW_EXT_texture_compression_s3tc ) {
+	if( !GLAD_GL_EXT_texture_compression_s3tc ) {
 		LOGF << "Missing necessary GL extension: EXT_texture_compression_s3tc" << std::endl;
 	}
 
-	if( !GLEW_EXT_texture_sRGB ) {
-		LOGF << "Missing necessary GL extension: GLEW_EXT_texture_sRGB" << std::endl;
+	if( !GLAD_GL_EXT_texture_sRGB ) {
+		LOGF << "Missing necessary GL extension: EXT_texture_sRGB" << std::endl;
 	}
 
     //Assume that the bindings in the state aren't valid anymore.
@@ -1727,7 +1746,7 @@ void Graphics::SetDetailObjectShadows(bool val) {
 }
 
 void Graphics::SetSeamlessCubemaps(bool val) {
-    if(GL_VERSION_3_2 || GLEW_ARB_seamless_cube_map || GLEW_ARB_seamless_cubemap_per_texture){
+    if(GL_VERSION_3_2 || GLAD_GL_ARB_seamless_cube_map || GLAD_GL_ARB_seamless_cubemap_per_texture){
         if(val){
             glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
         } else {
@@ -1905,7 +1924,7 @@ void Graphics::SetUpShadowTextures() {
 
 void Graphics::DebugTracePrint(const char *message) {
 #if GPU_MARKERS
-    if (GLEW_KHR_debug) {
+    if (GLAD_GL_KHR_debug) {
         glDebugMessageInsert(GL_DEBUG_SOURCE_APPLICATION, GL_DEBUG_TYPE_MARKER, 0, GL_DEBUG_SEVERITY_NOTIFICATION, -1, message);
     }
 #endif  // GPU_MARKERS

@@ -319,7 +319,7 @@ bool Image::readDDS( const char *file, Image& i) {
 
             case FOURCC_A8:
                 i._format = GL_ALPHA;
-                i._internalFormat = GL_ALPHA8;
+                i._internalFormat = GL_R8;
                 i._type = GL_UNSIGNED_BYTE;
                 bytesPerElement = 1;
                 break;
@@ -360,43 +360,43 @@ bool Image::readDDS( const char *file, Image& i) {
                 break;
 
             case FOURCC_L8:
-                i._format = GL_LUMINANCE;
-                i._internalFormat = GL_LUMINANCE8;
+                i._format = GL_RED;
+                i._internalFormat = GL_R8;
                 i._type = GL_UNSIGNED_BYTE;
                 bytesPerElement = 1;
                 break;
 
             case FOURCC_A8L8:
-                i._format = GL_LUMINANCE_ALPHA;
-                i._internalFormat = GL_LUMINANCE8_ALPHA8;
+                i._format = GL_RG;
+                i._internalFormat = GL_RG8;
                 i._type = GL_UNSIGNED_BYTE;
                 bytesPerElement = 2;
                 break;
 
             case FOURCC_L16:
-                i._format = GL_LUMINANCE;
-                i._internalFormat = GL_LUMINANCE16;
+                i._format = GL_RED;
+                i._internalFormat = GL_R16;
                 i._type = GL_UNSIGNED_SHORT;
                 bytesPerElement = 2;
                 break;
 
             case FOURCC_R16F:
-                i._format = GL_LUMINANCE; //should use red, once it is available
-                i._internalFormat = GL_LUMINANCE16F_ARB; 
+                i._format = GL_RED; //should use red, once it is available
+                i._internalFormat = GL_R16F; 
                 i._type = GL_HALF_FLOAT;
                 bytesPerElement = 2;
                 break;
 
             case FOURCC_A16B16G16R16F:
                 i._format = GL_RGBA;
-                i._internalFormat = GL_RGBA16F_ARB;
+                i._internalFormat = GL_RGBA16F;
                 i._type = GL_HALF_FLOAT;
                 bytesPerElement = 8;
                 break;
 
             case FOURCC_R32F:
-                i._format = GL_LUMINANCE; //should use red, once it is available
-                i._internalFormat = GL_LUMINANCE32F_ARB; 
+                i._format = GL_RED; //should use red, once it is available
+                i._internalFormat = GL_R32F; 
                 i._type = GL_FLOAT;
                 bytesPerElement = 4;
                 break;
@@ -453,8 +453,8 @@ bool Image::readDDS( const char *file, Image& i) {
     }
     else if (ddsh.ddspf.dwRGBBitCount == 8)
     {
-        i._format = GL_LUMINANCE; 
-        i._internalFormat = GL_LUMINANCE8; 
+        i._format = GL_RED; 
+        i._internalFormat = GL_R8; 
         i._type = GL_UNSIGNED_BYTE;
         bytesPerElement = 1;
     }

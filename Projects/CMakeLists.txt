@@ -279,6 +279,7 @@ SET(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
+ADD_SUBDIRECTORY(../Libraries/glad glad)
 ADD_SUBDIRECTORY(../Libraries/zstd-1.5.0/build/cmake zstd)
 ADD_SUBDIRECTORY(../Libraries/freetype-2.12.1 freetype)
 
@@ -289,7 +290,6 @@ IF(BUILD_OVERGROWTH)
     ADD_SUBDIRECTORY(murmurhash3 murmurhash3)
     ADD_SUBDIRECTORY(binn binn)
     ADD_SUBDIRECTORY(TheoraPlayer TheoraPlayer)
-    ADD_SUBDIRECTORY(glew glew)
     ADD_SUBDIRECTORY(recastnavigation recastnavigation)
     # disable all demos
     # enable USE_MSVC_RUNTIME_LIBRARY_DLL
@@ -314,7 +314,7 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET triangle PROPERTY FOLDER "Support")
     SET_PROPERTY(TARGET minizip PROPERTY FOLDER "Support")
     SET_PROPERTY(TARGET TheoraPlayer PROPERTY FOLDER "Support")
-    SET_PROPERTY(TARGET glew PROPERTY FOLDER "Support")
+    SET_PROPERTY(TARGET glad PROPERTY FOLDER "Support")
     SET_PROPERTY(TARGET BulletCollision PROPERTY FOLDER "Support/BulletPhysics")
     SET_PROPERTY(TARGET BulletDynamics PROPERTY FOLDER "Support/BulletPhysics")
     SET_PROPERTY(TARGET BulletFileLoader PROPERTY FOLDER "Support/BulletPhysics")
@@ -621,7 +621,6 @@ ENDIF()
 
 ADD_DEFINITIONS(
     -DHAVE_MIXCFG_H
-    -DGLEW_STATIC
     -DTIXML_USE_STL
     -DIMGUI_ENABLE_FREETYPE
 ) 
@@ -639,7 +638,6 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Include
     ${LIBDIR}/openvr-master/headers
     ${LIBDIR}/glm-0.9.4.2/
-    ${LIBDIR}/glew-2.0.0/include
     bullet3-2.89/src
     angelscript_2_32_0_sdk/angelscript/include
     angelscript_2_32_0_sdk
@@ -924,6 +922,7 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
         freeimage
         pthread
         crnlib
+        glad
     )
 
     IF(WIN32)
@@ -1340,6 +1339,7 @@ IF(BUILD_OVERGROWTH)
         tinyxml
         trex
         logging
+        glad
         crnlib
     )
 
@@ -1496,7 +1496,7 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET triangle                PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET minizip                 PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET TheoraPlayer            PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
-    SET_PROPERTY(TARGET glew                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
+    SET_PROPERTY(TARGET glad                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET trex                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET BulletCollision         PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET BulletDynamics          PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
@@ -1528,7 +1528,7 @@ IF(BUILD_OVERGROWTH)
         minizip
         murmurhash3
         binn
-        glew
+        glad
         TheoraPlayer
         freeimage
         triangle

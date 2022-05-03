@@ -1373,7 +1373,7 @@ unsigned int Textures::makeCubemapTextureInternal(int width, int height, GLint i
     while((width >= 1 && height >= 1) && (mipmap_param == MIPMAPS || level == 0)) {
         for (int i=0; i<6; i++) {
             if(internal_format == GL_RGBA16F) {
-                if(GLEW_ARB_texture_float) {
+                if(GLAD_GL_ARB_texture_float) {
                     glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, level, internal_format, width, height, 0, format, GL_FLOAT, NULL);
                     totalTextureSize += width*height*8;
                 } else {
@@ -1459,7 +1459,7 @@ unsigned int Textures::makeTextureInternal(int width, int height, GLint internal
     CHECK_GL_ERROR();
     glBindTexture(texture.tex_target, texture.gl_texture_id);
     if(internal_format == GL_RGBA16F) {
-        if(GLEW_ARB_texture_float) {
+        if(GLAD_GL_ARB_texture_float) {
             glTexImage2D(texture.tex_target, 0, internal_format, width, height, 0,
                         format, GL_FLOAT, data);
         } else {
@@ -1614,7 +1614,7 @@ unsigned int Textures::makeTextureColorInternal(int width, int height, GLint int
 
     unsigned int totalTextureSize = 0;
     if(internal_format == GL_RGBA16F) {
-        if(GLEW_ARB_texture_float) {
+        if(GLAD_GL_ARB_texture_float) {
             glTexImage2D(texture.tex_target, 0, internal_format, width, height, 0,
                         format, GL_FLOAT, &data[0]);
             totalTextureSize += width*height*8;
@@ -1700,7 +1700,7 @@ unsigned int Textures::makeTextureTestPatternInternal(int width, int height, GLi
 
     glBindTexture(texture.tex_target, texture.gl_texture_id);
     if(internal_format == GL_RGBA16F) {
-        if(GLEW_ARB_texture_float) {
+        if(GLAD_GL_ARB_texture_float) {
             glTexImage2D(texture.tex_target, 0, internal_format, width, height, 0,
                         format, GL_FLOAT, &data[0]);
         } else {

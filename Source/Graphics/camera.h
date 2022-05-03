@@ -71,9 +71,9 @@ private:
     
     vec3 mouseray; ///< Vector in the direction that the mouse is pointing
     
-    GLdouble modelview_matrix[16]; ///< Camera modelview matrix
-    GLdouble projection_matrix[16]; ///< Camera projection matrix
-    GLint viewport[4]; ///< Viewport dimensions (in pixels)
+    float modelview_matrix[16]; ///< Camera modelview matrix
+    float projection_matrix[16]; ///< Camera projection matrix
+    int viewport[4]; ///< Viewport dimensions (in pixels)
 
     int interp_steps;
     int interp_progress;

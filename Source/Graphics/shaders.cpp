@@ -300,10 +300,10 @@ static void Preprocess(Shader* shader, ShaderType type, const std::vector<std::s
     for(unsigned i=0; i<definitions.size(); ++i){
         AddShaderDefinition(&text, definitions[i]);
     }
-    if (GLEW_ARB_sample_shading) {
+    if (GLAD_GL_ARB_sample_shading) {
         AddShaderDefinition(&text, "ARB_sample_shading_available");
     } 
-    if(GLEW_ARB_shader_texture_lod && type == _fragment){
+    if(GLAD_GL_ARB_shader_texture_lod && type == _fragment){
         text.insert(0,"#extension GL_ARB_shader_texture_lod : enable\n");
     }
 

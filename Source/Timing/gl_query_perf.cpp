@@ -36,7 +36,7 @@
 extern GLTimerQueryPerf* glTimingQuery;
 
 void GLTimerQueryPerf::Init() {
-	if( GLEW_ARB_timer_query ) {
+	if( GLAD_GL_ARB_timer_query ) {
         perf_available = true;
 
         query_ids_used = 0;

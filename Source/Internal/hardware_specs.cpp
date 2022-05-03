@@ -75,12 +75,12 @@ GLVendor GetGLVendor()
 
 void QueryVRAM(std::string &total_string) {
     char temp_string[TEMP_STRING_LENGTH];
-    if(GLEW_NVX_gpu_memory_info){   
+    if(GLAD_GL_NVX_gpu_memory_info){   
         GLint param;
         glGetIntegerv(GL_GPU_MEMORY_INFO_DEDICATED_VIDMEM_NVX, &param);
         FormatString(temp_string,TEMP_STRING_LENGTH,"VRAM: %d MB\n", param/1024);
         total_string += temp_string;   
-    } else if(GLEW_ATI_meminfo){
+    } else if(GLAD_GL_ATI_meminfo){
         GLint param[4];
         glGetIntegerv(GL_VBO_FREE_MEMORY_ATI, &param[0]);
         FormatString(temp_string,TEMP_STRING_LENGTH,"VRAM VBO: %d %d %d %d MB\n", 
@@ -116,7 +116,7 @@ static const GLQUERY_INFO GLQUERY_INFOS[] =
 	GLQUERY_INFO_ENTRY(GL_MAX_SAMPLES, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_COLOR_TEXTURE_SAMPLES, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_COMBINED_UNIFORM_BLOCKS, 1)
-	GLQUERY_INFO_ENTRY(GL_MAX_COMPUTE_UNIFORM_BLOCKS, 1)
+	// GLQUERY_INFO_ENTRY(GL_MAX_COMPUTE_UNIFORM_BLOCKS, 1) GL 4.3
 	GLQUERY_INFO_ENTRY(GL_MAX_DEPTH_TEXTURE_SAMPLES, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_FRAGMENT_INPUT_COMPONENTS, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_FRAGMENT_UNIFORM_BLOCKS, 1)
@@ -130,7 +130,7 @@ static const GLQUERY_INFO GLQUERY_INFOS[] =
 	GLQUERY_INFO_ENTRY(GL_MAX_TEXTURE_BUFFER_SIZE, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_UNIFORM_BLOCK_SIZE, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_UNIFORM_BUFFER_BINDINGS, 1)
-	GLQUERY_INFO_ENTRY(GL_MAX_UNIFORM_LOCATIONS, 1)
+	// GLQUERY_INFO_ENTRY(GL_MAX_UNIFORM_LOCATIONS, 1) GL 4.3
 	GLQUERY_INFO_ENTRY(GL_MAX_VARYING_COMPONENTS, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_VARYING_VECTORS, 1)
 	GLQUERY_INFO_ENTRY(GL_MAX_VERTEX_ATTRIBS, 1)
@@ -242,13 +242,13 @@ void PrintGPU(std::string &total_string, bool short_output)
     CHECK_GL_ERROR();
     
     if( short_output == false ) {
-        if(GLEW_NV_gpu_program4){
+        if(GLAD_GL_NV_gpu_program4){
             FormatString(temp_string,TEMP_STRING_LENGTH,"Shader Model: 4.0 or better\n");
             total_string += temp_string;
-        } else if(GLEW_NV_vertex_program3){
+        } else if(GLAD_GL_NV_vertex_program3){
             FormatString(temp_string,TEMP_STRING_LENGTH,"Shader Model: 3.0 or better\n");
             total_string += temp_string;
-        } else if(GLEW_ARB_fragment_program){
+        } else if(GLAD_GL_ARB_fragment_program){
             FormatString(temp_string,TEMP_STRING_LENGTH,"Shader Model: 2.0 or better\n");
             total_string += temp_string;
         } else {

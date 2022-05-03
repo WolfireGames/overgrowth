@@ -88,7 +88,7 @@ void CubemapMipChain(TextureRef cube_map_tex_ref, Cubemap::HemisphereEnabled hem
         angle *= 2.0f;
         for(int i=0; i<6; ++i){
             CHECK_GL_ERROR();
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X_EXT+i, cube_map_tex_id, level);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X+i, cube_map_tex_id, level);
             CHECK_GL_ERROR();
             graphics->setViewport(0,0,tex_width,tex_width);
             glClearColor(0.0f, 0.0f, 0.0f, 0.0f);

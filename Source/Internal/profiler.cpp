@@ -171,7 +171,7 @@ void ProfilerContext::Dispose(StackAllocator* stack_allocator) {
 ProfilerScopedGPUZone::ProfilerScopedGPUZone(const char *msg, ...) {
 	AssertMainThread();
 
-	if (GLEW_KHR_debug) {
+	if (GLAD_GL_KHR_debug) {
 		char buf[GPUMARKBUFSIZE];
         va_list args;
 
@@ -198,7 +198,7 @@ ProfilerScopedGPUZone::ProfilerScopedGPUZone(const char *msg, ...) {
 ProfilerScopedGPUZone::~ProfilerScopedGPUZone() {
 	AssertMainThread();
 
-	if (GLEW_KHR_debug) {
+	if (GLAD_GL_KHR_debug) {
 		glPopDebugGroup();
 	}
 }
