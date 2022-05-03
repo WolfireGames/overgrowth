@@ -46,5 +46,6 @@
 
 // Check macos
 #if defined(__APPLE__)
+#define PLATFORM_UNIX 1
 #define PLATFORM_MACOSX 1
 #endif
