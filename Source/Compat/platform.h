@@ -35,7 +35,7 @@
 #endif
 
 // Check unix
-#if defined __unix__
+#if defined __unix__ || defined __APPLE__
 #define PLATFORM_UNIX 1
 #endif
 
