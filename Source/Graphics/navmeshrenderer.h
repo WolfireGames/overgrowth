@@ -23,8 +23,9 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <AI/navmesh.h>
 #include <Graphics/vbocontainer.h>
+
+class NavMesh;
 
 //Note that this renderer only renders the state which the nav-mesh was in when it was last set. 
 //The data will be reloaded if updated_nav_mesh_ flag is set to true.

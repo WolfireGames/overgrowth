@@ -25,6 +25,8 @@
 
 #include <Logging/logdata.h>
 
+#include <ostream>
+
 void OutOfDateInfo::Print()
 {
     LOGI << "Out of date: " << std::endl;

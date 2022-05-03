@@ -23,6 +23,7 @@
 #include "material_sound_event.h"
 
 #include <Main/engine.h>
+#include <Online/online.h>
 
 namespace OnlineMessages {
     MaterialSoundEvent::MaterialSoundEvent(ObjectID object_id, const string& ev, const vec3& pos, float gain) :

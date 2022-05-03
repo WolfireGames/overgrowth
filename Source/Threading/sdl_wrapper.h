@@ -24,6 +24,4 @@
 //-----------------------------------------------------------------------------
 #include <Internal/integer.h>
 
-
-
 unsigned int SDL_TS_GetTicks();

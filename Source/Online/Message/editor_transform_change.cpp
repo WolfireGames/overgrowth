@@ -23,6 +23,7 @@
 #include "editor_transform_change.h"
 
 #include <Main/engine.h>
+#include <Online/online.h>
 
 namespace OnlineMessages {
     EditorTransformChange::EditorTransformChange(ObjectID id, const vec3& trans, const vec3& scale, const quaternion& rot) :

@@ -26,8 +26,6 @@
 #include <UserInput/input.h>
 #include <Logging/logdata.h>
 
-#include <SDL.h>
-
 #import <AppKit/NSAlert.h>
 #import <AppKit/NSTextField.h>
 #import <AppKit/NSPanel.h>

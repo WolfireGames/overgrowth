@@ -23,6 +23,7 @@
 #include "cut_line.h"
 
 #include <Main/engine.h>
+#include <Online/online.h>
 
 namespace OnlineMessages {
     CutLine::CutLine() :

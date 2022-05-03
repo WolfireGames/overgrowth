@@ -24,13 +24,7 @@
 
 
 #include <Online/online_datastructures.h>
-
-#include <Math/vec3.h>
-
 #include <binn.h>
-
-#include <string>
-
 
 //These are message types, they control the behaviour and allowance of a message
 //this only controls messages from the host to the clients, messages sent from the client are always

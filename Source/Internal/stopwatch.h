@@ -22,8 +22,6 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <SDL.h>
-
 #include <string>
 
 void BusyWaitMilliseconds(uint32_t how_many);

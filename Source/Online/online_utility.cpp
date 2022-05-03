@@ -20,8 +20,6 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once
-
 #include <Online/online_utility.h>
 #include <Main/engine.h>
 #include <Internal/config.h>
@@ -29,6 +27,8 @@
 #if ENABLE_STEAMWORKS
 #include <isteamfriends.h>
 #endif
+
+using std::stringstream;
 
 // Name is invalid if (less than 3 letters) or (contains any non alpha numerical characters)
 bool OnlineUtility::IsValidPlayerName(const std::string& name) {

@@ -23,15 +23,9 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <Graphics/textureref.h>
-#include <Graphics/model.h>
-
 #include <Math/vec3.h>
 
-#include <opengl.h>
-
 #include <vector>
-#include <queue>
 
 struct DynamicLight {
     int id;

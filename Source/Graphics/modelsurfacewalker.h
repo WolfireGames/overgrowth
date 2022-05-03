@@ -26,8 +26,6 @@
 #include <Math/vec3.h>
 #include <Math/vec2.h>
 
-#include <opengl.h>
-
 #include <vector>
 
 struct MSWTriInfo {

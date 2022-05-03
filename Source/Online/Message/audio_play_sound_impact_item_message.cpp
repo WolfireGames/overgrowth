@@ -26,6 +26,7 @@
 
 #include <Main/engine.h>
 #include <Utility/binn_util.h>
+#include <Online/online.h>
 
 namespace OnlineMessages {
     AudioPlaySoundImpactItemMessage::AudioPlaySoundImpactItemMessage(ObjectID id, vec3 pos, vec3 normal, float impulse) :

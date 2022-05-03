@@ -23,8 +23,6 @@
 #include <Logging/ramhandler.h>
 
 #include <iostream>
-#include <algorithm>
-
 #include <cassert>
 
 #include <Utility/strings.h>

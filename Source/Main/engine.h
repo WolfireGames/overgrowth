@@ -23,22 +23,17 @@
 #pragma once
 
 #include <Main/scenegraph.h>
-#include <Main/scenegraph.h>
 
 #include <UserInput/input.h>
 
 #include <Graphics/Cursor.h>
 #include <Graphics/graphics.h>
 #include <Graphics/text.h>
-#include <Graphics/model.h>
 #include <Graphics/font_renderer.h>
-#include <Graphics/particles.h>
-#include <Graphics/vbocontainer.h>
 #include <Graphics/animationeffectsystem.h>
 #include <Graphics/lipsyncsystem.h>
 
 #include <Sound/sound.h>
-#include <Sound/threaded_sound_wrapper.h>
 #include <Sound/threaded_sound_wrapper.h>
 
 
@@ -50,7 +45,6 @@
 #include <Asset/assetmanager.h>
 #include <Network/asnetwork.h>
 #include <Internal/modloading.h>
-#include <Online/online.h>
 
 #include <stack>
 #include <iostream>

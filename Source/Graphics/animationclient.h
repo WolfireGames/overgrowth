@@ -27,11 +27,11 @@
 #include <Graphics/animationflags.h>
 
 #include <Asset/Asset/animation.h>
-#include <Scripting/angelscript/ascontext.h>
 
 class Skeleton;
 class ASContext;
 const float _default_fade_speed = 5.0f;
+typedef int32_t ASFunctionHandle;
 
 struct AnimationFadeOut {
     AnimationReader reader;

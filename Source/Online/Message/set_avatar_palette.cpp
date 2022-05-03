@@ -23,6 +23,7 @@
 #include "set_avatar_palette.h"
 
 #include <Main/engine.h>
+#include <Online/online.h>
 
 namespace OnlineMessages {
     SetAvatarPalette::SetAvatarPalette(ObjectID id, const vec3& color, uint8_t channel) :

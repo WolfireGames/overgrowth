@@ -24,19 +24,11 @@
 #include "detailobjectlayer.h"
 
 #include <Asset/Asset/character.h>
-#include <Asset/Asset/material.h>
-
-#include <XML/xml_helper.h>
 #include <Internal/filesystem.h>
-#include <Graphics/shaders.h>
-#include <Scripting/scriptfile.h>
-#include <Logging/logdata.h>
 
 #include <tinyxml.h>
 
-#include <map>
 #include <string>
-#include <cmath>
 
 DetailObjectLayer ReadDetailObjectLayerXML( const TiXmlElement* detail_object_element) {
     DetailObjectLayer detail_object_layer;

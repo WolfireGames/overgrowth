@@ -23,14 +23,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <Math/mat4.h>
-#include <Math/quaternions.h>
-
-#include <Game/EntityDescription.h>
-#include <Game/detailobjectlayer.h>
-
-#include <Asset/assets.h>
-#include <Scripting/scriptparams.h>
+#include <Internal/path_set.h>
 
 #include <string>
 

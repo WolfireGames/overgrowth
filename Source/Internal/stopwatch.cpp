@@ -26,6 +26,8 @@
 #include <Logging/logdata.h>
 #include <Threading/sdl_wrapper.h>
 
+#include <SDL.h>
+
 void BusyWaitMilliseconds( uint32_t how_many )
 {    
     Stopwatch watch;

@@ -23,6 +23,7 @@
 #include "env_object_update.h"
 
 #include <Main/engine.h>
+#include <Online/online.h>
 
 extern Timer game_timer;
 

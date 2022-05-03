@@ -26,7 +26,6 @@
 #include <Game/EntityDescription.h>
 
 #include <list>
-#include <vector>
 
 namespace ChunkType {
     enum ChunkType {

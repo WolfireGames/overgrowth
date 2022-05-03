@@ -23,17 +23,12 @@
 //-----------------------------------------------------------------------------
 #include "detailmapinfo.h"
 
-#include <Internal/comma_separated_list.h>
-#include <Internal/filesystem.h>
-#include <Internal/returnpathutil.h>
-#include <Internal/levelxml.h>
-
+#include <Asset/assetmanager.h>
+#include <Asset/assetref.h>
 #include <Asset/Asset/material.h>
 #include <Logging/logdata.h>
 #include <Game/detailobjectlayer.h>
 #include <Main/engine.h>
-
-#include <tinyxml.h>
 
 void DetailMapInfo::Print()
 {

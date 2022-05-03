@@ -48,8 +48,6 @@
 #include <Logging/logdata.h>
 #include <Utility/assert.h>
 
-#include <SDL.h>
-
 #include <btBulletDynamicsCommon.h>
 #include <LinearMath/btGeometryUtil.h>
 #include <BulletSoftBody/btSoftBodyHelpers.h>

@@ -30,9 +30,6 @@
 #include <cxxabi.h>
 #endif
 
-#include <cstdlib>
-#include <cassert>
-
 Asset::Asset(AssetManager* owner, uint32_t asset_id): 
 asset_id(asset_id),
 owner(owner) {
