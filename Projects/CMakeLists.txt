@@ -265,8 +265,12 @@ IF(LINUX)
     FIND_PACKAGE(GTK2 REQUIRED)
     FIND_PACKAGE(SDL2 REQUIRED)
     FIND_PACKAGE(SDL2NET REQUIRED)
-    FIND_PACKAGE(Freetype REQUIRED)
     FIND_PACKAGE(OpenAL REQUIRED)
+
+    # We use a vendored version of the library on the build server
+    #IF(NOT BUILD_SERVER)
+    #        #FIND_PACKAGE(Freetype REQUIRED)
+    #ENDIF()
 ENDIF()
 
 #Build static libraries only for FFTW
@@ -281,6 +285,7 @@ SET(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
 ADD_SUBDIRECTORY(../Libraries/zstd-1.5.0/build/cmake zstd)
+ADD_SUBDIRECTORY(../Libraries/freetype-2.12.1 freetype)
 
 IF(BUILD_OVERGROWTH) 
     #Create subprojects that have their own CMakeLists
@@ -521,13 +526,6 @@ IF(LINUX)
         SET(LINUX_LIB_DIR "linux32")
     ENDIF()
 
-    #Only use the pre-compiled freetype library files on linux if we are building on the build server in the steam runtime, otherwise use the local system version
-    IF(BUILD_SERVER)
-    	LINK_DIRECTORIES(
-            ${LIBDIR}/freetype-2.4.11/lib/${LINUX_LIB_DIR}
-	)
-    ENDIF()
-    
     LINK_DIRECTORIES(
         ${SDL2_LIBRARY}
         ${SDL2NET_LIBRARY}
@@ -589,7 +587,6 @@ ENDIF()
 IF(APPLE)    
     LINK_DIRECTORIES(
         ${LIBDIR}/FreeImage/maclib/64
-        ${LIBDIR}/freetype-2.4.11/lib/mac64
         ${LIBDIR}/libogg-1.3.3/lib/mac64
         ${LIBDIR}/libvorbis-1.3.6/lib/mac64
         ${LIBDIR}/libtheora-1.1.1/lib/mac64
@@ -663,6 +660,7 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/recastnavigation/DetourCrowd/Include
     ${LIBDIR}/zstd-1.5.0/lib
     ${LIBDIR}/binn-3.0/src
+    ${LIBDIR}/freetype-2.12.1/include
     ${LIBDIR}/TheoraPlayer/Source
 )
 
@@ -696,12 +694,6 @@ IF(LINUX)
         ${LIBDIR}/${FFTW_DIR}
     	${LIBDIR}/FreeImage/linuxinclude
     )
-
-    IF(BUILD_SERVER) 
-        INCLUDE_DIRECTORIES(
-             ${LIBDIR}/freetype-2.4.11/include
-        )
-    ENDIF()
 
     IF(ENABLE_RAD_TELEMETRY)
     INCLUDE_DIRECTORIES(
@@ -746,7 +738,6 @@ if(APPLE)
         ${SDL2_INCLUDE_DIR}
     	${LIBDIR}/FreeImage/macinclude
 	/opt/X11/include
-        ${LIBDIR}/freetype-2.4.11/include
     )
 
     IF(ENABLE_RAD_TELEMETRY)
@@ -1557,7 +1548,8 @@ IF(BUILD_OVERGROWTH)
         DetourTileCache
         Detour
         crnlib
-		libzstd_static
+	freetype
+        libzstd_static
         ${STATIC_LIBS}
         ${FLTK_LIBS}
     )
@@ -1596,12 +1588,6 @@ IF(BUILD_OVERGROWTH)
 		${LIBDIR}/openssl/win64_lib/libcrypto.lib
             )
 	ENDIF()
-    ENDIF()
-
-    IF(UNIX)
-        TARGET_LINK_LIBRARIES(Overgrowth
-            freetype
-        )
     ENDIF()
 
     IF(LINUX)
