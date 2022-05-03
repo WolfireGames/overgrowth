@@ -35,9 +35,5 @@
 							  /entry:\"mainCRTStartup\"")
 #endif
 
-#if PLATFORM_UNIX
-#include "FreeImage.h"
-#endif
-
 void SetUpEnvironment(char* program_path, const char* overloaded_write_dir, const char* overloaded_working_dir);
 void DisposeEnvironment();
