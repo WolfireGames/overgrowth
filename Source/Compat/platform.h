@@ -30,21 +30,21 @@
 #endif
 
 // Check windows
-#if defined _WIN32 || defined _WIN64
+#if defined(_WIN32) || defined(_WIN64)
 #define PLATFORM_WINDOWS 1
 #endif
 
 // Check unix
-#if defined __unix__ || defined __APPLE__
+#if defined(unix) || defined(__unix__) || defined(__unix) || defined(__APPLE__)
 #define PLATFORM_UNIX 1
 #endif
 
 // Check Linux
-#if defined linux || defined __linux
+#if defined(linux) || defined(__linux)
 #define PLATFORM_LINUX 1
 #endif
 
 // Check macos
-#if defined __APPLE__
+#if defined(__APPLE__)
 #define PLATFORM_MACOSX 1
 #endif
