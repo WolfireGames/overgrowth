@@ -510,7 +510,6 @@ IF(WIN32)
 	ENDIF()
     
     LINK_DIRECTORIES(
-        ${LIBDIR}/FreeImage/lib/${VERSION_DIR}/${WINDOWS_LIB_DIR}
         ${LIBDIR}/SDL2-2.0.20/lib/${WINDOWS_LIB_DIR}
         ${LIBDIR}/SDL2_net-2.0.1/lib/${WINDOWS_LIB_DIR}
         ${LIBDIR}/openal-soft-1.18.0-bin/libs/${WINDOWS_LIB_DIR}
@@ -535,7 +534,6 @@ ENDIF()
 
 IF(APPLE)    
     LINK_DIRECTORIES(
-        ${LIBDIR}/FreeImage/maclib/64
         ${LIBDIR}/libogg-1.3.3/lib/mac64
         ${LIBDIR}/libvorbis-1.3.6/lib/mac64
         ${LIBDIR}/libtheora-1.1.1/lib/mac64
@@ -597,6 +595,7 @@ INCLUDE_DIRECTORIES(
     angelscript_2_32_0_sdk/angelscript/include
     angelscript_2_32_0_sdk
     /angelscript/source
+    ${LIBDIR}/stb
     ${LIBDIR}/tinyxml
     ${LIBDIR}/nvapi
     ${LIBDIR}/tclap/include
@@ -638,7 +637,6 @@ IF(LINUX)
         ${LIBDIR}/Linux/include
         ${LIBDIR}/Linux/include/AL
         ${LIBDIR}/${FFTW_DIR}
-    	${LIBDIR}/FreeImage/linuxinclude
     )
 
     IF(ENABLE_RAD_TELEMETRY)
@@ -660,7 +658,6 @@ if(WIN32)
       ${SDL2_SOURCE_DIR}/include
       "${LIBDIR}/openal-soft-1.18.0-bin/include/AL"
       ${LIBDIR}/${FFTW_DIR}
-      ${LIBDIR}/FreeImage/wininclude/${VERSION_DIR}
     )
 
     IF(ENABLE_RAD_TELEMETRY)
@@ -681,8 +678,7 @@ if(APPLE)
         ${LIBDIR}/SDL2_net-2.0.1/SDL2_net.framework/Headers
         ${SDL2_SOURCE_DIR}/include
         ${SDL2_INCLUDE_DIR}
-    	${LIBDIR}/FreeImage/macinclude
-	/opt/X11/include
+	    /opt/X11/include
     )
 
     IF(ENABLE_RAD_TELEMETRY)
@@ -1093,7 +1089,7 @@ IF(WIN32)
 ENDIF()
 
 SET(OVERGROWTHWORKER_SRCS
-    ${SRCDIR}/Images/freeimage_wrapper.cpp
+    ${SRCDIR}/Images/stbimage_wrapper.cpp
     ${SRCDIR}/Images/texture_data.cpp
     ${SRCDIR}/Internal/datemodified.cpp
     ${SRCDIR}/Internal/filesystem.cpp
@@ -1268,7 +1264,6 @@ IF(BUILD_OVERGROWTH)
         CopyDLL("${LIBDIR}/vorbis/bin/${WINDOWS_LIB_DIR}/libvorbisfile.dll" "")
         CopyDLL("${LIBDIR}/theora/bin/${WINDOWS_LIB_DIR}/libtheora.dll" "")
         CopyDLL("${LIBDIR}/zlib1.2.7/bin/${WINDOWS_LIB_DIR}/zlib1.dll" "zlib.dll")
-        CopyDLL("${LIBDIR}/FreeImage/bin/${VERSION_DIR}/${WINDOWS_LIB_DIR}/FreeImage.dll" "")
         IF(ENABLE_RAD_TELEMETRY)
             #IF(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebIn")
             IF(64BIT_WINDOWS)
@@ -1367,7 +1362,6 @@ IF(BUILD_OVERGROWTH)
         binn
         glad
         TheoraPlayer
-        freeimage
         triangle
         angelscript
         imgui

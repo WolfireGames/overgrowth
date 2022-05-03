@@ -82,7 +82,6 @@ void SetUpEnvironment(char* program_path, const char* overloaded_write_dir, cons
         AddPath(write_dir, kWriteDir);
     }
 
-    FreeImage_Initialise();
 #elif defined(_WIN32)
     std::string cwd;
     if (strlen(overloaded_working_dir) > 0) {
@@ -166,9 +165,7 @@ void SetUpEnvironment(char* program_path, const char* overloaded_write_dir, cons
 }
 
 void DisposeEnvironment() {
-#if PLATFORM_UNIX
-    FreeImage_DeInitialise();
-#elif defined(_WIN32)
+#if defined(_WIN32)
     FreeConsole();
 #endif
 }

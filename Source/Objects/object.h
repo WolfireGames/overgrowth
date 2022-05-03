@@ -217,7 +217,7 @@ class Object {
 
     virtual void Update(float timestep) {}  // Is only called on certain objects that are registered as needing a frequent update.
     virtual void InfrequentUpdate();        // Is called on all objects, but there is no guarantee on how often.
-                                      //  Interpolation boilerplate for all objects in multiplayer
+                                            //  Interpolation boilerplate for all objects in multiplayer
 
     virtual bool Initialize() = 0;
     virtual void SetImposter(bool set) {}

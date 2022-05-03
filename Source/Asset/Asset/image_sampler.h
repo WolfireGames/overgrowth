@@ -31,7 +31,7 @@
 #include <Asset/assets.h>
 
 #include <Math/vec4.h>
-#include <Images/freeimage_wrapper.h>
+#include <Images/stbimage_wrapper.h>
 
 #include <vector>
 
@@ -67,7 +67,6 @@ class ImageSampler : public Asset {
     static const int kImageSamplerCacheVersion = 2;
 
     byte4 GetPixel(int x, int y) const;
-    void LoadDataFromFIBitmap(FIBITMAP* image);
     vec4 GetInterpolatedColor(float x, float y) const;
     bool ReadCacheFile(const std::string& path, uint16_t checksum);
     void WriteCacheFile(const std::string& path);

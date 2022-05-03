@@ -24,7 +24,7 @@
 //-----------------------------------------------------------------------------
 #include "texture_data.h"
 
-#include <Images/freeimage_wrapper.h>
+#include <Images/stbimage_wrapper.h>
 #include <Images/image_export.hpp>
 
 #include <Internal/common.h>

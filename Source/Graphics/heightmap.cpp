@@ -31,7 +31,7 @@
 #include <Internal/filesystem.h>
 
 #include <Compat/fileio.h>
-#include <Images/freeimage_wrapper.h>
+#include <Images/stbimage_wrapper.h>
 
 bool HeightmapImage::ReadCacheFile(const std::string& path, uint16_t checksum) {
     FILE* file = my_fopen(path.c_str(), "rb");
@@ -91,51 +91,44 @@ bool HeightmapImage::LoadData(const std::string& rel_path, HMScale scaled) {
     ModID modsource;
     FindFilePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths, true, NULL, &modsource);
     modsource_ = modsource;
-    FIBitmapContainer image_container(GenericLoader(abs_path, 0));
-    FIBITMAP* image = image_container.get();
-    // FreeImage_Save(FIF_TARGA, image, (file_name+".tga").c_str());
-    if (image == NULL) {
+
+    // Tell stb_image that we want 4 components (RGBA)
+    int img_width = 0, img_height = 0, num_comp = 0;
+    float* data = stbi_loadf(abs_path, &img_width, &img_height, &num_comp, 0);
+
+    if (data == NULL) {
         FatalError("Error", "Could not load heightmap: %s", rel_path.c_str());
     } else {
-        fiTYPE image_type = getImageType(image);
-        int bytes_per_pixel = getBPP(image) / 8;
         if (scaled) {
-            width_ = kTerrainDimX;  // FreeImage_GetWidth(image);
-            depth_ = kTerrainDimY;  // FreeImage_GetHeight(image);
+            width_ = kTerrainDimX;
+            depth_ = kTerrainDimY;
         } else {
-            width_ = getWidth(image);
-            depth_ = getHeight(image);
+            width_ = img_width;
+            depth_ = img_height;
         }
 
         int heightDataSize = width_ * depth_;
-        int imageDataSize = heightDataSize * bytes_per_pixel;
 
-        if (0 < heightDataSize && 0 < imageDataSize) {
+        if (0 < heightDataSize) {
             // ...allocate enough space for the height data...
             height_data_.resize(heightDataSize, 0);
             // m_flowData.resize(heightDataSize,vecf(2,0));
 
             float scale_factor = kTerrainHeightScale;
-            float x_scale = getWidth(image) / (float)width_;
-            float z_scale = getHeight(image) / (float)depth_;
+            float x_scale = img_width / (float)width_;
+            float z_scale = img_height / (float)depth_;
 
-            if (image_type == FIWT_UINT16) {        // e.g. 16 bit PNGs
+            if (num_comp != 1) {                    // monochrome texture
                 for (int z = 0; z < depth_; z++) {  // flipped
-                    unsigned short* bits = (unsigned short*)getScanLine(image, (int)(z * z_scale));
+                    float* bits = &data[((int)(z * z_scale)) * img_height];
                     for (int x = 0; x < width_; x++) {
-                        height_data_[x + (((depth_ - 1) - z) * width_)] = ((float)bits[(int)(x * x_scale)]) / scale_factor;
-                    }
-                }
-            } else if (image_type == FIWT_BITMAP) {
-                for (int z = 0; z < depth_; z++) {
-                    uint8_t* bits = (uint8_t*)getScanLine(image, (int)(z * z_scale));
-                    for (int x = 0; x < width_; x++) {
-                        height_data_[x + (((depth_ - 1) - z) * width_)] = ((float)bits[(int)(x * x_scale) * bytes_per_pixel]) / scale_factor * 256.0f;
+                        height_data_[x + (((depth_ - 1) - z) * width_)] = (bits[(int)(x * x_scale)] * 65535.0f) / scale_factor;
                     }
                 }
             } else {
                 FatalError("Error", "Heightmaps must be 16-bit grayscale PNGs.");
             }
+            stbi_image_free(data);
             char path[kPathSize];
             FormatString(path, kPathSize, "%s%s%s", GetWritePath(modsource).c_str(), rel_path.c_str(), cache_suffix.c_str());
             WriteCacheFile(path);
