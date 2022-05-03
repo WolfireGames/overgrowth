@@ -4,3 +4,6 @@
 [submodule "Auxiliary"]
 	path = Auxiliary
 	url = git@github.com:WolfireGames/overgrowth_aux.git
+[submodule "Libraries/glm"]
+	path = Libraries/glm
+	url = https://github.com/g-truc/glm.git

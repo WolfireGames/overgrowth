@@ -63,8 +63,8 @@
 + /Libraries/freealut-1.1.0-bin/**
 + /Libraries/SDL2-2.0.3
 + /Libraries/SDL2-2.0.3/**
-+ /Libraries/glm-0.9.4.2
-+ /Libraries/glm-0.9.4.2/**
++ /Libraries/glm
++ /Libraries/glm/**
 
 
 + /Projects

@@ -638,7 +638,7 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/imgui-1.85/misc/freetype
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Include
     ${LIBDIR}/openvr-master/headers
-    ${LIBDIR}/glm-0.9.4.2/
+    ${LIBDIR}/glm/
     ${LIBDIR}/glew-2.0.0/include
     bullet3-2.89/src
     angelscript_2_32_0_sdk/angelscript/include
