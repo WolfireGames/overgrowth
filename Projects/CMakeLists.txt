@@ -266,11 +266,6 @@ IF(LINUX)
     FIND_PACKAGE(SDL2 REQUIRED)
     FIND_PACKAGE(SDL2NET REQUIRED)
     FIND_PACKAGE(OpenAL REQUIRED)
-
-    # We use a vendored version of the library on the build server
-    #IF(NOT BUILD_SERVER)
-    #        #FIND_PACKAGE(Freetype REQUIRED)
-    #ENDIF()
 ENDIF()
 
 #Build static libraries only for FFTW
@@ -562,7 +557,6 @@ IF(WIN32)
     LINK_DIRECTORIES(
         ${LIBDIR}/FreeImage/lib/${VERSION_DIR}/${WINDOWS_LIB_DIR}
         ${LIBDIR}/SDL2-2.0.20/lib/${WINDOWS_LIB_DIR}
-        ${LIBDIR}/freetype-windows-binaries-2.12.0/release_dll/win64
         ${LIBDIR}/SDL2_net-2.0.1/lib/${WINDOWS_LIB_DIR}
         ${LIBDIR}/openal-soft-1.18.0-bin/libs/${WINDOWS_LIB_DIR}
         ${LIBDIR}/ogg/lib/${WINDOWS_LIB_DIR}
@@ -660,7 +654,6 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/recastnavigation/DetourCrowd/Include
     ${LIBDIR}/zstd-1.5.0/lib
     ${LIBDIR}/binn-3.0/src
-    ${LIBDIR}/freetype-2.12.1/include
     ${LIBDIR}/TheoraPlayer/Source
 )
 
@@ -688,7 +681,6 @@ IF(LINUX)
         ${GTK2_INCLUDE_DIRS}
         ${SDL2_INCLUDE_DIR}
         ${SDL2NET_INCLUDE_DIR}
-        ${FREETYPE_INCLUDE_DIRS}
         ${LIBDIR}/Linux/include
         ${LIBDIR}/Linux/include/AL
         ${LIBDIR}/${FFTW_DIR}
@@ -715,7 +707,6 @@ if(WIN32)
       "${LIBDIR}/openal-soft-1.18.0-bin/include/AL"
       ${LIBDIR}/${FFTW_DIR}
       ${LIBDIR}/FreeImage/wininclude/${VERSION_DIR}
-      ${LIBDIR}/freetype-windows-binaries-2.12.0/include
     )
 
     IF(ENABLE_RAD_TELEMETRY)
@@ -763,6 +754,10 @@ SET(IMGUI_SRCS
 
 ADD_LIBRARY( imgui STATIC
     ${IMGUI_SRCS}
+)
+
+TARGET_LINK_LIBRARIES( imgui PUBLIC 
+    freetype    
 )
 
 SET_PROPERTY(TARGET imgui PROPERTY FOLDER "Support")
@@ -1215,7 +1210,6 @@ IF(WIN32)
         ${STATIC_LIBS}
         zlib
         xinput
-        freetype
         openvr_api
         nvapi #For NVIDIA video card queries
         comdlg32 #For WIN32 dialog boxes
@@ -1437,7 +1431,6 @@ IF(BUILD_OVERGROWTH)
         CopyDLL("${LIBDIR}/vorbis/bin/${WINDOWS_LIB_DIR}/libvorbisfile.dll" "")
         CopyDLL("${LIBDIR}/theora/bin/${WINDOWS_LIB_DIR}/libtheora.dll" "")
         CopyDLL("${LIBDIR}/zlib1.2.7/bin/${WINDOWS_LIB_DIR}/zlib1.dll" "zlib.dll")
-        CopyDLL("${LIBDIR}/freetype-windows-binaries-2.12.0/release_dll/win64/freetype.dll" "freetype.dll")
         CopyDLL("${LIBDIR}/FreeImage/bin/${VERSION_DIR}/${WINDOWS_LIB_DIR}/FreeImage.dll" "")
 	IF(ENABLE_RAD_TELEMETRY)
             #IF(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebIn")
@@ -1548,7 +1541,7 @@ IF(BUILD_OVERGROWTH)
         DetourTileCache
         Detour
         crnlib
-	freetype
+	    freetype
         libzstd_static
         ${STATIC_LIBS}
         ${FLTK_LIBS}
