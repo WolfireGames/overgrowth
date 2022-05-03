@@ -756,6 +756,10 @@ ADD_LIBRARY( imgui STATIC
     ${IMGUI_SRCS}
 )
 
+TARGET_LINK_LIBRARIES( imgui PUBLIC 
+    freetype    
+)
+
 SET_PROPERTY(TARGET imgui PROPERTY FOLDER "Support")
 
 FILE(GLOB TINYXML_SRCS
@@ -1206,7 +1210,6 @@ IF(WIN32)
         ${STATIC_LIBS}
         zlib
         xinput
-        freetype
         openvr_api
         nvapi #For NVIDIA video card queries
         comdlg32 #For WIN32 dialog boxes
