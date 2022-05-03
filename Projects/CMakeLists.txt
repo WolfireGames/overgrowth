@@ -13,13 +13,11 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #-----------------------------------------------------------------------------
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8.7) #Version of cmake in steam-runtime
-SET_PROPERTY(GLOBAL PROPERTY CXX_STANDARD 11)
-SET_PROPERTY(GLOBAL PROPERTY CXX_STANDARD_REQUIRED ON) 
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5) #Version of cmake in steam-runtime
 
-set(ZSTD_BUILD_PROGRAMS Off)
-set(ZSTD_BUILD_STATIC ON)
-set(ZSTD_BUILD_SHARED Off)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 PROJECT(Overgrowth)        
 
@@ -184,10 +182,6 @@ SET(OS_OUT "Unknown")
 SET(OVERGROWTH_OUTPUT_NAME "Overgrowth")
 SET(OVERGROWTH_WORKER_OUTPUT_NAME "OvergrowthWorker")
 
-#Globally set compile flags
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
 IF(APPLE)
     IF(BUILD_SERVER)
         SET(CMAKE_OSX_DEPLOYMENT_TARGET "10.9")
@@ -280,6 +274,9 @@ SET(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
 ADD_SUBDIRECTORY(../Libraries/glad glad)
+set(ZSTD_BUILD_PROGRAMS Off)
+set(ZSTD_BUILD_STATIC ON)
+set(ZSTD_BUILD_SHARED Off)
 ADD_SUBDIRECTORY(../Libraries/zstd-1.5.0/build/cmake zstd)
 ADD_SUBDIRECTORY(../Libraries/freetype-2.12.1 freetype)
 
@@ -292,17 +289,10 @@ IF(BUILD_OVERGROWTH)
     ADD_SUBDIRECTORY(TheoraPlayer TheoraPlayer)
     ADD_SUBDIRECTORY(recastnavigation recastnavigation)
     # disable all demos
-    # enable USE_MSVC_RUNTIME_LIBRARY_DLL
-    #SET(BULLET_VERSION 2.76)
-
-    #Setting these via set does not seem to work.
-    #SET(BUILD_DEMOS FALSE) 
     SET(BUILD_DEMOS OFF CACHE BOOL "Set when you want to build the demos for underlying library")
-    #SET(USE_MSVC_RUNTIME_LIBRARY_DLL TRUE)
+    # enable USE_MSVC_RUNTIME_LIBRARY_DLL
     SET(USE_MSVC_RUNTIME_LIBRARY_DLL ON CACHE BOOL "Use MSVC Runtime Library DLL (/MD or /MDd)")
-    ##SET(USE_GLUT FALSE)
     SET(USE_GLUT OFF CACHE BOOL "Use Glut")
-    #SET(BULLET_PHYSICS_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CommonRoot}/NonDF/bullet)
     ADD_SUBDIRECTORY(bullet3-2.89 bullet3-2.89)
     ADD_SUBDIRECTORY(angelscript_2_32_0_sdk/angelscript/projects/cmake angelscript_2_32_0_sdk)
 
@@ -326,33 +316,16 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET HACD PROPERTY FOLDER "Support/BulletPhysics")
     SET_PROPERTY(TARGET LinearMath PROPERTY FOLDER "Support/BulletPhysics")
     IF(WIN32)
-        #SET_PROPERTY(TARGET App_BasicExample PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_ExampleBrowser PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_HelloBulletRobotics PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_HelloWorld PROPERTY FOLDER "Support/BulletPhysics")
-	SET_PROPERTY(TARGET App_obj2sdf PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_PhysicsServer_SharedMemory PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_PhysicsServer_SharedMemory PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_PhysicsServer_SharedMemory_GUI PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_PhysicsServer_SharedMemory_VR PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_RobotSimulator PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_RobotSimulator_NoGUI PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET App_TwoJoint PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET AppBasicExampleGui PROPERTY FOLDER "Support/BulletPhysics")
-        SET_PROPERTY(TARGET Bullet2FileLoader PROPERTY FOLDER "Support/BulletPhysics")
+ 	    SET_PROPERTY(TARGET App_obj2sdf PROPERTY FOLDER "Support/BulletPhysics")
+	    SET_PROPERTY(TARGET Bullet2FileLoader PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET Bullet3Collision PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET Bullet3Common PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET Bullet3Dynamics PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET Bullet3Geometry PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET Bullet3OpenCL_clew PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET BulletExampleBrowserLib PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET BulletInverseDynamics PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET BulletInverseDynamicsUtils PROPERTY FOLDER "Support/BulletPhysics")
         SET_PROPERTY(TARGET BulletRobotics PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET BussIK PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET clsocket PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET gwen PROPERTY FOLDER "Support/BulletPhysics")
-	#SET_PROPERTY(TARGET OpenGLWindow PROPERTY FOLDER "Support/BulletPhysics")
     ENDIF()
 
     SET_PROPERTY(TARGET crnlib PROPERTY FOLDER "Support")
@@ -361,15 +334,7 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET Detour PROPERTY FOLDER "Support/Recast")
     SET_PROPERTY(TARGET DetourCrowd PROPERTY FOLDER "Support/Recast")
     SET_PROPERTY(TARGET DetourTileCache PROPERTY FOLDER "Support/Recast")
-
-
-    IF(NOT CMAKE_SYSTEM_NAME STREQUAL "Linux")
-	    #set_property(TARGET MiniCL PROPERTY FOLDER "Support/BulletPhysics")
-            #set_property(TARGET BulletMultiThreaded PROPERTY FOLDER "Support/BulletPhysics")
-            #set_property(TARGET BulletSoftBodySolvers_OpenCL_Mini PROPERTY FOLDER "Support/BulletPhysics")
-    ENDIF()
-    set_property(TARGET HACD PROPERTY FOLDER "Support/BulletPhysics")
-    #set_property(TARGET crnlib PROPERTY FOLDER "Support")
+    SET_PROPERTY(TARGET HACD PROPERTY FOLDER "Support/BulletPhysics")
 ENDIF()
 
 #Build external projects that don't have a CMakeLists file.
@@ -796,14 +761,12 @@ IF(NOT AUX_DATA STREQUAL "")
     ADD_DEFINITIONS(-DAUX_DATA=\"${AUX_DATA_FP}\")
 ENDIF()
 
-FILE( GLOB LOGGING_SRCS
-    ${SRCDIR}/Logging/*.cpp
-    ${SRCDIR}/Logging/*.h
-)
+include(SourceUtils)
 
 ADD_LIBRARY( logging STATIC
     ${LOGGING_SRCS}
 )
+target_add_grouped_source(logging Logging)
 
 IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
     FILE(GLOB OGDA_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
@@ -948,91 +911,7 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
     )
 ENDIF()
 
-MACRO(AddGroupedSource folder)
-    FILE(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
-        ${SRCDIR}/${folder}/*.cpp
-        ${SRCDIR}/${folder}/*.h
-        ${SRCDIR}/${folder}/*.hpp
-    )
-    LIST(APPEND OVERGROWTH_SRCS ${GROUPED_SRCS})
-    STRING(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
-    SOURCE_GROUP(${folder_backslash} FILES ${GROUPED_SRCS})
-ENDMACRO()
-
-MACRO(AddGroupedScript folder)
-    IF(EXISTS "${DATADIR}/")
-        FILE(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
-            ${DATADIR}/${folder}/*.as
-        )
-        LIST(APPEND OVERGROWTH_SRCS ${GROUPED_SRCS})
-        STRING(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
-        SOURCE_GROUP(${folder_backslash} FILES ${GROUPED_SRCS})
-    ENDIF()
-ENDMACRO()
-
-MACRO(AddGroupedShaders folder)
-    IF(EXISTS "${DATADIR}/")
-        FILE(GLOB GROUPED_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
-            ${DATADIR}/${folder}/*.glsl
-            ${DATADIR}/${folder}/*.vert
-            ${DATADIR}/${folder}/*.frag
-        )
-        LIST(APPEND OVERGROWTH_SRCS ${GROUPED_SRCS})
-        STRING(REGEX REPLACE "/" "\\\\" folder_backslash ${folder})
-        SOURCE_GROUP(${folder_backslash} FILES ${GROUPED_SRCS})
-    ENDIF()
-ENDMACRO()
-
-AddGroupedSource(AI)
-AddGroupedSource(Asset)
-AddGroupedSource(Asset/Asset)
-AddGroupedSource(Asset/AssetLoader)
-AddGroupedSource(Editors)
-AddGroupedSource(Game)
-AddGroupedSource(Graphics)
-AddGroupedSource(GUI)
-AddGroupedSource(GUI/IMUI)
-AddGroupedSource(GUI/dimgui)
-AddGroupedSource(Images)
-AddGroupedSource(Main)
-AddGroupedSource(Math)
-AddGroupedSource(Objects)
-AddGroupedSource(Physics)
-AddGroupedSource(Scripting)
-AddGroupedSource(Scripting/angelscript)
-AddGroupedSource(Scripting/angelscript/add_on/scriptarray)
-AddGroupedSource(Scripting/angelscript/add_on/scriptdictionary)
-AddGroupedSource(Scripting/angelscript/add_on/scripthelper)
-AddGroupedSource(Scripting/angelscript/add_on/scriptstdstring)
-AddGroupedSource(Scripting/angelscript/add_on/debugger)
-AddGroupedSource(Sound)
-AddGroupedSource(Sound/Music)
-AddGroupedSource(Sound/Loader)
-AddGroupedSource(Sound/AudioFilters)
-AddGroupedSource(Threading)
-AddGroupedSource(UserInput)
-AddGroupedSource(XML)
-AddGroupedSource(XML/Parsers)
-AddGroupedSource(JSON)
-AddGroupedSource(Memory)
-AddGroupedSource(Network)
-#In the future, this should only be activated if we're building for the steam target
-AddGroupedSource(Network/Steam)
-AddGroupedSource(Network/Basic)
-AddGroupedSource(Utility)
-AddGroupedSource(Wrappers)
-AddGroupedSource(Timing)
-AddGroupedSource(Steam)
-AddGroupedSource(Online)
-AddGroupedSource(Online/Message)
-
-# TODO: Make another target called "DeployRelease" that doesn't include UNIT_TESTS
-AddGroupedSource(UnitTests)
 ADD_DEFINITIONS(-DUNIT_TESTS)
-
-AddGroupedScript(Scripts)
-AddGroupedScript("Scripts/hotspots")
-AddGroupedShaders("GLSL") 
 
 FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_StereoProjection.cpp
@@ -1203,7 +1082,6 @@ LIST(APPEND OVERGROWTH_SRCS
 SOURCE_GROUP(Internal FILES ${OVERGROWTH_INTERNAL_SRCS})
 SOURCE_GROUP(ImGui FILES ${IMGUI_SRCS})
 SOURCE_GROUP(TinyXML FILES ${TINYXML_SRCS})
-SOURCE_GROUP(Logging FILES ${LOGGING_SRCS})
 
 IF(WIN32) 
     SET(STATIC_LIBS
@@ -1375,6 +1253,56 @@ IF(BUILD_OVERGROWTH)
         OUTPUT_NAME ${OVERGROWTH_OUTPUT_NAME}
     )
 
+    target_add_grouped_source(Overgrowth AI)
+    target_add_grouped_source(Overgrowth Asset)
+    target_add_grouped_source(Overgrowth Asset/Asset)
+    target_add_grouped_source(Overgrowth Asset/AssetLoader)
+    target_add_grouped_source(Overgrowth Editors)
+    target_add_grouped_source(Overgrowth Game)
+    target_add_grouped_source(Overgrowth Graphics)
+    target_add_grouped_source(Overgrowth GUI)
+    target_add_grouped_source(Overgrowth GUI/IMUI)
+    target_add_grouped_source(Overgrowth GUI/dimgui)
+    target_add_grouped_source(Overgrowth Images)
+    target_add_grouped_source(Overgrowth Main)
+    target_add_grouped_source(Overgrowth Math)
+    target_add_grouped_source(Overgrowth Objects)
+    target_add_grouped_source(Overgrowth Physics)
+    target_add_grouped_source(Overgrowth Scripting)
+    target_add_grouped_source(Overgrowth Scripting/angelscript)
+    target_add_grouped_source(Overgrowth Scripting/angelscript/add_on/scriptarray)
+    target_add_grouped_source(Overgrowth Scripting/angelscript/add_on/scriptdictionary)
+    target_add_grouped_source(Overgrowth Scripting/angelscript/add_on/scripthelper)
+    target_add_grouped_source(Overgrowth Scripting/angelscript/add_on/scriptstdstring)
+    target_add_grouped_source(Overgrowth Scripting/angelscript/add_on/debugger)
+    target_add_grouped_source(Overgrowth Sound)
+    target_add_grouped_source(Overgrowth Sound/Music)
+    target_add_grouped_source(Overgrowth Sound/Loader)
+    target_add_grouped_source(Overgrowth Sound/AudioFilters)
+    target_add_grouped_source(Overgrowth Threading)
+    target_add_grouped_source(Overgrowth UserInput)
+    target_add_grouped_source(Overgrowth XML)
+    target_add_grouped_source(Overgrowth XML/Parsers)
+    target_add_grouped_source(Overgrowth JSON)
+    target_add_grouped_source(Overgrowth Memory)
+    target_add_grouped_source(Overgrowth Network)
+    #In the future, this should only be activated if we're building for the steam target
+    target_add_grouped_source(Overgrowth Network/Steam)
+    target_add_grouped_source(Overgrowth Network/Basic)
+    target_add_grouped_source(Overgrowth Utility)
+    target_add_grouped_source(Overgrowth Wrappers)
+    target_add_grouped_source(Overgrowth Timing)
+    target_add_grouped_source(Overgrowth Steam)
+    target_add_grouped_source(Overgrowth Online)
+    target_add_grouped_source(Overgrowth Online/Message)
+
+    # TODO: Make another target called "DeployRelease" that doesn't include UNIT_TESTS
+    target_add_grouped_source(Overgrowth UnitTests)
+
+    target_add_grouped_script(Overgrowth Scripts)
+    target_add_grouped_script(Overgrowth "Scripts/hotspots")
+    target_add_grouped_shaders(Overgrowth "GLSL") 
+
     IF(WIN32)
         SET_TARGET_PROPERTIES(Overgrowth PROPERTIES
             COMPILE_FLAGS "${SSE_FLAGS} /DWIN32"
@@ -1401,19 +1329,19 @@ IF(BUILD_OVERGROWTH)
         CopyDLL("${LIBDIR}/SDL2-2.0.20/lib/${WINDOWS_LIB_DIR}/SDL2.dll" "")
         CopyDLL("${LIBDIR}/SDL2_net-2.0.1/lib/${WINDOWS_LIB_DIR}/SDL2_net.dll" "")
 
-	IF(ENABLE_STEAMWORKS)
-            if(64BIT_WINDOWS)
-                CopyDLL("${PLIBDIR}/steamworks_1.51/sdk/redistributable_bin/win64/steam_api64.dll" "")
-            else()
-                CopyDLL("${PLIBDIR}/steamworks_1.51/sdk/redistributable_bin/${WINDOWS_LIB_DIR}/steam_api.dll" "")
-            endif()
-        ELSEIF(ENABLE_GAMENETWORKINGSOCKETS)
-            CopyDLL("${LIBDIR}/GameNetworkingSockets-1.4.0/win64_bin/GameNetworkingSockets.dll" "")
-            CopyDLL("${LIBDIR}/protobuf/win64_bin/libprotobuf.dll" "")
-            CopyDLL("${LIBDIR}/protobuf/win64_bin/libprotoc.dll" "")
-            CopyDLL("${LIBDIR}/openssl/win64_bin/libssl-1_1-x64" "")
-            CopyDLL("${LIBDIR}/openssl/win64_bin/libcrypto-1_1-x64" "")
-	ENDIF()
+        IF(ENABLE_STEAMWORKS)
+                if(64BIT_WINDOWS)
+                    CopyDLL("${PLIBDIR}/steamworks_1.51/sdk/redistributable_bin/win64/steam_api64.dll" "")
+                else()
+                    CopyDLL("${PLIBDIR}/steamworks_1.51/sdk/redistributable_bin/${WINDOWS_LIB_DIR}/steam_api.dll" "")
+                endif()
+            ELSEIF(ENABLE_GAMENETWORKINGSOCKETS)
+                CopyDLL("${LIBDIR}/GameNetworkingSockets-1.4.0/win64_bin/GameNetworkingSockets.dll" "")
+                CopyDLL("${LIBDIR}/protobuf/win64_bin/libprotobuf.dll" "")
+                CopyDLL("${LIBDIR}/protobuf/win64_bin/libprotoc.dll" "")
+                CopyDLL("${LIBDIR}/openssl/win64_bin/libssl-1_1-x64" "")
+                CopyDLL("${LIBDIR}/openssl/win64_bin/libcrypto-1_1-x64" "")
+        ENDIF()
 
         CopyDLL("${LIBDIR}/NvToolsExt/bin/Win32/nvToolsExt32_1.dll" "")
         
@@ -1433,7 +1361,7 @@ IF(BUILD_OVERGROWTH)
         CopyDLL("${LIBDIR}/theora/bin/${WINDOWS_LIB_DIR}/libtheora.dll" "")
         CopyDLL("${LIBDIR}/zlib1.2.7/bin/${WINDOWS_LIB_DIR}/zlib1.dll" "zlib.dll")
         CopyDLL("${LIBDIR}/FreeImage/bin/${VERSION_DIR}/${WINDOWS_LIB_DIR}/FreeImage.dll" "")
-	IF(ENABLE_RAD_TELEMETRY)
+        IF(ENABLE_RAD_TELEMETRY)
             #IF(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebIn")
             IF(64BIT_WINDOWS)
                 CopyDLL("${PLIBDIR}/Telemetry2SDKWin32_20P3/redist/telemetry64.dll" "")

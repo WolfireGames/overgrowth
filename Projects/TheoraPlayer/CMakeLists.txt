@@ -1,6 +1,3 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6.0)
-PROJECT(TheoraPlayer)
-
 SET(LIBDIR "${CMAKE_SOURCE_DIR}/../Libraries")
 SET(SRCDIR "${CMAKE_SOURCE_DIR}/../Libraries/TheoraPlayer/Source")
 
