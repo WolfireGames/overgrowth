@@ -406,12 +406,12 @@ static void StringResize(asUINT l, string &str)
 // string formatInt(int64 val, const string &in options, uint width)
 static string formatInt(asINT64 value, const string &options, asUINT width)
 {
-	bool leftJustify = options.find("l") != string::npos;
-	bool padWithZero = options.find("0") != string::npos;
-	bool alwaysSign  = options.find("+") != string::npos;
-	bool spaceOnSign = options.find(" ") != string::npos;
-	bool hexSmall    = options.find("h") != string::npos;
-	bool hexLarge    = options.find("H") != string::npos;
+	bool leftJustify = options.find('l') != string::npos;
+	bool padWithZero = options.find('0') != string::npos;
+	bool alwaysSign  = options.find('+') != string::npos;
+	bool spaceOnSign = options.find(' ') != string::npos;
+	bool hexSmall    = options.find('h') != string::npos;
+	bool hexLarge    = options.find('H') != string::npos;
 
 	string fmt = "%";
 	if( leftJustify ) fmt += "-";
@@ -450,12 +450,12 @@ static string formatInt(asINT64 value, const string &options, asUINT width)
 // string formatUInt(uint64 val, const string &in options, uint width)
 static string formatUInt(asQWORD value, const string &options, asUINT width)
 {
-	bool leftJustify = options.find("l") != string::npos;
-	bool padWithZero = options.find("0") != string::npos;
-	bool alwaysSign  = options.find("+") != string::npos;
-	bool spaceOnSign = options.find(" ") != string::npos;
-	bool hexSmall    = options.find("h") != string::npos;
-	bool hexLarge    = options.find("H") != string::npos;
+	bool leftJustify = options.find('l') != string::npos;
+	bool padWithZero = options.find('0') != string::npos;
+	bool alwaysSign  = options.find('+') != string::npos;
+	bool spaceOnSign = options.find(' ') != string::npos;
+	bool hexSmall    = options.find('h') != string::npos;
+	bool hexLarge    = options.find('H') != string::npos;
 
 	string fmt = "%";
 	if( leftJustify ) fmt += "-";
@@ -494,12 +494,12 @@ static string formatUInt(asQWORD value, const string &options, asUINT width)
 // string formatFloat(double val, const string &in options, uint width, uint precision)
 static string formatFloat(double value, const string &options, asUINT width, asUINT precision)
 {
-	bool leftJustify = options.find("l") != string::npos;
-	bool padWithZero = options.find("0") != string::npos;
-	bool alwaysSign  = options.find("+") != string::npos;
-	bool spaceOnSign = options.find(" ") != string::npos;
-	bool expSmall    = options.find("e") != string::npos;
-	bool expLarge    = options.find("E") != string::npos;
+	bool leftJustify = options.find('l') != string::npos;
+	bool padWithZero = options.find('0') != string::npos;
+	bool alwaysSign  = options.find('+') != string::npos;
+	bool spaceOnSign = options.find(' ') != string::npos;
+	bool expSmall    = options.find('e') != string::npos;
+	bool expLarge    = options.find('E') != string::npos;
 
 	string fmt = "%";
 	if( leftJustify ) fmt += "-";

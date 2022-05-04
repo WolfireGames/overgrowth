@@ -36,18 +36,18 @@ TiXmlElement *XmlHelper::findNode(TiXmlDocument &doc, std::string &item, TiXmlEl
     {
         if (element == NULL)
         {
-            element = doc.FirstChildElement(item.substr(0, item.find("/")));
+            element = doc.FirstChildElement(item.substr(0, item.find('/')));
         }
         else
         {
-            element = element->FirstChildElement(item.substr(0, item.find("/")));
+            element = element->FirstChildElement(item.substr(0, item.find('/')));
         }
 
         if (element == NULL)
             return NULL;
 
-        if (std::string::npos != item.find("/"))
-            item = item.substr(item.find("/") + 1);
+        if (std::string::npos != item.find('/'))
+            item = item.substr(item.find('/') + 1);
         else
             item = "";            
     }

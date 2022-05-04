@@ -983,7 +983,7 @@ string ApplicationPathSeparators( const string& v )
 	size_t slash_pos = 0;
 	string res = v;
 
-	while( (slash_pos = res.find_first_of("\\")) != string::npos )
+	while( (slash_pos = res.find_first_of('\\')) != string::npos )
 	{
 		res[slash_pos] = '/';
 	}
@@ -1010,7 +1010,7 @@ string NormalizePathSeparators( const string& v)
 		res[slash_pos] = '\\';
 	}
 #else
-	while( (slash_pos = res.find_first_of("\\")) != string::npos )
+	while( (slash_pos = res.find_first_of('\\')) != string::npos )
 	{
 		res[slash_pos] = '/';
 	}
@@ -1067,7 +1067,7 @@ Path FindShortestPath2(const string& p1)
 
         if(!try_again)
         {
-            next_slash = current_path.find_first_of("/");
+            next_slash = current_path.find_first_of('/');
             if( next_slash != string::npos )
             {
                 current_path = current_path.substr(next_slash+1);

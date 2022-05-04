@@ -324,7 +324,7 @@ void AnalyzeForLineBreaks(char* str, int len){
 	std::string second_line;
 	while(first_line.length() > 0){
 		while(metrics.bounds[2] > threshold){
-			int last_space = first_line.find_last_of(" ");
+			int last_space = first_line.find_last_of(' ');
 			second_line.insert(0, first_line.substr(last_space));
 			first_line.resize(last_space);
 			metrics = g_as_text_context.ASGetTextAtlasMetrics( font_path, font_size, 0, first_line.c_str());

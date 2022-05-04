@@ -228,7 +228,7 @@ int WriteConfigToStream(asIScriptEngine *engine, ostream &strm)
 			for(;;)
 			{
 				// Find " characters
-				pos = str.find("\"",pos);
+				pos = str.find('\"',pos);
 				if( pos == string::npos )
 					break;
 
@@ -699,7 +699,7 @@ int ConfigEngineFromStream(asIScriptEngine *engine, istream &strm, const char *c
 			in::ReplaceSlashQuote(decl);
 
 			// Remove the $ that the engine prefixes the behaviours with
-			size_t n = decl.find("$");
+			size_t n = decl.find('$');
 			if( n != string::npos )
 				decl[n] = ' ';
 
