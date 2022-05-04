@@ -942,7 +942,7 @@ void mat4::NormalizeBases()
     float vec_length;
     int index = 0;
     for(int i=0; i<3; i++){
-        vec_length = sqrt(square(entries[index+0])+
+        vec_length = std::sqrt(square(entries[index+0])+
                                  square(entries[index+1])+
                                  square(entries[index+2]));
         entries[index+0] /= vec_length;
@@ -1024,16 +1024,16 @@ vec4 AxisAngleFromMat4( const mat4& m )
     float epsilon2 = 0.1f; // margin to distinguish between 0 and 180 degrees
     // optional check that input is pure rotation, 'isRotationMatrix' is defined at:
     // http://www.euclideanspace.com/maths/algebra/matrix/orthogonal/rotation/
-    if ((fabs(m(0,1)-m(1,0))< epsilon)
-        && (fabs(m(0,2)-m(2,0))< epsilon)
-        && (fabs(m(1,2)-m(2,1))< epsilon)) {
+    if ((std::fabs(m(0,1)-m(1,0))< epsilon)
+        && (std::fabs(m(0,2)-m(2,0))< epsilon)
+        && (std::fabs(m(1,2)-m(2,1))< epsilon)) {
             // singularity found
             // first check for identity matrix which must have +1 for all terms
             //  in leading diagonaland zero in other terms
-            if ((fabs(m(0,1)+m(1,0)) < epsilon2)
-                && (fabs(m(0,2)+m(2,0)) < epsilon2)
-                && (fabs(m(1,2)+m(2,1)) < epsilon2)
-                && (fabs(m(0,0)+m(1,1)+m(2,2)-3) < epsilon2)) {
+            if ((std::fabs(m(0,1)+m(1,0)) < epsilon2)
+                && (std::fabs(m(0,2)+m(2,0)) < epsilon2)
+                && (std::fabs(m(1,2)+m(2,1)) < epsilon2)
+                && (std::fabs(m(0,0)+m(1,1)+m(2,2)-3) < epsilon2)) {
                     // this singularity is identity matrix so angle = 0
                     return vec4(1.0f,0.0f,0.0f,0.0f); // zero angle, arbitrary axis
             }
@@ -1082,7 +1082,7 @@ vec4 AxisAngleFromMat4( const mat4& m )
     float s = sqrtf((m(2,1) - m(1,2))*(m(2,1) - m(1,2))
         +(m(0,2) - m(2,0))*(m(0,2) - m(2,0))
         +(m(1,0) - m(0,1))*(m(1,0) - m(0,1))); // used to normalise
-    if (fabs(s) < 0.001) s=1; 
+    if (std::fabs(s) < 0.001) s=1; 
     // prevent divide by zero, should not happen if matrix is orthogonal and should be
     // caught by singularity test above, but I've left it in just in case
     float test = ( m(0,0) + m(1,1) + m(2,2) - 1.0f)/2.0f;

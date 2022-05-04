@@ -169,6 +169,8 @@
 #include <Math/vec3math.h>
 #include <Memory/allocation.h>
 
+#include <cmath>
+
 static void circleTable(double **sint,double **cost,const int n);
 
 /* -- INTERFACE FUNCTIONS -------------------------------------------------- */
@@ -242,11 +244,11 @@ void GetWireCylinderVertArray(GLint slices, std::vector<vec3> &data)
         float rotation1 = i*rotationStep;
         float rotation2 = (i+1)*rotationStep;
 
-        vec3 offset1(radius*(cos(rotation1)-sin(rotation1)), 0.0f, radius*(sin(rotation1)+cos(rotation1)));
+        vec3 offset1(radius*(std::cos(rotation1)-std::sin(rotation1)), 0.0f, radius*(std::sin(rotation1)+std::cos(rotation1)));
         vec3 pointTop1 = offset1+centerTop;
         vec3 pointBottom1 = offset1+centerBottom;
 
-        vec3 offset2(radius*(cos(rotation2)-sin(rotation2)), 0.0f, radius*(sin(rotation2)+cos(rotation2)));
+        vec3 offset2(radius*(std::cos(rotation2)-std::sin(rotation2)), 0.0f, radius*(std::sin(rotation2)+std::cos(rotation2)));
         vec3 pointTop2 = offset2+centerTop;
         vec3 pointBottom2 = offset2+centerBottom;
 

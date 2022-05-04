@@ -132,9 +132,9 @@ bool inTriangle(const vec3 &pointv, const vec3 &normal, const vec3 &p1v, const v
     else maximum = new_norm.y();
     if(maximum<new_norm.z())maximum=new_norm.z();
 
-    if (maximum == fabs(normal.x())) {i = 1; j = 2;}
-    if (maximum == fabs(normal.y())) {i = 0; j = 2;}
-    if (maximum == fabs(normal.z())) {i = 0; j = 1;}
+    if (maximum == std::fabs(normal.x())) {i = 1; j = 2;}
+    if (maximum == std::fabs(normal.y())) {i = 0; j = 2;}
+    if (maximum == std::fabs(normal.z())) {i = 0; j = 1;}
 
     u0 = pointv[i] - p1v[i];
     v0 = pointv[j] - p1v[j];
@@ -185,9 +185,9 @@ vec3 barycentric(const vec3 &pointv, const vec3 &normal, const vec3 &p1v, const 
     else maximum = new_norm.y();
     if(maximum<new_norm.z())maximum=new_norm.z();
 
-    if (maximum == fabs(normal.x())) {i = 1; j = 2;}
-    if (maximum == fabs(normal.y())) {i = 0; j = 2;}
-    if (maximum == fabs(normal.z())) {i = 0; j = 1;}
+    if (maximum == std::fabs(normal.x())) {i = 1; j = 2;}
+    if (maximum == std::fabs(normal.y())) {i = 0; j = 2;}
+    if (maximum == std::fabs(normal.z())) {i = 0; j = 1;}
 
     u0 = pointv[i] - p1v[i];
     v0 = pointv[j] - p1v[j];
@@ -235,7 +235,7 @@ int LineFacet(const vec3 &p1,const vec3 &p2,const vec3 &pa,const vec3 &pb,const 
 
     //Calculate the position on the line that intersects the plane 
     float denom = n.x() * (p2.x() - p1.x()) + n.y() * (p2.y() - p1.y()) + n.z() * (p2.z() - p1.z());
-    if (fabs(denom) < 0.0000001f)        // Line and plane don't intersect 
+    if (std::fabs(denom) < 0.0000001f)        // Line and plane don't intersect 
         return 0;
     float d = - n.x() * pa.x() - n.y() * pa.y() - n.z() * pa.z();
     float mu = - (d + n.x() * p1.x() + n.y() * p1.y() + n.z() * p1.z()) / denom;
@@ -268,7 +268,7 @@ int LineFacetNoBackface(const vec3 &p1,const vec3 &p2,const vec3 &pa,const vec3 
 
     //Calculate the position on the line that intersects the plane 
     float denom = n.x() * (p2.x() - p1.x()) + n.y() * (p2.y() - p1.y()) + n.z() * (p2.z() - p1.z());
-    if (fabs(denom) < 0.0000001f)   // Line and plane don't intersect 
+    if (std::fabs(denom) < 0.0000001f)   // Line and plane don't intersect 
         return 0;
     float d = - n.x() * pa.x() - n.y() * pa.y() - n.z() * pa.z();
     float mu = - (d + n.x() * p1.x() + n.y() * p1.y() + n.z() * p1.z()) / denom;
