@@ -610,7 +610,8 @@ int ChildProcessMessage(const string& msg, const ProcessPool::JobMap &job_map){
         }
         int argc = (int)params_separated.size();
         vector<const char*> argv;
-        for(int i=0; i<argc; ++i){
+        argv.reserve(argc);
+for(int i=0; i<argc; ++i){
             argv.push_back(params_separated[i].c_str());
         }
 #ifdef _WIN32
