@@ -37,6 +37,7 @@
 #include <errno.h>
 #include <cstring>
 #include <string>
+#include <ctime>
 
 using std::string;
 
