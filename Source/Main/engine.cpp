@@ -6420,7 +6420,7 @@ void Engine::ScriptableUICallback(const std::string &level)
     if( hasEnding( level, ".as" ) )
     {
         std::string short_path = script_dir_path + level;
-        std::string long_path = level;
+        const std::string& long_path = level;
 
         //First check if a full path was entered.
         if( FileExists( long_path, kAnyPath ) )
@@ -6446,7 +6446,7 @@ void Engine::ScriptableUICallback(const std::string &level)
     else if( hasEnding( level, ".xml" ) )
     {
         std::string short_path = "Data/Levels/" + level;
-        std::string long_path = level;
+        const std::string& long_path = level;
 
         EngineStateType target_state_type = kEngineLevelState;
         if(current_engine_state_.type == kEngineEditorLevelState){

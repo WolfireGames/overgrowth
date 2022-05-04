@@ -1619,7 +1619,7 @@ void MapEditor::ApplyScriptParams(const ScriptParamMap& spm, int id){
     } else {
         Object* obj = scenegraph_->GetObjectFromID(id);
         if(obj){
-            ScriptParamMap new_spm = spm;
+            const ScriptParamMap& new_spm = spm;
             ScriptParamMap::iterator iter;
 
             if( !testScriptParamsEqual(new_spm, obj->GetScriptParamMap() ) ) {
@@ -3075,8 +3075,8 @@ static ToolMode DetermineToolMode(EditorTypes::Tool type) {
 static bool GetTranslationBasis(vec3 clicked_point, vec3 clicked_normal,
                                 Basis* basis, const Object* object_, const Box& box_, ToolMode tool_mode)
 {
-    mat4 obj_transform = object_->GetTransform();
-    quaternion obj_rot = object_->GetRotation();
+    const mat4& obj_transform = object_->GetTransform();
+    const quaternion& obj_rot = object_->GetRotation();
     int box_face_index = box_.GetHitFaceIndex(invert(obj_rot) * clicked_normal,
         invert(obj_transform) * clicked_point);
     if (box_face_index != -1){
@@ -3103,8 +3103,8 @@ static bool GetTranslationBasis(vec3 clicked_point, vec3 clicked_normal,
 static bool GetScaleBasis(vec3 clicked_point, vec3 clicked_normal,
                           Basis* basis, vec3* p, const Object* object_, const Box& box_, ToolMode tool_mode)
 {
-    mat4 obj_transform = object_->GetTransform();
-    quaternion obj_rot = object_->GetRotation();
+    const mat4& obj_transform = object_->GetTransform();
+    const quaternion& obj_rot = object_->GetRotation();
 
     int i = box_.GetHitFaceIndex(invert(obj_rot) * clicked_normal, invert(obj_transform) * clicked_point);
     if (i == -1) {
@@ -3125,8 +3125,8 @@ static bool GetRotationBasis(vec3 clicked_point, vec3 clicked_normal,
                              Basis* basis, vec3* p, vec3* around,
                              const Object* object_, const Box& box_)
 {
-    mat4 obj_transform = object_->GetTransform();
-    quaternion obj_rot = object_->GetRotation();
+    const mat4& obj_transform = object_->GetTransform();
+    const quaternion& obj_rot = object_->GetRotation();
     int i = box_.GetHitFaceIndex(invert(obj_rot) * clicked_normal, invert(obj_transform) * clicked_point);
     if (i == -1) {
         return false;
@@ -3190,7 +3190,7 @@ static vec3 GetTranslation(const LineSegment& mouseray, bool snapping_enabled, c
 
     vec3 delta_translation = new_point - old_point;
     if (snapping_enabled) {
-        quaternion obj_rotate = object_->GetRotation();
+        const quaternion& obj_rotate = object_->GetRotation();
         delta_translation = invert( object_->GetRotation() ) * delta_translation;
         for(int i=0; i<3; ++i){
             delta_translation[i] = floorf(delta_translation[i]/TRANSLATION_SNAP_INCR+0.5f) * TRANSLATION_SNAP_INCR;

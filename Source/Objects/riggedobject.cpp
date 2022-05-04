@@ -3343,7 +3343,7 @@ void UpdateStuckItem(AttachedItem& stuck_item, const Skeleton &skeleton, bool an
     int bone = stuck_item.bone_id;
     mat4 bone_mat = skeleton.physics_bones[bone].bullet_object->GetTransform();
     mat4 the_weap_mat = bone_mat * stuck_item.rel_mat;
-    mat4 temp_weap_mat = the_weap_mat;
+    const mat4& temp_weap_mat = the_weap_mat;
     ItemObjectScriptReader &item = stuck_item.item;
     item.SetPhysicsTransform(temp_weap_mat);
     if(item.just_created){

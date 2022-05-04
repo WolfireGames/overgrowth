@@ -70,7 +70,7 @@ Config::Config(): has_changed_since_save(false) {
 
 bool Config::Load(const std::string& filename, bool just_filling_blanks, bool shadow_variables) {
 
-    std::string configFile = filename;//pathUtility::localPathToGlobal(filename);
+    const std::string& configFile = filename;//pathUtility::localPathToGlobal(filename);
     std::ifstream file;
     my_ifstream_open(file, configFile.c_str(), std::ios_base::in);
 
