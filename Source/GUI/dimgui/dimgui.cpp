@@ -4029,7 +4029,7 @@ Mark Stockton\nMikko Tarmia");
 
         if(ImGui::TreeNode("Peer debug info")) {
             auto peers = online->GetPeers();
-            for(auto peer : peers) {
+            for(const auto& peer : peers) {
                 ImGui::Text("Connection ID: %d", peer.conn_id);
                 ImGui::Text("Peer ID: %d", peer.peer_id);
                 ImGui::Separator();

@@ -94,7 +94,7 @@ bool JobHandler::Run(const std::string& path )
                     bool is_ok = false;
 
 		    LOGD << "Loading Transfer: " << itemit->path << std::endl;
-		    for(std::string input_folder : input_folders) 
+		    for(const std::string& input_folder : input_folders) 
 		    {
 			if(is_ok == false) {
                             if( CheckFileAccess(AssemblePath(input_folder,itemit->path).c_str()) ) {
@@ -303,7 +303,7 @@ bool JobHandler::Run(const std::string& path )
     
         std::vector<std::string> manifest;
 
-        for(std::string input_folder : input_folders) 
+        for(const std::string& input_folder : input_folders) 
 	{
             GenerateManifest( input_folder.c_str(), manifest );
 	}

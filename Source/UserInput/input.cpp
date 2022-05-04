@@ -727,8 +727,8 @@ std::vector<std::string> Input::GetAvailableBindings(const std::string& binding_
 std::set<std::string> Input::GetAllAvailableBindings() {
     std::set<std::string> binds;
 
-    for(auto binding_cat : bindings_) {
-        for(auto binding : binding_cat.second) {
+    for(const auto& binding_cat : bindings_) {
+        for(const auto& binding : binding_cat.second) {
             binds.insert(binding.first);
         }
     }

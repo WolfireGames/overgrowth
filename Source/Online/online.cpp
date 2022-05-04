@@ -293,7 +293,7 @@ void Online::SendPlayerInputState() {
     //Assume player one control. For split screen multiplayer we have to start dealing with multiplayer controllers here.
     PlayerInput* player_input = Input::Instance()->GetController(0);
 
-    for(string binding : Input::Instance()->GetAllAvailableBindings()) {
+    for(const string& binding : Input::Instance()->GetAllAvailableBindings()) {
 
         // TODO Can we make it so these bindings don't even show up in available bindings?
         if(binding == "look_left" || binding == "look_right" || binding == "look_up" || binding == "look_down") {
@@ -544,7 +544,7 @@ void Online::StartMultiplayer(MultiplayerMode multiplayerMode) {
         }
 
         //Assign mappings for input bindings.
-        for(string binding : Input::Instance()->GetAllAvailableBindings()) {
+        for(const string& binding : Input::Instance()->GetAllAvailableBindings()) {
             AssignBindID(binding);
         }
 
