@@ -394,8 +394,7 @@ void Hotspot::ASSetBoolVar( const std::string &name, bool value ) {
 bool Hotspot::SetFromDesc( const EntityDescription& desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
             case EDF_FILE_PATH: {
                 std::string type_file;
@@ -643,8 +642,8 @@ CScriptArray* Hotspot::ASGetConnectedObjects() {
     CScriptArray* array = CScriptArray::Create(arrayType);
 
     array->Reserve(connected_to.size());
-    for(size_t i = 0; i < connected_to.size(); ++i) {
-        array->InsertLast(&connected_to[i]);
+    for(int & i : connected_to) {
+        array->InsertLast(&i);
     }
     return array;
 }

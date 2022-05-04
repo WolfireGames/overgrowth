@@ -46,9 +46,9 @@ std::string CharacterScriptGetter::GetSkeletonPath( ) {
 }
 
 std::string CharacterScriptGetter::GetAnimPath( const std::string& action ) {
-    for(unsigned i=0; i<items.size(); ++i){
-        if(items[i]->HasAnimOverride(action)){
-            return items[i]->GetAnimOverride(action);
+    for(auto & item : items){
+        if(item->HasAnimOverride(action)){
+            return item->GetAnimOverride(action);
         }
     }
     CharAnimOverrideMap::iterator iter = char_anim_overrides_.find(action);
@@ -65,18 +65,18 @@ const std::string & CharacterScriptGetter::GetTag(const std::string &key) {
 
 
 char CharacterScriptGetter::GetAnimFlags( const std::string& action ) {
-    for(unsigned i=0; i<items.size(); ++i){
-        if(items[i]->HasAnimOverride(action)){
-            return items[i]->GetAnimOverrideFlags(action);
+    for(auto & item : items){
+        if(item->HasAnimOverride(action)){
+            return item->GetAnimOverrideFlags(action);
         }
     }
     return 0;
 }
 
 std::string CharacterScriptGetter::GetAttackPath( const std::string& action ) {
-    for(unsigned i=0; i<items.size(); ++i){
-        if(items[i]->HasAttackOverride(action)){
-            return items[i]->GetAttackOverride(action);
+    for(auto & item : items){
+        if(item->HasAttackOverride(action)){
+            return item->GetAttackOverride(action);
         }
     }
     return character_ref->GetAttackPath(action);
@@ -86,11 +86,9 @@ int CharacterScriptGetter::OnSameTeam( const std::string& char_path ) {
     //CharacterRef other = Characters::Instance()->ReturnRef(char_path);
     CharacterRef other = Engine::Instance()->GetAssetManager()->LoadSync<Character>(char_path);
     const std::set<std::string> &team_set = character_ref->GetTeamSet();
-    for(std::set<std::string>::const_iterator iter = team_set.begin();
-        iter != team_set.end();
-        ++iter)
+    for(const auto & iter : team_set)
     {
-        if(other->IsOnTeam(*iter)){
+        if(other->IsOnTeam(iter)){
             return 1;
         }
     }

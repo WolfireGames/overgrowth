@@ -57,8 +57,7 @@
 
 void CompressPathSet(PathSet path_set, const std::string &base_folder, const std::string &dst){
     bool first_path = true;
-    for(PathSet::iterator iter = path_set.begin(); iter != path_set.end(); ++iter){
-        const std::string &full_path = (*iter);
+    for(const auto & full_path : path_set){
         const char* truncated_path = &full_path[base_folder.length()];
         Zip(full_path, dst, truncated_path, first_path?_YES_OVERWRITE:_APPEND_OVERWRITE);
         first_path = false;
@@ -141,8 +140,7 @@ int TestMain( int argc, char* argv[], const char* overloaded_write_dir, const ch
     LOGI << "Objects: " << ref->objects.size() << std::endl;
 	const char* key_words[] = {"left", "capsule", "box", "sphere"};
 	const int num_key_words = sizeof(key_words)/sizeof(key_words[0]);
-	for(size_t i=0, len=ref->objects.size(); i<len; ++i){
-        const FZXObject &object = ref->objects[i];
+	for(auto & object : ref->objects){
         // Parse label string
         const std::string &label = object.label;      
         size_t last_space_index = 0;
@@ -160,10 +158,10 @@ int TestMain( int argc, char* argv[], const char* overloaded_write_dir, const ch
                     ++count;
 				}
                 bool match = false;
-                for(int k=0; k<num_key_words; ++k){
-                    bool word_match = (strcmp(key_words[k], sub_str_buf.c_str())==0);
+                for(auto & key_word : key_words){
+                    bool word_match = (strcmp(key_word, sub_str_buf.c_str())==0);
                     if(word_match){
-                        LOGI << "Token found: " << key_words[k] << std::endl;
+                        LOGI << "Token found: " << key_word << std::endl;
                         match = true;
                     }
                 }

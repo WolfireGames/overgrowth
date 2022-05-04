@@ -109,24 +109,24 @@ void LogSystem::RegisterLogHandler( LogTypeMask types, LogHandler* newHandler )
 
     //Disable if enabled first.
     enabledLogTypes = 0;
-    for( int i = 0; i < LOGGER_LIMIT; i++ )
+    for(auto & handler : handlers)
     {
-        if( handlers[i].handler == newHandler )
+        if( handler.handler == newHandler )
         {
-            handlers[i].types = 0U;
-            handlers[i].handler = NULL;
-        } else if (handlers[i].handler != NULL) {
-            enabledLogTypes |= handlers[i].types;
+            handler.types = 0U;
+            handler.handler = NULL;
+        } else if (handler.handler != NULL) {
+            enabledLogTypes |= handler.types;
         }
     }
 
     //Then enable.
-    for( int i = 0; i < LOGGER_LIMIT; i++ )
+    for(auto & handler : handlers)
     {
-        if( handlers[i].handler == NULL )
+        if( handler.handler == NULL )
         {
-            handlers[i].types = types;
-            handlers[i].handler = newHandler;
+            handler.types = types;
+            handler.handler = newHandler;
             worked = true;
             break;
         } 
@@ -144,14 +144,14 @@ void LogSystem::DeregisterLogHandler( LogHandler* newHandler )
 	logMutex.lock();
 
     enabledLogTypes = 0;
-    for( int i = 0; i < LOGGER_LIMIT; i++ )
+    for(auto & handler : handlers)
     {
-        if( handlers[i].handler == newHandler )
+        if( handler.handler == newHandler )
         {
-            handlers[i].types = 0U;
-            handlers[i].handler = NULL;
-        } else if (handlers[i].handler != NULL) {
-            enabledLogTypes |= handlers[i].types;
+            handler.types = 0U;
+            handler.handler = NULL;
+        } else if (handler.handler != NULL) {
+            enabledLogTypes |= handler.types;
         }
     }
 
@@ -160,11 +160,11 @@ void LogSystem::DeregisterLogHandler( LogHandler* newHandler )
 
 void LogSystem::Flush()
 {
-    for( int i = 0; i < LOGGER_LIMIT; i++ )
+    for(auto & handler : handlers)
     {
-        if( handlers[i].handler != NULL)
+        if( handler.handler != NULL)
         {
-            handlers[i].handler->Flush();
+            handler.handler->Flush();
         }
     }
 }
@@ -337,12 +337,12 @@ LogSystem::LogData::~LogData()
 
 	string msg = ss.str();
 
-    for( int i = 0; i < LOGGER_LIMIT; i++ )
+    for(auto & handler : handlers)
     {
-        if( handlers[i].handler != NULL && 
-            (m_type & handlers[i].types) )
+        if( handler.handler != NULL && 
+            (m_type & handler.types) )
         {
-            handlers[i].handler->Log( m_type, m_line, m_filename, m_prefix, msg.c_str(), m_message );
+            handler.handler->Log( m_type, m_line, m_filename, m_prefix, msg.c_str(), m_message );
         }
     }
 

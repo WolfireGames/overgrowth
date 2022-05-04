@@ -60,12 +60,12 @@ bool AssetLoadWarningParser::Save( const std::string& path ) {
     TiXmlDeclaration * decl = new TiXmlDeclaration( "2.0", "", "" );
     TiXmlElement * root = new TiXmlElement("AssetWarnings");
 
-    for( std::set<AssetWarning>::iterator sit = asset_warnings.begin(); sit != asset_warnings.end(); sit++ ) {
+    for(const auto & asset_warning : asset_warnings) {
         TiXmlElement * e = new TiXmlElement("AssetWarning");
-        e->SetAttribute("asset_type",sit->asset_type.c_str());
-        e->SetAttribute("path",sit->path.c_str());
-        e->SetAttribute("level_name",sit->level_name.c_str());
-        char flags[9]; flags_to_string(flags,sit->load_flags); e->SetAttribute("load_flags",flags);
+        e->SetAttribute("asset_type",asset_warning.asset_type.c_str());
+        e->SetAttribute("path",asset_warning.path.c_str());
+        e->SetAttribute("level_name",asset_warning.level_name.c_str());
+        char flags[9]; flags_to_string(flags,asset_warning.load_flags); e->SetAttribute("load_flags",flags);
         root->LinkEndChild(e);
     }
 

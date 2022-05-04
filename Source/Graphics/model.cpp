@@ -858,9 +858,9 @@ void CopyTexCoords2( Model &a, const Model& b ) {
         [floorf(n_i[2]*100.0f)];
         normal_index += 3;
         vert_index += 3;
-        for(unsigned j=0; j<indices.size(); ++j){
-            a.tex_coords2[indices[j]*2+0] = b.tex_coords[i*2+0];
-            a.tex_coords2[indices[j]*2+1] = b.tex_coords[i*2+1];
+        for(int indice : indices){
+            a.tex_coords2[indice*2+0] = b.tex_coords[i*2+0];
+            a.tex_coords2[indice*2+1] = b.tex_coords[i*2+1];
         }
     }
 
@@ -900,12 +900,12 @@ void CopyTexCoords2( Model &a, const Model& b ) {
         [floorf(n_i[2]*10.0f+0.5f)];
         normal_index += 3;
         vert_index += 3;
-        for(unsigned j=0; j<indices.size(); ++j){
-            if(a.tex_coords2[indices[j]*2+0] == 0.0f &&
-               a.tex_coords2[indices[j]*2+1] == 0.0f)
+        for(int indice : indices){
+            if(a.tex_coords2[indice*2+0] == 0.0f &&
+               a.tex_coords2[indice*2+1] == 0.0f)
             {
-                a.tex_coords2[indices[j]*2+0] = b.tex_coords[i*2+0];
-                a.tex_coords2[indices[j]*2+1] = b.tex_coords[i*2+1];
+                a.tex_coords2[indice*2+0] = b.tex_coords[i*2+0];
+                a.tex_coords2[indice*2+1] = b.tex_coords[i*2+1];
             }
         }
     }
@@ -946,12 +946,12 @@ void CopyTexCoords2( Model &a, const Model& b ) {
         [floorf(n_i[2]*1.0f+0.5f)];
         normal_index += 3;
         vert_index += 3;
-        for(unsigned j=0; j<indices.size(); ++j){
-            if(a.tex_coords2[indices[j]*2+0] == 0.0f &&
-                a.tex_coords2[indices[j]*2+1] == 0.0f)
+        for(int indice : indices){
+            if(a.tex_coords2[indice*2+0] == 0.0f &&
+                a.tex_coords2[indice*2+1] == 0.0f)
             {
-                a.tex_coords2[indices[j]*2+0] = b.tex_coords[i*2+0];
-                a.tex_coords2[indices[j]*2+1] = b.tex_coords[i*2+1];
+                a.tex_coords2[indice*2+0] = b.tex_coords[i*2+0];
+                a.tex_coords2[indice*2+1] = b.tex_coords[i*2+1];
             }
         }
     }
@@ -2199,8 +2199,8 @@ void Model::RemoveDuplicatedVerts() {
     for(int i=0, len=unique.size(); i<len; ++i){
         precollapse_vert_reorder[i] = vert_info[unique[i]].old_id;
     }
-    for(int i=0, len=faces.size(); i<len; ++i){
-        faces[i] = new_vert[faces[i]];
+    for(unsigned int & face : faces){
+        face = new_vert[face];
     }
 
     RearrangeVertices(*this, precollapse_vert_reorder);
@@ -2306,14 +2306,14 @@ void Model::PrintACMR(){
     unsigned total = 0;
     std::vector<int> fifo(32, -1);
     unsigned index = 0;
-    for(unsigned i=0; i<faces.size(); ++i){
-        for(unsigned j=0; j<fifo.size(); ++j){
-            if(fifo[j] == (int)faces[i]){
+    for(unsigned int face : faces){
+        for(int j : fifo){
+            if(j == (int)face){
                 cache_hits++;
                 break;
             }
         }
-        fifo[index] = faces[i];
+        fifo[index] = face;
         index = (index+1)%fifo.size();
         total++;
     }
@@ -2330,8 +2330,8 @@ void Model::OptimizeTriangleOrder() {
         tris[i].verts[0] = faces[index++];
         tris[i].verts[1] = faces[index++];
         tris[i].verts[2] = faces[index++];
-        for(unsigned j=0; j<3; ++j){
-            verts[tris[i].verts[j]].not_added_triangles++;
+        for(unsigned int vert : tris[i].verts){
+            verts[vert].not_added_triangles++;
         }
     }
 
@@ -2363,13 +2363,11 @@ void Model::OptimizeTriangleOrder() {
         }
         tris[best_triangle].added = true;
         // Update not_added_triangles
-        for(unsigned i=0; i<3; ++i){
-            unsigned vert_id = tris[best_triangle].verts[i];
+        for(unsigned int vert_id : tris[best_triangle].verts){
             --verts[vert_id].not_added_triangles;
         }
         // Update LRU cache
-        for(unsigned i=0; i<3; ++i){
-            unsigned vert_id = tris[best_triangle].verts[i];
+        for(unsigned int vert_id : tris[best_triangle].verts){
             int cp = verts[vert_id].cache_pos;
             // If vert is in cache, remove it and slide other verts down
             if(cp != -1){
@@ -2421,10 +2419,10 @@ void Model::OptimizeTriangleOrder() {
 
     {
         unsigned index = 0;
-        for(unsigned i=0; i<draw_list.size(); ++i){
-            faces[index++] = tris[draw_list[i]].verts[0];
-            faces[index++] = tris[draw_list[i]].verts[1];
-            faces[index++] = tris[draw_list[i]].verts[2];
+        for(unsigned int i : draw_list){
+            faces[index++] = tris[i].verts[0];
+            faces[index++] = tris[i].verts[1];
+            faces[index++] = tris[i].verts[2];
         }
     }
 }
@@ -2433,11 +2431,11 @@ void Model::OptimizeTriangleOrder() {
 void Model::OptimizeVertexOrder() {
     std::vector<int> order(vertices.size()/3, -1);
     unsigned index = 0;
-    for(unsigned i=0; i<faces.size(); ++i){
-        if(order[faces[i]] == -1){
-            order[faces[i]] = index++;    
+    for(unsigned int & face : faces){
+        if(order[face] == -1){
+            order[face] = index++;    
         }
-        faces[i] = order[faces[i]];
+        face = order[face];
     }
     optimize_vert_reorder.clear();
     optimize_vert_reorder.resize(index, -1);
@@ -2496,9 +2494,9 @@ void Model::SortTrianglesBackToFront( const vec3 &camera )
     std::sort(tris.begin(), tris.end(), TriScoreSorter());
 
     index = 0;
-    for(unsigned i=0; i<tris.size(); ++i){
-        faces[index++] = tris[i].verts[0];
-        faces[index++] = tris[i].verts[1];
-        faces[index++] = tris[i].verts[2];
+    for(auto & tri : tris){
+        faces[index++] = tri.verts[0];
+        faces[index++] = tri.verts[1];
+        faces[index++] = tri.verts[2];
     }
 }

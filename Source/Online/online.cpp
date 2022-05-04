@@ -579,18 +579,18 @@ const vector<Peer> Online::GetPeers()  {
 }
 
 Peer* Online::GetPeerFromConnection(NetConnectionID conn_id) {
-    for(int i = 0; i < online_session->connected_peers.size(); i++) {
-        if(online_session->connected_peers[i].conn_id == conn_id) {
-            return &online_session->connected_peers[i];
+    for(auto & connected_peer : online_session->connected_peers) {
+        if(connected_peer.conn_id == conn_id) {
+            return &connected_peer;
         }
     }
     return nullptr;
 }
 
 Peer* Online::GetPeerFromID(PeerID peer_id) {
-    for(int i = 0; i < online_session->connected_peers.size(); i++) {
-        if(online_session->connected_peers[i].peer_id == peer_id) {
-            return &online_session->connected_peers[i];
+    for(auto & connected_peer : online_session->connected_peers) {
+        if(connected_peer.peer_id == peer_id) {
+            return &connected_peer;
         }
     }
     return nullptr;
@@ -1407,18 +1407,16 @@ void Online::SendMessageObjects() {
 
     //First, send persistent packages, if we see there's a new client who isn't up to date.
     if(host_started_level && IsHosting()) {
-        for(int k = 0; k < online_session->connected_peers.size(); k++) {
-            Peer& peer = online_session->connected_peers[k];
-
+        for(auto & peer : online_session->connected_peers) {
             if(online_session->client_connection_manager.IsClientLoaded(peer.peer_id) && online_session->client_connection_manager.HasClientGottenPersistentQueue(peer.peer_id) == false) {
-                for(int i = 0; i < online_session->persistent_outgoing_messages.size(); i++)  {
-                    OnlineMessageBase* omb = static_cast<OnlineMessageBase*>(message_handler.GetMessageData(online_session->persistent_outgoing_messages[i]));
+                for(auto & persistent_outgoing_message : online_session->persistent_outgoing_messages)  {
+                    OnlineMessageBase* omb = static_cast<OnlineMessageBase*>(message_handler.GetMessageData(persistent_outgoing_message));
 
                     if(omb != nullptr) {
                         PackageHeader package_header;
 
                         package_header.package_type = PackageHeader::Type::MESSAGE_OBJECT;
-                        package_header.message_ref = online_session->persistent_outgoing_messages[i];
+                        package_header.message_ref = persistent_outgoing_message;
 
                         binn* l = package_header.Serialize();
 
@@ -1453,8 +1451,7 @@ void Online::SendMessageObjects() {
 
             binn_free(l);
 
-            for(int k = 0; k < online_session->connected_peers.size(); k++) {
-                Peer& peer = online_session->connected_peers[k];
+            for(auto & peer : online_session->connected_peers) {
                 bool send_message = true;
 
                 if(outgoing_message.broadcast == false && outgoing_message.target != peer.conn_id) {

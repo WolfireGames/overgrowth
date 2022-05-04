@@ -70,17 +70,17 @@ std::string OnlineUtility::GetActiveModsString() {
     bool active_mods = false;
     stringstream modlist;
     vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for(size_t i = 0; i < mods.size(); i++) {
-        if(mods[i]->IsActive() && !mods[i]->IsCore()) {
+    for(auto & mod : mods) {
+        if(mod->IsActive() && !mod->IsCore()) {
             if(active_mods) {
                 modlist << ", ";
             }
             active_mods = true;
 
-            if(mods[i]->SupportsOnline()) {
-                modlist << mods[i]->id;
+            if(mod->SupportsOnline()) {
+                modlist << mod->id;
             } else {
-                modlist << "[" << mods[i]->id << "]";
+                modlist << "[" << mod->id << "]";
             }
         }
     }
@@ -101,13 +101,13 @@ std::string OnlineUtility::GetActiveIncompatibleModsString() {
     bool active_mods = false;
     stringstream modlist;
     vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for(size_t i = 0; i < mods.size(); i++) {
-        if(mods[i]->IsActive() && !mods[i]->IsCore() && !mods[i]->SupportsOnline()) {
+    for(auto & mod : mods) {
+        if(mod->IsActive() && !mod->IsCore() && !mod->SupportsOnline()) {
             if(active_mods) {
                 modlist << ", ";
             }
             active_mods = true;
-            modlist << "\"" << mods[i]->id << "\"";
+            modlist << "\"" << mod->id << "\"";
         }
     }
 

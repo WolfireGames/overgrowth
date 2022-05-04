@@ -35,9 +35,9 @@ void GetClosestClusters( KDNode &node, const std::vector<vec3> &cluster_center, 
     node.cluster_info.closest_clusters.clear();
     if(candidates.size() == 1){
         node.cluster_info.closest_clusters.push_back(candidates[0]);
-        for(unsigned i=0; i<2; ++i){
-            if(node.child[i]){
-                GetClosestClusters(*node.child[i], 
+        for(auto & i : node.child){
+            if(i){
+                GetClosestClusters(*i, 
                                    cluster_center, 
                                    node.cluster_info.closest_clusters);
             }  
@@ -103,9 +103,9 @@ void GetClosestClusters( KDNode &node, const std::vector<vec3> &cluster_center, 
             node.cluster_info.closest_clusters.push_back(candidates[i]);
         }*/
     }
-    for(unsigned i=0; i<2; ++i){
-        if(node.child[i]){
-            GetClosestClusters(*node.child[i], 
+    for(auto & i : node.child){
+        if(i){
+            GetClosestClusters(*i, 
                 cluster_center, 
                 node.cluster_info.closest_clusters);
         }  
@@ -253,8 +253,8 @@ KDNode::KDNode( const vec3 &_min_bounds, const vec3 &_max_bounds, std::vector<ve
     const int _rand_pick_threshold = 20;
     if((int)points.size()>_rand_pick_threshold){
         std::vector<vec3> median_points(_rand_pick_threshold);
-        for(unsigned i=0; i<median_points.size(); ++i){
-            median_points[i] = points[rand()%points.size()];
+        for(auto & median_point : median_points){
+            median_point = points[rand()%points.size()];
         }
         if(axis == 0){
             std::sort(median_points.begin(), median_points.end(), Vec3XCompare());
@@ -308,22 +308,22 @@ KDNode::KDNode( const vec3 &_min_bounds, const vec3 &_max_bounds, std::vector<ve
     vec3 child_max = _max_bounds;
     child_max[axis] = plane_coord;
     std::vector<vec3> child_points;
-    for(unsigned i=0; i<points.size(); ++i){
-        if(points[i].entries[axis] < plane_coord){
-            child_points.push_back(points[i]);
+    for(auto & point : points){
+        if(point.entries[axis] < plane_coord){
+            child_points.push_back(point);
         }
     }
     child[0] = new KDNode(child_min, child_max, child_points, depth+1);
 
     child[0]->content_bounds[0] = median_point;
     child[0]->content_bounds[1] = median_point;
-    for(unsigned i=0; i<child_points.size(); ++i){
+    for(auto & child_point : child_points){
         for(unsigned j=0; j<3; ++j){
-            if(child_points[i][j] < child[0]->content_bounds[0][j]){
-                child[0]->content_bounds[0][j] = child_points[i][j];
+            if(child_point[j] < child[0]->content_bounds[0][j]){
+                child[0]->content_bounds[0][j] = child_point[j];
             }
-            if(child_points[i][j] > child[0]->content_bounds[1][j]){
-                child[0]->content_bounds[1][j] = child_points[i][j];
+            if(child_point[j] > child[0]->content_bounds[1][j]){
+                child[0]->content_bounds[1][j] = child_point[j];
             }
         }
     }
@@ -332,22 +332,22 @@ KDNode::KDNode( const vec3 &_min_bounds, const vec3 &_max_bounds, std::vector<ve
     child_max = _max_bounds;
     child_min[axis] = plane_coord;
     child_points.clear();
-    for(unsigned i=0; i<points.size(); ++i){
-        if(points[i].entries[axis] > plane_coord){
-            child_points.push_back(points[i]);
+    for(auto & point : points){
+        if(point.entries[axis] > plane_coord){
+            child_points.push_back(point);
         }
     }
     child[1] = new KDNode(child_min, child_max, child_points, depth+1);
 
     child[1]->content_bounds[0] = child_points[0];
     child[1]->content_bounds[1] = child_points[0];
-    for(unsigned i=0; i<child_points.size(); ++i){
+    for(auto & child_point : child_points){
         for(unsigned j=0; j<3; ++j){
-            if(child_points[i][j] < child[1]->content_bounds[0][j]){
-                child[1]->content_bounds[0][j] = child_points[i][j];
+            if(child_point[j] < child[1]->content_bounds[0][j]){
+                child[1]->content_bounds[0][j] = child_point[j];
             }
-            if(child_points[i][j] > child[1]->content_bounds[1][j]){
-                child[1]->content_bounds[1][j] = child_points[i][j];
+            if(child_point[j] > child[1]->content_bounds[1][j]){
+                child[1]->content_bounds[1][j] = child_point[j];
             }
         }
     }

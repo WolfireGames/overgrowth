@@ -181,8 +181,8 @@ std::vector<Resolution> Config::GetPossibleResolutions() {
 		if ((mode.h <= desktopDisplayMode.h && mode.w <= desktopDisplayMode.w && std::fabs(resolutionAspect - desktopAspect) < 0.01f)
             || static_cast<FullscreenMode::Mode>(config["fullscreen"].toNumber<int>()) == FullscreenMode::kFullscreen) {
 			bool resolutionFound = false;
-			for (size_t i = 0; i < commonResolutions.size(); ++i) {
-				if (commonResolutions[i].w == mode.w && commonResolutions[i].h == mode.h) {
+			for (auto & commonResolution : commonResolutions) {
+				if (commonResolution.w == mode.w && commonResolution.h == mode.h) {
 					resolutionFound = true;
 					break;
 				}
@@ -312,8 +312,8 @@ void Config::SetSettingsToPreset(std::string preset_name )
 		return;
 	}
 	Config::Map& map = GetPresets()[index].map_;
-	for(Config::Map::iterator iter = map.begin(); iter != map.end(); ++iter ){
-		config.GetRef(iter->first) = iter->second.data;
+	for(auto & iter : map){
+		config.GetRef(iter.first) = iter.second.data;
 	}
 }
 
@@ -323,8 +323,8 @@ std::string Config::GetSettingsPreset(){
 	// Determine if we match any of the global_settings presets
 	for(int i=0; i<4; ++i){
 		Config::Map& map = GetPresets()[i].map_;
-		for(Config::Map::iterator iter = map.begin(); iter != map.end(); ++iter ){
-			if(config.GetRef(iter->first) != iter->second.data){
+		for(auto & iter : map){
+			if(config.GetRef(iter.first) != iter.second.data){
 				preset = i + 1;
 				break;
 			}
@@ -512,9 +512,9 @@ bool Config::Save(const std::string& filename) {
     std::vector<std::pair<std::string, ConfigVal> > vec(map_.begin(), map_.end());
     std::sort(vec.begin(), vec.end(), ConfigValCompare());
 
-    for(unsigned i=0; i<vec.size(); ++i)
+    for(auto & i : vec)
     {
-        file << vec[i].first << ": " << vec[i].second.data.str() << "\n";
+        file << i.first << ": " << i.second.data.str() << "\n";
     }
 
     file.close();

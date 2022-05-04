@@ -197,8 +197,7 @@ void DrawGPUParticleField(SceneGraph *scenegraph, const char* type) {
 
     std::vector<mat4> light_volume_matrix;
     std::vector<mat4> light_volume_matrix_inverse;
-    for(int i=0, len=scenegraph->light_volume_objects_.size(); i<len; ++i){
-        Object* obj = scenegraph->light_volume_objects_[i];
+    for(auto obj : scenegraph->light_volume_objects_){
         const mat4 &mat = obj->GetTransform();
         light_volume_matrix.push_back(mat);
         light_volume_matrix_inverse.push_back(invert(mat));
@@ -243,8 +242,8 @@ void DrawGPUParticleField(SceneGraph *scenegraph, const char* type) {
         static GLfloat data_vec[20*1000];
         int val=0;
         for(int i=0; i<1000; ++i){
-            for(int j=0; j<20; ++j){
-                data_vec[val++] = data[j];
+            for(float j : data){
+                data_vec[val++] = j;
             }
         }
         data_vbo.Fill(kVBOStatic | kVBOFloat,sizeof(data_vec), (void*)data_vec);
@@ -256,8 +255,8 @@ void DrawGPUParticleField(SceneGraph *scenegraph, const char* type) {
         int val = 0;
         int val2 = 0;
         for(int i=0; i<1000; ++i){
-            for(int j=0; j<6; ++j){
-                index_vec[val2++]=index[j]+val;
+            for(unsigned int j : index){
+                index_vec[val2++]=j+val;
             }
             val += 4;
         }
@@ -379,8 +378,7 @@ void Particle::Draw(SceneGraph *scenegraph, DrawType draw_type, const mat4& proj
 
         std::vector<mat4> light_volume_matrix;
         std::vector<mat4> light_volume_matrix_inverse;
-        for(int i=0, len=scenegraph->objects_.size(); i<len; ++i){
-            Object* obj = scenegraph->objects_[i];
+        for(auto obj : scenegraph->objects_){
             const mat4 &mat = obj->GetTransform();
             light_volume_matrix.push_back(mat);
             light_volume_matrix_inverse.push_back(invert(mat));
@@ -538,11 +536,11 @@ void Particle::Draw(SceneGraph *scenegraph, DrawType draw_type, const mat4& proj
         graphics->ResetVertexAttribArrays();
         CHECK_GL_ERROR();
     }
-    for(ParticleList::iterator iter = connected.begin(); iter != connected.end(); ++iter) {
-        if(this < (*iter)) {
+    for(auto & iter : connected) {
+        if(this < iter) {
             float thickness = interp_size;
             vec3 a = interp_position;
-            vec3 b = (*iter)->interp_position;
+            vec3 b = iter->interp_position;
 
             vec3 up,right,cam_to_particle;
             vec3 vertices[4];
@@ -871,8 +869,8 @@ void ParticleSystem::Draw(SceneGraph *scenegraph) {
 
         PROFILER_ENTER(g_profiler_ctx, "Interpolate particles");
         float interp = game_timer.GetInterpWeight();
-        for (unsigned i=0, len=particles.size(); i<len; ++i) {
-            Particle& p = *particles[i];
+        for (auto & particle : particles) {
+            Particle& p = *particle;
             p.interp_position = mix(p.old_position, p.position, interp);
             p.interp_rotation  = mix(p.old_rotation,  p.rotation,  interp);
             p.interp_size     = mix(p.old_size,     p.size,     interp);
@@ -881,8 +879,8 @@ void ParticleSystem::Draw(SceneGraph *scenegraph) {
         PROFILER_LEAVE(g_profiler_ctx);  // Interpolate particles
 
         vec3 cam_pos = ActiveCameras::Get()->GetPos();
-        for (unsigned i=0;i<particles.size();i++){
-            particles[i]->cam_dist=distance_squared(particles[i]->interp_position, cam_pos);
+        for (auto & particle : particles){
+            particle->cam_dist=distance_squared(particle->interp_position, cam_pos);
         }
         PROFILER_ENTER(g_profiler_ctx, "Sort particles");
         std::sort(particles.begin(), particles.end(), CParticleCompare);
@@ -945,9 +943,8 @@ void ParticleSystem::Draw(SceneGraph *scenegraph) {
 					} else {
 						std::vector<mat4> light_volume_matrix;
 						std::vector<mat4> light_volume_matrix_inverse;
-						for(int i=0, len=scenegraph->light_volume_objects_.size(); i<len; ++i){
-							Object* obj = scenegraph->light_volume_objects_[i];
-							const mat4 &mat = obj->GetTransform();
+						for(auto obj : scenegraph->light_volume_objects_){
+								const mat4 &mat = obj->GetTransform();
 							light_volume_matrix.push_back(mat);
 							light_volume_matrix_inverse.push_back(invert(mat));
 						}
@@ -1309,8 +1306,8 @@ unsigned ParticleSystem::MakeParticle( SceneGraph *scenegraph, const std::string
 
 //Dispose of particle system
 void ParticleSystem::Dispose() {
-    for(ParticleVector::iterator it = particles.begin(); it != particles.end(); ++it){
-        delete (*it);
+    for(auto & particle : particles){
+        delete particle;
     }
     particles.clear();
 }

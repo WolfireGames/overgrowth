@@ -565,20 +565,20 @@ void InitKeyTranslator() {
     std::vector<std::pair<int,uint32_t> > offsets;
 
     size_t cur_index = 0;
-    for( size_t i = 0; i < sizeof(SDL_SCANCODES)/sizeof(uint32_t); i++ ) {
-        const char* scancodename = SDL_GetScancodeName((SDL_Scancode)SDL_SCANCODES[i]);  
+    for(unsigned int & i : SDL_SCANCODES) {
+        const char* scancodename = SDL_GetScancodeName((SDL_Scancode)i);  
         size_t memlen = strlen(scancodename) + 1;
         if(cur_index + memlen > key_translation_memory.size()) {
             key_translation_memory.resize(key_translation_memory.size()+1024);
         }
         memcpy(&key_translation_memory[cur_index], scancodename, memlen);
         UTF8InPlaceLower(&key_translation_memory[cur_index]);
-        offsets.push_back(std::pair<int,uint32_t>(cur_index,SDL_SCANCODES[i]));
+        offsets.push_back(std::pair<int,uint32_t>(cur_index,i));
         cur_index += memlen;
     }
 
-    for( size_t i = 0; i < offsets.size(); i++ ) {
-        keys.push_back(KeyPair(&key_translation_memory[offsets[i].first], (SDL_Scancode)offsets[i].second));
+    for(auto & offset : offsets) {
+        keys.push_back(KeyPair(&key_translation_memory[offset.first], (SDL_Scancode)offset.second));
     }
 
     keys.push_back(KeyPair("backspace", SDL_SCANCODE_BACKSPACE));

@@ -76,8 +76,8 @@ const std::string& ManifestResult::GetCurrentDestHash(const std::string& base_pa
 std::ostream& operator<<(std::ostream& out, const ManifestResult& mr) {
         
     out << "ManifestResult( items { ";
-        for( int i = 0; i < mr.items.size(); i++ ) {    
-            out << mr.items[i] << ",";
+        for(const auto & item : mr.items) {    
+            out << item << ",";
         }
     out << "}," << mr.dest << "," << mr.dest_hash << "," << mr.name << "," << mr.version << "," << mr.type << ")";
     return out;

@@ -45,20 +45,19 @@ extern bool g_single_pass_shadow_cascade;
 
 void Shaders::Dispose() {
     CHECK_GL_ERROR();
-    for(unsigned i=0; i<programs.size(); ++i){
-        Program& program = programs[i];
+    for(auto & program : programs){
         if(program.gl_program != UNLOADED_SHADER_ID) {
-            for(int i=0; i<kMaxShaderTypes; ++i){
-                if( program.shader_ids[i] >= 0 ) {
-                    glDetachShader(program.gl_program, shaders[program.shader_ids[i]].gl_shader);
+            for(int shader_id : program.shader_ids){
+                if( shader_id >= 0 ) {
+                    glDetachShader(program.gl_program, shaders[shader_id].gl_shader);
                 }
             }
             glDeleteProgram(program.gl_program);
         }
     }
-    for(unsigned i=0; i<shaders.size(); ++i){
-        if(shaders[i].gl_shader != UNLOADED_SHADER_ID) {
-            glDeleteShader(shaders[i].gl_shader);
+    for(auto & shader : shaders){
+        if(shader.gl_shader != UNLOADED_SHADER_ID) {
+            glDeleteShader(shader.gl_shader);
         }
     }
 
@@ -190,20 +189,20 @@ static void Preprocess(Shader* shader, ShaderType type, const std::vector<std::s
     
     bool no_velocity_buf_defined = false;
 
-    for(unsigned i=0; i<definitions.size(); ++i){
-        if(definitions[i] == "TANGENT"){
+    for(const auto & definition : definitions){
+        if(definition == "TANGENT"){
             shader->use_tangent = true;
         }
-        if(definitions[i] == "ALPHA"){
+        if(definition == "ALPHA"){
             shader->transparent = true;
         }
-        if(definitions[i] == "DEPTH_ONLY") {
+        if(definition == "DEPTH_ONLY") {
             shader->depth_only = true;
         }
-        if(definitions[i] == "PARTICLE") {
+        if(definition == "PARTICLE") {
             shader->particle = true;
         }
-        if(definitions[i] == "NO_VELOCITY_BUF") {
+        if(definition == "NO_VELOCITY_BUF") {
             no_velocity_buf_defined = true;
         }
     }
@@ -297,8 +296,8 @@ static void Preprocess(Shader* shader, ShaderType type, const std::vector<std::s
         AddShaderDefinition(&text, "TESSELATION_EVALUATOR_SHADER");
     }
 
-    for(unsigned i=0; i<definitions.size(); ++i){
-        AddShaderDefinition(&text, definitions[i]);
+    for(const auto & definition : definitions){
+        AddShaderDefinition(&text, definition);
     }
     if (GLAD_GL_ARB_sample_shading) {
         AddShaderDefinition(&text, "ARB_sample_shading_available");
@@ -367,8 +366,8 @@ void Shaders::Reload(bool force) {
         Program& program = programs[i];
         if(program.gl_program != UNLOADED_SHADER_ID) {
             bool unloaded = false;
-            for(int j=0; j<kMaxShaderTypes; ++j){
-                if(program.shader_ids[j] >= 0 && shaders[program.shader_ids[j]].gl_shader == UNLOADED_SHADER_ID){
+            for(int shader_id : program.shader_ids){
+                if(shader_id >= 0 && shaders[shader_id].gl_shader == UNLOADED_SHADER_ID){
                     unloaded = true;
                     break;
                 }
@@ -386,8 +385,8 @@ void Shaders::Reload(bool force) {
 int Shaders::returnShader(const char *path, ShaderType type, const std::vector<std::string> &definitions) {
     std::string full_path;
     full_path = path;
-    for(unsigned i=0; i<definitions.size(); ++i){
-        full_path += " #" + definitions[i];
+    for(const auto & definition : definitions){
+        full_path += " #" + definition;
     }
 
     for (unsigned i=0; i<shaders.size(); ++i){
@@ -659,8 +658,8 @@ int Shaders::returnProgram(std::string name, OptionalShaders optional_shaders) {
         } 
     }
 
-    for(int i=0; i<kMaxShaderTypes; ++i){
-        program.shader_ids[i] = MISSING_GEOM_SHADER_ID;
+    for(int & shader_id : program.shader_ids){
+        shader_id = MISSING_GEOM_SHADER_ID;
     }
 
     program.shader_ids[_vertex] = returnShader(vertex_path.c_str(), _vertex, definitions);
@@ -1174,15 +1173,15 @@ void Shaders::SetUniformVec3Array(GLint var_id, const vec3* val, int size) {
 
 void Shaders::ResetVRAM()
 {
-    for(unsigned i=0; i<shaders.size(); ++i){
-        shaders[i].gl_shader = UNLOADED_SHADER_ID;
+    for(auto & shader : shaders){
+        shader.gl_shader = UNLOADED_SHADER_ID;
     }
-    for(unsigned i=0; i<programs.size(); ++i){
-        programs[i].gl_program = UNLOADED_SHADER_ID;
-        programs[i].attrib_address_cache.clear();
-        programs[i].uniform_address_cache.clear();
-        programs[i].uniform_value_cache.clear();
-        programs[i].uniform_offset_cache.clear();
+    for(auto & program : programs){
+        program.gl_program = UNLOADED_SHADER_ID;
+        program.attrib_address_cache.clear();
+        program.uniform_address_cache.clear();
+        program.uniform_value_cache.clear();
+        program.uniform_offset_cache.clear();
     }
 }
 

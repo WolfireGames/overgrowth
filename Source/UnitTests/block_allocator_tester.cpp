@@ -61,11 +61,11 @@ namespace tut
 
         uint64_t* ptrs[block_count];
 
-        for(uint32_t i = 0; i < block_count; i++ )
+        for(auto & ptr : ptrs)
         {
-            ptrs[i] = (uint64_t*)ba.Alloc(blocksize);
+            ptr = (uint64_t*)ba.Alloc(blocksize);
         
-            ensure( "NULL Return", ptrs[i] != NULL );
+            ensure( "NULL Return", ptr != NULL );
         }
         free(mem);
     }

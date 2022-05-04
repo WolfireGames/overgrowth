@@ -39,9 +39,9 @@ void AIPaths::Draw() {
                                              vec4(0.0f,0.5f,0.5f,0.5f),
                                              _delete_on_draw);
     }
-    for(unsigned i=0; i<connections.size(); ++i){
-        DebugDraw::Instance()->AddLine(GetPointPosition(connections[i].point_ids[0]),
-                                       GetPointPosition(connections[i].point_ids[1]),
+    for(auto & connection : connections){
+        DebugDraw::Instance()->AddLine(GetPointPosition(connection.point_ids[0]),
+                                       GetPointPosition(connection.point_ids[1]),
                                        vec4(0.0f,0.5f,0.5f,0.5f), 
                                        _delete_on_draw);
     }
@@ -78,12 +78,12 @@ vec3 AIPaths::GetPointPosition( int point_id ) {
 
 int AIPaths::GetConnectedPoint( int point_id )
 {
-    for(unsigned i=0; i<connections.size(); ++i){
-        if(connections[i].point_ids[0] == point_id){
-            return connections[i].point_ids[1];
+    for(auto & connection : connections){
+        if(connection.point_ids[0] == point_id){
+            return connection.point_ids[1];
         }
-        if(connections[i].point_ids[1] == point_id){
-            return connections[i].point_ids[0];
+        if(connection.point_ids[1] == point_id){
+            return connection.point_ids[0];
         }
     }
     return -1;
@@ -91,14 +91,14 @@ int AIPaths::GetConnectedPoint( int point_id )
 
 int AIPaths::GetOtherConnectedPoint( int point_id, int other_id )
 {
-    for(unsigned i=0; i<connections.size(); ++i){
-        if(connections[i].point_ids[0] == point_id &&
-           connections[i].point_ids[1] != other_id){
-            return connections[i].point_ids[1];
+    for(auto & connection : connections){
+        if(connection.point_ids[0] == point_id &&
+           connection.point_ids[1] != other_id){
+            return connection.point_ids[1];
         }
-        if(connections[i].point_ids[1] == point_id &&
-           connections[i].point_ids[0] != other_id){
-            return connections[i].point_ids[0];
+        if(connection.point_ids[1] == point_id &&
+           connection.point_ids[0] != other_id){
+            return connection.point_ids[0];
         }
     }
     return -1;

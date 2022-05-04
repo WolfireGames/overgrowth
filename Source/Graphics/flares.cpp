@@ -394,8 +394,7 @@ void Flares::Update(float timestep) {
         old_angle = new_angle;
         new_angle = RangedRandomFloat(0.0f,360.0f);
     }
-    for (unsigned i=0; i<flares.size(); i++) {
-        Flare* flare = flares[i];
+    for (auto flare : flares) {
         flare->old_position = flare->position;
         flare->slow_visible = mix(flare->visible,flare->slow_visible,_slow_visible_inertia);
         if(flare->visible == 0.0f && flare->slow_visible < 0.01f){
@@ -444,9 +443,9 @@ void Flares::DeleteFlare(Flare* flare){
     std::vector<Flare*>::iterator flare_iter = std::find(flares.begin(), flares.end(), flare);
     if(flare_iter != flares.end()){
         Flare* flare = (*flare_iter);
-        for(unsigned i=0; i<flare->query.size(); ++i){
-            if(flare->query[i].created){
-                glDeleteQueries(1,&flare->query[i].id);
+        for(auto & i : flare->query){
+            if(i.created){
+                glDeleteQueries(1,&i.id);
             }
         }
         delete flare;
@@ -463,9 +462,9 @@ void Flares::CleanupFlares() {
     for(;it != flares.end(); ++it)
     {
         Flare* flare = (*it);
-        for(unsigned i=0; i<flare->query.size(); ++i){
-            if(flare->query[i].created){
-                glDeleteQueries(1,&flare->query[i].id);
+        for(auto & i : flare->query){
+            if(i.created){
+                glDeleteQueries(1,&i.id);
             }
         }
         delete (*it);

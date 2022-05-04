@@ -129,8 +129,8 @@ std::queue<AnimationEvent> AnimationClient::GetActiveEvents() {
             events.pop();
         }
     }
-    for(unsigned i=0; i<layers.size(); ++i){
-        std::queue<AnimationEvent> &events = layers[i].reader.GetActiveEvents();
+    for(auto & layer : layers){
+        std::queue<AnimationEvent> &events = layer.reader.GetActiveEvents();
         while(!events.empty()){
             total_events.push(events.front());
             events.pop();
@@ -157,8 +157,8 @@ void AnimationClient::Update(float timestep) {
         }
     }
     fade_out.Update(blendmap, as_context, timestep);
-    for(unsigned i=0; i<layers.size(); ++i){
-        layers[i].fade_out.Update(blendmap, as_context, timestep);
+    for(auto & layer : layers){
+        layer.fade_out.Update(blendmap, as_context, timestep);
     }
     UpdateLayers(timestep);
 }
@@ -240,8 +240,8 @@ void AnimationClient::GetMatrices( AnimOutput &anim_output, const std::vector<in
 
 	// Apply character rotation modifier
     std::map<int, WeapAnimInfo> &weap_anim_info_map = ang_anim_output.weap_anim_info_map;
-    for(int i=0, len=ang_anim_output.ik_bones.size(); i<len; ++i){
-        ang_anim_output.ik_bones[i].unmodified_transform = ang_anim_output.ik_bones[i].transform;
+    for(auto & ik_bone : ang_anim_output.ik_bones){
+        ik_bone.unmodified_transform = ik_bone.transform;
     }
 
     anim_output.unmodified_matrices = matrices;
@@ -348,8 +348,8 @@ void FadeCollection::clear()
 float FadeCollection::GetOpac()
 {
     float opac = 1.0f;
-    for(unsigned i=0; i<fade_out.size(); ++i){
-        opac *= (1.0f-fade_out[i].opac);
+    for(auto & i : fade_out){
+        opac *= (1.0f-i.opac);
     }
     return opac;
 }

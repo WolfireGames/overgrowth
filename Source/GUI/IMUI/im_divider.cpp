@@ -87,8 +87,8 @@ void IMDivider::setOwnerParent( IMGUI* _owner, IMElement* _parent ) {
     parent = _parent;
     
     // Simply pass this on to the children
-    for( unsigned int i = 0; i < containers.size(); i++ ) {
-        containers[i]->setOwnerParent( owner, this );
+    for(auto & container : containers) {
+        container->setOwnerParent( owner, this );
     }
 }
 
@@ -107,8 +107,8 @@ void IMDivider::setAlignment( ContainerAlignment xAlignment, ContainerAlignment 
     contentsYAlignment = yAlignment;
     
     if( reposition ) {
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
-            containers[i]->setAlignment( xAlignment, yAlignment );
+        for(auto & container : containers) {
+            container->setAlignment( xAlignment, yAlignment );
         }
     }
     
@@ -121,10 +121,8 @@ void IMDivider::setAlignment( ContainerAlignment xAlignment, ContainerAlignment 
  */
 void IMDivider::clear() {
     std::vector<IMContainer*> containers_copy = containers;
-    for(std::vector<IMContainer*>::iterator iter = containers_copy.begin();
-        iter != containers_copy.end();
-        ++iter) {
-            (*iter)->Release();
+    for(auto & iter : containers_copy) {
+            iter->Release();
     }
     containers.resize(0);
     onRelayout();
@@ -151,15 +149,15 @@ void IMDivider::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
     vec2 currentDrawOffset = drawOffset + drawDisplacement;
     
     // Simply pass this on to the children
-    for( unsigned int i = 0; i < containers.size(); i++ ) {
+    for(auto & container : containers) {
         
-        containers[i]->update( delta, currentDrawOffset, guistate );
+        container->update( delta, currentDrawOffset, guistate );
         
         if( orientation == DOVertical ) {
-            currentDrawOffset.y() += containers[i]->getSizeY();
+            currentDrawOffset.y() += container->getSizeY();
         }
         else {
-            currentDrawOffset.x() += containers[i]->getSizeX();
+            currentDrawOffset.x() += container->getSizeX();
         }
     }
     
@@ -197,20 +195,20 @@ void IMDivider::render( vec2 drawOffset, vec2 clipPos, vec2 clipSize ) {
     
     // Simply pass this on to the children
     vec2 currentDrawOffset = drawOffset + drawDisplacement;
-    for( unsigned int i = 0; i < containers.size(); i++ ) {
+    for(auto & container : containers) {
         
-        containers[i]->render( currentDrawOffset, currentClipPos, currentClipSize );
+        container->render( currentDrawOffset, currentClipPos, currentClipSize );
         
         if( orientation == DOVertical ) {
             
-            if( containers[i]->getSizeY() > 0 ) {
-                currentDrawOffset.y() += containers[i]->getSizeY();
+            if( container->getSizeY() > 0 ) {
+                currentDrawOffset.y() += container->getSizeY();
             }
         }
         else {
             
-            if( containers[i]->getSizeX() > 0 ) {
-                currentDrawOffset.x() += containers[i]->getSizeX();
+            if( container->getSizeX() > 0 ) {
+                currentDrawOffset.x() += container->getSizeX();
             }
         }
     }
@@ -231,13 +229,13 @@ void IMDivider::checkRegions() {
     if( orientation == DOVertical ) {
         
         // First calculate the height
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
+        for(auto & container : containers) {
             
             // see if this element is a dynamic spacer
             // first check if there is an element in this container
-            if( containers[i]->contents != NULL ) {
+            if( container->contents != NULL ) {
                 // now see if we can cast it
-                if( IMSpacer* spacer = dynamic_cast<IMSpacer*>( containers[i]->contents ) ) {
+                if( IMSpacer* spacer = dynamic_cast<IMSpacer*>( container->contents ) ) {
                     if( spacer != NULL && spacer->isStatic == false ) {
                         // queue this up
                         dynamicSpacers.push_back( spacer );
@@ -248,7 +246,7 @@ void IMDivider::checkRegions() {
             }
             
             // add to our total
-            totalSize += containers[i]->getSizeY();
+            totalSize += container->getSizeY();
             
         }
         
@@ -256,8 +254,8 @@ void IMDivider::checkRegions() {
         // see if we've got dynamic spacers and spare space
         if( dynamicSpacers.size() > 0 && totalSize < parent->getSizeY() ) {
             float spacerSize = (parent->getSizeY() - totalSize )/((float) dynamicSpacers.size() );
-            for( unsigned int i = 0; i < dynamicSpacers.size(); i++ ) {
-                dynamicSpacers[i]->setSizeY( spacerSize );
+            for(auto & dynamicSpacer : dynamicSpacers) {
+                dynamicSpacer->setSizeY( spacerSize );
                 addedSpace += spacerSize;
             }
         }
@@ -268,16 +266,16 @@ void IMDivider::checkRegions() {
         
         // Now just fit the divider to the widest element
         float maxSize = UNDEFINEDSIZE;
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
-            if( containers[i]->getSizeX() > maxSize ) {
-                maxSize = containers[i]->getSizeX();
+        for(auto & container : containers) {
+            if( container->getSizeX() > maxSize ) {
+                maxSize = container->getSizeX();
             }
         }
         
         // if we've grown then resize the container and its elements
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
-            if( containers[i]->getSizeX() != maxSize ) {
-                containers[i]->setSizeX( maxSize );
+        for(auto & container : containers) {
+            if( container->getSizeX() != maxSize ) {
+                container->setSizeX( maxSize );
             }
         }
         
@@ -289,13 +287,13 @@ void IMDivider::checkRegions() {
     else {
         
         // First calculate the height
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
+        for(auto & container : containers) {
             
             // see if this element is a dynamic spacer
             // first check if there is an element in this container
-            if( containers[i]->contents != NULL ) {
+            if( container->contents != NULL ) {
                 // now see if we can cast it
-                IMSpacer* spacer = dynamic_cast<IMSpacer*>( containers[i]->contents );
+                IMSpacer* spacer = dynamic_cast<IMSpacer*>( container->contents );
                 
                 if( spacer != NULL && spacer->isStatic == false ) {
                     // queue this up
@@ -306,7 +304,7 @@ void IMDivider::checkRegions() {
             }
             
             // add to our total
-            totalSize += containers[i]->getSizeX();
+            totalSize += container->getSizeX();
             
         }
         
@@ -314,8 +312,8 @@ void IMDivider::checkRegions() {
         // see if we've got dynamic spacers and spare space
         if( dynamicSpacers.size() > 0 && totalSize < parent->getSizeX() ) {
             float spacerSize = (parent->getSizeX() - totalSize )/((float)dynamicSpacers.size() );
-            for( unsigned int i = 0; i < dynamicSpacers.size(); i++ ) {
-                dynamicSpacers[i]->setSizeX( spacerSize );
+            for(auto & dynamicSpacer : dynamicSpacers) {
+                dynamicSpacer->setSizeX( spacerSize );
                 addedSpace += spacerSize;
             }
         }
@@ -326,16 +324,16 @@ void IMDivider::checkRegions() {
         
         // Now just fit the divider to the widest element
         float maxSize = UNDEFINEDSIZE;
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
-            if( containers[i]->getSizeY() > maxSize ) {
-                maxSize = containers[i]->getSizeY();
+        for(auto & container : containers) {
+            if( container->getSizeY() > maxSize ) {
+                maxSize = container->getSizeY();
             }
         }
         
         // if we've grown then resize the container and its elements
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
-            if( containers[i]->getSizeY() != maxSize ) {
-                containers[i]->setSizeY( maxSize );
+        for(auto & container : containers) {
+            if( container->getSizeY() != maxSize ) {
+                container->setSizeY( maxSize );
             }
         }
         
@@ -357,8 +355,8 @@ void IMDivider::doRelayout() {
     IMElement::doRelayout();
     
     // First pass this down to the children
-    for( unsigned int i = 0; i < containers.size(); i++ ) {
-        containers[i]->doRelayout();
+    for(auto & container : containers) {
+        container->doRelayout();
     }
     
     checkRegions();
@@ -376,8 +374,8 @@ void IMDivider::doScreenResize()  {
     IMElement::doScreenResize();
     
     // Pass this down to the children
-    for( unsigned int i = 0; i < containers.size(); i++ ) {
-        containers[i]->doScreenResize();
+    for(auto & container : containers) {
+        container->doScreenResize();
     }
     
     onRelayout();
@@ -472,10 +470,10 @@ IMContainer* IMDivider::getContainerAt( unsigned int i ) {
  *
  */
 IMContainer* IMDivider::getContainerOf( std::string const& _name ) {
-    for( unsigned int i = 0; i < containers.size(); i++ ) {
+    for(auto & container : containers) {
         
-        if( containers[i]->contents != NULL && containers[i]->contents->getName() == _name ) {
-            return containers[i];
+        if( container->contents != NULL && container->contents->getName() == _name ) {
+            return container;
         }
     }
     return NULL;
@@ -590,9 +588,9 @@ IMElement* IMDivider::findElement( std::string const& elementName ) {
     else {
         // If not, pass the request onto the children
         
-        for( unsigned int i = 0; i < containers.size(); i++ ) {
+        for(auto & container : containers) {
             
-            IMElement* results = containers[i]->findElement( elementName );
+            IMElement* results = container->findElement( elementName );
             
             if( results != NULL ) {
                 return results;
@@ -606,8 +604,8 @@ IMElement* IMDivider::findElement( std::string const& elementName ) {
 
 void IMDivider::setPauseBehaviors( bool pause ) {
     IMElement::setPauseBehaviors( pause );
-    for( unsigned int i = 0; i < containers.size(); i++ ) {
-        containers[i]->setPauseBehaviors( pause );
+    for(auto & container : containers) {
+        container->setPauseBehaviors( pause );
     }
 }
 
@@ -633,10 +631,8 @@ IMDivider::~IMDivider() {
     std::vector<IMContainer*> deletelist = containers;
     containers.clear();
 
-    for( std::vector<IMContainer*>::iterator it = deletelist.begin();
-         it != deletelist.end();
-         ++it ) {
-        (*it)->Release();
+    for(auto & it : deletelist) {
+        it->Release();
     }
 }
 

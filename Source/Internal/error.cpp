@@ -202,8 +202,8 @@ ErrorResponse DisplayError(const char* title, const char* contents, ErrorType ty
     bool active_mods = false;
     int active_count = 0;
     std::vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for( unsigned i = 0; i < mods.size(); i++ ) {
-        if( mods[i]->IsActive() && mods[i]->IsCore() == false) {
+    for(auto & mod : mods) {
+        if( mod->IsActive() && mod->IsCore() == false) {
             if( active_mods == false ) {
                 modlist << "Following mods are active" << std::endl;
                 active_mods = true;
@@ -214,7 +214,7 @@ ErrorResponse DisplayError(const char* title, const char* contents, ErrorType ty
                     modlist << ", ";
                 }
             }
-            modlist << mods[i]->id;
+            modlist << mod->id;
             active_count++;
         }
     }

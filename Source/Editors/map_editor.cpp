@@ -195,8 +195,7 @@ static Object::ConnectionType GetConnectionType(const std::vector<Object*> &sele
     bool navmesh_connection_objects_only = true;
     bool single_placeholder_object = (selected.size()==1);
     bool hotspots_only = true;
-    for(unsigned i=0; i<selected.size(); ++i) {
-        const Object* obj = selected[i];
+    for(auto obj : selected) {
         EntityType type = obj->GetType();
         if(type != _movement_object) {
             movement_objects_only = false;
@@ -289,11 +288,8 @@ void MapEditor::RemoveObject(Object* o, SceneGraph* scenegraph, bool removed_by_
     char buf[BUF_SIZE];
     snprintf(buf, BUF_SIZE, "notify_deleted %d", o->GetID());
     scenegraph->level->Message(buf);
-    for (SceneGraph::object_list::iterator iter = scenegraph->objects_.begin();
-        iter != scenegraph->objects_.end();
-        ++iter)
+    for (auto obj : scenegraph->objects_)
     {
-        Object* obj = *iter;
         obj->NotifyDeleted(o);
     }
     scenegraph->UnlinkObject(o);
@@ -445,8 +441,8 @@ void MapEditor::RibbonItemClicked(const std::string& item, bool param) {
         LightProbeCollection& lpc = scenegraph_->light_probe_collection;
         for(size_t light_probe_index=0, len=lpc.light_probes.size(); light_probe_index<len; ++light_probe_index){
             LightProbe& light_probe = lpc.light_probes[light_probe_index];
-            for(int cube_face=0; cube_face<6; ++cube_face){
-                light_probe.ambient_cube_color[cube_face] = vec3(0.0f);
+            for(auto & cube_face : light_probe.ambient_cube_color){
+                cube_face = vec3(0.0f);
             }
             lpc.MoveProbe(light_probe.id, light_probe.pos); // Hackish way to force refresh of this probe
         }
@@ -474,10 +470,8 @@ void MapEditor::RibbonItemClicked(const std::string& item, bool param) {
 }
 
 static void SendMessageToSelectedObjectsVAList(SceneGraph *scenegraph, OBJECT_MSG::Type type, va_list args){
-    for (SceneGraph::object_list::iterator iter = scenegraph->objects_.begin();
-        iter != scenegraph->objects_.end(); ++iter)
+    for (auto obj : scenegraph->objects_)
     {
-        Object* obj = (*iter);
         if (obj->Selected()) {
             obj->ReceiveObjectMessageVAList(type, args);
         }
@@ -594,8 +588,7 @@ void MapEditor::Initialize(SceneGraph* s) {
 }
 
 void MapEditor::UpdateEnabledObjects() {
-    for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-        Object* obj = scenegraph_->objects_[i];
+    for (auto obj : scenegraph_->objects_) {
         obj->editor_visible = type_visible_.IsTypeEnabled(obj->GetType());
         if(!type_enable_.IsTypeEnabled(obj->GetType())){
             obj->Select(false);
@@ -604,8 +597,8 @@ void MapEditor::UpdateEnabledObjects() {
 }
 
 void MapEditor::InitializeColorHistory() {
-    for(int i = 0; i < kColorHistoryLen; ++i) {
-        color_history_[i] = vec4(1.0f);
+    for(auto & i : color_history_) {
+        i = vec4(1.0f);
     }
 }
 
@@ -620,12 +613,11 @@ void DrawWeaponConnectionUI(const SceneGraph* scenegraph, IMUIContext &imui_cont
     vec3 cam_up = ActiveCameras::Get()->GetUpVector();
     vec3 cam_right = cross(cam_facing, cam_up);
     int ui_index = 0;
-    for(unsigned i=0; i<scenegraph->movement_objects_.size(); ++i){
-        MovementObject* mo = (MovementObject*)scenegraph->movement_objects_[i];
+    for(auto movement_object : scenegraph->movement_objects_){
+        MovementObject* mo = (MovementObject*)movement_object;
         std::list<AttachmentSlot> list;
         mo->rigged_object()->AvailableItemSlots(item_ref, &list);
-        for(std::list<AttachmentSlot>::iterator iter = list.begin(); iter != list.end(); ++iter){
-            AttachmentSlot& slot = *iter;
+        for(auto & slot : list){
             mat4 circle_transform;
             circle_transform.SetColumn(0, cam_right * 0.1f);
             circle_transform.SetColumn(1, cam_up * 0.1f);
@@ -808,9 +800,9 @@ static void DrawControlledFace(const Box& box_, const Object* object_, int face_
                 mat[1] = mat[0] * transform_test;
                 for(int i=0; i<3; ++i){
                     for(int j=0; j<2; ++j){
-                        for(int k=0; k<2; ++k){
-                            points[0] = mat[k] * vec3(0.5f, 0.0f,               -0.5f+0.5f*(float)i);
-                            points[1] = mat[k] * vec3(0.5f, 1.0f-(float)j*2.0f, -0.5f+0.5f*(float)i);
+                        for(const auto & k : mat){
+                            points[0] = k * vec3(0.5f, 0.0f,               -0.5f+0.5f*(float)i);
+                            points[1] = k * vec3(0.5f, 1.0f-(float)j*2.0f, -0.5f+0.5f*(float)i);
                             DebugDraw::Instance()->AddLine(points[0], points[1], vec4(color, 1.0f), vec4(color, 0.0f), _delete_on_draw);
                         }
                     }
@@ -840,8 +832,7 @@ void MapEditor::Draw() {
 
     if(!Graphics::Instance()->media_mode()){
         if(active_tool_ != EditorTypes::CONNECT && active_tool_ != EditorTypes::DISCONNECT) {
-            for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-                Object *obj = scenegraph_->objects_[i];
+            for (auto obj : scenegraph_->objects_) {
                 if(obj->editor_visible){
                     const EntityType& type = obj->GetType();
 
@@ -860,8 +851,8 @@ void MapEditor::Draw() {
                 }
                 if(always_draw_hotspot_connections) {
                     vec3 start = obj->GetTranslation();
-                    for(size_t j = 0; j < obj->connected_to.size(); ++j) {
-                        vec3 end = scenegraph_->GetObjectFromID(obj->connected_to[j])->GetTranslation();
+                    for(int j : obj->connected_to) {
+                        vec3 end = scenegraph_->GetObjectFromID(j)->GetTranslation();
                         DebugDraw::Instance()->AddLine(start, end, vec4(0.0f,1.0f,0.0f,0.8f), _delete_on_draw);
                     }
                 }
@@ -908,14 +899,13 @@ void MapEditor::Draw() {
             float highlit_obj_dist = FLT_MAX;
 
             if(connection_type != Object::kCTNone) {
-                for(size_t i = 0; i < scenegraph_->objects_.size(); ++i) {
-                    Object* obj = scenegraph_->objects_[i];
+                for(auto obj : scenegraph_->objects_) {
                     if(IsTypeEnabled(obj->GetType())) {
                         bool add_object = obj->Selected();
                         if(!obj->Selected()) {
-                            for(size_t j = 0; j < selected.size(); ++j) {
-                                if(selected[j]->GetType() == _hotspot_object) {
-                                    Hotspot* selected_obj = (Hotspot*)selected[j];
+                            for(auto & j : selected) {
+                                if(j->GetType() == _hotspot_object) {
+                                    Hotspot* selected_obj = (Hotspot*)j;
                                     if(selected_obj->AcceptConnectionsTo(*obj)) {
                                         if(obj->GetType() == _hotspot_object) {
                                             if(((Hotspot*)obj)->AcceptConnectionsFromImplemented()) {
@@ -935,7 +925,7 @@ void MapEditor::Draw() {
                                         break;
                                     }
                                 } else {
-                                    add_object = obj->AcceptConnectionsFrom(connection_type, *selected[j]);
+                                    add_object = obj->AcceptConnectionsFrom(connection_type, *j);
                                     if(!add_object) {
                                         add_object = false;
                                         break;
@@ -963,23 +953,23 @@ void MapEditor::Draw() {
             float highlit_obj_dist = FLT_MAX;
             std::vector<int> connected_ids;
             connected_ids.reserve(64);
-            for(size_t i = 0; i < selected.size(); ++i) {
-                Object* selected_obj = selected[i];
+            for(auto & i : selected) {
+                Object* selected_obj = i;
                 box_objects.push_back(selected_obj);
                 connected_ids.clear();
-                selected[i]->GetConnectionIDs(&connected_ids);
-                for(size_t j = 0; j < connected_ids.size(); ++j) {
-                    Object* obj = scenegraph_->GetObjectFromID(connected_ids[j]);
+                i->GetConnectionIDs(&connected_ids);
+                for(int connected_id : connected_ids) {
+                    Object* obj = scenegraph_->GetObjectFromID(connected_id);
                     GetClosest(mouseray, obj, highlit_obj, highlit_obj_dist);
                     box_objects.push_back(obj);
                 }
-                for(size_t j = 0; j < selected_obj->connected_to.size(); ++j) {
-                    Object* obj = scenegraph_->GetObjectFromID(selected_obj->connected_to[j]);
+                for(int j : selected_obj->connected_to) {
+                    Object* obj = scenegraph_->GetObjectFromID(j);
                     GetClosest(mouseray, obj, highlit_obj, highlit_obj_dist);
                     box_objects.push_back(obj);
                 }
-                for(size_t j = 0; j < selected_obj->connected_from.size(); ++j) {
-                    Object* obj = scenegraph_->GetObjectFromID(selected_obj->connected_from[j]);
+                for(int j : selected_obj->connected_from) {
+                    Object* obj = scenegraph_->GetObjectFromID(j);
                     GetClosest(mouseray, obj, highlit_obj, highlit_obj_dist);
                     box_objects.push_back(obj);
                 }
@@ -996,8 +986,8 @@ void MapEditor::Draw() {
 					selected_objects[i] = selected[i];
                 }
                 std::vector<Object*> &movement_objects = scenegraph_->movement_objects_;
-                for(size_t i=0, len=movement_objects.size(); i<len; ++i){
-                    MovementObject* mo = (MovementObject*)movement_objects[i];
+                for(auto & movement_object : movement_objects){
+                    MovementObject* mo = (MovementObject*)movement_object;
                     if(mo->rigged_object()->DrawBoneConnectUI(selected_objects, (int) selected.size(), imui_context, active_tool_, mo->GetID())){
                         QueueSaveHistoryState();
                     }
@@ -1005,22 +995,22 @@ void MapEditor::Draw() {
             }
         }
 
-        for(size_t i = 0; i < selected.size(); ++i) {
-            vec3 start = selected[i]->GetTranslation();
-            for(size_t j = 0; j < selected[i]->connected_to.size(); ++j) {
-                vec3 end = scenegraph_->GetObjectFromID(selected[i]->connected_to[j])->GetTranslation();
+        for(auto & i : selected) {
+            vec3 start = i->GetTranslation();
+            for(size_t j = 0; j < i->connected_to.size(); ++j) {
+                vec3 end = scenegraph_->GetObjectFromID(i->connected_to[j])->GetTranslation();
                 DebugDraw::Instance()->AddLine(start, end, vec4(0.0f,1.0f,0.0f,0.8f), _delete_on_draw);
                 DebugDraw::Instance()->AddLine(start, end, vec4(0.0f,1.0f,0.0f,0.3f), _delete_on_draw, _DD_XRAY);
             }
-            for(size_t j = 0; j < selected[i]->connected_from.size(); ++j) {
-                vec3 end = scenegraph_->GetObjectFromID(selected[i]->connected_from[j])->GetTranslation();
+            for(size_t j = 0; j < i->connected_from.size(); ++j) {
+                vec3 end = scenegraph_->GetObjectFromID(i->connected_from[j])->GetTranslation();
                 DebugDraw::Instance()->AddLine(start, end, vec4(1.0f,0.0f,0.0f,0.8f), _delete_on_draw);
                 DebugDraw::Instance()->AddLine(start, end, vec4(1.0f,0.0f,0.0f,0.3f), _delete_on_draw, _DD_XRAY);
             }
         }
 
-        for(size_t i = 0; i < box_objects.size(); ++i) {
-            DrawBox(box_objects[i]->box_, box_objects[i], box_objects[i] == highlit_obj || box_objects[i]->Selected(), box_objects[i]->box_color);
+        for(auto & box_object : box_objects) {
+            DrawBox(box_object->box_, box_object, box_object == highlit_obj || box_object->Selected(), box_object->box_color);
         }
     } else {
         imui_context.ClearHot();
@@ -1087,8 +1077,7 @@ static Collision lineCheckSelected(SceneGraph::object_list &objects, const vec3 
     vec3 normal;
     int collided=-1;
     int collide=-1;
-    for(size_t i=0, len=objects.size(); i<len; ++i){
-        Object* obj = objects[i];
+    for(auto obj : objects){
         if (obj->Selected()) {
             collide = obj->lineCheck(start,new_end,point,&normal);
             if(collide!=-1) {
@@ -1298,14 +1287,13 @@ void MapEditor::Update(GameCursor* cursor) {
             }
             scenegraph_->level->SaveHistoryState(chunks, state_id);
             std::vector<Object*> entities;
-            for(size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i){
-                Object* obj = scenegraph_->objects_[i];
+            for(auto obj : scenegraph_->objects_){
                 if(!obj->parent && !obj->exclude_from_undo){
                     entities.push_back(obj);
                 }
             }
-            for (unsigned i=0; i<entities.size(); ++i) {
-                entities[i]->SaveHistoryState(chunks, state_id);
+            for (auto & entitie : entities) {
+                entitie->SaveHistoryState(chunks, state_id);
             }
             sky_editor_->SaveHistoryState(chunks, state_id);
             // Find out how many chunks have been changed
@@ -1435,8 +1423,8 @@ void MapEditor::DeleteSelected() {
                 objects_to_delete.push_back(obj);
         }
     }
-    for(size_t i=0, len=objects_to_delete.size(); i<len; ++i){
-        RemoveObject(objects_to_delete[i], scenegraph_);
+    for(auto & i : objects_to_delete){
+        RemoveObject(i, scenegraph_);
     }
     QueueSaveHistoryState();
 }
@@ -1452,9 +1440,9 @@ void MapEditor::GroupSelected() {
     ReturnSelected(&selected);
     if(selected.size() > 1){
         std::vector<int> child_ids;
-        for(size_t i=0, len=selected.size(); i<len; ++i){
-            if(!selected[i]->parent){
-                child_ids.push_back(selected[i]->GetID());
+        for(auto & i : selected){
+            if(!i->parent){
+                child_ids.push_back(i->GetID());
             }
         }
         if(child_ids.size() > 1){
@@ -1482,16 +1470,16 @@ void MapEditor::GroupSelected() {
 
 bool MapEditor::ContainsPrefabsRecursively( std::vector<Object*> objects ) {
     bool res = false;
-    for( unsigned i = 0; i < objects.size(); i++ ) {
-        if( objects[i]->IsGroupDerived() ) {
-            Group *g = static_cast<Group*>(objects[i]);
+    for(auto & object : objects) {
+        if( object->IsGroupDerived() ) {
+            Group *g = static_cast<Group*>(object);
             std::vector<Object*> kids;
-            for( unsigned k = 0; k < g->children.size(); k++ ) {
-                kids.push_back(g->children[k].direct_ptr);
+            for(auto & k : g->children) {
+                kids.push_back(k.direct_ptr);
             }
             res = res || ContainsPrefabsRecursively(kids);
 
-            if( objects[i]->GetType() == _prefab ) {
+            if( object->GetType() == _prefab ) {
                 res = true;
             }
         }
@@ -1542,9 +1530,9 @@ int MapEditor::PrefabSelected() {
         }
     } else if(selected.size() > 0) {
         std::vector<int> child_ids;
-        for(size_t i=0, len=selected.size(); i<len; ++i){
-            if(!selected[i]->parent){
-                child_ids.push_back(selected[i]->GetID());
+        for(auto & i : selected){
+            if(!i->parent){
+                child_ids.push_back(i->GetID());
             }
         }
         if(child_ids.size() > 0){
@@ -1579,32 +1567,29 @@ int MapEditor::PrefabSelected() {
 void MapEditor::UngroupSelected() {
     RibbonFlash(gui, "ungroup");
     ReturnSelected(&selected);
-    for(size_t i=0, len=selected.size(); i<len; ++i){
-        if(selected[i]->GetType() == _group || selected[i]->GetType() == _prefab){
-            selected[i]->SetParent(NULL); // Disconnects from any parent objects
+    for(auto & i : selected){
+        if(i->GetType() == _group || i->GetType() == _prefab){
+            i->SetParent(NULL); // Disconnects from any parent objects
             // Notify everyone that object is deleted
             const int BUF_SIZE = 255;
             char buf[BUF_SIZE];
-            snprintf(buf, BUF_SIZE, "notify_deleted %d", selected[i]->GetID());
+            snprintf(buf, BUF_SIZE, "notify_deleted %d", i->GetID());
             scenegraph_->level->Message(buf);
-            for (SceneGraph::object_list::iterator iter = scenegraph_->objects_.begin();
-                iter != scenegraph_->objects_.end();
-                ++iter)
+            for (auto obj : scenegraph_->objects_)
             {
-                Object* obj = *iter;
-                obj->NotifyDeleted(selected[i]);
+                obj->NotifyDeleted(i);
             }
-            scenegraph_->UnlinkObject(selected[i]);
-            selected[i]->Dispose();
-            delete(selected[i]);
+            scenegraph_->UnlinkObject(i);
+            i->Dispose();
+            delete i;
         }
     }
     QueueSaveHistoryState();
 }
 
 bool MapEditor::IsSomethingSelected() {
-    for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-        if (scenegraph_->objects_[i]->Selected()) {
+    for (auto & object : scenegraph_->objects_) {
+        if (object->Selected()) {
             return true;
         }
     }
@@ -1791,8 +1776,8 @@ void MapEditor::HandleShortcuts( const LineSegment &mouseray ) {
         Object::ConnectionType connection_type = GetConnectionType(selected);
         if(connection_type != Object::kCTNone) { // Disable connection if mouse is over object, so we can still alt-drag clone
             Collision mouseray_collision_selected = lineCheckActiveSelected(scenegraph_, mouseray.start, mouseray.end, NULL, NULL);
-            for(size_t i=0, len=selected.size(); i<len; ++i){
-                if(mouseray_collision_selected.hit_what == selected[i]) {
+            for(auto & i : selected){
+                if(mouseray_collision_selected.hit_what == i) {
                     connection_type = Object::kCTNone;
                 }
             }
@@ -1837,14 +1822,14 @@ void MapEditor::HandleShortcuts( const LineSegment &mouseray ) {
                 Object* hit_obj = c.hit_what;
                 if(std::find(box_objects.begin(), box_objects.end(), hit_obj) != box_objects.end()) {
                     ReturnSelected(&selected);
-                    for(unsigned i=0; i<selected.size(); ++i) {
+                    for(auto & i : selected) {
                         if(active_tool_ == EditorTypes::CONNECT) {
-                            Object* obj = selected[i];
+                            Object* obj = i;
                             //if(obj->ConnectTo(*hit_obj)){
                             //    something_happened = true;
                             //}
                         } else if(active_tool_ == EditorTypes::DISCONNECT) {
-                            Object* obj = selected[i];
+                            Object* obj = i;
                             Object* hit_obj = c.hit_what;
                             //if(obj->Disconnect(*hit_obj)){
                                 //something_happened = true;
@@ -1898,8 +1883,8 @@ void MapEditor::HandleShortcuts( const LineSegment &mouseray ) {
 }
 
 static bool MouseWasClickedThisTimestep(Mouse* mouse) {
-    for (int i = 0; i < Mouse::NUM_BUTTONS; i++) {
-        if (mouse->mouse_down_[i] == Mouse::CLICKED) return true;
+    for (int i : mouse->mouse_down_) {
+        if (i == Mouse::CLICKED) return true;
     }
     return false;
 }
@@ -1910,34 +1895,34 @@ int MapEditor::ReplaceObjects( const std::vector<Object*>& objects, const std::s
 
     ActorsEditor_UnlocalizeIDs(&add_desc_list_, scenegraph_);
 
-    for(size_t i = 0; i < objects.size(); i++) {
-        std::vector<Object*> new_objects = ActorsEditor_AddEntitiesAtPosition(add_desc_list_source_, scenegraph_, add_desc_list_, objects[i]->GetTranslation(), create_as_prefab_);
+    for(auto object : objects) {
+        std::vector<Object*> new_objects = ActorsEditor_AddEntitiesAtPosition(add_desc_list_source_, scenegraph_, add_desc_list_, object->GetTranslation(), create_as_prefab_);
 
         if(!new_objects.empty()){
-            vec3 scale = objects[i]->GetScale();
-            vec3 dims = objects[i]->box_.dims;
+            vec3 scale = object->GetScale();
+            vec3 dims = object->box_.dims;
             vec3 target_dims = dims * scale;
             if(create_as_prefab_) {
                 Prefab* prefab = static_cast<Prefab*>(new_objects[0]);
                 vec3 prefab_scale = target_dims / prefab->original_scale_;
 
                 prefab->SetScale(prefab->original_scale_ * prefab_scale);
-                prefab->SetRotation(objects[i]->GetRotation());
-                prefab->SetTranslation(objects[i]->GetTranslation());
+                prefab->SetRotation(object->GetRotation());
+                prefab->SetTranslation(object->GetTranslation());
                 prefab->PropagateTransformsDown(true);
             } else {
-                for(size_t j = 0; j < new_objects.size(); j++) {
-                    vec3 new_dims = new_objects[j]->box_.dims;
+                for(auto & new_object : new_objects) {
+                    vec3 new_dims = new_object->box_.dims;
                     vec3 target_scale = target_dims / new_dims;
 
-                    new_objects[j]->SetScale(target_scale);
-                    new_objects[j]->SetRotation(objects[i]->GetRotation());
-                    new_objects[j]->SetTranslation(objects[i]->GetTranslation());
+                    new_object->SetScale(target_scale);
+                    new_object->SetRotation(object->GetRotation());
+                    new_object->SetTranslation(object->GetTranslation());
                 }
             }
         }
 
-        RemoveObject(objects[i], scenegraph_, true);
+        RemoveObject(object, scenegraph_, true);
     }
 
     QueueSaveHistoryState();
@@ -2072,8 +2057,8 @@ static Collision GetSelectableInLineSegment(SceneGraph *scenegraph, const LineSe
 void CalculateGroupString(Object* obj, std::string& str) {
     if(obj->GetType() == _group || obj->GetType() == _prefab){
         Group* group = (Group*)obj;
-        for(size_t i=0, len=group->children.size(); i<len; ++i){
-            CalculateGroupString(group->children[i].direct_ptr, str);
+        for(auto & i : group->children){
+            CalculateGroupString(i.direct_ptr, str);
         }
     } else {
         str = str + obj->obj_file;
@@ -2081,8 +2066,7 @@ void CalculateGroupString(Object* obj, std::string& str) {
 }
 
 void MapEditor::SelectAll(){
-    for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-        Object* obj = scenegraph_->objects_[i];
+    for (auto obj : scenegraph_->objects_) {
         EntityType type = obj->GetType();
         if(type_enable_.IsTypeEnabled(type) && obj->permission_flags & Object::CAN_SELECT && !obj->parent){
             obj->Select(true);
@@ -2098,8 +2082,7 @@ void MapEditor::ReloadAllPrefabs() {
     while( active_depth ) {
         active_depth = false;
         prefabs.clear();
-        for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-            Object* obj = scenegraph_->objects_[i];
+        for (auto obj : scenegraph_->objects_) {
             if( obj->GetGroupDepth() == current_depth ) {
                 active_depth = true;
                 if(obj->GetType() == _prefab){
@@ -2108,8 +2091,8 @@ void MapEditor::ReloadAllPrefabs() {
             }
         }
 
-        for(unsigned i = 0; i < prefabs.size(); i++) {
-            ReloadPrefab(prefabs[i],GetSceneGraph());
+        for(auto & prefab : prefabs) {
+            ReloadPrefab(prefab,GetSceneGraph());
         }
         current_depth++;
     }
@@ -2117,8 +2100,7 @@ void MapEditor::ReloadAllPrefabs() {
 
 void MapEditor::ReloadPrefabs(const Path& path) {
     std::vector<Object*> prefabs;
-    for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-        Object* obj = scenegraph_->objects_[i];
+    for (auto obj : scenegraph_->objects_) {
         if(obj->GetType() == _prefab){
             Prefab* prefab = static_cast<Prefab*>(obj);
             if(strmtch(prefab->prefab_path.GetFullPath(),path.GetFullPath())) {
@@ -2127,8 +2109,8 @@ void MapEditor::ReloadPrefabs(const Path& path) {
         }
     }
 
-    for(unsigned i = 0; i < prefabs.size(); i++) {
-        ReloadPrefab(prefabs[i],GetSceneGraph());
+    for(auto & prefab : prefabs) {
+        ReloadPrefab(prefab,GetSceneGraph());
     }
 }
 
@@ -2154,8 +2136,8 @@ bool MapEditor::ReloadPrefab(Object *obj, SceneGraph* scenegraph) {
 
     prefab->GetBottomUpCompleteChildren(&ret_children);
 
-    for( unsigned i = 0; i < ret_children.size(); i++) {
-        RemoveObject(ret_children[i], scenegraph, true);
+    for(auto & i : ret_children) {
+        RemoveObject(i, scenegraph, true);
     }
 
     EntityDescriptionList desc_list;
@@ -2244,24 +2226,21 @@ bool MapEditor::CheckForSelections( const LineSegment& mouseray ) {
     }
     if(KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectSimilar, KIMF_LEVEL_EDITOR_GENERAL)) {
         std::vector<std::string> selected_string;
-        for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-            Object* obj = scenegraph_->objects_[i];
+        for (auto obj : scenegraph_->objects_) {
             if(obj->GetType() == _group || obj->GetType() == _prefab){
                 CalculateGroupString(obj, obj->obj_file);
             }
         }
-        for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-            Object* obj = scenegraph_->objects_[i];
+        for (auto obj : scenegraph_->objects_) {
             if(obj->Selected()){
                 selected_string.push_back(obj->obj_file);
             }
         }
-        for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-            Object* obj = scenegraph_->objects_[i];
+        for (auto obj : scenegraph_->objects_) {
             if(!obj->Selected() && obj->permission_flags & Object::CAN_SELECT){
                 const std::string& to_string = obj->obj_file;
-                for (size_t j = 0; j < selected_string.size(); j++) {
-                    if (to_string == selected_string[j] ){
+                for (auto & j : selected_string) {
+                    if (to_string == j ){
                         obj->Select(true);
                         break;
                     }
@@ -2299,8 +2278,8 @@ bool MapEditor::CheckForSelections( const LineSegment& mouseray ) {
 }
 
 void MapEditor::DeselectAll(SceneGraph *scenegraph) {
-    for(size_t i=0, len=scenegraph->objects_.size(); i<len; ++i) {
-        scenegraph->objects_[i]->Select(false);
+    for(auto & object : scenegraph->objects_) {
+        object->Select(false);
     }
 }
 
@@ -2339,11 +2318,8 @@ void MapEditor::SaveEntities(TiXmlNode* root) {
     const float _difference_threshold = 0.000001f;
     SceneGraph::object_list ordered_objects = scenegraph_->objects_;
     std::sort(ordered_objects.begin(), ordered_objects.end(), IDCompare);
-    for (SceneGraph::object_list::iterator iter = ordered_objects.begin();
-        iter != ordered_objects.end();
-        ++iter)
+    for (auto obj : ordered_objects)
     {
-        Object* obj = *iter;
         // Only save object if it has no parent and is not an exact duplicate of another object at same transform
         if(!obj->parent &&  !obj->exclude_from_save) {
             if( ClosestMatch(obj->GetTransform(), matrices) <= _difference_threshold )
@@ -2497,8 +2473,8 @@ void MapEditor::SavePrefab(bool do_overwrite) {
         doc.LinkEndChild(parent);
 
         EntityDescriptionList descriptions;
-        for( unsigned i = 0; i < group->children.size(); i++) {
-            const ScriptParamMap &script_param_map = group->children[i].direct_ptr->GetScriptParams()->GetParameterMap();
+        for(auto & i : group->children) {
+            const ScriptParamMap &script_param_map = i.direct_ptr->GetScriptParams()->GetParameterMap();
             const ScriptParamMap::const_iterator it = script_param_map.find("No Save");
             if(it != script_param_map.end()){
                 const ScriptParam &param = it->second;
@@ -2508,13 +2484,13 @@ void MapEditor::SavePrefab(bool do_overwrite) {
             }
 
             EntityDescription desc;
-            group->children[i].direct_ptr->GetDesc(desc);
+            i.direct_ptr->GetDesc(desc);
             descriptions.push_back(desc);
         }
         LocalizeIDs(&descriptions, false);
 
-        for( unsigned i = 0; i < descriptions.size(); i++ ) {
-            descriptions[i].SaveToXML(parent);
+        for(auto & description : descriptions) {
+            description.SaveToXML(parent);
             //group->children[i].direct_ptr->SaveToXML(parent);
         }
         doc.SaveFile(buf);
@@ -2543,8 +2519,7 @@ void MapEditor::SaveSelected() {
         // write out entities
         TiXmlElement* parent = new TiXmlElement("ActorObjects");
         doc.LinkEndChild(parent);
-        for(size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-            Object* obj = scenegraph_->objects_[i];
+        for(auto obj : scenegraph_->objects_) {
             if (obj->Selected()) {
                 obj->SaveToXML(parent);
             }
@@ -2589,8 +2564,7 @@ void MapEditor::BringAllToCurrentState(int old_state){
     // Create map for easy saved-chunk lookup
     Type_ID_Time_ChunkMap save_states;
     // Loop through saved chunks to populate lookup map
-    for(std::list<SavedChunk>::iterator iter = state_history_.chunks.begin(); iter != state_history_.chunks.end(); ++iter) {
-        SavedChunk& chunk = (*iter);
+    for(auto & chunk : state_history_.chunks) {
         save_states[chunk.type][chunk.obj_id][chunk.state_id] = &chunk;
     }
 
@@ -2609,16 +2583,16 @@ void MapEditor::BringAllToCurrentState(int old_state){
         }
     }
     // Loop through each chunk and set each object to the most appropriate saved chunk
-    for(Type_ID_Time_ChunkMap::iterator iter = save_states.begin(); iter != save_states.end(); ++iter) {
-        const ChunkType::ChunkType &type = iter->first;
-        ID_Time_ChunkMap &submap = iter->second;
-        for(ID_Time_ChunkMap::iterator iter = submap.begin(); iter != submap.end(); ++iter) {
+    for(auto & save_state : save_states) {
+        const ChunkType::ChunkType &type = save_state.first;
+        ID_Time_ChunkMap &submap = save_state.second;
+        for(auto & iter : submap) {
             SavedChunk* the_chunk = NULL;
-            Time_ChunkMap &timeline = iter->second;
+            Time_ChunkMap &timeline = iter.second;
             // Find the last entry that is before the current time
-            for(Time_ChunkMap::iterator iter2 = timeline.begin(); iter2 != timeline.end(); ++iter2) {
-                const int &time = iter2->first;
-                SavedChunk *chunk = iter2->second;
+            for(auto & iter2 : timeline) {
+                const int &time = iter2.first;
+                SavedChunk *chunk = iter2.second;
                 if(time == state_history_.current_state) {
                     the_chunk = chunk;
                 }
@@ -2651,8 +2625,7 @@ void MapEditor::BringAllToCurrentState(int old_state){
         }
     }
 
-    for(size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i){
-        Object* obj = scenegraph_->objects_[i];
+    for(auto obj : scenegraph_->objects_){
         static const int kBufSize = 256;
         char msg[kBufSize];
         FormatString(msg, kBufSize, "added_object %d", obj->GetID());
@@ -2666,8 +2639,8 @@ void MapEditor::BringAllToCurrentState(int old_state){
     scenegraph_->SendMessageToAllObjects(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
 
     // Restore selection
-    for(size_t i=0, len=selected_ids.size(); i<len; ++i){
-        Object* obj = scenegraph_->GetObjectFromID(selected_ids[i]);
+    for(int selected_id : selected_ids){
+        Object* obj = scenegraph_->GetObjectFromID(selected_id);
         if(obj){
             obj->Select(true);
         }
@@ -2755,8 +2728,8 @@ void MapEditor::AddLightProbes() {
         // Cover entire level with probes
         vec3 minval = vec3(FLT_MAX, FLT_MAX, FLT_MAX);
         vec3 maxval = vec3(-FLT_MAX, -FLT_MAX, -FLT_MAX);
-        for (size_t i = 0, len = scenegraph_->visible_objects_.size(); i < len; ++i) {
-            vec3 objtrans = scenegraph_->visible_objects_[i]->GetTranslation();
+        for (auto & visible_object : scenegraph_->visible_objects_) {
+            vec3 objtrans = visible_object->GetTranslation();
             maxval.x() = max(maxval.x(), objtrans.x());
             minval.x() = min(minval.x(), objtrans.x());
             maxval.y() = max(maxval.y(), objtrans.y());
@@ -2793,8 +2766,8 @@ void MapEditor::ToggleImposter() {
 
 void MapEditor::SetImposter(bool set) {
     ReturnSelected(&selected);
-    for(unsigned i=0; i<selected.size(); ++i){
-        selected[i]->SetImposter(set);
+    for(auto & i : selected){
+        i->SetImposter(set);
     }
 }
 
@@ -2894,8 +2867,8 @@ int MapEditor::CreateObject( const std::string& path) {
     std::string file_type;
     Path source;
     ActorsEditor_LoadEntitiesFromFile(path, desc_list, &file_type,&source);
-    for(unsigned i=0; i<desc_list.size(); ++i){
-        Object* obj = AddEntityFromDesc(scenegraph_, desc_list[i], false);
+    for(auto & i : desc_list){
+        Object* obj = AddEntityFromDesc(scenegraph_, i, false);
         if(obj){
             id = obj->GetID();
         } else {
@@ -2908,9 +2881,9 @@ int MapEditor::CreateObject( const std::string& path) {
 
 void MapEditor::ReturnSelected(std::vector<Object*> *selected_objects) {
     selected_objects->clear();
-    for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-        if (scenegraph_->objects_[i]->Selected()) {
-            selected_objects->push_back(scenegraph_->objects_[i]);
+    for (auto & object : scenegraph_->objects_) {
+        if (object->Selected()) {
+            selected_objects->push_back(object);
         }
     }
 }
@@ -2932,8 +2905,7 @@ bool MapEditor::IsTypeEnabled( EntityType type ) {
 
 void MapEditor::SetTypeEnabled( EntityType type, bool enabled ) {
     type_enable_.SetTypeEnabled(type, enabled);
-    for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-        Object* obj = scenegraph_->objects_[i];
+    for (auto obj : scenegraph_->objects_) {
         if(!type_enable_.IsTypeEnabled(obj->GetType())){
             obj->Select(false);
         }
@@ -2946,8 +2918,7 @@ bool MapEditor::IsTypeVisible( EntityType type ) {
 
 void MapEditor::SetTypeVisible( EntityType type, bool visible ) {
     type_visible_.SetTypeEnabled(type, visible);
-    for (size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i) {
-        Object* obj = scenegraph_->objects_[i];
+    for (auto obj : scenegraph_->objects_) {
         obj->editor_visible = type_visible_.IsTypeEnabled(obj->GetType());
     }
 }
@@ -2971,11 +2942,8 @@ Object* MapEditor::GetSelectedCameraObject() {
     Object* selected = NULL;
     bool multiple = false;
     // Check for any camera preview objects
-    for(SceneGraph::object_list::iterator iter = scenegraph_->objects_.begin();
-        iter != scenegraph_->objects_.end();
-        ++iter)
+    for(auto obj : scenegraph_->objects_)
     {
-        Object* obj = *iter;
         if(obj->GetType() == _placeholder_object){
             PlaceholderObject* po = (PlaceholderObject*)obj;
             if(po->GetSpecialType() == PlaceholderObject::kCamPreview){
@@ -2989,11 +2957,8 @@ Object* MapEditor::GetSelectedCameraObject() {
     }
     // If multiple camera preview objects are found, then check for any that are selected
     if(multiple){
-        for(SceneGraph::object_list::iterator iter = scenegraph_->objects_.begin();
-            iter != scenegraph_->objects_.end();
-            ++iter)
+        for(auto obj : scenegraph_->objects_)
         {
-            Object* obj = *iter;
             if(obj->GetType() == _placeholder_object){
                 PlaceholderObject* po = (PlaceholderObject*)obj;
                 if(po->GetSpecialType() == PlaceholderObject::kCamPreview && po->Selected()){
@@ -3015,8 +2980,7 @@ void MapEditor::UpdateGPUSkinning() {
 }
 
 void MapEditor::CarveAgainstTerrain() {
-    for(std::vector<EnvObject*>::iterator iter = scenegraph_->visible_static_meshes_.begin(); iter != scenegraph_->visible_static_meshes_.end(); ++iter){
-        EnvObject* eo = *iter;
+    for(auto eo : scenegraph_->visible_static_meshes_){
         if(eo->Selected()){
             CSGResultCombined results;
             if(CollideObjects(*scenegraph_->bullet_world_,
@@ -3574,11 +3538,8 @@ static bool GetMouseTransformation(
 }
 
 static void EndTransformation(SceneGraph *scenegraph, EditorTypes::Tool type, Object* control_obj, ControlEditorInfo* control_editor_info, GameCursor* cursor) {
-    for(SceneGraph::object_list::iterator iter = scenegraph->objects_.begin();
-        iter != scenegraph->objects_.end();
-        ++iter)
+    for(auto obj : scenegraph->objects_)
     {
-        Object* obj = *iter;
         if (obj->Selected()) {
             obj->HandleTransformationOccurred();
         }
@@ -3631,8 +3592,8 @@ void MapEditor::UpdateTransformTool(SceneGraph *scenegraph, EditorTypes::Tool ty
             ActorsEditor_UnlocalizeIDs(&copy_desc_list, scenegraph);
             MapEditor::DeselectAll(scenegraph);
             std::vector<Object*> new_objects;
-            for (size_t i=0, len=copy_desc_list.size(); i<len; ++i) {
-                Object* new_entity = CreateObjectFromDesc(copy_desc_list[i]);
+            for (auto & i : copy_desc_list) {
+                Object* new_entity = CreateObjectFromDesc(i);
                 if( new_entity ) {
                     new_objects.push_back(new_entity);
                     if(new_entity->permission_flags & Object::CAN_SELECT){
@@ -3648,16 +3609,13 @@ void MapEditor::UpdateTransformTool(SceneGraph *scenegraph, EditorTypes::Tool ty
                     LOGE << "Failed to entity" << std::endl;
                 }
             }
-            for (size_t i=0, len=new_objects.size(); i<len; ++i) {
-                new_objects[i]->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
+            for (auto & new_object : new_objects) {
+                new_object->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
             }
         }
         state_ = MapEditor::kTransformDrag;
-        for (SceneGraph::object_list::iterator iter = scenegraph->objects_.begin();
-            iter != scenegraph->objects_.end();
-            ++iter)
+        for (auto obj : scenegraph->objects_)
         {
-            Object* obj = *iter;
             obj->start_transform.translation = obj->GetTranslation();
             obj->start_transform.rotation = obj->GetRotation();
             obj->start_transform.scale = obj->GetScale();
@@ -3673,11 +3631,8 @@ void MapEditor::UpdateTransformTool(SceneGraph *scenegraph, EditorTypes::Tool ty
     } else if (state_ == MapEditor::kTransformDrag && transformation_happened) {        // continue
         std::vector<int> moved_objects;
         PROFILER_ZONE(g_profiler_ctx, "Updating transform");
-        for (SceneGraph::object_list::iterator iter = scenegraph->objects_.begin();
-            iter != scenegraph->objects_.end();
-            ++iter)
+        for (auto obj : scenegraph->objects_)
         {
-            Object* obj = *iter;
             if (obj->Selected()) {
                 obj->SetTranslation(obj->start_transform.translation + curr_tool_transform.translation);
                 obj->SetRotation(curr_tool_transform.rotation * obj->start_transform.rotation);
@@ -3693,8 +3648,8 @@ void MapEditor::UpdateTransformTool(SceneGraph *scenegraph, EditorTypes::Tool ty
             std::ostringstream oss;
             oss << "moved_objects";
 
-            for(size_t i=0, len=moved_objects.size(); i<len; ++i){
-                oss << " " << moved_objects[i];
+            for(int moved_object : moved_objects){
+                oss << " " << moved_object;
             }
 
             scenegraph_->level->Message(oss.str());

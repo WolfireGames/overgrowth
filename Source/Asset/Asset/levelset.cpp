@@ -84,10 +84,9 @@ void LevelSet::ReportLoad() {
 }
 
 void LevelSet::ReturnPaths( PathSet &path_set ) {
-    for(std::list<std::string>::iterator iter = level_paths_.begin(); 
-        iter != level_paths_.end(); ++iter)
+    for(auto & level_path : level_paths_)
     {
-        path_set.insert("level "+(*iter));
+        path_set.insert("level "+level_path);
     }
 }
 

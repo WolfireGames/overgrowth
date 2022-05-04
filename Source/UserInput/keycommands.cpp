@@ -345,8 +345,8 @@ void KeyCommand::Initialize() {
             FatalError("Error", "Hash collision in KeyCommand hash map");
         }
     }
-    for(int i=0; i<kNumLabels; ++i){
-        commands[i].num_key_events = 0;
+    for(auto & command : commands){
+        command.num_key_events = 0;
     }
 }
 
@@ -354,8 +354,8 @@ void KeyCommand::HandleKeyDownEvent( const Keyboard &keyboard,  SDL_Keysym key_i
     // Check for key_pressed events from longest command to shortest
     int cmd_length = -1;
     SDL_Scancode sc = key_id.scancode;
-    for(int i=0; i<kNumLabels; ++i){
-        Command &cmd = *(commands_sorted_by_length[i]);
+    for(auto & i : commands_sorted_by_length){
+        Command &cmd = *i;
         if(cmd.num_key_events < cmd_length) {
             return;
         }
@@ -400,7 +400,7 @@ void KeyCommand::HandleKeyDownEvent( const Keyboard &keyboard,  SDL_Keysym key_i
 }
 
 void KeyCommand::ClearKeyPresses() {
-    for(int i=0; i<kNumLabels; ++i){
-        commands[i].state = kUp;
+    for(auto & command : commands){
+        command.state = kUp;
     }
 }

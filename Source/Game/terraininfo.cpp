@@ -43,14 +43,14 @@ void TerrainInfo::Print()
     LOGI << "Model Override: " << model_override << std::endl;
     LOGI << "Shader Extra: " << shader_extra << std::endl;
     LOGI << "Detail maps:" << std::endl;
-    for (unsigned i=0; i<detail_map_info.size(); ++i)
+    for (auto & i : detail_map_info)
     {
-        detail_map_info[i].Print();
+        i.Print();
     }
     LOGI << "Detail objects: " << std::endl;
-    for (unsigned i=0; i<detail_object_info.size(); ++i)
+    for (auto & i : detail_object_info)
     {
-        LOGI << "Obj path: " << detail_object_info[i].obj_path << std::endl;
+        LOGI << "Obj path: " << i.obj_path << std::endl;
     }    
 }
 
@@ -76,10 +76,10 @@ void TerrainInfo::ReturnPaths( PathSet &path_set )
     if(!model_override.empty()){
         path_set.insert("model "+model_override);
     }
-    for(unsigned i=0; i<detail_map_info.size(); ++i){
-        detail_map_info[i].ReturnPaths(path_set);
+    for(auto & i : detail_map_info){
+        i.ReturnPaths(path_set);
     }
-    for(unsigned i=0; i<detail_object_info.size(); ++i){
-        detail_object_info[i].ReturnPaths(path_set);
+    for(auto & i : detail_object_info){
+        i.ReturnPaths(path_set);
     }
 }

@@ -230,8 +230,8 @@ bool TextureData::Load(const char *abs_path) {
     
     // try to determine color space
     string src(abs_path);
-    for (string::size_type i = 0; i < src.size(); i++) {
-        src[i] = tolower(src[i]);
+    for (char & i : src) {
+        i = tolower(i);
     }
     if (src.rfind("_c.") != string::npos) {
         m_colorSpace = TextureData::sRGB;

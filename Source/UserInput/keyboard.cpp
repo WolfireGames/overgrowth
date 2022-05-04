@@ -403,8 +403,8 @@ bool Keyboard::wasScancodePressed(SDL_Scancode the_key, const uint32_t kimf) con
 }
 
 void Keyboard::clearKeyPresses() {
-    for (KeyStatusMap::iterator iter = keys.begin(); iter != keys.end(); ++iter){
-        KeyStatus &key = iter->second;
+    for (auto & iter : keys){
+        KeyStatus &key = iter.second;
         key.pressed=0;
     }
 }

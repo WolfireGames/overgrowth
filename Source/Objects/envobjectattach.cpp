@@ -31,8 +31,7 @@ void Serialize(const std::vector<AttachedEnvObject>& aeo, std::vector<char> &dat
         const AttachedEnvObject &attached_env_object = aeo[i];
         memwrite(&attached_env_object.direct_ptr, sizeof(attached_env_object.direct_ptr), 1, data);
         memwrite(&attached_env_object.legacy_obj_id, sizeof(attached_env_object.legacy_obj_id), 1, data);
-        for(unsigned j=0; j<kMaxBoneConnects; ++j){
-            const BoneConnect& bone_connect = attached_env_object.bone_connects[j];
+        for(const auto & bone_connect : attached_env_object.bone_connects){
             memwrite(&bone_connect.bone_id, sizeof(bone_connect.bone_id), 1, data);
             memwrite(&bone_connect.num_connections, sizeof(bone_connect.num_connections), 1, data);
             memwrite(&bone_connect.rel_mat, sizeof(bone_connect.rel_mat), 1, data);
@@ -50,8 +49,7 @@ void Deserialize(const std::vector<char> &data, std::vector<AttachedEnvObject>& 
         attached_env_object.bone_connection_dirty = false;
         memread(&attached_env_object.direct_ptr, sizeof(attached_env_object.direct_ptr), 1, data, index);
         memread(&attached_env_object.legacy_obj_id, sizeof(attached_env_object.legacy_obj_id), 1, data, index);
-        for(unsigned j=0; j<kMaxBoneConnects; ++j){
-            const BoneConnect& bone_connect = attached_env_object.bone_connects[j];
+        for(const auto & bone_connect : attached_env_object.bone_connects){
             memread((void*)&bone_connect.bone_id, sizeof(bone_connect.bone_id), 1, data, index);
             memread((void*)&bone_connect.num_connections, sizeof(bone_connect.num_connections), 1, data, index);
             memread((void*)&bone_connect.rel_mat, sizeof(bone_connect.rel_mat), 1, data, index);

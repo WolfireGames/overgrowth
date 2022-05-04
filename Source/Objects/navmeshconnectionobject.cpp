@@ -57,8 +57,8 @@ bool NavmeshConnectionObject::ConnectTo( Object& other, bool checking_other /*= 
             return false;
         } else {
             int other_id = ppo->GetID();
-            for(unsigned i=0; i<connections.size(); ++i) {
-                if(connections[i].other_object_id == other_id) {
+            for(auto & connection : connections) {
+                if(connection.other_object_id == other_id) {
                    return false;
                 }       
             }    
@@ -111,8 +111,8 @@ bool NavmeshConnectionObject::Disconnect( Object& other, bool checking_other ) {
 }
 
 void NavmeshConnectionObject::GetConnectionIDs(std::vector<int>* cons) {
-    for( uint32_t i = 0; i < connections.size(); i++ ) { 
-        cons->push_back(connections[i].other_object_id);
+    for(auto & connection : connections) { 
+        cons->push_back(connection.other_object_id);
     }
 }
 
@@ -190,8 +190,7 @@ bool NavmeshConnectionObject::SetFromDesc( const EntityDescription& desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
         //Keeping this to maintain compatability for now. There shouldn't be any alphas running this though.
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
                 case EDF_NAV_MESH_CONNECTIONS:
                     field.ReadNavMeshConnectionDataVec(&connections);
@@ -328,8 +327,8 @@ void NavmeshConnectionObject::FinalizeLoadedConnections() {
     }
 
     // Make sure all connections are symmetric
-    for(int i=0, len=connections.size(); i<len; ++i){
-        Object* obj = scenegraph_->GetObjectFromID(connections[i].other_object_id);
+    for(auto & connection : connections){
+        Object* obj = scenegraph_->GetObjectFromID(connection.other_object_id);
         if(obj){
             obj->ConnectTo(*this, true);
         }
@@ -337,20 +336,20 @@ void NavmeshConnectionObject::FinalizeLoadedConnections() {
 }
 
 void NavmeshConnectionObject::RemapReferences(std::map<int,int> id_map) {
-    for(int i=0, len=connections.size(); i<len; ++i){
-        if( id_map.find(connections[i].other_object_id) != id_map.end() ) {
-            connections[i].other_object_id = id_map[connections[i].other_object_id];
+    for(auto & connection : connections){
+        if( id_map.find(connection.other_object_id) != id_map.end() ) {
+            connection.other_object_id = id_map[connection.other_object_id];
         } else {
             //The remapped id could belong to this, in which case it is valid
             bool is_this = false;
-            for(std::map<int,int>::iterator iter = id_map.begin(); iter != id_map.end(); ++iter) {
-                if(iter->second == this->GetID()) {
+            for(auto & iter : id_map) {
+                if(iter.second == this->GetID()) {
                     is_this = true;
                     break;
                 }
             }
             if(!is_this)
-                connections[i].other_object_id = -1;
+                connection.other_object_id = -1;
         }
     }
 }

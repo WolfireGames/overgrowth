@@ -144,8 +144,8 @@ void LipSyncFileReader::UpdateWeights() {
         iter->second = 0.0f;
     }
 
-    for(unsigned i=0; i<vis_weights.size(); ++i){
-        morph_weights[id2morph[vis_weights[i].id]] += vis_weights[i].weight;    
+    for(auto & vis_weight : vis_weights){
+        morph_weights[id2morph[vis_weight.id]] += vis_weight.weight;    
     }
 }
 

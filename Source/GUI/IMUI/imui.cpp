@@ -334,8 +334,7 @@ void IMUIContext::deriveFontDimensions( IMUIText& text ) {
         LOGE << "Got utf8 exception \"" << ner.what() << "\" this might indicate invalid utf-8 data" << std::endl;
     }
     
-    for(unsigned i=0; i<utf32_string.size(); ++i){
-        uint32_t c = utf32_string[i];
+    for(unsigned int c : utf32_string){
         if(c == '\n') {
             
             if( currentLineX > dimensions[ 0 ] ) {

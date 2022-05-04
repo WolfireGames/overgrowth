@@ -116,8 +116,7 @@ bool DynamicLightObject::SetFromDesc( const EntityDescription& desc ) {
     LOG_ASSERT(light_id_ == -1);
     bool ret = Object::SetFromDesc(desc);
     if(ret) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
             case EDF_COLOR: {
                 memread(color.entries, sizeof(float), 3, field.data);

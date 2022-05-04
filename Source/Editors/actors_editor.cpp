@@ -130,21 +130,21 @@ bool ActorsEditor_AddEntity(SceneGraph* scenegraph, Object* o, std::map<int,int>
     }
     std::vector<Object*> children;
     o->GetChildren(&children);
-    for(size_t i=0, len=children.size(); i<len; ++i) {
-        int old_id = children[i]->GetID();
-        if( ActorsEditor_AddEntity(scenegraph, children[i], id_remap, group_addition, level_loading) == false ) {
+    for(auto & child : children) {
+        int old_id = child->GetID();
+        if( ActorsEditor_AddEntity(scenegraph, child, id_remap, group_addition, level_loading) == false ) {
             LOGE << "Failed adding child entity, removing from self" <<  std::endl;
-            o->ChildLost(children[i]);
-            delete children[i];
-            children[i] = NULL;
+            o->ChildLost(child);
+            delete child;
+            child = NULL;
         } else {
-            if(old_id != children[i]->GetID() && id_remap == NULL) {
+            if(old_id != child->GetID() && id_remap == NULL) {
                 LOGW << "id_remap is NULL when adding entity with children" << std::endl;
                 continue;
             }
 
             if(id_remap != NULL)
-                id_remap->insert(std::pair<int,int>(old_id, children[i]->GetID()));
+                id_remap->insert(std::pair<int,int>(old_id, child->GetID()));
         }
     }
 
@@ -166,9 +166,9 @@ bool ActorsEditor_AddEntity(SceneGraph* scenegraph, Object* o, std::map<int,int>
         return true;
     } else {
         LOGE << "Failed at adding entity" << std::endl;
-        for( unsigned i = 0; i < children.size(); i++ ) {
-            if( children[i] ) {
-                children[i]->SetParent(NULL);
+        for(auto & child : children) {
+            if( child ) {
+                child->SetParent(NULL);
             }
         }
         return false;
@@ -177,11 +177,9 @@ bool ActorsEditor_AddEntity(SceneGraph* scenegraph, Object* o, std::map<int,int>
 }
 
 static void GetFlattenedDescList(EntityDescriptionList *desc_list, std::vector<EntityDescription*> *flat_desc_list){
-	for(size_t desc_index=0, len=desc_list->size(); 
-		desc_index<len; 
-		++desc_index) 
+	for(auto & desc_index : *desc_list) 
 	{
-		EntityDescription *desc = &desc_list->at(desc_index);
+		EntityDescription *desc = &desc_index;
 		flat_desc_list->push_back(desc);
 		GetFlattenedDescList(&desc->children, flat_desc_list);
 	}
@@ -192,12 +190,9 @@ void LocalizeIDs(EntityDescriptionList *desc_list, bool keep_external_connection
 	GetFlattenedDescList(desc_list, &flat_desc_list);
     std::map<int,int> scene_ids;
     typedef std::map<int,int>::iterator Iter;
-	for(size_t desc_index=0, len=flat_desc_list.size(); 
-		desc_index<len; 
-		++desc_index) 
+	for(auto desc : flat_desc_list) 
 	{
-		EntityDescription *desc = flat_desc_list[desc_index];
-		EntityDescriptionField *edf = desc->GetField(EDF_ID);
+			EntityDescriptionField *edf = desc->GetField(EDF_ID);
 		if(edf){
             int id;
 			memread(&id, sizeof(int), 1, edf->data);
@@ -214,21 +209,15 @@ void LocalizeIDs(EntityDescriptionList *desc_list, bool keep_external_connection
 		}
 	}
 	// TODO: do this in O(n) instead of O(n^2)
-	for(size_t desc_index=0, len=flat_desc_list.size(); 
-		desc_index<len; 
-		++desc_index) 
+	for(auto desc : flat_desc_list) 
 	{
-		EntityDescription *desc = flat_desc_list[desc_index];
-		EntityDescriptionField *edf = desc->GetField(EDF_CONNECTIONS);
+			EntityDescriptionField *edf = desc->GetField(EDF_CONNECTIONS);
 		if(edf) {
 			std::vector<int> connections;
 			std::vector<int> write_connections;
 			edf->ReadIntVec(&connections);
-			for(size_t connection_index=0, len=connections.size(); 
-				 connection_index<len; 
-				 ++connection_index ) 
+			for(int id : connections) 
 			{
-                int id = connections[connection_index];
                 Iter iter = scene_ids.find(id);
                 if(iter != scene_ids.end()) {
                     id = iter->second;
@@ -245,11 +234,8 @@ void LocalizeIDs(EntityDescriptionList *desc_list, bool keep_external_connection
 			std::vector<ItemConnectionData> connections;
 			std::vector<ItemConnectionData> write_connections;
 			edf->ReadItemConnectionDataVec(&connections);
-			for(size_t connection_index=0, len=connections.size(); 
-				connection_index<len; 
-				++connection_index ) 
+			for(auto item_connection_data : connections) 
 			{
-                ItemConnectionData item_connection_data = connections[connection_index];
                 Iter iter = scene_ids.find(item_connection_data.id);
                 if(iter != scene_ids.end()) {
                     item_connection_data.id = iter->second;
@@ -266,12 +252,8 @@ void LocalizeIDs(EntityDescriptionList *desc_list, bool keep_external_connection
 			std::vector<NavMeshConnectionData> connections;
 			std::vector<NavMeshConnectionData> write_connections;
 			edf->ReadNavMeshConnectionDataVec(&connections);
-			for(size_t connection_index=0, len=connections.size(); 
-				connection_index<len; 
-				++connection_index ) 
+			for(auto nav_mesh_connection_data : connections) 
 			{
-                NavMeshConnectionData nav_mesh_connection_data = connections[connection_index];
-
                 Iter iter = scene_ids.find(nav_mesh_connection_data.other_object_id);
                 if(iter != scene_ids.end()) {
                     nav_mesh_connection_data.other_object_id = iter->second;
@@ -288,11 +270,8 @@ void LocalizeIDs(EntityDescriptionList *desc_list, bool keep_external_connection
 			std::vector<int> connections;
 			std::vector<int> write_connections;
 			edf->ReadIntVec(&connections);
-			for(size_t connection_index=0, len=connections.size();
-				connection_index<len;
-				++connection_index )
+			for(int id : connections)
 			{
-                int id = connections[connection_index];
                 Iter iter = scene_ids.find(id);
                 if(iter != scene_ids.end()) {
                     id = iter->second;
@@ -311,8 +290,7 @@ void LocalizeIDs(EntityDescriptionList *desc_list, bool keep_external_connection
 void ActorsEditor_CopySelectedEntities(SceneGraph* scenegraph, EntityDescriptionList *desc_list) {
     desc_list->clear();
     // Add non-grouped objects to copy list
-    for (size_t i=0, len = scenegraph->objects_.size(); i<len; ++i) {    
-        Object* obj = scenegraph->objects_[i];
+    for (auto obj : scenegraph->objects_) {    
         if (obj->Selected() && obj->permission_flags&Object::CAN_COPY) {
             desc_list->resize(desc_list->size()+1);
             obj->GetDesc(desc_list->back());
@@ -322,9 +300,8 @@ void ActorsEditor_CopySelectedEntities(SceneGraph* scenegraph, EntityDescription
 
 EntityType GetTypeFromDesc( const EntityDescription& desc ) {
 	EntityType type;
-	for (unsigned i = 0; i<desc.fields.size(); ++i){
-		const EntityDescriptionField& field = desc.fields[i];
-		if (field.type == EDF_ENTITY_TYPE){
+	for (const auto & field : desc.fields){
+			if (field.type == EDF_ENTITY_TYPE){
 			memread(&type, sizeof(int), 1, field.data);
 			break;
 		}
@@ -482,15 +459,15 @@ std::vector<Object*> ActorsEditor_AddEntitiesAtPosition(const Path& source, Scen
     std::map<int,int> id_remap;
 
 	std::vector<Object*> new_objects;
-    for (unsigned i = 0; i < desc_list.size(); i++) {
-		if (GetTypeFromDesc(desc_list[i]) == _decal_object) {
+    for (const auto & i : desc_list) {
+		if (GetTypeFromDesc(i) == _decal_object) {
 			// Check we are not exceeding max decal limit
 			if ((scenegraph->decal_objects_.size() - scenegraph->dynamic_decals.size()) >= scenegraph->kMaxStaticDecals) {
 				DisplayError("Warning", "Static decal limit exceeded, cannot add new one!");
 				return new_objects;
 			}
 		}
-        Object* new_entity = CreateObjectFromDesc(desc_list[i]);
+        Object* new_entity = CreateObjectFromDesc(i);
         if( new_entity ) {
             vec3 offset = (new_entity->GetTranslation() - copied_center);
             vec3 pos = spawn_pos;
@@ -553,12 +530,12 @@ std::vector<Object*> ActorsEditor_AddEntitiesAtPosition(const Path& source, Scen
         }
 	}
 
-	for (size_t i=0, len=new_objects.size(); i<len; ++i) {
-        new_objects[i]->RemapReferences(id_remap);
+	for (auto & new_object : new_objects) {
+        new_object->RemapReferences(id_remap);
     }
 
-	for (size_t i=0, len=new_objects.size(); i<len; ++i) {
-		new_objects[i]->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
+	for (auto & new_object : new_objects) {
+		new_object->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
 	}
 
     if( in_new_prefab ) {
@@ -625,15 +602,15 @@ void ActorsEditor_AddEntitiesIntoPrefab(Object*  obj,SceneGraph *scenegraph, con
     std::map<int,int> id_remap;
 
 	std::vector<Object*> new_objects;
-    for (unsigned i = 0; i < desc_list.size(); i++) {
-		if (GetTypeFromDesc(desc_list[i]) == _decal_object) {
+    for (const auto & desc : desc_list) {
+		if (GetTypeFromDesc(desc) == _decal_object) {
 			// Check we are not exceeding max decal limit
 			if ((scenegraph->decal_objects_.size() - scenegraph->dynamic_decals.size()) >= scenegraph->kMaxStaticDecals) {
 				DisplayError("Warning", "Static decal limit exceeded, cannot add new one!");
 				return;
 			}
 		}
-        Object* new_entity = CreateObjectFromDesc(desc_list[i]);
+        Object* new_entity = CreateObjectFromDesc(desc);
 
         if( new_entity ) {
             //Position offset from calculated relative origo.
@@ -665,12 +642,12 @@ void ActorsEditor_AddEntitiesIntoPrefab(Object*  obj,SceneGraph *scenegraph, con
         }
 	}
 
-	for (size_t i=0, len=new_objects.size(); i<len; ++i) {
-        new_objects[i]->RemapReferences(id_remap);
+	for (auto & new_object : new_objects) {
+        new_object->RemapReferences(id_remap);
     }
 
-	for (size_t i=0, len=new_objects.size(); i<len; ++i) {
-		new_objects[i]->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
+	for (auto & new_object : new_objects) {
+		new_object->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
 	}
 
     vec3 orig_trans =           prefab->GetTranslation();
@@ -684,9 +661,9 @@ void ActorsEditor_AddEntitiesIntoPrefab(Object*  obj,SceneGraph *scenegraph, con
     prefab->SetRotation(quaternion());  
     prefab->SetScale(vec3(1.0f));
 
-    for(size_t i=0, len=new_objects.size(); i<len; ++i){
+    for(auto & new_object : new_objects){
         Group::Child child;
-        child.direct_ptr = new_objects[i];
+        child.direct_ptr = new_object;
         child.direct_ptr->SetParent(prefab);
         prefab->children.push_back(child);
     }
@@ -758,12 +735,9 @@ void ActorsEditor_UnlocalizeIDs(EntityDescriptionList *desc_list, SceneGraph *sc
 	GetFlattenedDescList(desc_list, &flat_desc_list);
     std::map<int, int> scene_ids;
     typedef std::map<int, int>::iterator Iter;
-	for(size_t desc_index=0, len=flat_desc_list.size(); 
-		desc_index<len; 
-		++desc_index) 
+	for(auto desc : flat_desc_list) 
 	{
-		EntityDescription *desc = flat_desc_list[desc_index];
-		EntityDescriptionField *edf = desc->GetField(EDF_ID);
+			EntityDescriptionField *edf = desc->GetField(EDF_ID);
         if(edf){
             int id;
             memread(&id, sizeof(int), 1, edf->data);
@@ -774,21 +748,15 @@ void ActorsEditor_UnlocalizeIDs(EntityDescriptionList *desc_list, SceneGraph *sc
 		    scene_ids.insert(std::pair<int, int>(id, new_id));
         }
 	}
-	for(size_t desc_index=0, len=flat_desc_list.size(); 
-		desc_index<len; 
-		++desc_index) 
+	for(auto desc : flat_desc_list) 
 	{
-		EntityDescription *desc = flat_desc_list[desc_index];
-		EntityDescriptionField *edf = desc->GetField(EDF_CONNECTIONS);
+			EntityDescriptionField *edf = desc->GetField(EDF_CONNECTIONS);
 		if(edf) {
 			std::vector<int> connections;
 			std::vector<int> write_connections;
 			edf->ReadIntVec(&connections);
-			for(size_t connection_index=0, len=connections.size(); 
-				connection_index<len; 
-				++connection_index ) 
+			for(int id : connections) 
 			{
-                int id = connections[connection_index];
                 Iter iter = scene_ids.find(id);
                 if(iter != scene_ids.end())
                     id = iter->second;
@@ -802,11 +770,8 @@ void ActorsEditor_UnlocalizeIDs(EntityDescriptionList *desc_list, SceneGraph *sc
 			std::vector<ItemConnectionData> connections;
 			std::vector<ItemConnectionData> write_connections;
 			edf->ReadItemConnectionDataVec(&connections);
-			for(size_t connection_index=0, len=connections.size(); 
-				connection_index<len; 
-				++connection_index ) 
+			for(auto write_data : connections) 
 			{
-                ItemConnectionData write_data = connections[connection_index];
                 Iter iter = scene_ids.find(write_data.id);
                 if(iter != scene_ids.end())
                     write_data.id = iter->second;
@@ -820,11 +785,8 @@ void ActorsEditor_UnlocalizeIDs(EntityDescriptionList *desc_list, SceneGraph *sc
 			std::vector<NavMeshConnectionData> connections;
 			std::vector<NavMeshConnectionData> write_connections;
 			edf->ReadNavMeshConnectionDataVec(&connections);
-			for(size_t connection_index=0, len=connections.size(); 
-				connection_index<len; 
-				++connection_index ) 
+			for(auto write_data : connections) 
 			{
-                NavMeshConnectionData write_data = connections[connection_index];
                 Iter iter = scene_ids.find(write_data.other_object_id);
                 if(iter != scene_ids.end())
                     write_data.other_object_id = iter->second;
@@ -838,11 +800,8 @@ void ActorsEditor_UnlocalizeIDs(EntityDescriptionList *desc_list, SceneGraph *sc
 			std::vector<int> connections;
 			std::vector<int> write_connections;
 			edf->ReadIntVec(&connections);
-			for(size_t connection_index=0, len=connections.size(); 
-				connection_index<len; 
-				++connection_index ) 
+			for(int id : connections) 
 			{
-                int id = connections[connection_index];
                 Iter iter = scene_ids.find(id);
                 if(iter != scene_ids.end())
                     id = iter->second;

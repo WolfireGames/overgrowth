@@ -170,8 +170,8 @@ static CScriptArray* AS_GetPlayerStates() {
 
     array->Reserve(vals.size());
 
-    for(unsigned i = 0; i < vals.size(); i++) {
-        array->InsertLast((void*)&vals[i]);
+    for(auto & val : vals) {
+        array->InsertLast((void*)&val);
     }
 
     return array;
@@ -444,8 +444,8 @@ static CScriptArray* AS_GetRawKeyboardInputs() {
 
     array->Reserve(vals.size());
 
-    for( unsigned i = 0; i < vals.size(); i++ ) {
-        array->InsertLast((void*)&vals[i]);
+    for(auto & val : vals) {
+        array->InsertLast((void*)&val);
     }
 
     return array;
@@ -461,8 +461,8 @@ static CScriptArray* AS_GetRawMouseInputs() {
 
     array->Reserve(vals.size());
 
-    for( unsigned i = 0; i < vals.size(); i++ ) {
-        array->InsertLast((void*)&vals[i]);
+    for(auto & val : vals) {
+        array->InsertLast((void*)&val);
     }
 
     return array;
@@ -478,8 +478,8 @@ static CScriptArray* AS_GetRawJoystickInputs(int which) {
 
     array->Reserve(vals.size());
 
-    for( unsigned i = 0; i < vals.size(); i++ ) {
-        array->InsertLast((void*)&vals[i]);
+    for(auto & val : vals) {
+        array->InsertLast((void*)&val);
     }
 
     return array;
@@ -2452,10 +2452,8 @@ CScriptArray* ASGetSelected() {
     array->Reserve(the_scenegraph->objects_.size());
 
     const SceneGraph::object_list &objects = the_scenegraph->objects_;
-    for(SceneGraph::object_list::const_iterator iter = objects.begin();
-        iter != objects.end(); ++iter)
+    for(auto obj : objects)
     {
-        Object* obj = (*iter);
         if(obj->Selected()) {
             int val = obj->GetID();
             array->InsertLast(&val);
@@ -2545,10 +2543,8 @@ CScriptArray *ASGetObjectIDArrayType(int type) {
     array->Reserve(the_scenegraph->objects_.size());
 
     const SceneGraph::object_list &objects = the_scenegraph->objects_;
-    for(SceneGraph::object_list::const_iterator iter = objects.begin();
-        iter != objects.end(); ++iter)
+    for(auto obj : objects)
     {
-        Object* obj = (*iter);
         if(obj->GetType() == type){
             int val = obj->GetID();
             if(val != -1){
@@ -2567,10 +2563,9 @@ CScriptArray *ASGetObjectIDArray() {
     array->Reserve(the_scenegraph->objects_.size());
 
     const SceneGraph::object_list &objects = the_scenegraph->objects_;
-    for(SceneGraph::object_list::const_iterator iter = objects.begin();
-        iter != objects.end(); ++iter)
+    for(auto object : objects)
     {
-        int val = (*iter)->GetID();
+        int val = object->GetID();
         if(val != -1){
             array->InsertLast(&val);
         }
@@ -2593,8 +2588,8 @@ int ASCreateObject(const std::string& path, bool exclude_from_save) {
     std::string file_type;
     Path source;
     ActorsEditor_LoadEntitiesFromFile(path, desc_list, &file_type, &source);
-    for(unsigned i=0; i<desc_list.size(); ++i){
-        Object* obj = MapEditor::AddEntityFromDesc(the_scenegraph, desc_list[i], false);
+    for(auto & i : desc_list){
+        Object* obj = MapEditor::AddEntityFromDesc(the_scenegraph, i, false);
         if( obj ) {
             obj->exclude_from_undo = exclude_from_save;
             obj->exclude_from_save = exclude_from_save;
@@ -2690,8 +2685,7 @@ void AttachItem(Object* movement_object_base, Object* item_object_base, int type
     MovementObject* movement_object = (MovementObject*)movement_object_base;
     AttachmentSlotList attachment_slots;
     movement_object->rigged_object()->AvailableItemSlots(item_object->item_ref(), &attachment_slots);
-    for(AttachmentSlotList::iterator it = attachment_slots.begin(); it != attachment_slots.end(); ++it) {
-        AttachmentSlot& slot = (*it);
+    for(auto & slot : attachment_slots) {
         if(slot.mirrored == mirrored && slot.type == type){
             movement_object->AttachItemToSlotEditor(item_object->GetID(), slot.type, slot.mirrored, slot.attachment_ref);
             break;
@@ -2827,10 +2821,9 @@ CScriptArray* ASGetChildren(Object* obj) {
     CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(group->children.size());
 
-    for(std::vector<Group::Child>::const_iterator iter = group->children.begin();
-        iter != group->children.end(); ++iter)
+    for(const auto & iter : group->children)
     {
-        int val = (*iter).direct_ptr->GetID();
+        int val = iter.direct_ptr->GetID();
         if(val != -1){
             array->InsertLast(&val);
         }
@@ -3201,8 +3194,8 @@ void GetCharactersInSphere( vec3 origin, float radius, CScriptArray *array ) {
 }
 
 void GetCharacters( CScriptArray *array ) {
-    for(int i=0, len=the_scenegraph->movement_objects_.size(); i<len; ++i){
-        int val = the_scenegraph->movement_objects_[i]->GetID();
+    for(auto & movement_object : the_scenegraph->movement_objects_){
+        int val = movement_object->GetID();
         array->InsertLast(&val);
     }
 }
@@ -3276,9 +3269,9 @@ int ASFindFirstCharacterInGroup(int id) {
         Group* group = static_cast<Group*>(obj);
         std::vector<Object*> children;
         group->GetTopDownCompleteChildren(&children);
-        for( unsigned i = 0; i < children.size(); i++ ) {
-            if( children[i]->GetType() == _movement_object ) {
-                return children[i]->GetID();
+        for(auto & i : children) {
+            if( i->GetType() == _movement_object ) {
+                return i->GetID();
             }
         }
     }
@@ -6143,10 +6136,9 @@ static CScriptArray* JSONValueGetMembers(Json::Value *self) {
 
     array->Reserve(members.size());
 
-    for(std::vector<std::string>::const_iterator iter = members.begin();
-        iter != members.end(); ++iter)
+    for(const auto & member : members)
     {
-        array->InsertLast((void*)(&(*iter)));
+        array->InsertLast((void*)(&member));
     }
     return array;
 }
@@ -6447,8 +6439,8 @@ static CScriptArray* AS_GetPossibleResolutions() {
 
     array->Reserve(resolutions.size());
 
-    for( unsigned i = 0; i < resolutions.size(); i++ ) {
-        vec2 cur_res = vec2(resolutions[i].w, resolutions[i].h);
+    for(auto & resolution : resolutions) {
+        vec2 cur_res = vec2(resolution.w, resolution.h);
         array->InsertLast((void*)&(cur_res));
     }
     return array;
@@ -6684,9 +6676,9 @@ static ModInstance::Parameter& ASParameterOpAssign( ModInstance::Parameter* self
 
 static ModInstance::Parameter ParameterConstStringIndex(ModInstance::Parameter *self, const std::string &key) {
     if(strmtch(self->type,"table")) {
-        for(uint32_t i = 0; i < self->parameters.size(); i++) {
-            if(strmtch(self->parameters[i].name,key.c_str())) {
-                return self->parameters[i];
+        for(auto & parameter : self->parameters) {
+            if(strmtch(parameter.name,key.c_str())) {
+                return parameter;
             }
         }
     }
@@ -6729,8 +6721,8 @@ static std::string ASParameterGetName(ModInstance::Parameter *self) {
 }
 
 static bool ASParameterContains(ModInstance::Parameter *self, const std::string& val) {
-    for(uint32_t i = 0; i < self->parameters.size(); i++ ) {
-        if(strmtch(self->parameters[i].value, val.c_str())) {
+    for(auto & parameter : self->parameters) {
+        if(strmtch(parameter.value, val.c_str())) {
             return true;
         }
     }
@@ -6738,8 +6730,8 @@ static bool ASParameterContains(ModInstance::Parameter *self, const std::string&
 }
 
 static bool ASParameterContainsName(ModInstance::Parameter *self, const std::string& val) {
-    for(uint32_t i = 0; i < self->parameters.size(); i++ ) {
-        if(strmtch(self->parameters[i].name, val.c_str())) {
+    for(auto & parameter : self->parameters) {
+        if(strmtch(parameter.name, val.c_str())) {
             return true;
         }
     }
@@ -7024,8 +7016,8 @@ static CScriptArray* ASGetModSids() {
 
     array->Reserve(sids.size());
 
-    for( unsigned i = 0; i < sids.size(); i++ ) {
-        array->InsertLast((void*)&(sids[i]));
+    for(auto & sid : sids) {
+        array->InsertLast((void*)&sid);
     }
     return array;
 }
@@ -7040,9 +7032,9 @@ static CScriptArray* ASGetActiveModSids() {
 
     array->Reserve(sids.size());
 
-    for( unsigned i = 0; i < sids.size(); i++ ) {
-        if( ModLoading::Instance().IsActive(sids[i]) ) {
-            array->InsertLast((void*)&(sids[i]));
+    for(auto & sid : sids) {
+        if( ModLoading::Instance().IsActive(sid) ) {
+            array->InsertLast((void*)&sid);
         }
     }
     return array;
@@ -7061,8 +7053,8 @@ static CScriptArray* ASModGetMenuItems(ModID& sid) {
 
         array->Reserve(mmi.size());
 
-        for( unsigned i = 0; i < mmi.size(); i++ ) {
-            array->InsertLast((void*)&(mmi[i]));
+        for(auto & i : mmi) {
+            array->InsertLast((void*)&i);
         }
     }
     return array;
@@ -7081,8 +7073,8 @@ static CScriptArray* ASModGetSpawnerItems(ModID& sid) {
 
         array->Reserve(msi.size());
 
-        for(unsigned i = 0; i < msi.size(); i++) {
-            array->InsertLast((void*)&(msi[i]));
+        for(auto & i : msi) {
+            array->InsertLast((void*)&i);
         }
     }
 
@@ -7099,20 +7091,20 @@ static CScriptArray* ASModGetAllSpawnerItems(bool only_include_active) {
 
     unsigned item_count = 0;
 
-    for(unsigned i = 0; i < mods.size(); i++) {
-        if(!only_include_active || mods[i]->IsActive() ) {
-            item_count += mods[i]->items.size();
+    for(auto mod : mods) {
+        if(!only_include_active || mod->IsActive() ) {
+            item_count += mod->items.size();
         }
     }
 
     array->Reserve(item_count);
 
-    for(unsigned i = 0; i < mods.size(); i++) {
-        if(!only_include_active || mods[i]->IsActive() ) {
-            const std::vector<ModInstance::Item>& msi = mods[i]->items;
+    for(auto mod : mods) {
+        if(!only_include_active || mod->IsActive() ) {
+            const std::vector<ModInstance::Item>& msi = mod->items;
 
-            for(unsigned i = 0; i < msi.size(); i++) {
-                array->InsertLast((void*)&(msi[i]));
+            for(const auto & i : msi) {
+                array->InsertLast((void*)&i);
             }
         }
     }
@@ -7143,8 +7135,8 @@ static CScriptArray* ASModGetCampaigns( ModID& sid ) {
 
         array->Reserve(campaigns.size());
 
-        for(unsigned i = 0; i < campaigns.size(); i++) {
-            array->InsertLast((void*)&(campaigns[i]));
+        for(auto & campaign : campaigns) {
+            array->InsertLast((void*)&campaign);
         }
     }
     return array;
@@ -7164,8 +7156,8 @@ static CScriptArray* ASGetCampaigns() {
 
     array->Reserve(campaigns.size());
 
-    for( unsigned i = 0; i < campaigns.size(); i++ ) {
-        array->InsertLast((void*)&(campaigns[i]));
+    for(auto & campaign : campaigns) {
+        array->InsertLast((void*)&campaign);
     }
 
     return array;
@@ -7293,9 +7285,9 @@ static std::string ASCampaignGetMenuScript( void *m ) {
 
 static std::string ASCampaignGetAttribute( void *m, std::string& id ) {
     std::vector<ModInstance::Attribute>& attributes = ((ModInstance::Campaign*)m)->attributes;
-    for( unsigned int i = 0; i < attributes.size(); i++ ) {
-        if( strmtch( attributes[i].id, id.c_str()) ){
-            return attributes[i].value.str();
+    for(auto & attribute : attributes) {
+        if( strmtch( attribute.id, id.c_str()) ){
+            return attribute.value.str();
         }
     }
     return "";
@@ -7311,17 +7303,17 @@ static CScriptArray* ASCampaignGetLevels(void *m) {
 
     array->Reserve(mmi.size());
 
-    for( unsigned i = 0; i < mmi.size(); i++ ) {
-        array->InsertLast((void*)&(mmi[i]));
+    for(auto & i : mmi) {
+        array->InsertLast((void*)&i);
     }
 
     return array;
 }
 
 static ModInstance::Level ASCampaignGetLevel(ModInstance::Campaign *m, const std::string& id) {
-    for( unsigned i = 0; i < m->levels.size(); i++ ) {
-        if( strmtch(id, m->levels[i].id) ) {
-            return m->levels[i];
+    for(auto & level : m->levels) {
+        if( strmtch(id, level.id) ) {
+            return level;
         }
     }
     return ModInstance::Level();
@@ -7340,8 +7332,8 @@ static CScriptArray* ASModGetModCampaignLevels(ModID& sid) {
 
         array->Reserve(mmi.size());
 
-        for( unsigned i = 0; i < mmi.size(); i++ ) {
-            array->InsertLast((void*)&(mmi[i]));
+        for(auto & i : mmi) {
+            array->InsertLast((void*)&i);
         }
     }
     return array;
@@ -7360,8 +7352,8 @@ static CScriptArray* ASModGetModSingleLevels(ModID& sid) {
 
         array->Reserve(mmi.size());
 
-        for( unsigned i = 0; i < mmi.size(); i++ ) {
-            array->InsertLast((void*)&(mmi[i]));
+        for(auto & i : mmi) {
+            array->InsertLast((void*)&i);
         }
     }
     return array;
@@ -7450,8 +7442,8 @@ static void ASOpenWorkshop() {
 
 static void ASDeactivateAllMods() {
     std::vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for( unsigned i = 0; i < mods.size(); i++ ) {
-        mods[i]->Activate(false);
+    for(auto & mod : mods) {
+        mod->Activate(false);
     }
 }
 

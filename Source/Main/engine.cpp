@@ -623,8 +623,8 @@ void Engine::Dispose() {
     if(scriptable_menu_)
         delete scriptable_menu_;
 
-    for (int i = 0; i < kNumTextAtlas; i++) {
-        g_text_atlas[i].Dispose();
+    for (auto & g_text_atla : g_text_atlas) {
+        g_text_atla.Dispose();
     }
     Models::Instance()->Dispose();
     ActiveCameras::Get()->SetCameraObject(NULL);
@@ -917,9 +917,9 @@ void Engine::UpdateControls(float timestep, bool loading_screen) {
             std::vector<Object*> selected;
             scenegraph_->ReturnSelected(&selected);
 
-            for(unsigned selected_i = 0; selected_i < selected.size(); ++selected_i) {
-                if(selected[selected_i]->GetType() == _hotspot_object) {
-                    Hotspot* hotspot = (Hotspot*)selected[selected_i];
+            for(auto & selected_i : selected) {
+                if(selected_i->GetType() == _hotspot_object) {
+                    Hotspot* hotspot = (Hotspot*)selected_i;
 
                     if(hotspot->HasCustomGUI()) {
                         hotspot->LaunchCustomGUI();
@@ -1076,8 +1076,8 @@ struct VoxelField {
     vec3 voxel_field_bounds[2];
     float voxel_size;
     VoxelField() {
-        for(int i=0; i<3; ++i){
-            voxel_field_dims[i] = 0;
+        for(int & voxel_field_dim : voxel_field_dims){
+            voxel_field_dim = 0;
         }
         voxel_size = 0.5f;
     }
@@ -1085,13 +1085,11 @@ struct VoxelField {
 
 static void RasterizeTrisToVoxelField(const std::vector<vec3>& tri_verts, VoxelField& field) {
     vec3 intersect_bounds[2] = {vec3(FLT_MAX), vec3(-FLT_MAX)};
-    for(size_t tri_index=0, num_tri_verts=tri_verts.size();
-        tri_index < num_tri_verts;
-        ++tri_index)
+    for(const auto & tri_vert : tri_verts)
     {
         for(int j=0; j<3; ++j){
-            intersect_bounds[0][j] = min(intersect_bounds[0][j], tri_verts[tri_index][j]);
-            intersect_bounds[1][j] = max(intersect_bounds[1][j], tri_verts[tri_index][j]);
+            intersect_bounds[0][j] = min(intersect_bounds[0][j], tri_vert[j]);
+            intersect_bounds[1][j] = max(intersect_bounds[1][j], tri_vert[j]);
         }
     }
 
@@ -1164,10 +1162,10 @@ static void RasterizeTrisToVoxelField(const std::vector<vec3>& tri_verts, VoxelF
                 // Rasterize clipped polygon to voxel field
                 if(!new_poly_verts.empty()){
                     vec3 poly_bounds_min(FLT_MAX), poly_bounds_max(-FLT_MAX);
-                    for(size_t i=0, len=new_poly_verts.size(); i<len; ++i){
+                    for(auto & new_poly_vert : new_poly_verts){
                         for(int j=0; j<3; ++j){
-                            poly_bounds_min[j] = min(poly_bounds_min[j], new_poly_verts[i][j]);
-                            poly_bounds_max[j] = max(poly_bounds_max[j], new_poly_verts[i][j]);
+                            poly_bounds_min[j] = min(poly_bounds_min[j], new_poly_vert[j]);
+                            poly_bounds_max[j] = max(poly_bounds_max[j], new_poly_vert[j]);
                         }
                     }
                     int span_top = (int)ceilf(poly_bounds_max[1]/field.voxel_size);
@@ -1195,8 +1193,7 @@ static void RasterizeTrisToVoxelField(const std::vector<vec3>& tri_verts, VoxelF
     }
 
     // Merge overlapping voxel spans
-    for(size_t span_index=0, len=field.spans.size(); span_index<len; ++span_index){
-        std::list<VoxelSpan>& span_list = field.spans[span_index];
+    for(auto & span_list : field.spans){
         span_list.sort(VoxelSpanHeightSort);
         for(std::list<VoxelSpan>::iterator iter = span_list.begin();
             iter != span_list.end();
@@ -1299,11 +1296,8 @@ void PlaceLightProbes(SceneGraph* scenegraph, vec3 translation, quaternion rotat
             temp_object.setCollisionShape(&shape);
             temp_object.setWorldTransform(transform);
             // Check for collision with each object
-            for(SceneGraph::object_list::iterator iter = scenegraph->collide_objects_.begin();
-                iter != scenegraph->collide_objects_.end();
-                ++iter)
+            for(auto object : scenegraph->collide_objects_)
             {
-                Object* object = (*iter);
                 EntityType object_type = object->GetType();
                 if(object_type == _env_object || object_type == _terrain_type){
                     // Extract model from object
@@ -1330,9 +1324,9 @@ void PlaceLightProbes(SceneGraph* scenegraph, vec3 translation, quaternion rotat
                         object->scenegraph_->bullet_world_->GetPairCollisions(temp_object, *bullet_object->body, cb);
                         // Add transformed triangles to list
                         const std::vector<int>& tris = tlr[bullet_object];
-                        for(unsigned tri_index=0; tri_index<tris.size(); ++tri_index){
+                        for(int tri : tris){
                             vec3 vert[3];
-                            int face_index = tris[tri_index]*3;
+                            int face_index = tri*3;
                             for(int j=0; j<3; ++j){
                                 int vert_index = model->faces[face_index+j]*3;
                                 for(int k=0; k<3; ++k){
@@ -1423,11 +1417,8 @@ void PlaceLightProbes(SceneGraph* scenegraph, vec3 translation, quaternion rotat
         std::list<VoxelSpan>& empty_span_list = empty_box_spans[column_index];
         span_list.sort(VoxelSpanHeightSort);
         VoxelSpan* prev_span = NULL;
-        for(std::list<VoxelSpan>::iterator iter = span_list.begin();
-            iter != span_list.end();
-            ++iter)
+        for(auto & span : span_list)
         {
-            VoxelSpan& span = *iter;
             if(prev_span){
                 VoxelSpan empty_span;
                 empty_span.height[0] = prev_span->height[1];
@@ -1504,11 +1495,8 @@ void PlaceLightProbes(SceneGraph* scenegraph, vec3 translation, quaternion rotat
         std::list<VoxelSpan>& span_list = cropped_voxel_field_spans[column_index];
         std::list<VoxelSpan>& empty_span_list = empty_field_spans[column_index];
         VoxelSpan* prev_span = NULL;
-        for(std::list<VoxelSpan>::iterator iter = span_list.begin();
-            iter != span_list.end();
-            ++iter)
+        for(auto & span : span_list)
         {
-            VoxelSpan& span = *iter;
             if(prev_span){
                 VoxelSpan empty_span;
                 empty_span.height[0] = prev_span->height[1];
@@ -1549,11 +1537,9 @@ void PlaceLightProbes(SceneGraph* scenegraph, vec3 translation, quaternion rotat
     {
         column_start_index[column_index] = span_vector.size();
         std::list<VoxelSpan>& span_list = empty_field_spans[column_index];
-        for(std::list<VoxelSpan>::iterator iter = span_list.begin();
-            iter != span_list.end();
-            ++iter)
+        for(auto & iter : span_list)
         {
-            span_vector.push_back(*iter);
+            span_vector.push_back(iter);
         }
     }
     // Cap start index list to avoid special case when finding num spans per column
@@ -2055,9 +2041,9 @@ void Engine::Update() {
                                 std::string campaign_id = sc->GetCampaignID();
                                 ModInstance::Campaign camp = ModLoading::Instance().GetCampaign(campaign_id);
 
-                                for( size_t i = 0; i < camp.levels.size(); i++ ) {
-                                    if( strmtch(camp.levels[i].id, current_engine_state_.id) ) {
-                                        std::string short_path = std::string("Data/Levels/") + std::string(camp.levels[i].path);
+                                for(auto & level : camp.levels) {
+                                    if( strmtch(level.id, current_engine_state_.id) ) {
+                                        std::string short_path = std::string("Data/Levels/") + std::string(level.path);
 
                                         if( FileExists( short_path, kAnyPath ) )
                                         {
@@ -2236,16 +2222,16 @@ void Engine::Update() {
                     scenegraph_->level->Update(paused);
                 }
 
-                for(size_t i=0, len=scenegraph_->movement_objects_.size(); i<len; ++i) {
-                    MovementObject* mo = (MovementObject*)scenegraph_->movement_objects_[i];
+                for(auto & movement_object : scenegraph_->movement_objects_) {
+                    MovementObject* mo = (MovementObject*)movement_object;
                     if(mo->controlled){
                         mo->UpdatePaused();
                     }
                 }
                 HandleRabbotToggleControls();
 
-                for(size_t i = 0; i < active_contexts.size(); ++i) {
-                    active_contexts[i]->profiler.Update();
+                for(auto active_context : active_contexts) {
+                    active_context->profiler.Update();
                 }
             }
         } else {
@@ -2297,9 +2283,7 @@ void Engine::Update() {
                 }
 
                 if (Online::Instance()->IsActive()) {
-                    for (uint32_t i = 0; i < scenegraph_->visible_static_meshes_.size(); i++) {
-                        EnvObject * eo = scenegraph_->visible_static_meshes_[i];
-
+                    for (auto eo : scenegraph_->visible_static_meshes_) {
                         eo->Update(game_timer.timestep);
                     }
                 }
@@ -2329,13 +2313,13 @@ void Engine::Update() {
                 // Disposing of an object might in turn queue up more items
                 // to delete, so make we loop until we're at the end of
                 // object_ids_to_delete
-                for(size_t i = 0; i < scenegraph_->object_ids_to_delete.size(); ++i){
-                    scenegraph_->map_editor->DeleteID(scenegraph_->object_ids_to_delete[i]);
+                for(int i : scenegraph_->object_ids_to_delete){
+                    scenegraph_->map_editor->DeleteID(i);
                 }
                 scenegraph_->object_ids_to_delete.clear();
 
-                for(size_t i = 0; i < active_contexts.size(); ++i) {
-                    active_contexts[i]->profiler.Update();
+                for(auto active_context : active_contexts) {
+                    active_context->profiler.Update();
                 }
             }
             sound.UpdateGameTimescale(powf(game_timer.time_scale / current_global_scale_mult, 0.5f));
@@ -3064,8 +3048,7 @@ void Engine::DrawScene(DrawingViewport drawing_viewport, Engine::PostEffectsType
         ActiveCameras::Get()->tint = vec3(1.0);
         ActiveCameras::Get()->vignette_tint = vec3(1.0);
         float predraw_time = game_timer.GetRenderTime();
-        for(int i=0; i<(int)scenegraph_->objects_.size(); ++i){
-            Object* obj = scenegraph_->objects_[i];
+        for(auto obj : scenegraph_->objects_){
             if(!obj->parent){
                 obj->PreDrawCamera(predraw_time);
             }
@@ -3530,8 +3513,8 @@ static void CalculateMinMax(const mat4& model_to_light_transform, const Model& m
         model.max_coords,
     };
 
-    for(int i = 0; i < 8; ++i) {
-        vec2 light_space_vert = CalculateMulMat4Vec3(model_to_light_transform, bounding_corners[i]);
+    for(const auto & bounding_corner : bounding_corners) {
+        vec2 light_space_vert = CalculateMulMat4Vec3(model_to_light_transform, bounding_corner);
         result_min_max_bounds[0] = std::min(light_space_vert[0], result_min_max_bounds[0]);
         result_min_max_bounds[1] = std::min(light_space_vert[1], result_min_max_bounds[1]);
         result_min_max_bounds[2] = std::max(light_space_vert[0], result_min_max_bounds[2]);
@@ -3596,20 +3579,14 @@ static bool UpdateShadowCache(SceneGraph* scenegraph) {
     if(shadow_cache_dirty_sun_moved)
     {
         // Dirty all objects once, so iterative processing can clean them up
-        for(std::vector<ShadowCacheObjectLightBounds>::iterator it = scenegraph->visible_static_meshes_shadow_cache_bounds_.begin();
-            it != scenegraph->visible_static_meshes_shadow_cache_bounds_.end();
-            ++it)
+        for(auto & lb : scenegraph->visible_static_meshes_shadow_cache_bounds_)
         {
-            ShadowCacheObjectLightBounds& lb = *it;
             if(!lb.is_ignored) {
                 lb.is_calculated = false;
             }
         }
-        for(std::vector<ShadowCacheObjectLightBounds>::iterator it = scenegraph->terrain_objects_shadow_cache_bounds_.begin();
-            it != scenegraph->terrain_objects_shadow_cache_bounds_.end();
-            ++it)
+        for(auto & lb : scenegraph->terrain_objects_shadow_cache_bounds_)
         {
-            ShadowCacheObjectLightBounds& lb = *it;
             lb.is_calculated = false;
         }
     }
@@ -3655,11 +3632,8 @@ static bool UpdateShadowCache(SceneGraph* scenegraph) {
     }
     if(shadow_cache_dirty_level_loaded || !max_updates_hit)
     {
-        for(std::vector<ShadowCacheObjectLightBounds>::iterator it = scenegraph->visible_static_meshes_shadow_cache_bounds_.begin();
-            it != scenegraph->visible_static_meshes_shadow_cache_bounds_.end();
-            ++it)
+        for(auto & lb : scenegraph->visible_static_meshes_shadow_cache_bounds_)
         {
-            ShadowCacheObjectLightBounds& lb = *it;
             if(!lb.is_ignored) {
                 bounds[0] = std::min(lb.min_bounds[0], bounds[0]);
                 bounds[1] = std::min(lb.min_bounds[1], bounds[1]);
@@ -3667,11 +3641,8 @@ static bool UpdateShadowCache(SceneGraph* scenegraph) {
                 bounds[3] = std::max(lb.max_bounds[1], bounds[3]);
             }
         }
-        for(std::vector<ShadowCacheObjectLightBounds>::iterator it = scenegraph->terrain_objects_shadow_cache_bounds_.begin();
-            it != scenegraph->terrain_objects_shadow_cache_bounds_.end();
-            ++it)
+        for(auto & lb : scenegraph->terrain_objects_shadow_cache_bounds_)
         {
-            ShadowCacheObjectLightBounds& lb = *it;
             bounds[0] = std::min(lb.min_bounds[0], bounds[0]);
             bounds[1] = std::min(lb.min_bounds[1], bounds[1]);
             bounds[2] = std::max(lb.max_bounds[0], bounds[2]);
@@ -4069,9 +4040,9 @@ static void UpdateShadowCascades(SceneGraph* scenegraph) {
     int num_shadow_view_frustum_planes = 0;
     vec4 shadow_view_frustum_planes[30];
     // Add camera frustum panes if they are facing the direction the light is coming from
-    for(int i=0; i<6; ++i) {
-        if(dot(light_dir, view_frustum_planes[i].xyz()) >= 0.0f){
-            shadow_view_frustum_planes[num_shadow_view_frustum_planes] = view_frustum_planes[i];
+    for(const auto & view_frustum_plane : view_frustum_planes) {
+        if(dot(light_dir, view_frustum_plane.xyz()) >= 0.0f){
+            shadow_view_frustum_planes[num_shadow_view_frustum_planes] = view_frustum_plane;
             ++num_shadow_view_frustum_planes;
         }
     }
@@ -4210,8 +4181,7 @@ static void UpdateShadowCascades(SceneGraph* scenegraph) {
         { // Perform per-frame, per-camera functions, like character LOD and spawning grass
             PROFILER_GPU_ZONE(g_profiler_ctx, "Pre-draw camera");
             float predraw_time = game_timer.GetRenderTime();
-            for(int i=0; i<(int)scenegraph->objects_.size(); ++i){
-                Object* obj = scenegraph->objects_[i];
+            for(auto obj : scenegraph->objects_){
                 if(!obj->parent){
                     obj->PreDrawCamera(predraw_time);
                 }
@@ -4245,8 +4215,7 @@ static void UpdateShadowCascades(SceneGraph* scenegraph) {
         { // Perform per-frame, per-camera functions, like character LOD and spawning grass
             PROFILER_GPU_ZONE(g_profiler_ctx, "Pre-draw camera");
             float predraw_time = game_timer.GetRenderTime();
-            for(int i=0; i<(int)scenegraph->objects_.size(); ++i){
-                Object* obj = scenegraph->objects_[i];
+            for(auto obj : scenegraph->objects_){
                 if(!obj->parent){
                     obj->PreDrawCamera(predraw_time);
                 }
@@ -4357,15 +4326,13 @@ void SaveCollisionNormals(const SceneGraph* scenegraph) {
         fwrite(kCollisionNormalIdentifier, strlen(kCollisionNormalIdentifier), 1, file);
         fwrite(&kCollisionNormalVersion, sizeof(int), 1, file);
         int num_objects = 0;
-        for(size_t i=0, len=scenegraph->visible_static_meshes_.size(); i<len; ++i){
-            EnvObject* eo = scenegraph->visible_static_meshes_[i];
+        for(auto eo : scenegraph->visible_static_meshes_){
             if(eo->GetCollisionModelID() != -1){
                 ++num_objects;
             }
         }
         fwrite(&num_objects, sizeof(int), 1, file);
-        for(size_t i=0, len=scenegraph->visible_static_meshes_.size(); i<len; ++i){
-            EnvObject* eo = scenegraph->visible_static_meshes_[i];
+        for(auto eo : scenegraph->visible_static_meshes_){
             if(eo->GetCollisionModelID() != -1){
                 int id = eo->GetID();
                 fwrite(&id, sizeof(int), 1, file);
@@ -4563,8 +4530,7 @@ void Engine::Draw() {
         { // Perform per-frame calculations (like character shadows or LOD)
             PROFILER_GPU_ZONE(g_profiler_ctx, "Pre-draw frame");
             float predraw_time = game_timer.GetRenderTime();
-            for(int i=0; i<(int)scenegraph_->objects_.size(); ++i){
-                Object* obj = scenegraph_->objects_[i];
+            for(auto obj : scenegraph_->objects_){
                 if(!obj->parent){
                     obj->PreDrawFrame(predraw_time);
                 }
@@ -4578,8 +4544,7 @@ void Engine::Draw() {
 
             PROFILER_GPU_ZONE(g_profiler_ctx, "Updating reflection capture cubemaps");
             std::vector<TextureRef> textures;
-            for(size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i){
-                Object* obj = scenegraph_->objects_[i];
+            for(auto obj : scenegraph_->objects_){
                 ReflectionCaptureObject* reflection_obj = (ReflectionCaptureObject*)obj;
                 if(obj->GetType() == _reflection_capture_object){
                     if(reflection_obj->cube_map_ref.valid()){
@@ -4592,8 +4557,7 @@ void Engine::Draw() {
             textures.push_back(scenegraph_->sky->GetSpecularCubeMapTexture());
             scenegraph_->ref_cap_matrix.clear();
             scenegraph_->ref_cap_matrix_inverse.clear();
-            for(size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i){
-                Object* obj = scenegraph_->objects_[i];
+            for(auto obj : scenegraph_->objects_){
                 ReflectionCaptureObject* reflection_obj = (ReflectionCaptureObject*)obj;
                 if(obj->GetType() == _reflection_capture_object){
                     if(reflection_obj->cube_map_ref.valid()){
@@ -4776,10 +4740,10 @@ void Engine::Draw() {
             }
             // Finalize second bounce light probes
             if (kLightProbe2pass && scenegraph_->light_probe_collection.to_process.empty()){
-                for(size_t i=0, len=scenegraph_->light_probe_collection.light_probes.size(); i<len; ++i){
+                for(auto & light_probe : scenegraph_->light_probe_collection.light_probes){
                     for(int j=0; j<6; ++j){
-                        scenegraph_->light_probe_collection.light_probes[i].ambient_cube_color[j] =
-                            scenegraph_->light_probe_collection.light_probes[i].ambient_cube_color_buf[j];
+                        light_probe.ambient_cube_color[j] =
+                            light_probe.ambient_cube_color_buf[j];
                     }
                 }
                 kLightProbe2pass = false;
@@ -4801,12 +4765,8 @@ void Engine::Draw() {
         if(kDrawSpans){
             for(int span_index=0, len=(int)g_voxel_field.spans.size(); span_index<len; ++span_index){
                 std::list<VoxelSpan>& span_list = g_voxel_field.spans[span_index];
-                for(std::list<VoxelSpan>::iterator iter = span_list.begin();
-                    iter != span_list.end();
-                    ++iter)
+                for(auto span : span_list)
                 {
-                    VoxelSpan span = *iter;
-
                     int voxel_x = span_index / g_voxel_field.voxel_field_dims[2];
                     int voxel_z = span_index % g_voxel_field.voxel_field_dims[2];
                     vec3 pos = vec3(
@@ -4826,8 +4786,8 @@ void Engine::Draw() {
         {
             PROFILER_GPU_ZONE(g_profiler_ctx, "Update light volume objects");
             LightVolumeObject* lvo = NULL;
-            for(size_t i=0, len=scenegraph_->light_volume_objects_.size(); i<len; ++i){
-                lvo = scenegraph_->light_volume_objects_[i];
+            for(auto & light_volume_object : scenegraph_->light_volume_objects_){
+                lvo = light_volume_object;
             }
 
             if(lvo && lvo->dirty && !IsBeingMoved(scenegraph_->map_editor, lvo)){
@@ -4871,8 +4831,8 @@ void Engine::Draw() {
         {
             if( g_no_reflection_capture == false ) {
                 PROFILER_GPU_ZONE(g_profiler_ctx, "Update reflection capture objects");
-                for(size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i){
-                    Object* obj = scenegraph_->objects_[i];
+                for(auto & object : scenegraph_->objects_){
+                    Object* obj = object;
                     ReflectionCaptureObject* reflection_obj = (ReflectionCaptureObject*)obj;
                     if(obj->GetType() == _reflection_capture_object && reflection_obj->dirty){
                         bool media_mode = graphics->media_mode();
@@ -4882,13 +4842,13 @@ void Engine::Draw() {
                             reflection_obj->cube_map_ref = Textures::Instance()->makeCubemapTexture(128, 128, GL_RGBA16F, GL_RGBA, Textures::MIPMAPS);
                             Textures::Instance()->SetTextureName(reflection_obj->cube_map_ref, "Reflection Capture Cubemap");
                         }
-                        DrawCubeMap(reflection_obj->cube_map_ref, scenegraph_->objects_[i]->GetTranslation(),
+                        DrawCubeMap(reflection_obj->cube_map_ref, object->GetTranslation(),
                             scenegraph_->light_probe_collection.cube_map_fbo, SceneGraph::kStaticOnly);
                         // Blur cubemap to represent different levels of roughness
                         CubemapMipChain(reflection_obj->cube_map_ref, Cubemap::SPHERE, NULL);
                         graphics->SetMediaMode(media_mode);
                         ReadAverageColorsFromCubemap(reflection_obj->avg_color, reflection_obj->cube_map_ref);
-                        ((ReflectionCaptureObject*)(scenegraph_->objects_[i]))->dirty = false;
+                        ((ReflectionCaptureObject*)object)->dirty = false;
                         scenegraph_->cubemaps_need_refresh = true;
                     }
                 }
@@ -5653,12 +5613,12 @@ void Engine::PreloadAssets(const Path &level_path) {
 
     std::vector<LevelAssetPreloadParser::Asset> &preload_files = AssetPreload::Instance().GetPreloadFiles();
     LOGI << "Starting Preloading for: " << level_path << std::endl;
-    for( unsigned i = 0; i < preload_files.size(); i++ ) {
-        if( preload_files[i].all_levels || preload_files[i].level_name == level_path.GetOriginalPathStr() ) {
+    for(auto & preload_file : preload_files) {
+        if( preload_file.all_levels || preload_file.level_name == level_path.GetOriginalPathStr() ) {
             //LOGI << "Preloading: " << preload_files[i].path << " " << preload_files[i].asset_type << " " << preload_files[i].load_flags << std::endl;
-            Path p = FindFilePath( preload_files[i].path, kAnyPath, false );
+            Path p = FindFilePath( preload_file.path, kAnyPath, false );
             if( p.isValid() ) {
-                GetAssetManager()->LoadSync(preload_files[i].asset_type, preload_files[i].path, preload_files[i].load_flags, HOLD_LOAD_MASK_PRELOAD);
+                GetAssetManager()->LoadSync(preload_file.asset_type, preload_file.path, preload_file.load_flags, HOLD_LOAD_MASK_PRELOAD);
             }
         }
     }
@@ -5908,8 +5868,7 @@ void Engine::LoadLevel(Path queued_level) {
 
             {
                 PROFILER_ZONE(g_profiler_ctx, "Send 'added_object' messages");
-                for(size_t i=0, len=scenegraph_->objects_.size(); i<len; ++i){
-                    Object* obj = scenegraph_->objects_[i];
+                for(auto obj : scenegraph_->objects_){
                     static const int kBufSize = 256;
                     char msg[kBufSize];
                     FormatString(msg, kBufSize, "added_object %d", obj->GetID());
@@ -6030,16 +5989,16 @@ void Engine::QueueLevelCacheGeneration(const Path& path) {
 }
 
 void Engine::GenerateLevelCache(ModInstance* mod_instance) {
-    for(size_t i = 0; i < mod_instance->levels.size(); ++i) {
+    for(auto & level : mod_instance->levels) {
         std::string path = "Data/levels/";
-        path += mod_instance->levels[i].path;
+        path += level.path;
 
         QueueLevelCacheGeneration(FindFilePath(path, kAnyPath));
     }
-    for(size_t i = 0; i < mod_instance->campaigns.size(); ++i) {
-        for(size_t j = 0; j < mod_instance->campaigns[i].levels.size(); ++j) {
+    for(auto & campaign : mod_instance->campaigns) {
+        for(size_t j = 0; j < campaign.levels.size(); ++j) {
             std::string path = "Data/levels/";
-            path += mod_instance->campaigns[i].levels[j].path;
+            path += campaign.levels[j].path;
 
             QueueLevelCacheGeneration(FindFilePath(path, kAnyPath));
         }
@@ -6517,9 +6476,9 @@ void Engine::ScriptableUICallback(const std::string &level)
                 std::string campaign_id = sc->GetCampaignID();
                 ModInstance::Campaign campaign = ModLoading::Instance().GetCampaign(campaign_id);
 
-                for( size_t i = 0; i < campaign.levels.size(); i++ ) {
-                    if( campaign.levels[i].path == long_path || campaign.levels[i].path == short_path ) {
-                        level_id = campaign.levels[i].id;
+                for(auto & level : campaign.levels) {
+                    if( level.path == long_path || level.path == short_path ) {
+                        level_id = level.id;
                     }
                 }
             }
@@ -6746,10 +6705,10 @@ ScriptableCampaign* Engine::GetCurrentCampaign() {
             return current_engine_state_.campaign.GetPtr();
         }
     } else {
-        for( unsigned int i = 0; i < state_history.size(); i++ ) {
-            if( state_history[i].type == kEngineCampaignState ){
-                if( state_history[i].campaign.Valid() ) {
-                    return state_history[i].campaign.GetPtr();
+        for(auto & i : state_history) {
+            if( i.type == kEngineCampaignState ){
+                if( i.campaign.Valid() ) {
+                    return i.campaign.GetPtr();
                 }
             }
         }
@@ -6762,9 +6721,9 @@ std::string Engine::GetCurrentLevelID() {
     if(current_engine_state_.type == kEngineLevelState || current_engine_state_.type ==  kEngineEditorLevelState ) {
         return current_engine_state_.id;
     } else {
-        for( unsigned int i = 0; i < state_history.size(); i++ ) {
-            if( state_history[i].type == kEngineLevelState || state_history[i].type == kEngineEditorLevelState){
-                return state_history[i].id;
+        for(auto & i : state_history) {
+            if( i.type == kEngineLevelState || i.type == kEngineEditorLevelState){
+                return i.id;
             }
         }
     }

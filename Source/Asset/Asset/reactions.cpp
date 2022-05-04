@@ -104,8 +104,8 @@ int Reaction::IsMirrored()
 void Reaction::ReturnPaths( PathSet &path_set )
 {
     path_set.insert("reaction "+path_);
-    for(unsigned i=0; i<anim_paths.size(); ++i){
-        ReturnAnimationAssetRef(anim_paths[i]);
+    for(auto & anim_path : anim_paths){
+        ReturnAnimationAssetRef(anim_path);
     }
 }
 

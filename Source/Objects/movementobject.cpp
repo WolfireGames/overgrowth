@@ -121,10 +121,10 @@ void MovementObject::GetChildren(std::vector<Object*>* ret_children) {
         std::vector<AttachedEnvObject> attached_env_objects;
         Deserialize(env_object_attach_data, attached_env_objects);
         ret_children->reserve(attached_env_objects.size());
-        for(int i=0, len=attached_env_objects.size(); i<len; ++i){
-            Object* obj = attached_env_objects[i].direct_ptr;
+        for(auto & attached_env_object : attached_env_objects){
+            Object* obj = attached_env_object.direct_ptr;
             if(obj){
-                ret_children->push_back(attached_env_objects[i].direct_ptr);
+                ret_children->push_back(attached_env_object.direct_ptr);
             }
         }
     }
@@ -135,11 +135,11 @@ void MovementObject::GetBottomUpCompleteChildren(std::vector<Object*>* ret_child
         std::vector<AttachedEnvObject> attached_env_objects;
         Deserialize(env_object_attach_data, attached_env_objects);
         ret_children->reserve(attached_env_objects.size());
-        for(int i=0, len=attached_env_objects.size(); i<len; ++i){
-            Object* obj = attached_env_objects[i].direct_ptr;
+        for(auto & attached_env_object : attached_env_objects){
+            Object* obj = attached_env_object.direct_ptr;
             if(obj){
                 obj->GetBottomUpCompleteChildren(ret_children);
-                ret_children->push_back(attached_env_objects[i].direct_ptr);
+                ret_children->push_back(attached_env_object.direct_ptr);
             }
         }
     }
@@ -209,8 +209,7 @@ void MovementObject::PreDrawFrame(float curr_game_time) {
                 }
                 else {
                     if (attached_env_object.bone_connection_dirty) {
-                        for (unsigned i = 0; i < kMaxBoneConnects; ++i) {
-                            BoneConnect& bone_connect = attached_env_object.bone_connects[i];
+                        for (auto & bone_connect : attached_env_object.bone_connects) {
                             if (bone_connect.bone_id != -1) {
                                 mat4 transform_mat = rigged_object_->display_bone_transforms[bone_connect.bone_id].GetMat4();
                                 mat4 env_mat = Mat4FromQuaternion(obj->GetRotation());
@@ -240,14 +239,13 @@ const float kCullRadius = 2.0f;
 
 void MovementObject::ActualPreDraw(float curr_game_time) {
     bool dirty_attachment = false;
-    for(int i=0, len=rigged_object_->children.size(); i<len; ++i){
-        if(rigged_object_->children[i].bone_connection_dirty){
+    for(auto & i : rigged_object_->children){
+        if(i.bone_connection_dirty){
             dirty_attachment = true;
         }
     }
     rigged_object_->PreDrawFrame(curr_game_time);
-    for(int i=0, len=rigged_object_->children.size(); i<len; ++i){
-        AttachedEnvObject& child = rigged_object_->children[i];
+    for(auto & child : rigged_object_->children){
         Object* obj = child.direct_ptr;
         if(obj){
             obj->PreDrawFrame(curr_game_time);
@@ -356,12 +354,10 @@ void MovementObject::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull
         if(!culled){
             // Check if character is occluded from pov of active camera
             bool occluded = false;
-            for(int state_index=0, state_len=occlusion_states.size(); 
-                state_index < state_len; 
-                ++state_index)
+            for(auto & occlusion_state : occlusion_states)
             {
-                if(occlusion_states[state_index].cam_id == ActiveCameras::GetID()){
-                    occluded = occlusion_states[state_index].occluded;
+                if(occlusion_state.cam_id == ActiveCameras::GetID()){
+                    occluded = occlusion_state.occluded;
                     break;
                 }
             }
@@ -395,8 +391,8 @@ void MovementObject::PreDrawCamera(float curr_game_time) {
                 {
                     PROFILER_ZONE(g_profiler_ctx, "Process occlusion queries");
 
-                    for(int query_index=0, num_queries=occlusion_queries.size(); query_index<num_queries; ++query_index){
-                        OcclusionQuery* query = &occlusion_queries[query_index];
+                    for(auto & occlusion_querie : occlusion_queries){
+                        OcclusionQuery* query = &occlusion_querie;
                         if(!query->in_progress){
                             continue;
                         }
@@ -435,12 +431,10 @@ void MovementObject::PreDrawCamera(float curr_game_time) {
                 }
 
                 // Check if character is occluded from pov of active camera
-                for(int state_index=0, state_len=occlusion_states.size(); 
-                    state_index < state_len; 
-                    ++state_index)
+                for(auto & occlusion_state : occlusion_states)
                 {
-                    if(occlusion_states[state_index].cam_id == ActiveCameras::GetID()){
-                        occluded = occlusion_states[state_index].occluded;
+                    if(occlusion_state.cam_id == ActiveCameras::GetID()){
+                        occluded = occlusion_state.occluded;
                         break;
                     }
                 }
@@ -483,12 +477,10 @@ void MovementObject::Draw() {
             // Check if character is occluded from pov of active camera
             bool occluded = false;
             if( g_perform_occlusion_query ) {
-                for(int state_index=0, state_len=occlusion_states.size(); 
-                    state_index < state_len; 
-                    ++state_index)
+                for(auto & occlusion_state : occlusion_states)
                 {
-                    if(occlusion_states[state_index].cam_id == ActiveCameras::GetID()){
-                        occluded = occlusion_states[state_index].occluded;
+                    if(occlusion_state.cam_id == ActiveCameras::GetID()){
+                        occluded = occlusion_state.occluded;
                         break;
                     }
                 }
@@ -578,10 +570,8 @@ void MovementObject::Draw() {
             }
         }
         std::list<ItemObjectScriptReader> &ic = item_connections;
-        for(std::list<ItemObjectScriptReader>::iterator iter = ic.begin(); 
-            iter != ic.end(); ++iter)
+        for(auto & item : ic)
         {
-            ItemObjectScriptReader& item = (*iter);
             if(item.valid()){
                 DebugDraw::Instance()->AddLine(GetTranslation(), 
                     item->GetTranslation(), 
@@ -949,9 +939,9 @@ void MovementObject::Update(float timestep) {
 	if (!rigged_object_->animated) {
 		velocity = rigged_object_->GetAvgVelocity();
 	}
-	for (unsigned i = 0; i < attached_sounds.size(); ++i) {
-		si->SetOcclusionPosition(attached_sounds[i], position);
-		si->TranslatePosition(attached_sounds[i], velocity * timestep);
+	for (unsigned long & attached_sound : attached_sounds) {
+		si->SetOcclusionPosition(attached_sound, position);
+		si->TranslatePosition(attached_sound, velocity * timestep);
 		//DebugDraw::Instance()->AddWireSphere(si->GetPosition(attached_sounds[i]), 1.0f, vec4(1.0f), _delete_on_update);
 	}
 
@@ -1457,10 +1447,10 @@ void MovementObject::CreateRiggedObject(){
 
         }
     //}
-    for(unsigned i=0; i<palette.size(); ++i){
-        for(unsigned j=0; j<old_palette.size(); ++j){
-            if(palette[i].label == old_palette[j].label){
-                palette[i].color = old_palette[j].color;
+    for(auto & i : palette){
+        for(auto & j : old_palette){
+            if(i.label == j.label){
+                i.color = j.color;
             }
         }
     }
@@ -1499,10 +1489,8 @@ void MovementObject::Reset(){
     as_context->ResetGlobals();
     as_context->CallScriptFunction(as_funcs.set_parameters);
     as_context->CallScriptFunction(as_funcs.post_reset);
-    for(std::list<ItemObjectScriptReader>::iterator iter = item_connections.begin();
-        iter != item_connections.end(); ++iter)
+    for(auto & item_connection : item_connections)
     {
-        ItemObjectScriptReader &item_connection = (*iter);
         if(item_connection.attachment_type != _at_unspecified){
             int which = item_connection->GetID();
             AttachmentType type = item_connection.attachment_type;
@@ -4477,9 +4465,7 @@ void MovementObject::FinalizeLoadedConnections() {
         }
     }
 
-    for(unsigned i=0; i<item_connection_vec.size(); ++i){
-        ItemConnection &item_connection = item_connection_vec[i];
-
+    for(auto & item_connection : item_connection_vec){
         if( do_connection_finalization_remap ) {  
             if( connection_finalization_remap.find(item_connection.id) != connection_finalization_remap.end() ) {
                 item_connection.id = connection_finalization_remap[item_connection.id];
@@ -4544,10 +4530,8 @@ void MovementObject::GetDesc(EntityDescription &desc) const {
     desc.AddIntVec(EDF_CONNECTIONS, connections);
 
     std::vector<ItemConnectionData> item_connections_vec;
-    for(std::list<ItemObjectScriptReader>::const_iterator iter = item_connections.begin();
-        iter != item_connections.end(); ++iter)
+    for(const auto & script_reader : item_connections)
     {
-        const ItemObjectScriptReader& script_reader = (*iter);
         ItemConnectionData item_connection;
         item_connection.id = script_reader->GetID();
         item_connection.attachment_type = script_reader.attachment_type;
@@ -4565,8 +4549,8 @@ void MovementObject::GetDesc(EntityDescription &desc) const {
         Serialize(rigged_object_->children, temp_env_object_attach_data);
         desc.AddData(EDF_ENV_OBJECT_ATTACH, temp_env_object_attach_data);
     }
-    for(int i=0, len=rigged_object_->children.size(); i<len; ++i){
-        Object* env_obj = rigged_object_->children[i].direct_ptr;
+    for(auto & i : rigged_object_->children){
+        Object* env_obj = i.direct_ptr;
         if(env_obj){
             desc.children.resize(desc.children.size()+1);
             env_obj->GetDesc(desc.children.back());
@@ -4718,8 +4702,8 @@ void MovementObject::Dispose() {
     as_context.reset(NULL);
     rigged_object_->as_context = NULL;
 
-    for(int i=0, len=occlusion_queries.size(); i<len; ++i){
-        const GLuint val = occlusion_queries[i].id;
+    for(auto & occlusion_querie : occlusion_queries){
+        const GLuint val = occlusion_querie.id;
         glDeleteQueries(1, &val);
     }
     occlusion_queries.clear();
@@ -4747,8 +4731,7 @@ void MovementObject::RemovePhysicsShapes() {
 bool MovementObject::SetFromDesc( const EntityDescription &desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
             case EDF_FILE_PATH: {
                 std::string type_file;
@@ -4784,16 +4767,16 @@ bool MovementObject::SetFromDesc( const EntityDescription &desc ) {
             case EDF_ITEM_CONNECTIONS:{
                 std::vector<ItemConnectionData> item_connections;
                 field.ReadItemConnectionDataVec(&item_connections);
-                for(int i=0, len=item_connections.size(); i<len; ++i){
-                    if( item_connections[i].id != -1 ) {
+                for(auto & i : item_connections){
+                    if( i.id != -1 ) {
                         ItemConnection item_connection;
-                        item_connection.id = item_connections[i].id;
-                        item_connection.mirrored = item_connections[i].mirrored != 0;
-                        item_connection.attachment_type = (AttachmentType)item_connections[i].attachment_type;
-                        if(!item_connections[i].attachment_str.empty()){
-                            item_connection.attachment_ref = Engine::Instance()->GetAssetManager()->LoadSync<Attachment>(item_connections[i].attachment_str);
+                        item_connection.id = i.id;
+                        item_connection.mirrored = i.mirrored != 0;
+                        item_connection.attachment_type = (AttachmentType)i.attachment_type;
+                        if(!i.attachment_str.empty()){
+                            item_connection.attachment_ref = Engine::Instance()->GetAssetManager()->LoadSync<Attachment>(i.attachment_str);
                             if( item_connection.attachment_ref.valid() == false ) {
-                                LOGE << "Unable to load attachment " << item_connections[i].attachment_str << std::endl;
+                                LOGE << "Unable to load attachment " << i.attachment_str << std::endl;
                             }
                         }                    
                         item_connection_vec.push_back(item_connection);
@@ -4822,8 +4805,8 @@ bool MovementObject::SetFromDesc( const EntityDescription &desc ) {
         if(!env_object_attach_data.empty()){
             std::vector<AttachedEnvObject> attached_env_objects;
             Deserialize(env_object_attach_data, attached_env_objects);
-            for (int i=0, len=attached_env_objects.size(); i<len; ++i) {
-                attached_env_objects[i].direct_ptr = NULL;
+            for (auto & attached_env_object : attached_env_objects) {
+                attached_env_object.direct_ptr = NULL;
             }
             for (int i=0, len=desc.children.size(); i<len; ++i) {
                 EntityDescription new_desc = desc.children[i];
@@ -4976,10 +4959,9 @@ float AttackHistory::Check( const std::string &str ) {
         }
         if(num != 0){
             float total = 0;
-            for(InnerTransitionMap::const_iterator iter = itm.begin();
-                iter != itm.end(); ++iter)
+            for(const auto & iter : itm)
             {
-                total += iter->second;
+                total += iter.second;
             } 
             transition_probability = num / total;
         }

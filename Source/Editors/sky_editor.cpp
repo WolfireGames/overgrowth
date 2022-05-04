@@ -519,8 +519,7 @@ void SkyEditor::SaveHistoryState( std::list<SavedChunk> &chunk_list, int state_i
 bool SkyEditor::ReadChunk( SavedChunk &the_chunk ) {
     bool something_changed = false;    
     EntityDescription &desc = the_chunk.desc;
-    for(unsigned i=0; i<desc.fields.size(); ++i){
-        EntityDescriptionField& field = desc.fields[i];
+    for(auto & field : desc.fields){
         switch(field.type){
             case EDF_SUN_RADIUS:{
                 float old_m_sun_angular_rad = m_sun_angular_rad;

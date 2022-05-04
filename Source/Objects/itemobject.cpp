@@ -753,17 +753,15 @@ void ItemObject::AddReader( ItemObjectScriptReader* reader )
 {
     if(reader->holding){
         std::list<ItemObjectScriptReader*> to_invalidate;
-        for(std::list<ItemObjectScriptReader*>::iterator iter = readers_.begin();
-            iter != readers_.end(); ++iter)
+        for(auto & reader : readers_)
         {
-            if((*iter)->stuck || (*iter)->holding){
-                to_invalidate.push_back(*iter);
+            if(reader->stuck || reader->holding){
+                to_invalidate.push_back(reader);
             }
         }
-        for(std::list<ItemObjectScriptReader*>::iterator iter = to_invalidate.begin();
-            iter != to_invalidate.end(); ++iter)
+        for(auto & iter : to_invalidate)
         {
-            (*iter)->Invalidate();
+            iter->Invalidate();
         }
     }
     readers_.push_back(reader);
@@ -982,10 +980,9 @@ void ItemObject::GetPhysicsVel( vec3 & linear_vel, vec3 & angular_vel )
 
 bool ItemObject::IsHeld() {
     bool held = false;
-    for(std::list<ItemObjectScriptReader*>::iterator iter = readers_.begin(); 
-        iter != readers_.end(); ++iter)
+    for(auto & reader : readers_)
     {
-        if((*iter)->holding){
+        if(reader->holding){
             held = true;
         }
     }
@@ -994,10 +991,9 @@ bool ItemObject::IsHeld() {
 
 bool ItemObject::IsConstrained() {
     bool constrained = false;
-    for(std::list<ItemObjectScriptReader*>::iterator iter = readers_.begin(); 
-        iter != readers_.end(); ++iter)
+    for(auto & reader : readers_)
     {
-        if((*iter)->constraint){
+        if(reader->constraint){
             constrained = true;
         }
     }
@@ -1006,10 +1002,9 @@ bool ItemObject::IsConstrained() {
 
 bool ItemObject::IsStuckInCharacter() {
     bool stuck = false;
-    for(std::list<ItemObjectScriptReader*>::iterator iter = readers_.begin(); 
-        iter != readers_.end(); ++iter)
+    for(auto & reader : readers_)
     {
-        if((*iter)->stuck){
+        if(reader->stuck){
             stuck = true;
         }
     }
@@ -1018,11 +1013,10 @@ bool ItemObject::IsStuckInCharacter() {
 
 int ItemObject::StuckInWhom() {
     int stuck_id = -1;
-    for(std::list<ItemObjectScriptReader*>::iterator iter = readers_.begin(); 
-        iter != readers_.end(); ++iter)
+    for(auto & reader : readers_)
     {
-        if((*iter)->stuck && (*iter)->char_id != -1){
-            stuck_id = (*iter)->char_id;
+        if(reader->stuck && reader->char_id != -1){
+            stuck_id = reader->char_id;
         }
     }
     return stuck_id;
@@ -1030,11 +1024,10 @@ int ItemObject::StuckInWhom() {
 
 int ItemObject::HeldByWhom() {
     int held_id = -1;
-    for(std::list<ItemObjectScriptReader*>::iterator iter = readers_.begin(); 
-        iter != readers_.end(); ++iter)
+    for(auto & reader : readers_)
     {
-        if((*iter)->holding && (*iter)->char_id != -1){
-            held_id = (*iter)->char_id;
+        if(reader->holding && reader->char_id != -1){
+            held_id = reader->char_id;
         }
     }
     return held_id;
@@ -1329,8 +1322,7 @@ void ItemObject::DrawItem(const mat4& proj_view_matrix, Object::DrawType type) {
 
         std::vector<mat4> light_volume_matrix;
         std::vector<mat4> light_volume_matrix_inverse;
-        for(int i=0, len=scenegraph_->light_volume_objects_.size(); i<len; ++i){
-            Object* obj = scenegraph_->light_volume_objects_[i];
+        for(auto obj : scenegraph_->light_volume_objects_){
             const mat4 &mat = obj->GetTransform();
             light_volume_matrix.push_back(mat);
             light_volume_matrix_inverse.push_back(invert(mat));
@@ -1413,8 +1405,7 @@ void ItemObject::InvalidateHeldReaders() {
 bool ItemObject::SetFromDesc( const EntityDescription& desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) { 
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
                 case EDF_FILE_PATH: {
                     std::string type_file;

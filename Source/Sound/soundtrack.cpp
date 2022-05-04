@@ -512,9 +512,9 @@ pcm_count(0),
 sample_rate(0),
 channels(0) {
     bool first_creation = true;
-    for( unsigned i = 0; i < song.songrefs.size(); i++ ) {
+    for(auto & songref : song.songrefs) {
         PlayedSongInterface *ps = NULL;
-        MusicXMLParser::Song ns = owner->GetSong(song.songrefs[i].name);
+        MusicXMLParser::Song ns = owner->GetSong(songref.name);
     
         LOGI << "Creating a PlayedLayeredSong layer: " << ns.name << std::endl;
         
@@ -645,16 +645,16 @@ void Soundtrack::PlayedLayeredSong::update( HighResBufferSegment* buffer ) {
 
 bool Soundtrack::PlayedLayeredSong::IsAtEnd() {
     bool is_at_end = true;
-    for( unsigned  i = 0; i < subsongs.size(); i++ ) {
-        is_at_end = is_at_end && subsongs[i]->IsAtEnd();
+    for(auto & subsong : subsongs) {
+        is_at_end = is_at_end && subsong->IsAtEnd();
     }
     return is_at_end;
 }
 
 void Soundtrack::PlayedLayeredSong::Rewind() {
     pcm_pos = 0;
-    for( unsigned i = 0; i < subsongs.size(); i++ ) {
-        subsongs[i]->Rewind(); 
+    for(auto & subsong : subsongs) {
+        subsong->Rewind(); 
     } 
 }
 
@@ -664,18 +664,18 @@ int64_t  Soundtrack::PlayedLayeredSong::GetPCMPos() {
 
 void Soundtrack::PlayedLayeredSong::SetPCMPos( int64_t pos ) { 
     pcm_pos = pos;
-    for( unsigned i = 0; i < subsongs.size(); i++ ) {
-        if( pos < subsongs[i]->GetPCMCount() ) {
-            subsongs[i]->SetPCMPos(pos);
+    for(auto & subsong : subsongs) {
+        if( pos < subsong->GetPCMCount() ) {
+            subsong->SetPCMPos(pos);
         }
     }
 }
 
 int64_t Soundtrack::PlayedLayeredSong::GetPCMCount() {
     int64_t max = 0;
-    for( unsigned i = 0; i < subsongs.size(); i++ ) {
-        if( max < subsongs[i]->GetPCMCount() ) {
-            max = subsongs[i]->GetPCMCount();
+    for(auto & subsong : subsongs) {
+        if( max < subsong->GetPCMCount() ) {
+            max = subsong->GetPCMCount();
         }
     }
     return max;
@@ -697,9 +697,9 @@ bool Soundtrack::PlayedLayeredSong::SetLayerGain( const std::string& name, float
         gain = 0.0f;
     }
 
-    for( unsigned i = 0; i < subsongs.size(); i++ ) {
-        if( subsongs[i]->GetSongName() == name ) {
-            subsongs[i]->SetGain(gain);
+    for(auto & subsong : subsongs) {
+        if( subsong->GetSongName() == name ) {
+            subsong->SetGain(gain);
             return true;
         }
     }
@@ -707,9 +707,9 @@ bool Soundtrack::PlayedLayeredSong::SetLayerGain( const std::string& name, float
 }
 
 float Soundtrack::PlayedLayeredSong::GetLayerGain( const std::string& name ) {
-    for( unsigned i = 0; i < subsongs.size(); i++ ) {
-        if( subsongs[i]->GetSongName() == name ) {
-            return subsongs[i]->GetGain();
+    for(auto & subsong : subsongs) {
+        if( subsong->GetSongName() == name ) {
+            return subsong->GetGain();
         }
     }
     return 0.0f;
@@ -717,16 +717,16 @@ float Soundtrack::PlayedLayeredSong::GetLayerGain( const std::string& name ) {
 
 const std::map<std::string,float> Soundtrack::PlayedLayeredSong::GetLayerGains() {
     std::map<std::string,float> gains;
-    for( unsigned i = 0; i < subsongs.size(); i++ ) {
-        gains[subsongs[i]->GetSongName()] = subsongs[i]->GetGain();
+    for(auto & subsong : subsongs) {
+        gains[subsong->GetSongName()] = subsong->GetGain();
     }
     return gains;
 }
 
 std::vector<std::string> Soundtrack::PlayedLayeredSong::GetLayerNames() const {
     std::vector<std::string> layers;
-    for( unsigned i = 0; i < song.songrefs.size(); i++ ) {
-        layers.push_back(song.songrefs[i].name);
+    for(const auto & songref : song.songrefs) {
+        layers.push_back(songref.name);
     }
     return layers;
 }
@@ -1348,12 +1348,12 @@ void Soundtrack::AddMusic( const Path &path )
             std::map<std::string,MusicXMLParser::Music>::iterator musit;
             for(musit = music.begin(); musit != music.end(); ++musit) {
                 bool replace = false;
-                for(size_t new_i = 0; new_i < parser.music.songs.size(); ++new_i) {
+                for(auto & song : parser.music.songs) {
                     for(size_t old_i = 0; old_i < musit->second.songs.size(); ++old_i) {
-                        if(strmtch(parser.music.songs[new_i].name, musit->second.songs[old_i].name)) {
-                            LOGW << "Track " << parser.music.songs[new_i].name << " already found in " << musit->first << ", old music set will be overwritten" << std::endl;
+                        if(strmtch(song.name, musit->second.songs[old_i].name)) {
+                            LOGW << "Track " << song.name << " already found in " << musit->first << ", old music set will be overwritten" << std::endl;
                             replace = true;
-                            if(transitionPlayer.GetSongName() == std::string(parser.music.songs[new_i].name))
+                            if(transitionPlayer.GetSongName() == std::string(song.name))
                                 Stop();
                             break;
                         }

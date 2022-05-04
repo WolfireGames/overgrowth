@@ -58,9 +58,9 @@ namespace Test {
         temp_points[0][1] = a.edge->points[1];
         temp_points[1][0] = b.edge->points[0];
         temp_points[1][1] = b.edge->points[1];
-        for(int i=0; i<2; ++i){
-            if(temp_points[i][0] > temp_points[i][1]){
-                std::swap(temp_points[i][0], temp_points[i][1]);
+        for(auto & temp_point : temp_points){
+            if(temp_point[0] > temp_point[1]){
+                std::swap(temp_point[0], temp_point[1]);
             }
         }
         if(temp_points[0][0] == temp_points[1][0]){
@@ -119,9 +119,9 @@ namespace {
             points[0][i] = a.points[i];
             points[1][i] = b.points[i];
         }
-        for(int i=0; i<2; ++i){
-            if(points[i][0] > points[i][1]){
-                std::swap(points[i][0], points[i][1]);
+        for(auto & point : points){
+            if(point[0] > point[1]){
+                std::swap(point[0], point[1]);
             }
         }
         if(points[0][0] == points[1][0]){
@@ -203,13 +203,13 @@ namespace {
     struct vec3d {
         double entries[3];
         vec3d(double val){
-            for(int i=0; i<3; ++i){
-                entries[i] = val;
+            for(double & entrie : entries){
+                entrie = val;
             }
         }
         vec3d(){
-            for(int i=0; i<3; ++i){
-                entries[i] = 0.0;
+            for(double & entrie : entries){
+                entrie = 0.0;
             }
         }
         double& operator[](int which){
@@ -583,8 +583,8 @@ namespace {
         }
         std::sort(vert_sort.begin(), vert_sort.end(), VertSortById);
         // -- set faces to use merge targets
-        for(int i=0, len=faces.size(); i<len; ++i){
-            faces[i] = vert_sort[faces[i]].merge_target;
+        for(int & face : faces){
+            face = vert_sort[face].merge_target;
         }
         if(remove_degenerate_faces){
             // -- remove degenerate faces
@@ -618,8 +618,8 @@ namespace {
             shape->vertices.push_back(vec[2]);
         }
         shape->faces.reserve(model.faces.size());
-        for(int i=0, len=model.faces.size(); i<len; ++i){
-            shape->faces.push_back(model.faces[i]);
+        for(unsigned int face : model.faces){
+            shape->faces.push_back(face);
         }
         // Create Bullet collision shape
         shape->vertices_float.reserve(shape->vertices.size());
@@ -765,10 +765,10 @@ namespace {
                 edge_angle.reserve(on_edge.size());
                 vec2d mid_point;
                 mid_point = (triangle_points[0].flat_coord + triangle_points[1].flat_coord + triangle_points[2].flat_coord) * (1.0 / 3.0);
-                for(int j=0, len=on_edge.size(); j<len; ++j){
+                for(int j : on_edge){
                     EdgeAngleSort eas;
-                    eas.second = on_edge[j];
-                    vec2d offset = triangle_points[on_edge[j]].flat_coord - mid_point;
+                    eas.second = j;
+                    vec2d offset = triangle_points[j].flat_coord - mid_point;
                     eas.first = atan2(offset[1], offset[0]);
                     edge_angle.push_back(eas);
                 }
@@ -817,21 +817,21 @@ namespace {
                     triangle_points.resize(index+1);
                 }
                 // Remap edges to new points
-                for(int i=0, len=edges.size(); i<len; ++i){
-                    edges[i] = triangle_point_remap[edges[i]];
+                for(int & edge : edges){
+                    edge = triangle_point_remap[edge];
                 }
-                for(int i=0, len=labeled_edges.size(); i<len; ++i){
-                    labeled_edges[i].points[0] = triangle_point_remap[labeled_edges[i].points[0]];
-                    labeled_edges[i].points[1] = triangle_point_remap[labeled_edges[i].points[1]];
-                    if(labeled_edges[i].points[0] > labeled_edges[i].points[1]){
-                        std::swap(labeled_edges[i].points[0], labeled_edges[i].points[1]);
+                for(auto & labeled_edge : labeled_edges){
+                    labeled_edge.points[0] = triangle_point_remap[labeled_edge.points[0]];
+                    labeled_edge.points[1] = triangle_point_remap[labeled_edge.points[1]];
+                    if(labeled_edge.points[0] > labeled_edge.points[1]){
+                        std::swap(labeled_edge.points[0], labeled_edge.points[1]);
                     }
                 }
                 // Get points to input to triangulation
                 std::vector<float> points;
-                for(int i=0, len=triangle_points.size(); i<len; ++i){
+                for(auto & triangle_point : triangle_points){
                     for(int j=0; j<2; ++j){
-                        points.push_back((float)triangle_points[i].flat_coord[j]);
+                        points.push_back((float)triangle_point.flat_coord[j]);
                     }
                 }
                 // Triangulate
@@ -839,10 +839,10 @@ namespace {
                 TriangulateWrapper(points, edges, faces);
                 // Add new vertices
                 int vert_start = output.new_bary->size()/3;
-                for(int j=0, len=triangle_points.size(); j<len; ++j){
+                for(auto & triangle_point : triangle_points){
                     for(int k=0; k<3; ++k){
-                        output.new_vertices->push_back(triangle_points[j].coord[k]);
-                        output.new_bary->push_back(triangle_points[j].bary[k]);
+                        output.new_vertices->push_back(triangle_point.coord[k]);
+                        output.new_bary->push_back(triangle_point.bary[k]);
                         output.new_vert_tri_points->push_back(tri_vert_id[k]);
                     }
                 }
@@ -937,8 +937,7 @@ namespace {
                 }
                 std::vector<TrianglePoint::Side> triangle_side(faces.size()/3, TrianglePoint::UNKNOWN);
                 // Get outside/inside of edges neighboring edge
-                for(int i=0, len=labeled_edges.size(); i<len; ++i){
-                    LabeledEdge &edge = labeled_edges[i];
+                for(auto & edge : labeled_edges){
                     if(edge.side == TrianglePoint::EDGE && edge.points[2] != -1){
                         vec3d opposite_vert = triangle_points[edge.points[2]].coord;
                         vec3d mid_point = (triangle_points[edge.points[0]].coord + triangle_points[edge.points[1]].coord)*0.5f;
@@ -978,11 +977,11 @@ namespace {
                     }
                     tri_queue.pop();
                 }
-                for(int j=0, len=faces.size(); j<len; ++j){
-                    output.new_faces->push_back(faces[j]+vert_start);
+                for(unsigned int face : faces){
+                    output.new_faces->push_back(face+vert_start);
                 }
-                for(int j=0, len=triangle_side.size(); j<len; ++j){
-                    output.new_triangle_sides->push_back(triangle_side[j]);
+                for(auto & j : triangle_side){
+                    output.new_triangle_sides->push_back(j);
                 }
                 old_index = new_index;
             }
@@ -1006,8 +1005,7 @@ namespace {
     void MergeTriIntersects(std::vector<TriIntersectInfo> &tri_intersect_info) {
         std::vector<vec3d> test_points;
         std::vector<MergeDist> test_point_distances;
-        for(int i=0, len=tri_intersect_info.size(); i<len; ++i){
-            TriIntersectInfo& tii = tri_intersect_info[i];
+        for(auto & tii : tri_intersect_info){
             test_points.push_back(tii.tri_intersect.true_intersect[0]);
             test_points.push_back(tii.tri_intersect.true_intersect[1]);
         }
@@ -1029,8 +1027,7 @@ namespace {
             }
         }
         std::sort(test_point_distances.begin(), test_point_distances.end());
-        for(int i=0, len=test_point_distances.size(); i<len; ++i){
-            MergeDist &tpd = test_point_distances[i];
+        for(auto & tpd : test_point_distances){
             test_points[tpd.point[1]] = test_points[tpd.point[0]];
         }
         for(int i=0, index=0, len=tri_intersect_info.size(); i<len; ++i, index+=2){
@@ -1047,8 +1044,8 @@ bool CheckShapeValid(const std::vector<int> &faces, const std::vector<double> &v
     TriNeighborInfo tri_neighbor_info;
     GetTriNeighbors(merged_faces, vertices, &tri_neighbor_info, true);
     bool non_three_neighbor = false;
-    for(int i=0, len=tri_neighbor_info.num_tri_neighbors.size(); i<len; ++i){
-        if(tri_neighbor_info.num_tri_neighbors[i] != 3){
+    for(int num_tri_neighbor : tri_neighbor_info.num_tri_neighbors){
+        if(num_tri_neighbor != 3){
             non_three_neighbor = true;
         }
     }
@@ -1059,8 +1056,8 @@ void AddCSGResult(const CSGResult &result, CSGModelInfo *csg_model, const Model&
     csg_model->faces.reserve(csg_model->faces.size()+result.indices.size());
     int old_faces = csg_model->verts.size()/3;
     if(!flip){
-        for(int i=0, len=result.indices.size(); i<len; ++i){
-            csg_model->faces.push_back(result.indices[i] + old_faces);
+        for(int indice : result.indices){
+            csg_model->faces.push_back(indice + old_faces);
         }
     } else {
         for(int i=0, len=result.indices.size(); i<len; i+=3){
@@ -1152,10 +1149,9 @@ bool CollideObjects(BulletWorld& bw, const Model &model_a, const mat4 &transform
     bw.GetPairCollisions(shape[1].col_obj, shape[0].col_obj, cb);
     // Process triangle intersections to eliminate false positives and get precise intersection segments
     std::vector<TriIntersectInfo> tri_intersect_info;
-    for(MeshCollisionCallback::TriPairSet::iterator iter = cb.tri_pairs.begin(); iter != cb.tri_pairs.end(); ++iter){
+    for(const auto & tri_pair : cb.tri_pairs){
         // Get triangle vertices
         vec3d tri[2][3];
-        const MeshCollisionCallback::TriPair &tri_pair = *iter;
         int tri_index = tri_pair.first*3;
         for(int j=0; j<3; ++j){
             int vert_index = shape[1].faces[tri_index+j]*3;

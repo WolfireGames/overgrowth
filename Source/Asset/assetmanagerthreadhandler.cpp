@@ -121,8 +121,8 @@ AssetManagerThreadHandler::AssetManagerThreadHandler(int thread_count) : stop(fa
 AssetManagerThreadHandler::~AssetManagerThreadHandler() {
     stop = true;
 
-    for( unsigned i = 0; i < threads.size(); i++ ) {
-        threads[i]->join();
-		threads[i] = NULL;
+    for(auto & thread : threads) {
+        thread->join();
+		thread = NULL;
     }
 }

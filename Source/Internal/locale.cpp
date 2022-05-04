@@ -78,11 +78,11 @@ static CScriptArray* ASGetLocaleShortcodes() {
     CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(locales.size());
 
-    for(LocaleMap::iterator iter = locales.begin(); iter != locales.end(); ++iter) {
+    for(auto & locale : locales) {
         // InsertLast doesn't actually do anything but copy from the pointer,
         // so a const_cast would be fine, but maybe an update to AS could change
         // that
-        std::string str = iter->first;
+        std::string str = locale.first;
         array->InsertLast(&str);
     }
 
@@ -96,11 +96,11 @@ static CScriptArray* ASGetLocaleNames() {
     CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(locales.size());
 
-    for(LocaleMap::iterator iter = locales.begin(); iter != locales.end(); ++iter) {
+    for(auto & locale : locales) {
         // InsertLast doesn't actually do anything but copy from the pointer,
         // so a const_cast would be fine, but maybe an update to AS could change
         // that
-        std::string str = iter->second;
+        std::string str = locale.second;
         array->InsertLast(&str);
     }
 

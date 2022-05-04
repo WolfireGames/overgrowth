@@ -69,18 +69,18 @@ Level::~Level() {
 void Level::Dispose() {
     Message("dispose_level");
 
-    for( uint32_t i = 0; i < as_contexts_.size(); i++ ) {
-        delete as_contexts_[i].ctx;
-        as_contexts_[i].ctx = NULL;
+    for(auto & as_context : as_contexts_) {
+        delete as_context.ctx;
+        as_context.ctx = NULL;
     }
     as_contexts_.clear();
 
     Engine::Instance()->GetASNetwork()->DeRegisterASNetworkCallback(this);
 
     old_col_map_.clear();
-    for(int i=0; i<kMaxTextElements; ++i){
-        text_elements[i].in_use = false;
-        text_elements[i].text_canvas_texture.Reset();
+    for(auto & text_element : text_elements){
+        text_element.in_use = false;
+        text_element.text_canvas_texture.Reset();
     }
 }
 
@@ -96,17 +96,17 @@ Path Level::FindScript(const std::string& path) {
 void Level::StartDialogue(const std::string& dialogue) const {
     ASArglist args;
     args.AddObject((void*)&dialogue);
-    for (unsigned i = 0; i < as_contexts_.size(); i++) {
-        if (as_contexts_[i].ctx->HasFunction(as_contexts_[i].as_funcs.start_dialogue)) {
-            as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.start_dialogue);
+    for (const auto & as_context : as_contexts_) {
+        if (as_context.ctx->HasFunction(as_context.as_funcs.start_dialogue)) {
+            as_context.ctx->CallScriptFunction(as_context.as_funcs.start_dialogue);
         }
     }
 }
 
 void Level::RegisterMPCallbacks() const {
-	for (unsigned i = 0; i < as_contexts_.size(); i++) {
-		if (as_contexts_[i].ctx->HasFunction(as_contexts_[i].as_funcs.register_mp_callbacks)) {
-			as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.register_mp_callbacks);
+	for (const auto & as_context : as_contexts_) {
+		if (as_context.ctx->HasFunction(as_context.as_funcs.register_mp_callbacks)) {
+			as_context.ctx->CallScriptFunction(as_context.as_funcs.register_mp_callbacks);
 		}
 	}
 }
@@ -163,8 +163,8 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
     }
 
     if(!npc_script_.empty()) {
-        for(size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
-            MovementObject* obj = (MovementObject*)scenegraph->movement_objects_[i];
+        for(auto & movement_object : scenegraph->movement_objects_) {
+            MovementObject* obj = (MovementObject*)movement_object;
             if(obj->GetNPCObjectScript().empty()) {
                 obj->ChangeControlScript(npc_script_);
             }
@@ -191,8 +191,8 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
 
     as_collisions.reset(new ASCollisions(scenegraph));
 
-    for(unsigned i = 0; i < as_contexts_.size(); i++) {
-        ASContext* ctx = new ASContext(as_contexts_[i].context_name.c_str(),as_data);
+    for(auto & as_context : as_contexts_) {
+        ASContext* ctx = new ASContext(as_context.context_name.c_str(),as_data);
 
         AttachASNetwork(ctx);
         AttachUIQueries(ctx);
@@ -220,40 +220,40 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
         character_script_getter_.AttachToScript(ctx, "character_getter");
         as_collisions->AttachToContext(ctx);
 
-        as_contexts_[i].as_funcs.init                       = ctx->RegisterExpectedFunction("void Init(string level_name)", true);
-        as_contexts_[i].as_funcs.update                     = ctx->RegisterExpectedFunction("void Update(int is_paused)", false);
-        as_contexts_[i].as_funcs.update_deprecated          = ctx->RegisterExpectedFunction("void Update()", false);
+        as_context.as_funcs.init                       = ctx->RegisterExpectedFunction("void Init(string level_name)", true);
+        as_context.as_funcs.update                     = ctx->RegisterExpectedFunction("void Update(int is_paused)", false);
+        as_context.as_funcs.update_deprecated          = ctx->RegisterExpectedFunction("void Update()", false);
 
-        as_contexts_[i].as_funcs.hotspot_exit               = ctx->RegisterExpectedFunction("void HotspotExit(string event, MovementObject @mo)", false);
-        as_contexts_[i].as_funcs.hotspot_enter              = ctx->RegisterExpectedFunction("void HotspotEnter(string event, MovementObject @mo)", false);
-        as_contexts_[i].as_funcs.receive_message            = ctx->RegisterExpectedFunction("void ReceiveMessage(string message)", false);
-        as_contexts_[i].as_funcs.draw_gui                   = ctx->RegisterExpectedFunction("void DrawGUI()", false);
-        as_contexts_[i].as_funcs.draw_gui2                  = ctx->RegisterExpectedFunction("void DrawGUI2()", false);
-        as_contexts_[i].as_funcs.draw_gui3                  = ctx->RegisterExpectedFunction("void DrawGUI3()", false);
-        as_contexts_[i].as_funcs.has_focus                  = ctx->RegisterExpectedFunction("bool HasFocus()", false);
-        as_contexts_[i].as_funcs.dialogue_camera_control    = ctx->RegisterExpectedFunction("bool DialogueCameraControl()", false);
-        as_contexts_[i].as_funcs.save_history_state         = ctx->RegisterExpectedFunction("void SaveHistoryState(SavedChunk@ chunk)", false);
-        as_contexts_[i].as_funcs.read_chunk                 = ctx->RegisterExpectedFunction("void ReadChunk(SavedChunk@ chunk)", false);
-        as_contexts_[i].as_funcs.set_window_dimensions      = ctx->RegisterExpectedFunction("void SetWindowDimensions(int width, int height)", false);
-        as_contexts_[i].as_funcs.incoming_tcp_data          = ctx->RegisterExpectedFunction("void IncomingTCPData(uint socket, array<uint8>@ data)", false);
+        as_context.as_funcs.hotspot_exit               = ctx->RegisterExpectedFunction("void HotspotExit(string event, MovementObject @mo)", false);
+        as_context.as_funcs.hotspot_enter              = ctx->RegisterExpectedFunction("void HotspotEnter(string event, MovementObject @mo)", false);
+        as_context.as_funcs.receive_message            = ctx->RegisterExpectedFunction("void ReceiveMessage(string message)", false);
+        as_context.as_funcs.draw_gui                   = ctx->RegisterExpectedFunction("void DrawGUI()", false);
+        as_context.as_funcs.draw_gui2                  = ctx->RegisterExpectedFunction("void DrawGUI2()", false);
+        as_context.as_funcs.draw_gui3                  = ctx->RegisterExpectedFunction("void DrawGUI3()", false);
+        as_context.as_funcs.has_focus                  = ctx->RegisterExpectedFunction("bool HasFocus()", false);
+        as_context.as_funcs.dialogue_camera_control    = ctx->RegisterExpectedFunction("bool DialogueCameraControl()", false);
+        as_context.as_funcs.save_history_state         = ctx->RegisterExpectedFunction("void SaveHistoryState(SavedChunk@ chunk)", false);
+        as_context.as_funcs.read_chunk                 = ctx->RegisterExpectedFunction("void ReadChunk(SavedChunk@ chunk)", false);
+        as_context.as_funcs.set_window_dimensions      = ctx->RegisterExpectedFunction("void SetWindowDimensions(int width, int height)", false);
+        as_context.as_funcs.incoming_tcp_data          = ctx->RegisterExpectedFunction("void IncomingTCPData(uint socket, array<uint8>@ data)", false);
 
-        as_contexts_[i].as_funcs.pre_script_reload          = ctx->RegisterExpectedFunction("void PreScriptReload()", false);
-        as_contexts_[i].as_funcs.post_script_reload         = ctx->RegisterExpectedFunction("void PostScriptReload()", false);
+        as_context.as_funcs.pre_script_reload          = ctx->RegisterExpectedFunction("void PreScriptReload()", false);
+        as_context.as_funcs.post_script_reload         = ctx->RegisterExpectedFunction("void PostScriptReload()", false);
 
-        as_contexts_[i].as_funcs.menu                       = ctx->RegisterExpectedFunction("void Menu()", false);
-		as_contexts_[i].as_funcs.register_mp_callbacks		= ctx->RegisterExpectedFunction("void RegisterMPCallBacks()", false);
-        as_contexts_[i].as_funcs.start_dialogue             = ctx->RegisterExpectedFunction("void StartDialogue(const string &in name", false);
+        as_context.as_funcs.menu                       = ctx->RegisterExpectedFunction("void Menu()", false);
+		as_context.as_funcs.register_mp_callbacks		= ctx->RegisterExpectedFunction("void RegisterMPCallBacks()", false);
+        as_context.as_funcs.start_dialogue             = ctx->RegisterExpectedFunction("void StartDialogue(const string &in name", false);
  
-        ctx->LoadScript(as_contexts_[i].path);
+        ctx->LoadScript(as_context.path);
 
-        as_contexts_[i].ctx = ctx;
+        as_context.ctx = ctx;
     }
 
-    for(unsigned i = 0; i < as_contexts_.size(); i++) {
+    for(auto & as_context : as_contexts_) {
         LOGI << "Calling void Init(string level_name) for level hook file." << std::endl; 
         ASArglist args;
         args.AddObject(&scenegraph->level_name_);
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.init, &args);
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.init, &args);
 
     }
 
@@ -272,10 +272,10 @@ void Level::Update(bool paused) {
 	args.Add(paused?1:0);
 	std::vector<HookedASContext >::iterator cit = as_contexts_.begin();
     PROFILER_ENTER(g_profiler_ctx, "Level script Update()");
-    for( unsigned i = 0; i < as_contexts_.size(); i++ ) {
-		if( as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.update, &args) == false) {
+    for(auto & as_context : as_contexts_) {
+		if( as_context.ctx->CallScriptFunction(as_context.as_funcs.update, &args) == false) {
             if(paused == false) {
-		        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.update_deprecated, &args2);
+		        as_context.ctx->CallScriptFunction(as_context.as_funcs.update_deprecated, &args2);
             }
         }
 	}
@@ -290,8 +290,8 @@ void Level::Update(bool paused) {
 			
 			bool angelscriptCallSuccesfull = false;
 
-			for (unsigned i = 0; i < as_contexts_.size(); i++) {
-				if (as_contexts_[i].ctx->CallMPCallBack(update.state, temp) ) { 
+			for (auto & as_context : as_contexts_) {
+				if (as_context.ctx->CallMPCallBack(update.state, temp) ) { 
 					angelscriptCallSuccesfull = true;
 				}
 			}
@@ -308,8 +308,8 @@ void Level::Update(bool paused) {
 
 			bool angelscriptCallSuccesfull = false;
 
-			for (unsigned i = 0; i < as_contexts_.size(); i++) {
-				if (as_contexts_[i].ctx->CallMPCallBack(update.state, temp)) {
+			for (auto & as_context : as_contexts_) {
+				if (as_context.ctx->CallMPCallBack(update.state, temp)) {
 					angelscriptCallSuccesfull = true;
 				}
 			}
@@ -342,14 +342,13 @@ void Level::HandleCollisions( CollisionPtrMap &col_map, SceneGraph &scenegraph )
 		old_col_ptr_map.clear();
 		{
 			CollisionMap &map = old_col_map_;
-			for(CollisionMap::iterator iter = map.begin(); iter != map.end(); ++iter){
-				int id = iter->first;
+			for(auto & iter : map){
+				int id = iter.first;
 				Object* obj_a_ptr = scenegraph.GetObjectFromID(id);
 				if(obj_a_ptr){
-					CollisionSet &set = iter->second;
-					for(CollisionSet::iterator iter = set.begin(); iter != set.end(); ++iter){
-						int id = *iter;
-						Object* obj_b_ptr = scenegraph.GetObjectFromID(id);
+					CollisionSet &set = iter.second;
+					for(int id : set){
+							Object* obj_b_ptr = scenegraph.GetObjectFromID(id);
 						if(obj_b_ptr){
 							old_col_ptr_map[obj_a_ptr].insert(obj_b_ptr);
 						}
@@ -450,11 +449,11 @@ void Level::HandleCollisions( CollisionPtrMap &col_map, SceneGraph &scenegraph )
 		// Convert old collision pointers to ids
 		CollisionPtrMap &map = col_map;
 		old_col_map_.clear();
-		for(CollisionPtrMap::iterator iter = map.begin(); iter != map.end(); ++iter){
-			int id_a = ((Object*)iter->first)->GetID();
-			CollisionPtrSet &set = iter->second;
-			for(CollisionPtrSet::iterator iter = set.begin(); iter != set.end(); ++iter){
-				int id_b = ((Object*)(*iter))->GetID();
+		for(auto & iter : map){
+			int id_a = ((Object*)iter.first)->GetID();
+			CollisionPtrSet &set = iter.second;
+			for(auto iter : set){
+				int id_b = ((Object*)iter)->GetID();
 				old_col_map_[id_a].insert(id_b);
 			}
 		}
@@ -470,8 +469,8 @@ void Level::HandleCollisions( CollisionPtrMap &col_map, SceneGraph &scenegraph )
 			args.AddObject((void*)&exit_call_queue_it->first->GetScriptFile());
 			args.AddAddress((void*)exit_call_queue_it->second);
 
-            for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-			    as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.hotspot_exit, &args);
+            for(auto & as_context : as_contexts_) {
+			    as_context.ctx->CallScriptFunction(as_context.as_funcs.hotspot_exit, &args);
             }
 		}
 
@@ -482,8 +481,8 @@ void Level::HandleCollisions( CollisionPtrMap &col_map, SceneGraph &scenegraph )
 			args.AddObject((void*)&enter_call_queue_it->first->GetScriptFile());
 			args.AddAddress((void*)enter_call_queue_it->second);
 
-            for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-			    as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.hotspot_enter, &args);
+            for(auto & as_context : as_contexts_) {
+			    as_context.ctx->CallScriptFunction(as_context.as_funcs.hotspot_enter, &args);
             }
 		}
 	}
@@ -526,18 +525,18 @@ void Level::Message( const std::string &msg ) {
         online->SendLevelMessage(msg);
     }
 
-    for( unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.receive_message, &args);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.receive_message, &args);
     }
 
-    for(int i=0, len=level_event_receivers.size(); i<len; ++i){
-        Object* obj = scenegraph->GetObjectFromID(level_event_receivers[i]);
+    for(int level_event_receiver : level_event_receivers){
+        Object* obj = scenegraph->GetObjectFromID(level_event_receiver);
         if(obj){
             obj->ReceiveScriptMessage("level_event " + msg);
         } else {
             const int kBufSize = 256;
             char buf[kBufSize];
-            FormatString(buf, kBufSize, "Could not find level event receiver with id %d", level_event_receivers[i]);
+            FormatString(buf, kBufSize, "Could not find level event receiver with id %d", level_event_receiver);
             DisplayError("Error", buf);
         }
     }
@@ -789,11 +788,11 @@ void Level::DefineLevelTypePublic(ASContext *as_context) {
 
 void Level::GetCollidingObjects( int id, CScriptArray *array ) {
     int collision[2];
-    for(CollisionMap::iterator iter = old_col_map_.begin(); iter != old_col_map_.end(); ++iter){
-        collision[0] = iter->first;
-        CollisionSet &set = iter->second;
-        for(CollisionSet::iterator iter = set.begin(); iter != set.end(); ++iter){
-            collision[1] = *iter;
+    for(auto & iter : old_col_map_){
+        collision[0] = iter.first;
+        CollisionSet &set = iter.second;
+        for(int iter : set){
+            collision[1] = iter;
             if(collision[0] == id){
                 array->InsertLast(&collision[1]);
             } else if(collision[1] == id){
@@ -805,16 +804,16 @@ void Level::GetCollidingObjects( int id, CScriptArray *array ) {
 
 void Level::Draw() {
 	PROFILER_GPU_ZONE(g_profiler_ctx, "Level::Draw");
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.draw_gui);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.draw_gui);
     }
 	hud_images.Draw();
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-		as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.draw_gui2);
+    for(auto & as_context : as_contexts_) {
+		as_context.ctx->CallScriptFunction(as_context.as_funcs.draw_gui2);
 	}
     hud_images.Draw();
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.draw_gui3);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.draw_gui3);
     }
     hud_images.Draw();
 }
@@ -824,8 +823,7 @@ void Level::SetFromLevelInfo( const LevelInfo &li ) {
     pc_script_ = li.pc_script_;
     npc_script_ = li.npc_script_;
     level_script_paths.clear();
-    for(int i=0, len=li.script_paths_.size(); i<len; ++i){
-        const LevelInfo::StrPair &script_path = li.script_paths_[i];
+    for(const auto & script_path : li.script_paths_){
         level_script_paths[script_path.first] = script_path.second;
     }
     recently_created_items_ = li.recently_created_items_; 
@@ -843,8 +841,8 @@ bool Level::HasFocus() {
     ASArg return_arg;
     return_arg.data = &has_focus;
     return_arg.type = _as_bool;
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.has_focus, &args, &return_arg);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.has_focus, &args, &return_arg);
         if(has_focus) {
             return true;
         }
@@ -858,8 +856,8 @@ bool Level::DialogueCameraControl() {
     ASArg return_arg;
     return_arg.data = &dialogue_control;
     return_arg.type = _as_bool;
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.dialogue_camera_control, &args, &return_arg);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.dialogue_camera_control, &args, &return_arg);
         if(dialogue_control) {
             return true;
         }
@@ -890,8 +888,8 @@ void Level::SaveHistoryState(std::list<SavedChunk> & chunks, int state_id) {
 
     ASArglist args;
     args.AddAddress(&saved_chunk);
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.save_history_state, &args);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.save_history_state, &args);
     }
     AddChunkToHistory(chunks, state_id, saved_chunk);
 }
@@ -900,8 +898,8 @@ void Level::ReadChunk(const SavedChunk &the_chunk) {
     ASArglist args;
     args.AddAddress((void*)&the_chunk);
 
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.read_chunk, &args);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.read_chunk, &args);
     }
 }
 
@@ -910,9 +908,9 @@ bool Level::isMetaDataDirty() {
         return true;
     }
 
-    for(size_t i = 0; i < scenegraph->objects_.size(); ++i) {
-        if(scenegraph->objects_[i]->GetType() == _placeholder_object) {
-            PlaceholderObject* obj = (PlaceholderObject*)scenegraph->objects_[i];
+    for(auto & object : scenegraph->objects_) {
+        if(object->GetType() == _placeholder_object) {
+            PlaceholderObject* obj = (PlaceholderObject*)object;
             if(obj->GetScriptParams()->HasParam("Dialogue")) {
                 if(obj->unsaved_changes) {
                     return true;
@@ -926,9 +924,9 @@ bool Level::isMetaDataDirty() {
 
 void Level::setMetaDataClean() {
     metaDataDirty = false;
-    for(size_t i = 0; i < scenegraph->objects_.size(); ++i) {
-        if(scenegraph->objects_[i]->GetType() == _placeholder_object) {
-            ((PlaceholderObject*)scenegraph->objects_[i])->unsaved_changes = false;
+    for(auto & object : scenegraph->objects_) {
+        if(object->GetType() == _placeholder_object) {
+            ((PlaceholderObject*)object)->unsaved_changes = false;
         }
     }
 }
@@ -954,8 +952,8 @@ void Level::WindowResized(ivec2 value ) {
     ASArglist args;
     args.Add(value[0]);
     args.Add(value[1]);
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.set_window_dimensions, &args);
+    for(auto & as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.set_window_dimensions, &args);
     }
 }
 
@@ -977,8 +975,8 @@ std::vector<SpawnerItem> Level::GetRecentlyCreatedItems() {
 }
 
 void Level::IncomingTCPData(SocketID socket, uint8_t* data, size_t len) {
-    for(unsigned i = 0; i < as_contexts_.size(); i++ ) {
-        asIScriptEngine *engine = as_contexts_[i].ctx->GetEngine();
+    for(auto & as_context : as_contexts_) {
+        asIScriptEngine *engine = as_context.ctx->GetEngine();
         asITypeInfo *arrayType = engine->GetTypeInfoByDecl("array<uint8>");
 
         CScriptArray* array = CScriptArray::Create(arrayType);
@@ -992,7 +990,7 @@ void Level::IncomingTCPData(SocketID socket, uint8_t* data, size_t len) {
         args.Add(socket);
         args.AddAddress((void*)array);
 
-        as_contexts_[i].ctx->CallScriptFunction(as_contexts_[i].as_funcs.incoming_tcp_data, &args, NULL); 
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.incoming_tcp_data, &args, NULL); 
 
         array->Release();
     }

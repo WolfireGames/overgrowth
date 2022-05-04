@@ -126,8 +126,8 @@ static CScriptArray* AS_GetFloatingContents(IMContainer* element) {
 
     array->Reserve(vals.size());
 
-    for( unsigned i = 0; i < vals.size(); i++ ) {
-        array->InsertLast((void*)&vals[i]);
+    for(auto & val : vals) {
+        array->InsertLast((void*)&val);
     }
 
     return array;

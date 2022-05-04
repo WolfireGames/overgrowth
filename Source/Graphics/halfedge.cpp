@@ -125,12 +125,10 @@ void CollapseParentRecord(ParentRecordList &a, ParentRecordList &b, float weight
     if(&a == &b){
         return;
     }
-    for(ParentRecordList::iterator iter = a.begin(); iter != a.end(); ++iter){
-        ParentRecord &pr = *iter;
+    for(auto & pr : a){
         pr.weight *= (1.0f - weight);
     }
-    for(ParentRecordList::iterator iter = b.begin(); iter != b.end(); ++iter){
-        ParentRecord &pr = *iter;
+    for(auto & pr : b){
         pr.weight *= weight;
     }
     a.splice(a.end(), b);
@@ -146,8 +144,7 @@ void CollapseEdge(HalfEdgeNodeHeap &heap, HalfEdge *edge, std::vector<float>& ve
     CollapseParentRecord(vert_parents[edge->vert[0]], vert_parents[edge->vert[1]], edge->pos);
     CollapseVertPositions(vertices, edge->vert, edge->pos);
     HalfEdgeSet vert_edge_set = vert_edges[edge->vert[1]];
-    for(HalfEdgeSet::iterator iter = vert_edge_set.begin(); iter != vert_edge_set.end(); ++iter){
-        HalfEdge* change_edge = *iter;
+    for(auto change_edge : vert_edge_set){
         if(change_edge == edge || !change_edge->valid){
             continue;
         }
@@ -164,8 +161,7 @@ void CollapseEdge(HalfEdgeNodeHeap &heap, HalfEdge *edge, std::vector<float>& ve
         CollapseParentRecord(tex_parents[edge->tex[0]], tex_parents[edge->tex[1]], edge->pos);
         CollapseTexPositions(tex_coords, edge->tex, edge->pos);
         HalfEdgeSet tex_edge_set = tex_edges[edge->tex[1]];
-        for(HalfEdgeSet::iterator iter = tex_edge_set.begin(); iter != tex_edge_set.end(); ++iter){
-            HalfEdge* change_edge = *iter;
+        for(auto change_edge : tex_edge_set){
             if(change_edge == edge || !change_edge->valid){
                 continue;
             }
@@ -185,8 +181,7 @@ void CollapseEdge(HalfEdgeNodeHeap &heap, HalfEdge *edge, std::vector<float>& ve
             CollapseTexPositions(tex_coords, rev_tex, edge->pos);
             CollapseParentRecord(tex_parents[rev_tex[0]], tex_parents[rev_tex[1]], edge->pos);
             HalfEdgeSet tex_edge_set = tex_edges[rev_tex[1]];
-            for(HalfEdgeSet::iterator iter = tex_edge_set.begin(); iter != tex_edge_set.end(); ++iter){
-                HalfEdge* change_edge = *iter;
+            for(auto change_edge : tex_edge_set){
                 if(change_edge == edge || !change_edge->valid){
                     continue;
                 }
@@ -208,8 +203,7 @@ void CollapseEdge(HalfEdgeNodeHeap &heap, HalfEdge *edge, std::vector<float>& ve
         CollapseHalfEdge(heap, edge->twin);
     }
     // Recalc err and update heap
-    for(std::set<HalfEdge*>::iterator iter = affected_edges.begin(); iter != affected_edges.end(); ++iter){
-        HalfEdge* affected_edge = *iter;
+    for(auto affected_edge : affected_edges){
         if(!affected_edge->valid){
             continue;
         }

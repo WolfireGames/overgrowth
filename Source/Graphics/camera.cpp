@@ -643,12 +643,12 @@ void Camera::calcFrustumPlanes( const mat4 &_p, const mat4 &_mv ) {
 //Check if a sphere is visible
 int Camera::checkSphereInFrustum( vec3 where, float radius ) const {
     int sphere_in_frustum = 2;
-    for (int i = 0; i < 6; ++i ) {
+    for (auto frustumPlane : frustumPlanes) {
         float d = 
-            frustumPlanes[i][0] * where.x() +
-            frustumPlanes[i][1] * where.y() +
-            frustumPlanes[i][2] * where.z() +
-            frustumPlanes[i][3];
+            frustumPlane[0] * where.x() +
+            frustumPlane[1] * where.y() +
+            frustumPlane[2] * where.z() +
+            frustumPlane[3];
         if( d <= -radius ) {
             return 0; // Sphere is entirely outside one of the frustum planes
         } else if(d < radius){
@@ -704,13 +704,13 @@ void Camera::checkSpheresInFrustum(int count, float* where_x, float* where_y, fl
         __m128 is_in_view_distance = _mm_cmplt_ps(distance_squared, cull_distance_squared4);
         inside = _mm_and_ps(inside, is_in_view_distance);
 
-        for (unsigned p = 0; p < 6; ++p) {
-            const __m128& plane_n_x4 = simdFrustumPlanes[p].normal_x;
-            const __m128& plane_n_y4 = simdFrustumPlanes[p].normal_y;
-            const __m128& plane_n_z4 = simdFrustumPlanes[p].normal_z;
+        for (const auto & simdFrustumPlane : simdFrustumPlanes) {
+            const __m128& plane_n_x4 = simdFrustumPlane.normal_x;
+            const __m128& plane_n_y4 = simdFrustumPlane.normal_y;
+            const __m128& plane_n_z4 = simdFrustumPlane.normal_z;
             __m128 n_dot_pos = simd_dot_product(where_x4, where_y4, where_z4, plane_n_x4, plane_n_y4, plane_n_z4);
 
-            __m128 plane_test = _mm_cmpgt_ps(_mm_add_ps(n_dot_pos, simdFrustumPlanes[p].d), neg_radius4);
+            __m128 plane_test = _mm_cmpgt_ps(_mm_add_ps(n_dot_pos, simdFrustumPlane.d), neg_radius4);
             inside = _mm_and_ps(inside, plane_test);
         }
 
@@ -731,12 +731,12 @@ void Camera::checkSpheresInFrustum(int count, float* where_x, float* where_y, fl
             center_to_cam[2] * center_to_cam[2];
 
         if (distance_squared < cull_distance_squared) {
-            for (int p = 0; p < 6; ++p) {
+            for (auto frustumPlane : frustumPlanes) {
                 float n_dot_pos =
-                    frustumPlanes[p][0] * where_x[i] +
-                    frustumPlanes[p][1] * where_y[i] +
-                    frustumPlanes[p][2] * where_z[i];
-                bool plane_test = n_dot_pos + frustumPlanes[p][3] > -radius;
+                    frustumPlane[0] * where_x[i] +
+                    frustumPlane[1] * where_y[i] +
+                    frustumPlane[2] * where_z[i];
+                bool plane_test = n_dot_pos + frustumPlane[3] > -radius;
                 inside = inside && plane_test;
             }
         } else {
@@ -754,7 +754,7 @@ int Camera::checkBoxInFrustum(vec3 start, vec3 end) const
     int total_in = 0;
     vec3 point;
 
-    for(int p = 0; p < 6; ++p) {
+    for(auto frustumPlane : frustumPlanes) {
     
         int in_count = 8;
         bool box_in_frustum = 1;
@@ -768,10 +768,10 @@ int Camera::checkBoxInFrustum(vec3 start, vec3 end) const
             else point.z()=end.z();
 
             // test this point against the planes
-            if( frustumPlanes[p][0] * point.x() +
-                frustumPlanes[p][1] * point.y() +
-                frustumPlanes[p][2] * point.z() +
-                frustumPlanes[p][3] < 0) {
+            if( frustumPlane[0] * point.x() +
+                frustumPlane[1] * point.y() +
+                frustumPlane[2] * point.z() +
+                frustumPlane[3] < 0) {
                 box_in_frustum = 0;
                 in_count--;
             }

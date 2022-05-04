@@ -94,8 +94,8 @@ namespace OnlineMessages {
                 MovementObject* mo = static_cast<MovementObject*>(object);
 
                 // Check if we already have an update for the specified time
-                for (auto it = mo->incoming_movement_object_frames.begin(); it != mo->incoming_movement_object_frames.end(); it++) {
-                    MovementObjectUpdate* update = static_cast<MovementObjectUpdate*>(it->GetData());
+                for (auto & incoming_movement_object_frame : mo->incoming_movement_object_frames) {
+                    MovementObjectUpdate* update = static_cast<MovementObjectUpdate*>(incoming_movement_object_frame.GetData());
                     if (update->timestamp == mou->timestamp) {
                         LOGW << "Received MovementObjectUpdate with an identical timestamp of an existing update for object: \"" << object_id << " (" << mou->identifier << ")\"" << std::endl;
                         return;

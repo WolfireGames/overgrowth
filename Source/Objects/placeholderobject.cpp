@@ -61,8 +61,8 @@ PlaceholderObject::PlaceholderObject():
 }
 
 void PlaceholderObject::DisposePreviewObjects() {
-    for(unsigned i=0, len=preview_objects_.size(); i < len; ++i){
-        delete preview_objects_[i];
+    for(auto & preview_object : preview_objects_){
+        delete preview_object;
     }
     preview_objects_.clear();
 }
@@ -78,8 +78,8 @@ void PlaceholderObject::SetPreview( const std::string& path ) {
     Path source;
     ActorsEditor_LoadEntitiesFromFile(path, desc_list,&file_type, &source);
     preview_objects_.reserve(desc_list.size());
-    for(unsigned i=0, len=desc_list.size(); i < len; ++i){
-        Object* obj = CreateObjectFromDesc(desc_list[i]);
+    for(auto & i : desc_list){
+        Object* obj = CreateObjectFromDesc(i);
         if(obj) {
             if(obj->GetType() == _env_object){
                 EnvObject* eo = (EnvObject*)obj;
@@ -124,9 +124,9 @@ void PlaceholderObject::Draw() {
         }
 
         bool old_shadow_cache_dirty = shadow_cache_dirty;
-        for(unsigned i=0, len=preview_objects_.size(); i < len; ++i){
-            preview_objects_[i]->SetTransformationMatrix(GetTransform());
-            preview_objects_[i]->ReceiveObjectMessage(OBJECT_MSG::DRAW);
+        for(auto & preview_object : preview_objects_){
+            preview_object->SetTransformationMatrix(GetTransform());
+            preview_object->ReceiveObjectMessage(OBJECT_MSG::DRAW);
         }
         shadow_cache_dirty = old_shadow_cache_dirty; // We don't want to update static shadow maps just because we moved this preview object
 
@@ -187,8 +187,7 @@ bool PlaceholderObject::SetFromDesc( const EntityDescription& desc ) {
             SetBillboard("Data/UI/spawner/thumbs/Utility/placeholder_arena_battle.png");
         }
         
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
             case EDF_FILE_PATH: {
                 std::string path;
@@ -230,8 +229,7 @@ void PlaceholderObject::SetSpecialType(PlaceholderObject::PlaceholderObjectType 
 }
 
 bool PlaceholderObject::Initialize() {
-    for(int i=0, len=preview_objects_.size(); i<len; ++i){
-        Object* obj = preview_objects_[i];
+    for(auto obj : preview_objects_){
         obj->scenegraph_ = scenegraph_;
         obj->Initialize();
     }

@@ -55,9 +55,9 @@ void testJSON() {
     
     Json::Value::Members members = root.getMemberNames();
     
-    for( Json::Value::Members::iterator itr = members.begin(); itr != members.end(); ++itr )
+    for(auto & member : members)
     {
-        std::cout << *itr << std::endl;
+        std::cout << member << std::endl;
     }
     
     

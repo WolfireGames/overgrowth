@@ -128,16 +128,14 @@ static void UpdateDetailObjectSurfaces(EnvObject::DOSList *detail_object_surface
                                        int model_id)
 {
     //TODO: Make sure we aren't duplicating code from Terrain.cpp
-    for(int i=0, len=detail_object_surfaces->size(); i<len; ++i){
-        delete detail_object_surfaces->at(i);
+    for(auto & detail_object_surface : *detail_object_surfaces){
+        delete detail_object_surface;
     }
     detail_object_surfaces->clear();
     detail_object_surfaces->resize(ofr->m_detail_object_layers.size());
     int counter = 0;
-    for(EnvObject::DOSList::iterator iter = detail_object_surfaces->begin();
-        iter != detail_object_surfaces->end(); ++iter)
+    for(auto & dos : *detail_object_surfaces)
     {
-        DetailObjectSurface*& dos = (*iter);
         dos = new DetailObjectSurface();
         DetailObjectLayer& dol = ofr->m_detail_object_layers[counter];
         dos->AttachTo(Models::Instance()->GetModel(model_id), transform);
@@ -212,8 +210,8 @@ const MaterialEvent& EnvObject::GetMaterialEvent( const std::string &the_event, 
 
 EnvObject::~EnvObject() {
     RemovePhysicsShape();
-    for(int i=0, len=detail_object_surfaces.size(); i<len; ++i){
-        delete detail_object_surfaces[i];
+    for(auto & detail_object_surface : detail_object_surfaces){
+        delete detail_object_surface;
     }
 }
 
@@ -658,8 +656,7 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
         } else {
             std::vector<mat4> light_volume_matrix;
             std::vector<mat4> light_volume_matrix_inverse;
-            for(int i=0, len=scenegraph_->light_volume_objects_.size(); i<len; ++i){
-                Object* obj = scenegraph_->light_volume_objects_[i];
+            for(auto obj : scenegraph_->light_volume_objects_){
                 const mat4 &mat = obj->GetTransform();
                 light_volume_matrix.push_back(mat);
                 light_volume_matrix_inverse.push_back(invert(mat));
@@ -900,10 +897,9 @@ void EnvObject::PreDrawCamera(float curr_game_time) {
         return;
     }
 
-    for(DOSList::iterator iter = detail_object_surfaces.begin();
-        iter != detail_object_surfaces.end(); ++iter)
+    for(auto & detail_object_surface : detail_object_surfaces)
     {
-        (*iter)->PreDrawCamera(transform_);
+        detail_object_surface->PreDrawCamera(transform_);
     }
 }
 
@@ -1019,15 +1015,15 @@ void CreatePointCloud(std::vector<vec3> &points, const Model &model, const Image
         vec3 verts[3];
         int face_index = 0;
         int vert_index;
-        for(unsigned i=0; i<triangle_area.size(); ++i){
+        for(float & i : triangle_area){
             for(unsigned j=0; j<3; ++j){
                 vert_index = model.faces[face_index+j]*3;
                 verts[j] = vec3(model.vertices[vert_index+0],
                                 model.vertices[vert_index+1],
                                 model.vertices[vert_index+2]);
             }
-            triangle_area[i] = length(cross(verts[2]-verts[0], verts[1]-verts[0]))*0.5f;
-            total_triangle_area += triangle_area[i];
+            i = length(cross(verts[2]-verts[0], verts[1]-verts[0]))*0.5f;
+            total_triangle_area += i;
             face_index += 3;
         }
     }
@@ -1070,8 +1066,8 @@ void CreatePointCloud(std::vector<vec3> &points, const Model &model, const Image
     }
 
     vec3 center;
-    for(unsigned i=0; i<temp_points.size(); ++i){
-        center += temp_points[i];
+    for(auto & temp_point : temp_points){
+        center += temp_point;
     }
     center /= (float)temp_points.size();
 
@@ -1816,8 +1812,7 @@ void EnvObject::CreateLeaf(vec3 pos, vec3 vel, int iterations) {
 bool EnvObject::SetFromDesc( const EntityDescription& desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
                 case EDF_FILE_PATH: {
                     std::string type_file;
@@ -1855,15 +1850,15 @@ void EnvObject::ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args 
     case OBJECT_MSG::SET_COLOR: {
         //vec3 old_color = color_tint_component_.temp_tint();
         color_tint_component_.ReceiveObjectMessageVAList(type, args);
-        for(int i=0, len=detail_object_surfaces.size(); i<len; ++i){
-            detail_object_surfaces[i]->SetColorTint(GetDisplayTint());
+        for(auto & detail_object_surface : detail_object_surfaces){
+            detail_object_surface->SetColorTint(GetDisplayTint());
         }
         CalculateDisplayTint_();
         break;}
     case OBJECT_MSG::SET_OVERBRIGHT: {
         color_tint_component_.ReceiveObjectMessageVAList(type, args);
-        for(int i=0, len=detail_object_surfaces.size(); i<len; ++i){
-            detail_object_surfaces[i]->SetOverbright(GetOverbright());
+        for(auto & detail_object_surface : detail_object_surfaces){
+            detail_object_surface->SetOverbright(GetOverbright());
         }
         CalculateDisplayTint_();
         break;}

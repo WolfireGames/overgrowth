@@ -93,11 +93,10 @@ const std::string & VoiceFile::GetVoicePath( const std::string voice ) {
 void VoiceFile::ReturnPaths( PathSet &path_set )
 {
     path_set.insert("voice "+path_);
-    for(std::map<std::string, std::string>::iterator iter = voice_paths.begin();
-        iter != voice_paths.end(); ++iter)
+    for(auto & voice_path : voice_paths)
     {
         //SoundGroupInfoCollection::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
-        Engine::Instance()->GetAssetManager()->LoadSync<SoundGroupInfo>(iter->second)->ReturnPaths(path_set);
+        Engine::Instance()->GetAssetManager()->LoadSync<SoundGroupInfo>(voice_path.second)->ReturnPaths(path_set);
     }
 }
 

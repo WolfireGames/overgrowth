@@ -251,12 +251,10 @@ void IMReferenceCountTracker::logSanityCheck() {
     else {
         LOGI << "Error: There still " << totalRefCountObjs << " LIVE IMGUI elements" << std::endl;
         
-        for( std::map<std::string, int>::iterator it = typeCounts.begin();
-             it != typeCounts.end();
-             ++it ) {
+        for(auto & typeCount : typeCounts) {
             
-            if( it->second != 0 ) {
-                LOGI << it->first << ": " << it->second << std::endl;
+            if( typeCount.second != 0 ) {
+                LOGI << typeCount.first << ": " << typeCount.second << std::endl;
             }
         }
         

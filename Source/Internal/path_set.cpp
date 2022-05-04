@@ -28,8 +28,7 @@
 
 void PathSetUtil::GetCachedFiles( PathSet& path_set ) {
     PathSet new_path_set;
-    for(PathSet::iterator iter = path_set.begin(); iter != path_set.end(); ++iter){
-        const std::string &labeled_path = (*iter);
+    for(const auto & labeled_path : path_set){
         size_t space_pos = labeled_path.find(' ');
         if(space_pos == std::string::npos){
             DisplayError("Error", ("No space found in labeled string: "+labeled_path).c_str());

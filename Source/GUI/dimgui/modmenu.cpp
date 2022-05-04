@@ -88,22 +88,22 @@ static std::vector<std::pair<const char*,std::vector<ModInstance*> > > GetCatego
 
     const std::vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
 
-    for( uint32_t i = 0; i < mods.size() ; i++ ) {
-        if( mods[i]->IsCore() ) {
-            categorized_mods[5].second.push_back( mods[i] );
-        } else if( mods[i]->modsource == ModSourceLocalModFolder ) {
-            categorized_mods[0].second.push_back( mods[i] );
-        } else if( mods[i]->modsource == ModSourceSteamworks ) {
-            if( mods[i]->IsOwnedByCurrentUser() ) {
-                categorized_mods[3].second.push_back( mods[i] );
+    for(auto mod : mods) {
+        if( mod->IsCore() ) {
+            categorized_mods[5].second.push_back( mod );
+        } else if( mod->modsource == ModSourceLocalModFolder ) {
+            categorized_mods[0].second.push_back( mod );
+        } else if( mod->modsource == ModSourceSteamworks ) {
+            if( mod->IsOwnedByCurrentUser() ) {
+                categorized_mods[3].second.push_back( mod );
             } else {
-                if( mods[i]->IsFavorite() ) {
-                    categorized_mods[4].second.push_back( mods[i] ); 
+                if( mod->IsFavorite() ) {
+                    categorized_mods[4].second.push_back( mod ); 
                 } else {
-                    if( mods[i]->IsSubscribed() ) {
-                        categorized_mods[1].second.push_back( mods[i] );
+                    if( mod->IsSubscribed() ) {
+                        categorized_mods[1].second.push_back( mod );
                     } else {
-                        categorized_mods[2].second.push_back( mods[i] );
+                        categorized_mods[2].second.push_back( mod );
                     }
                 }
             }
@@ -152,8 +152,7 @@ static void DrawSimpleModMenu( ) {
     for(; modcatit != categmods.end(); modcatit++ ) {
         const std::vector<ModInstance*> mods = modcatit->second;
         if( mods.size() > 0 && ImGui::TreeNodeEx(modcatit->first,ImGuiTreeNodeFlags_DefaultOpen) ) {
-            for(uint32_t i = 0; i < mods.size(); ++i) {
-                ModInstance* mod = mods[i];
+            for(auto mod : mods) {
                 bool active = mod->IsActive();
                 ModID sid = mod->GetSid();
                 ImGui::PushID(sid.id);
@@ -262,8 +261,7 @@ static void DrawAdvancedModMenu(Engine* engine) {
     for(; modcatit != categmods.end(); modcatit++ ) {
         const std::vector<ModInstance*> mods = modcatit->second;
         if( mods.size() > 0 && ImGui::TreeNodeEx(modcatit->first,ImGuiTreeNodeFlags_DefaultOpen) ) {
-            for(uint32_t i = 0; i < mods.size(); ++i) {
-                ModInstance* mod = mods[i];
+            for(auto mod : mods) {
                 bool active = mod->IsActive();
                 ModID sid = mod->GetSid();
                 ImGui::PushID(sid.id);
@@ -449,23 +447,23 @@ static void DrawAdvancedModMenu(Engine* engine) {
 
         std::vector<std::string> validity_errors = modi->GetValidityErrorsArr();
         ImGui::Text( "Errors:" );  
-        for( unsigned i = 0; i < validity_errors.size(); i++ ) {
+        for(auto & validity_error : validity_errors) {
             ImGui::NextColumn();
-            ImGui::Text( "%s", validity_errors[i].c_str() );
+            ImGui::Text( "%s", validity_error.c_str() );
             ImGui::NextColumn();
         }
         ImGui::Separator();
         ImGui::Text( "Mod Dependencies:" );  
-        for( unsigned i = 0; i < modi->mod_dependencies.size(); i++ ) {
+        for(auto & mod_dependencie : modi->mod_dependencies) {
             ImGui::NextColumn();
-            ImGui::Text( "%s", modi->mod_dependencies[i].id.c_str() );
+            ImGui::Text( "%s", mod_dependencie.id.c_str() );
             ImGui::NextColumn();
         }
         ImGui::Separator();
         ImGui::Text( "Supported Version:" );
-        for( unsigned i = 0; i < modi->supported_versions.size(); i++ ) {
+        for(auto & supported_version : modi->supported_versions) {
             ImGui::NextColumn();
-            ImGui::Text( "%s", modi->supported_versions[i].c_str() );
+            ImGui::Text( "%s", supported_version.c_str() );
             ImGui::NextColumn();
         }
         ImGui::Separator();
@@ -578,25 +576,25 @@ static void DrawAdvancedModMenu(Engine* engine) {
         ImGui::Separator();
 
         ImGui::Text( "Items:" );  
-        for( unsigned i = 0; i < modi->items.size(); i++ ) {
+        for(auto & item : modi->items) {
             ImGui::NextColumn();
-            ImGui::Text("%s", modi->items[i].title.c_str());
+            ImGui::Text("%s", item.title.c_str());
             ImGui::NextColumn();
         }
         ImGui::Separator();
 
         ImGui::Text( "Levels:" );  
-        for( unsigned i = 0; i < modi->levels.size(); i++ ) {
+        for(auto & level : modi->levels) {
             ImGui::NextColumn();
-            ImGui::Text("%s", modi->levels[i].title.c_str());
+            ImGui::Text("%s", level.title.c_str());
             ImGui::NextColumn();
         }
         ImGui::Separator();
 
         ImGui::Text( "Campaigns:" );
-        for( unsigned i = 0; i < modi->campaigns.size(); ++i) {
+        for(auto & campaign : modi->campaigns) {
             ImGui::NextColumn();
-            ImGui::Text("%s", modi->campaigns[i].title.c_str());
+            ImGui::Text("%s", campaign.title.c_str());
             ImGui::NextColumn();
         }
 
@@ -605,9 +603,9 @@ static void DrawAdvancedModMenu(Engine* engine) {
         for( unsigned i = 0; i < modi->campaigns.size(); i++ ) {
             ImGui::Text("%s levels:", modi->campaigns[i].title.c_str());
 
-            for( unsigned j = 0; j < modi->campaigns[i].levels.size(); j++ ) {
+            for(auto & level : modi->campaigns[i].levels) {
                 ImGui::NextColumn();
-                ImGui::Text("%s", modi->campaigns[i].levels[j].title.c_str());
+                ImGui::Text("%s", level.title.c_str());
                 ImGui::NextColumn();
             }
 
@@ -624,20 +622,20 @@ static void DrawAdvancedModMenu(Engine* engine) {
         ImGui::Text("Parameter Data");
         ImGui::Separator();
 
-        for( unsigned i = 0; i < modi->levels.size(); i++ ) {
-            if(ImGui::TreeNode(modi->levels[i].title.c_str(),"%s level", modi->levels[i].title.c_str())) {
-                ImguiDrawParameter(&modi->levels[i].parameter,"",0);
+        for(auto & level : modi->levels) {
+            if(ImGui::TreeNode(level.title.c_str(),"%s level", level.title.c_str())) {
+                ImguiDrawParameter(&level.parameter,"",0);
                 ImGui::TreePop();
             }
         }
 
-        for(unsigned i = 0; i < modi->campaigns.size(); ++i) {
+        for(auto & campaign : modi->campaigns) {
             ImGui::PushID("campaign_params");
-            if(ImGui::TreeNode(modi->campaigns[i].id.c_str(), "%s campaign", modi->campaigns[i].title.c_str())) {
-                ImguiDrawParameter(&modi->campaigns[i].parameter,"",0);
-                for( unsigned j = 0; j < modi->campaigns[i].levels.size(); j++ ) {
-                    if(ImGui::TreeNode(modi->campaigns[i].levels[j].title.c_str(),"%s level", modi->campaigns[i].levels[j].title.c_str())){
-                        ImguiDrawParameter(&modi->campaigns[i].levels[j].parameter,"",0);
+            if(ImGui::TreeNode(campaign.id.c_str(), "%s campaign", campaign.title.c_str())) {
+                ImguiDrawParameter(&campaign.parameter,"",0);
+                for( unsigned j = 0; j < campaign.levels.size(); j++ ) {
+                    if(ImGui::TreeNode(campaign.levels[j].title.c_str(),"%s level", campaign.levels[j].title.c_str())){
+                        ImguiDrawParameter(&campaign.levels[j].parameter,"",0);
                         ImGui::TreePop();
                     }
                 }
@@ -1183,8 +1181,8 @@ void DrawModMenu(Engine* engine) {
         ImGui::SetNextWindowSize(ImVec2(1024.0f, 768.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("Manifest", &show_manifest);
         if( modi ) {
-            for( unsigned i = 0; i < modi->manifest.size(); i++ ) {
-                ImGui::Text( "%s", modi->manifest[i].c_str() );
+            for(auto & i : modi->manifest) {
+                ImGui::Text( "%s", i.c_str() );
             }
         }
         ImGui::End();

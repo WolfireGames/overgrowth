@@ -864,10 +864,8 @@ bool IMElement::hasUpdateBehavior(std::string const& behaviorName)
  void IMElement::clearUpdateBehaviors() {
 
      // iterate through all the behaviors and clean them up
-     for( UBMap::iterator it = updateBehaviors.begin();
-         it != updateBehaviors.end();
-         ++it ) {
-        IMUpdateBehavior* updater = it->second;
+     for(auto & updateBehavior : updateBehaviors) {
+        IMUpdateBehavior* updater = updateBehavior.second;
         updater->cleanUp( this );
         updater->Release();
     }
@@ -949,10 +947,8 @@ bool IMElement::hasUpdateBehavior(std::string const& behaviorName)
  void IMElement::clearMouseOverBehaviors() {
 
     // iterate through all the behaviors and clean them up
-    for( MOBMap::iterator it = mouseOverBehaviors.begin();
-         it != mouseOverBehaviors.end();
-         ++it ) {
-        IMMouseOverBehavior* updater = it->second;
+    for(auto & mouseOverBehavior : mouseOverBehaviors) {
+        IMMouseOverBehavior* updater = mouseOverBehavior.second;
         updater->Release();
         updater->cleanUp( this );
     }
@@ -1032,10 +1028,8 @@ void IMElement::addLeftMouseClickBehavior( IMMouseClickBehavior* behavior, std::
 void IMElement::clearLeftMouseClickBehaviors() {
 
     // iterate through all the behaviors and clean them up
-    for( MCBMap::iterator it = leftMouseClickBehaviors.begin();
-        it != leftMouseClickBehaviors.end();
-        ++it ) {
-        IMMouseClickBehavior* updater = it->second;
+    for(auto & leftMouseClickBehavior : leftMouseClickBehaviors) {
+        IMMouseClickBehavior* updater = leftMouseClickBehavior.second;
         updater->cleanUp( this );
         updater->Release();
     }
@@ -1058,18 +1052,16 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
     {
 		std::vector<std::string> remove_list;	
 
-        for( UBMap::iterator it = updateBehaviors.begin();
-            it != updateBehaviors.end();
-            ++it ) {
+        for(auto & updateBehavior : updateBehaviors) {
 
-            IMUpdateBehavior* updater = it->second;
+            IMUpdateBehavior* updater = updateBehavior.second;
             
             // See if this behavior has been initialized
             if( !updater->initialized ) {
 
                 if( !updater->initialize( this, delta, drawOffset, guistate ) ) {
                     // If the behavior has indicated it should not begin remove it
-					remove_list.push_back(it->first);
+					remove_list.push_back(updateBehavior.first);
                     continue;
                 }
                 else {
@@ -1079,7 +1071,7 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
 
             if( !updater->update( this, delta, drawOffset, guistate ) ) {
                 // If the behavior has indicated it is done
-                remove_list.push_back(it->first);
+                remove_list.push_back(updateBehavior.first);
             }
         }
 		
@@ -1103,22 +1095,18 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
             mouseOver = true;
 
             // Update behaviors
-            for( MOBMap::iterator it = mouseOverBehaviors.begin();
-                 it != mouseOverBehaviors.end();
-                 ++it ) {
+            for(auto & mouseOverBehavior : mouseOverBehaviors) {
                 
-                IMMouseOverBehavior* behavior = it->second;
+                IMMouseOverBehavior* behavior = mouseOverBehavior.second;
                 behavior->onStart( this, delta, drawOffset, guistate );
             }
         }
         else {
 
             // Update behaviors
-            for( MOBMap::iterator it = mouseOverBehaviors.begin();
-                it != mouseOverBehaviors.end();
-                ++it ) {
+            for(auto & mouseOverBehavior : mouseOverBehaviors) {
                 
-                IMMouseOverBehavior* behavior = it->second;
+                IMMouseOverBehavior* behavior = mouseOverBehavior.second;
                 behavior->onContinue( this, delta, drawOffset, guistate );
             }
         
@@ -1129,14 +1117,12 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
         if( mouseOver )
         {
             std::vector<std::string> remove_list;
-            for( MOBMap::iterator it = mouseOverBehaviors.begin();
-                it != mouseOverBehaviors.end();
-                ++it ) {
-                IMMouseOverBehavior* behavior = it->second;
+            for(auto & mouseOverBehavior : mouseOverBehaviors) {
+                IMMouseOverBehavior* behavior = mouseOverBehavior.second;
                 
                 if( !behavior->onFinish( this, delta, drawOffset, guistate ) ) {
                     // If the behavior has indicated it is done
-					remove_list.push_back(it->first);
+					remove_list.push_back(mouseOverBehavior.first);
                     
                 }
             }
@@ -1175,16 +1161,14 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
 
 			std::vector<std::string> remove_list;
             // Update behaviors
-            for( MCBMap::iterator it = leftMouseClickBehaviors.begin();
-                it != leftMouseClickBehaviors.end();
-                ++it ) {
+            for(auto & leftMouseClickBehavior : leftMouseClickBehaviors) {
 
                 guistate.clickHandled = true;
 
-                IMMouseClickBehavior* behavior = it->second;
+                IMMouseClickBehavior* behavior = leftMouseClickBehavior.second;
                 if( !behavior->onDown( this, delta, drawOffset, guistate ) ) {
                     // If the behavior has indicated it is done
-                    remove_list.push_back(it->first);
+                    remove_list.push_back(leftMouseClickBehavior.first);
                 }
             }
 
@@ -1203,17 +1187,15 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
             }
             
 			std::vector<std::string> remove_list;
-            for( MCBMap::iterator it = leftMouseClickBehaviors.begin();
-                 it != leftMouseClickBehaviors.end();
-                 ++it ) {
+            for(auto & leftMouseClickBehavior : leftMouseClickBehaviors) {
                 
                 guistate.clickHandled = true;
                 
-                IMMouseClickBehavior* behavior = it->second;
+                IMMouseClickBehavior* behavior = leftMouseClickBehavior.second;
             
                 if( !behavior->onStillDown( this, delta, drawOffset, guistate ) ) {
                     // If the behavior has indicated it is done
-					remove_list.push_back(it->first);
+					remove_list.push_back(leftMouseClickBehavior.first);
                 
                 }
             }
@@ -1229,17 +1211,15 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
         case IMUIContext::kMouseUp: {
             
 			if(mouse_clicking){
-	            for( MCBMap::iterator it = leftMouseClickBehaviors.begin();
-	                 it != leftMouseClickBehaviors.end();
-	                 ++it ) {
+	            for(auto & leftMouseClickBehavior : leftMouseClickBehaviors) {
 
 	                guistate.clickHandled = true;
 
-	                IMMouseClickBehavior* behavior = it->second;
+	                IMMouseClickBehavior* behavior = leftMouseClickBehavior.second;
 
 	                if( !behavior->onUp( this, delta, drawOffset, guistate ) ) {
 	                    // If the behavior has indicated it is done
-	                    removeLeftMouseClickBehavior( it->first );
+	                    removeLeftMouseClickBehavior( leftMouseClickBehavior.first );
 	                }
 
 	            }
@@ -1250,16 +1230,14 @@ void IMElement::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
             mouseOver = false;
             {
 				std::vector<std::string> remove_list;
-                for( MOBMap::iterator it = mouseOverBehaviors.begin();
-                    it != mouseOverBehaviors.end();
-                     ++it ) {
+                for(auto & mouseOverBehavior : mouseOverBehaviors) {
                     
                     guistate.clickHandled = true;
                     
-                    IMMouseOverBehavior* behavior = it->second;
+                    IMMouseOverBehavior* behavior = mouseOverBehavior.second;
                     if( !behavior->onFinish( this, delta, drawOffset, guistate ) ) {
                         // If the behavior has indicated it is done
-						remove_list.push_back( it->first );
+						remove_list.push_back( mouseOverBehavior.first );
                     
                     }
                 }
@@ -1687,24 +1665,18 @@ void IMElement::setScriptMouseOver(bool mouseOver) {
  */
 IMElement::~IMElement() {
 	LOG_ASSERT(refCount == 0);
-    for( UBMap::iterator it = updateBehaviors.begin();
-         it != updateBehaviors.end();
-         ++it ) {
-        it->second->Release();
+    for(auto & updateBehavior : updateBehaviors) {
+        updateBehavior.second->Release();
     }
     updateBehaviors.clear();
     
-    for( MOBMap::iterator it = mouseOverBehaviors.begin();
-        it != mouseOverBehaviors.end();
-        ++it ) {
-        it->second->Release();
+    for(auto & mouseOverBehavior : mouseOverBehaviors) {
+        mouseOverBehavior.second->Release();
     }
     mouseOverBehaviors.clear();
     
-    for( MCBMap::iterator it = leftMouseClickBehaviors.begin();
-         it != leftMouseClickBehaviors.end();
-         ++it ) {
-        it->second->Release();
+    for(auto & leftMouseClickBehavior : leftMouseClickBehaviors) {
+        leftMouseClickBehavior.second->Release();
     }
     leftMouseClickBehaviors.clear();
 

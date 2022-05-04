@@ -109,12 +109,12 @@ uint32_t ActiveModsParser::Load( const std::string& path ) {
 bool ActiveModsParser::SerializeInto( TiXmlDocument* doc ) {
     TiXmlDeclaration * decl = new TiXmlDeclaration( "2.0", "", "" );
     TiXmlElement * root = new TiXmlElement("ActiveMods");
-    for( unsigned i = 0; i < mod_instances.size(); i++ ) {
+    for(auto & mod_instance : mod_instances) {
         TiXmlElement * mi = new TiXmlElement("ModInstance");
-        mi->SetAttribute( "id", mod_instances[i].id );
-        mi->SetAttribute( "activated", mod_instances[i].activated ? "true" : "false" );
+        mi->SetAttribute( "id", mod_instance.id );
+        mi->SetAttribute( "activated", mod_instance.activated ? "true" : "false" );
         const char* modsource = "";
-        switch(mod_instances[i].modsource) {
+        switch(mod_instance.modsource) {
             case ModSourceLocalModFolder:
                 modsource = "local";
                 break;
@@ -127,7 +127,7 @@ bool ActiveModsParser::SerializeInto( TiXmlDocument* doc ) {
                 break;
         }
         mi->SetAttribute("modsource", modsource); 
-        mi->SetAttribute("version", mod_instances[i].version);
+        mi->SetAttribute("version", mod_instance.version);
         root->LinkEndChild(mi);
     }
     doc->LinkEndChild(decl);
@@ -174,8 +174,8 @@ void ActiveModsParser::SetModInstanceActive(const char* id, ModSource modsource,
 }
 
 bool ActiveModsParser::HasModInstance(const char* id, ModSource modsource) {
-    for( unsigned i = 0; i < mod_instances.size(); i++ ) {
-        if(strmtch(mod_instances[i].id,id) && mod_instances[i].modsource == modsource) {
+    for(auto & mod_instance : mod_instances) {
+        if(strmtch(mod_instance.id,id) && mod_instance.modsource == modsource) {
             return true;
         }
     }
@@ -183,9 +183,9 @@ bool ActiveModsParser::HasModInstance(const char* id, ModSource modsource) {
 }
 
 ActiveModsParser::ModInstance ActiveModsParser::GetModInstance(const char* id, ModSource modsource) {
-    for( unsigned i = 0; i < mod_instances.size(); i++ ) {
-        if(strmtch(mod_instances[i].id,id) && mod_instances[i].modsource == modsource) {
-            return mod_instances[i];
+    for(auto & mod_instance : mod_instances) {
+        if(strmtch(mod_instance.id,id) && mod_instance.modsource == modsource) {
+            return mod_instance;
         }
     }
     return ModInstance(id,modsource,false,"");

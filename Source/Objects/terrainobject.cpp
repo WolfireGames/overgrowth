@@ -164,10 +164,9 @@ void TerrainObject::PreDrawCamera(float curr_game_time) {
     }
 
     static const mat4 identity;
-    for(std::list<DetailObjectSurface*>::iterator iter = terrain_.detail_object_surfaces.begin();
-        iter != terrain_.detail_object_surfaces.end(); ++iter)
+    for(auto & detail_object_surface : terrain_.detail_object_surfaces)
     {
-        (*iter)->PreDrawCamera(identity);
+        detail_object_surface->PreDrawCamera(identity);
     }
 }
 
@@ -180,10 +179,9 @@ void TerrainObject::Draw() {
 
     if(!terrain_info_.minimal) {
         static const mat4 identity;
-        for(std::list<DetailObjectSurface*>::iterator iter = terrain_.detail_object_surfaces.begin();
-            iter != terrain_.detail_object_surfaces.end(); ++iter)
+        for(auto & detail_object_surface : terrain_.detail_object_surfaces)
         {
-            (*iter)->Draw(identity, DetailObjectSurface::TERRAIN, vec3(1.0f), scenegraph_->sky->GetSpecularCubeMapTexture(), &scenegraph_->light_probe_collection, scenegraph_);
+            detail_object_surface->Draw(identity, DetailObjectSurface::TERRAIN, vec3(1.0f), scenegraph_->sky->GetSpecularCubeMapTexture(), &scenegraph_->light_probe_collection, scenegraph_);
         }
     }
 }
@@ -269,8 +267,7 @@ void TerrainObject::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_
 
     int vert_attrib_id = shaders->returnShaderAttrib("vertex_attrib", shader);
     graphics->EnableVertexAttribArray(vert_attrib_id);
-    for(std::list<Model>::iterator iter = terrain_.terrain_patches.begin(); iter != terrain_.terrain_patches.end(); ++iter) {
-        Model& patch = (*iter);
+    for(auto & patch : terrain_.terrain_patches) {
         const vec3 adjusted_min = patch.min_coords + translation;
         const vec3 adjusted_max = patch.max_coords + translation;
         if(CheckBoxAgainstPlanes(adjusted_min, adjusted_max, cull_planes, num_cull_planes)) {
@@ -283,8 +280,7 @@ void TerrainObject::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_
             graphics->DrawElements(use_tesselation?GL_PATCHES:GL_TRIANGLES, (unsigned int) patch.faces.size(), GL_UNSIGNED_INT, 0);
         }
     }
-    for(std::list<Model>::iterator iter = terrain_.edge_terrain_patches.begin(); iter != terrain_.edge_terrain_patches.end(); ++iter) {
-        Model& patch = (*iter);
+    for(auto & patch : terrain_.edge_terrain_patches) {
         const vec3 adjusted_min = patch.min_coords + translation;
         const vec3 adjusted_max = patch.max_coords + translation;
         if(CheckBoxAgainstPlanes(adjusted_min, adjusted_max, cull_planes, num_cull_planes)) {
@@ -542,8 +538,7 @@ void TerrainObject::DrawTerrain() {
 
     std::vector<mat4> light_volume_matrix;
     std::vector<mat4> light_volume_matrix_inverse;
-    for(size_t i=0, len=scenegraph_->light_volume_objects_.size(); i<len; ++i){
-        Object* obj = scenegraph_->light_volume_objects_[i];
+    for(auto obj : scenegraph_->light_volume_objects_){
         const mat4 &mat = obj->GetTransform();
         light_volume_matrix.push_back(mat);
         light_volume_matrix_inverse.push_back(invert(mat));
@@ -579,8 +574,7 @@ void TerrainObject::DrawTerrain() {
     const vec3 translation = GetTranslation();
     {
         PROFILER_GPU_ZONE(g_profiler_ctx, "Draw opaque terrain patches");
-        for(std::list<Model>::iterator iter = terrain_.terrain_patches.begin(); iter != terrain_.terrain_patches.end(); ++iter) {
-            Model& patch = (*iter);
+        for(auto & patch : terrain_.terrain_patches) {
             const vec3 adjusted_min = patch.min_coords + translation;
             const vec3 adjusted_max = patch.max_coords + translation;
             if(ActiveCameras::Get()->checkBoxInFrustum(adjusted_min,
@@ -593,8 +587,7 @@ void TerrainObject::DrawTerrain() {
     {
         PROFILER_GPU_ZONE(g_profiler_ctx, "Draw edge terrain patches");
         graphics->setGLState(edge_gl_state_);
-        for(std::list<Model>::iterator iter = terrain_.edge_terrain_patches.begin(); iter != terrain_.edge_terrain_patches.end(); ++iter) {
-            Model& patch = (*iter);
+        for(auto & patch : terrain_.edge_terrain_patches) {
             const vec3 adjusted_min = patch.min_coords + translation;
             const vec3 adjusted_max = patch.max_coords + translation;
             if(ActiveCameras::Get()->checkBoxInFrustum(adjusted_min,

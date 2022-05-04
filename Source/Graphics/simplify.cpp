@@ -142,9 +142,9 @@ static void GetTexCoordNumPerVertex(const SimplifyModel *model, std::vector<int>
     // Count number of times each vertex is called in vert_indices
     num_tc.clear();
     num_tc.resize(model->vertices.size()/3, 0);
-    for(int i=0, len=model->vert_indices.size(); i<len; ++i){
-        if(model->vert_indices[i] != -1){
-            ++num_tc[model->vert_indices[i]];
+    for(int vert_indice : model->vert_indices){
+        if(vert_indice != -1){
+            ++num_tc[vert_indice];
         }
     }
     // Index for fast access
@@ -154,8 +154,8 @@ static void GetTexCoordNumPerVertex(const SimplifyModel *model, std::vector<int>
         index += num_tc[i];
     }
     // Clear num_tc for reuse
-    for(int i=0, len=num_tc.size(); i<len; ++i){
-        num_tc[i] = 0;
+    for(int & i : num_tc){
+        i = 0;
     }
     // Record texture indices
     std::vector<int> tc(model->vert_indices.size());
@@ -338,10 +338,10 @@ static bool GenerateEdgePairs(WOLFIRE_SIMPLIFY::SimplifyModel& processed_model, 
     LOGI << "Validating edge pairs." << std::endl;
     bool missing_pair = false;
     bool invalid_pair = false;
-    for(size_t i=0, len=half_edges.size(); i<len; ++i){
-        if(half_edges[i].twin == NULL){
+    for(auto & half_edge : half_edges){
+        if(half_edge.twin == NULL){
             missing_pair = true;
-        } else if(half_edges[i].twin->twin == NULL || half_edges[i].twin->twin != &half_edges[i]){
+        } else if(half_edge.twin->twin == NULL || half_edge.twin->twin != &half_edge){
             invalid_pair = true;
         }
     }
@@ -363,8 +363,7 @@ static bool GenerateEdgePairs(WOLFIRE_SIMPLIFY::SimplifyModel& processed_model, 
 
 static void CalculateEdgeErrors(vector<HalfEdge>& half_edges, SimplifyModel& processed_model, vector<glm::mat4>& quadrics_, bool include_tex) {
     LOGI << "Calculating edge error..." << std::endl;
-    for(int i=0, len=half_edges.size(); i<len; ++i){
-        HalfEdge& edge = half_edges[i];
+    for(auto & edge : half_edges){
         if(edge.err == UNDEFINED_ERROR){
             int edge_tc[2];
             if(include_tex) {
@@ -385,13 +384,13 @@ static void CalculateEdgeErrors(vector<HalfEdge>& half_edges, SimplifyModel& pro
 
 static void InitHeap(vector<HalfEdge>& half_edges, HalfEdgeNodeHeap& heap, HalfEdgeSetVec& vert_edges, HalfEdgeSetVec& tex_edges, bool include_tex) {
     LOGI << "Adding edges to heap..." << std::endl;
-    for(int i=0, len=half_edges.size(); i<len; ++i){
+    for(auto & half_edge : half_edges){
         HalfEdgeNode node;
-        node.edge = &half_edges[i];
-        half_edges[i].handle = heap.insert(node);
+        node.edge = &half_edge;
+        half_edge.handle = heap.insert(node);
     }
-    for(int i=0, len=half_edges.size(); i<len; ++i){
-        HalfEdge *edge = &half_edges[i];
+    for(auto & half_edge : half_edges){
+        HalfEdge *edge = &half_edge;
         vert_edges[edge->vert[0]].insert(edge);
         vert_edges[edge->vert[1]].insert(edge);
         if(include_tex) {
@@ -650,15 +649,15 @@ bool WOLFIRE_SIMPLIFY::SimplifySimpleModel(const Model& input, Model* output, in
         }
     }
 
-    for(int i=0, len=processed_model.vert_indices.size(); i<len; ++i){
-        if(vert_parents[processed_model.vert_indices[i]].empty()) {
-            processed_model.vert_indices[i] = reverse_vert_parents[processed_model.vert_indices[i]];
+    for(int & vert_indice : processed_model.vert_indices){
+        if(vert_parents[vert_indice].empty()) {
+            vert_indice = reverse_vert_parents[vert_indice];
         }
     }
 
-    for(int i=0, len=processed_model.tex_indices.size(); i<len; ++i){
-        if(tex_parents[processed_model.tex_indices[i]].empty()){
-            processed_model.tex_indices[i] = reverse_tex_parents[processed_model.tex_indices[i]];
+    for(int & tex_indice : processed_model.tex_indices){
+        if(tex_parents[tex_indice].empty()){
+            tex_indice = reverse_tex_parents[tex_indice];
         }
     }
 
@@ -730,14 +729,14 @@ bool WOLFIRE_SIMPLIFY::SimplifyMorphLOD( const SimplifyModelInput &model_input, 
             }
             vert_parent_vec[curr_lod] = vert_parents;
             tex_parent_vec[curr_lod] = tex_parents;            
-            for(int i=0, len=working_model.vert_indices.size(); i<len; ++i){
-                if(vert_parents[working_model.vert_indices[i]].empty()){
-                    working_model.vert_indices[i] = reverse_vert_parents[working_model.vert_indices[i]];
+            for(int & vert_indice : working_model.vert_indices){
+                if(vert_parents[vert_indice].empty()){
+                    vert_indice = reverse_vert_parents[vert_indice];
                 }
             }
-            for(int i=0, len=working_model.tex_indices.size(); i<len; ++i){
-                if(tex_parents[working_model.tex_indices[i]].empty()){
-                    working_model.tex_indices[i] = reverse_tex_parents[working_model.tex_indices[i]];
+            for(int & tex_indice : working_model.tex_indices){
+                if(tex_parents[tex_indice].empty()){
+                    tex_indice = reverse_tex_parents[tex_indice];
                 }
             }
             last_lod_model = working_model;

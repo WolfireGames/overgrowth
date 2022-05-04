@@ -149,9 +149,7 @@ void Animation::CalcInvertBoneMats() {
 }
 
 void Animation::UpdateIKBones() {
-    for(unsigned i=0; i<keyframes.size(); i++){
-        Keyframe& k = keyframes[i];
-
+    for(auto & k : keyframes){
         // Initialize uses_ik vector
         size_t num_bones = k.bone_mats.size();
         k.uses_ik.resize(num_bones);
@@ -182,95 +180,95 @@ void Animation::WriteToFile( FILE * file ) {
     int num_keyframes = (int)keyframes.size();;
     fwrite(&num_keyframes, sizeof(int), 1, file);
 
-    for(unsigned i=0; i<keyframes.size(); i++){
-        fwrite(&keyframes[i].time, sizeof(int), 1, file);
+    for(auto & keyframe : keyframes){
+        fwrite(&keyframe.time, sizeof(int), 1, file);
         
-        size_t num_weights = keyframes[i].weights.size();
+        size_t num_weights = keyframe.weights.size();
         fwrite(&num_weights, sizeof(int), 1, file);
         if(num_weights){
-            fwrite(&keyframes[i].weights[0], sizeof(float), num_weights, file);
+            fwrite(&keyframe.weights[0], sizeof(float), num_weights, file);
         }
 
-        int num_bone_mats = (int)keyframes[i].bone_mats.size();
+        int num_bone_mats = (int)keyframe.bone_mats.size();
         fwrite(&num_bone_mats, sizeof(int), 1, file);
         mat4 temp;
-        for(unsigned j=0; j<keyframes[i].bone_mats.size(); j++){
-            temp = keyframes[i].bone_mats[j].GetMat4();
+        for(unsigned j=0; j<keyframe.bone_mats.size(); j++){
+            temp = keyframe.bone_mats[j].GetMat4();
             fwrite(&temp.entries, sizeof(float), 16, file);
         }
 
-        int num_weapon_mats = (int)keyframes[i].weapon_mats.size();
+        int num_weapon_mats = (int)keyframe.weapon_mats.size();
         fwrite(&num_weapon_mats, sizeof(int), 1, file);
-        for(unsigned j=0; j<keyframes[i].weapon_mats.size(); j++){
-            temp = keyframes[i].weapon_mats[j].GetMat4();
+        for(unsigned j=0; j<keyframe.weapon_mats.size(); j++){
+            temp = keyframe.weapon_mats[j].GetMat4();
             fwrite(&temp.entries, sizeof(float), 16, file);
-            fwrite(&keyframes[i].weapon_relative_id[j], sizeof(int), 1, file);
-            fwrite(&keyframes[i].weapon_relative_weight[j], sizeof(float), 1, file);
+            fwrite(&keyframe.weapon_relative_id[j], sizeof(int), 1, file);
+            fwrite(&keyframe.weapon_relative_weight[j], sizeof(float), 1, file);
         }
 
-        fwrite(&keyframes[i].use_mobility, sizeof(bool), 1, file);
-        if(keyframes[i].use_mobility){
+        fwrite(&keyframe.use_mobility, sizeof(bool), 1, file);
+        if(keyframe.use_mobility){
             mat4 temp_mat;
-            temp_mat.SetColumn(0, keyframes[i].mobility_mat.GetColumn(0));
-            temp_mat.SetColumn(1, keyframes[i].mobility_mat.GetColumn(2)*-1.0f);
-            temp_mat.SetColumn(2, keyframes[i].mobility_mat.GetColumn(1));
-            temp_mat.SetColumn(3, keyframes[i].mobility_mat.GetColumn(3));
+            temp_mat.SetColumn(0, keyframe.mobility_mat.GetColumn(0));
+            temp_mat.SetColumn(1, keyframe.mobility_mat.GetColumn(2)*-1.0f);
+            temp_mat.SetColumn(2, keyframe.mobility_mat.GetColumn(1));
+            temp_mat.SetColumn(3, keyframe.mobility_mat.GetColumn(3));
             fwrite(&temp_mat.entries, sizeof(float), 16, file);
         }
 
-        int num_events = (int)keyframes[i].events.size();
+        int num_events = (int)keyframe.events.size();
         fwrite(&num_events, sizeof(int), 1, file);
 
-        for(size_t j=0; j<keyframes[i].events.size(); j++){
-            fwrite(&keyframes[i].events[j].which_bone, sizeof(int), 1, file);
-            const string &event_string = keyframes[i].events[j].event_string;
+        for(size_t j=0; j<keyframe.events.size(); j++){
+            fwrite(&keyframe.events[j].which_bone, sizeof(int), 1, file);
+            const string &event_string = keyframe.events[j].event_string;
             size_t string_size = event_string.size();
             fwrite(&string_size, sizeof(int), 1, file);
             fwrite(event_string.c_str(), sizeof(char), string_size, file);
         }
 
-        int num_ik_bones = (int)keyframes[i].ik_bones.size();
+        int num_ik_bones = (int)keyframe.ik_bones.size();
         fwrite(&num_ik_bones, sizeof(int), 1, file);
 
-        for(size_t j=0; j<keyframes[i].ik_bones.size(); j++){
+        for(size_t j=0; j<keyframe.ik_bones.size(); j++){
             // Used to be ik_bones.start and end
             vec3 filler;
             fwrite(&filler, sizeof(vec3), 1, file);
             fwrite(&filler, sizeof(vec3), 1, file);
-            size_t path_length = keyframes[i].ik_bones[j].bone_path.size();
+            size_t path_length = keyframe.ik_bones[j].bone_path.size();
             fwrite(&path_length, sizeof(int), 1, file);
-            fwrite(&keyframes[i].ik_bones[j].bone_path[0], sizeof(int), path_length, file);
-            const string &label_string = keyframes[i].ik_bones[j].label;
+            fwrite(&keyframe.ik_bones[j].bone_path[0], sizeof(int), path_length, file);
+            const string &label_string = keyframe.ik_bones[j].label;
             size_t string_size = label_string.size();
             fwrite(&string_size, sizeof(int), 1, file);
             fwrite(label_string.c_str(),sizeof(char), string_size, file);
         }
 
-        int num_shape_keys = (int)keyframes[i].shape_keys.size();
+        int num_shape_keys = (int)keyframe.shape_keys.size();
         fwrite(&num_shape_keys, sizeof(int), 1, file);
 
-        for(size_t j=0; j<keyframes[i].shape_keys.size(); j++){
-            fwrite(&keyframes[i].shape_keys[j].weight, sizeof(float), 1, file);
-            const string &label_string = keyframes[i].shape_keys[j].label;
+        for(size_t j=0; j<keyframe.shape_keys.size(); j++){
+            fwrite(&keyframe.shape_keys[j].weight, sizeof(float), 1, file);
+            const string &label_string = keyframe.shape_keys[j].label;
             size_t string_size = label_string.size();
             fwrite(&string_size, sizeof(int), 1, file);
             fwrite(label_string.c_str(),sizeof(char), string_size, file);
         }
         
-        int num_status_keys = (int)keyframes[i].status_keys.size();
+        int num_status_keys = (int)keyframe.status_keys.size();
         fwrite(&num_status_keys, sizeof(int), 1, file);
 
-        for(size_t j=0; j<keyframes[i].status_keys.size(); j++){
-            fwrite(&keyframes[i].status_keys[j].weight, sizeof(float), 1, file);
-            const string &label_string = keyframes[i].status_keys[j].label;
+        for(size_t j=0; j<keyframe.status_keys.size(); j++){
+            fwrite(&keyframe.status_keys[j].weight, sizeof(float), 1, file);
+            const string &label_string = keyframe.status_keys[j].label;
             size_t string_size = label_string.size();
             fwrite(&string_size, sizeof(int), 1, file);
             fwrite(label_string.c_str(),sizeof(char), string_size, file);
         }
 
         if(centered){
-            fwrite(&keyframes[i].rotation, sizeof(float), 1, file);
-            fwrite(&keyframes[i].center_offset, sizeof(float), 3, file);
+            fwrite(&keyframe.rotation, sizeof(float), 1, file);
+            fwrite(&keyframe.center_offset, sizeof(float), 3, file);
         }
     }
 }
@@ -301,19 +299,19 @@ void Animation::Center() {
         } else {
             // If not using mobility bone, determine center of mass
             float total_mass = 0.0f;
-            for(unsigned j=0; j<k.bone_mats.size(); j++){
-                center += k.bone_mats[j].origin;
+            for(auto & bone_mat : k.bone_mats){
+                center += bone_mat.origin;
                 total_mass += 1.0f;
             }
             LOG_ASSERT(total_mass != 0.0f);
             center /= total_mass;
         }
         // Subtract the center from the position of each bone
-        for(unsigned j=0; j<k.bone_mats.size(); j++){
-            k.bone_mats[j].origin -= center;
+        for(auto & bone_mat : k.bone_mats){
+            bone_mat.origin -= center;
         }
-        for(unsigned j=0; j<k.weapon_mats.size(); j++){
-            k.weapon_mats[j].origin -= center;
+        for(auto & weapon_mat : k.weapon_mats){
+            weapon_mat.origin -= center;
         }
         k.center_offset = center;
     }
@@ -327,11 +325,11 @@ void Animation::Center() {
     for(int i=0; i<num_keyframes; i++){
         Keyframe &k = keyframes[i];
         temp_offset = base_offset;
-        for(unsigned j=0; j<k.bone_mats.size(); j++){
-            k.bone_mats[j].origin += temp_offset;
+        for(auto & bone_mat : k.bone_mats){
+            bone_mat.origin += temp_offset;
         }
-        for(unsigned j=0; j<k.weapon_mats.size(); j++){
-            k.weapon_mats[j].origin += temp_offset;
+        for(auto & weapon_mat : k.weapon_mats){
+            weapon_mat.origin += temp_offset;
         }
         k.center_offset -= temp_offset;
     }
@@ -340,11 +338,11 @@ void Animation::Center() {
         Keyframe &k = keyframes[i];
         mat4 rotation_mat;
         rotation_mat.SetRotationY(-k.rotation);
-        for(unsigned j=0; j<k.bone_mats.size(); j++){
-            k.bone_mats[j] = rotation_mat * k.bone_mats[j];
+        for(auto & bone_mat : k.bone_mats){
+            bone_mat = rotation_mat * bone_mat;
         }
-        for(unsigned j=0; j<k.weapon_mats.size(); j++){
-            k.weapon_mats[j] = rotation_mat * k.weapon_mats[j];
+        for(auto & weapon_mat : k.weapon_mats){
+            weapon_mat = rotation_mat * weapon_mat;
         }
     }
     // Apply the inverse rotation to center offset changes
@@ -437,8 +435,7 @@ void Retarget(const AnimInput& anim_input, AnimOutput & anim_output, const strin
 			anim_output.matrices[i].origin *= ratio;
 		}
 	}
-	for(size_t i=0, len=anim_output.ik_bones.size(); i<len; ++i){
-		BlendedBonePath& bbp = anim_output.ik_bones[i];
+	for(auto & bbp : anim_output.ik_bones){
 		bbp.transform.origin += old_root_offset;
 		bbp.transform.origin *= ratio;
 	}
@@ -476,8 +473,8 @@ void Retarget(const AnimInput& anim_input, AnimOutput & anim_output, const strin
 
 	{
 		PROFILER_ZONE(g_profiler_ctx, "Calculate new bone positions using sorted bone list");
-		for(size_t i=0, len=depth_sorter.size(); i<len; ++i){
-			int bone_id = depth_sorter[i].bone_id;
+		for(auto & i : depth_sorter){
+			int bone_id = i.bone_id;
 			int parent = new_data.hier_parents[bone_id];
 
 			// Set rotation for new bones
@@ -527,21 +524,21 @@ void Retarget(const AnimInput& anim_input, AnimOutput & anim_output, const strin
 			matrices[i] = matrices[i] * invert(skeleton_file_data.bone_mats[i]);
 		}
 
-		for(size_t j=0; j<matrices.size(); j++){
-			matrices[j].rotation[0] *= -1.0f;
-			matrices[j].rotation[3] *= -1.0f;
-			matrices[j].origin[0] *= -1.0f;
+		for(auto & matrix : matrices){
+			matrix.rotation[0] *= -1.0f;
+			matrix.rotation[3] *= -1.0f;
+			matrix.origin[0] *= -1.0f;
 		}
 
 		vector<BoneTransform> &weapon_matrices = anim_output.weapon_matrices;
-		for(unsigned j=0; j<weapon_matrices.size(); j++){
-			MirrorBT(weapon_matrices[j], true);
+		for(auto & weapon_matrix : weapon_matrices){
+			MirrorBT(weapon_matrix, true);
 		}
 
 		// Swap weapon relative ids (so knife in right hand is now in left hand)
-		for(unsigned j=0; j<anim_output.weapon_relative_ids.size(); j++){
-			if(anim_output.weapon_relative_ids[j] != -1){
-				anim_output.weapon_relative_ids[j] = symmetry[anim_output.weapon_relative_ids[j]];
+		for(int & weapon_relative_id : anim_output.weapon_relative_ids){
+			if(weapon_relative_id != -1){
+				weapon_relative_id = symmetry[weapon_relative_id];
 			}
 		}
 		for(unsigned j=0; j<symmetry.size(); j++){
@@ -574,31 +571,29 @@ void Retarget(const AnimInput& anim_input, AnimOutput & anim_output, const strin
 		anim_output.delta_rotation *= -1.0f;
 		anim_output.rotation *= -1.0f;
 
-		for(unsigned j=0; j<anim_output.status_keys.size(); ++j){
-			StatusKeyBlend& skey = anim_output.status_keys[j];
-			SwitchStringRightLeft(skey.label);
+		for(auto & skey : anim_output.status_keys){
+				SwitchStringRightLeft(skey.label);
 		}
-		for(unsigned j=0; j<anim_output.shape_keys.size(); ++j){
-			ShapeKeyBlend& skey = anim_output.shape_keys[j];
-			SwitchStringRL(skey.label);
+		for(auto & skey : anim_output.shape_keys){
+				SwitchStringRL(skey.label);
 		}
 
-		for(unsigned j=0; j<anim_output.ik_bones.size(); ++j){
-			string &label = anim_output.ik_bones[j].ik_bone.label;
+		for(auto & ik_bone : anim_output.ik_bones){
+			string &label = ik_bone.ik_bone.label;
 			SwitchStringRightLeft(label);
-			BonePath& bone_path = anim_output.ik_bones[j].ik_bone.bone_path;
-			anim_output.ik_bones[j].transform = anim_output.ik_bones[j].transform * skeleton_file_data.bone_mats[bone_path[0]];
-			anim_output.ik_bones[j].transform.origin[0] *= -1.0f;
-			anim_output.ik_bones[j].transform.rotation[0] *= -1.0f;
-			anim_output.ik_bones[j].transform.rotation[3] *= -1.0f;
-			for(unsigned k=0; k<bone_path.size(); ++k){
-				if(bone_path[k] < (int)symmetry.size() && symmetry[bone_path[k]] != -1){
-					bone_path[k] = symmetry[bone_path[k]];
+			BonePath& bone_path = ik_bone.ik_bone.bone_path;
+			ik_bone.transform = ik_bone.transform * skeleton_file_data.bone_mats[bone_path[0]];
+			ik_bone.transform.origin[0] *= -1.0f;
+			ik_bone.transform.rotation[0] *= -1.0f;
+			ik_bone.transform.rotation[3] *= -1.0f;
+			for(int & k : bone_path){
+				if(k < (int)symmetry.size() && symmetry[k] != -1){
+					k = symmetry[k];
 				}
 			}
-			anim_output.ik_bones[j].transform = anim_output.ik_bones[j].transform * invert(skeleton_file_data.bone_mats[bone_path[0]]);
+			ik_bone.transform = ik_bone.transform * invert(skeleton_file_data.bone_mats[bone_path[0]]);
 			if(label == "left_leg" || label == "right_leg"){
-				anim_output.ik_bones[j].transform.rotation = anim_output.ik_bones[j].transform.rotation * quaternion(vec4(0.0f,0.0f,1.0f,3.14f));
+				ik_bone.transform.rotation = ik_bone.transform.rotation * quaternion(vec4(0.0f,0.0f,1.0f,3.14f));
 			}
 		}
 	}
@@ -612,9 +607,8 @@ void Retarget(const AnimInput& anim_input, AnimOutput & anim_output, const strin
 			vec3 test = QuaternionFromMat4(old_data.bone_mats[ik_bone.bone_id]) * invert(QuaternionFromMat4(new_data.bone_mats[ik_bone.bone_id])) * vec3(0.0f,1.0f,0.0f);
 			if(test[1] < 0.0f){
 				anim_output.matrices[ik_bone.bone_id].rotation = anim_output.matrices[ik_bone.bone_id].rotation * quaternion(vec4(0.0f,0.0f,1.0f,3.14f));
-				for(size_t i=0, len=anim_output.ik_bones.size(); i<len; ++i){
-					BlendedBonePath& bbp = anim_output.ik_bones[i];
-					if(bbp.ik_bone.label == "left_leg"){
+				for(auto & bbp : anim_output.ik_bones){
+						if(bbp.ik_bone.label == "left_leg"){
 						bbp.transform.rotation = bbp.transform.rotation * quaternion(vec4(0.0f,0.0f,1.0f,3.14f));
 					}
 				}
@@ -707,9 +701,9 @@ int Animation::ReadFromFile( FILE * file ) {
         keyframe->bone_mats.resize(num_bone_mats);
 
         mat4 temp;
-        for(unsigned j=0; j<keyframe->bone_mats.size(); j++){
+        for(auto & bone_mat : keyframe->bone_mats){
             fread(&temp.entries, sizeof(float), 16, file);
-            keyframe->bone_mats[j] = temp;
+            bone_mat = temp;
         }
 
         if(version>=7){
@@ -753,13 +747,13 @@ int Animation::ReadFromFile( FILE * file ) {
             fread(&num_events, sizeof(int), 1, file);
             keyframe->events.resize(num_events);
 
-            for(unsigned j=0; j<keyframe->events.size(); j++){
-                fread(&keyframe->events[j].which_bone, sizeof(int), 1, file);
+            for(auto & event : keyframe->events){
+                fread(&event.which_bone, sizeof(int), 1, file);
                 int string_size;
                 fread(&string_size, sizeof(int), 1, file);
                 vector<char> string_buffer(string_size+1,'\0');
                 fread(&string_buffer[0], sizeof(char), string_size, file);
-                keyframe->events[j].event_string = &string_buffer[0];
+                event.event_string = &string_buffer[0];
             }
         }
 
@@ -768,20 +762,20 @@ int Animation::ReadFromFile( FILE * file ) {
             fread(&num_ik_bones, sizeof(int), 1, file);
             keyframe->ik_bones.resize(num_ik_bones);
 
-            for(unsigned j=0; j<keyframe->ik_bones.size(); j++){
+            for(auto & ik_bone : keyframe->ik_bones){
                 // used to be ik_bones start and end
                 vec3 filler;
                 fread(&filler, sizeof(vec3), 1, file);
                 fread(&filler, sizeof(vec3), 1, file);
                 int path_length;
                 fread(&path_length, sizeof(int), 1, file);
-                keyframe->ik_bones[j].bone_path.resize(path_length);
-                fread(&keyframe->ik_bones[j].bone_path[0], sizeof(int), path_length, file);
+                ik_bone.bone_path.resize(path_length);
+                fread(&ik_bone.bone_path[0], sizeof(int), path_length, file);
                 int string_size;
                 fread(&string_size, sizeof(int), 1, file);
                 vector<char> string_buffer(string_size+1,'\0');
                 fread(&string_buffer[0], sizeof(char), string_size, file);
-                keyframe->ik_bones[j].label = &string_buffer[0];
+                ik_bone.label = &string_buffer[0];
             }
         }
 
@@ -790,13 +784,13 @@ int Animation::ReadFromFile( FILE * file ) {
             fread(&num_shape_keys, sizeof(int), 1, file);
             keyframe->shape_keys.resize(num_shape_keys);
 
-            for(unsigned j=0; j<keyframe->shape_keys.size(); j++){
-                fread(&keyframe->shape_keys[j].weight, sizeof(float), 1, file);
+            for(auto & shape_key : keyframe->shape_keys){
+                fread(&shape_key.weight, sizeof(float), 1, file);
                 int string_size;
                 fread(&string_size, sizeof(int), 1, file);
                 vector<char> string_buffer(string_size+1,'\0');
                 fread(&string_buffer[0], sizeof(char), string_size, file);
-                keyframe->shape_keys[j].label = &string_buffer[0];
+                shape_key.label = &string_buffer[0];
             }
         }
         if(version>=6){
@@ -804,13 +798,13 @@ int Animation::ReadFromFile( FILE * file ) {
             fread(&num_status_keys, sizeof(int), 1, file);
             keyframe->status_keys.resize(num_status_keys);
 
-            for(unsigned j=0; j<keyframe->status_keys.size(); j++){
-                fread(&keyframe->status_keys[j].weight, sizeof(float), 1, file);
+            for(auto & status_key : keyframe->status_keys){
+                fread(&status_key.weight, sizeof(float), 1, file);
                 int string_size;
                 fread(&string_size, sizeof(int), 1, file);
                 vector<char> string_buffer(string_size+1,'\0');
                 fread(&string_buffer[0], sizeof(char), string_size, file);
-                keyframe->status_keys[j].label = &string_buffer[0];
+                status_key.label = &string_buffer[0];
             }
         }
         if(centered){
@@ -910,21 +904,21 @@ AnimOutput mix( const AnimOutput &a, const AnimOutput &b, float alpha )
         map<string, BlendedBonePath> ik_bones;
         map<string, BlendedBonePath>::iterator iter;
 
-        for(unsigned i=0; i<a.ik_bones.size(); ++i){
-            const string& label = a.ik_bones[i].ik_bone.label;
-            ik_bones[label] = a.ik_bones[i];
+        for(const auto & ik_bone : a.ik_bones){
+            const string& label = ik_bone.ik_bone.label;
+            ik_bones[label] = ik_bone;
             ik_bones[label].weight *= 1.0f-alpha;
         }
 
-        for(unsigned i=0; i<b.ik_bones.size(); ++i){
-            const string& label = b.ik_bones[i].ik_bone.label;
+        for(const auto & ik_bone : b.ik_bones){
+            const string& label = ik_bone.ik_bone.label;
             iter = ik_bones.find(label);
             if(iter == ik_bones.end()){
-                ik_bones[label] = b.ik_bones[i];
+                ik_bones[label] = ik_bone;
                 ik_bones[label].weight *= alpha;
             } else {
-                ik_bones[label].weight = ik_bones[label].weight + b.ik_bones[i].weight * alpha;
-                ik_bones[label].transform = mix(ik_bones[label].transform, b.ik_bones[i].transform, alpha);
+                ik_bones[label].weight = ik_bones[label].weight + ik_bone.weight * alpha;
+                ik_bones[label].transform = mix(ik_bones[label].transform, ik_bone.transform, alpha);
             }
         }
 
@@ -966,22 +960,22 @@ AnimOutput mix( const AnimOutput &a, const AnimOutput &b, float alpha )
         map<string, ShapeKeyBlend>::iterator iter;
 
         // Add shape keys from A
-        for(unsigned i=0; i<a.shape_keys.size(); ++i){
-            const string& label = a.shape_keys[i].label;
-            shape_keys[label] = a.shape_keys[i];
+        for(const auto & shape_key : a.shape_keys){
+            const string& label = shape_key.label;
+            shape_keys[label] = shape_key;
             shape_keys[label].weight_weight *= 1.0f-alpha;
         }
 
         // Merge shape keys from B
-        for(unsigned i=0; i<b.shape_keys.size(); ++i){
-            const string& label = b.shape_keys[i].label;
+        for(const auto & shape_key : b.shape_keys){
+            const string& label = shape_key.label;
             iter = shape_keys.find(label);
             if(iter == shape_keys.end()){
-                shape_keys[label] = b.shape_keys[i];
+                shape_keys[label] = shape_key;
                 shape_keys[label].weight_weight *= alpha;
             } else {
-                shape_keys[label].weight = mix(shape_keys[label].weight, b.shape_keys[i].weight, alpha);
-                shape_keys[label].weight_weight = shape_keys[label].weight_weight + b.shape_keys[i].weight_weight * alpha;
+                shape_keys[label].weight = mix(shape_keys[label].weight, shape_key.weight, alpha);
+                shape_keys[label].weight_weight = shape_keys[label].weight_weight + shape_key.weight_weight * alpha;
             }
         }
 
@@ -1000,21 +994,21 @@ AnimOutput mix( const AnimOutput &a, const AnimOutput &b, float alpha )
         map<string, StatusKeyBlend> status_keys;
         map<string, StatusKeyBlend>::iterator iter;
 
-        for(unsigned i=0; i<a.status_keys.size(); ++i){
-            const string& label = a.status_keys[i].label;
-            status_keys[label] = a.status_keys[i];
+        for(const auto & status_key : a.status_keys){
+            const string& label = status_key.label;
+            status_keys[label] = status_key;
             status_keys[label].weight_weight *= 1.0f-alpha;
         }
 
-        for(unsigned i=0; i<b.status_keys.size(); ++i){
-            const string& label = b.status_keys[i].label;
+        for(const auto & status_key : b.status_keys){
+            const string& label = status_key.label;
             iter = status_keys.find(label);
             if(iter == status_keys.end()){
-                status_keys[label] = b.status_keys[i];
+                status_keys[label] = status_key;
                 status_keys[label].weight_weight *= alpha;
             } else {
-                status_keys[label].weight = mix(status_keys[label].weight, b.status_keys[i].weight, alpha);
-                status_keys[label].weight_weight = status_keys[label].weight_weight + b.status_keys[i].weight_weight * alpha;
+                status_keys[label].weight = mix(status_keys[label].weight, status_key.weight, alpha);
+                status_keys[label].weight_weight = status_keys[label].weight_weight + status_key.weight_weight * alpha;
             }
         }
 
@@ -1094,21 +1088,21 @@ AnimOutput add_mix( const AnimOutput &a, const AnimOutput &b, float alpha ) {
         map<string, ShapeKeyBlend>::iterator iter;
 
         // Add shape keys from A
-        for(unsigned i=0; i<a.shape_keys.size(); ++i){
-            const string& label = a.shape_keys[i].label;
-            shape_keys[label] = a.shape_keys[i];
+        for(const auto & shape_key : a.shape_keys){
+            const string& label = shape_key.label;
+            shape_keys[label] = shape_key;
         }
 
         // Merge shape keys from B
-        for(unsigned i=0; i<b.shape_keys.size(); ++i){
-            const string& label = b.shape_keys[i].label;
+        for(const auto & shape_key : b.shape_keys){
+            const string& label = shape_key.label;
             iter = shape_keys.find(label);
             if(iter == shape_keys.end()){
-                shape_keys[label] = b.shape_keys[i];
+                shape_keys[label] = shape_key;
                 shape_keys[label].weight_weight *= clamped_alpha;
             } else {
                 ShapeKeyBlend& a_key = shape_keys[label];
-                const ShapeKeyBlend& b_key = b.shape_keys[i];
+                const ShapeKeyBlend& b_key = shape_key;
                 a_key.weight = mix(a_key.weight, b_key.weight, b_key.weight_weight * clamped_alpha);
                 a_key.weight_weight = max(a_key.weight_weight, b_key.weight_weight * clamped_alpha);
             }
@@ -1128,20 +1122,20 @@ AnimOutput add_mix( const AnimOutput &a, const AnimOutput &b, float alpha ) {
         map<string, StatusKeyBlend> status_keys;
         map<string, StatusKeyBlend>::iterator iter;
 
-        for(unsigned i=0; i<a.status_keys.size(); ++i){
-            const string& label = a.status_keys[i].label;
-            status_keys[label] = a.status_keys[i];
+        for(const auto & status_key : a.status_keys){
+            const string& label = status_key.label;
+            status_keys[label] = status_key;
         }
 
-        for(unsigned i=0; i<b.status_keys.size(); ++i){
-            const string& label = b.status_keys[i].label;
+        for(const auto & status_key : b.status_keys){
+            const string& label = status_key.label;
             iter = status_keys.find(label);
             if(iter == status_keys.end()){
-                status_keys[label] = b.status_keys[i];
+                status_keys[label] = status_key;
                 status_keys[label].weight_weight *= clamped_alpha;
             } else {
                 StatusKeyBlend& a_key = status_keys[label];
-                const StatusKeyBlend& b_key = b.status_keys[i];
+                const StatusKeyBlend& b_key = status_key;
                 a_key.weight = mix(a_key.weight, b_key.weight, b_key.weight_weight * clamped_alpha);
                 a_key.weight_weight = max(a_key.weight_weight, b_key.weight_weight * clamped_alpha);
             }
@@ -1422,8 +1416,8 @@ void Animation::GetMatrices( float normalized_time, AnimOutput &anim_output, con
             }
         }
 
-        for(IKBoneMap::iterator iter = ik_bone_weights.begin(); iter != ik_bone_weights.end(); ++iter){
-            BlendedBonePath &blended_bone_path = iter->second;
+        for(auto & ik_bone_weight : ik_bone_weights){
+            BlendedBonePath &blended_bone_path = ik_bone_weight.second;
             int bone = blended_bone_path.ik_bone.bone_path.back();
             BoneTransform bone_transforms[4];
             for(int j=0; j<4; ++j){
@@ -1435,8 +1429,8 @@ void Animation::GetMatrices( float normalized_time, AnimOutput &anim_output, con
 
         anim_output.ik_bones.resize(ik_bone_weights.size());
         int index = 0;
-        for(IKBoneMap::iterator iter = ik_bone_weights.begin(); iter != ik_bone_weights.end(); ++iter){
-            anim_output.ik_bones[index] = (*iter).second;
+        for(auto & ik_bone_weight : ik_bone_weights){
+            anim_output.ik_bones[index] = ik_bone_weight.second;
             ++index;
         }
 
@@ -1539,9 +1533,9 @@ float Animation::GetGroundSpeed( const BlendMap& blendmap ) const {
 vector<NormalizedAnimationEvent> Animation::GetEvents(int& anim_id, bool mirror) const
 {
     vector<NormalizedAnimationEvent> normalized_events;
-    for(unsigned i=0; i<keyframes.size(); i++){
-        for(unsigned j=0; j<keyframes[i].events.size(); j++){
-            const AnimationEvent &the_event = keyframes[i].events[j];
+    for(const auto & keyframe : keyframes){
+        for(unsigned j=0; j<keyframe.events.size(); j++){
+            const AnimationEvent &the_event = keyframe.events[j];
 
             normalized_events.resize(normalized_events.size()+1);
             NormalizedAnimationEvent &normalized_event = 
@@ -1549,7 +1543,7 @@ vector<NormalizedAnimationEvent> Animation::GetEvents(int& anim_id, bool mirror)
 
             normalized_event.event = the_event;
             normalized_event.anim_id = anim_id;
-            normalized_event.time = NormalizedFromLocal((float)keyframes[i].time);
+            normalized_event.time = NormalizedFromLocal((float)keyframe.time);
         }
     }
 
@@ -1559,8 +1553,8 @@ vector<NormalizedAnimationEvent> Animation::GetEvents(int& anim_id, bool mirror)
         SkeletonAssetRef sar = Engine::Instance()->GetAssetManager()->LoadSync<SkeletonAsset>(skeleton_file_path);
         const SkeletonFileData& skeleton_file_data = sar->GetData();
         const vector<int>& symmetry = skeleton_file_data.symmetry;
-        for(size_t i=0, len=normalized_events.size(); i<len; ++i){
-            AnimationEvent& event = normalized_events[i].event;
+        for(auto & normalized_event : normalized_events){
+            AnimationEvent& event = normalized_event.event;
             SwitchStringRightLeft(event.event_string);
             if(symmetry[event.which_bone] != -1){
                 event.which_bone = symmetry[event.which_bone];
@@ -1574,9 +1568,7 @@ vector<NormalizedAnimationEvent> Animation::GetEvents(int& anim_id, bool mirror)
 
 void Animation::RecalcCaches() {
     // Cache which bones use IK in each frame
-    for(unsigned i=0; i<keyframes.size(); i++){
-        Keyframe& k = keyframes[i];
-
+    for(auto & k : keyframes){
         // Initialize uses_ik vector
         size_t num_bones = k.bone_mats.size();
         k.uses_ik.resize(num_bones);
@@ -1653,10 +1645,8 @@ float GetAnimationEventTime( const string& anim_path, const string& event_str ) 
     AnimationAssetRef aar = ReturnAnimationAssetRef(anim_path);
     int anim_id = 0;
     vector<NormalizedAnimationEvent> events = aar->GetEvents(anim_id,false);
-    for(vector<NormalizedAnimationEvent>::const_iterator iter = events.begin();
-        iter != events.end(); ++iter)
+    for(const auto & event : events)
     {
-        const NormalizedAnimationEvent& event = (*iter);
         if(event_str == event.event.event_string){
             return aar->AbsoluteTimeFromNormalized(event.time) * 0.001f;
         }

@@ -107,8 +107,7 @@ void AddCamera(SceneGraph &s) {
 
 static void LoadAll(const PathSet &path_set, ThreadedSound* sound) {
     std::list<std::string> skeleton_paths;
-    for(PathSet::const_iterator iter = path_set.begin(); iter != path_set.end(); ++iter) {
-        const std::string &entry = (*iter);
+    for(const auto & entry : path_set) {
         int space_pos = entry.find(' ');
         const std::string &type = entry.substr(0,space_pos);
         const std::string &path = entry.substr(space_pos+1, entry.size()-(space_pos+1));
@@ -248,13 +247,11 @@ static int IDAndType_CompareID(const void *a, const void *b) {
 static void ExtractFlatList(EntityDescriptionList *desc_list, std::vector<IDAndType> &id_used){
     uint32_t counter = 1; //Zero is assigned to the terrain
 	//bool print_results = false;
-	for(EntityDescriptionList::iterator it = desc_list->begin();
-		it != desc_list->end(); 
-		++it)
+	for(auto & it : *desc_list)
 	{
 		id_used.resize(id_used.size()+1);
 		IDAndType *id_and_type = &id_used.back();
-		id_and_type->desc = &(*it);
+		id_and_type->desc = &it;
 		id_and_type->desc->GetEditableField(EDF_ENTITY_TYPE)->ReadInt((int*)&id_and_type->type);
 		id_and_type->desc->GetEditableField(EDF_ID)->ReadInt(&id_and_type->id);
         id_and_type->counter = counter++;
@@ -428,16 +425,16 @@ bool LevelLoader::LoadLevel(const Path& level_path, SceneGraph& s) {
 
         static const int kBufSize = 256;
         char buf[kBufSize];
-        for(unsigned i=0, len=li.desc_list_.size(); i<len; ++i){
+        for(auto & i : li.desc_list_){
             buf[0] = '\0';
-            const EntityDescriptionField* path_field = li.desc_list_[i].GetField(EDF_FILE_PATH);
+            const EntityDescriptionField* path_field = i.GetField(EDF_FILE_PATH);
             if(path_field && !path_field->data.empty()){
                 FormatString(buf, kBufSize, "Adding object: %s", std::string(path_field->data.begin(), path_field->data.end()).c_str());
                 PROFILER_ENTER_DYNAMIC_STRING(g_profiler_ctx, buf);    
             } else {
                 PROFILER_ENTER(g_profiler_ctx, "Adding object: unknown");
             }
-            Object * obj = MapEditor::AddEntityFromDesc(&s, li.desc_list_[i], true);
+            Object * obj = MapEditor::AddEntityFromDesc(&s, i, true);
             if( obj == NULL ) {
                 LOGE << "Failed to construct object \"" << buf << "\" for level load" << std::endl;
             }
@@ -481,8 +478,8 @@ bool LevelLoader::LoadLevel(const Path& level_path, SceneGraph& s) {
     s.SendMessageToAllObjects(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
 
     AddLoadingText("Loading ambient sounds and music...");
-    for(unsigned i=0; i<li.ambient_sounds_.size(); ++i){
-        Engine::Instance()->GetSound()->AddAmbientTriangle(li.ambient_sounds_[i]);
+    for(auto & ambient_sound : li.ambient_sounds_){
+        Engine::Instance()->GetSound()->AddAmbientTriangle(ambient_sound);
     }
     AddLoadingText("Getting path set...");
     PathSet path_set;
@@ -555,8 +552,7 @@ void LevelLoader::SaveTerrain(TiXmlNode* root, SceneGraph* s) {
         terrain_el->LinkEndChild(terrain_sub_el);
 
         TiXmlElement *does = new TiXmlElement("DetailObjects");
-        for(unsigned i=0; i<ti.detail_object_info.size(); ++i){
-            const DetailObjectLayer &dol = ti.detail_object_info[i];
+        for(const auto & dol : ti.detail_object_info){
             TiXmlElement *doe = new TiXmlElement("DetailObject");
             doe->SetAttribute("obj_path", dol.obj_path.c_str());
             doe->SetAttribute("weight_path", dol.weight_path.c_str());
@@ -724,11 +720,11 @@ void LevelLoader::SaveLevel(SceneGraph &s, SaveLevelType type) {
 
         const std::vector<AmbientTriangle>& ambient_triangles =
             Engine::Instance()->GetSound()->GetAmbientTriangles();
-        for(unsigned i=0; i<ambient_triangles.size(); ++i){
+        for(const auto & ambient_triangle : ambient_triangles){
             TiXmlElement* ambient;
             ambient = new TiXmlElement("Ambient");
             ambient_sound_element->LinkEndChild(ambient);
-            ambient->SetAttribute("path", ambient_triangles[i].path.c_str());
+            ambient->SetAttribute("path", ambient_triangle.path.c_str());
         }
     }
 
@@ -771,8 +767,8 @@ void LevelLoader::SaveLevel(SceneGraph &s, SaveLevelType type) {
 
         std::vector<SpawnerItem> recent_items = s.level->GetRecentlyCreatedItems();
 
-        for( unsigned i = 0; i < recent_items.size(); i++ ) {
-            SpawnerItem* si = &recent_items[i]; 
+        for(auto & recent_item : recent_items) {
+            SpawnerItem* si = &recent_item; 
 
             TiXmlElement* element = new TiXmlElement("SpawnerItem");
             element->SetAttribute("display_name", si->display_name.c_str());

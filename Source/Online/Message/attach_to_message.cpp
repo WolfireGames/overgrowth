@@ -82,8 +82,7 @@ namespace OnlineMessages {
                     MovementObject* movement_object = (MovementObject*)parent;
                     AttachmentSlotList attachment_slots;
                     movement_object->rigged_object()->AvailableItemSlots(item_object->item_ref(), &attachment_slots);
-                    for (AttachmentSlotList::iterator iterator = attachment_slots.begin(); iterator != attachment_slots.end(); ++iterator) {
-                        AttachmentSlot& slot = (*iterator);
+                    for (auto & slot : attachment_slots) {
                         if (slot.type == (AttachmentType)t->bone_id && slot.mirrored == t->mirrored) {
                             movement_object->AttachItemToSlotEditor(item_object->GetID(), slot.type, slot.mirrored, slot.attachment_ref, true);
                             break;
