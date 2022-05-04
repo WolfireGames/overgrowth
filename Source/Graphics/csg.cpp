@@ -203,13 +203,13 @@ namespace {
     struct vec3d {
         double entries[3];
         vec3d(double val){
-            for(double & entrie : entries){
-                entrie = val;
+            for(double & entry : entries){
+                entry = val;
             }
         }
         vec3d(){
-            for(double & entrie : entries){
-                entrie = 0.0;
+            for(double & entry : entries){
+                entry = 0.0;
             }
         }
         double& operator[](int which){
@@ -1056,8 +1056,8 @@ void AddCSGResult(const CSGResult &result, CSGModelInfo *csg_model, const Model&
     csg_model->faces.reserve(csg_model->faces.size()+result.indices.size());
     int old_faces = csg_model->verts.size()/3;
     if(!flip){
-        for(int indice : result.indices){
-            csg_model->faces.push_back(indice + old_faces);
+        for(int index : result.indices){
+            csg_model->faces.push_back(index + old_faces);
         }
     } else {
         for(int i=0, len=result.indices.size(); i<len; i+=3){

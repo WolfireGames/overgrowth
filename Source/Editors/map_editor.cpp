@@ -851,8 +851,8 @@ void MapEditor::Draw() {
                 }
                 if(always_draw_hotspot_connections) {
                     vec3 start = obj->GetTranslation();
-                    for(int j : obj->connected_to) {
-                        vec3 end = scenegraph_->GetObjectFromID(j)->GetTranslation();
+                    for(int id : obj->connected_to) {
+                        vec3 end = scenegraph_->GetObjectFromID(id)->GetTranslation();
                         DebugDraw::Instance()->AddLine(start, end, vec4(0.0f,1.0f,0.0f,0.8f), _delete_on_draw);
                     }
                 }
@@ -953,23 +953,22 @@ void MapEditor::Draw() {
             float highlit_obj_dist = FLT_MAX;
             std::vector<int> connected_ids;
             connected_ids.reserve(64);
-            for(auto & i : selected) {
-                Object* selected_obj = i;
+            for(Object* selected_obj : selected) {
                 box_objects.push_back(selected_obj);
                 connected_ids.clear();
-                i->GetConnectionIDs(&connected_ids);
+                selected_obj->GetConnectionIDs(&connected_ids);
                 for(int connected_id : connected_ids) {
                     Object* obj = scenegraph_->GetObjectFromID(connected_id);
                     GetClosest(mouseray, obj, highlit_obj, highlit_obj_dist);
                     box_objects.push_back(obj);
                 }
-                for(int j : selected_obj->connected_to) {
-                    Object* obj = scenegraph_->GetObjectFromID(j);
+                for(int id : selected_obj->connected_to) {
+                    Object* obj = scenegraph_->GetObjectFromID(id);
                     GetClosest(mouseray, obj, highlit_obj, highlit_obj_dist);
                     box_objects.push_back(obj);
                 }
-                for(int j : selected_obj->connected_from) {
-                    Object* obj = scenegraph_->GetObjectFromID(j);
+                for(int id : selected_obj->connected_from) {
+                    Object* obj = scenegraph_->GetObjectFromID(id);
                     GetClosest(mouseray, obj, highlit_obj, highlit_obj_dist);
                     box_objects.push_back(obj);
                 }
@@ -1292,8 +1291,8 @@ void MapEditor::Update(GameCursor* cursor) {
                     entities.push_back(obj);
                 }
             }
-            for (auto & entitie : entities) {
-                entitie->SaveHistoryState(chunks, state_id);
+            for (auto & entity : entities) {
+                entity->SaveHistoryState(chunks, state_id);
             }
             sky_editor_->SaveHistoryState(chunks, state_id);
             // Find out how many chunks have been changed

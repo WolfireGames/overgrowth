@@ -934,15 +934,15 @@ void LightProbeCollection::Draw(BulletWorld& bw) {
             CHECK_GL_ERROR();
 
             // Check long name if short name is not found
-            for(unsigned int indice : indices){
-                if(indice == GL_INVALID_INDEX){
+            for(unsigned int index : indices){
+                if(index == GL_INVALID_INDEX){
                     glGetUniformIndices(programHandle, 5, &names[5], indices);
                     break;
                 }
             }
 
-            for(unsigned int indice : indices){
-                if(indice == GL_INVALID_INDEX){
+            for(unsigned int index : indices){
+                if(index == GL_INVALID_INDEX){
                     return;
                 }
             }

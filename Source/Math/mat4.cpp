@@ -437,8 +437,8 @@ mat4 mat4::operator-(void) const
 {
     mat4 result(*this);
 
-    for (float & entrie : result.entries)
-        entrie=-entrie;
+    for (float & entry : result.entries)
+        entry=-entry;
 
     return result;
 }

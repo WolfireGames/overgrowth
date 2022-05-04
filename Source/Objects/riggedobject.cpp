@@ -2794,8 +2794,8 @@ void MorphTarget::Load(const std::string &base_model_name,
     } else {
         model_id[0] = Models::Instance()->CopyModel(base_model_id);
         Model& model = Models::Instance()->GetModel(model_id[0]);
-        for(float & vertice : model.vertices){
-            vertice = 0.0f;
+        for(float & vertex : model.vertices){
+            vertex = 0.0f;
         }
         for(float & tex_coord : model.tex_coords){
             tex_coord = 0.0f;

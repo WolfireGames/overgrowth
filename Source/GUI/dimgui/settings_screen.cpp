@@ -1167,14 +1167,14 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
             std::vector<std::string> difficulties = config.GetDifficultyPresets();
 
             if(ImGui::BeginMenu("Finish All Levels On Difficulty")) {
-                for(auto & difficultie : difficulties) {
-                    if( ImGui::Button(difficultie.c_str())) {
+                for(auto & difficulty : difficulties) {
+                    if( ImGui::Button(difficulty.c_str())) {
                         std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
                         for(auto camp : campaigns) {
                             for( size_t j = 0; j < camp.levels.size(); j++ ) {
                                 SavedLevel& s = Engine::Instance()->save_file_.GetSave(camp.id.str(),"linear_campaign",camp.levels[j].id.str());
-                                if( false == s.ArrayContainsValue("finished_difficulties",difficultie) ) {
-                                    s.AppendArrayValue("finished_difficulties",difficultie);
+                                if( false == s.ArrayContainsValue("finished_difficulties",difficulty) ) {
+                                    s.AppendArrayValue("finished_difficulties",difficulty);
                                 }
                             }
                         }
@@ -1191,11 +1191,11 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
                         for( size_t j = 0; j < camp.levels.size(); j++ ) {
                             ModInstance::Level level = camp.levels[j];
                             if(ImGui::BeginMenu(level.title)) {
-                                for(auto & difficultie : difficulties) {
-                                    if( ImGui::Button(difficultie.c_str())) {
+                                for(auto & difficulty : difficulties) {
+                                    if( ImGui::Button(difficulty.c_str())) {
                                         SavedLevel& s = Engine::Instance()->save_file_.GetSave(camp.id.str(),"linear_campaign",level.id.str());
-                                        if( false == s.ArrayContainsValue("finished_difficulties",difficultie) ) {
-                                            s.AppendArrayValue("finished_difficulties",difficultie);
+                                        if( false == s.ArrayContainsValue("finished_difficulties",difficulty) ) {
+                                            s.AppendArrayValue("finished_difficulties",difficulty);
                                         }
                                         Engine::Instance()->save_file_.QueueWriteInPlace();
                                     }

@@ -858,9 +858,9 @@ void CopyTexCoords2( Model &a, const Model& b ) {
         [floorf(n_i[2]*100.0f)];
         normal_index += 3;
         vert_index += 3;
-        for(int indice : indices){
-            a.tex_coords2[indice*2+0] = b.tex_coords[i*2+0];
-            a.tex_coords2[indice*2+1] = b.tex_coords[i*2+1];
+        for(int index : indices){
+            a.tex_coords2[index*2+0] = b.tex_coords[i*2+0];
+            a.tex_coords2[index*2+1] = b.tex_coords[i*2+1];
         }
     }
 
@@ -900,12 +900,12 @@ void CopyTexCoords2( Model &a, const Model& b ) {
         [floorf(n_i[2]*10.0f+0.5f)];
         normal_index += 3;
         vert_index += 3;
-        for(int indice : indices){
-            if(a.tex_coords2[indice*2+0] == 0.0f &&
-               a.tex_coords2[indice*2+1] == 0.0f)
+        for(int index : indices){
+            if(a.tex_coords2[index*2+0] == 0.0f &&
+               a.tex_coords2[index*2+1] == 0.0f)
             {
-                a.tex_coords2[indice*2+0] = b.tex_coords[i*2+0];
-                a.tex_coords2[indice*2+1] = b.tex_coords[i*2+1];
+                a.tex_coords2[index*2+0] = b.tex_coords[i*2+0];
+                a.tex_coords2[index*2+1] = b.tex_coords[i*2+1];
             }
         }
     }
@@ -946,12 +946,12 @@ void CopyTexCoords2( Model &a, const Model& b ) {
         [floorf(n_i[2]*1.0f+0.5f)];
         normal_index += 3;
         vert_index += 3;
-        for(int indice : indices){
-            if(a.tex_coords2[indice*2+0] == 0.0f &&
-                a.tex_coords2[indice*2+1] == 0.0f)
+        for(int index : indices){
+            if(a.tex_coords2[index*2+0] == 0.0f &&
+                a.tex_coords2[index*2+1] == 0.0f)
             {
-                a.tex_coords2[indice*2+0] = b.tex_coords[i*2+0];
-                a.tex_coords2[indice*2+1] = b.tex_coords[i*2+1];
+                a.tex_coords2[index*2+0] = b.tex_coords[i*2+0];
+                a.tex_coords2[index*2+1] = b.tex_coords[i*2+1];
             }
         }
     }
