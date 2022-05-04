@@ -120,7 +120,7 @@ int ImageSampler::Load( const std::string& path, uint32_t load_flags ) {
     if( loaded_cache == false ) {
         char abs_path[kPathSize];
         ModID modsource;
-        if(FindImagePath(path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths | kWriteDir | kModWriteDirs, true, NULL, false, &modsource) == -1){
+        if(FindImagePath(path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths | kWriteDir | kModWriteDirs, true, NULL, false, false, &modsource) == -1){
             return kLoadErrorMissingFile;
         }
         LOGI << "Loading " << abs_path << std::endl;

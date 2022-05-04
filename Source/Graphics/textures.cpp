@@ -562,7 +562,7 @@ void Textures::ReloadInternal() {
                 SubTexture &sub = texture.sub_textures[s];
                 LOG_ASSERT(!sub.texture_name.empty());
                 ModID modsource;
-                if (FindImagePath(sub.texture_name.c_str(), abs_path, kPathSize, kAnyPath, false,NULL,true, &modsource) == 0){
+                if (FindImagePath(sub.texture_name.c_str(), abs_path, kPathSize, kAnyPath, false,NULL,true, true, &modsource) == 0){
                     if(strcmp(abs_path, sub.load_name.c_str()) == 0 && GetDateModifiedInt64(abs_path) == sub.orig_modified){
                         LogSystem::LogData(LogSystem::debug, "tex", __FILE__, __LINE__) << " slice " << s << ": \"" << sub.texture_name << "\" no" << std::endl;
                     } else {
@@ -1966,7 +1966,7 @@ int Textures::loadTexture(const std::string& rel_path, unsigned int which, unsig
     char abs_path[kPathSize];
     PathFlags res_source;
     ModID modsource;
-    int err = FindImagePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths | kWriteDir | kAbsPath | kModWriteDirs, true, &res_source, true, &modsource );
+    int err = FindImagePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths | kWriteDir | kAbsPath | kModWriteDirs, true, &res_source, true, true, &modsource );
     if(err == -1){
         //DisplayError("Error", "Could not find texture: %s", rel_path.c_str());
         return kLoadErrorMissingFile;
@@ -2091,7 +2091,7 @@ void Textures::loadArraySlice(const TextureRef& texref, unsigned int slice, cons
 
     char abs_path[kPathSize];
     ModID modsource;
-    int err = FindImagePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths | kWriteDir | kModWriteDirs, true, NULL, true, &modsource);
+    int err = FindImagePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths | kWriteDir | kModWriteDirs, true, NULL, true, true, &modsource);
     if(err == -1){
         FatalError("Error", "Could not find texture: %s", rel_path.c_str());
     }
@@ -2684,7 +2684,7 @@ bool Textures::ReloadAsCompressed(const TextureRef& texref) {
 
     char abs_path[kPathSize];
     ModID modsource;
-    if(FindImagePath(newName.c_str(), abs_path, kPathSize, kWriteDir | kModWriteDirs, true, NULL, true, &modsource) == -1) {
+    if(FindImagePath(newName.c_str(), abs_path, kPathSize, kWriteDir | kModWriteDirs, true, NULL, true, true, &modsource) == -1) {
         LOGE << "Texture not found after writing it" << std::endl;
         return false;
     }
