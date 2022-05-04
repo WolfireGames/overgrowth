@@ -45,37 +45,37 @@ class HotspotEditor;
 class Hotspot : public Object {
 public:
     Hotspot();
-    virtual ~Hotspot();
+    ~Hotspot() override;
 
-    virtual bool Initialize();
-    virtual void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args );
-    virtual void Update(float timestep);
-    virtual void PreDrawFrame(float curr_game_time);
-    virtual void Draw();
-    virtual void Dispose();
-    virtual void GetDisplayName(char* buf, int buf_size);
-    virtual void DrawImGuiEditor();
-    void GetDesc(EntityDescription &desc) const;
-    virtual void NotifyDeleted(Object* o);
-    virtual EntityType GetType() const { return _hotspot_object; }
+    bool Initialize() override;
+    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
+    void Update(float timestep) override;
+    void PreDrawFrame(float curr_game_time) override;
+    void Draw() override;
+    void Dispose() override;
+    void GetDisplayName(char* buf, int buf_size) override;
+    void DrawImGuiEditor() override;
+    void GetDesc(EntityDescription &desc) const override;
+    void NotifyDeleted(Object* o) override;
+    EntityType GetType() const override { return _hotspot_object; }
 
     std::unique_ptr<ASCollisions> as_collisions;
 
-	void Reset();
-	virtual void SetEnabled(bool val);
+	void Reset() override;
+	void SetEnabled(bool val) override;
 
-    virtual int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal);
+    int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal) override;
 
     inline const std::string& GetScriptFile() const { return m_script_file; }
     inline void SetScriptFile(const std::string& script_file) { m_script_file = script_file; }
 
     void SetBillboardColorMap(const std::string& color_map);
-	virtual void Reload();
-	void Moved(Object::MoveType type);
+	void Reload() override;
+	void Moved(Object::MoveType type) override;
     void HandleEvent( const std::string &event, MovementObject* mo );
     void HandleEventItem( const std::string &event, ItemObject* obj );
-    virtual void SetScriptParams( const ScriptParamMap& spm );
-    virtual void UpdateScriptParams();
+    void SetScriptParams( const ScriptParamMap& spm ) override;
+    void UpdateScriptParams() override;
     std::string GetTypeString();
     bool ASHasVar( const std::string &name );
     int ASGetIntVar( const std::string &name );
@@ -86,18 +86,18 @@ public:
     void ASSetArrayIntVar( const std::string &name, int index, int value );
     void ASSetFloatVar( const std::string &name, float value );
     void ASSetBoolVar( const std::string &name, bool value );
-	virtual bool SetFromDesc( const EntityDescription& desc );
+	bool SetFromDesc( const EntityDescription& desc ) override;
 	void UpdateCollisionShape();
 
     bool AcceptConnectionsFromImplemented();
 
-    virtual bool AcceptConnectionsFrom(ConnectionType type, Object& object);
+    bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
     virtual bool AcceptConnectionsTo(Object& object);
-    virtual bool ConnectTo(Object& other, bool checking_other = false);
+    bool ConnectTo(Object& other, bool checking_other = false) override;
     virtual bool Disconnect(Object& other, bool checking_other = false);
 
-    virtual void ConnectedFrom(Object& other);
-    virtual void DisconnectedFrom(Object& other);
+    void ConnectedFrom(Object& other) override;
+    void DisconnectedFrom(Object& other) override;
 
     CScriptArray* ASGetConnectedObjects();
 

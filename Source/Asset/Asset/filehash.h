@@ -47,7 +47,7 @@ public:
     void Unload();
     void Reload();
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<FileHashAsset> FileHashAssetRef;

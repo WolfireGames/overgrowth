@@ -71,7 +71,7 @@ public:
         callback_instance_(callback_instance), to_delete_(false),
         notification_callback_(notification_callback) 
     {}
-    ~ScriptableUI() {
+    ~ScriptableUI() override {
         Dispose();
     };
     
@@ -86,7 +86,7 @@ public:
 
     void Reload(bool force=false);
 
-    virtual void ModActivationChange( const ModInstance* mod );
+    void ModActivationChange( const ModInstance* mod ) override;
     
     DISALLOW_COPY_AND_ASSIGN(ScriptableUI);
 };

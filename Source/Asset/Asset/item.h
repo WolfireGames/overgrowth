@@ -67,8 +67,8 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    virtual void ReportLoad();
-    virtual void ReturnPaths(PathSet &path_set);
+    void ReportLoad() override;
+    void ReturnPaths(PathSet &path_set) override;
     
     const std::string &GetIKAttach(AttachmentType type) const;
     const std::string &GetAttachAnimPath(AttachmentType type);
@@ -99,7 +99,7 @@ public:
     bool HasReactionOverride( const std::string &anim );
     const std::string & GetReactionOverride( const std::string &anim );
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 
 private:
     static const int kMaxAttachments = 4;

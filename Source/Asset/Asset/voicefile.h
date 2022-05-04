@@ -43,13 +43,13 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    virtual void ReportLoad();
-    void ReturnPaths(PathSet &path_set);
+    void ReportLoad() override;
+    void ReturnPaths(PathSet &path_set) override;
     static AssetType GetType() { return VOICE_FILE_ASSET; }
     static const char* GetTypeName() { return "VOICE_FILE_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<VoiceFile> VoiceFileRef;

@@ -39,12 +39,12 @@ private:
     template<class Creator>
     class CreatorFactory : public CreatorFactoryBase
     {
-        virtual CreatorBase* NewInstance()
+        CreatorBase* NewInstance() override
         {
             return new Creator();
         }
 
-        virtual std::string GetCreatorName()
+        std::string GetCreatorName() override
         {
             return std::string(Creator().GetName());
         }

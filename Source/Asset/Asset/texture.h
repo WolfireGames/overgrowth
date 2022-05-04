@@ -48,7 +48,7 @@ public:
     TextureRef GetTextureRef();
 
     TextureAsset( AssetManager* owner, uint32_t asset_id );
-    virtual ~TextureAsset();
+    ~TextureAsset() override;
 
     static AssetType GetType() { return TEXTURE_ASSET; }
     static const char* GetTypeName() { return "TEXTURE_ASSET"; }
@@ -59,8 +59,8 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
 
-    virtual void ReportLoad(){}
-    virtual AssetLoaderBase* NewLoader();
+    void ReportLoad() override{}
+    AssetLoaderBase* NewLoader() override;
 
     unsigned int GetTexID();
 };

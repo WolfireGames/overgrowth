@@ -41,35 +41,35 @@ public:
     bool child_moved;
 
     Group();
-    bool Initialize();
-    virtual ~Group();
-    virtual int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal=0);
-    virtual EntityType GetType() const { return _group; }
-    virtual bool SetFromDesc( const EntityDescription &desc );
-    virtual void PreDrawCamera(float curr_game_time);
-    virtual void PreDrawFrame(float curr_game_time);
-    virtual void Moved(Object::MoveType type);
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual void ChildMoved(Object::MoveType type);
-    virtual void ChildLost(Object *obj);
-    virtual void UpdateParentHierarchy();
-    virtual void PropagateTransformsDown(bool deep);
-    virtual void GetDisplayName(char* buf, int buf_size);
-    virtual void SetEnabled(bool val);
+    bool Initialize() override;
+    ~Group() override;
+    int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal=0) override;
+    EntityType GetType() const override { return _group; }
+    bool SetFromDesc( const EntityDescription &desc ) override;
+    void PreDrawCamera(float curr_game_time) override;
+    void PreDrawFrame(float curr_game_time) override;
+    void Moved(Object::MoveType type) override;
+    void GetDesc(EntityDescription &desc) const override;
+    void ChildMoved(Object::MoveType type) override;
+    void ChildLost(Object *obj) override;
+    void UpdateParentHierarchy() override;
+    void PropagateTransformsDown(bool deep) override;
+    void GetDisplayName(char* buf, int buf_size) override;
+    void SetEnabled(bool val) override;
 	virtual void InitShape();
 	virtual void InitRelMats();
-	virtual void FinalizeLoadedConnections();
-    virtual void GetChildren(std::vector<Object*>* ret_children);
-    virtual void GetBottomUpCompleteChildren(std::vector<Object*>* ret_children);
-    virtual void GetTopDownCompleteChildren(std::vector<Object*>* ret_children);
+	void FinalizeLoadedConnections() override;
+    void GetChildren(std::vector<Object*>* ret_children) override;
+    void GetBottomUpCompleteChildren(std::vector<Object*>* ret_children) override;
+    void GetTopDownCompleteChildren(std::vector<Object*>* ret_children) override;
     virtual void HandleTransformationOccured();
-    virtual void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args);
-    virtual void Update(float timestep){}
-    virtual void RemapReferences(std::map<int,int> id_map);
-	virtual void SetTranslationRotationFast(const vec3& trans, const quaternion& rotation);
+    void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
+    void Update(float timestep) override{}
+    void RemapReferences(std::map<int,int> id_map) override;
+	void SetTranslationRotationFast(const vec3& trans, const quaternion& rotation) override;
 	void PropagateTransformsDownFast(bool deep);
 
-    virtual bool IsGroupDerived() const {return true;}
+    bool IsGroupDerived() const override {return true;}
 
-    virtual ObjectSanityState GetSanity();
+    ObjectSanityState GetSanity() override;
 };

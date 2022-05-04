@@ -106,9 +106,9 @@ public:
 
     Music music;
 
-    virtual uint32_t Load( const std::string& path );
-    virtual bool Save( const std::string& path );
-    virtual void Clear();
+    uint32_t Load( const std::string& path ) override;
+    bool Save( const std::string& path ) override;
+    void Clear() override;
 };
 
 inline std::ostream& operator<<( std::ostream& out, const MusicXMLParser::Segment& segment )

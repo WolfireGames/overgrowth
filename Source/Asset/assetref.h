@@ -40,7 +40,7 @@ private:
     T *asset_ptr_;
 
 public:
-    virtual AssetType GetType() {
+    AssetType GetType() override {
         return T::GetType();
     };
 
@@ -73,7 +73,7 @@ public:
         }
     }
 
-    virtual ~AssetRef() {
+    ~AssetRef() override {
         if(asset_ptr_ != NULL){
             asset_ptr_->DecrementRefCount();
             asset_ptr_ = NULL;

@@ -32,8 +32,8 @@ public:
     float overbright_;
     ColorTintComponent():tint_(1.0f), overbright_(0.0f) {}
     static void LoadDescriptionFromXML(EntityDescription& desc, const TiXmlElement* el);
-    virtual void SetFromDescription(const EntityDescription& desc);
+    void SetFromDescription(const EntityDescription& desc) override;
     virtual void AddToDescription(EntityDescription& desc) const;
-    virtual void SaveToXML(TiXmlElement* el);
-    virtual void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args);
+    void SaveToXML(TiXmlElement* el) override;
+    void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
 };

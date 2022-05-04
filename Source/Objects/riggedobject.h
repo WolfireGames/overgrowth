@@ -179,7 +179,7 @@ class RiggedTransformedVertexGetter : public BloodSurface::TransformedVertexGett
 public:
     RiggedTransformedVertexGetter(RiggedObject* p_rigged_object):
         rigged_object(p_rigged_object) {}
-    virtual vec3 GetTransformedVertex(int val);
+    vec3 GetTransformedVertex(int val) override;
 private:
     RiggedObject* rigged_object;
 };
@@ -214,7 +214,7 @@ class RiggedObject: public Object {
 		float last_draw_time;
         vec3 ambient_cube_color[6];
         CachedSkeletonInfo cached_skeleton_info_;
-         virtual EntityType GetType() const { return _rigged_object; }
+         EntityType GetType() const override { return _rigged_object; }
         // Textures
         TextureAssetRef stab_texture;
         TextureAssetRef texture_ref;
@@ -307,10 +307,10 @@ class RiggedObject: public Object {
 		vec3 camera_translation;
 
         RiggedObject();
-        virtual ~RiggedObject();
+        ~RiggedObject() override;
 
-        bool Initialize();
-        void Update(float timestep);
+        bool Initialize() override;
+        void Update(float timestep) override;
 
 		
 		// Drawing
@@ -328,13 +328,13 @@ class RiggedObject: public Object {
 		void CalcNoDataInterpStep();
         void StoreNetworkBones();
 		void StoreNetworkMorphTargets();
-        void PreDrawFrame(float curr_game_time);
-        void PreDrawCamera(float curr_game_time);
+        void PreDrawFrame(float curr_game_time) override;
+        void PreDrawCamera(float curr_game_time) override;
         void DrawModel( Model* model, int lod_level );
         void SetASContext(ASContext* _as_context);
 
         std::vector<vec3> * GetPaletteColors();
-        void ApplyPalette( const OGPalette& palette );
+        void ApplyPalette( const OGPalette& palette ) override;
         float GetStatusKeyValue(const std::string &label);
         void Ragdoll(const vec3 &velocity);
         void AddAnimation( std::string path, float weight );
@@ -422,7 +422,7 @@ class RiggedObject: public Object {
         bool DrawBoneConnectUI(Object* objects[], int num_obj_ids, IMUIContext &imui_context, EditorTypes::Tool tool, int id);
         void AddToDesc(EntityDescription &desc);
         void UpdateGPUSkinning();
-        void GetShaderNames(std::map<std::string, int>& shaders);
+        void GetShaderNames(std::map<std::string, int>& shaders) override;
 
         bool GetOnlineIncomingMorphTargetState(MorphTargetStateStorage& dest, const char* name);
     private:  

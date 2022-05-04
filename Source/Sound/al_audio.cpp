@@ -70,52 +70,52 @@ public:
         m_priority(_priority)
     {flags_ = flags;}
 
-    ~StaticEmitter()
+    ~StaticEmitter() override
     {}
 
-    virtual bool KeepPlaying() {
+    bool KeepPlaying() override {
         return m_looping?false:true;
     }
 
-    virtual bool GetPosition(vec3 &p) {
+    bool GetPosition(vec3 &p) override {
         p = m_position;
         return ((flags_ & SoundFlags::kRelative) != 0);
     }
 
-    virtual const vec3 GetPosition() {
+    const vec3 GetPosition() override {
         return m_position;
     }
 
-    virtual const vec3 GetOcclusionPosition() {
+    const vec3 GetOcclusionPosition() override {
         return m_occlusion_position;
     }
 
-    virtual float GetMaxDistance() {
+    float GetMaxDistance() override {
         return m_max_distance;
     }
 
-    virtual void GetDirection(vec3 &p)    {
+    void GetDirection(vec3 &p) override    {
         p.x() = 0.0f; p.y() = 0.0f; p.z() = 0.0f;
         return;
     }
 
-    virtual const vec3& GetVelocity() {
+    const vec3& GetVelocity() override {
         return m_velocity;
     }
 
-    virtual float GetVolume() {
+    float GetVolume() override {
         return m_volume * m_volume_mult;
     }
 
-    virtual float GetPitchMultiplier() {
+    float GetPitchMultiplier() override {
         return m_pitch_mul;
     }
 
-    virtual void SetPitchMultiplier(float mul) {
+    void SetPitchMultiplier(float mul) override {
         m_pitch_mul = mul;
     }
 
-    virtual void SetVolume(float mul) {
+    void SetVolume(float mul) override {
         if( mul > 1.0f ) 
             mul = 1.0f;
         if( mul < 0.0f )
@@ -124,28 +124,28 @@ public:
         m_volume = mul;
     }
 
-    virtual void SetVolumeMult(float mul) {
+    void SetVolumeMult(float mul) override {
         m_volume_mult = mul;
     }
 
-    virtual void SetPosition(const vec3 &pos) {
+    void SetPosition(const vec3 &pos) override {
         m_position = pos;
     }
 
-    virtual void SetOcclusionPosition(const vec3 &pos) {
+    void SetOcclusionPosition(const vec3 &pos) override {
         m_occlusion_position = pos;
     }
 
-    virtual void SetVelocity(const vec3 &vel) {
+    void SetVelocity(const vec3 &vel) override {
         m_velocity = vel;
     }
 
-    virtual void Unsubscribe() {
+    void Unsubscribe() override {
         // should call the audioEmitter destructor, all should be cleaned.
         delete this;
     }
 
-    virtual unsigned char GetPriority() {
+    unsigned char GetPriority() override {
         return m_priority;
     }
 

@@ -32,6 +32,6 @@ namespace Json
 class SpawnerListSeeker : public JSONSeekerBase
 {
 public:
-    virtual std::vector<Item> SearchJSON( const Item & item, Json::Value& root );
-    virtual const char* GetName() { return "spawner_list_seeker"; }
+    std::vector<Item> SearchJSON( const Item & item, Json::Value& root ) override;
+    const char* GetName() override { return "spawner_list_seeker"; }
 };

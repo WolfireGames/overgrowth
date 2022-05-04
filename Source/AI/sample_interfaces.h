@@ -56,12 +56,12 @@ public:
 protected:	
 	/// Virtual functions for custom implementations.
 	///@{
-	virtual void doResetLog();
-	virtual void doLog(const rcLogCategory category, const char* msg, const int len);
-	virtual void doResetTimers();
-	virtual void doStartTimer(const rcTimerLabel label);
-	virtual void doStopTimer(const rcTimerLabel label);
-	virtual int doGetAccumulatedTime(const rcTimerLabel label) const;
+	void doResetLog() override;
+	void doLog(const rcLogCategory category, const char* msg, const int len) override;
+	void doResetTimers() override;
+	void doStartTimer(const rcTimerLabel label) override;
+	void doStopTimer(const rcTimerLabel label) override;
+	int doGetAccumulatedTime(const rcTimerLabel label) const override;
 	///@}
 };
 
@@ -72,13 +72,13 @@ class FileIO : public duFileIO
 	int m_mode;
 public:
 	FileIO();
-	virtual ~FileIO();
+	~FileIO() override;
 	bool openForWrite(const char* path);
 	bool openForRead(const char* path);
-	virtual bool isWriting() const;
-	virtual bool isReading() const;
-	virtual bool write(const void* ptr, const size_t size);
-	virtual bool read(void* ptr, const size_t size);
+	bool isWriting() const override;
+	bool isReading() const override;
+	bool write(const void* ptr, const size_t size) override;
+	bool read(void* ptr, const size_t size) override;
 private:
 	// Explicitly disabled copy constructor and copy assignment operator.
 	FileIO(const FileIO&);

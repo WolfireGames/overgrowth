@@ -49,9 +49,9 @@ public:
         std::string image;
     };
 
-    virtual uint32_t Load( const std::string& path );
-    virtual bool Save( const std::string& path );
-    virtual void Clear();
+    uint32_t Load( const std::string& path ) override;
+    bool Save( const std::string& path ) override;
+    void Clear() override;
 
     std::string hash;
     std::string name;

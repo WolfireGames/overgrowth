@@ -34,7 +34,7 @@ class JobHandler;
 class XMLSeekerBase : public SeekerBase
 {
 public:
-    virtual std::vector<Item> Search( const Item& item );
+    std::vector<Item> Search( const Item& item ) override;
     virtual std::vector<Item> SearchXML( const Item & item, TiXmlDocument& doc ) = 0;
 
     virtual void HandleElementCallback( std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata );

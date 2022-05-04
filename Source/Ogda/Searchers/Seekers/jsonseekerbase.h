@@ -34,6 +34,6 @@ namespace Json
 class JSONSeekerBase : public SeekerBase
 {
 public:
-    virtual std::vector<Item> Search(const Item& item);
+    std::vector<Item> Search(const Item& item) override;
     virtual std::vector<Item> SearchJSON(const Item & item, Json::Value& root ) = 0;
 };

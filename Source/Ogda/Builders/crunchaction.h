@@ -29,9 +29,9 @@ class JobHandler;
 
 class CrunchAction : public ActionBase {
     public:
-        virtual ManifestResult Run(const JobHandler& jh, const Item& y);
-        virtual inline const char* GetName() const { return "crunch"; }
-        virtual inline const char* GetVersion() const {return "1";}
-        virtual inline bool RunEvenOnIdenticalSource() const { return false; }
-        virtual inline bool StoreResultInDatabase() const { return true; }
+        ManifestResult Run(const JobHandler& jh, const Item& y) override;
+        inline const char* GetName() const override { return "crunch"; }
+        inline const char* GetVersion() const override {return "1";}
+        inline bool RunEvenOnIdenticalSource() const override { return false; }
+        inline bool StoreResultInDatabase() const override { return true; }
 };

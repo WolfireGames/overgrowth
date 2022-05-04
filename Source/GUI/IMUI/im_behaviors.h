@@ -66,16 +66,16 @@ struct IMFadeIn : public IMUpdateBehavior {
         return new IMFadeIn(time, _tweener);
     }
 
-    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    void cleanUp( IMElement* element );
+    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    void cleanUp( IMElement* element ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMUpdateBehavior* clone() {
+    IMUpdateBehavior* clone() override {
         IMFadeIn* c = new IMFadeIn(targetTime, tweenType);
         c->originalAlpha = originalAlpha;
         return c;
@@ -100,15 +100,15 @@ struct IMMoveIn : public IMUpdateBehavior {
         return new IMMoveIn( _time, _offset, _tweener);
     }
 
-    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMUpdateBehavior* clone() {
+    IMUpdateBehavior* clone() override {
         IMMoveIn* c = new IMMoveIn(targetTime, offset, tweenType);
         return c;
     }
@@ -142,15 +142,15 @@ struct IMChangeTextFadeOutIn : public IMUpdateBehavior {
         return new IMChangeTextFadeOutIn(time, _targetText, _tweenerOut, _tweenerIn);
     }
 
-    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMUpdateBehavior* clone() {
+    IMUpdateBehavior* clone() override {
         IMChangeTextFadeOutIn* c = new IMChangeTextFadeOutIn(targetTime, targetText, tweenerOutType, tweenerInType);
         return c;
     }
@@ -181,15 +181,15 @@ struct IMChangeImageFadeOutIn : public IMUpdateBehavior {
         return new IMChangeImageFadeOutIn(time, _targetImage, _tweenerOut, _tweenerIn);
     }
 
-    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMUpdateBehavior* clone() {
+    IMUpdateBehavior* clone() override {
         IMChangeImageFadeOutIn* c = new IMChangeImageFadeOutIn(targetTime, targetImage, tweenerOutType, tweenerInType);
         return c;
     }
@@ -219,16 +219,16 @@ struct IMPulseAlpha : public IMUpdateBehavior {
         return new IMPulseAlpha(lower, upper, _speed);
     }
 
-    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     float computeTransition( float base, float range );
-    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMUpdateBehavior* clone() {
+    IMUpdateBehavior* clone() override {
         IMPulseAlpha* c = new IMPulseAlpha(0, 0, 0);
         c->midPoint = midPoint;
         c->difference = difference;
@@ -255,16 +255,16 @@ struct IMPulseBorderAlpha : public IMUpdateBehavior {
         return new IMPulseBorderAlpha(lower, upper, _speed);
     }
 
-    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool initialize( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     float computeTransition( float base, float range );
-    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool update( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMUpdateBehavior* clone() {
+    IMUpdateBehavior* clone() override {
         IMPulseBorderAlpha* c = new IMPulseBorderAlpha(0, 0, 0);
         c->midPoint = midPoint;
         c->difference = difference;
@@ -308,17 +308,17 @@ struct IMPulseBorderAlpha : public IMUpdateBehavior {
  		return new IMMouseOverScale( _time, _offset, _tweener );
  	}
 
- 	void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+ 	void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
  	float computeTransition( float base, float range );
- 	void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
- 	bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+ 	void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+ 	bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
  	/*******************************************************************************************/
  	/**
  	 * @brief  Create a copy of this object (respecting inheritance)
  	 *
  	 */
- 	virtual IMMouseOverBehavior* clone() {
+ 	IMMouseOverBehavior* clone() override {
  				IMMouseOverScale* c = new IMMouseOverScale(targetTime, offset, tweenType);
  				c->midPoints = midPoints;
  				c->differences = differences;
@@ -351,17 +351,17 @@ struct IMPulseBorderAlpha : public IMUpdateBehavior {
          return new IMMouseOverMove( _time, _offset, _tweener );
      }
 
-		 void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+		 void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
      float computeTransition( float base, float range );
-     void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-     bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+     void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+     bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
      /*******************************************************************************************/
      /**
       * @brief  Create a copy of this object (respecting inheritance)
       *
       */
-     virtual IMMouseOverBehavior* clone() {
+     IMMouseOverBehavior* clone() override {
 				 IMMouseOverMove* c = new IMMouseOverMove(targetTime, offset, tweenType);
 				 c->midPoints = midPoints;
 				 c->differences = differences;
@@ -385,16 +385,16 @@ struct IMMouseOverShowBorder : public IMMouseOverBehavior {
         return new IMMouseOverShowBorder();
     }
 
-    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMMouseOverBehavior* clone() {
+    IMMouseOverBehavior* clone() override {
         IMMouseOverShowBorder* c = new IMMouseOverShowBorder;
         return c;
     }
@@ -419,17 +419,17 @@ struct IMMouseOverShowBorder : public IMMouseOverBehavior {
         return new IMMouseOverPulseColor( first, second, _speed );
     }
 
-    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     float computeTransition( float base, float range );
-    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
      /*******************************************************************************************/
      /**
       * @brief  Create a copy of this object (respecting inheritance)
       *
       */
-     virtual IMMouseOverBehavior* clone() {
+     IMMouseOverBehavior* clone() override {
          IMMouseOverPulseColor* c = new IMMouseOverPulseColor(0,0,0);
          c->midPoints = midPoints;
          c->differences = differences;
@@ -456,10 +456,10 @@ struct IMMouseOverPulseBorder : public IMMouseOverBehavior {
         return new IMMouseOverPulseBorder( first, second, _speed );
     }
 
-    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     float computeTransition( float base, float range );
-    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
 
     /*******************************************************************************************/
@@ -467,7 +467,7 @@ struct IMMouseOverPulseBorder : public IMMouseOverBehavior {
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMMouseOverBehavior* clone() {
+    IMMouseOverBehavior* clone() override {
         IMMouseOverPulseBorder* c = new IMMouseOverPulseBorder(0,0,0);
         c->midPoints = midPoints;
         c->differences = differences;
@@ -494,17 +494,17 @@ struct IMMouseOverPulseBorderAlpha : public IMMouseOverBehavior {
         return new IMMouseOverPulseBorderAlpha( lower, upper, _speed );
     }
 
-    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     float computeTransition( float base, float range );
-    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMMouseOverBehavior* clone() {
+    IMMouseOverBehavior* clone() override {
         IMMouseOverPulseBorderAlpha* c = new IMMouseOverPulseBorderAlpha(0,0,0);
         c->midPoint = midPoint;
         c->difference = difference;
@@ -533,16 +533,16 @@ struct IMFixedMessageOnMouseOver : public IMMouseOverBehavior {
         return new IMFixedMessageOnMouseOver( _enterMessage, _overMessage, _leaveMessage );
     }
 
-    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMMouseOverBehavior* clone() {
+    IMMouseOverBehavior* clone() override {
 
         IMMessage* eM = NULL;
         IMMessage* oM = NULL;
@@ -562,7 +562,7 @@ struct IMFixedMessageOnMouseOver : public IMMouseOverBehavior {
         return c;
     }
 
-    virtual ~IMFixedMessageOnMouseOver() {
+    ~IMFixedMessageOnMouseOver() override {
         if( enterMessage != NULL ) {
             enterMessage->Release();
         }
@@ -593,17 +593,17 @@ struct IMFixedMessageOnMouseOver : public IMMouseOverBehavior {
         return new IMMouseOverFadeIn(time, _tweener, targetAlpha);
     }
 
-    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     float computeTransition( float base, float range );
-    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
      /*******************************************************************************************/
      /**
       * @brief  Create a copy of this object (respecting inheritance)
       *
       */
-     virtual IMMouseOverBehavior* clone() {
+     IMMouseOverBehavior* clone() override {
          IMMouseOverFadeIn* c = new IMMouseOverFadeIn(targetTime, tweenType);
          return c;
      }
@@ -655,19 +655,19 @@ struct IMFixedMessageOnClick : public IMMouseClickBehavior {
         return new IMFixedMessageOnClick( message );
     }
 
-    bool onUp( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    bool onUp( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMMouseClickBehavior* clone() {
+    IMMouseClickBehavior* clone() override {
         IMFixedMessageOnClick* c = new IMFixedMessageOnClick( theMessage );
         return c;
     }
 
-    virtual ~IMFixedMessageOnClick() {
+    ~IMFixedMessageOnClick() override {
         if( theMessage != NULL ) {
             theMessage->Release();
         }
@@ -680,22 +680,22 @@ struct IMMouseOverSound : public IMMouseOverBehavior {
     std::string audioFile = "";
 
     IMMouseOverSound(std::string const& audioFile);
-    virtual ~IMMouseOverSound();
+    ~IMMouseOverSound() override;
 
     static IMMouseOverSound* ASFactory(std::string const& audioFile) {
         return new IMMouseOverSound(audioFile);
     }
 
-    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
-    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void onStart( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    void onContinue( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
+    bool onFinish( IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  Create a copy of this object (respecting inheritance)
      *
      */
-    virtual IMMouseOverBehavior* clone() {
+    IMMouseOverBehavior* clone() override {
         IMMouseOverSound* c = new IMMouseOverSound(audioFile);
         return c;
     }
@@ -711,9 +711,9 @@ struct IMSoundOnClick : public IMMouseClickBehavior {
         return new IMSoundOnClick(audioFile);
     }
 
-    bool onUp(IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate);
+    bool onUp(IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate) override;
 
-    virtual IMMouseClickBehavior* clone() {
+    IMMouseClickBehavior* clone() override {
         IMSoundOnClick* c = new IMSoundOnClick(audioFile);
         return c;
     }
@@ -723,7 +723,7 @@ struct IMFuncOnClick : public IMMouseClickBehavior {
     asIScriptFunction * func = 0;
 
     IMFuncOnClick(asIScriptFunction * func);
-    virtual ~IMFuncOnClick() {
+    ~IMFuncOnClick() override {
         func->Release();
     }
 
@@ -731,9 +731,9 @@ struct IMFuncOnClick : public IMMouseClickBehavior {
         return new IMFuncOnClick(func);
     }
 
-    bool onUp(IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate);
+    bool onUp(IMElement* element, uint64_t delta, vec2 drawOffset, GUIState& guistate) override;
 
-    virtual IMMouseClickBehavior* clone() {
+    IMMouseClickBehavior* clone() override {
         IMFuncOnClick* c = new IMFuncOnClick(func);
         return c;
     }

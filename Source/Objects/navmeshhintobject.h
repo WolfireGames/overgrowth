@@ -36,11 +36,11 @@ private:
     std::vector<vec3> cross_marking;
 public:
     NavmeshHintObject();
-    virtual ~NavmeshHintObject();
-    virtual EntityType GetType() const { return _navmesh_hint_object; }
-    virtual bool Initialize();
-    virtual void Draw();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    ~NavmeshHintObject() override;
+    EntityType GetType() const override { return _navmesh_hint_object; }
+    bool Initialize() override;
+    void Draw() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
 };
 

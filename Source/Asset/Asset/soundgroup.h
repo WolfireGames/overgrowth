@@ -47,7 +47,7 @@ public:
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
-    virtual void ReportLoad() {}
+    void ReportLoad() override {}
     void Reload( );
     std::string GetPath() const;
     int GetNumVariants() const;
@@ -55,7 +55,7 @@ public:
     float GetMaxDistance() const;
     float GetDelay() const;
     std::string GetSoundPath();
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<SoundGroup> SoundGroupRef;

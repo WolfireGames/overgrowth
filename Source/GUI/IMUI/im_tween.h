@@ -71,7 +71,7 @@ struct IMTween {
  **/
 
 struct LinearTween : public IMTween {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * t / d + b;
     }
 };
@@ -82,13 +82,13 @@ struct LinearTween : public IMTween {
  **/
 
 struct InQuadTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * pow(t / d, 2) + b;
     }
 };
 
 struct OutQuadTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         t = t / d;
         return -c * t * (t - 2) + b;
     }
@@ -96,7 +96,7 @@ struct OutQuadTween : public IMTween  {
 
 
 struct InOutQuadTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         t = t / d * 2;
         if ( t < 1 ) {
             return c / 2 * pow(t, 2) + b;
@@ -109,7 +109,7 @@ struct OutInQuadTween : public IMTween  {
     InQuadTween inQuad;
     OutQuadTween outQuad;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if ( t < d / 2 ) {
             return outQuad.compute(t * 2, b, c / 2, d);
         }
@@ -123,19 +123,19 @@ struct OutInQuadTween : public IMTween  {
  **/
 
 struct InCubicTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * pow(t / d, 3) + b;
     }
 };
 
 struct OutCubicTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * (pow(t / d - 1, 3) + 1) + b;
     }
 };
 
 struct InOutCubicTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         t = t / d * 2;
         if ( t < 1 ) {
             return c / 2 * t * t * t + b;
@@ -150,7 +150,7 @@ struct OutInCubicTween : public IMTween  {
     OutCubicTween outCubic;
     InCubicTween inCubic;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t < d / 2 ) {
             return outCubic.compute(t * 2, b, c / 2, d);
         }
@@ -164,19 +164,19 @@ struct OutInCubicTween : public IMTween  {
  **/
 
 struct InQuartTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * pow(t / d, 4) + b;
     }
 };
 
 struct OutQuartTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return -c * (pow(t / d - 1, 4) - 1) + b;
     }
 };
 
 struct InOutQuartTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         t = t / d * 2;
         if (t < 1 ) {
             return c / 2 * pow(t, 4) + b;
@@ -189,7 +189,7 @@ struct OutInQuartTween : public IMTween  {
     OutQuartTween outQuart;
     InQuartTween inQuart;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if (t < d / 2 ) {
             return outQuart.compute(t * 2, b, c / 2, d);
         }
@@ -204,20 +204,20 @@ struct OutInQuartTween : public IMTween  {
 
 
 struct InQuintTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * pow(t / d, 5) + b;
     }
 };
 
 struct OutQuintTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * (pow(t / d - 1, 5) + 1) + b;
     }
 };
 
 
 struct InOutQuintTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         t = t / d * 2;
         
         if (t < 1) {
@@ -233,7 +233,7 @@ struct OutInQuintTween : public IMTween  {
     InQuintTween inQuint;
     OutQuintTween outQuint;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if ( t < d / 2 ) {
             return outQuint.compute(t * 2, b, c / 2, d);
         }
@@ -247,21 +247,21 @@ struct OutInQuintTween : public IMTween  {
  **/
 
 struct InSineTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return -c * cos(t / d * (PI_f / 2)) + c + b;
     }
 };
 
 
 struct OutSineTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c * sin(t / d * (PI_f / 2)) + b;
     }
 };
 
 
 struct InOutSineTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return -c / 2 * (cos(PI_f * t / d) - 1) + b;
     }
 };
@@ -270,7 +270,7 @@ struct OutInSineTween : public IMTween  {
     InSineTween inSine;
     OutSineTween outSine;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t < d / 2 ) {
             return outSine.compute(t * 2, b, c / 2, d);
         }
@@ -285,7 +285,7 @@ struct OutInSineTween : public IMTween  {
  **/
 
 struct InExpoTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t == 0 ){
             return b;
         }
@@ -294,7 +294,7 @@ struct InExpoTween : public IMTween  {
 };
 
 struct OutExpoTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t == d ){
             return b + c;
         }
@@ -304,7 +304,7 @@ struct OutExpoTween : public IMTween  {
 };
 
 struct InOutExpoTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t == 0 ){
             return b;
         }
@@ -327,7 +327,7 @@ struct OutInExpoTween : public IMTween  {
     InExpoTween inExpo;
     OutExpoTween outExpo;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t < d / 2 ){
             return outExpo.compute(t * 2, b, c / 2, d);
         }
@@ -343,20 +343,20 @@ struct OutInExpoTween : public IMTween  {
 
 
 struct InCircTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return(-c * (sqrt(1 - pow(t / d, 2)) - 1) + b);
     }
 };
 
 
 struct OutCircTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return(c * sqrt(1 - pow(t / d - 1, 2)) + b);
     }
 };
 
 struct InOutCircTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         t = t / d * 2;
         if( t < 1 ){
             return -c / 2 * (sqrt(1 - t * t) - 1) + b;
@@ -370,7 +370,7 @@ struct OutInCircTween : public IMTween  {
     InCircTween inCirc;
     OutCircTween outCirc;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t < d / 2 ){
             return outCirc.compute(t * 2, b, c / 2, d);
         }
@@ -385,7 +385,7 @@ struct OutInCircTween : public IMTween  {
  **/
 
 struct OutBounceTween : public IMTween  {
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         t = t / d;
         if( t < 1 / 2.75f ){
             return c * (7.5625f * t * t) + b;
@@ -407,7 +407,7 @@ struct OutBounceTween : public IMTween  {
 struct InBounceTween : public IMTween  {
     OutBounceTween outBounce;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         return c - outBounce.compute(d - t, 0, c, d) + b;
     }
 };
@@ -416,7 +416,7 @@ struct InOutBounceTween : public IMTween  {
     OutBounceTween outBounce;
     InBounceTween inBounce;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t < d / 2 ) {
             return inBounce.compute(t * 2, 0, c, d) * 0.5f + b;
         }
@@ -428,7 +428,7 @@ struct OutInBounceTween : public IMTween  {
     InBounceTween inBounce;
     OutBounceTween outBounce;
     
-    virtual float compute( float t, float b, float c, float d ) {
+    float compute( float t, float b, float c, float d ) override {
         if( t < d / 2 ) {
             return outBounce.compute(t * 2, b, c / 2, d);
         }

@@ -41,8 +41,8 @@ public:
     const char* GetLoadErrorString() { return ""; }
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload() {};
-    virtual void ReportLoad(){}
-    virtual AssetLoaderBase* NewLoader();
+    void ReportLoad() override{}
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<TextureDummy> TextureDummyRef;

@@ -53,12 +53,12 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
 
     vec4 GetInterpolatedColorUV(float x, float y) const;
     bool GetCachePath(std::string* dst);
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
     
     ModID modsource_;
 

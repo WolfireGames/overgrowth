@@ -42,9 +42,9 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload( );
-    virtual void ReportLoad();
+    void ReportLoad() override;
 
-    virtual void ReturnPaths(PathSet &path_set);
+    void ReturnPaths(PathSet &path_set) override;
     inline int GetNumVariants() const {return num_variants;}
     inline float GetDelay() const {return delay;}
     inline float GetVolume() const {return volume;}
@@ -54,7 +54,7 @@ public:
     static const char* GetTypeName() { return "SOUND_GROUP_INFO_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 private:
     bool ParseXML( const char* data );
 };

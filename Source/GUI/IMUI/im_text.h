@@ -167,7 +167,7 @@ public:
      * @returns name of the element type as a string
      *
      */
-    std::string getElementTypeName();
+    std::string getElementTypeName() override;
     
     /*******************************************************************************************/
     /**
@@ -181,14 +181,14 @@ public:
      * @brief  When a resize, move, etc has happened do whatever is necessary
      * 
      */
-    void doRelayout();
+    void doRelayout() override;
 
     /*******************************************************************************************/
     /**
      * @brief  Do whatever is necessary when the resolution changes
      *
      */
-    void doScreenResize();
+    void doScreenResize() override;
 
     /*******************************************************************************************/
     /**
@@ -263,7 +263,7 @@ public:
      * @param guistate The state of the GUI at this update
      *
      */
-    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     
     /*******************************************************************************************/
     /**
@@ -274,14 +274,14 @@ public:
      * @param clipSize size of clipping region
      *
      */
-    void render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize );
+    void render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize ) override;
     
     /*******************************************************************************************/
     /**
      * @brief  Remove all referenced object without releaseing references
      *
      */
-    virtual void clense();
+    void clense() override;
     
-    virtual ~IMText();
+    ~IMText() override;
 };

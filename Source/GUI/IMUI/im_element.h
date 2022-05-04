@@ -1455,6 +1455,6 @@ public:
     virtual ~IMElement();
 
     static void DestroyQueuedIMElements();
-    virtual void DestroyedIMElement( IMElement* element );
-    virtual void DestroyedIMGUI( IMGUI* imgui );
+    void DestroyedIMElement( IMElement* element ) override;
+    void DestroyedIMGUI( IMGUI* imgui ) override;
 };

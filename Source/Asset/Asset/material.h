@@ -59,14 +59,14 @@ class Material : public AssetInfo {
     //ASContext *context;
 public:
     Material(AssetManager *owner, uint32_t asset_id);
-    ~Material();
+    ~Material() override;
 
     int Load(const std::string &path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload( );
-    virtual void ReportLoad();
+    void ReportLoad() override;
     void HandleEvent(const std::string &the_event, const vec3 &pos);
     const MaterialEvent& GetEvent( const std::string &the_event );
     const MaterialEvent& GetEvent( const std::string &the_event, const std::string &mod );
@@ -75,13 +75,13 @@ public:
     float GetHardness() const;
     float GetFriction() const;
     float GetSharpPenetration() const;
-    void ReturnPaths( PathSet & path_set );
+    void ReturnPaths( PathSet & path_set ) override;
 
     static AssetType GetType() { return MATERIAL_ASSET; }
     static const char* GetTypeName() { return "MATERIAL_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<Material> MaterialRef;

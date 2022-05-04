@@ -68,8 +68,8 @@ public:
 class SimpleFIRFilter : public AudioFilter {
     std::vector<float> filter;
 public:
-    bool Load(const std::string &path);
-    void Apply( AudioBufferData &abd, std::vector<int16_t> *output_new = NULL);
+    bool Load(const std::string &path) override;
+    void Apply( AudioBufferData &abd, std::vector<int16_t> *output_new = NULL) override;
 };
 
 /*
@@ -149,7 +149,7 @@ class audioStreamer : public AudioEmitter
 {
 public:
     audioStreamer();
-    virtual ~audioStreamer();    
+    ~audioStreamer() override;    
 
     /// Request to fill a buffer with data
     virtual void update(rc_alAudioBuffer buffer) = 0;
@@ -264,12 +264,12 @@ public:
 
     public:
         staticLink(rc_alAudioSource source, AudioEmitter &emitter, rc_alAudioBuffer buffer, const SoundPlayInfo& spi);
-        ~staticLink();
+        ~staticLink() override;
 
-        void update(float timestep,unsigned int current_tick);
-        void update_position();
-        void stop();
-        virtual AudioEmitter *get_audioEmitter() {return m_emitter;}
+        void update(float timestep,unsigned int current_tick) override;
+        void update_position() override;
+        void stop() override;
+        AudioEmitter *get_audioEmitter() override {return m_emitter;}
     };
 
 
@@ -285,15 +285,15 @@ public:
 
     public:
         streamerLink(rc_alAudioSource source, audioStreamer &streamer);
-        ~streamerLink();
+        ~streamerLink() override;
 
-        void update(float timestep, unsigned int current_tick);
+        void update(float timestep, unsigned int current_tick) override;
         void update(rc_alAudioBuffer buffer);
-        void update_position();
-        void stop();
+        void update_position() override;
+        void stop() override;
 
         rc_alAudioSource get_source() {return m_source;}
-        virtual AudioEmitter *get_audioEmitter() {return m_streamer;}
+        AudioEmitter *get_audioEmitter() override {return m_streamer;}
     };
 
     typedef std::map<AudioEmitter *, basicLink *> streamer_subscribers;

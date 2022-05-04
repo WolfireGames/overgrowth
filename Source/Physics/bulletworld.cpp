@@ -1241,7 +1241,7 @@ struct    BinaryContactCallback : public btCollisionWorld::ContactResultCallback
                              int index0,
                              const btCollisionObjectWrapper* colObjWrap1,
                              int partId1,
-                             int index1) 
+                             int index1) override 
     {
         if(cp.getDistance() < 0.0f){ 
             hit_something = true;

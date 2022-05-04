@@ -43,26 +43,26 @@ public:
 
     }
 
-    virtual ~FallbackAssetLoader() {
+    ~FallbackAssetLoader() override {
         
     }
 
-    virtual void Initialize(const std::string& path, uint32_t load_flags, Asset* asset) {
+    void Initialize(const std::string& path, uint32_t load_flags, Asset* asset) override {
         this->load_flags = load_flags;
         this->path = path; 
         this->asset = static_cast<TAsset*>(asset);
     }
 
-    virtual const AssetLoaderStepType* GetAssetLoadSteps() const {
+    const AssetLoaderStepType* GetAssetLoadSteps() const override {
         static const AssetLoaderStepType tl[] = { ASSET_LOADER_SYNC_JOB };
         return tl;
     }
 
-    virtual const int GetAssetLoadStepCount() const {
+    const int GetAssetLoadStepCount() const override {
         return 1;
     }
 
-    virtual int DoLoadStep( const int step_id ) {
+    int DoLoadStep( const int step_id ) override {
         switch( step_id ) {
             case 0:
                 asset->path_ = path;
@@ -79,24 +79,24 @@ public:
         return false;
     }
      
-    virtual const char* GetLoadErrorString() {
+    const char* GetLoadErrorString() override {
         return error_message.c_str();
     }
 
-    virtual const char* GetLoadErrorStringExtended() {
+    const char* GetLoadErrorStringExtended() override {
         return error_message_extended.c_str();
     }
 
-    virtual const AssetLoaderStepType* GetAssetUnloadSteps() const {
+    const AssetLoaderStepType* GetAssetUnloadSteps() const override {
         static const AssetLoaderStepType tl[] = { ASSET_LOADER_SYNC_JOB };
         return tl;
     }
 
-    virtual const unsigned GetAssetUnloadStepCount() const {
+    const unsigned GetAssetUnloadStepCount() const override {
         return 1;
     }
 
-    virtual bool DoUnloadStep( const int step_id ) {
+    bool DoUnloadStep( const int step_id ) override {
         switch( step_id )
         {
             case 0:
@@ -108,7 +108,7 @@ public:
         return false;
     }
 
-    virtual const char* GetTypeName() {
+    const char* GetTypeName() override {
         return TAsset::GetTypeName(); 
     }
 };

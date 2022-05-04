@@ -408,8 +408,8 @@ public:
      */
     virtual ~IMGUI();
 
-    virtual void DestroyedIMElement( IMElement* element );
-    virtual void DestroyedIMGUI( IMGUI* IMGUI );
+    void DestroyedIMElement( IMElement* element ) override;
+    void DestroyedIMGUI( IMGUI* IMGUI ) override;
 };
 
 

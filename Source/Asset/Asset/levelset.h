@@ -39,7 +39,7 @@ public:
 
     LevelPaths& level_paths(){return level_paths_;}
     
-    void ReturnPaths(PathSet &path_set);
+    void ReturnPaths(PathSet &path_set) override;
 
     int sub_error;
     int Load(const std::string &path, uint32_t load_flags);
@@ -47,11 +47,11 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
 
     void clear();
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<LevelSet> LevelSetRef;

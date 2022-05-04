@@ -29,9 +29,9 @@ class TiXmlHandle;
 class DecalSeeker : public XMLSeekerBase
 {
 public:
-    virtual std::vector<Item> SearchXML( const Item& item, TiXmlDocument& doc );
+    std::vector<Item> SearchXML( const Item& item, TiXmlDocument& doc ) override;
 
-    virtual inline const char* GetName()
+    inline const char* GetName() override
     {
         return "decal_seeker";
     }

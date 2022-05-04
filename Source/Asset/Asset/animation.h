@@ -200,11 +200,11 @@ public:
 class Animation:public AnimationAsset {
 public:
     Animation( AssetManager * owner, uint32_t asset_id );
-    virtual ~Animation();
+    ~Animation() override;
 
-    int GetActiveID( const BlendMap& blendmap, int &anim_id ) const;
+    int GetActiveID( const BlendMap& blendmap, int &anim_id ) const override;
     void clear();
-    void GetMatrices( float normalized_time, AnimOutput &anim_output, const AnimInput& anim_input) const;
+    void GetMatrices( float normalized_time, AnimOutput &anim_output, const AnimInput& anim_input) const override;
     void WriteToFile( FILE * file );
     int ReadFromFile( FILE * file );
 
@@ -216,20 +216,20 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
 
 
-    float GetGroundSpeed(const BlendMap& blendmap) const;
-    float GetFrequency(const BlendMap& blendmap) const;
-    float GetPeriod(const BlendMap& blendmap) const;
-    vector<NormalizedAnimationEvent> GetEvents(int& anim_id, bool mirrored) const;
+    float GetGroundSpeed(const BlendMap& blendmap) const override;
+    float GetFrequency(const BlendMap& blendmap) const override;
+    float GetPeriod(const BlendMap& blendmap) const override;
+    vector<NormalizedAnimationEvent> GetEvents(int& anim_id, bool mirrored) const override;
     float LocalFromNormalized(float normalized_time) const;
     float NormalizedFromLocal(float local_time) const;
-    bool IsLooping() const;
+    bool IsLooping() const override;
     void UpdateIKBones();
     void Reload();
-    virtual void ReportLoad();
-    float AbsoluteTimeFromNormalized(float normalized_time) const;
-    void ReturnPaths( PathSet& path_set );
+    void ReportLoad() override;
+    float AbsoluteTimeFromNormalized(float normalized_time) const override;
+    void ReturnPaths( PathSet& path_set ) override;
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 private:
     int length; // in ms
     vector<Keyframe> keyframes;

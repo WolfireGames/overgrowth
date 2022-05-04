@@ -65,7 +65,7 @@ class PlayedSongInterface : public PlayedInterface
 public:
     PlayedSongInterface( Soundtrack* _owner );
     PlayedSongInterface( Soundtrack* _owner, const MusicXMLParser::Song& song);
-    virtual ~PlayedSongInterface() {};
+    ~PlayedSongInterface() override {};
 
     virtual void Rewind() = 0;
     virtual bool IsAtEnd() = 0;
@@ -92,18 +92,18 @@ private:
     public:
         PlayedSegment( Soundtrack* _owner );
         PlayedSegment( Soundtrack* _owner, const MusicXMLParser::Segment& segment, bool overlapped_transition );
-        virtual ~PlayedSegment() {};
-        void update( HighResBufferSegment* buffer );
+        ~PlayedSegment() override {};
+        void update( HighResBufferSegment* buffer ) override;
         const MusicXMLParser::Segment& GetSegment();
         bool IsAtEnd();
         void Rewind();
 
-        int64_t  GetPCMPos();
-        void SetPCMPos( int64_t pos );
-        int64_t GetPCMCount();
+        int64_t  GetPCMPos() override;
+        void SetPCMPos( int64_t pos ) override;
+        int64_t GetPCMCount() override;
     
-        int SampleRate();
-        int Channels();
+        int SampleRate() override;
+        int Channels() override;
 
         const std::string GetSegmentName() const;
     private:
@@ -118,25 +118,25 @@ private:
     {
     public:
         PlayedSegmentedSong( Soundtrack* _owner, const MusicXMLParser::Song& _song );
-        virtual ~PlayedSegmentedSong( );
-        void update( HighResBufferSegment* buffer );
+        ~PlayedSegmentedSong( ) override;
+        void update( HighResBufferSegment* buffer ) override;
         bool QueueSegment( const MusicXMLParser::Segment& nextSeg );
         bool TransitionIntoSegment( const MusicXMLParser::Segment& newSeg );
         bool SetSegment( const MusicXMLParser::Segment& nextSeg );
 
-        bool IsAtEnd();
-        void Rewind();
-        int SampleRate();
-        int Channels();
+        bool IsAtEnd() override;
+        void Rewind() override;
+        int SampleRate() override;
+        int Channels() override;
 
-        void SetGain(float v);
-        float GetGain();
+        void SetGain(float v) override;
+        float GetGain() override;
 
         const std::string GetSegmentName() const;
 
-        void SetPCMPos( int64_t c );
-        int64_t GetPCMPos();
-        int64_t GetPCMCount();
+        void SetPCMPos( int64_t c ) override;
+        int64_t GetPCMPos() override;
+        int64_t GetPCMCount() override;
 
         friend bool operator==( const Soundtrack::PlayedSegmentedSong &lhs, const Soundtrack::PlayedSegmentedSong &rhs );
     private:
@@ -152,20 +152,20 @@ private:
     public:
         PlayedSingleSong( Soundtrack* _owner );
         PlayedSingleSong( Soundtrack* _owner, const MusicXMLParser::Song& song );
-        virtual ~PlayedSingleSong() {};
-        void update( HighResBufferSegment* buffer );
-        bool IsAtEnd();
-        void Rewind();
+        ~PlayedSingleSong() override {};
+        void update( HighResBufferSegment* buffer ) override;
+        bool IsAtEnd() override;
+        void Rewind() override;
 
-        int64_t  GetPCMPos();
-        void SetPCMPos( int64_t pos );
-        int64_t GetPCMCount();
+        int64_t  GetPCMPos() override;
+        void SetPCMPos( int64_t pos ) override;
+        int64_t GetPCMCount() override;
 
-        void SetGain(float v);
-        float GetGain();
+        void SetGain(float v) override;
+        float GetGain() override;
     
-        int SampleRate();
-        int Channels();
+        int SampleRate() override;
+        int Channels() override;
     private:
         rc_baseLoader data;
     public:
@@ -184,20 +184,20 @@ private:
     public:
         PlayedLayeredSong( Soundtrack* _owner );
         PlayedLayeredSong( Soundtrack* _owner, const MusicXMLParser::Song& song );
-        virtual ~PlayedLayeredSong();
-        void update( HighResBufferSegment* buffer );
-        bool IsAtEnd();
-        void Rewind();
+        ~PlayedLayeredSong() override;
+        void update( HighResBufferSegment* buffer ) override;
+        bool IsAtEnd() override;
+        void Rewind() override;
 
-        int64_t  GetPCMPos();
-        void SetPCMPos( int64_t pos );
-        int64_t GetPCMCount();
+        int64_t  GetPCMPos() override;
+        void SetPCMPos( int64_t pos ) override;
+        int64_t GetPCMCount() override;
 
-        void SetGain(float v);
-        float GetGain();
+        void SetGain(float v) override;
+        float GetGain() override;
     
-        int SampleRate();
-        int Channels();
+        int SampleRate() override;
+        int Channels() override;
 
         //Specialized
         bool SetLayerGain(const std::string& name, float gain);
@@ -218,9 +218,9 @@ private:
     {
     public:
         TransitionPlayer(Soundtrack* _owner);
-        virtual ~TransitionPlayer();
+        ~TransitionPlayer() override;
 
-        void update( HighResBufferSegment* buffer );
+        void update( HighResBufferSegment* buffer ) override;
         void SetTransitionPeriod( float sec );
         
         bool TransitionToSong( const MusicXMLParser::Song& nextSong );
@@ -236,12 +236,12 @@ private:
         std::vector<std::string> GetLayerNames() const;
         const std::map<std::string,float> GetLayerGains();
 
-        void SetPCMPos( int64_t c );
-        int64_t GetPCMPos();
-        int64_t GetPCMCount();
+        void SetPCMPos( int64_t c ) override;
+        int64_t GetPCMPos() override;
+        int64_t GetPCMCount() override;
 
-        virtual int SampleRate();
-        virtual int Channels();
+        int SampleRate() override;
+        int Channels() override;
 
         const std::string GetSongName() const;
         const std::string GetSongType() const;
@@ -280,36 +280,36 @@ public:
 
     //Audiostreamer API
     /// Request to fill a buffer with data
-    virtual void update(rc_alAudioBuffer buffer);
+    void update(rc_alAudioBuffer buffer) override;
 
     /// Return the number of buffers this streaming class requires (usually 2)
-    virtual unsigned long required_buffers();
+    unsigned long required_buffers() override;
 
 	/// Stop the current stream (reset to empty)
-	virtual void Stop();
+	void Stop() override;
 
     //AudioEmitter API
     //
     /// Set to false to allow the emitter to time out (useful only on non-looping sounds)
-    virtual bool KeepPlaying();
+    bool KeepPlaying() override;
     /// if true is returned, this will be a relative-to-listener sound
-    virtual bool GetPosition(vec3 &p);
-    virtual void GetDirection(vec3 &p);
-    virtual const vec3& GetVelocity();
-    virtual const vec3 GetPosition();
-    virtual const vec3 GetOcclusionPosition();
+    bool GetPosition(vec3 &p) override;
+    void GetDirection(vec3 &p) override;
+    const vec3& GetVelocity() override;
+    const vec3 GetPosition() override;
+    const vec3 GetOcclusionPosition() override;
 
     /// Indicate the priority of this effect to make room for newer/higher priority effects
-    virtual unsigned char GetPriority();
+    unsigned char GetPriority() override;
 
-    virtual void SetVolume(float vol);
+    void SetVolume(float vol) override;
 
-    virtual bool IsTransient();
+    bool IsTransient() override;
     
 public: //Control API
     Soundtrack( float volume );
 
-    virtual ~Soundtrack();
+    ~Soundtrack() override;
 
     void AddMusic( const Path& file );
     void RemoveMusic( const Path& file );

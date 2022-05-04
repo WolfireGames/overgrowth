@@ -44,10 +44,10 @@ private:
 public:
     ActiveModsParser();
 
-    virtual uint32_t Load( const std::string& path );
-    virtual bool Save( const std::string& path );
+    uint32_t Load( const std::string& path ) override;
+    bool Save( const std::string& path ) override;
 
-    virtual void Clear();
+    void Clear() override;
 
     bool FileChangedSinceLastLoad();
     bool LocalChangedSinceLastSave();

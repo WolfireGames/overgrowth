@@ -42,16 +42,16 @@ public:
 class DiskFileDescriptor : public FileDescriptor {
 public:
     // See FileDescriptor::ReadBytes
-    virtual bool ReadBytes(void* dst, int num_bytes);
+    bool ReadBytes(void* dst, int num_bytes) override;
     int ReadBytesPartial(void* dst, int num_bytes);
     // See FileDescriptor::WriteBytes
-    virtual bool WriteBytes(const void* src, int num_bytes);
+    bool WriteBytes(const void* src, int num_bytes) override;
     // Open file at filename (UTF8 path) with given mode (e.g. r,w,rb,wb)
     bool Open(const std::string& filename, const std::string& mode);
     bool Close();
     int GetSize();
     DiskFileDescriptor():file_(NULL){}
-    ~DiskFileDescriptor();
+    ~DiskFileDescriptor() override;
 private:
     FILE* file_;
 };
@@ -59,9 +59,9 @@ private:
 class MemReadFileDescriptor : public FileDescriptor {
 public:
     // See FileDescriptor::ReadBytes
-    virtual bool ReadBytes(void* dst, int num_bytes);
+    bool ReadBytes(void* dst, int num_bytes) override;
     // Cannot write to this descriptor
-    virtual bool WriteBytes(const void* src, int num_bytes){return false;}
+    bool WriteBytes(const void* src, int num_bytes) override{return false;}
     MemReadFileDescriptor(void* ptr = NULL)
         :ptr_(ptr), index_(0) {}
 private:
@@ -72,9 +72,9 @@ private:
 class MemWriteFileDescriptor : public FileDescriptor {
 public:
     // Cannot read from this descriptor
-    virtual bool ReadBytes(void* dst, int num_bytes){return false;}
+    bool ReadBytes(void* dst, int num_bytes) override{return false;}
     // See FileDescriptor::WriteBytes
-    virtual bool WriteBytes(const void* src, int num_bytes);
+    bool WriteBytes(const void* src, int num_bytes) override;
     MemWriteFileDescriptor(std::vector<uint8_t> &vec):vec_(vec){}
 private:
     std::vector<uint8_t> &vec_;

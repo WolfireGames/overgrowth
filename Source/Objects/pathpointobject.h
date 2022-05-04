@@ -35,25 +35,25 @@
 class PathPointObject: public Object
 {
 public:
-    virtual EntityType GetType() const { return _path_point_object; }
+    EntityType GetType() const override { return _path_point_object; }
     std::vector<int> connection_ids;
 
     PathPointObject();
     
-    virtual bool ConnectTo(Object& other, bool checking_other = false);
-    virtual bool AcceptConnectionsFrom(ConnectionType type, Object& object);
+    bool ConnectTo(Object& other, bool checking_other = false) override;
+    bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
     virtual bool Disconnect( Object& other, bool checking_other = false );
-    virtual void GetConnectionIDs(std::vector<int>* cons);
+    void GetConnectionIDs(std::vector<int>* cons) override;
 
     int GetModelID();
-    virtual void NotifyDeleted( Object* o);
-    void GetDesc(EntityDescription &desc) const;
+    void NotifyDeleted( Object* o) override;
+    void GetDesc(EntityDescription &desc) const override;
 
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    bool SetFromDesc( const EntityDescription& desc ) override;
     static void RegisterToScript(ASContext* as_context);
-    virtual void Draw();
-    virtual bool Initialize();
+    void Draw() override;
+    bool Initialize() override;
 
-    virtual void RemapReferences(std::map<int,int> id_map);
+    void RemapReferences(std::map<int,int> id_map) override;
 
 };

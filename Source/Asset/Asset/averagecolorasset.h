@@ -47,11 +47,11 @@ class AverageColor : public Asset {
         const char* GetLoadErrorStringExtended() { return ""; }
         void Unload();
         void Reload();
-        virtual void ReportLoad();
+        void ReportLoad() override;
 
         inline const vec4& color() const {return color_;}
 
-        virtual AssetLoaderBase* NewLoader();
+        AssetLoaderBase* NewLoader() override;
 
         ModID modsource_;
     private:

@@ -33,17 +33,17 @@
 class ReflectionCaptureObject: public Object
 {
 public:
-    virtual EntityType GetType() const { return _reflection_capture_object; }
-    virtual bool Initialize();
+    EntityType GetType() const override { return _reflection_capture_object; }
+    bool Initialize() override;
 
-    virtual void Moved(Object::MoveType type);
-    virtual void Dispose();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    void Moved(Object::MoveType type) override;
+    void Dispose() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
     ReflectionCaptureObject();
-    void Draw();
-    virtual ~ReflectionCaptureObject();
-    virtual void GetDisplayName(char* buf, int buf_size);
+    void Draw() override;
+    ~ReflectionCaptureObject() override;
+    void GetDisplayName(char* buf, int buf_size) override;
 
     bool dirty;
     TextureRef cube_map_ref;

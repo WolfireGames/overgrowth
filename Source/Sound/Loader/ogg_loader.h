@@ -47,15 +47,15 @@ private:
 
 public:
     oggLoader(Path rel_path);
-    virtual ~oggLoader();
+    ~oggLoader() override;
 
-    virtual int stream_buffer_int16(char *buffer, int size);
-    virtual unsigned long get_sample_count();
-    virtual unsigned long get_channels();
-    virtual int get_sample_rate();
-    virtual int rewind();
-    virtual bool is_at_end();
+    int stream_buffer_int16(char *buffer, int size) override;
+    unsigned long get_sample_count() override;
+    unsigned long get_channels() override;
+    int get_sample_rate() override;
+    int rewind() override;
+    bool is_at_end() override;
 
-    virtual int64_t get_pcm_pos();
-    virtual void    set_pcm_pos( int64_t pos );
+    int64_t get_pcm_pos() override;
+    void    set_pcm_pos( int64_t pos ) override;
 };

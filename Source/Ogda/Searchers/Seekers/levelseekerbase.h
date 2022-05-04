@@ -28,6 +28,6 @@ class TiXmlHandle;
 
 class LevelSeekerBase : public XMLSeekerBase
 {
-    virtual std::vector<Item> SearchXML( const Item& item, TiXmlDocument& doc );
+    std::vector<Item> SearchXML( const Item& item, TiXmlDocument& doc ) override;
     virtual std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot ) = 0;
 };

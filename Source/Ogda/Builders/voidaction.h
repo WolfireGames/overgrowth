@@ -31,9 +31,9 @@ class JobHandler;
 class VoidAction : public ActionBase
 {
     public:
-        virtual ManifestResult Run(const JobHandler& jh, const Item& y);
-        virtual inline const char* GetName() const { return "void"; }
-        virtual inline const char* GetVersion() const {return "2";}
-        virtual inline bool RunEvenOnIdenticalSource() const { return true; }
-        virtual inline bool StoreResultInDatabase() const { return false; }
+        ManifestResult Run(const JobHandler& jh, const Item& y) override;
+        inline const char* GetName() const override { return "void"; }
+        inline const char* GetVersion() const override {return "2";}
+        inline bool RunEvenOnIdenticalSource() const override { return true; }
+        inline bool StoreResultInDatabase() const override { return false; }
 };

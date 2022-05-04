@@ -94,16 +94,16 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
     const string& GetSoundMod();
     const vector<MorphInfo>& GetMorphs();
     float GetHearing();
-    void ReturnPaths(PathSet &path_set);
+    void ReturnPaths(PathSet &path_set) override;
     const string & GetChannel( int which ) const;
     const string & GetTag( const string &action );
     bool GetMorphMeta(const string& label, vec3 & start, vec3 & end);
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<Character> CharacterRef;

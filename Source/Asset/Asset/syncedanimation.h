@@ -64,7 +64,7 @@ class SyncedAnimationGroup: public AnimationAsset {
         void AddAnimation( AnimationAssetRef animation, float blend_coord , float ground_speed, float run_bounce, const std::string& time_coord_label );
         void GetMatrices(float normalized_time,
                          AnimOutput &anim_output,
-                         const AnimInput &anim_input) const;
+                         const AnimInput &anim_input) const override;
         void GetMatrices(float normalized_time,
                          AnimOutput &anim_output,
                          const AnimInput &anim_input,
@@ -75,29 +75,29 @@ class SyncedAnimationGroup: public AnimationAsset {
                          float normalized_time, 
                          AnimOutput &anim_output, 
                          const AnimInput &anim_input) const;
-        float GetFrequency(const BlendMap& blendmap) const;
-        float GetGroundSpeed(const BlendMap& blendmap) const;
-        float GetPeriod(const BlendMap& blendmap) const;
-        std::vector<NormalizedAnimationEvent> GetEvents(int &anim_id, bool mirrored) const;
+        float GetFrequency(const BlendMap& blendmap) const override;
+        float GetGroundSpeed(const BlendMap& blendmap) const override;
+        float GetPeriod(const BlendMap& blendmap) const override;
+        std::vector<NormalizedAnimationEvent> GetEvents(int &anim_id, bool mirrored) const override;
         int Load(const std::string &path, uint32_t load_flags);
         const char* GetLoadErrorString();
         const char* GetLoadErrorStringExtended() { return ""; }
         void Unload();
         void Reload();
-        virtual void ReportLoad();
+        void ReportLoad() override;
         void clear();
-        int GetActiveID(const BlendMap& blendmap, int &anim_id) const;
-        bool IsLooping() const;
+        int GetActiveID(const BlendMap& blendmap, int &anim_id) const override;
+        bool IsLooping() const override;
         void CalcMirrored(bool cache, const std::string &skeleton_path);
         unsigned NearestAnimation(float blend_coord) const;
-        float AbsoluteTimeFromNormalized( float normalized_time ) const;
-        void ReturnPaths(PathSet& path_set);
+        float AbsoluteTimeFromNormalized( float normalized_time ) const override;
+        void ReturnPaths(PathSet& path_set) override;
 
         static AssetType GetType() { return SYNCED_ANIMATION_GROUP_ASSET; }
         static const char* GetTypeName() { return "SYNCED_ANIMATION_GROUP_ASSET"; }
         static bool AssetWarning() { return true; }
 
-        virtual AssetLoaderBase* NewLoader();
+        AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<SyncedAnimationGroup> SyncedAnimationGroupRef;

@@ -248,11 +248,11 @@ class CBytecodeStream : public asIBinaryStream {
 public:
     CBytecodeStream(FILE *fp) : f(fp) {}
 
-    int Write(const void *ptr, asUINT size) {
+    int Write(const void *ptr, asUINT size) override {
         if( size == 0 ) return -1;
         return fwrite(ptr, size, 1, f);
     }
-    int Read(void *ptr, asUINT size) {
+    int Read(void *ptr, asUINT size) override {
         if( size == 0 ) return - 1;
         return fread(ptr, size, 1, f);
     }

@@ -27,8 +27,8 @@
 class ObjHullSeeker : public SeekerBase
 {
 public:
-    virtual std::vector<Item> Search(const Item& item );
-    virtual const char* GetName()
+    std::vector<Item> Search(const Item& item ) override;
+    const char* GetName() override
     {
         return "objhull_seeker";
     }

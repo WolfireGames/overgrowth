@@ -311,7 +311,7 @@ public:
 
         void DrawCubeMap(TextureRef cube_map, const vec3 &pos, GLuint cube_map_fbo, SceneGraph::SceneDrawType scene_draw_type);
 
-        void ModActivationChange( const ModInstance* mod );
+        void ModActivationChange( const ModInstance* mod ) override;
 public:
         void InjectWindowResizeEvent(ivec2 size);
         void SetGameSpeed(float val, bool hard);

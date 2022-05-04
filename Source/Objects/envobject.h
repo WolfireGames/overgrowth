@@ -135,66 +135,66 @@ class EnvObject: public Object {
         list<OnlineMessageRef> incoming_online_env_update;
 
         EnvObject();
-        virtual ~EnvObject();
+        ~EnvObject() override;
 
-        virtual bool Initialize();
-        virtual void GetShaderNames(std::map<std::string, int>& shaders);
-        virtual void Update(float timestep);
+        bool Initialize() override;
+        void GetShaderNames(std::map<std::string, int>& shaders) override;
+        void Update(float timestep) override;
         void UpdateBoundingSphere();
 
 		std::string GetLabel();
 
         // Drawing
-        virtual void Draw();
+        void Draw() override;
         void DrawInstances(EnvObject** instance_array, int num_instances, const mat4& proj_view_matrix, const mat4& prev_proj_view_matrix, const std::vector<mat4>* shadow_matrix, const vec3& cam_pos, Object::DrawType type);
         bool HasDetailObjectSurfaces() const { return !detail_object_surfaces.empty(); }
         void DrawDetailObjectInstances(EnvObject** instance_array, int num_instances, Object::DrawType type);
-        virtual void PreDrawCamera(float curr_game_time);
-        void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type);
-        virtual void SetEnabled(bool val);
-        virtual void SetCollisionEnabled(bool val);
-        virtual void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args);
+        void PreDrawCamera(float curr_game_time) override;
+        void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type) override;
+        void SetEnabled(bool val) override;
+        void SetCollisionEnabled(bool val) override;
+        void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
 
         void GetObj2World(float *obj2world);
         
 		void EnvInterpolate(uint16_t pending_updates);
 
         // Line hits
-        virtual int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal=0);
+        int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal=0) override;
         
         bool UpdatePhysicsTransform();
-        virtual void GetDisplayName(char* buf, int buf_size);
+        void GetDisplayName(char* buf, int buf_size) override;
         
         void CreatePhysicsShape();
 
-        virtual void Moved(Object::MoveType type);
+        void Moved(Object::MoveType type) override;
         void RemovePhysicsShape();
         const Model* GetModel() const;
         vec3 GetBoundingBoxSize();
         void HandleMaterialEvent( const std::string &the_event, const vec3 &event_pos );
-        const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, int *tri );
-        const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, const std::string &mod, int *tri);
+        const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, int *tri ) override;
+        const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, const std::string &mod, int *tri) override;
         const MaterialDecal& GetMaterialDecal( const std::string &type, const vec3 &pos );
         const MaterialParticle& GetMaterialParticle( const std::string &type, const vec3 &pos );
-        MaterialRef GetMaterial( const vec3 &pos, int* tri = NULL );
+        MaterialRef GetMaterial( const vec3 &pos, int* tri = NULL ) override;
         void UpdateDetailScale();
         bool Load( const std::string& type_file );
-        void Reload();
+        void Reload() override;
         const vec3 &GetColorTint();
         const float& GetOverbright();
         void LoadModel();
         BulletWorld* GetBulletWorld();
         int GetCollisionModelID();
         void CreateBushPhysicsShape();
-        void ReceiveASVec3Message( int type, const vec3 &vec_a, const vec3 &vec_b );
+        void ReceiveASVec3Message( int type, const vec3 &vec_a, const vec3 &vec_b ) override;
         void CreateLeaf(vec3 pos, vec3 vel, int iterations);
-        virtual bool SetFromDesc( const EntityDescription& desc );
-        virtual void GetDesc(EntityDescription &desc) const;
-		virtual void UpdateParentHierarchy();
+        bool SetFromDesc( const EntityDescription& desc ) override;
+        void GetDesc(EntityDescription &desc) const override;
+		void UpdateParentHierarchy() override;
         void SetCSGModified();
         typedef std::vector<DetailObjectSurface*> DOSList;
     protected:
-        virtual EntityType GetType() const { return _env_object; }
+        EntityType GetType() const override { return _env_object; }
         DOSList detail_object_surfaces;
 
         vec3 GetDisplayTint();

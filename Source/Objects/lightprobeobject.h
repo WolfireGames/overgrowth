@@ -31,16 +31,16 @@
 class LightProbeObject: public Object
 {
 public:
-    virtual EntityType GetType() const { return _light_probe_object; }
-    virtual bool Initialize();
+    EntityType GetType() const override { return _light_probe_object; }
+    bool Initialize() override;
 
-    virtual void SetScriptParams( const ScriptParamMap& spm );
-    virtual void Moved(Object::MoveType type);
-    virtual void Dispose();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    void SetScriptParams( const ScriptParamMap& spm ) override;
+    void Moved(Object::MoveType type) override;
+    void Dispose() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
     LightProbeObject();
-    virtual ~LightProbeObject();
+    ~LightProbeObject() override;
 private:
     int probe_id_;
     float *stored_coefficients;

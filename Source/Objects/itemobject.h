@@ -54,31 +54,31 @@ class ItemObjectBloodSurfaceTransformedVertexGetter : public BloodSurface::Trans
 public:
     ItemObjectBloodSurfaceTransformedVertexGetter(ItemObject* p_item_object):
         item_object(p_item_object) {}
-    virtual vec3 GetTransformedVertex(int val);
+    vec3 GetTransformedVertex(int val) override;
 private:
     ItemObject* item_object;
 };
 
 class ItemObject: public Object {
 public:
-    virtual EntityType GetType() const { return _item_object; }
+    EntityType GetType() const override { return _item_object; }
     enum ItemState {
         kWielded, kSheathed, kFree
     };
     
     ItemObject();
-    virtual ~ItemObject();
+    ~ItemObject() override;
     
     void Load(const std::string &item_path);
-    void GetShaderNames(std::map<std::string, int>& preload_shaders);
+    void GetShaderNames(std::map<std::string, int>& preload_shaders) override;
 
-    virtual bool Initialize();
-    virtual void Update(float timestep);
-    virtual void Draw();
-    virtual void PreDrawFrame(float curr_game_time);
-    virtual bool ConnectTo(Object& other, bool checking_other = false);
+    bool Initialize() override;
+    void Update(float timestep) override;
+    void Draw() override;
+    void PreDrawFrame(float curr_game_time) override;
+    bool ConnectTo(Object& other, bool checking_other = false) override;
     virtual bool Disconnect(Object& other, bool checking_other = false);
-    virtual void Moved(Object::MoveType type);
+    void Moved(Object::MoveType type) override;
 
     int model_id() const;
     const ItemRef& item_ref() const;
@@ -114,20 +114,20 @@ public:
     
 	mat4 GetTransform() const; // Returns final transform matix, used in multiplayer
 
-    void Collided( const vec3& pos, float impulse, const CollideInfo &collide_info, BulletObject* object );
-    void GetDesc(EntityDescription &desc) const;
+    void Collided( const vec3& pos, float impulse, const CollideInfo &collide_info, BulletObject* object ) override;
+    void GetDesc(EntityDescription &desc) const override;
     void AddBloodDecal( vec3 pos, vec3 dir, float size );
     void CleanBlood();
-    void Reset();
-    virtual void Dispose();
+    void Reset() override;
+    void Dispose() override;
     void SetHolderID( int char_id );
     void SetThrown();
     void SetThrownStraight();
     void SetState(ItemState state);
     ScriptParams* ASGetScriptParams();
     int HeldByWhom();
-    virtual void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args);
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
     const vec3 & GetColorTint();
     const float& GetOverbright();
     bool CheckThrownSafe() const;
@@ -210,7 +210,7 @@ private:
 
     TimeInterpolator network_time_interpolator;
     
-    virtual void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type);
+    void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type) override;
     virtual void HandleMaterialEvent(const std::string &the_event, const vec3& normal, const vec3 &event_pos, float gain = 1.0f, float pitch_shift = 1.0f);
     
     void MakeBulletObject();

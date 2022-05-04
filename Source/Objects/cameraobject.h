@@ -73,19 +73,19 @@ class CameraObject: public Object {
             exclude_from_undo = true;
         }
 
-        virtual ~CameraObject();
+        ~CameraObject() override;
         
-        virtual EntityType GetType() const {return _camera_type;}
+        EntityType GetType() const override {return _camera_type;}
         
         void saveStateToFile(FILE *);
-        void Update(float timestep);
-		virtual void Reload();
-		void Draw();
-        virtual void GetDisplayName(char* buf, int buf_size);
+        void Update(float timestep) override;
+		void Reload() override;
+		void Draw() override;
+        void GetDisplayName(char* buf, int buf_size) override;
         
         virtual void IgnoreInput(bool val) {}
         virtual void IgnoreMouseInput(bool val) {}
-        bool Initialize();
+        bool Initialize() override;
         vec3 GetMouseRay();
 
         void FrameSelection(bool v);
