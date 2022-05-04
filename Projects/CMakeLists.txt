@@ -911,7 +911,7 @@ ENDIF()
 
 ADD_DEFINITIONS(-DUNIT_TESTS)
 
-FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
+SET(OVERGROWTH_INTERNAL_SRCS
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_StereoProjection.cpp
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_CAPI_Util.cpp
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_CAPIShim.c
@@ -924,14 +924,11 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/error.cpp
     ${SRCDIR}/Internal/hardware_specs.cpp
     ${SRCDIR}/Internal/memwrite.cpp
-    ${SRCDIR}/Internal/pathUtility.cpp
     ${SRCDIR}/Internal/stopwatch.cpp
     ${SRCDIR}/Internal/textfile.cpp
     ${SRCDIR}/Internal/timer.cpp
     ${SRCDIR}/Internal/treestructure.cpp
-    ${SRCDIR}/Internal/log.cpp
     ${SRCDIR}/Internal/cachefile.cpp
-    ${SRCDIR}/Internal/debugtext.cpp
     ${SRCDIR}/Internal/varstring.cpp
     ${SRCDIR}/Internal/levelxml.cpp
     ${SRCDIR}/Internal/levelxml_script.cpp
@@ -944,31 +941,24 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/config.h
     ${SRCDIR}/Internal/crashreport.h
     ${SRCDIR}/Internal/datemodified.h
-    ${SRCDIR}/Internal/debugtext.h
     ${SRCDIR}/Internal/dialogues.h
-    ${SRCDIR}/Internal/disallow_copy_and_assign.h
     ${SRCDIR}/Internal/error.h
     ${SRCDIR}/Internal/file_descriptor.h
     ${SRCDIR}/Internal/hardware_specs.h
     ${SRCDIR}/Internal/integer.h
     ${SRCDIR}/Internal/levelxml.h
     ${SRCDIR}/Internal/levelxml_script.h
-    ${SRCDIR}/Internal/log.h
     ${SRCDIR}/Internal/memwrite.h
     ${SRCDIR}/Internal/message.h
     ${SRCDIR}/Internal/path_set.h
-    ${SRCDIR}/Internal/pathUtility.h
     ${SRCDIR}/Internal/returnpathutil.h
     ${SRCDIR}/Internal/scoped_buffer.h
     ${SRCDIR}/Internal/SIMD.h
-    ${SRCDIR}/Internal/stlaux.h
     ${SRCDIR}/Internal/stopwatch.h
     ${SRCDIR}/Internal/textfile.h
     ${SRCDIR}/Internal/timer.h
     ${SRCDIR}/Internal/treestructure.h
-    ${SRCDIR}/Internal/utf8.h
     ${SRCDIR}/Internal/varstring.h
-    ${SRCDIR}/Internal/writedir.h
     ${SRCDIR}/Internal/cachefile.h
     ${SRCDIR}/Internal/callstack.h
     ${SRCDIR}/Internal/casecorrectpath.h
@@ -976,10 +966,6 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/collisiondetection.h
     ${SRCDIR}/Internal/win_mem_track.h
     ${SRCDIR}/Internal/win_mem_track.cpp
-    ${SRCDIR}/Internal/stack_allocator.h
-    ${SRCDIR}/Internal/stack_allocator.cpp
-    ${SRCDIR}/Internal/block_allocator.cpp
-    ${SRCDIR}/Internal/block_allocator.h
     ${SRCDIR}/Internal/common.h
     ${SRCDIR}/Internal/common.cpp
     ${SRCDIR}/Internal/profiler.h
@@ -990,12 +976,6 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/modloading.h
     ${SRCDIR}/Internal/modid.cpp
     ${SRCDIR}/Internal/modid.h
-    ${SRCDIR}/Internal/engineeventcallbacks.cpp
-    ${SRCDIR}/Internal/engineeventcallbacks.h
-    ${SRCDIR}/Internal/engineeventconfiglistener.cpp
-    ${SRCDIR}/Internal/engineeventconfiglistener.h
-    ${SRCDIR}/Internal/allocation.cpp
-    ${SRCDIR}/Internal/allocation.h
     ${SRCDIR}/Internal/detect_settings.cpp
     ${SRCDIR}/Internal/detect_settings.h
     ${SRCDIR}/Internal/spawneritem.cpp
