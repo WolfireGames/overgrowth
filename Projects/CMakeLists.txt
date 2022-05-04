@@ -763,10 +763,8 @@ ENDIF()
 
 include(SourceUtils)
 
-ADD_LIBRARY( logging STATIC
-    ${LOGGING_SRCS}
-)
-target_add_grouped_source(logging Logging)
+ADD_LIBRARY( OgLogging STATIC)
+target_add_grouped_source(OgLogging Logging)
 
 IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
     FILE(GLOB OGDA_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
@@ -878,10 +876,10 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
     ADD_EXECUTABLE(Ogda ${SRCDIR}/Version/git_version.cpp ${OGDA_SRCS} )
 
     TARGET_LINK_LIBRARIES(Ogda
+        OgLogging
         tinyxml
         trex
         murmurhash3
-        logging
         freeimage
         pthread
         crnlib
@@ -1159,10 +1157,6 @@ SET(OVERGROWTHWORKER_SRCS
     ${SRCDIR}/Internal/modid.cpp
     ${SRCDIR}/Graphics/converttexture.cpp
     ${SRCDIR}/Internal/casecorrectpath.cpp
-    ${SRCDIR}/Logging/consolehandler.cpp
-    ${SRCDIR}/Logging/filehandler.cpp
-    ${SRCDIR}/Logging/logdata.cpp
-    ${SRCDIR}/Logging/loghandler.cpp
     ${SRCDIR}/Utility/strings.cpp
     ${SRCDIR}/Memory/allocation.cpp
     ${SRCDIR}/Memory/blockallocation.cpp
@@ -1213,10 +1207,10 @@ IF(BUILD_OVERGROWTH)
     )
 
     TARGET_LINK_LIBRARIES(OvergrowthWorker
+        OgLogging
         freeimage
         tinyxml
         trex
-        logging
         glad
         crnlib
     )
@@ -1437,7 +1431,7 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET HACD                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET LinearMath              PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET crnlib                  PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
-    SET_PROPERTY(TARGET logging                 PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
+    SET_PROPERTY(TARGET OgLogging               PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET OvergrowthWorker        PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
 
     IF(APPLE)
@@ -1448,6 +1442,7 @@ IF(BUILD_OVERGROWTH)
     ENDIF()
 
     TARGET_LINK_LIBRARIES(Overgrowth
+        OgLogging
         BulletDynamics
         BulletCollision
         BulletWorldImporter
@@ -1464,7 +1459,6 @@ IF(BUILD_OVERGROWTH)
         imgui
         tinyxml
         trex
-        logging
         Recast
         DetourCrowd
         DetourTileCache
