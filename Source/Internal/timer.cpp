@@ -185,7 +185,7 @@ Timer::Timer():
 	last_tick(0),
     wall_time(0)
 {
-    for(unsigned long & i : frame){
-        i=0;
+    for (auto& i : frame) {
+        i = 0;
     }
 }

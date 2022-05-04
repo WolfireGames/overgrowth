@@ -101,7 +101,7 @@ uintptr_t StackAllocator::TopBlockSize() {
 }
 
 void StackAllocator::Init(void* p_mem, size_t p_size) {
-    for (unsigned long & stack_block_pt : stack_block_pts) {
+    for (auto & stack_block_pt : stack_block_pts) {
         stack_block_pt = 0;
     }
     mem = p_mem;
@@ -110,7 +110,7 @@ void StackAllocator::Init(void* p_mem, size_t p_size) {
 }
 
 void StackAllocator::Dispose() {
-    for (unsigned long & stack_block_pt : stack_block_pts) {
+    for (auto & stack_block_pt : stack_block_pts) {
         stack_block_pt = 0;
     }
     mem = 0;
