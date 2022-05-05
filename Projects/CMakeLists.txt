@@ -766,6 +766,43 @@ include(SourceUtils)
 ADD_LIBRARY( OgLogging STATIC)
 target_add_grouped_source(OgLogging Logging)
 
+ADD_LIBRARY( OgCompat STATIC
+    ${SRCDIR}/Compat/compat.h
+    ${SRCDIR}/Compat/fileio.cpp
+    ${SRCDIR}/Compat/fileio.h 
+    ${SRCDIR}/Compat/filepath.h  
+)
+
+IF(UNIX)
+    TARGET_SOURCES(OgCompat PRIVATE
+        ${SRCDIR}/Compat/UNIX/unix_filepath.cpp
+        ${SRCDIR}/Compat/UNIX/unix_compat.cpp
+        ${SRCDIR}/Compat/UNIX/unix_compat.h
+    )
+ENDIF()
+
+IF(LINUX)
+    TARGET_SOURCES(OgCompat PRIVATE
+        ${SRCDIR}/Compat/Linux/linux_compat.cpp
+        ${SRCDIR}/Compat/Linux/linux_compat.h
+    )
+ENDIF()
+
+IF(APPLE)
+    TARGET_SOURCES(OgCompat PRIVATE
+        ${SRCDIR}/Compat/Mac/mac_compat.mm
+        ${SRCDIR}/Compat/Mac/mac_compat.h
+    )
+ENDIF()
+
+IF(WIN32)
+    TARGET_SOURCES(OgCompat PRIVATE
+        ${SRCDIR}/Compat/Win/win_compat.cpp 
+        ${SRCDIR}/Compat/Win/win_compat.h
+        ${SRCDIR}/Compat/Win/win_filepath.cpp
+    )
+ENDIF()
+
 IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
     FILE(GLOB OGDA_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
         ${SRCDIR}/Threading/thread_sanity.cpp
@@ -829,53 +866,24 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
         ${SRCDIR}/JSON/*.h
         ${SRCDIR}/Memory/*.cpp
         ${SRCDIR}/Memory/*.h
-
-        ${SRCDIR}/Compat/fileio.cpp
-        ${SRCDIR}/Compat/fileio.h
     )
 
-    IF(UNIX)
-        LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/UNIX/unix_compat.cpp
-            ${SRCDIR}/Compat/UNIX/unix_compat.h
-        )
-    ENDIF()
-
-    IF(LINUX)
-        LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/Linux/linux_compat.cpp
-            ${SRCDIR}/Compat/Linux/linux_compat.h
-        )
-    ENDIF()
-        
-
-    IF(APPLE)
-        LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/Mac/mac_compat.mm
-            ${SRCDIR}/Compat/Mac/mac_compat.h
-        )
-    ENDIF()
-
     IF(WIN32)
-	LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/Win/win_compat.cpp 
-	    ${SRCDIR}/Compat/Win/win_compat.h
-	)
-		
-	IF(MSVC_VERSION LESS 1911)
-	    LIST(APPEND OGDA_SRCS ${SRCDIR}/Internal/snprintf.c)
-	ENDIF()
+        IF(MSVC_VERSION LESS 1911)
+            LIST(APPEND OGDA_SRCS ${SRCDIR}/Internal/snprintf.c)
+        ENDIF()
 
-	IF(ENABLE_RAD_TELEMETRY)
-	    LIST(APPEND OGDA_SRCS
-	        ${PLIBDIR}/Telemetry2SDKWin32_20P3/src/gpu/gpu_opengl.cpp
-	    )
-	ENDIF()
+        IF(ENABLE_RAD_TELEMETRY)
+            LIST(APPEND OGDA_SRCS
+                ${PLIBDIR}/Telemetry2SDKWin32_20P3/src/gpu/gpu_opengl.cpp
+            )
+        ENDIF()
     ENDIF()
 
     ADD_EXECUTABLE(Ogda ${SRCDIR}/Version/git_version.cpp ${OGDA_SRCS} )
 
     TARGET_LINK_LIBRARIES(Ogda
+        OgCompat
         OgLogging
         tinyxml
         trex
@@ -885,23 +893,6 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
         crnlib
         glad
     )
-
-    IF(WIN32)
-        TARGET_LINK_LIBRARIES(Ogda
-        )
-    ENDIF()
-
-    IF(APPLE)
-        TARGET_LINK_LIBRARIES(Ogda
-        )
-    ENDIF()
-
-    IF(LINUX)
-        TARGET_LINK_LIBRARIES(Ogda
-	    #nvcore nvmath nvimage squish posh
-            dl #needed by nvcore
-        )
-    ENDIF()
 
     SET_TARGET_PROPERTIES(Ogda PROPERTIES
         COMPILE_DEFINITIONS OGDA=1
@@ -987,33 +978,19 @@ SET(OVERGROWTH_INTERNAL_SRCS
     ${SRCDIR}/Internal/locale.cpp
     ${SRCDIR}/Internal/locale.h
 
-    ${SRCDIR}/Compat/compat.h
-    ${SRCDIR}/Compat/filepath.h
     ${SRCDIR}/Compat/hardware_info.h
     ${SRCDIR}/Compat/time.cpp
     ${SRCDIR}/Compat/time.h
     ${SRCDIR}/Compat/os_dialogs.h
-    ${SRCDIR}/Compat/fileio.cpp
-    ${SRCDIR}/Compat/fileio.h
     ${SRCDIR}/Compat/platformsetup.cpp
     ${SRCDIR}/Compat/platformsetup.h
     ${SRCDIR}/Compat/processpool.cpp
     ${SRCDIR}/Compat/processpool.h
 )
 
-IF(UNIX)
-    LIST(APPEND OVERGROWTH_INTERNAL_SRCS 
-        ${SRCDIR}/Compat/UNIX/unix_filepath.cpp
-        ${SRCDIR}/Compat/UNIX/unix_compat.cpp
-        ${SRCDIR}/Compat/UNIX/unix_compat.h
-    )
-ENDIF()
-
 IF(LINUX)
     LIST(APPEND OVERGROWTH_INTERNAL_SRCS 
         ${SRCDIR}/Compat/Linux/os_dialogs_linux.cpp
-        ${SRCDIR}/Compat/Linux/linux_compat.cpp
-        ${SRCDIR}/Compat/Linux/linux_compat.h
         ${SRCDIR}/Compat/Linux/linux_hardware_info.cpp
     )
 ENDIF()
@@ -1024,8 +1001,6 @@ IF(APPLE)
         ${SRCDIR}/Compat/Mac/os_dialogs_mac.mm
         ${SRCDIR}/Compat/Mac/os_file_dialogs_mac.mm
         ${SRCDIR}/Compat/Mac/os_file_dialogs_mac.h
-        ${SRCDIR}/Compat/Mac/mac_compat.mm
-        ${SRCDIR}/Compat/Mac/mac_compat.h
         ${SRCDIR}/Compat/Mac/mac_hardware_info.cpp
     )
 ENDIF()
@@ -1034,8 +1009,6 @@ IF(WIN32)
 	LIST(APPEND OVERGROWTH_INTERNAL_SRCS 
             ${SRCDIR}/Compat/Win/os_dialogs_win.cpp
             ${SRCDIR}/Compat/Win/win_filepath.cpp
-            ${SRCDIR}/Compat/Win/win_compat.cpp 
-            ${SRCDIR}/Compat/Win/win_compat.h
             ${SRCDIR}/Compat/Win/win_hardware_info.cpp
 	)
 
@@ -1145,40 +1118,17 @@ SET(OVERGROWTHWORKER_SRCS
     ${SRCDIR}/Memory/bitarray.cpp
     ${SRCDIR}/Threading/thread_sanity.cpp
     ${SRCDIR}/Compat/filepath.h
-    ${SRCDIR}/Compat/fileio.cpp
-    ${SRCDIR}/Compat/fileio.h
     ${SRCDIR}/Compat/processpool.cpp
     ${SRCDIR}/Compat/processpool.h
 )
 
-IF(UNIX)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/UNIX/unix_compat.cpp)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/UNIX/unix_compat.h)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/UNIX/unix_filepath.cpp)
-ENDIF()
-
-IF(APPLE)
-    LIST(APPEND OVERGROWTHWORKER_SRCS
-        ${SRCDIR}/Compat/Mac/mac_compat.mm
-        ${SRCDIR}/Compat/Mac/mac_compat.h
-    )
-ENDIF()
-
-IF(LINUX)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Linux/linux_compat.cpp)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Linux/linux_compat.h)
-ENDIF()
-
 IF(WIN32)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Win/win_compat.cpp)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Win/win_compat.h)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Win/win_filepath.cpp)
     SET(WIN_RESOURCE_FILE icon.rc)
 ENDIF()
 
 IF(BUILD_OVERGROWTH)
     
-    ADD_EXECUTABLE(OvergrowthWorker ${OVERGROWTHWORKER_SRCS}  ${WIN_RESOURCE_FILE})
+    ADD_EXECUTABLE(OvergrowthWorker ${OVERGROWTHWORKER_SRCS} ${WIN_RESOURCE_FILE})
     SET_TARGET_PROPERTIES(OvergrowthWorker PROPERTIES
         OUTPUT_NAME ${OVERGROWTH_WORKER_OUTPUT_NAME}
         COMPILE_FLAGS ${SSE_FLAGS}
@@ -1187,6 +1137,7 @@ IF(BUILD_OVERGROWTH)
     )
 
     TARGET_LINK_LIBRARIES(OvergrowthWorker
+        OgCompat
         OgLogging
         freeimage
         tinyxml
@@ -1411,7 +1362,6 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET HACD                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET LinearMath              PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET crnlib                  PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
-    SET_PROPERTY(TARGET OgLogging               PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET OvergrowthWorker        PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
 
     IF(APPLE)
@@ -1422,6 +1372,7 @@ IF(BUILD_OVERGROWTH)
     ENDIF()
 
     TARGET_LINK_LIBRARIES(Overgrowth
+        OgCompat
         OgLogging
         BulletDynamics
         BulletCollision
