@@ -39,17 +39,17 @@ ASProfiler::ASProfiler()
 {}
 
 ASProfiler::~ASProfiler() {
-    for(size_t i = 0; i < zone_times.size(); ++i)
-        DeleteZone(zone_times[i]);
+    for(auto & zone_time : zone_times)
+        DeleteZone(zone_time);
 }
 
 void ASProfiler::Update() {
     if(window_counter == kMaxWindowSize) {
-        for(size_t i = 0; i < zone_times.size(); ++i) { 
-            MoveForward(zone_times[i]);
+        for(auto & zone_time : zone_times) { 
+            MoveForward(zone_time);
         }
-        for(size_t i = 0; i < script_function_times.size(); ++i) { 
-            MoveForward(&script_function_times[i]);
+        for(auto & script_function_time : script_function_times) { 
+            MoveForward(&script_function_time);
         }
         window_counter = 0;
     } else {
@@ -70,20 +70,20 @@ void ASProfiler::Draw() {
     }
 
     uint64_t zone_time = 0;
-    for(size_t i = 0; i < zone_times.size(); ++i) { 
-        zone_time += zone_times[i]->times.back();
+    for(auto & i : zone_times) { 
+        zone_time += i->times.back();
     }
 
     sprintf(buffer, "%s: %f###%p", context->current_script.GetOriginalPath(), zone_time * 0.001f, (void*)context);
     if(ImGui::TreeNode(buffer)) {
-        for(size_t i = 0; i < script_function_times.size(); ++i) {
-            ZoneTime* zone = &script_function_times[i];
+        for(auto & script_function_time : script_function_times) {
+            ZoneTime* zone = &script_function_time;
             ImGui::Text("%s", zone->name.c_str());
             ImGui::PlotHistogram("", &TimeGetter, zone->times.data(), kTimeHistorySize, 0, NULL, 0.0f, 5000.0f, ImVec2(0,40));
         }
             
-        for(size_t i = 0; i < zone_times.size(); ++i) {
-            DrawZone(zone_times[i]);
+        for(auto & zone_time : zone_times) {
+            DrawZone(zone_time);
         }
         ImGui::TreePop();
     }
@@ -91,8 +91,8 @@ void ASProfiler::Draw() {
 
 void ASProfiler::AddContext(ASContext* context) {
     bool add = true;
-    for(size_t i = 0; i < active_contexts.size(); ++i) {
-        if(active_contexts[i] == context) {
+    for(auto & active_context : active_contexts) {
+        if(active_context == context) {
             add = false;
             break;
         }
@@ -125,9 +125,9 @@ void ASProfiler::ASEnterTelemetryZone( const std::string& str ) {
 
     bool found = false;
     if(active_zone == NULL) {
-        for(size_t i = 0; i < zone_times.size(); ++i) {
-            if(zone_times[i]->name == str) {
-                active_zone = zone_times[i];
+        for(auto & zone_time : zone_times) {
+            if(zone_time->name == str) {
+                active_zone = zone_time;
                 found = true;
                 break;
             }
@@ -143,9 +143,9 @@ void ASProfiler::ASEnterTelemetryZone( const std::string& str ) {
             active_zone = zone_times.back();
         }
     } else {
-        for(size_t i = 0; i < active_zone->children.size(); ++i) {
-            if(active_zone->children[i]->name == str) {
-                active_zone = active_zone->children[i];
+        for(auto & i : active_zone->children) {
+            if(i->name == str) {
+                active_zone = i;
                 found = true;
                 break;
             }
@@ -190,9 +190,9 @@ void ASProfiler::CallScriptFunction(const char* str) {
         return;
 
     ZoneTime* zone = NULL;
-    for(size_t i = 0; i < script_function_times.size(); ++i) {
-        if(strcmp(script_function_times[i].name.c_str(), str) == 0) {
-            zone = &script_function_times[i];
+    for(auto & script_function_time : script_function_times) {
+        if(strcmp(script_function_time.name.c_str(), str) == 0) {
+            zone = &script_function_time;
             break;
         }
     }
@@ -225,8 +225,8 @@ void ASProfiler::LeaveScriptFunction() {
 }
 
 void ASProfiler::DeleteZone(ZoneTime* zone) {
-    for(size_t i = 0; i < zone->children.size(); ++i) {
-        DeleteZone(zone->children[i]);
+    for(auto & i : zone->children) {
+        DeleteZone(i);
     }
 
     delete zone;
@@ -236,8 +236,8 @@ void ASProfiler::MoveForward(ZoneTime* zone) {
     memmove(zone->times.data(), zone->times.data() + 1, sizeof(uint64_t) * (kTimeHistorySize - 1));
     zone->times[kTimeHistorySize - 1] = 0;
 
-    for(size_t i = 0; i < zone->children.size(); ++i) {
-        MoveForward(zone->children[i]);
+    for(auto & i : zone->children) {
+        MoveForward(i);
     }
 }
 
@@ -247,8 +247,8 @@ void ASProfiler::DrawZone(ZoneTime* zone) {
     sprintf(buffer, "%s: %f###%d", zone->name.c_str(), zone_time * 0.001f, zone->id);
     if(ImGui::TreeNode(buffer)) {
         ImGui::PlotHistogram("", &TimeGetter, zone->times.data(), kTimeHistorySize, 0, NULL, 0.0f, 5000.0f, ImVec2(0,40));
-        for(size_t i = 0; i < zone->children.size(); ++i) { 
-            DrawZone(zone->children[i]);
+        for(auto & i : zone->children) { 
+            DrawZone(i);
         }
         ImGui::TreePop();
     }

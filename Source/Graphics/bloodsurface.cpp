@@ -310,8 +310,8 @@ void BloodSurface::Update(SceneGraph *scenegraph, float timestep, bool force_upd
             }
 
             PROFILER_ENTER(g_profiler_ctx, "Fill blood_points in Update texture");
-            for(std::vector<WalkLine>::iterator iter = trace[i].begin(); iter != trace[i].end(); ++iter) {
-                const int face_index = (*iter).tri*3;
+            for(auto & iter : trace[i]) {
+                const int face_index = iter.tri*3;
                 vec2 tex_coords[3];
                 for(int i=0; i<3; ++i){
                     int index = model->faces[face_index+i]*2;
@@ -320,12 +320,12 @@ void BloodSurface::Update(SceneGraph *scenegraph, float timestep, bool force_upd
                     }
                 }
 
-                const vec3 &start = (*iter).start;
+                const vec3 &start = iter.start;
                 vec2 start_uv = tex_coords[0] * start[0] +
                     tex_coords[1] * start[1] +
                     tex_coords[2] * start[2];
 
-                const vec3 &end = (*iter).end;
+                const vec3 &end = iter.end;
                 vec2 end_uv = tex_coords[0] * end[0] +
                     tex_coords[1] * end[1] +
                     tex_coords[2] * end[2];
@@ -341,17 +341,15 @@ void BloodSurface::Update(SceneGraph *scenegraph, float timestep, bool force_upd
             }
             if(i==0){
                 blood_points.reserve(blood_points.size()+cut_lines.size()*40);
-                for(std::vector<CutLine>::iterator iter = cut_lines.begin();
-                    iter != cut_lines.end();
-                    ++iter)
+                for(auto & cut_line : cut_lines)
                 {
                     for(unsigned i=0; i<10; ++i){
                         vec2 test_offset(RangedRandomFloat(-ts,ts),
                             RangedRandomFloat(-ts,ts));
-                        blood_points.push_back(iter->start[0]+test_offset[0]);
-                        blood_points.push_back(iter->start[1]+test_offset[1]);
-                        blood_points.push_back(iter->end[0]+test_offset[0]);
-                        blood_points.push_back(iter->end[1]+test_offset[1]);
+                        blood_points.push_back(cut_line.start[0]+test_offset[0]);
+                        blood_points.push_back(cut_line.start[1]+test_offset[1]);
+                        blood_points.push_back(cut_line.end[0]+test_offset[0]);
+                        blood_points.push_back(cut_line.end[1]+test_offset[1]);
                     }
                 }
                 cut_lines.clear();

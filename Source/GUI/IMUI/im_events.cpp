@@ -41,13 +41,13 @@ void IMEvents::DeRegisterListener( IMEventListener *listener ) {
 }
 
 void IMEvents::TriggerDestroyed(IMElement* elem) {
-    for( unsigned i = 0; i < listeners.size(); i++ ) {
-        listeners[i]->DestroyedIMElement(elem);
+    for(auto & listener : listeners) {
+        listener->DestroyedIMElement(elem);
     }
 }
 
 void IMEvents::TriggerDestroyed(IMGUI* imgui) { 
-    for( unsigned i = 0; i < listeners.size(); i++ ) {
-        listeners[i]->DestroyedIMGUI(imgui);
+    for(auto & listener : listeners) {
+        listener->DestroyedIMGUI(imgui);
     }
 }

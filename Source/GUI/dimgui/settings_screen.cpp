@@ -300,8 +300,8 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
         dropdown_item = 0;
         for(int i=0; i<3; ++i){
             Config::Map& map = global_settings[i].map_;
-            for(Config::Map::iterator iter = map.begin(); iter != map.end(); ++iter ){
-                if(config.GetRef(iter->first) != iter->second.data){
+            for(auto & iter : map){
+                if(config.GetRef(iter.first) != iter.second.data){
                     dropdown_item = i + 1;
                     break;
                 }
@@ -320,8 +320,8 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
             if(dropdown_item != 0){
                 int curr_global_setting = dropdown_item-1;
                 Config::Map& map = global_settings[curr_global_setting].map_;
-                for(Config::Map::iterator iter = map.begin(); iter != map.end(); ++iter ){
-                    config.GetRef(iter->first) = iter->second.data;
+                for(auto & iter : map){
+                    config.GetRef(iter.first) = iter.second.data;
                 }
                 UpdateMultisampleSetting(config.GetRef("multisample").toNumber<int>());
                 UpdateAnisotropy(config.GetRef("anisotropy").toNumber<int>());
@@ -1129,8 +1129,7 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
         if (ImGui::BeginMenu("Campaign Progress (Dangerous)")) {
             if(ImGui::Button("Unlock all campaign levels")){
                 std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
-                for( size_t i = 0; i < campaigns.size(); i++ ) {
-                    ModInstance::Campaign camp = campaigns[i];
+                for(auto camp : campaigns) {
                     SavedLevel& s = Engine::Instance()->save_file_.GetSave(camp.id.str(),"linear_campaign","");
                     for( size_t k = 0; k < camp.levels.size(); k++ ) {
                         s.SetArrayValue("unlocked_levels",k,camp.levels[k].id.str());
@@ -1141,8 +1140,7 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
 
             if(ImGui::BeginMenu("Unlock level in campaign")) {
                 std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
-                for( size_t i = 0; i < campaigns.size(); i++ ) {
-                    ModInstance::Campaign camp = campaigns[i];
+                for(auto camp : campaigns) {
                     if(ImGui::BeginMenu(camp.title.c_str())) {
                         for( size_t k = 0; k < camp.levels.size(); k++ ) {
                             if(ImGui::Button(camp.levels[k].title.c_str())) {
@@ -1159,8 +1157,7 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
 
             if(ImGui::Button("Clear all campaign progress")){
                 std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
-                for( size_t i = 0; i < campaigns.size(); i++ ) {
-                    ModInstance::Campaign camp = campaigns[i];
+                for(auto camp : campaigns) {
                     SavedLevel& s = Engine::Instance()->save_file_.GetSave(camp.id.str(),"linear_campaign","");
                     s.ClearData();
                 }
@@ -1170,15 +1167,14 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
             std::vector<std::string> difficulties = config.GetDifficultyPresets();
 
             if(ImGui::BeginMenu("Finish All Levels On Difficulty")) {
-                for( size_t k = 0; k < difficulties.size(); k++ ) {
-                    if( ImGui::Button(difficulties[k].c_str())) {
+                for(auto & difficulty : difficulties) {
+                    if( ImGui::Button(difficulty.c_str())) {
                         std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
-                        for( size_t i = 0; i < campaigns.size(); i++ ) {
-                            ModInstance::Campaign camp = campaigns[i];
+                        for(auto camp : campaigns) {
                             for( size_t j = 0; j < camp.levels.size(); j++ ) {
                                 SavedLevel& s = Engine::Instance()->save_file_.GetSave(camp.id.str(),"linear_campaign",camp.levels[j].id.str());
-                                if( false == s.ArrayContainsValue("finished_difficulties",difficulties[k]) ) {
-                                    s.AppendArrayValue("finished_difficulties",difficulties[k]);
+                                if( false == s.ArrayContainsValue("finished_difficulties",difficulty) ) {
+                                    s.AppendArrayValue("finished_difficulties",difficulty);
                                 }
                             }
                         }
@@ -1190,17 +1186,16 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
 
             if(ImGui::BeginMenu("Finish Level On Difficulty")) {
                 std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
-                for( size_t i = 0; i < campaigns.size(); i++ ) {
-                    ModInstance::Campaign camp = campaigns[i];
+                for(auto camp : campaigns) {
                     if(ImGui::BeginMenu(camp.title)) {
                         for( size_t j = 0; j < camp.levels.size(); j++ ) {
                             ModInstance::Level level = camp.levels[j];
                             if(ImGui::BeginMenu(level.title)) {
-                                for( size_t k = 0; k < difficulties.size(); k++ ) {
-                                    if( ImGui::Button(difficulties[k].c_str())) {
+                                for(auto & difficulty : difficulties) {
+                                    if( ImGui::Button(difficulty.c_str())) {
                                         SavedLevel& s = Engine::Instance()->save_file_.GetSave(camp.id.str(),"linear_campaign",level.id.str());
-                                        if( false == s.ArrayContainsValue("finished_difficulties",difficulties[k]) ) {
-                                            s.AppendArrayValue("finished_difficulties",difficulties[k]);
+                                        if( false == s.ArrayContainsValue("finished_difficulties",difficulty) ) {
+                                            s.AppendArrayValue("finished_difficulties",difficulty);
                                         }
                                         Engine::Instance()->save_file_.QueueWriteInPlace();
                                     }
@@ -1216,8 +1211,7 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
 
             if(ImGui::Button("Clear All Linear Level Data")) {
                 std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
-                for( size_t i = 0; i < campaigns.size(); i++ ) {
-                    ModInstance::Campaign camp = campaigns[i];
+                for(auto camp : campaigns) {
                     for( size_t j = 0; j < camp.levels.size(); j++ ) {
                         SavedLevel& s = Engine::Instance()->save_file_.GetSave(camp.id.str(),"linear_campaign",camp.levels[j].id.str());
                         s.ClearData();
@@ -1228,8 +1222,7 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type){
 
             if(ImGui::BeginMenu("Clear Save Data For Level")) {
                 std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
-                for( size_t i = 0; i < campaigns.size(); i++ ) {
-                    ModInstance::Campaign camp = campaigns[i];
+                for(auto camp : campaigns) {
                     if(ImGui::BeginMenu(camp.title)) {
                         for( size_t j = 0; j < camp.levels.size(); j++ ) {
                             ModInstance::Level level = camp.levels[j];

@@ -36,9 +36,9 @@ void ReactionScriptGetter::Load( std::string _path ) {
     } else {
         mirror = false;
     }
-    for(unsigned i=0; i<items.size(); ++i){
-        if(items[i]->HasReactionOverride(path)){
-            path = items[i]->GetReactionOverride(path);
+    for(auto & item : items){
+        if(item->HasReactionOverride(path)){
+            path = item->GetReactionOverride(path);
         }
     }
     //reaction_ref = Reactions::Instance()->ReturnRef(path);

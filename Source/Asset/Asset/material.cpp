@@ -212,10 +212,9 @@ void Material::ReturnPaths( PathSet & path_set )
         iter != event_map.end(); ++iter)
     {
         const std::map<std::string, MaterialEvent> &inner_map = iter->second;
-        for(std::map<std::string, MaterialEvent>::const_iterator iter2 = inner_map.begin();
-            iter2 != inner_map.end(); ++iter2)
+        for(const auto & pair : inner_map)
         {
-            const MaterialEvent &me = iter2 ->second;
+            const MaterialEvent &me = pair.second;
             if(!me.soundgroup.empty()){
                 //SoundGroupInfoCollection::Instance()->ReturnRef(me.soundgroup)->ReturnPaths(path_set);
                 Engine::Instance()->GetAssetManager()->LoadSync<SoundGroupInfo>(me.soundgroup)->ReturnPaths(path_set);

@@ -1112,9 +1112,9 @@ void alAudio::streamerLink::update(float timestep, unsigned int current_tick)
 
     std::vector<rc_alAudioBuffer> buffers = m_source->DequeueBuffers();
 
-    for( unsigned i = 0; i < buffers.size(); i++ )
+    for(auto & buffer : buffers)
     {
-        m_streamer->update(buffers[i]);
+        m_streamer->update(buffer);
     }
 
     m_source->QueueBuffers(buffers);
@@ -1155,9 +1155,9 @@ void alAudio::streamerLink::stop()
 
     std::vector<rc_alAudioBuffer> buffers = m_source->DequeueBuffers();
 
-    for( unsigned i = 0; i < buffers.size(); i++ )
+    for(auto & buffer : buffers)
     {
-        m_streamer->update(buffers[i]);
+        m_streamer->update(buffer);
     }
 
     m_source->QueueBuffers(buffers);

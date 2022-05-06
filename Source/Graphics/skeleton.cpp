@@ -58,9 +58,9 @@ struct SelectedJoint {
 };
 
 static std::string LabelFromBone(int bone, const Skeleton::SimpleIKBoneMap &simple_ik_bones, const std::vector<int> &parents) {
-    for(Skeleton::SimpleIKBoneMap::const_iterator iter = simple_ik_bones.begin(); iter != simple_ik_bones.end(); ++iter){
-        const SimpleIKBone &ik_bone = iter->second;
-        const char *label = iter->first.c_str();
+    for(const auto & simple_ik_bone : simple_ik_bones){
+        const SimpleIKBone &ik_bone = simple_ik_bone.second;
+        const char *label = simple_ik_bone.first.c_str();
         int curr_bone = ik_bone.bone_id;
         for(int i=0; i<ik_bone.chain_length; ++i){
             if(curr_bone == bone){
@@ -83,10 +83,10 @@ void Skeleton::CreateHinge(const SelectedJoint &selected_joint, const vec3 &forc
     Bone *joint_bones[2];
     joint_bones[0] = &bones[selected_joint.bones[0]];
     joint_bones[1] = &bones[selected_joint.bones[1]];
-    for(int i=0; i<2; i++){
-        for(int j=0; j<2; j++) {
-            if(joint_bones[0]->points[i] == joint_bones[1]->points[j]){
-                shared_point = joint_bones[0]->points[i];
+    for(int point : joint_bones[0]->points){
+        for(int j : joint_bones[1]->points) {
+            if(point == j){
+                shared_point = point;
             }
         }
     }
@@ -142,32 +142,31 @@ void Skeleton::CreateHinge(const SelectedJoint &selected_joint, const vec3 &forc
 
 void Skeleton::SetGravity( bool enable ) {
     if(enable){
-        for(unsigned i=0; i<physics_bones.size(); i++){
-            if(!physics_bones[i].bullet_object){
+        for(auto & physics_bone : physics_bones){
+            if(!physics_bone.bullet_object){
                 continue;
             }
-            physics_bones[i].bullet_object->SetGravity(true);
+            physics_bone.bullet_object->SetGravity(true);
             //physics_bones[i].bullet_object->SetDamping(0.0f);
         }
     } else {
-        for(unsigned i=0; i<physics_bones.size(); i++){
-            if(!physics_bones[i].bullet_object){
+        for(auto & physics_bone : physics_bones){
+            if(!physics_bone.bullet_object){
                 continue;
             }
-            physics_bones[i].bullet_object->SetGravity(true);
+            physics_bone.bullet_object->SetGravity(true);
             //physics_bones[i].bullet_object->SetDamping(1.0f);
         }
     }
 }
 
 void Skeleton::UnlinkFromBulletWorld() {
-    for(unsigned i=0; i<physics_bones.size(); i++){
-        if(physics_bones[i].bullet_object){
-            bullet_world->UnlinkObject(physics_bones[i].bullet_object);
+    for(auto & physics_bone : physics_bones){
+        if(physics_bone.bullet_object){
+            bullet_world->UnlinkObject(physics_bone.bullet_object);
         }
     }
-    for(unsigned i=0; i<physics_joints.size(); i++){
-        PhysicsJoint &joint = physics_joints[i];
+    for(auto & joint : physics_joints){
         if(joint.bt_joint){
             bullet_world->UnlinkConstraint(joint.bt_joint);
         }
@@ -175,8 +174,8 @@ void Skeleton::UnlinkFromBulletWorld() {
             bullet_world->UnlinkConstraint(joint.fixed_joint);
         }
     }
-    for(unsigned i=0; i<null_constraints.size(); i++){
-        bullet_world->UnlinkConstraint(null_constraints[i]);
+    for(auto & null_constraint : null_constraints){
+        bullet_world->UnlinkConstraint(null_constraint);
     }
 }
 
@@ -192,8 +191,7 @@ void Skeleton::LinkToBulletWorld() {
     num = 0;
     int num2 = 0;
     int num3 = 0;
-    for(unsigned i=0; i<physics_joints.size(); i++){
-        PhysicsJoint &joint = physics_joints[i];
+    for(auto & joint : physics_joints){
         if(joint.bt_joint){
             bullet_world->LinkConstraint(joint.bt_joint);
             if(joint.type == FIXED_JOINT){
@@ -208,8 +206,8 @@ void Skeleton::LinkToBulletWorld() {
         }
     }
     num = 0;
-    for(unsigned i=0; i<null_constraints.size(); i++){
-        bullet_world->LinkConstraint(null_constraints[i]);
+    for(auto & null_constraint : null_constraints){
+        bullet_world->LinkConstraint(null_constraint);
         ++num;
     }
 }
@@ -342,8 +340,7 @@ static void ShapesFromFZX(const FZXAssetRef& fzx_ref,
 { 
     std::vector<CustomShape> &custom_shapes = *custom_shapes_ptr;
     std::vector<int> &num_custom_shapes = *num_custom_shapes_ptr;
-    for(int i=0, len=fzx_ref->objects.size(); i<len; ++i){
-        const FZXObject &object = fzx_ref->objects[i];
+    for(auto & object : fzx_ref->objects){
         // Parse label string
         const std::string &label = object.label;
         int last_space_index = 0;
@@ -634,9 +631,9 @@ void Skeleton::CreatePhysicsSkeleton(float scale, const FZXAssetRef& fzx_ref) {
 }
 
 int Skeleton::GetAttachedBone( BulletObject* object ) {
-    for(unsigned i=0; i<physics_bones.size(); i++){
-        if(physics_bones[i].bullet_object == object) {
-            return physics_bones[i].bone;
+    for(auto & physics_bone : physics_bones){
+        if(physics_bone.bullet_object == object) {
+            return physics_bone.bone;
         }
     }
     return -1;
@@ -703,8 +700,7 @@ int Skeleton::Read( const std::string &path, float scale, float mass_scale, cons
 
         // Identify objects with fixed joint to parent
         fixed_obj.resize(physics_bones.size(), false);    
-        for(unsigned i=0; i<data.joints.size(); ++i){
-            const JointData& joint = data.joints[i];
+        for(const auto & joint : data.joints){
             if(joint.type == _fixed_joint){
                 int id[2];
                 id[0] = joint.bone_id[0];
@@ -799,8 +795,7 @@ int Skeleton::Read( const std::string &path, float scale, float mass_scale, cons
     for(unsigned i=0; i<physics_bones.size(); ++i){
         if(fixed_obj[i] && has_verts_assigned[i]){
             PhysicsBone& pbi = physics_bones[i];
-            for(unsigned j=0; j<physics_joints.size(); ++j){
-                PhysicsJoint& joint = physics_joints[j];
+            for(auto & joint : physics_joints){
                 int id[2];
                 id[0] = bo_id[joint.bt_bone[0]];
                 id[1] = bo_id[joint.bt_bone[1]];
@@ -826,8 +821,7 @@ int Skeleton::Read( const std::string &path, float scale, float mass_scale, cons
     for(unsigned i=0; i<physics_bones.size(); ++i){
         if(fixed_obj[i] && has_verts_assigned[i]){
             PhysicsBone& pbi = physics_bones[i];
-            for(unsigned j=0; j<physics_joints.size(); ++j){
-                PhysicsJoint& joint = physics_joints[j];
+            for(auto & joint : physics_joints){
                 if(joint.bt_bone[0] == pbi.bullet_object || joint.bt_bone[1] == pbi.bullet_object) {
                     DeleteJoint(&joint);
                 }
@@ -837,16 +831,15 @@ int Skeleton::Read( const std::string &path, float scale, float mass_scale, cons
     }
     
     // Remove invisible bones from parent hierarchy as well as physics world
-    for(unsigned i=0; i<parents.size(); ++i){
-        while(parents[i] != -1 && !has_verts_assigned[parents[i]]){
-            parents[i] = parents[parents[i]];
+    for(int & parent : parents){
+        while(parent != -1 && !has_verts_assigned[parent]){
+            parent = parents[parent];
         }
     }    
     for(unsigned i=0; i<physics_bones.size(); ++i){
         if(!has_verts_assigned[i]){
             PhysicsBone& pbi = physics_bones[i];
-            for(unsigned j=0; j<physics_joints.size(); ++j){
-                PhysicsJoint& joint = physics_joints[j];
+            for(auto & joint : physics_joints){
                 if(joint.bt_bone[0] == pbi.bullet_object ||
                    joint.bt_bone[1] == pbi.bullet_object) 
                 {
@@ -884,24 +877,24 @@ void Skeleton::ReduceROM(float how_much) {
             bone = parents[bone];
         }
     }
-    for(unsigned i=0; i<physics_joints.size(); i++){
-        if(physics_joints[i].type == ROTATION_JOINT && affected[boid[physics_joints[i].bt_bone[0]]] == 1 && affected[boid[physics_joints[i].bt_bone[1]]] == 1){
-            float mid = (physics_joints[i].stop_angle[0]+
-                         physics_joints[i].stop_angle[1])*0.5f;
-            physics_joints[i].stop_angle[0] = mix(physics_joints[i].stop_angle[0],mid,how_much);
-            physics_joints[i].stop_angle[1] = mix(physics_joints[i].stop_angle[1],mid,how_much);
+    for(auto & physics_joint : physics_joints){
+        if(physics_joint.type == ROTATION_JOINT && affected[boid[physics_joint.bt_bone[0]]] == 1 && affected[boid[physics_joint.bt_bone[1]]] == 1){
+            float mid = (physics_joint.stop_angle[0]+
+                         physics_joint.stop_angle[1])*0.5f;
+            physics_joint.stop_angle[0] = mix(physics_joint.stop_angle[0],mid,how_much);
+            physics_joint.stop_angle[1] = mix(physics_joint.stop_angle[1],mid,how_much);
         
-            mid = (physics_joints[i].stop_angle[2]+
-                   physics_joints[i].stop_angle[3])*0.5f;
-            physics_joints[i].stop_angle[2] = mix(physics_joints[i].stop_angle[2],mid,how_much);
-            physics_joints[i].stop_angle[3] = mix(physics_joints[i].stop_angle[3],mid,how_much);
+            mid = (physics_joint.stop_angle[2]+
+                   physics_joint.stop_angle[3])*0.5f;
+            physics_joint.stop_angle[2] = mix(physics_joint.stop_angle[2],mid,how_much);
+            physics_joint.stop_angle[3] = mix(physics_joint.stop_angle[3],mid,how_much);
         
-            mid = (physics_joints[i].stop_angle[4]+
-                   physics_joints[i].stop_angle[5])*0.5f;
-            physics_joints[i].stop_angle[4] = mix(physics_joints[i].stop_angle[4],mid,how_much);
-            physics_joints[i].stop_angle[5] = mix(physics_joints[i].stop_angle[5],mid,how_much);
+            mid = (physics_joint.stop_angle[4]+
+                   physics_joint.stop_angle[5])*0.5f;
+            physics_joint.stop_angle[4] = mix(physics_joint.stop_angle[4],mid,how_much);
+            physics_joint.stop_angle[5] = mix(physics_joint.stop_angle[5],mid,how_much);
         
-            ApplyJointRange(&physics_joints[i]);
+            ApplyJointRange(&physics_joint);
         }
     }
 }
@@ -931,13 +924,13 @@ void Skeleton::CreateFixed(const SelectedJoint &selected_joint) {
 vec3 Skeleton::GetCenterOfMass() {
     vec3 center(0.0f);
     float total_mass = 0.0f;
-    for(unsigned i=0; i<physics_bones.size(); i++){
-        if(!physics_bones[i].bullet_object){
+    for(auto & physics_bone : physics_bones){
+        if(!physics_bone.bullet_object){
             continue;
         }
-        center += physics_bones[i].bullet_object->GetPosition() * 
-                  physics_bones[i].bullet_object->GetMass();
-        total_mass += physics_bones[i].bullet_object->GetMass();
+        center += physics_bone.bullet_object->GetPosition() * 
+                  physics_bone.bullet_object->GetMass();
+        total_mass += physics_bone.bullet_object->GetMass();
     }
     center /= total_mass;
     return center;
@@ -948,10 +941,10 @@ void Skeleton::CreateBallJoint(const SelectedJoint &selected_joint) {
     Bone* joint_bones[2];
     joint_bones[0] = &bones[selected_joint.bones[0]];
     joint_bones[1] = &bones[selected_joint.bones[1]];
-    for(int i=0; i<2; i++){
-        for(int j=0; j<2; j++) {
-            if(joint_bones[0]->points[i] == joint_bones[1]->points[j]){
-                shared_point = joint_bones[0]->points[i];
+    for(int point : joint_bones[0]->points){
+        for(int j : joint_bones[1]->points) {
+            if(point == j){
+                shared_point = point;
             }
         }
     }
@@ -998,10 +991,10 @@ void Skeleton::CreateRotationalConstraint(const SelectedJoint &selected_joint) {
     Bone* joint_bones[2];
     joint_bones[0] = &bones[selected_joint.bones[0]];
     joint_bones[1] = &bones[selected_joint.bones[1]];
-    for(int i=0; i<2; i++){
-        for(int j=0; j<2; j++) {
-            if(joint_bones[0]->points[i] == joint_bones[1]->points[j]){
-                shared_point = joint_bones[0]->points[i];
+    for(int point : joint_bones[0]->points){
+        for(int j : joint_bones[1]->points) {
+            if(point == j){
+                shared_point = point;
             }
         }
     }
@@ -1096,8 +1089,7 @@ void Skeleton::DeleteJoint(PhysicsJoint *joint){
 }
 
 void Skeleton::RefreshFixedJoints(const std::vector<BoneTransform> &mats){
-    for(unsigned i=0; i<physics_joints.size(); ++i){
-        PhysicsJoint& joint = physics_joints[i];
+    for(auto & joint : physics_joints){
         if(joint.fixed_joint){
             BoneTransform a = mats[phys_id[joint.bt_bone[0]]];
             a.origin += a.rotation * joint.bt_bone[0]->com_offset;
@@ -1112,14 +1104,13 @@ void Skeleton::RefreshFixedJoints(const std::vector<BoneTransform> &mats){
 
 void Skeleton::PhysicsDispose() {
     // Remove child shapes
-    for (unsigned i = 0; i < child_shapes.size(); i++) {
-        delete child_shapes[i];
+    for (auto & child_shape : child_shapes) {
+        delete child_shape;
     }
     child_shapes.clear();
 
     // Remove joints
-    for(unsigned i=0; i<physics_joints.size(); i++){
-        PhysicsJoint &joint = physics_joints[i];
+    for(auto & joint : physics_joints){
         if(joint.bt_joint){
             bullet_world->RemoveJoint(&joint.bt_joint);
         }
@@ -1130,15 +1121,15 @@ void Skeleton::PhysicsDispose() {
     physics_joints.clear();
 
     // Remove null constraints
-    for(unsigned i=0; i<null_constraints.size(); i++){
-        bullet_world->RemoveJoint(&null_constraints[i]);
+    for(auto & null_constraint : null_constraints){
+        bullet_world->RemoveJoint(&null_constraint);
     }
     null_constraints.clear();
 
     // Remove objects
-    for(unsigned i=0; i<physics_bones.size(); i++){
-        bullet_world->RemoveObject(&physics_bones[i].bullet_object);
-        col_bullet_world->RemoveObject(&physics_bones[i].col_bullet_object);
+    for(auto & physics_bone : physics_bones){
+        bullet_world->RemoveObject(&physics_bone.bullet_object);
+        col_bullet_world->RemoveObject(&physics_bone.col_bullet_object);
     }
     physics_bones.clear();
     
@@ -1168,12 +1159,12 @@ void Skeleton::GetPhysicsObjectsFromSelectedJoint(
         std::vector<BulletObject*> &selected_bullet_bones, 
         const SelectedJoint & selected_joint )
 {
-    for(unsigned i=0; i<physics_bones.size(); i++){
-        if(physics_bones[i].bone == selected_joint.bones[0]) {
-            selected_bullet_bones[0] = physics_bones[i].bullet_object;
+    for(auto & physics_bone : physics_bones){
+        if(physics_bone.bone == selected_joint.bones[0]) {
+            selected_bullet_bones[0] = physics_bone.bullet_object;
         }
-        if(physics_bones[i].bone == selected_joint.bones[1]) {
-            selected_bullet_bones[1] = physics_bones[i].bullet_object;
+        if(physics_bone.bone == selected_joint.bones[1]) {
+            selected_bullet_bones[1] = physics_bone.bullet_object;
         }
     }
 }
@@ -1227,8 +1218,7 @@ void Skeleton::SetGFStrength(PhysicsJoint& joint, float _strength) {
 void Skeleton::AddNullConstraints() {
     std::map<BulletObject*, std::set<BulletObject*> > connected;
 
-    for(unsigned i=0; i<physics_joints.size(); ++i){
-        const PhysicsJoint& pj = physics_joints[i];
+    for(auto & pj : physics_joints){
         connected[pj.bt_bone[0]].insert(pj.bt_bone[1]);
         connected[pj.bt_bone[1]].insert(pj.bt_bone[0]);
     }
@@ -1399,9 +1389,9 @@ void Skeleton::UpdateTwistBones(bool update_transform) {
 
 void Skeleton::CheckForNAN()
 {
-    for(unsigned i=0; i<physics_bones.size(); i++){
-        if(physics_bones[i].bullet_object){
-            physics_bones[i].bullet_object->CheckForNAN();
+    for(auto & physics_bone : physics_bones){
+        if(physics_bone.bullet_object){
+            physics_bone.bullet_object->CheckForNAN();
         }
     }
 }
@@ -1466,8 +1456,8 @@ void Skeleton::AlternateHull( const std::string &model_name, const vec3 &old_cen
     for(unsigned i=0; i<groups.size(); ++i){
         const std::vector<int> &group = groups[i];
         vec3 center_accum(0.0f);
-        for(unsigned j=0; j<group.size(); ++j){
-            const int vert_index = group[j] * 3;
+        for(int j : group){
+            const int vert_index = j * 3;
             center_accum += vec3(hull_model.vertices[vert_index+0],
                                  hull_model.vertices[vert_index+1],
                                  hull_model.vertices[vert_index+2]);
@@ -1534,8 +1524,8 @@ void Skeleton::AlternateHull( const std::string &model_name, const vec3 &old_cen
             mat4 mat;
             mat.SetTranslationPart(pb.initial_position*-1.0f);
             mat = transpose(pb.initial_rotation) * mat;
-            for(unsigned j=0; j<group_verts.size(); ++j){
-                group_verts[j] = mat*group_verts[j];
+            for(auto & group_vert : group_verts){
+                group_vert = mat*group_vert;
             }
             
             pb.col_bullet_object = 

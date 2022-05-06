@@ -292,18 +292,18 @@ void ObjectFile::ReturnPaths( PathSet& path_set )
     if(!palette_map_path.empty()){
         path_set.insert("texture "+palette_map_path);
     }
-    for(unsigned i=0; i<m_detail_color_maps.size(); ++i){
-        path_set.insert("texture "+m_detail_color_maps[i]);
+    for(auto & detail_color_map : m_detail_color_maps){
+        path_set.insert("texture "+detail_color_map);
     }
-    for(unsigned i=0; i<m_detail_normal_maps.size(); ++i){
-        path_set.insert("texture "+m_detail_normal_maps[i]);
+    for(auto & detail_normal_map : m_detail_normal_maps){
+        path_set.insert("texture "+detail_normal_map);
     }
-    for(unsigned i=0; i<m_detail_materials.size(); ++i){
+    for(auto & detail_material : m_detail_materials){
         //Materials::Instance()->ReturnRef(m_detail_materials[i])->ReturnPaths(path_set);
-        Engine::Instance()->GetAssetManager()->LoadSync<Material>(m_detail_materials[i])->ReturnPaths(path_set);
+        Engine::Instance()->GetAssetManager()->LoadSync<Material>(detail_material)->ReturnPaths(path_set);
     }
-    for(unsigned i=0; i<m_detail_object_layers.size(); ++i){
-        m_detail_object_layers[i].ReturnPaths(path_set);
+    for(auto & detail_object_layer : m_detail_object_layers){
+        detail_object_layer.ReturnPaths(path_set);
     }
 }
 

@@ -51,8 +51,8 @@ Mouse::Mouse()
 void Mouse::Update() {
     wheel_delta_x_ = 0;
     wheel_delta_y_ = 0;
-    for(int i=0; i<2; ++i){
-        delta_[i] = 0;
+    for(int & i : delta_){
+        i = 0;
     }
     for (int i = 0; i < NUM_BUTTONS; ++i)     {
         mouse_double_click_[i] = false;

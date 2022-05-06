@@ -48,8 +48,8 @@ int GetTotalNumChildren(int parent, const std::vector<int> &parents){
 
 int GetNumChildren(int parent, const std::vector<int> &parents){
     int num_children = 0;
-    for(unsigned i=0; i<parents.size(); ++i){
-        if(parents[i] == parent){
+    for(int i : parents){
+        if(i == parent){
             ++num_children;
         }
     }
@@ -62,8 +62,8 @@ int GetNumConnections(int parent, const std::vector<int> &parents){
     if(parents[parent] != -1){
         ++num_connections;    
     }
-    for(unsigned i=0; i<parents.size(); ++i){
-        if(parents[i] == parent){
+    for(int i : parents){
+        if(i == parent){
             ++num_connections;
         }
     }
@@ -145,8 +145,8 @@ std::vector<int> GetChildrenRecursive( int parent, const std::vector<int> &paren
         if(parents[i] == parent){
             children.push_back(i);
             std::vector<int> sub_children = GetChildrenRecursive(i, parents);
-            for(unsigned j=0; j<sub_children.size(); ++j){
-                children.push_back(sub_children[j]);
+            for(int & j : sub_children){
+                children.push_back(j);
             }
         }
     }
@@ -179,11 +179,11 @@ std::vector<int> FindTreePath( int a, int b, const std::vector<int> &parents )
         queue.pop();
 
         std::vector<int> connections = GetConnections(path.back(), parents);
-        for(unsigned i=0; i<connections.size(); ++i){
-            if(find(path.begin(), path.end(),connections[i]) == path.end()){
+        for(int & connection : connections){
+            if(find(path.begin(), path.end(),connection) == path.end()){
                 queue.push(path);
-                queue.back().push_back(connections[i]);
-                if(connections[i] == b){
+                queue.back().push_back(connection);
+                if(connection == b){
                     return queue.back();
                 }
             }

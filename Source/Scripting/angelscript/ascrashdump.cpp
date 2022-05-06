@@ -45,14 +45,14 @@ static AngelScriptContext contexts[CONTEXT_COUNT];
 
 void RegisterAngelscriptContext( const char* name, ASContext* ascontext )
 {
-    for( int i = 0; i < CONTEXT_COUNT; i++ )
+    for(auto & context : contexts)
     {
-        if( contexts[i].allocated == false )
+        if( context.allocated == false )
         {
-            strncpy( contexts[i].name, name, 64 );
-            contexts[i].name[63] = '\0';
-            contexts[i].allocated = true;
-            contexts[i].context = ascontext;
+            strncpy( context.name, name, 64 );
+            context.name[63] = '\0';
+            context.allocated = true;
+            context.context = ascontext;
             return;
         }
     }    
@@ -60,11 +60,11 @@ void RegisterAngelscriptContext( const char* name, ASContext* ascontext )
 
 void DeregisterAngelscriptContext( ASContext* ascontext )
 {
-    for( int i = 0; i < CONTEXT_COUNT; i++ )
+    for(auto & context : contexts)
     {
-        if( contexts[i].context == ascontext )
+        if( context.context == ascontext )
         {
-            contexts[i].allocated = false;
+            context.allocated = false;
         }
     }
 }
@@ -79,13 +79,13 @@ void DumpAngelscriptStates()
 
     if( output.is_open() ) {
         LOGI << "Dumping angelscript states to: " << dump_path << std::endl;
-        for( int i = 0; i < CONTEXT_COUNT; i++ )
+        for(auto & context : contexts)
         {
-            if( contexts[i].allocated )
+            if( context.allocated )
             {
-                LOGI << "Dumping angelscript state for: " << contexts[i].name << std::endl;
+                LOGI << "Dumping angelscript state for: " << context.name << std::endl;
                 if( output.good() ) {
-                    contexts[i].context->DumpCallstack(output);
+                    context.context->DumpCallstack(output);
                 }
             }
         }

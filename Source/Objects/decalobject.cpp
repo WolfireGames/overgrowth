@@ -143,8 +143,7 @@ void DecalObject::GetDesc(EntityDescription &desc) const {
 bool DecalObject::SetFromDesc( const EntityDescription& desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
                 case EDF_FILE_PATH: {
                     std::string type_file;

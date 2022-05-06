@@ -121,9 +121,9 @@ public:
                 while( el )
                 {
                     bool found = false;
-                    for( int i = 0; i < parameters.size(); i++ )
+                    for(auto & parameter : parameters)
                     {
-                        found |= parameters[i].Search(
+                        found |= parameter.Search(
                             items, 
                             item, 
                             el);
@@ -523,9 +523,9 @@ void ActorObjectLevelSeeker::SearchGroup( std::vector<Item>& items, const Item& 
 
         bool found = false;
 
-        for( int i = 0; i < aos.size(); i++ )
+        for(auto & ao : aos)
         {
-            found |= aos[i].Search( items, item, el );
+            found |= ao.Search( items, item, el );
         } 
 
         if( !found )
@@ -551,9 +551,9 @@ std::vector<Item> ActorObjectLevelSeeker::SearchLevelRoot( const Item& source, T
         "Hotspots"
     };
 
-    for( int i = 0; i < ARRLEN(entity_roots); i++ )
+    for(auto & entity_root : entity_roots)
     {
-        TiXmlElement* elem = hRoot.FirstChildElement(entity_roots[i]).ToElement();
+        TiXmlElement* elem = hRoot.FirstChildElement(entity_root).ToElement();
 
         if( elem )
         {
@@ -561,7 +561,7 @@ std::vector<Item> ActorObjectLevelSeeker::SearchLevelRoot( const Item& source, T
         }
         else
         {
-            LOGD << source << " Is missing " << entity_roots[i] << std::endl;
+            LOGD << source << " Is missing " << entity_root << std::endl;
         }
     }
     return items;

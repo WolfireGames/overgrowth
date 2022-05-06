@@ -69,8 +69,8 @@ void binn_object_set_std_string(binn* l, const char* key, const string& v) {
 void binn_object_set_vector_int(binn* l, const char* key, const vector<int>& arr) {
      binn* l_vec_int = binn_list();
 
-     for(int i = 0; i < arr.size(); i++) {
-         binn_list_add_int32(l_vec_int, arr[i]);
+     for(int i : arr) {
+         binn_list_add_int32(l_vec_int, i);
      }
 
      binn_object_set_list(l, key, l_vec_int);

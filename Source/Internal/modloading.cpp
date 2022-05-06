@@ -1131,12 +1131,11 @@ void ModInstance::Reload( ) {
         }
 
         //Check if mod has files in root folder we don't like.
-        for( unsigned i = 0; i < manifest.size(); i++ ) {
+        for(auto & str : manifest) {
             bool is_root = true;
 
-            std::string &str = manifest[i];
-            for( unsigned k = 0; k < str.size(); k++ ) {
-                if( str[k] == '/' ) {
+            for(char k : str) {
+                if( k == '/' ) {
                     is_root = false;
                 }
             }
@@ -1740,11 +1739,11 @@ std::vector<ModID> ModInstance::GetIDCollisionsWithActiveMods() const {
     std::vector<ModInstance*>::iterator modit = ModLoading::Instance().mods.begin();
 
     std::set<const char*, CharLess> campaign_ids;
-    for(size_t i = 0; i < campaigns.size(); i++) {
-        if(campaign_ids.count(campaigns[i].id) != 0)
+    for(const auto & campaign : campaigns) {
+        if(campaign_ids.count(campaign.id) != 0)
             colliding_sids.push_back(sid);
         else
-            campaign_ids.insert(campaigns[i].id);
+            campaign_ids.insert(campaign.id);
     }
 
     for(; modit != ModLoading::Instance().mods.end(); modit++ ) {
@@ -2143,10 +2142,10 @@ std::vector<ModInstance*>::iterator ModLoading::GetMod( const std::string& path 
 }
 
 bool ModLoading::IsCampaignPresent(const std::string& campaign) {
-	for (uint32_t i = 0; i < mods.size(); i++) {
-		if (mods[i]->IsActive()) {
-			for (uint32_t j = 0; j < mods[i]->campaigns.size(); j++) {
-				if (strmtch(mods[i]->campaigns[j].id, campaign)) {
+	for (auto & mod : mods) {
+		if (mod->IsActive()) {
+			for (uint32_t j = 0; j < mod->campaigns.size(); j++) {
+				if (strmtch(mod->campaigns[j].id, campaign)) {
 					return true;
 				}
 			}
@@ -2156,11 +2155,11 @@ bool ModLoading::IsCampaignPresent(const std::string& campaign) {
 }
 
 bool ModLoading::CampaignHasLevel(const std::string& campaign, const std::string& level_path)  {
-	for (uint32_t i = 0; i < mods.size(); i++) {
-		if (mods[i]->IsActive()) {
-			for (uint32_t j = 0; j < mods[i]->campaigns.size(); j++) {
-				if (strmtch(mods[i]->campaigns[j].id, campaign)) {
-					for (const auto& level : mods[i]->campaigns[j].levels){
+	for (auto & mod : mods) {
+		if (mod->IsActive()) {
+			for (uint32_t j = 0; j < mod->campaigns.size(); j++) {
+				if (strmtch(mod->campaigns[j].id, campaign)) {
+					for (const auto& level : mod->campaigns[j].levels){
 						LOGI << "path: " << std::string("Data/Levels/") + level.path.str() << std::endl;
 						LOGI << "Level path: " << level_path << std::endl;
 						if (level.path.str() == level_path) {
@@ -2248,11 +2247,11 @@ bool ModLoading::IsActive( std::string id ) {
 }
 
 ModInstance::Campaign ModLoading::GetCampaign(std::string& campaign_id) {
-    for( uint32_t i = 0; i < mods.size(); i++ ) {
-        if( mods[i]->IsActive() ) {
-            for( uint32_t j = 0; j < mods[i]->campaigns.size(); j++) {
-                if( strmtch( mods[i]->campaigns[j].id, campaign_id ) ) {
-                    return mods[i]->campaigns[j];
+    for(auto & mod : mods) {
+        if( mod->IsActive() ) {
+            for( uint32_t j = 0; j < mod->campaigns.size(); j++) {
+                if( strmtch( mod->campaigns[j].id, campaign_id ) ) {
+                    return mod->campaigns[j];
                 }
             }
         }
@@ -2261,11 +2260,11 @@ ModInstance::Campaign ModLoading::GetCampaign(std::string& campaign_id) {
 }
 
 ModInstance* ModLoading::GetModInstance(const std::string& campaign_id) {
-    for (uint32_t i = 0; i < mods.size(); i++) {
-        if (mods[i]->IsActive()) {
-            for (uint32_t j = 0; j < mods[i]->campaigns.size(); j++) {
-                if (strmtch(mods[i]->campaigns[j].id, campaign_id)) {
-                    return mods[i];
+    for (auto & mod : mods) {
+        if (mod->IsActive()) {
+            for (uint32_t j = 0; j < mod->campaigns.size(); j++) {
+                if (strmtch(mod->campaigns[j].id, campaign_id)) {
+                    return mod;
                 }
             }
         }
@@ -2275,11 +2274,11 @@ ModInstance* ModLoading::GetModInstance(const std::string& campaign_id) {
 
 std::vector<ModInstance::Campaign> ModLoading::GetCampaigns() {
     std::vector<ModInstance::Campaign> campaigns;
-    for( uint32_t i = 0; i < mods.size(); i++ ) {
-        if( mods[i]->IsActive() ) {
-            for( uint32_t j = 0; j < mods[i]->campaigns.size(); j++ ) {
-                if(strlen( mods[i]->campaigns[j].title ) > 0 ) {
-                    campaigns.push_back(mods[i]->campaigns[j]);
+    for(auto & mod : mods) {
+        if( mod->IsActive() ) {
+            for( uint32_t j = 0; j < mod->campaigns.size(); j++ ) {
+                if(strlen( mod->campaigns[j].title ) > 0 ) {
+                    campaigns.push_back(mod->campaigns[j]);
                 }
             }
         }
@@ -2290,9 +2289,9 @@ std::vector<ModInstance::Campaign> ModLoading::GetCampaigns() {
 
 std::vector<ModInstance*> ModLoading::GetModsMatchingID(std::string id) {
     std::vector<ModInstance*> lmods;
-    for( uint32_t i = 0; i < mods.size(); i++ ) {
-        if( strmtch( mods[i]->id, id ) ) {
-            lmods.push_back(mods[i]);
+    for(auto & mod : mods) {
+        if( strmtch( mod->id, id ) ) {
+            lmods.push_back(mod);
         }
     }
     return lmods;
@@ -2300,9 +2299,9 @@ std::vector<ModInstance*> ModLoading::GetModsMatchingID(std::string id) {
 
 std::vector<ModInstance*> ModLoading::GetSteamModsMatchingID(std::string id) {
     std::vector<ModInstance*> lmods;
-    for( uint32_t i = 0; i < mods.size(); i++ ) {
-        if( strmtch( mods[i]->id, id ) && mods[i]->modsource == ModSourceSteamworks) {
-            lmods.push_back(mods[i]);
+    for(auto & mod : mods) {
+        if( strmtch( mod->id, id ) && mod->modsource == ModSourceSteamworks) {
+            lmods.push_back(mod);
         }
     }
     return lmods;
@@ -2310,9 +2309,9 @@ std::vector<ModInstance*> ModLoading::GetSteamModsMatchingID(std::string id) {
 
 std::vector<ModInstance*> ModLoading::GetLocalModsMatchingID(std::string id) {
     std::vector<ModInstance*> lmods;
-    for( uint32_t i = 0; i < mods.size(); i++ ) {
-        if( strmtch( mods[i]->id, id ) && mods[i]->modsource == ModSourceLocalModFolder) {
-            lmods.push_back(mods[i]);
+    for(auto & mod : mods) {
+        if( strmtch( mod->id, id ) && mod->modsource == ModSourceLocalModFolder) {
+            lmods.push_back(mod);
         }
     }
     return lmods;
@@ -2320,9 +2319,9 @@ std::vector<ModInstance*> ModLoading::GetLocalModsMatchingID(std::string id) {
 
 std::vector<ModInstance*> ModLoading::GetLocalMods() {
     std::vector<ModInstance*> lmods;
-    for( uint32_t i = 0; i < mods.size(); i++ ) {
-        if(mods[i]->modsource == ModSourceLocalModFolder) {
-            lmods.push_back(mods[i]);
+    for(auto & mod : mods) {
+        if(mod->modsource == ModSourceLocalModFolder) {
+            lmods.push_back(mod);
         }
     }
     return lmods;
@@ -2330,8 +2329,8 @@ std::vector<ModInstance*> ModLoading::GetLocalMods() {
 
 std::vector<ModInstance*> ModLoading::GetAllMods() {
     std::vector<ModInstance*> lmods;
-    for( uint32_t i = 0; i < mods.size(); i++ ) {
-        lmods.push_back(mods[i]);
+    for(auto & mod : mods) {
+        lmods.push_back(mod);
     }
     return lmods;
 }
@@ -2348,12 +2347,12 @@ void ModLoading::AddMod( const std::string& path ) {
 
 
 std::string ModLoading::WhichCampaignLevelBelongsTo(const std::string & level_path) {
-	for (uint32_t i = 0; i < mods.size(); i++) {
-		if (mods[i]->IsActive()) {
-			for (uint32_t j = 0; j < mods[i]->campaigns.size(); j++) {
-				for (const auto& level : mods[i]->campaigns[j].levels) {
+	for (auto & mod : mods) {
+		if (mod->IsActive()) {
+			for (uint32_t j = 0; j < mod->campaigns.size(); j++) {
+				for (const auto& level : mod->campaigns[j].levels) {
 					if (std::string("Data/Levels/") + level.path.str() == level_path) {
-						return mods[i]->campaigns[j].id.str();
+						return mod->campaigns[j].id.str();
 					}
 				}
 			}
@@ -2423,22 +2422,22 @@ void ModLoading::DetectMods() {
 
     std::vector<std::string> verifiedMods;
 
-    for( unsigned i = 0; i < newMods.size(); i++ ) {
+    for(auto & newMod : newMods) {
         bool already_in_list = false;
         bool has_mod_xml = false;
 
-        if( CheckFileAccess(std::string(newMods[i] + "/mod.xml").c_str() ) ) {
+        if( CheckFileAccess(std::string(newMod + "/mod.xml").c_str() ) ) {
             has_mod_xml = true;
         }
 
         if( has_mod_xml ) {
-            for( unsigned k = 0; k < verifiedMods.size(); k++ ) {
-                if( AreSame( std::string(newMods[i] + "/mod.xml").c_str(), std::string(verifiedMods[k] + "/mod.xml").c_str() ) ) {
+            for(auto & verifiedMod : verifiedMods) {
+                if( AreSame( std::string(newMod + "/mod.xml").c_str(), std::string(verifiedMod + "/mod.xml").c_str() ) ) {
                     already_in_list = true; 
                 } 
             }
             if( already_in_list == false ) {
-                verifiedMods.push_back(newMods[i]);
+                verifiedMods.push_back(newMod);
             }
         }
     }
@@ -2479,37 +2478,37 @@ void ModLoading::SetMods( std::vector<std::string> modpaths ) {
         missingPaths = currentPaths;
         stillPaths = std::vector<std::string>(); //Empty as intersection is guaranteed to be zero
     } else {
-        for( unsigned k = 0; k < modpaths.size(); k++ ) {
+        for(auto & modpath : modpaths) {
             bool found = false;
-            for( unsigned i = 0; i < currentPaths.size(); i++ ) {
-                if( modpaths[k] == currentPaths[i] ) {
+            for(auto & currentPath : currentPaths) {
+                if( modpath == currentPath ) {
                     found = true;
                 } 
             }
             if( found == false ) {
-                newPaths.push_back( modpaths[k] );
+                newPaths.push_back( modpath );
             }
         }
-        for( unsigned i = 0; i < currentPaths.size(); i++ ) {
+        for(auto & currentPath : currentPaths) {
             bool found = false;
-            for( unsigned k = 0; k < modpaths.size(); k++ ) {
-                if( modpaths[k] == currentPaths[i] ) {
+            for(auto & modpath : modpaths) {
+                if( modpath == currentPath ) {
                     found = true;
                 } 
             }
             if( found == false ) {
-                missingPaths.push_back( currentPaths[i] );
+                missingPaths.push_back( currentPath );
             }
         }
-        for( unsigned i = 0; i < currentPaths.size(); i++ ) {
+        for(auto & currentPath : currentPaths) {
             bool found = false;
-            for( unsigned k = 0; k < modpaths.size(); k++ ) {
-                if( modpaths[k] == currentPaths[i] ) {
+            for(auto & modpath : modpaths) {
+                if( modpath == currentPath ) {
                     found = true;
                 } 
             }
             if( found ) {
-                stillPaths.push_back( currentPaths[i] );
+                stillPaths.push_back( currentPath );
             }
         }
     }
@@ -2544,8 +2543,8 @@ const std::vector<ModInstance*>& ModLoading::GetMods() {
 
 const std::vector<ModID> ModLoading::GetModsSid() {
     std::vector<ModID> vals;
-    for( unsigned i = 0; i < mods.size(); i++ ) {
-        vals.push_back( mods[i]->GetSid() );
+    for(auto & mod : mods) {
+        vals.push_back( mod->GetSid() );
     } 
     return vals;
 }
@@ -2624,10 +2623,8 @@ std::ostream& operator<<(std::ostream& os, const ModInstance::ModDependency &md 
 
     os << "-Versions-" << std::endl;
     
-    for( std::vector<std::string>::const_iterator sit = md.versions.begin();
-            sit != md.versions.end();
-            sit++) {
-        os << *sit << std::endl;
+    for(const auto & version : md.versions) {
+        os << version << std::endl;
     } 
 
     return os;
@@ -2642,34 +2639,26 @@ std::ostream& operator<<(std::ostream& os, const ModInstance &mi ) {
     os << "Valid:" << mi.GetValidity() << std::endl;
     os << "-Supported Versions-" << std::endl;
     
-    for( std::vector<std::string>::const_iterator sit = mi.supported_versions.begin();
-            sit != mi.supported_versions.end();
-            sit++) {
-        os << *sit << std::endl;
+    for(const auto & supported_version : mi.supported_versions) {
+        os << supported_version << std::endl;
     } 
 
     os << "-Mod Dependencies-" << std::endl;
     
-    for( std::vector<ModInstance::ModDependency>::const_iterator mdit = mi.mod_dependencies.begin();
-            mdit != mi.mod_dependencies.end();
-            mdit++) {
-        os << *mdit << std::endl;
+    for(const auto & mod_dependencie : mi.mod_dependencies) {
+        os << mod_dependencie << std::endl;
     } 
 
     os << "-Manifest -" << std::endl;
     
-    for( std::vector<std::string>::const_iterator sit = mi.manifest.begin();
-            sit != mi.manifest.end();
-            sit++) {
-        os << *sit << std::endl;
+    for(const auto & sit : mi.manifest) {
+        os << sit << std::endl;
     } 
 
     os << "-Overloaded Files-" << std::endl;
     
-    for( std::vector<std::string>::const_iterator sit = mi.overload_files.begin();
-            sit != mi.overload_files.end();
-            sit++) {
-        os << *sit << std::endl;
+    for(const auto & overload_file : mi.overload_files) {
+        os << overload_file << std::endl;
     } 
 
     return os;

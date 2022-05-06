@@ -102,11 +102,11 @@ namespace {
 }
 
 SavedLevel& SaveFile::GetSavedLevelDeprecated( const std::string& name ) {
-    for( size_t i = 0; i < levels_.size(); i++ ) {
-        if( levels_[i].campaign_id_ == "" &&
-            levels_[i].save_category_ == "" &&
-            levels_[i].save_name_ == name ) {
-                return levels_[i];
+    for(auto & level : levels_) {
+        if( level.campaign_id_ == "" &&
+            level.save_category_ == "" &&
+            level.save_name_ == name ) {
+                return level;
         }
     }
 
@@ -119,11 +119,11 @@ SavedLevel& SaveFile::GetSavedLevelDeprecated( const std::string& name ) {
 }
 
 SavedLevel& SaveFile::GetSave(const std::string campaign_id, const std::string save_category, const std::string level_name) {
-    for( size_t i = 0; i < levels_.size(); i++ ) {
-        if( levels_[i].campaign_id_ == campaign_id &&
-            levels_[i].save_category_ == save_category &&
-            levels_[i].save_name_ == level_name ) {
-                return levels_[i];
+    for(auto & level : levels_) {
+        if( level.campaign_id_ == campaign_id &&
+            level.save_category_ == save_category &&
+            level.save_name_ == level_name ) {
+                return level;
         }
     }
 
@@ -146,10 +146,10 @@ size_t SaveFile::GetSaveCount() {
 }
 
 bool SaveFile::SaveExist(const std::string campaign_id, const std::string save_category, const std::string level_name) {
-    for( size_t i = 0; i < levels_.size(); i++ ) {
-        if( levels_[i].campaign_id_ == campaign_id &&
-            levels_[i].save_category_ == save_category &&
-            levels_[i].save_name_ == level_name ) {
+    for(auto & level : levels_) {
+        if( level.campaign_id_ == campaign_id &&
+            level.save_category_ == save_category &&
+            level.save_name_ == level_name ) {
                 return true;
         }
     }
@@ -313,17 +313,17 @@ bool SaveFile::SerializeToRAM( std::vector<uint8_t> *mem_ptr ) {
     if(!file.WriteBytes(&num_levels, sizeof(num_levels))){
         return false;
     }
-    for(std::vector<SavedLevel>::iterator it = levels_.begin(); it != levels_.end(); ++it){
-        if(!WriteString(&file, &it->campaign_id_)){
+    for(auto & level : levels_){
+        if(!WriteString(&file, &level.campaign_id_)){
             return false;
         }
-        if(!WriteString(&file, &it->save_category_)){
+        if(!WriteString(&file, &level.save_category_)){
             return false;
         }
-        if(!WriteString(&file, &it->save_name_)){
+        if(!WriteString(&file, &level.save_name_)){
             return false;
         }
-        if(!it->SerializeToRAM(&file)){
+        if(!level.SerializeToRAM(&file)){
             return false;
         }
     }
@@ -442,8 +442,8 @@ void SavedLevel::AppendArrayValue(const std::string &key, const std::string& val
 
 bool SavedLevel::ArrayContainsValue(const std::string &key, const std::string& val) {
     std::vector<std::string> &v = array_data_[key];
-    for( size_t i = 0; i < v.size(); i++ ) {
-        if(v[i] == val){
+    for(auto & i : v) {
+        if(i == val){
             return true; 
         }
     }
@@ -497,11 +497,11 @@ bool SavedLevel::SerializeToRAM( MemWriteFileDescriptor *file_ptr ) {
         if(!file.WriteBytes(&num_saved_vals, sizeof(num_saved_vals))){
             return false;
         }
-        for(DataMap::iterator it = data_.begin(); it != data_.end(); ++it){
-            if(!WriteString(&file, &it->first)){
+        for(auto & it : data_){
+            if(!WriteString(&file, &it.first)){
                 return false;
             }
-            if(!WriteString(&file, &it->second)){
+            if(!WriteString(&file, &it.second)){
                 return false;
             }
         }
@@ -512,17 +512,17 @@ bool SavedLevel::SerializeToRAM( MemWriteFileDescriptor *file_ptr ) {
         if(!file.WriteBytes(&num_saved_array_vals, sizeof(num_saved_array_vals))){
             return false;
         }
-        for(ArrayDataMap::iterator it = array_data_.begin(); it != array_data_.end(); it++) {
-            if(!WriteString(&file, &it->first)){
+        for(auto & it : array_data_) {
+            if(!WriteString(&file, &it.first)){
                 return false;
             }
 
-            uint16_t num_saved_array_sub_vals = it->second.size();
+            uint16_t num_saved_array_sub_vals = it.second.size();
             if(!file.WriteBytes(&num_saved_array_sub_vals, sizeof(num_saved_array_sub_vals))){
                 return false;
             }
 
-            for(std::vector<std::string>::iterator it2 = it->second.begin(); it2 != it->second.end(); it2++) {
+            for(std::vector<std::string>::iterator it2 = it.second.begin(); it2 != it.second.end(); it2++) {
                 if(!WriteString(&file, &(*it2))){
                     return false; 
                 } 
@@ -535,11 +535,11 @@ bool SavedLevel::SerializeToRAM( MemWriteFileDescriptor *file_ptr ) {
         if(!file.WriteBytes(&num_saved_int32_vals, sizeof(num_saved_int32_vals))){
             return false;
         }
-        for(Int32Map::iterator it = data_int32_.begin(); it != data_int32_.end(); ++it){
-            if(!WriteString(&file, &it->first)){
+        for(auto & it : data_int32_){
+            if(!WriteString(&file, &it.first)){
                 return false;
             }
-            int32_t val = it->second;
+            int32_t val = it.second;
             if(!file.WriteBytes(&val, sizeof(val))){
                 return false;
             }

@@ -58,8 +58,7 @@ void ColorTintComponent::LoadDescriptionFromXML( EntityDescription& desc, const 
 }
 
 void ColorTintComponent::SetFromDescription( const EntityDescription& desc ) {
-    for(unsigned i=0; i<desc.fields.size(); ++i){
-        const EntityDescriptionField& field = desc.fields[i];
+    for(const auto & field : desc.fields){
         switch(field.type){
             case EDF_COLOR:
                 memread(tint_.entries, sizeof(float), 3, field.data);

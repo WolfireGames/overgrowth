@@ -94,10 +94,9 @@ void HUDImages::Draw() {
 
     {
         PROFILER_ZONE(g_profiler_ctx, "HUDImages draw loop");
-        for(unsigned i=0; i<hud_images.size(); ++i){
+        for(auto & hi : hud_images){
             PROFILER_GPU_ZONE(g_profiler_ctx, "HUDImages draw iteration");
             CHECK_GL_ERROR();
-            const HUDImage& hi = hud_images[i];
             if(hi.color[3] <= 0.0f){
                 continue;
             }

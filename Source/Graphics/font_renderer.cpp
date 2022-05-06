@@ -104,8 +104,8 @@ struct FontRendererImpl {
 
 
 FontRendererImpl::~FontRendererImpl() {
-    for (FontMap::iterator it = faces_.begin(); it != faces_.end(); ++it) {
-        FontFace &face = it->second;
+    for (auto & it : faces_) {
+        FontFace &face = it.second;
         FT_Done_Face(face.face);
         face.face = NULL;
     }

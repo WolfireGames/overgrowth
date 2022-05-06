@@ -46,9 +46,9 @@ const int _num_script_open_tries = 10;
 
 std::string ScriptFile::GetModPollutionInformation() const {
     std::stringstream ss;
-    for( unsigned i = 0; i < dependencies.size(); i++ ) {
-        if( dependencies[i].path.GetModsource() != CoreGameModID ) {
-            ss << "Includes " << dependencies[i].path << " from mod " << ModLoading::Instance().GetModName(dependencies[i].path.GetModsource()) << "." << std::endl;
+    for(const auto & dependencie : dependencies) {
+        if( dependencie.path.GetModsource() != CoreGameModID ) {
+            ss << "Includes " << dependencie.path << " from mod " << ModLoading::Instance().GetModName(dependencie.path.GetModsource()) << "." << std::endl;
         }
     }
     return ss.str();
@@ -68,8 +68,8 @@ static bool AlreadyAddedIncludeFileInParentHierarchy(const ScriptFile* parent_sc
 
 bool ScriptFile::AlreadyAddedIncludeFile(const Path &path) {
     bool already_loaded = false;
-    for(unsigned i=0; i<dependencies.size(); ++i){
-        if(path == dependencies[i].path){
+    for(auto & dependencie : dependencies){
+        if(path == dependencie.path){
             already_loaded = true;
             break;
         }
@@ -89,8 +89,8 @@ unsigned GetLineNumber(std::string &script, unsigned char_pos){
 
 unsigned GetNumLines(std::string &script){
     unsigned line_number = 1;
-    for(unsigned i=0; i<script.size(); i++){
-        if(script[i] == '\n'){
+    for(char i : script){
+        if(i == '\n'){
             line_number++;
         }
     }

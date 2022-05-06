@@ -93,8 +93,7 @@ bool LightProbeObject::SetFromDesc( const EntityDescription& desc ) {
     LOG_ASSERT(!stored_coefficients);
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
             case EDF_NEGATIVE_LIGHT_PROBE: {
                 int negative_int;

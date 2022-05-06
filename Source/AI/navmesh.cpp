@@ -319,8 +319,7 @@ namespace {
 
     bool Convex2DCollide(const vector<vec2> points[2], const vector<vec2> &axes) {
         bool intersects = true;
-        for(size_t i=0, len=axes.size(); i<len; ++i){
-            const vec2& axis = axes[i];
+        for(const auto & axis : axes){
             float proj_bounds[2][2];
             for(size_t i=0; i<2; ++i){
                 const vector<vec2> &point_vec = points[i];
@@ -460,8 +459,8 @@ void VoxellizeMesh(const vector<unsigned int> &faces, const vector<float> &verti
                     points[0].push_back(vec2((vox_x+i%2)*VOXEL_SIZE+bounds[0], (vox_z+i/2)*VOXEL_SIZE+bounds[2]));
                 }
                 points[1].clear();
-                for(int i=0; i<3; ++i){
-                    points[1].push_back(vec2(vert[i][0], vert[i][2]));
+                for(auto & i : vert){
+                    points[1].push_back(vec2(i[0], i[2]));
                 }
                 axes.clear();
                 axes.push_back(vec2(1,0));
@@ -474,8 +473,8 @@ void VoxellizeMesh(const vector<unsigned int> &faces, const vector<float> &verti
                 if(Convex2DCollide(points, axes)){
                     old_points.clear();
                     new_points.clear();
-                    for(int i=0; i<3; ++i){
-                        old_points.push_back(vec3(vert[i][0], vert[i][1], vert[i][2]));
+                    for(auto & i : vert){
+                        old_points.push_back(vec3(i[0], i[1], i[2]));
                     }
                     vector<vec3> plane_normal;
                     vector<float> plane_d;
@@ -520,8 +519,7 @@ void VoxellizeMesh(const vector<unsigned int> &faces, const vector<float> &verti
         for(int vox_x = 0; vox_x < voxel_dim[0]; ++vox_x){
             int column_index = vox_z * voxel_dim[0] + vox_x;
             ColumnEntryList list = columns[column_index];
-            for(ColumnEntryList::iterator iter = list.begin(); iter != list.end(); ++iter){
-                const ColumnEntry &entry = *iter;
+            for(auto & entry : list){
                 vec3 pos;
                 pos[0] = vox_x * VOXEL_SIZE + bounds[0];
                 pos[1] = entry.y * VOXEL_SIZE + bounds[1];

@@ -158,8 +158,8 @@ void TextCanvas::GetBGRA( MemoryBlock *mem_to_fill ) {
 }
 
 void TextCanvas::Clear() {
-    for(unsigned i=0, len=pixels_.size(); i<len; ++i){
-        pixels_[i] = 0;
+    for(unsigned char & pixel : pixels_){
+        pixel = 0;
     }
 }
 

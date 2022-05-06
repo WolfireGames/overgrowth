@@ -386,10 +386,10 @@ void ReadScriptParametersFromXML( ScriptParamMap &spm, const TiXmlElement* param
 
 void WriteScriptParamsToXML( const ScriptParamMap & pm, TiXmlElement* params )
 {
-    for(ScriptParamMap::const_iterator iter = pm.begin(); iter != pm.end(); ++iter){
+    for(const auto & iter : pm){
         TiXmlElement* param = new TiXmlElement("parameter");
-        param->SetAttribute("name",iter->first.c_str());
-        const ScriptParam &sp = iter->second;
+        param->SetAttribute("name",iter.first.c_str());
+        const ScriptParam &sp = iter.second;
         sp.WriteToXML(param);
         params->LinkEndChild(param);
     }

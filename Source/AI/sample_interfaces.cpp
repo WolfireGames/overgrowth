@@ -94,11 +94,11 @@ void BuildContext::dumpLog(const char* format, ...)
 			if (*msg == '\t')
 			{
 				int count = 1;
-				for (int j = 0; j < 4; ++j)
+				for (int j : TAB_STOPS)
 				{
-					if (n < TAB_STOPS[j])
+					if (n < j)
 					{
-						count = TAB_STOPS[j] - n;
+						count = j - n;
 						break;
 					}
 				}

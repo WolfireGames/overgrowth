@@ -283,25 +283,19 @@ void IMGUI::setFooterPanels( float first, float second, float third ) {
  */
 void IMGUI::setup() {
     
-    for( std::vector<IMContainer*>::iterator it = header.begin();
-         it != header.end();
-         ++it ) {
+    for(auto & it : header) {
         
-        (*it)->Release();
+        it->Release();
     }
     
-    for( std::vector<IMContainer*>::iterator it = footer.begin();
-        it != footer.end();
-        ++it ) {
+    for(auto & it : footer) {
         
-        (*it)->Release();
+        it->Release();
     }
     
-    for( std::vector<IMContainer*>::iterator it = main.begin();
-        it != main.end();
-        ++it ) {
+    for(auto & it : main) {
         
-        (*it)->Release();
+        it->Release();
     }
     
     header.clear();
@@ -336,17 +330,15 @@ void IMGUI::setup() {
         
         // Go through the list of pending panels, create them and total their widths
         int panelCount = 0;
-        for( std::vector<float>::iterator it = pendingHeaderPanels.begin();
-             it != pendingHeaderPanels.end();
-             ++it ) {
+        for(float & pendingHeaderPanel : pendingHeaderPanels) {
         
             IMContainer* panel = new IMContainer( "header" + numbering[panelCount],
-                                                  SizePolicy(*it),
+                                                  SizePolicy(pendingHeaderPanel),
                                                   SizePolicy(headerHeight) );
             panel->setOwnerParent( this, NULL );
             header.push_back( panel );
             
-            totalWidth += *it;
+            totalWidth += pendingHeaderPanel;
         
         }
         
@@ -373,18 +365,16 @@ void IMGUI::setup() {
         
         // Go through the list of pending panels, create them and total their widths
         int panelCount = 0;
-        for( std::vector<float>::iterator it = pendingFooterPanels.begin();
-            it != pendingFooterPanels.end();
-            ++it ) {
+        for(float & pendingFooterPanel : pendingFooterPanels) {
             
             IMContainer* panel = new IMContainer( "footer" + numbering[panelCount],
-                                                 SizePolicy(*it),
+                                                 SizePolicy(pendingFooterPanel),
                                                  SizePolicy(footerHeight) );
             panel->setOwnerParent( this, NULL );
             
             footer.push_back( panel );
             
-            totalWidth += *it;
+            totalWidth += pendingFooterPanel;
             
         }
         
@@ -411,18 +401,16 @@ void IMGUI::setup() {
         
         // Go through the list of pending panels, create them and total their widths
         int panelCount = 0;
-        for( std::vector<float>::iterator it = pendingMainPanels.begin();
-            it != pendingMainPanels.end();
-            ++it ) {
+        for(float & pendingMainPanel : pendingMainPanels) {
             
             IMContainer* panel = new IMContainer( "main" + numbering[panelCount],
-                                                 SizePolicy(*it),
+                                                 SizePolicy(pendingMainPanel),
                                                  SizePolicy(mainHeight) );
             panel->setOwnerParent( this, NULL );
             
             main.push_back( panel );
             
-            totalWidth += *it;
+            totalWidth += pendingMainPanel;
             
         }
         
@@ -545,8 +533,8 @@ void IMGUI::clear() {
         containerList[i]->Release();
     }
 
-    for( int i = 0; i < int(messageQueue.size()); ++i ) {
-        messageQueue[i]->Release();
+    for(auto & i : messageQueue) {
+        i->Release();
     }
     messageQueue.clear();
 }
@@ -682,26 +670,20 @@ void IMGUI::doRelayout() {
             backgrounds[ layer ]->doRelayout();
         }
         
-        for( std::vector<IMContainer*>::iterator it = header.begin();
-            it != header.end();
-            ++it ) {
-            (*it)->doRelayout();
+        for(auto & it : header) {
+            it->doRelayout();
         }
         
-        for( std::vector<IMContainer*>::iterator it = footer.begin();
-            it != footer.end();
-            ++it ) {
-            (*it)->doRelayout();
+        for(auto & it : footer) {
+            it->doRelayout();
         }
         
-        for( std::vector<IMContainer*>::iterator it = main.begin();
-            it != main.end();
-            ++it ) {
-            (*it)->doRelayout();
+        for(auto & it : main) {
+            it->doRelayout();
         }
         
-        for( unsigned int layer = 0; layer < foregrounds.size(); ++layer ) {
-            foregrounds[ layer ]->doRelayout();
+        for(auto & foreground : foregrounds) {
+            foreground->doRelayout();
         }
         
         // MJB Note: I'm aware that redoing the layout for the whole structure
@@ -856,31 +838,25 @@ void IMGUI::doScreenResize() {
         backgrounds[ layer ]->doScreenResize();
     }
     
-    for( std::vector<IMContainer*>::iterator it = header.begin();
-        it != header.end();
-        ++it ) {
-        (*it)->doScreenResize();
+    for(auto & it : header) {
+        it->doScreenResize();
     }
     
-    for( std::vector<IMContainer*>::iterator it = footer.begin();
-        it != footer.end();
-        ++it ) {
-        (*it)->doScreenResize();
+    for(auto & it : footer) {
+        it->doScreenResize();
     }
     
-    for( std::vector<IMContainer*>::iterator it = main.begin();
-        it != main.end();
-        ++it ) {
-        (*it)->doScreenResize();
+    for(auto & it : main) {
+        it->doScreenResize();
     }
     
-    for( unsigned int layer = 0; layer < foregrounds.size(); ++layer ) {
+    for(auto & foreground : foregrounds) {
         // reset the size
-        foregrounds[ layer ]->setSizePolicy( SizePolicy(screenMetrics.GUISpace.x()),
+        foreground->setSizePolicy( SizePolicy(screenMetrics.GUISpace.x()),
                                              SizePolicy(screenMetrics.GUISpace.y()) );
         
         
-        foregrounds[ layer ]->doScreenResize();
+        foreground->doScreenResize();
     }
     
     doRelayout();
@@ -962,8 +938,8 @@ void IMGUI::render() {
     IMGUI_IMUIContext->render();
     
     // render the foregrounds
-    for( unsigned int layer = 0; layer < foregrounds.size(); ++layer ) {
-        foregrounds[ layer ]->render( origin, origin, vec2( UNDEFINEDSIZE, UNDEFINEDSIZE ) );
+    for(auto & foreground : foregrounds) {
+        foreground->render( origin, origin, vec2( UNDEFINEDSIZE, UNDEFINEDSIZE ) );
         IMGUI_IMUIContext->render();
     }
     
@@ -1069,10 +1045,8 @@ void IMGUI::drawBox( vec2 boxPos, vec2 boxSize, vec4 boxColor, int zOrder, bool 
 IMElement* IMGUI::findElement( std::string const& elementName ) {
     
     
-    for( std::vector<IMContainer*>::iterator it = header.begin();
-         it != header.end();
-         ++it ) {
-        IMElement* foundElement = (*it)->findElement( elementName );
+    for(auto & it : header) {
+        IMElement* foundElement = it->findElement( elementName );
         
         if( foundElement != NULL ) {
             foundElement->AddRef();
@@ -1080,10 +1054,8 @@ IMElement* IMGUI::findElement( std::string const& elementName ) {
         }
     }
     
-    for( std::vector<IMContainer*>::iterator it = footer.begin();
-         it != footer.end();
-         ++it ) {
-        IMElement* foundElement = (*it)->findElement( elementName );
+    for(auto & it : footer) {
+        IMElement* foundElement = it->findElement( elementName );
         
         if( foundElement != NULL ) {
             foundElement->AddRef();
@@ -1091,10 +1063,8 @@ IMElement* IMGUI::findElement( std::string const& elementName ) {
         }
     }
     
-    for( std::vector<IMContainer*>::iterator it = main.begin();
-         it != main.end();
-         ++it ) {
-        IMElement* foundElement = (*it)->findElement( elementName );
+    for(auto & it : main) {
+        IMElement* foundElement = it->findElement( elementName );
         
         if( foundElement != NULL ) {
             foundElement->AddRef();

@@ -43,8 +43,8 @@ void LevelInfo::Print()
     LOGI << "Script: " << script_ << std::endl;
     terrain_info_.Print();
 
-    for(unsigned i=0; i<ambient_sounds_.size(); ++i){
-        LOGI << "Ambient sound: " << ambient_sounds_[i] << std::endl;
+    for(auto & ambient_sound : ambient_sounds_){
+        LOGI << "Ambient sound: " << ambient_sound << std::endl;
     }
 
     sky_info_.Print();
@@ -76,17 +76,17 @@ void LevelInfo::ReturnPaths( PathSet &path_set )
     static const int kBufSize = 256;
     char buf[kBufSize];
     path_set.insert("level "+path_);
-    for(unsigned i=0; i<ambient_sounds_.size(); ++i){
-        path_set.insert("sound "+ambient_sounds_[i]+"_1.wav");
-        path_set.insert("sound "+ambient_sounds_[i]+"_2.wav");
-        path_set.insert("sound "+ambient_sounds_[i]+"_3.wav");
+    for(auto & ambient_sound : ambient_sounds_){
+        path_set.insert("sound "+ambient_sound+"_1.wav");
+        path_set.insert("sound "+ambient_sound+"_2.wav");
+        path_set.insert("sound "+ambient_sound+"_3.wav");
     }
     terrain_info_.ReturnPaths(path_set);
     sky_info_.ReturnPaths(path_set);
-    for(unsigned i=0; i<script_paths_.size(); ++i){
-        FormatString(buf, kBufSize, "Finding script paths: %s", script_paths_[i].first.c_str());
+    for(auto & script_path : script_paths_){
+        FormatString(buf, kBufSize, "Finding script paths: %s", script_path.first.c_str());
         PROFILER_ZONE_DYNAMIC_STRING(g_profiler_ctx, buf);
-        ReturnPathUtil::ReturnPathsFromPath(script_paths_[i].second, path_set);
+        ReturnPathUtil::ReturnPathsFromPath(script_path.second, path_set);
     }
     for(unsigned i=0; i<desc_list_.size(); ++i){
         FormatString(buf, kBufSize, "Finding desc_list paths: %d", i);

@@ -102,10 +102,10 @@ bool AnimationReader::IncrementTime( const BlendMap &blendmap, float timestep ) 
 }
 
 float AnimationReader::GetTimeUntilEvent(const std::string &event){
-    for(unsigned i=0; i<events.size(); ++i){
-        if(events[i].event.event_string == event){
-            if(events[i].time > normalized_time){
-                return (*anim).AbsoluteTimeFromNormalized(events[i].time - normalized_time) / speed_mult * 0.001f;
+    for(auto & i : events){
+        if(i.event.event_string == event){
+            if(i.time > normalized_time){
+                return (*anim).AbsoluteTimeFromNormalized(i.time - normalized_time) / speed_mult * 0.001f;
             }
         }
     }
@@ -207,8 +207,8 @@ void AnimationReader::AttachTo( const AnimationAssetRef &_ref ) {
     last_rotation = 0.0f;
     skip_offset = false;
     callback_string.clear();
-    for(int i=0; i<_max_animated_items; ++i){
-        animated_item_ids[i] = -1;
+    for(int & animated_item_id : animated_item_ids){
+        animated_item_id = -1;
     }
     const AnimationAsset &anim = (*_ref);
     int anim_id = 0;
@@ -280,8 +280,8 @@ AnimationReader::AnimationReader():
     mirrored(false),
     speed_mult(1.0f)
 {
-    for(int i=0; i<_max_animated_items; ++i){
-        animated_item_ids[i] = -1;
+    for(int & animated_item_id : animated_item_ids){
+        animated_item_id = -1;
     }
 }
 
@@ -348,9 +348,9 @@ void AnimationReader::GetPrevEvents( const BlendMap &blendmap, float timestep ) 
 
 float AnimationReader::GetAnimationEventTime( const std::string & event_name, const BlendMap &blend_map ) const
 {
-    for(unsigned i=0; i<events.size(); ++i){
-        if(events[i].time > normalized_time && events[i].event.event_string == event_name){
-            float time = events[i].time - normalized_time;
+    for(const auto & event : events){
+        if(event.time > normalized_time && event.event.event_string == event_name){
+            float time = event.time - normalized_time;
             const AnimationAsset &anim_asset = (*anim);
             time /= anim_asset.GetFrequency(blend_map);
             return time;

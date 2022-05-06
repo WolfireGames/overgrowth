@@ -99,10 +99,9 @@ void Terrain::Dispose() {
     LOGI << "Clearing detail maps" << std::endl;
     detail_maps_info.clear();
     LOGI << "Clearing detail object surfaces" << std::endl;    
-    for(std::list<DetailObjectSurface*>::iterator iter = detail_object_surfaces.begin();
-        iter != detail_object_surfaces.end(); ++iter)
+    for(auto & detail_object_surface : detail_object_surfaces)
     {
-        delete (*iter);
+        delete detail_object_surface;
     }
     detail_object_surfaces.clear();
     detail_maps_info.clear();
@@ -204,10 +203,9 @@ void Terrain::GLInit(Sky* sky) {
 
         sky->BakeSecondPass(&baked_texture_ref);
         heightmap_.LoadData(heightmap_.path(), HeightmapImage::DOWNSAMPLED);
-        for(std::list<DetailObjectSurface*>::iterator iter = detail_object_surfaces.begin();
-            iter != detail_object_surfaces.end(); ++iter)
+        for(auto & detail_object_surface : detail_object_surfaces)
         {
-            (*iter)->SetBaseTextures(color_texture_ref, normal_map_ref);
+            detail_object_surface->SetBaseTextures(color_texture_ref, normal_map_ref);
         }
         CHECK_GL_ERROR();
     }
@@ -383,16 +381,16 @@ void RemoveDoubledTriangles(Model *model) {
     }
 
     // Mark triangles with normals facing down as bad
-    for(unsigned i=0; i<possible_bad_faces.size(); i++){
-        if(model->face_normals[possible_bad_faces[i]][1]<0){
-            bad_faces.push_back(possible_bad_faces[i]);
+    for(int & possible_bad_face : possible_bad_faces){
+        if(model->face_normals[possible_bad_face][1]<0){
+            bad_faces.push_back(possible_bad_face);
         }
     }
 
-    for(unsigned i=0; i<bad_faces.size(); i++){
-        model->faces[bad_faces[i]*3+0] = 0;
-        model->faces[bad_faces[i]*3+1] = 0;
-        model->faces[bad_faces[i]*3+2] = 0;
+    for(int bad_face : bad_faces){
+        model->faces[bad_face*3+0] = 0;
+        model->faces[bad_face*3+1] = 0;
+        model->faces[bad_face*3+2] = 0;
     }
 }
 
@@ -478,8 +476,8 @@ void Terrain::CalculateSimplifiedTerrain() {
         Model temp;
         temp.SimpleLoadTriangleCutObj(abs_uv2_path);
         CopyTexCoords2(terrain_simplified_model, temp);
-        for(unsigned i=0; i<terrain_simplified_model.tex_coords2.size(); ++i){
-            terrain_simplified_model.tex_coords2[i] *= 2048.0f;
+        for(float & i : terrain_simplified_model.tex_coords2){
+            i *= 2048.0f;
         }
     }
 
@@ -617,8 +615,8 @@ void Terrain::Load(const char* name, const std::string& model_override) {
     if(!model_override.empty()){
         Model &terrain_simplified_model = Models::Instance()->GetModel(model_id);
         terrain_simplified_model.LoadObj(model_override, 0);
-        for(unsigned i=0; i<terrain_simplified_model.tex_coords2.size(); ++i){
-            terrain_simplified_model.tex_coords2[i] *= 2048.0f;
+        for(float & i : terrain_simplified_model.tex_coords2){
+            i *= 2048.0f;
         }
     }
 
@@ -1005,12 +1003,11 @@ void Terrain::SetDetailObjectLayers( const std::vector<DetailObjectLayer> &_deta
     detail_object_surfaces.resize(detail_object_layers.size());
     int counter = 0;
     Model &terrain_simplified_model = Models::Instance()->GetModel(model_id);
-    for(std::list<DetailObjectSurface*>::iterator iter = detail_object_surfaces.begin();
-        iter != detail_object_surfaces.end(); ++iter)
+    for(auto & detail_object_surface : detail_object_surfaces)
     {
         static const mat4 identity;
-        *iter = new DetailObjectSurface();
-        DetailObjectSurface& dos = *(*iter);
+        detail_object_surface = new DetailObjectSurface();
+        DetailObjectSurface& dos = *detail_object_surface;
         dos.AttachTo(terrain_simplified_model, identity);
         dos.GetTrisInPatches(identity);
         dos.LoadDetailModel(detail_object_layers[counter].obj_path);
@@ -1029,10 +1026,9 @@ void Terrain::SetDetailObjectLayers( const std::vector<DetailObjectLayer> &_deta
         ++counter;
     }
     if(normal_map_ref.valid()){
-        for(std::list<DetailObjectSurface*>::iterator iter = detail_object_surfaces.begin();
-            iter != detail_object_surfaces.end(); ++iter)
+        for(auto & detail_object_surface : detail_object_surfaces)
         {
-            (*iter)->SetBaseTextures(color_texture_ref, normal_map_ref);
+            detail_object_surface->SetBaseTextures(color_texture_ref, normal_map_ref);
         }
     }
 }

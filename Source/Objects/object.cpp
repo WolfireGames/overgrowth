@@ -192,8 +192,7 @@ void Object::SaveToXML( TiXmlElement* parent ) {
 }
 
 bool Object::SetFromDesc( const EntityDescription& desc ) {
-    for(unsigned i=0; i<desc.fields.size(); ++i){
-        const EntityDescriptionField& field = desc.fields[i];
+    for(const auto & field : desc.fields){
         switch(field.type){
             case EDF_ID: {
                 int id;
@@ -374,25 +373,25 @@ void Object::Moved(Object::MoveType type) {
 }
 
 void Object::FinalizeLoadedConnections() {
-    for(size_t i = 0; i < unfinalized_connected_to.size(); ++i) {
-        Object* object = scenegraph_->GetObjectFromID(unfinalized_connected_to[i]);
+    for(int & i : unfinalized_connected_to) {
+        Object* object = scenegraph_->GetObjectFromID(i);
         if(object) {
             if(!ConnectTo(*object, false)) {
-                LOGW << "Failed to connect to the object with id " << unfinalized_connected_to[i] << " after loading" << std::endl;
+                LOGW << "Failed to connect to the object with id " << i << " after loading" << std::endl;
             }
         } else {
-            LOGW << "Connected to an invalid id " << unfinalized_connected_to[i] << " after loading" << std::endl;
+            LOGW << "Connected to an invalid id " << i << " after loading" << std::endl;
         }
     }
 
-    for(size_t i = 0; i < unfinalized_connected_from.size(); ++i) {
-        Object* object = scenegraph_->GetObjectFromID(unfinalized_connected_from[i]);
+    for(int & i : unfinalized_connected_from) {
+        Object* object = scenegraph_->GetObjectFromID(i);
         if(object) {
             if(!object->ConnectTo(*this, false)) {
-                LOGW << "Failed to connect to the object with id " << unfinalized_connected_from[i] << " after loading" << std::endl;
+                LOGW << "Failed to connect to the object with id " << i << " after loading" << std::endl;
             }
         } else {
-            LOGW << "Connected to an invalid id " << unfinalized_connected_from[i] << " after loading" << std::endl;
+            LOGW << "Connected to an invalid id " << i << " after loading" << std::endl;
         }
     }
 

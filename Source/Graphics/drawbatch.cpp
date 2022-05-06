@@ -100,8 +100,8 @@ DrawBatch::DrawBatch() : visible(true),
         tex_coord_elements[i] = 0;
         use_vbo_texcoords[i] = true;
     }
-    for(int i=0; i<kMaxTextures; i++){
-        texture_ref[i].clear();
+    for(auto & i : texture_ref){
+        i.clear();
     }
 }
 
@@ -126,21 +126,21 @@ void DrawBatch::Draw() {
     } else {
         const Camera& camera = (*ActiveCameras::Get());
         SetupVertexArrays();
-        for(unsigned i=0; i<added_batches.size(); i++){
-            if(camera.checkSphereInFrustum(added_batches[i].batch->bounding_sphere_center,
-                                           added_batches[i].batch->bounding_sphere_radius)){
-                added_batches[i].batch->SetStartState();
+        for(auto & added_batche : added_batches){
+            if(camera.checkSphereInFrustum(added_batche.batch->bounding_sphere_center,
+                                           added_batche.batch->bounding_sphere_radius)){
+                added_batche.batch->SetStartState();
                 //glPushMatrix();
                 //glMultMatrixf(added_batches[i].batch->transform);
                 
-                Graphics::Instance()->SetModelMatrix(added_batches[i].batch->transform, added_batches[i].batch->inv_transpose_transform);
+                Graphics::Instance()->SetModelMatrix(added_batche.batch->transform, added_batche.batch->inv_transpose_transform);
                 
-                DrawVertexArrayRange(added_batches[i].start_face,
-                                     added_batches[i].end_face,
-                                     added_batches[i].start_vertex,
-                                     added_batches[i].end_vertex);
+                DrawVertexArrayRange(added_batche.start_face,
+                                     added_batche.end_face,
+                                     added_batche.start_vertex,
+                                     added_batche.end_vertex);
                 //glPopMatrix();
-                added_batches[i].batch->SetEndState();
+                added_batche.batch->SetEndState();
             }
         }
         EndVertexArrays();
@@ -212,8 +212,8 @@ void DrawBatch::DrawElements( GLuint size, const GLuint* data ) {
     face_ptr = NULL;
     normal_ptr = NULL;
     vertex_ptr = NULL;
-    for(int i=0; i<8; i++){
-        tex_coord_ptr[i] = NULL;
+    for(auto & i : tex_coord_ptr){
+        i = NULL;
     }
 }
 
@@ -223,8 +223,8 @@ void DrawBatch::AddBatch( const DrawBatch &other ) {
     }
 
     if(other.added_batches.size()){
-        for(unsigned i=0; i<other.added_batches.size(); i++){
-            AddBatch(*(other.added_batches[i].batch));
+        for(const auto & added_batche : other.added_batches){
+            AddBatch(*(added_batche.batch));
         }
         return;
     }
@@ -321,8 +321,8 @@ Uniform::Uniform():
 void DrawBatch::Dispose() {
     normals.clear();
     vertices.clear();
-    for(int i=0; i<8; i++){
-       tex_coords[i].clear();
+    for(auto & tex_coord : tex_coords){
+       tex_coord.clear();
     }
     faces.clear();
     uniforms.clear();
@@ -330,8 +330,8 @@ void DrawBatch::Dispose() {
     vbo_faces->Dispose();
     vbo_vertices->Dispose();
     vbo_normals->Dispose();
-    for(int i=0; i<8; i++){
-        vbo_tex_coords[i]->Dispose();
+    for(auto & vbo_tex_coord : vbo_tex_coords){
+        vbo_tex_coord->Dispose();
     }
 
     draw_times = 0;
@@ -348,8 +348,8 @@ void DrawBatch::SetStartState() const {
 
     shaders->setProgram(shader_id);
     
-    for(unsigned i=0; i<uniforms.size(); i++){
-        uniforms[i].Apply();
+    for(const auto & uniform : uniforms){
+        uniform.Apply();
     }
 
     if(use_cam_pos){
@@ -453,9 +453,9 @@ void DrawBatch::SetupVertexArrays() const {
 
 void DrawBatch::SetUniformFloat( std::string _name, GLfloat data )
 {
-    for(unsigned i=0; i<uniforms.size(); ++i){
-        if(uniforms[i].name == _name){
-            uniforms[i].data[0] = data;
+    for(auto & uniform : uniforms){
+        if(uniform.name == _name){
+            uniform.data[0] = data;
             return;
         }
     }
@@ -464,27 +464,27 @@ void DrawBatch::SetUniformFloat( std::string _name, GLfloat data )
 
 void DrawBatch::MakeUniformIndividual( std::string _name )
 {
-    for(unsigned i=0; i<uniforms.size(); ++i){
-        if(uniforms[i].name == _name){
-            uniforms[i].individual = true;
+    for(auto & uniform : uniforms){
+        if(uniform.name == _name){
+            uniform.individual = true;
         }
     }
 }
 
 void DrawBatch::ApplyIndividualUniforms() const
 {
-    for(unsigned i=0; i<uniforms.size(); i++){
-        if(uniforms[i].individual){
-            uniforms[i].Apply();
+    for(const auto & uniform : uniforms){
+        if(uniform.individual){
+            uniform.Apply();
         }
     }
 }
 
 void DrawBatch::SetUniformVec3( std::string _name, const vec3 &_data )
 {
-    for(unsigned i=0; i<uniforms.size(); ++i){
-        if(uniforms[i].name == _name){
-            memcpy(&uniforms[i].data[0], 
+    for(auto & uniform : uniforms){
+        if(uniform.name == _name){
+            memcpy(&uniform.data[0], 
                    (const GLfloat*)_data.entries, 
                    3*sizeof(GLfloat));
         }
@@ -504,9 +504,9 @@ void DrawBatch::AddUniformVec4( std::string _name, const vec4 &_data ) {
 }
 
 void DrawBatch::SetUniformVec4( std::string _name, const vec4 &_data ) {
-    for(unsigned i=0; i<uniforms.size(); ++i){
-        if(uniforms[i].name == _name){
-            memcpy(&uniforms[i].data[0], 
+    for(auto & uniform : uniforms){
+        if(uniform.name == _name){
+            memcpy(&uniform.data[0], 
                 (const GLfloat*)_data.entries, 
                 4*sizeof(GLfloat));
         }

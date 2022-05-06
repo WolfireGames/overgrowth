@@ -60,12 +60,12 @@ void WritePaletteToRAM( const OGPalette& palette, std::vector<char> &data )
 
 void WritePaletteToXML( const OGPalette & palette, TiXmlElement* palette_el )
 {
-    for(unsigned i=0; i<palette.size(); ++i){
+    for(const auto & i : palette){
         TiXmlElement* color_el = new TiXmlElement("Color");
         palette_el->LinkEndChild(color_el);
-        const std::string &label = palette[i].label;
-        const vec3 &color = palette[i].color;
-        const char& channel = palette[i].channel;
+        const std::string &label = i.label;
+        const vec3 &color = i.color;
+        const char& channel = i.channel;
         color_el->SetAttribute("label", label.c_str());
         color_el->SetAttribute("channel", channel);
         color_el->SetDoubleAttribute("red", color[0]);

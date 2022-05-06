@@ -84,9 +84,9 @@ void DynamicLightCollection::Dispose() {
 }
 
 DynamicLight* DynamicLightCollection::GetLightFromID(int id) {
-    for(int i=0, len=dynamic_lights.size(); i<len; ++i){
-        if(dynamic_lights[i].id == id) {
-            return &dynamic_lights[i];
+    for(auto & dynamic_light : dynamic_lights){
+        if(dynamic_light.id == id) {
+            return &dynamic_light;
         }
     }
     return NULL;

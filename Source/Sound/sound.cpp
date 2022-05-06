@@ -81,8 +81,7 @@ void Sound::Dispose() {
 }
 
 void Sound::Update() {
-    for(unsigned i=0; i<ambient_triangles.size(); ++i){
-        AmbientTriangle& a_t = ambient_triangles[i];
+    for(auto & a_t : ambient_triangles){
         for(unsigned j=0; j<3; ++j){
             a_t.vol[j] = min(1.0f, a_t.vol[j] + m_accum_game_timestep);
             SetVolume(a_t.handles[j], a_t.vol[j]);
@@ -127,8 +126,7 @@ void Sound::updateListener(vec3 pos, vec3 vel, vec3 facing, vec3 up) {
     //oss << "Ambient triangles: " << ambient_triangles.size();
     //GUI::Instance()->AddDebugText("ambient_triangles", oss.str(), 0.5f);
 
-    for(unsigned i=0; i<ambient_triangles.size(); ++i){
-        AmbientTriangle& a_t = ambient_triangles[i];
+    for(auto & a_t : ambient_triangles){
         for(unsigned j=0; j<3; ++j){
             //vec3 new_dir(dot(a_t.rel_dir[j], cross(facing, up)),
             //             dot(a_t.rel_dir[j], up),

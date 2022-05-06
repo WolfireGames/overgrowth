@@ -187,20 +187,18 @@ void BulletWorld::Dispose() {
     delete broadphase_interface_; broadphase_interface_ = NULL;
     delete collision_dispatcher_; collision_dispatcher_ = NULL;
     delete collision_configuration_; collision_configuration_ = NULL;
-    for (BulletObjectList::iterator it = dynamic_objects_.begin(); it != dynamic_objects_.end(); ++it) {
-        BulletObject* object = (*it);
+    for (auto object : dynamic_objects_) {
         object->Dispose();
         delete object;
     }
     dynamic_objects_.clear();
-    for (BulletObjectList::iterator it = static_objects_.begin(); it != static_objects_.end(); ++it) {
-        BulletObject* object = (*it);
+    for (auto object : static_objects_) {
         object->Dispose();
         delete object;
     }
     static_objects_.clear();
-    for(HullShapeCacheMap::iterator it = hull_shape_cache_.begin(); it != hull_shape_cache_.end(); ++it){
-        delete it->second;
+    for(auto & it : hull_shape_cache_){
+        delete it.second;
     }
     hull_shape_cache_.clear();
 }
@@ -1553,10 +1551,10 @@ void BulletWorld::UpdateBulletObjectTransforms()
 
 void BulletWorld::RemoveTempConstraints()
 {
-    for(size_t i=0; i<temp_constraints_.size(); i++){
-        if(temp_constraints_[i].second){
-            dynamics_world_->removeConstraint(temp_constraints_[i].second);
-            delete temp_constraints_[i].second;
+    for(auto & temp_constraint : temp_constraints_){
+        if(temp_constraint.second){
+            dynamics_world_->removeConstraint(temp_constraint.second);
+            delete temp_constraint.second;
         }
     }
     temp_constraints_.clear();
@@ -1571,11 +1569,11 @@ void CenterAtCOMTri(Model &mesh){
     }
     vec3 avg_pos;
     int num_avg = 0;
-    for(unsigned i=0; i<vertex_faces.size(); ++i){
-        if(vertex_faces[i] == 1){
-            avg_pos += vec3(mesh.vertices[vertex_faces[i]*3+0],
-                            mesh.vertices[vertex_faces[i]*3+1],
-                            mesh.vertices[vertex_faces[i]*3+2]);
+    for(int vertex_face : vertex_faces){
+        if(vertex_face == 1){
+            avg_pos += vec3(mesh.vertices[vertex_face*3+0],
+                            mesh.vertices[vertex_face*3+1],
+                            mesh.vertices[vertex_face*3+2]);
             ++num_avg;
         }
     }
@@ -1703,8 +1701,8 @@ void GetSimplifiedHull(const std::vector<vec3> &input, std::vector<vec3> &output
 
 btConvexHullShape* CreateConvexHullShape(const std::vector<vec3> &verts) {
     btConvexHullShape* convex_hull_shape = new btConvexHullShape();
-    for (unsigned i=0 ; i<verts.size() ; ++i) {
-        convex_hull_shape->addPoint(btVector3(verts[i][0],verts[i][1],verts[i][2]));
+    for (const auto & vert : verts) {
+        convex_hull_shape->addPoint(btVector3(vert[0],vert[1],vert[2]));
     }
     convex_hull_shape->setMargin(0.00f);
     return convex_hull_shape;
@@ -1854,8 +1852,8 @@ void BulletWorld::CreateCustomHullShape( const std::string& key, const std::vect
         delete hsc_iter->second;
     }
     btConvexHullShape *shape = new btConvexHullShape();
-    for (int i=0, len=points.size(); i<len; ++i) {
-        shape->addPoint(btVector3(points[i][0], points[i][1], points[i][2]));
+    for (const auto & point : points) {
+        shape->addPoint(btVector3(point[0], point[1], point[2]));
     }
     shape->setMargin(0.00f);
     hull_shape_cache_[key] = shape;
@@ -2059,10 +2057,10 @@ void BulletWorld::CreateSpikeConstraint( BulletObject* obj, const vec3 &from, co
 }
 
 void BulletWorld::ClearBoneConstraints(){
-	for(size_t i=0; i<fixed_constraints_.size(); i++){
-        if( fixed_constraints_[i].second ) {
-            dynamics_world_->removeConstraint(fixed_constraints_[i].second);
-            delete fixed_constraints_[i].second;
+	for(auto & fixed_constraint : fixed_constraints_){
+        if( fixed_constraint.second ) {
+            dynamics_world_->removeConstraint(fixed_constraint.second);
+            delete fixed_constraint.second;
         }
     }
     fixed_constraints_.clear();
@@ -2076,9 +2074,9 @@ void BulletWorld::FinalizeStaticEntries() {
     // Create meta model of all models combined
     vert_indices.clear();
     vertices.clear();
-    for(int i=0, len=static_entries.size(); i<len; ++i){
-        Model& model = Models::Instance()->GetModel(static_entries[i].model_id);
-        mat4 &transform = static_entries[i].transform;
+    for(auto & static_entrie : static_entries){
+        Model& model = Models::Instance()->GetModel(static_entrie.model_id);
+        mat4 &transform = static_entrie.transform;
         //int start_vert_indices = vert_indices.size();
         int start_vertices = vertices.size()/3;
         for(int j=0, len=model.vertices.size(); j<len; j+=3){
@@ -2088,8 +2086,8 @@ void BulletWorld::FinalizeStaticEntries() {
             vertices.push_back(vec[1]);
             vertices.push_back(vec[2]);
         }
-        for(int j=0, len=model.faces.size(); j<len; ++j){
-            vert_indices.push_back(model.faces[j]+start_vertices);
+        for(unsigned int face : model.faces){
+            vert_indices.push_back(face+start_vertices);
         }
     }
     // Create physics object

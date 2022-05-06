@@ -50,8 +50,8 @@ ASDebugger::ASDebugger()
     , show_global_variables(false)
     , show_stack_trace(false)
 {
-    for(size_t i = 0; i < global_breakpoints.size(); ++i) {
-        ToggleBreakpoint(global_breakpoints[i].first.c_str(), global_breakpoints[i].second);
+    for(auto & global_breakpoint : global_breakpoints) {
+        ToggleBreakpoint(global_breakpoint.first.c_str(), global_breakpoint.second);
     }
 }
 
@@ -60,8 +60,8 @@ ASDebugger::~ASDebugger() {
 
 void ASDebugger::AddContext(ASContext* context) {
     bool add = true;
-    for(size_t i = 0; i < active_contexts.size(); ++i) {
-        if(active_contexts[i] == context) {
+    for(auto & active_context : active_contexts) {
+        if(active_context == context) {
             add = false;
             break;
         }
@@ -86,8 +86,8 @@ const std::vector<ASContext*>& ASDebugger::GetActiveContexts() {
 
 void ASDebugger::AddGlobalBreakpoint(const char* file, int line) {
     bool found = false;
-    for(size_t i = 0; i < global_breakpoints.size(); ++i) {
-        if(strcmp(global_breakpoints[i].first.c_str(), file) == 0 && global_breakpoints[i].second == line) {
+    for(auto & global_breakpoint : global_breakpoints) {
+        if(strcmp(global_breakpoint.first.c_str(), file) == 0 && global_breakpoint.second == line) {
             found = true;
             break;
         }
@@ -95,8 +95,8 @@ void ASDebugger::AddGlobalBreakpoint(const char* file, int line) {
 
     if(!found) {
         global_breakpoints.push_back(std::pair<std::string, int>(file, line));
-        for(size_t i = 0; i < active_contexts.size(); ++i) {
-            active_contexts[i]->dbg.AddBreakpoint(file, line);
+        for(auto & active_context : active_contexts) {
+            active_context->dbg.AddBreakpoint(file, line);
         }
     }
 }
@@ -105,8 +105,8 @@ void ASDebugger::RemoveGlobalBreakpoint(const char* file, int line) {
     for(size_t i = 0; i < global_breakpoints.size(); ++i) {
         if(strcmp(global_breakpoints[i].first.c_str(), file) == 0 && global_breakpoints[i].second == line) {
             global_breakpoints.erase(global_breakpoints.begin() + i);
-            for(size_t i = 0; i < active_contexts.size(); ++i) {
-                active_contexts[i]->dbg.RemoveBreakpoint(file, line);
+            for(auto & active_context : active_contexts) {
+                active_context->dbg.RemoveBreakpoint(file, line);
             }
             break;
         }
@@ -312,8 +312,8 @@ void ASDebugger::AddBreakpoint(const char* file_name, int line) {
     {
         std::vector<int>& lines = breakpoint_iter->second;
 
-        for(size_t i = 0; i < lines.size(); ++i) {
-            if(lines[i] == line) {
+        for(int i : lines) {
+            if(i == line) {
                 return;
             }
         }
@@ -379,8 +379,8 @@ void ASDebugger::LineCallback(asIScriptContext* ctx) {
     if(breakpoints == NULL)
         return;
     else {
-        for(size_t i = 0; i < breakpoints->size(); ++i) {
-            if(breakpoints->at(i) == current_line) {
+        for(int breakpoint : *breakpoints) {
+            if(breakpoint == current_line) {
                 paused = true;
                 auto_scroll = true;
                 ctx->Suspend();
@@ -443,8 +443,8 @@ void ASDebugger::Continue(asIScriptContext* ctx) {
         if(breakpoints == NULL)
             return;
         else {
-            for(size_t i = 0; i < breakpoints->size(); ++i) {
-                if(breakpoints->at(i) == (int)lf.line_number) {
+            for(int breakpoint : *breakpoints) {
+                if(breakpoint == (int)lf.line_number) {
                     current_file = lf.file;
                     current_line = lf.line_number;
                     ctx->Suspend();
@@ -726,8 +726,8 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
 
         bool is_breakpoint = false;
         if(breakpoints != NULL) {
-            for(size_t i = 0; i < breakpoints->size(); ++i) {
-                if(breakpoints->at(i) == line_nr) {
+            for(int breakpoint : *breakpoints) {
+                if(breakpoint == line_nr) {
                     is_breakpoint = true;
                     break;
                 }

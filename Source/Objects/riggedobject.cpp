@@ -179,8 +179,8 @@ RiggedObject::RiggedObject() :
 
     palette_colors.resize(max_palette_elements, vec3(1.0f));
     palette_colors_srgb.resize(max_palette_elements, vec3(1.0f));
-    for(int i=0; i<4; ++i){
-        model_id[i] = -1;
+    for(int & i : model_id){
+        i = -1;
     }
 
     anim_update_period = 2;
@@ -205,11 +205,11 @@ RiggedObject::~RiggedObject() {
             free(simd_bone_mats);
         #endif
     #endif
-    for(int i=0; i<4; ++i){
-        Models::Instance()->DeleteModel(model_id[i]);
+    for(int i : model_id){
+        Models::Instance()->DeleteModel(i);
     }
-    for(unsigned i=0; i<morph_targets.size(); ++i){
-        morph_targets[i].Dispose();
+    for(auto & morph_target : morph_targets){
+        morph_target.Dispose();
     }
     
     // TODO: why do we get a black screen when returning to the main menu on Mac
@@ -446,14 +446,13 @@ void RiggedObject::PreDrawFrame(float curr_game_time) {
 				}
 				else {
 					int total_connections = 0;
-					for (unsigned j = 0; j < kMaxBoneConnects; ++j) {
-						total_connections += attached_env_object.bone_connects[j].num_connections;
+					for (auto & bone_connect : attached_env_object.bone_connects) {
+						total_connections += bone_connect.num_connections;
 					}
 
 					mat4 total_mat(0.0f);
-					for (unsigned j = 0; j < kMaxBoneConnects; ++j) {
-						const BoneConnect &bone_connect = attached_env_object.bone_connects[j];
-						if (bone_connect.num_connections) {
+					for (const auto & bone_connect : attached_env_object.bone_connects) {
+							if (bone_connect.num_connections) {
 							mat4 mat = display_bone_transforms[bone_connect.bone_id].GetMat4() * bone_connect.rel_mat;
 							total_mat += mat * ((float)bone_connect.num_connections / (float)total_connections);
 						}
@@ -496,11 +495,11 @@ void RiggedObject::StoreNetworkBones() {
 void RiggedObject::StoreNetworkMorphTargets() { 
 	// first check if not present 
 	if (morph_targets.size() != network_morphs.size()) {
-		for (uint32_t i = 0; i < morph_targets.size(); i++) {
+		for (auto & morph_target : morph_targets) {
 			bool present = false;
 
-			for (uint32_t j = 0; j < network_morphs.size(); j++) {
-				if (morph_targets[i].name == network_morphs[j].name) {
+			for (auto & network_morph : network_morphs) {
+				if (morph_target.name == network_morph.name) {
 					present = true;
 					break;
 				}
@@ -509,31 +508,31 @@ void RiggedObject::StoreNetworkMorphTargets() {
 
 			if (present == false) {
 				MorphTargetStateStorage missing_morph;
-				missing_morph.disp_weight = morph_targets[i].disp_weight;
-				missing_morph.name = morph_targets[i].name;
+				missing_morph.disp_weight = morph_target.disp_weight;
+				missing_morph.name = morph_target.name;
 				missing_morph.dirty = true;
-				missing_morph.mod_weight = morph_targets[i].mod_weight;
+				missing_morph.mod_weight = morph_target.mod_weight;
 				network_morphs.push_back(missing_morph);
 			}
 		}
 	}
 
-	for (uint32_t i = 0; i < morph_targets.size(); i++) {
-		for (uint32_t j = 0; j < network_morphs.size(); j++) {
-			if (morph_targets[i].name == network_morphs[j].name) {
-				float a = morph_targets[i].disp_weight;
-				float b = network_morphs[j].disp_weight;
+	for (auto & morph_target : morph_targets) {
+		for (auto & network_morph : network_morphs) {
+			if (morph_target.name == network_morph.name) {
+				float a = morph_target.disp_weight;
+				float b = network_morph.disp_weight;
 
 
-				float c = network_morphs[j].mod_weight;
-				float d = morph_targets[i].mod_weight;
+				float c = network_morph.mod_weight;
+				float d = morph_target.mod_weight;
 
 				if (std::abs(a - b) > 1e-4 ||
 					std::abs(c - d) > 1e-4) {
 
-					network_morphs[j].mod_weight = morph_targets[i].mod_weight;
-					network_morphs[j].disp_weight = morph_targets[i].disp_weight;
-					network_morphs[j].dirty = true;
+					network_morph.mod_weight = morph_target.mod_weight;
+					network_morph.disp_weight = morph_target.disp_weight;
+					network_morph.dirty = true;
 				} 
 			}
 
@@ -550,8 +549,8 @@ void RiggedObject::PreDrawCamera(float curr_game_time) {
     }
 
     PROFILER_ZONE(g_profiler_ctx, "RiggedObject::PreDraw");
-    for(int i=0; i<4; ++i){
-        need_vbo_update[i] = true;
+    for(bool & i : need_vbo_update){
+        i = true;
     }
     Graphics::Instance()->setGLState(rigged_object_gl_state.gl_state);
 
@@ -768,8 +767,8 @@ void RiggedObject::Draw(const mat4& proj_view_matrix, Object::DrawType type) {
             shaders->SetUniformVec3("blood_tint", vec3(-1,-1,-1)); // Presumably this is here to force refreshing this uniform?
             shaders->SetUniformVec3("blood_tint", Graphics::Instance()->config_.blood_color());
             std::vector<vec3> ambient_cube_color_vec;
-            for(int i=0; i<6; ++i){
-                ambient_cube_color_vec.push_back(ambient_cube_color[i]);
+            for(auto & i : ambient_cube_color){
+                ambient_cube_color_vec.push_back(i);
             }
             shaders->SetUniformVec3Array("ambient_cube_color", ambient_cube_color_vec);        
             shaders->SetUniformVec3Array("tint_palette", palette_colors_srgb);
@@ -795,8 +794,7 @@ void RiggedObject::Draw(const mat4& proj_view_matrix, Object::DrawType type) {
 
             std::vector<mat4> light_volume_matrix;
             std::vector<mat4> light_volume_matrix_inverse;
-            for(int i=0, len=scenegraph_->light_volume_objects_.size(); i<len; ++i){
-                Object* obj = scenegraph_->light_volume_objects_[i];
+            for(auto obj : scenegraph_->light_volume_objects_){
                 const mat4 &mat = obj->GetTransform();
                 light_volume_matrix.push_back(mat);
                 light_volume_matrix_inverse.push_back(invert(mat));
@@ -925,8 +923,8 @@ void RiggedObject::Draw(const mat4& proj_view_matrix, Object::DrawType type) {
                 vel_vbo.Fill(model_num_verts*3*sizeof(GLfloat), &vel[0]);
             } else {
                 PROFILER_ZONE(g_profiler_ctx, "Calculate null vertex velocities");
-                for(int i=0, len=vel.size(); i<len; ++i){
-                    vel[i] = 0.0f;
+                for(float & i : vel){
+                    i = 0.0f;
                 }
                 vel_vbo.SetHint(model_num_verts*3*sizeof(GLfloat),kVBODynamic);
                 vel_vbo.Fill(model_num_verts*3*sizeof(GLfloat), &vel[0]);
@@ -1048,15 +1046,13 @@ bool RiggedObject::DrawBoneConnectUI(Object* objects[], int num_obj_ids, IMUICon
                     Object* obj = objects[obj_id_iter];
                     // Check if we already have a connection between this object and this character
                     bool already_attached = false;
-                    for(unsigned j=0; j<children.size(); ++j){
-                        AttachedEnvObject& attached_env_object = children[j];
+                    for(auto & attached_env_object : children){
                         if(attached_env_object.direct_ptr == obj){
                             // If this object is already attached to the selected bone, increment the number of connections
                             attached_env_object.bone_connection_dirty = true;
                             already_attached = true;
                             bool already_attached_to_bone = false;
-                            for(unsigned k=0; k<kMaxBoneConnects; ++k){
-                                BoneConnect& bone_connect = attached_env_object.bone_connects[k];
+                            for(auto & bone_connect : attached_env_object.bone_connects){
                                 if(bone_connect.bone_id == (int)i){
                                     ++bone_connect.num_connections;
                                     already_attached_to_bone = true;
@@ -1065,8 +1061,7 @@ bool RiggedObject::DrawBoneConnectUI(Object* objects[], int num_obj_ids, IMUICon
                             }
                             // If this object is not already attached to the bone, try to attach it with a spare slot
                             if(!already_attached_to_bone){
-                                for(unsigned k=0; k<kMaxBoneConnects; ++k){
-                                    BoneConnect& bone_connect = attached_env_object.bone_connects[k];
+                                for(auto & bone_connect : attached_env_object.bone_connects){
                                     if(bone_connect.num_connections == 0){
                                         bone_connect.bone_id = i;
                                         bone_connect.num_connections = 1;
@@ -1107,8 +1102,7 @@ bool RiggedObject::DrawBoneConnectUI(Object* objects[], int num_obj_ids, IMUICon
                         AttachedEnvObject& attached_obj = children[j];
                         if(attached_obj.direct_ptr == obj){
                             int total_connections = 0; //NOTE(David): Number of connections remaining between object and character
-                            for(unsigned k=0; k<kMaxBoneConnects; ++k){
-                                BoneConnect& bone_connect = attached_obj.bone_connects[k];
+                            for(auto & bone_connect : attached_obj.bone_connects){
                                 if(bone_connect.bone_id == (int)i && bone_connect.num_connections > 0){
                                     --bone_connect.num_connections;
                                 }
@@ -1138,12 +1132,11 @@ bool RiggedObject::DrawBoneConnectUI(Object* objects[], int num_obj_ids, IMUICon
         DebugDraw::Instance()->AddLine(start, end, bone_color, _delete_on_draw, _DD_XRAY);
     }
 
-    for(unsigned i=0; i<children.size(); ++i){
-        const AttachedEnvObject& attached_env_object = children[i];
-        Object* obj = children[i].direct_ptr;
+    for(auto & i : children){
+        const AttachedEnvObject& attached_env_object = i;
+        Object* obj = i.direct_ptr;
         if(obj && obj->Selected()){
-            for(unsigned j=0; j<kMaxBoneConnects; ++j){
-                const BoneConnect& bone_connect = attached_env_object.bone_connects[j];
+            for(const auto & bone_connect : attached_env_object.bone_connects){
                 if(bone_connect.num_connections > 0){
                     int bone_id = bone_connect.bone_id;
                     const Bone& bone = skeleton_.bones[skeleton_.physics_bones[bone_id].bone];
@@ -1268,13 +1261,13 @@ void RiggedObject::Update(float timestep) {
         }
         first_ragdoll_frame = false;
         // Updated attached items
-        for(AttachedItemList::iterator iter = attached_items.items.begin(); iter != attached_items.items.end(); ++iter) {
-            UpdateAttachedItemRagdoll(*iter, skeleton_, weapon_offset);
+        for(auto & item : attached_items.items) {
+            UpdateAttachedItemRagdoll(item, skeleton_, weapon_offset);
         }
         // Make sure attached items are not asleep if skeleton is awake
-        for(AttachedItemList::iterator iter = stuck_items.items.begin(); iter != stuck_items.items.end(); ++iter) {
+        for(auto & item : stuck_items.items) {
             if(skeleton_.physics_bones[0].bullet_object->IsActive()){
-                iter->item->WakeUpPhysics();
+                item.item->WakeUpPhysics();
             }
         }
     }
@@ -1284,8 +1277,8 @@ void RiggedObject::Update(float timestep) {
     --prev_anim_update_time;
 
     if(time_until_next_anim_update <= 0) {
-        for(unsigned i=0; i<morph_targets.size(); ++i){
-            morph_targets[i].UpdateForInterpolation();
+        for(auto & morph_target : morph_targets){
+            morph_target.UpdateForInterpolation();
         }
         if(!animated){
             PROFILER_ZONE(g_profiler_ctx, "Update ragdoll animation");
@@ -1322,11 +1315,10 @@ void RiggedObject::Update(float timestep) {
                 skeleton_.RefreshFixedJoints(animation_frame_bone_matrices);
                 // Apply morph weights from animation output
                 std::map<std::string, MorphTarget*> morph_target_names;
-                for(unsigned i=0; i<morph_targets.size(); ++i){
-                    morph_target_names[morph_targets[i].name] = &morph_targets[i];
+                for(auto & morph_target : morph_targets){
+                    morph_target_names[morph_target.name] = &morph_target;
                 }
-                for(unsigned i=0; i<anim_output.shape_keys.size(); ++i){
-                    const ShapeKeyBlend& skb = anim_output.shape_keys[i];
+                for(auto & skb : anim_output.shape_keys){
                     const std::string &label = skb.label;
                     if(morph_target_names.find(label) != morph_target_names.end()) {
                         morph_target_names[label]->anim_weight = 
@@ -1345,11 +1337,11 @@ void RiggedObject::Update(float timestep) {
                 PROFILER_ZONE(g_profiler_ctx, "anim_client.GetMatrices()");
                 anim_client.GetMatrices(anim_output, &skeleton_.parents);
             }
-            for(int i=0, len=anim_output.matrices.size(); i<len; ++i){
-                anim_output.matrices[i].origin *= model_char_scale;
+            for(auto & matrice : anim_output.matrices){
+                matrice.origin *= model_char_scale;
             }
-            for(int i=0, len=anim_output.ik_bones.size(); i<len; ++i){
-                anim_output.ik_bones[i].transform.origin *= model_char_scale;
+            for(auto & ik_bone : anim_output.ik_bones){
+                ik_bone.transform.origin *= model_char_scale;
             }
             weap_anim_info_map = anim_output.weap_anim_info_map;
             // Copy bone transforms for further manipulation
@@ -1366,14 +1358,14 @@ void RiggedObject::Update(float timestep) {
             vec4 angle_axis(0.0f,1.0f,0.0f,total_rotation);
             quaternion rot(angle_axis);
             mat4 rotmat4 = Mat4FromQuaternion(rot);
-            for(unsigned i=0; i<transforms.size(); i++){
-                transforms[i] = rotmat4 * transforms[i];
+            for(auto & transform : transforms){
+                transform = rotmat4 * transform;
             }
-            for(int i=0, len=anim_output.ik_bones.size(); i<len; ++i){
-                anim_output.ik_bones[i].transform = rotmat4 * anim_output.ik_bones[i].transform;
+            for(auto & ik_bone : anim_output.ik_bones){
+                ik_bone.transform = rotmat4 * ik_bone.transform;
             }
-            for(WeapAnimInfoMap::iterator iter = weap_anim_info_map.begin(); iter != weap_anim_info_map.end(); ++iter) {
-                WeapAnimInfo &weap_anim_info = iter->second;
+            for(auto & iter : weap_anim_info_map) {
+                WeapAnimInfo &weap_anim_info = iter.second;
                 if(weap_anim_info.relative_id == -1){
                     weap_anim_info.bone_transform = rotmat4 * weap_anim_info.bone_transform;
                 }
@@ -1384,11 +1376,11 @@ void RiggedObject::Update(float timestep) {
                 transforms[i].origin += total_center_offset;
                 animation_frame_bone_matrices[i] = transforms[i];
             }
-            for(int i=0, len=anim_output.ik_bones.size(); i<len; ++i){
-                anim_output.ik_bones[i].transform.origin += total_center_offset;
+            for(auto & ik_bone : anim_output.ik_bones){
+                ik_bone.transform.origin += total_center_offset;
             }
-            for(std::map<int, WeapAnimInfo>::iterator iter = weap_anim_info_map.begin(); iter != weap_anim_info_map.end(); ++iter) {
-                WeapAnimInfo &weap_anim_info = iter->second;
+            for(auto & iter : weap_anim_info_map) {
+                WeapAnimInfo &weap_anim_info = iter.second;
                 if(weap_anim_info.relative_id == -1){
                     weap_anim_info.bone_transform.origin += total_center_offset;
                 } else {
@@ -1398,11 +1390,10 @@ void RiggedObject::Update(float timestep) {
             
             // Apply animation morphs
             std::map<std::string, MorphTarget*> morph_target_names;
-            for(unsigned i=0; i<morph_targets.size(); ++i){
-                morph_target_names[morph_targets[i].name] = &morph_targets[i];
+            for(auto & morph_target : morph_targets){
+                morph_target_names[morph_target.name] = &morph_target;
             }
-            for(unsigned i=0; i<anim_output.shape_keys.size(); ++i){
-                const ShapeKeyBlend& skb = anim_output.shape_keys[i];
+            for(auto & skb : anim_output.shape_keys){
                 const std::string &label = skb.label;
                 if(morph_target_names.find(label) != morph_target_names.end()) {
                     morph_target_names[label]->anim_weight = skb.weight*skb.weight_weight;
@@ -1411,8 +1402,7 @@ void RiggedObject::Update(float timestep) {
 
             // Apply status keys
             status_keys.clear();
-            for(unsigned i=0; i<anim_output.status_keys.size(); ++i){
-                const StatusKeyBlend key = anim_output.status_keys[i];
+            for(auto key : anim_output.status_keys){
                 status_keys[key.label] = key.weight*key.weight_weight;
             }
 
@@ -1468,12 +1458,12 @@ void RiggedObject::Update(float timestep) {
     }
 
     if(animated){
-        for(AttachedItemList::iterator iter = attached_items.items.begin(); iter != attached_items.items.end(); ++iter) {
-            ItemObjectScriptReader& item = iter->item;
+        for(auto & iter : attached_items.items) {
+            ItemObjectScriptReader& item = iter.item;
             item.SetInterpInfo(GetTimeSinceLastAnimUpdate(), GetTimeBetweenLastTwoAnimUpdates());
         }
-        for(AttachedItemList::iterator iter=stuck_items.items.begin(); iter != stuck_items.items.end(); ++iter) {
-            iter->item.SetInterpInfo(GetTimeSinceLastAnimUpdate(), GetTimeBetweenLastTwoAnimUpdates());
+        for(auto & item : stuck_items.items) {
+            item.item.SetInterpInfo(GetTimeSinceLastAnimUpdate(), GetTimeBetweenLastTwoAnimUpdates());
         }
     }
 }
@@ -1498,14 +1488,13 @@ namespace {
     {
         std::vector<float> sm_vertices(sm.vertices.size());
         std::vector<float> sm_tex_coords(sm.tex_coords.size());
-        for(int i=0, len=vert_parent.size(); i<len; ++i){
-            WOLFIRE_SIMPLIFY::ParentRecordList parents = vert_parent[i];
+        for(auto parents : vert_parent){
             float total[3];
-            for(int j=0; j<3; ++j){
-                total[j] = 0.0f;
+            for(float & j : total){
+                j = 0.0f;
             }
-            for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+            for(auto & parent : parents){
+                WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                 if(pr.weight > 0.0f){
                     int parent_vert = sm.old_vert_id[pr.id];
                     int parent_vert_index = parent_vert*3;
@@ -1514,29 +1503,28 @@ namespace {
                     }
                 }
             }
-            for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+            for(auto & parent : parents){
+                WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                 int parent_vert_index = pr.id*3;
                 for(int j=0; j<3; ++j){
                     sm_vertices[parent_vert_index+j] = total[j];
                 }
             }
         }
-        for(int i=0, len=tex_parent.size(); i<len; ++i){
-            WOLFIRE_SIMPLIFY::ParentRecordList parents = tex_parent[i];
+        for(auto parents : tex_parent){
             float total[2];
-            for(int j=0; j<2; ++j){
-                total[j] = 0.0f;
+            for(float & j : total){
+                j = 0.0f;
             }
-            for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+            for(auto & parent : parents){
+                WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                 int parent_tex_index = sm.old_tex_id[pr.id]*2;
                 for(int j=0; j<2; ++j){
                     total[j] += base_model.tex_coords[parent_tex_index+j] * pr.weight;
                 }
             }
-            for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+            for(auto & parent : parents){
+                WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                 int parent_tex_index = pr.id*2;
                 for(int j=0; j<2; ++j){
                     sm_tex_coords[parent_tex_index+j] = total[j];
@@ -1629,11 +1617,11 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
     anim_client.SetRetargeting(skeleton_path);
 
     const mat4 &transform = GetTransform();
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-        if(!skeleton_.physics_bones[i].bullet_object){
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(!physics_bone.bullet_object){
             continue;
         }
-        skeleton_.physics_bones[i].bullet_object->ApplyTransform(transform);
+        physics_bone.bullet_object->ApplyTransform(transform);
     }
 
     ik_offset.resize(skeleton_.physics_bones.size());
@@ -1656,9 +1644,9 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
     }
 
     const std::vector<MorphInfo> &morphs = char_ref->GetMorphs();
-    for(unsigned i=0; i<morphs.size(); ++i){
+    for(const auto & morph : morphs){
         MorphTarget mt;
-        mt.Load(ofc->model_name, the_model_id, morphs[i].label, morphs[i].num_steps);
+        mt.Load(ofc->model_name, the_model_id, morph.label, morph.num_steps);
         morph_targets.push_back(mt);
     }
     
@@ -1708,15 +1696,14 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
                 bone_weight.clear();
                 bone_id.resize(sm.vertices.size()/3, 0.0f);
                 bone_weight.resize(sm.vertices.size()/3, 0.0f);
-                for(int i=0, len=vert_parent.size(); i<len; ++i){
-                    WOLFIRE_SIMPLIFY::ParentRecordList parents = vert_parent[i];
+                for(auto parents : vert_parent){
                     float total[3];
                     bone_info_accumulate.clear();
-                    for(int j=0; j<3; ++j){
-                        total[j] = 0.0f;
+                    for(float & j : total){
+                        j = 0.0f;
                     }
-                    for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                        WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+                    for(auto & parent : parents){
+                        WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                         if(pr.weight > 0.0f){
                             int parent_vert = sm.old_vert_id[pr.id];
                             int parent_vert_index = parent_vert*3;
@@ -1756,18 +1743,16 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
                     }
                     // Normalize weights to add up to 1.0
                     float total_weight = 0.0f;
-                    for(int i=0,len=bone_info_accumulate.size(); i<len; ++i){
-                        BoneInfo &bi = bone_info_accumulate[i];
+                    for(auto & bi : bone_info_accumulate){
                         total_weight += bi.weight; 
                     }
                     if(total_weight != 0.0f){
-                        for(int i=0,len=bone_info_accumulate.size(); i<len; ++i){
-                            BoneInfo &bi = bone_info_accumulate[i];
+                        for(auto & bi : bone_info_accumulate){
                             bi.weight /= total_weight; 
                         }
                     }
-                    for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                        WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+                    for(auto & parent : parents){
+                        WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                         int parent_vert_index = pr.id*3;
                         for(int j=0; j<3; ++j){
                             sm.vertices[parent_vert_index+j] = total[j];
@@ -1778,21 +1763,20 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
                         }
                     }
                 }
-                for(int i=0, len=tex_parent.size(); i<len; ++i){
-                    WOLFIRE_SIMPLIFY::ParentRecordList parents = tex_parent[i];
+                for(auto parents : tex_parent){
                     float total[2];
-                    for(int j=0; j<2; ++j){
-                        total[j] = 0.0f;
+                    for(float & j : total){
+                        j = 0.0f;
                     }
-                    for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                        WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+                    for(auto & parent : parents){
+                        WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                         int parent_tex_index = sm.old_tex_id[pr.id]*2;
                         for(int j=0; j<2; ++j){
                             total[j] += base_model.tex_coords[parent_tex_index+j] * pr.weight;
                         }
                     }
-                    for(WOLFIRE_SIMPLIFY::ParentRecordList::iterator iter = parents.begin(); iter != parents.end(); ++iter){
-                        WOLFIRE_SIMPLIFY::ParentRecord pr = (*iter);
+                    for(auto & parent : parents){
+                        WOLFIRE_SIMPLIFY::ParentRecord pr = parent;
                         int parent_tex_index = pr.id*2;
                         for(int j=0; j<2; ++j){
                             sm.tex_coords[parent_tex_index+j] = total[j];
@@ -1828,14 +1812,14 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
                 model.morph_transform_vec.resize(model_num_verts);
                 
                 std::queue<MorphTarget*> queue;
-                for(unsigned i=0; i<morph_targets.size(); ++i){
-                    queue.push(&morph_targets[i]);
+                for(auto & morph_target : morph_targets){
+                    queue.push(&morph_target);
                 }
                 while(!queue.empty()){
                     MorphTarget& morph = (*queue.front());
                     queue.pop();
-                    for(unsigned i=0; i<morph.morph_targets.size(); ++i){
-                        queue.push(&morph.morph_targets[i]);
+                    for(auto & morph_target : morph.morph_targets){
+                        queue.push(&morph_target);
                     }
                     if(morph.model_id[0] != -1) {
                         morph.model_id[lod_index] = Models::Instance()->AddModel();
@@ -1846,8 +1830,8 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
                         morph_model.CopyVertCollapse(model);
                     }
                 }
-                for(unsigned i=0; i<morph_targets.size(); ++i){
-                    morph_targets[i].CalcVertsModified(model_id[lod_index],lod_index);
+                for(auto & morph_target : morph_targets){
+                    morph_target.CalcVertsModified(model_id[lod_index],lod_index);
                 }
             }
             SaveSimplificationCache(char_ref->path_);
@@ -1913,9 +1897,9 @@ bool RiggedObject::InHeadChain(BulletObject* obj) {
 
 void RiggedObject::InvalidatedItem(ItemObjectScriptReader *invalidated) {
     int weap_id = -1;
-    for(AttachedItemList::iterator iter = attached_items.items.begin(); iter != attached_items.items.end(); ++iter) {
-        if(&(iter->item) == invalidated){
-            weap_id = (iter->item)->GetID();
+    for(auto & item : attached_items.items) {
+        if(&(item.item) == invalidated){
+            weap_id = (item.item)->GetID();
             break;
         } 
     }
@@ -2058,12 +2042,11 @@ void RiggedObject::SetItemAttachment(AttachedItem &stuck_item, AttachmentRef att
 
 void RiggedObject::SheatheItem(int id, bool on_right){
     AttachedItem *item_ptr = NULL;
-    for(std::list<AttachedItem>::iterator iter = attached_items.items.begin(); 
-        iter != attached_items.items.end(); ++iter)
+    for(auto & iter : attached_items.items)
     {
-        ItemObjectScriptReader& item = iter->item;
+        ItemObjectScriptReader& item = iter.item;
         if(item->GetID() == id){
-            item_ptr = &(*iter);
+            item_ptr = &iter;
         }
     }
     if(!item_ptr){
@@ -2079,12 +2062,11 @@ void RiggedObject::SheatheItem(int id, bool on_right){
 
 void RiggedObject::UnSheatheItem(int id, bool right_hand){
     AttachedItem *item_ptr = NULL;
-    for(std::list<AttachedItem>::iterator iter = attached_items.items.begin(); 
-        iter != attached_items.items.end(); ++iter)
+    for(auto & iter : attached_items.items)
     {
-        ItemObjectScriptReader& item = iter->item;
+        ItemObjectScriptReader& item = iter.item;
         if(item->GetID() == id){
-            item_ptr = &(*iter);
+            item_ptr = &iter;
         }
     }
     if(!item_ptr){
@@ -2108,10 +2090,9 @@ void RiggedObject::DetachAllItems(){
     attached_items.RemoveAll();
     char_anim.clear();
 
-    for(std::list<AttachedItem>::iterator iter = stuck_items.items.begin(); 
-        iter != stuck_items.items.end(); ++iter)
+    for(auto & item : stuck_items.items)
     {
-        iter->item->ActivatePhysics();
+        item.item->ActivatePhysics();
     }
     stuck_items.items.clear();
 }
@@ -2162,8 +2143,7 @@ void RiggedObject::ApplyBoneMatricesToModel(bool old, int lod_level) {
     const bool kMorphTargetsEnabled = true;
     if(kMorphTargetsEnabled){
         // Determine which morphs are active (have effective weight > 0)
-        for(unsigned k=0; k<morph_targets.size(); ++k){
-            MorphTarget& m_t = morph_targets[k];
+        for(auto & m_t : morph_targets){
             if(online->IsClient() || m_t.weight > 0.0f ||
               (m_t.anim_weight > 0.0f && m_t.script_weight_weight < 1.0f) || 
               (m_t.script_weight > 0.0f && m_t.script_weight_weight > 0.0f))
@@ -2184,13 +2164,11 @@ void RiggedObject::ApplyBoneMatricesToModel(bool old, int lod_level) {
         // Accumulate the effect of all active morphs
         Models *mi = Models::Instance();
         int vert_id, vert_id_index;
-        for(unsigned k=0, len=active_morph_targets.size(); k<len; ++k){
-            MorphTarget* morph = active_morph_targets[k];
-
+        for(auto morph : active_morph_targets){
             const Model *morph_model = &mi->GetModel(morph->model_id[lod_level]);
             const std::vector<int> &modified_tc = morph->modified_tc[lod_level];
-            for(unsigned j=0, len2=modified_tc.size(); j<len2; ++j){
-                vert_id = modified_tc[j];
+            for(int j : modified_tc){
+                vert_id = j;
                 vert_id_index = vert_id*2;
                 model->tex_transform_vec[vert_id] += 
                     vec2(morph_model->tex_coords[vert_id_index+0],
@@ -2199,8 +2177,8 @@ void RiggedObject::ApplyBoneMatricesToModel(bool old, int lod_level) {
             }
             const std::vector<int> &modified_vert = morph->modified_verts[lod_level];
 
-            for(unsigned j=0,len2=modified_vert.size(); j<len2; ++j){
-                vert_id = modified_vert[j];
+            for(int j : modified_vert){
+                vert_id = j;
                 vert_id_index = vert_id*3;
 
 				if (online->IsClient()) {
@@ -2290,9 +2268,9 @@ void MorphTarget::SetScriptWeight(float weight, float weight_weight) {
 }
 
 void RiggedObject::SetMTTargetWeight( const std::string &target_name, float weight, float weight_weight ) {
-    for(unsigned i=0; i<morph_targets.size(); ++i){
-        if(morph_targets[i].name == target_name){
-            morph_targets[i].SetScriptWeight(weight, weight_weight);
+    for(auto & morph_target : morph_targets){
+        if(morph_target.name == target_name){
+            morph_target.SetScriptWeight(weight, weight_weight);
             return;
         }
     }    
@@ -2500,9 +2478,9 @@ void RiggedObject::FixDiscontinuity() {
 	Update(game_timer.timestep);
 	time_until_next_anim_update = 0;
 	Update(game_timer.timestep);
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-		if(skeleton_.physics_bones[i].bullet_object){
-	        skeleton_.physics_bones[i].bullet_object->FixDiscontinuity();
+    for(auto & physics_bone : skeleton_.physics_bones){
+		if(physics_bone.bullet_object){
+	        physics_bone.bullet_object->FixDiscontinuity();
 		}
     }    
 }
@@ -2510,8 +2488,8 @@ void RiggedObject::FixDiscontinuity() {
 void RiggedObject::RefreshRagdoll()
 {
     if(!animated){
-        for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-            BulletObject* b_object = skeleton_.physics_bones[i].bullet_object;
+        for(auto & physics_bone : skeleton_.physics_bones){
+            BulletObject* b_object = physics_bone.bullet_object;
             if(!b_object){
                 continue;
             }
@@ -2526,8 +2504,8 @@ void RiggedObject::Ragdoll(const vec3 &velocity) {
         animated = false;
         first_ragdoll_frame = true;
     
-        for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-            BulletObject* b_object = skeleton_.physics_bones[i].bullet_object;
+        for(auto & physics_bone : skeleton_.physics_bones){
+            BulletObject* b_object = physics_bone.bullet_object;
             if(!b_object){
                 continue;
             }
@@ -2541,18 +2519,17 @@ void RiggedObject::Ragdoll(const vec3 &velocity) {
             skeleton_.SetGFStrength(skeleton_.physics_joints[i], 0.0f);
         }
 
-        for(std::list<AttachedItem>::iterator iter = stuck_items.items.begin(); 
-            iter != stuck_items.items.end(); ++iter)
+        for(auto & item : stuck_items.items)
         {
-            iter->item.ActivatePhysics();
-            iter->item.AddConstraint(skeleton_.physics_bones[iter->bone_id].bullet_object);
+            item.item.ActivatePhysics();
+            item.item.AddConstraint(skeleton_.physics_bones[item.bone_id].bullet_object);
         }
     }
 }
 
 void RiggedObject::SetDamping(float amount){
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-        BulletObject* b_object = skeleton_.physics_bones[i].bullet_object;
+    for(auto & physics_bone : skeleton_.physics_bones){
+        BulletObject* b_object = physics_bone.bullet_object;
         if(!b_object){
             continue;
         }
@@ -2562,10 +2539,9 @@ void RiggedObject::SetDamping(float amount){
         }
     }   
     if(amount >= 1.0f){
-        for(std::list<AttachedItem>::iterator iter = stuck_items.items.begin(); 
-            iter != stuck_items.items.end(); ++iter)
+        for(auto & item : stuck_items.items)
         {
-            iter->item->SleepPhysics();
+            item.item->SleepPhysics();
         }
     }
 }
@@ -2573,10 +2549,9 @@ void RiggedObject::SetDamping(float amount){
 void RiggedObject::UnRagdoll() {
     //mat4 inv_transform = invert(GetTransformationMatrix());
     if(!animated){
-        for(std::list<AttachedItem>::iterator iter = stuck_items.items.begin(); 
-            iter != stuck_items.items.end(); ++iter)
+        for(auto & item : stuck_items.items)
         {
-            iter->item.RemoveConstraint();
+            item.item.RemoveConstraint();
         }
 
         anim_client.Reset();
@@ -2594,12 +2569,12 @@ vec3 RiggedObject::GetAvgPosition()
 {
     vec3 total(0.0f);
     int num_total = 0;
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-        if(!skeleton_.physics_bones[i].bullet_object){
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(!physics_bone.bullet_object){
             continue;
         }
         num_total++;
-        total += skeleton_.physics_bones[i].bullet_object->GetPosition();
+        total += physics_bone.bullet_object->GetPosition();
     }    
 
     total /= (float)num_total;
@@ -2611,14 +2586,14 @@ vec3 RiggedObject::GetAvgVelocity()
 {
     vec3 total(0.0f);
     float divisor = 0.0f;
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-        if(!skeleton_.physics_bones[i].bullet_object ||
-           !skeleton_.physics_bones[i].bullet_object->linked){
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(!physics_bone.bullet_object ||
+           !physics_bone.bullet_object->linked){
             continue;
         }
-        const float mass = skeleton_.physics_bones[i].bullet_object->GetMass();
+        const float mass = physics_bone.bullet_object->GetMass();
         divisor += mass;
-        total += skeleton_.physics_bones[i].bullet_object->GetLinearVelocity() * mass;
+        total += physics_bone.bullet_object->GetLinearVelocity() * mass;
     }    
 
     total /= divisor;
@@ -2629,14 +2604,14 @@ vec3 RiggedObject::GetAvgVelocity()
 vec3 RiggedObject::GetAvgAngularVelocity() {
     vec3 total(0.0f);
     float divisor = 0.0f;
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-        if(!skeleton_.physics_bones[i].bullet_object ||
-           !skeleton_.physics_bones[i].bullet_object->linked){
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(!physics_bone.bullet_object ||
+           !physics_bone.bullet_object->linked){
                 continue;
         }
-        total += skeleton_.physics_bones[i].bullet_object->GetAngularVelocity() *
-                 skeleton_.physics_bones[i].bullet_object->GetMass();
-        divisor += skeleton_.physics_bones[i].bullet_object->GetMass();
+        total += physics_bone.bullet_object->GetAngularVelocity() *
+                 physics_bone.bullet_object->GetMass();
+        divisor += physics_bone.bullet_object->GetMass();
     }    
 
     total /= divisor;
@@ -2648,11 +2623,11 @@ vec3 RiggedObject::GetAvgAngularVelocity() {
 quaternion RiggedObject::GetAvgRotation()
 {
     quaternion total;
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); i++){
-        if(!skeleton_.physics_bones[i].bullet_object){
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(!physics_bone.bullet_object){
             continue;
         }
-        const PhysicsBone& bone = skeleton_.physics_bones[i];
+        const PhysicsBone& bone = physics_bone;
         mat4 rotation = bone.bullet_object->GetRotation() * 
                         invert(bone.initial_rotation);
         total += QuaternionFromMat4(rotation) * bone.bullet_object->GetMass();
@@ -2677,18 +2652,18 @@ vec3 RiggedObject::GetIKTargetPosition( const std::string &target_name )
 }
 
 float RiggedObject::GetIKWeight( const std::string &target_name ) {
-    for(unsigned i=0; i<blended_bone_paths.size(); ++i){
-        if(blended_bone_paths[i].ik_bone.label == target_name){
-            return blended_bone_paths[i].weight;
+    for(auto & blended_bone_path : blended_bone_paths){
+        if(blended_bone_path.ik_bone.label == target_name){
+            return blended_bone_path.weight;
         }
     }
     return 0.0f;
 }
 
 BoneTransform GetIKTransform( RiggedObject* rigged_object, const std::string &target_name ) {
-    for(unsigned i=0; i<rigged_object->blended_bone_paths.size(); ++i){
-        if(rigged_object->blended_bone_paths[i].ik_bone.label == target_name){
-            return rigged_object->blended_bone_paths[i].transform;
+    for(auto & blended_bone_path : rigged_object->blended_bone_paths){
+        if(blended_bone_path.ik_bone.label == target_name){
+            return blended_bone_path.transform;
         }
     }
     BoneTransform identity;
@@ -2696,9 +2671,9 @@ BoneTransform GetIKTransform( RiggedObject* rigged_object, const std::string &ta
 }
 
 mat4 GetUnmodifiedIKTransform( RiggedObject* rigged_object, const std::string &target_name ) {
-    for(unsigned i=0; i<rigged_object->blended_bone_paths.size(); ++i){
-        if(rigged_object->blended_bone_paths[i].ik_bone.label == target_name){
-            return rigged_object->blended_bone_paths[i].unmodified_transform.GetMat4();
+    for(auto & blended_bone_path : rigged_object->blended_bone_paths){
+        if(blended_bone_path.ik_bone.label == target_name){
+            return blended_bone_path.unmodified_transform.GetMat4();
         }
     }
     mat4 identity;
@@ -2706,9 +2681,9 @@ mat4 GetUnmodifiedIKTransform( RiggedObject* rigged_object, const std::string &t
 }
 
 vec3 RiggedObject::GetIKTargetAnimPosition( const std::string &target_name ) {
-    for(unsigned i=0; i<blended_bone_paths.size(); ++i){
-        if(blended_bone_paths[i].ik_bone.label == target_name){
-            int target_bone = blended_bone_paths[i].ik_bone.bone_path.back();
+    for(auto & blended_bone_path : blended_bone_paths){
+        if(blended_bone_path.ik_bone.label == target_name){
+            int target_bone = blended_bone_path.ik_bone.bone_path.back();
             return unmodified_transforms[target_bone].origin;
         }
     }
@@ -2753,8 +2728,7 @@ void MorphTarget::CalcVertsModified(int base_model_id, int lod_level) {
     } else {
         verts_modified[lod_level].resize(model_num_verts, false);
         tc_modified[lod_level].resize(model_num_verts, false);
-        for(unsigned i=0; i<morph_targets.size(); ++i){
-            MorphTarget &mt = morph_targets[i];
+        for(auto & mt : morph_targets){
             mt.CalcVertsModified(base_model_id, lod_level);
             for(int j=0; j<model_num_verts; ++j){
                 if(mt.verts_modified[lod_level][j]){
@@ -2795,8 +2769,8 @@ void MorphTarget::Load(const std::string &base_model_name,
     script_weight_weight = 0.0f;
     checksum = 0;
 
-    for(int i=0; i<4; ++i){
-        model_id[i] = -1;
+    for(int & i : model_id){
+        i = -1;
     }
 
     if(parts == 1){       
@@ -2820,11 +2794,11 @@ void MorphTarget::Load(const std::string &base_model_name,
     } else {
         model_id[0] = Models::Instance()->CopyModel(base_model_id);
         Model& model = Models::Instance()->GetModel(model_id[0]);
-        for(int i=0, len=(int)model.vertices.size(); i<len; ++i){
-            model.vertices[i] = 0.0f;
+        for(float & vertex : model.vertices){
+            vertex = 0.0f;
         }
-        for(int i=0, len=(int)model.tex_coords.size(); i<len; ++i){
-            model.tex_coords[i] = 0.0f;
+        for(float & tex_coord : model.tex_coords){
+            tex_coord = 0.0f;
         }
         model_copy[0] = true;
         for(int i=0; i<parts; ++i){
@@ -2877,20 +2851,20 @@ void MorphTarget::PreDrawCamera(int num, int progress, int lod_level, uint32_t c
         
         if(new_weight == 0.0f || new_weight == 1.0f){
             Model *the_model = (new_weight == 0.0f)?&morph_model_start:&morph_model_end;
-            for(unsigned j=0; j<modified_verts[lod_level].size(); ++j){
-                const int index = modified_verts[lod_level][j]*3;
+            for(int j : modified_verts[lod_level]){
+                const int index = j*3;
                 model.vertices[index+0] = the_model->vertices[index+0]; 
                 model.vertices[index+1] = the_model->vertices[index+1]; 
                 model.vertices[index+2] = the_model->vertices[index+2];
             }
-            for(unsigned j=0; j<modified_tc[lod_level].size(); ++j){
-                const int tc_index = modified_tc[lod_level][j]*2;
+            for(int j : modified_tc[lod_level]){
+                const int tc_index = j*2;
                 model.tex_coords[tc_index+0] = the_model->tex_coords[tc_index+0]; 
                 model.tex_coords[tc_index+1] = the_model->tex_coords[tc_index+1];
             }
         } else {
-            for(unsigned j=0; j<modified_verts[lod_level].size(); ++j){
-                const int index = modified_verts[lod_level][j]*3;
+            for(int j : modified_verts[lod_level]){
+                const int index = j*3;
                 model.vertices[index+0] = morph_model_start.vertices[index+0]*(1.0f-new_weight); 
                 model.vertices[index+1] = morph_model_start.vertices[index+1]*(1.0f-new_weight); 
                 model.vertices[index+2] = morph_model_start.vertices[index+2]*(1.0f-new_weight); 
@@ -2898,8 +2872,8 @@ void MorphTarget::PreDrawCamera(int num, int progress, int lod_level, uint32_t c
                 model.vertices[index+1] += morph_model_end.vertices[index+1]*new_weight; 
                 model.vertices[index+2] += morph_model_end.vertices[index+2]*new_weight; 
             }
-            for(unsigned j=0; j<modified_tc[lod_level].size(); ++j){
-                const int tc_index = modified_tc[lod_level][j]*2;
+            for(int j : modified_tc[lod_level]){
+                const int tc_index = j*2;
                 model.tex_coords[tc_index+0] = morph_model_start.tex_coords[tc_index+0]*(1.0f-new_weight); 
                 model.tex_coords[tc_index+1] = morph_model_start.tex_coords[tc_index+1]*(1.0f-new_weight);
                 model.tex_coords[tc_index+0] += morph_model_end.tex_coords[tc_index+0]*new_weight; 
@@ -2934,8 +2908,8 @@ void MorphTarget::Dispose() {
             Models::Instance()->DeleteModel(model_id[i]);
         }
     }
-    for(unsigned i=0; i<morph_targets.size(); ++i){
-        morph_targets[i].Dispose();
+    for(auto & morph_target : morph_targets){
+        morph_target.Dispose();
     }
 }
 
@@ -3013,11 +2987,11 @@ mat4 RiggedObject::GetBoneRotation( int bone ) {
 }
 
 void RiggedObject::SetSkeletonOwner( Object* owner ) {
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); ++i){
-        if(!skeleton_.physics_bones[i].bullet_object){
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(!physics_bone.bullet_object){
             continue;
         }
-        skeleton_.physics_bones[i].bullet_object->owner_object = owner;
+        physics_bone.bullet_object->owner_object = owner;
     }
 }
 
@@ -3109,18 +3083,18 @@ vec3 RiggedObject::GetIKChainPos( const std::string &target_name, int which )
 
 void RiggedObject::EnableSleep()
 {
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); ++i){
-        if(skeleton_.physics_bones[i].bullet_object){
-            skeleton_.physics_bones[i].bullet_object->CanSleep();
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(physics_bone.bullet_object){
+            physics_bone.bullet_object->CanSleep();
         }
     }
 }
 
 void RiggedObject::DisableSleep()
 {
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); ++i){
-        if(skeleton_.physics_bones[i].bullet_object){
-            skeleton_.physics_bones[i].bullet_object->NoSleep();
+    for(auto & physics_bone : skeleton_.physics_bones){
+        if(physics_bone.bullet_object){
+            physics_bone.bullet_object->NoSleep();
         }
     }
 }
@@ -3136,11 +3110,11 @@ void RiggedObject::HandleLipSyncMorphTargets(float timestep) {
         const std::map<std::string, float> &mw = lipsync_reader.GetMorphWeights();
         std::map<std::string, float>::const_iterator iter;
         for(iter = mw.begin(); iter != mw.end(); ++iter){
-            for(unsigned i=0; i<morph_targets.size(); ++i){
-                if(morph_targets[i].name == iter->first){
-                    morph_targets[i].script_weight = 
-                        mix(morph_targets[i].script_weight, iter->second, 0.5f);
-                    morph_targets[i].script_weight_weight = 1.0f;
+            for(auto & morph_target : morph_targets){
+                if(morph_target.name == iter->first){
+                    morph_target.script_weight = 
+                        mix(morph_target.script_weight, iter->second, 0.5f);
+                    morph_target.script_weight_weight = 1.0f;
                     break;
                 }
             }    
@@ -3148,9 +3122,9 @@ void RiggedObject::HandleLipSyncMorphTargets(float timestep) {
         lipsync_reader.Update(timestep);
         if(!lipsync_reader.valid()){
             for(iter = mw.begin(); iter != mw.end(); ++iter){
-                for(unsigned i=0; i<morph_targets.size(); ++i){
-                    if(morph_targets[i].name == iter->first){
-                        morph_targets[i].script_weight_weight = 0.0f;
+                for(auto & morph_target : morph_targets){
+                    if(morph_target.name == iter->first){
+                        morph_target.script_weight_weight = 0.0f;
                         break;
                     }
                 }    
@@ -3210,10 +3184,9 @@ void RiggedObject::SetCharAnim( const std::string &path, char flags, const std::
 const float _item_blend_fade_speed = 5.0f;
 void RiggedObject::CheckItemAnimBlends(const std::string &path, char flags) {
     anim_client.ClearBlendAnimation();
-    for(std::list<AttachedItem>::iterator iter = attached_items.items.begin(); 
-        iter != attached_items.items.end(); ++iter)
+    for(auto & iter : attached_items.items)
     {
-        ItemObjectScriptReader& item = iter->item;
+        ItemObjectScriptReader& item = iter.item;
         if(item->item_ref()->HasAnimBlend(path) && item->state() == ItemObject::kWielded){
             const std::string &a_path = item->item_ref()->GetAnimBlend(path); 
             anim_client.SetBlendAnimation(a_path);
@@ -3255,8 +3228,8 @@ void RiggedObject::MPCutPlane(const vec3 & normal, const vec3 & pos, const vec3 
 	}
 	else {
 		//blood_surface.AddBloodToTriangles(hit_list);
-		for (unsigned i = 0; i < hit_list.size(); ++i) { 
-			GetTransformedTri(hit_list[i], mp_points);
+		for (int i : hit_list) { 
+			GetTransformedTri(i, mp_points);
 			if (dot(cross(mp_points[1] - mp_points[0], mp_points[2] - mp_points[0]), dir) > 0.0f) {
 				continue;
 			}
@@ -3270,8 +3243,8 @@ void RiggedObject::MPCutPlane(const vec3 & normal, const vec3 & pos, const vec3 
 			}
 			vec2 tex_points[3];
 			for (unsigned j = 0; j < 3; ++j) {
-				tex_points[j][0] = model->tex_coords[model->faces[hit_list[i] * 3 + j] * 2 + 0];
-				tex_points[j][1] = model->tex_coords[model->faces[hit_list[i] * 3 + j] * 2 + 1];
+				tex_points[j][0] = model->tex_coords[model->faces[i * 3 + j] * 2 + 0];
+				tex_points[j][1] = model->tex_coords[model->faces[i * 3 + j] * 2 + 1];
 
 				 
 			}
@@ -3297,13 +3270,13 @@ void RiggedObject::MPCutPlane(const vec3 & normal, const vec3 & pos, const vec3 
 			if (type == _light || RangedRandomFloat(0.0f, 1.0f) < 0.6f) {
 				vec2 bleed_point = mix(tex_intersect_points[0], tex_intersect_points[1], 0.5f);
 				vec3 coords = bary_coords(bleed_point, tex_points[0], tex_points[1], tex_points[2]); 
-				blood_surface.CreateDripInTri(hit_list[i], coords, RangedRandomFloat(0.1f, 1.0f), RangedRandomFloat(0.0f, 1.0f), true, SurfaceWalker::BLOOD);
+				blood_surface.CreateDripInTri(i, coords, RangedRandomFloat(0.1f, 1.0f), RangedRandomFloat(0.0f, 1.0f), true, SurfaceWalker::BLOOD);
 			}
 
 			if (type == _heavy || RangedRandomFloat(0.0f, 1.0f) < 0.2f) {
 				vec2 bleed_point = mix(tex_intersect_points[0], tex_intersect_points[1], 0.5f);
 				vec3 coords = bary_coords(bleed_point, tex_points[0], tex_points[1], tex_points[2]); 
-				blood_surface.CreateDripInTri(hit_list[i], coords, RangedRandomFloat(0.1f, 0.5f), RangedRandomFloat(0.0f, 10.0f), true, SurfaceWalker::BLOOD);
+				blood_surface.CreateDripInTri(i, coords, RangedRandomFloat(0.1f, 0.5f), RangedRandomFloat(0.0f, 10.0f), true, SurfaceWalker::BLOOD);
 			}
 
 			//dot(offset+dir*time, normal) = 0.0f              
@@ -3382,11 +3355,11 @@ void UpdateStuckItem(AttachedItem& stuck_item, const Skeleton &skeleton, bool an
 }
 
 void RiggedObject::UpdateAttachedItems() {
-    for(AttachedItemList::iterator iter = attached_items.items.begin(); iter != attached_items.items.end(); ++iter){
-        UpdateAttachedItem(*iter, skeleton_, model_char_scale, weapon_offset, weap_anim_info_map, weapon_offset_retarget);
+    for(auto & item : attached_items.items){
+        UpdateAttachedItem(item, skeleton_, model_char_scale, weapon_offset, weap_anim_info_map, weapon_offset_retarget);
     }
-    for(AttachedItemList::iterator iter = stuck_items.items.begin(); iter != stuck_items.items.end(); ++iter) {
-        UpdateStuckItem(*iter, skeleton_, animated);
+    for(auto & item : stuck_items.items) {
+        UpdateStuckItem(item, skeleton_, animated);
     }
 }
 
@@ -3410,8 +3383,8 @@ void RiggedObject::CutPlane( const vec3 &normal, const vec3 &pos, const vec3 &di
             GetTransformedTri(i, points);
             pos_side = false;
             neg_side = false;
-            for (unsigned j = 0; j < 3; ++j) {
-                if (dot(points[j] - pos, normal) < 0.0f) {
+            for (const auto & point : points) {
+                if (dot(point - pos, normal) < 0.0f) {
                     neg_side = true;
                 }
                 else {
@@ -3439,8 +3412,8 @@ void RiggedObject::CutPlane( const vec3 &normal, const vec3 &pos, const vec3 &di
         }
     } else {
         //blood_surface.AddBloodToTriangles(hit_list);
-        for(unsigned i=0; i<hit_list.size(); ++i){ 
-            GetTransformedTri(hit_list[i], points);
+        for(int i : hit_list){ 
+            GetTransformedTri(i, points);
             if(dot(cross(points[1] - points[0], points[2] - points[0]), dir) > 0.0f){
                 continue;
             }
@@ -3454,8 +3427,8 @@ void RiggedObject::CutPlane( const vec3 &normal, const vec3 &pos, const vec3 &di
             }
             vec2 tex_points[3];
             for(unsigned j=0; j<3; ++j){
-                tex_points[j][0] = model->tex_coords[model->faces[hit_list[i]*3+j]*2+0];
-                tex_points[j][1] = model->tex_coords[model->faces[hit_list[i]*3+j]*2+1]; 
+                tex_points[j][0] = model->tex_coords[model->faces[i*3+j]*2+0];
+                tex_points[j][1] = model->tex_coords[model->faces[i*3+j]*2+1]; 
             }
             vec2 tex_intersect_points[2];
             vec3 intersect_points[2];
@@ -3480,7 +3453,7 @@ void RiggedObject::CutPlane( const vec3 &normal, const vec3 &pos, const vec3 &di
                 vec3 coords = bary_coords(bleed_point, tex_points[0], tex_points[1], tex_points[2]); 
 
 				//LOGI << "BLEED POINT " << bleed_point << " coords " << coords << std::endl;
-                blood_surface.CreateDripInTri(hit_list[i], coords, RangedRandomFloat(0.1f,1.0f), RangedRandomFloat(0.0f,1.0f), true, SurfaceWalker::BLOOD);
+                blood_surface.CreateDripInTri(i, coords, RangedRandomFloat(0.1f,1.0f), RangedRandomFloat(0.0f,1.0f), true, SurfaceWalker::BLOOD);
             }
 
             if(type == _heavy || RangedRandomFloat(0.0f,1.0f)<0.2f){
@@ -3488,7 +3461,7 @@ void RiggedObject::CutPlane( const vec3 &normal, const vec3 &pos, const vec3 &di
                 vec3 coords = bary_coords(bleed_point, tex_points[0], tex_points[1], tex_points[2]); 
 
 				//LOGI << "BLEED POINT " << bleed_point << " coords " << coords << std::endl;
-                blood_surface.CreateDripInTri(hit_list[i], coords, RangedRandomFloat(0.1f,0.5f), RangedRandomFloat(0.0f,10.0f), true, SurfaceWalker::BLOOD);
+                blood_surface.CreateDripInTri(i, coords, RangedRandomFloat(0.1f,0.5f), RangedRandomFloat(0.0f,10.0f), true, SurfaceWalker::BLOOD);
             }
 
             //dot(offset+dir*time, normal) = 0.0f              
@@ -3540,9 +3513,9 @@ void RiggedObject::Stab( const vec3 &pos, const vec3 &dir, int type, int depth )
     for(int i=0, len=model->faces.size()/3; i<len; ++i){
         close_enough = false;
         GetTransformedTri(i, points);
-        for(unsigned j=0; j<3; ++j){
-            points[j] -= dir * dot(dir, points[j] - pos);
-            if(distance_squared(points[j], pos) < _stab_threshold){
+        for(auto & point : points){
+            point -= dir * dot(dir, point - pos);
+            if(distance_squared(point, pos) < _stab_threshold){
                 close_enough = true;
             }
         }
@@ -3563,11 +3536,11 @@ void RiggedObject::Stab( const vec3 &pos, const vec3 &dir, int type, int depth )
     vec3 start = pos - dir * 1000.0f;
     vec3 end = pos + dir * 1000.0f;
     vec3 intersect;
-    for(unsigned i=0; i<hit_list.size(); ++i){
-        GetTransformedTri(hit_list[i], points);
+    for(int i : hit_list){
+        GetTransformedTri(i, points);
         if(LineFacet(start, end, points[0], points[1], points[2], &intersect)){
             for(unsigned j=0; j<10; ++j){
-                blood_surface.CreateDripInTri(hit_list[i], vec3(0.333f,0.333f,0.333f), RangedRandomFloat(0.1f,1.0f), RangedRandomFloat(0.0f,10.0f), true, SurfaceWalker::BLOOD);
+                blood_surface.CreateDripInTri(i, vec3(0.333f,0.333f,0.333f), RangedRandomFloat(0.1f,1.0f), RangedRandomFloat(0.0f,10.0f), true, SurfaceWalker::BLOOD);
             }
         }
     }
@@ -3614,8 +3587,8 @@ void RiggedObject::AddWaterCube( const mat4 &transform ) {
 
             std::vector<mat4> fire_decal_matrix;
             std::vector<mat4> water_decal_matrix;
-            for(int i=0, len=scenegraph_->decal_objects_.size(); i<len; ++i){
-                DecalObject* obj = (DecalObject*)scenegraph_->decal_objects_[i];
+            for(auto & decal_object : scenegraph_->decal_objects_){
+                DecalObject* obj = (DecalObject*)decal_object;
                 if(obj->decal_file_ref->special_type == 3){
                     fire_decal_matrix.push_back(obj->GetTransform());
                 }
@@ -3676,12 +3649,12 @@ void RiggedObject::AddWaterCube( const mat4 &transform ) {
 }
 
 void RiggedObject::UpdateCollisionObjects() {
-    for(unsigned i=0; i<skeleton_.physics_bones.size(); ++i){
-        BulletObject* cbo = skeleton_.physics_bones[i].col_bullet_object;
+    for(auto & physics_bone : skeleton_.physics_bones){
+        BulletObject* cbo = physics_bone.col_bullet_object;
         if(!cbo){
             continue;
         }
-        cbo->SetTransform(skeleton_.physics_bones[i].bullet_object->GetTransform());
+        cbo->SetTransform(physics_bone.bullet_object->GetTransform());
         cbo->UpdateTransform();
     }
     skeleton_.UpdateCollisionWorldAABB();
@@ -3753,8 +3726,8 @@ static int ASGetBonePoint(Skeleton* skeleton, int which_bone, int which_point){
 }
 
 static void ASAddVelocity(Skeleton* skeleton, const vec3& vel){
-    for(int bone_index=0, num_bones=skeleton->physics_bones.size(); bone_index<num_bones; ++bone_index){
-        BulletObject* bullet_object = skeleton->physics_bones[bone_index].bullet_object;
+    for(auto & physics_bone : skeleton->physics_bones){
+        BulletObject* bullet_object = physics_bone.bullet_object;
         if(bullet_object){
             bullet_object->AddLinearVelocity(vel);
         }
@@ -3787,8 +3760,8 @@ void RotateBonesToMatchVec(RiggedObject* rigged_object, const vec3& a, const vec
 
 static void TransformAllFrameMats(RiggedObject* rigged_object, const BoneTransform &transform) {
     std::vector<BoneTransform> &mats = rigged_object->animation_frame_bone_matrices;
-    for(int i=0, len=mats.size(); i<len; ++i){
-        mats[i] = transform * mats[i];
+    for(auto & mat : mats){
+        mat = transform * mat;
     }
 }
 
@@ -3863,8 +3836,8 @@ static CScriptArray *ASGetConvexHullPoints(Skeleton* skeleton, int bone){
     CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(points.size());
 
-    for(int i=0, len=points.size(); i<len; ++i) {
-        array->InsertLast(&points[i]);
+    for(float & point : points) {
+        array->InsertLast(&point);
     }        
     return array;
 }
@@ -4026,8 +3999,8 @@ void RiggedObject::SaveSimplificationCache(const std::string &path) {
     }
     unsigned short checksum = skeleton_.skeleton_asset_ref->checksum()+
         Models::Instance()->GetModel(model_id[0]).checksum;
-    for(int i=0, len=morph_targets.size(); i<len; ++i){
-        checksum += morph_targets[i].checksum;
+    for(auto & morph_target : morph_targets){
+        checksum += morph_target.checksum;
     }
     fwrite(&simp_cache_vers, sizeof(int), 1, file);
     fwrite(&checksum, sizeof(unsigned short), 1, file);
@@ -4050,14 +4023,14 @@ void RiggedObject::SaveSimplificationCache(const std::string &path) {
     }
 
     std::queue<MorphTarget*> queue;
-    for(unsigned i=0; i<morph_targets.size(); ++i){
-        queue.push(&morph_targets[i]);
+    for(auto & morph_target : morph_targets){
+        queue.push(&morph_target);
     }
     while(!queue.empty()){
         MorphTarget& morph = (*queue.front());
         queue.pop();
-        for(unsigned i=0; i<morph.morph_targets.size(); ++i){
-            queue.push(&morph.morph_targets[i]);
+        for(auto & morph_target : morph.morph_targets){
+            queue.push(&morph_target);
         }
         for(unsigned i=1; i<4; ++i){
             const Model& model = Models::Instance()->GetModel(morph.model_id[i]);
@@ -4102,8 +4075,8 @@ bool RiggedObject::LoadSimplificationCache(const std::string& path) {
     }
     unsigned short checksum = skeleton_.skeleton_asset_ref->checksum()+
         Models::Instance()->GetModel(model_id[0]).checksum;
-    for(int i=0, len=morph_targets.size(); i<len; ++i){
-        checksum += morph_targets[i].checksum;
+    for(auto & morph_target : morph_targets){
+        checksum += morph_target.checksum;
     }
     unsigned short file_checksum;
     fread(&file_checksum, sizeof(unsigned short), 1, file);
@@ -4145,14 +4118,14 @@ bool RiggedObject::LoadSimplificationCache(const std::string& path) {
     }
 
     std::queue<MorphTarget*> queue;
-    for(unsigned i=0; i<morph_targets.size(); ++i){
-        queue.push(&morph_targets[i]);
+    for(auto & morph_target : morph_targets){
+        queue.push(&morph_target);
     }
     while(!queue.empty()){
         MorphTarget& morph = (*queue.front());
         queue.pop();
-        for(unsigned i=0; i<morph.morph_targets.size(); ++i){
-            queue.push(&morph.morph_targets[i]);
+        for(auto & morph_target : morph.morph_targets){
+            queue.push(&morph_target);
         }
         for(unsigned i=1; i<4; ++i){
             morph.model_id[i] = Models::Instance()->AddModel();
@@ -4237,8 +4210,8 @@ void RiggedObject::CreateFurModel( int model_id, int fur_model_id ) {
     // verts
     {
         std::vector<bool> included(fur_ref_model.vertices.size()/3, false);
-        for(unsigned i=0; i<fur_model.faces.size(); ++i){
-            included[fur_model.faces[i]] = true;
+        for(unsigned int face : fur_model.faces){
+            included[face] = true;
         }
 
         int remap_index = 0;
@@ -4253,8 +4226,8 @@ void RiggedObject::CreateFurModel( int model_id, int fur_model_id ) {
                 fur_model.vertices.push_back(fur_ref_model.vertices[vert_index+2] - base_model.old_center[2]);
             }
         }
-        for(unsigned i=0; i<fur_model.faces.size(); ++i){
-            fur_model.faces[i] = remapped[fur_model.faces[i]];
+        for(unsigned int & face : fur_model.faces){
+            face = remapped[face];
         }
     }
    
@@ -4279,8 +4252,8 @@ void RiggedObject::CreateFurModel( int model_id, int fur_model_id ) {
         for(int i=0, len=fur_model.vertices.size()/3; i<len; ++i){
             vert_dup[i] = fur_model_points[fur_verts[i]].front();
         }
-        for(unsigned i=0; i<fur_model.faces.size(); ++i){
-            fur_model.faces[i] = vert_dup[fur_model.faces[i]];
+        for(unsigned int & face : fur_model.faces){
+            face = vert_dup[face];
         } 
     }
 
@@ -4713,20 +4686,18 @@ void RiggedObject::UnStickItem( int id ) {
 
 std::vector<ItemRef> RiggedObject::GetWieldedItemRefs() const {
     int num_wielded = 0;
-    for(std::list<AttachedItem>::const_iterator iter = attached_items.items.begin(); 
-        iter != attached_items.items.end(); ++iter)
+    for(const auto & iter : attached_items.items)
     {
-        const ItemObjectScriptReader& item = iter->item;
+        const ItemObjectScriptReader& item = iter.item;
         if(item->GetID() == primary_weapon_id){
             ++num_wielded;
         }
     }
     std::vector<ItemRef> wielded_item_refs(num_wielded);
     num_wielded = 0;
-    for(std::list<AttachedItem>::const_iterator iter = attached_items.items.begin(); 
-        iter != attached_items.items.end(); ++iter)
+    for(const auto & iter : attached_items.items)
     {
-        const ItemObjectScriptReader& item = iter->item;
+        const ItemObjectScriptReader& item = iter.item;
         if(item->GetID() == primary_weapon_id){
             wielded_item_refs[num_wielded++] = item->item_ref();
         }
@@ -4783,11 +4754,10 @@ void RiggedObject::AvailableItemSlots( const ItemRef& item_ref, AttachmentSlotLi
         DrawAvailableAttachmentSlots(item_ref, _at_sheathe, skeleton_, list);
     }
     const std::list<std::string> &attachment_list = item_ref->GetAttachmentList();
-    for(std::list<std::string>::const_iterator iter = attachment_list.begin();
-        iter != attachment_list.end(); ++iter)
+    for(const auto & iter : attachment_list)
     {
         //AttachmentRef attachment_ref = Attachments::Instance()->ReturnRef((*iter));
-        AttachmentRef attachment_ref = Engine::Instance()->GetAssetManager()->LoadSync<Attachment>((*iter));
+        AttachmentRef attachment_ref = Engine::Instance()->GetAssetManager()->LoadSync<Attachment>(iter);
         DrawAvailableAttachment(attachment_ref, skeleton_, false, list);
         if(attachment_ref->mirror_allowed){
             DrawAvailableAttachment(attachment_ref, skeleton_, true, list);
@@ -4911,8 +4881,8 @@ void AttachedItems::Remove( int id ) {
 }
 
 void AttachedItems::RemoveAll() {
-    for(std::list<AttachedItem>::iterator iter = items.begin(); iter != items.end(); ++iter) {
-        iter->item->ActivatePhysics();
+    for(auto & item : items) {
+        item.item->ActivatePhysics();
     }
     items.clear();
 }

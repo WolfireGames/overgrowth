@@ -394,37 +394,33 @@ char Item::GetAnimOverrideFlags( const std::string &anim )
 void Item::ReturnPaths( PathSet &path_set )
 {
     path_set.insert("item "+path_);
-    for(int i=0; i<kMaxAttachments; ++i){
-        if(attachment[i].exists){
-            ReturnAnimationAssetRef(attachment[i].anim)->ReturnPaths(path_set);
-            if(!attachment[i].anim_base.empty()){
-                ReturnAnimationAssetRef(attachment[i].anim_base)->ReturnPaths(path_set);
+    for(auto & i : attachment){
+        if(i.exists){
+            ReturnAnimationAssetRef(i.anim)->ReturnPaths(path_set);
+            if(!i.anim_base.empty()){
+                ReturnAnimationAssetRef(i.anim_base)->ReturnPaths(path_set);
             }
         }
     }
     //ObjectFiles::Instance()->ReturnRef(obj_path)->ReturnPaths(path_set);
     Engine::Instance()->GetAssetManager()->LoadSync<ObjectFile>(obj_path)->ReturnPaths(path_set); 
-    for(std::map<std::string, std::string>::iterator iter = anim_overrides.begin();
-        iter != anim_overrides.end(); ++iter)
+    for(auto & anim_override : anim_overrides)
     {
-        ReturnAnimationAssetRef(iter->second)->ReturnPaths(path_set);
+        ReturnAnimationAssetRef(anim_override.second)->ReturnPaths(path_set);
     }
-    for(std::map<std::string, std::string>::iterator iter = anim_blend.begin();
-        iter != anim_blend.end(); ++iter)
+    for(auto & iter : anim_blend)
     {
-        ReturnAnimationAssetRef(iter->second)->ReturnPaths(path_set);
+        ReturnAnimationAssetRef(iter.second)->ReturnPaths(path_set);
     }
-    for(std::map<std::string, std::string>::iterator iter = attack_overrides.begin();
-        iter != attack_overrides.end(); ++iter)
+    for(auto & attack_override : attack_overrides)
     {
         //Attacks::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
-        Engine::Instance()->GetAssetManager()->LoadSync<Attack>(iter->second)->ReturnPaths(path_set);
+        Engine::Instance()->GetAssetManager()->LoadSync<Attack>(attack_override.second)->ReturnPaths(path_set);
     }
-    for(std::map<std::string, std::string>::iterator iter = reaction_overrides.begin();
-        iter != reaction_overrides.end(); ++iter)
+    for(auto & reaction_override : reaction_overrides)
     {
         //Reactions::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
-        Engine::Instance()->GetAssetManager()->LoadSync<Reaction>(iter->second)->ReturnPaths(path_set);
+        Engine::Instance()->GetAssetManager()->LoadSync<Reaction>(reaction_override.second)->ReturnPaths(path_set);
     }
 }
 

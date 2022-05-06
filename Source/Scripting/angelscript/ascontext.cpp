@@ -806,8 +806,8 @@ bool ASContext::CallMPCallBack(uint32_t state, const std::vector<char>& data) {
 			asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<uint8>"));
 			CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
 			array->Reserve(data.size());
-			for (int i = 0, len = data.size(); i < len; ++i) {
-				array->InsertLast(const_cast<char*>(&data[i]));
+			for (const char & i : data) {
+				array->InsertLast(const_cast<char*>(&i));
 			}
 
 			args.AddAddress((void*)array);
@@ -836,8 +836,8 @@ bool ASContext::CallMPCallBack(uint32_t state, const std::vector<unsigned int>& 
 			asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<uint>"));
 			CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
 			array->Reserve(data.size());
-			for (int i = 0, len = data.size(); i < len; ++i) {
-				array->InsertLast((void*)&data[i]);
+			for (const unsigned int & i : data) {
+				array->InsertLast((void*)&i);
 			}
 
 			args.AddAddress((void*)array);

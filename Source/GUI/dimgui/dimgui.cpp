@@ -415,8 +415,8 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
         for(unsigned selected_i=0; selected_i<selected_count; ++selected_i){
             MovementObject* mo = (MovementObject*)selected[selected_i];
             OGPalette* palette = mo->GetPalette();
-            for(size_t i=0, len=palette->size(); i<len; ++i){
-                LabeledColor* labeled_color = &palette->at(i);
+            for(auto & i : *palette){
+                LabeledColor* labeled_color = &i;
                 bool found = false;
                 for(unsigned palette_i = 0; palette_i < labeled_color_count; palette_i++) {
                     if(strcmp(labeled_colors[palette_i], labeled_color->label.c_str()) == 0) {
@@ -449,8 +449,8 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
                 for (unsigned selected_i = 0; selected_i < selected_count; ++selected_i) {
                     MovementObject* mo = (MovementObject*)selected[selected_i];
                     OGPalette* palette = mo->GetPalette();
-                    for (size_t i = 0, len = palette->size(); i < len; ++i) {
-                        LabeledColor* labeled_color = &palette->at(i);
+                    for (auto & i : *palette) {
+                        LabeledColor* labeled_color = &i;
                         bool found = false;
                         if (strcmp(labeled_colors[palette_index], labeled_color->label.c_str()) == 0) {
                             color = labeled_color->color;
@@ -508,8 +508,7 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
             if(!color_changed)
                 me->AddColorToHistory(color);
 
-            for(size_t i = 0, len = scenegraph->objects_.size(); i < len; ++i) {
-                Object* obj = scenegraph->objects_[i];
+            for(auto obj : scenegraph->objects_) {
                 if(obj->Selected()){
                     if(obj->GetType() == _env_object) {
                         EnvObject* eo = (EnvObject*)obj;
@@ -541,8 +540,7 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
 static void DrawAudioDebug() {
     std::vector<SoundSourceInfo> sound_sources = Engine::Instance()->GetSound()->GetCurrentSoundSources();
     if(ImGui::TreeNode("Sounds", "Sounds: %d", (int)sound_sources.size())){
-        for( unsigned i = 0; i < sound_sources.size(); i++ ) {
-            SoundSourceInfo &ss = sound_sources[i];
+        for(auto & ss : sound_sources) {
             ImGui::Text("%s :%f %f %f", ss.name, ss.pos[0], ss.pos[1], ss.pos[2]);
         }
         ImGui::TreePop();
@@ -570,23 +568,23 @@ static void DrawAudioDebug() {
             static float v = 0.0f;
             static std::string selected_layer_name = "";
 
-            for( unsigned i = 0; i < layers.size(); i++ ) {
-                float layer_gain = Engine::Instance()->GetSound()->GetLayerGain(layers[i]);
-                ImGui::Text("%s %f", layers[i].c_str(), layer_gain );
+            for(auto & layer : layers) {
+                float layer_gain = Engine::Instance()->GetSound()->GetLayerGain(layer);
+                ImGui::Text("%s %f", layer.c_str(), layer_gain );
 
                 if( ImGui::IsItemClicked() ) {
-                    if( selected_layer_name == layers[i] ) {
+                    if( selected_layer_name == layer ) {
                         selected_layer_name = "";
                     } else {
-                        selected_layer_name = layers[i];
+                        selected_layer_name = layer;
                         v = layer_gain;
                     }
                 }
 
-                if( selected_layer_name == layers[i] ) {
-                    if( ImGui::DragFloat(layers[i].c_str(),&v, 0.01f, 0.0f, 1.0f) ) {
+                if( selected_layer_name == layer ) {
+                    if( ImGui::DragFloat(layer.c_str(),&v, 0.01f, 0.0f, 1.0f) ) {
                         LOGI << "Settings layer gain"  << std::endl;
-                        Engine::Instance()->GetSound()->SetLayerGain(layers[i],v);
+                        Engine::Instance()->GetSound()->SetLayerGain(layer,v);
                     }
                 }
             }
@@ -633,14 +631,14 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
     const ScriptParamMap& spm = params->GetParameterMap();
     ImGui::Columns(3);
     int id = 0;
-    for(ScriptParamMap::const_iterator iter = spm.begin(); iter != spm.end(); ++iter){
-        const ScriptParam& sp = iter->second;
+    for(const auto & iter : spm){
+        const ScriptParam& sp = iter.second;
         const ScriptParamParts::Editor& editor = sp.editor();
-        FormatString(buf, kBufSize, "%s", iter->first.c_str());
+        FormatString(buf, kBufSize, "%s", iter.first.c_str());
         ImGui::PushItemWidth(-1); // Don't make space for invisible labels
         ImGui::PushID(id++);
         if(ImGui::InputText("###inputnamething", buf, kBufSize, ImGuiInputTextFlags_EnterReturnsTrue)){
-            FormatString(rename_buf[0], kBufSize, "%s", iter->first.c_str());
+            FormatString(rename_buf[0], kBufSize, "%s", iter.first.c_str());
             FormatString(rename_buf[1], kBufSize, "%s", buf);
             rename = true;
         }
@@ -663,7 +661,7 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
         case ScriptParamEditorType::CHECKBOX:{
             bool checked = (sp.GetInt()==1);
             if(ImGui::Checkbox("", &checked)){
-                params->ASSetInt(iter->first, checked?1:0);
+                params->ASSetInt(iter.first, checked?1:0);
                 changed = true;
             }
             break;}
@@ -671,7 +669,7 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
             vec3 color = ColorFromString(sp.GetString().c_str());
             if(ImGui::ColorEdit3("", &color[0])){
                 FormatString(buf, kBufSize, "%d, %d, %d", (int)(color[0]*255), (int)(color[1]*255), (int)(color[2]*255));
-                params->ASSetString(iter->first, buf);
+                params->ASSetString(iter.first, buf);
                 changed = true;
             }
             break;}
@@ -691,13 +689,13 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
                 if(is_float){
                     float val = sp.GetFloat() * details_flt[3];
                     if(ImGui::SliderFloat("", &val, details_flt[0] * details_flt[3], details_flt[1] * details_flt[3])){
-                        params->ASSetFloat(iter->first, val / details_flt[3]);
+                        params->ASSetFloat(iter.first, val / details_flt[3]);
                         changed = true;
                     }
                 } else {
                     int val = (int) (sp.GetInt() * details_flt[3]);
                     if(ImGui::SliderInt("", &val, (int) (details_flt[0] * details_flt[3]), (int) (details_flt[1] * details_flt[3]))){
-                        params->ASSetInt(iter->first, (int) (val / details_flt[3]));
+                        params->ASSetInt(iter.first, (int) (val / details_flt[3]));
                         changed = true;
                     }
                 }
@@ -710,14 +708,14 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
                 if( sp.GetString().size() < (kBufSize - 1) ) {
                     FormatString(buf, kBufSize, "%s", sp.GetString().c_str());
                     if(ImGui::InputText("##smallertextfield", buf, kBufSize)){
-                        params->ASSetString(iter->first, buf);
+                        params->ASSetString(iter.first, buf);
                         changed = true;
                     }
                 } else if( sp.GetString().size() < kLargerBufSize ) {
                     char* larger_buf = (char*)alloc.stack.Alloc(kLargerBufSize);
                     FormatString(larger_buf, kLargerBufSize, "%s", sp.GetString().c_str());
                     if(ImGui::InputTextMultiline("##largertextfield", larger_buf, kLargerBufSize)){
-                        params->ASSetString(iter->first, larger_buf);
+                        params->ASSetString(iter.first, larger_buf);
                         changed = true;
                     }
                     alloc.stack.Free(larger_buf);
@@ -727,13 +725,13 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
             } else if(sp.IsInt()){
                 int val = sp.GetInt();
                 if(ImGui::InputInt("", &val)){
-                    params->ASSetInt(iter->first, val);
+                    params->ASSetInt(iter.first, val);
                     changed = true;
                 }
             } else if(sp.IsFloat()){
                 int val = (int) sp.GetFloat();
                 if(ImGui::InputInt("", &val)){
-                    params->ASSetFloat(iter->first, (float) val);
+                    params->ASSetFloat(iter.first, (float) val);
                     changed = true;
                 }
             }
@@ -747,7 +745,7 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
         ImGui::PushID(id++);
         if(ImGui::Button("x")){
             to_delete = true;
-            FormatString(rename_buf[0], kBufSize, "%s", iter->first.c_str());
+            FormatString(rename_buf[0], kBufSize, "%s", iter.first.c_str());
         }
         ImGui::PopID();
         ImGui::NextColumn();
@@ -817,9 +815,9 @@ static void PrintConnections(MovementObject* mov,
 {
     if(ImGui::TreeNodeEx(name)) {
 		if (ImGui::BeginListBox("Connected")) {
-			for (std::list<ItemObjectScriptReader>::const_iterator it = list.begin(); it != list.end(); ++it) {
-				if (it->attachment_type == type && it->attachment_mirror == mirrored) {
-					Object* obj = (*it).obj;
+			for (const auto & it : list) {
+				if (it.attachment_type == type && it.attachment_mirror == mirrored) {
+					Object* obj = it.obj;
 					char buffer[512];
 					obj->GetDisplayName(buffer, 512);
 					if (ImGui::Selectable(buffer, false)) {
@@ -840,8 +838,8 @@ static void PrintConnections(MovementObject* mov,
 				}
 
 				bool found = false;
-				for (std::list<ItemObjectScriptReader>::const_iterator it = list.begin(); it != list.end(); ++it) {
-					if (obj->GetID() == (*it)->GetID() && it->attachment_type == type && it->attachment_mirror == mirrored) {
+				for (const auto & it : list) {
+					if (obj->GetID() == it->GetID() && it.attachment_type == type && it.attachment_mirror == mirrored) {
 						found = true;
 						break;
 					}
@@ -996,8 +994,7 @@ static void DrawObjectInfoFlat(Object* obj) {
             strcpy(text.data(), "Nothing");
             int item_index = 0;
             int path_point_count = 0;
-            for(size_t i = 0; i < scenegraph->path_points_.size(); ++i) {
-                Object* obj = scenegraph->path_points_[i];
+            for(auto obj : scenegraph->path_points_) {
                 if(!(only_named && obj->GetName().empty())) {
                     GetDisplayName(obj, text);
                     if(obj->GetID() == mov->connected_pathpoint_id) {
@@ -1007,8 +1004,7 @@ static void DrawObjectInfoFlat(Object* obj) {
                 }
             }
             int movement_object_count = 0;
-            for(size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
-                Object* obj = scenegraph->movement_objects_[i];
+            for(auto obj : scenegraph->movement_objects_) {
                 if(!(only_named && obj->GetName().empty()) && mov->GetID() != obj->GetID()) {
                     GetDisplayName(obj, text);
                     if(obj->GetID() == mov->connected_pathpoint_id) {
@@ -1042,8 +1038,8 @@ static void DrawObjectInfoFlat(Object* obj) {
                 RiggedObject* rig = mov->rigged_object();
                 if(rig && !rig->children.empty()) {
 					if (ImGui::BeginListBox("Attached objects")) {
-						for (size_t i = 0; i < rig->children.size(); ++i) {
-							Object* ptr = rig->children[i].direct_ptr;
+						for (auto & i : rig->children) {
+							Object* ptr = i.direct_ptr;
 							char buffer[512];
 							ptr->GetDisplayName(buffer, 512);
 							if (ImGui::Selectable(buffer, false)) {
@@ -1080,8 +1076,8 @@ static void DrawObjectInfoFlat(Object* obj) {
         case _path_point_object:{
             PathPointObject* path_obj = (PathPointObject*)obj;
 			if (ImGui::BeginListBox("Connected")) {
-				for (size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
-					MovementObject* mov_obj = (MovementObject*)scenegraph->movement_objects_[i];
+				for (auto & movement_object : scenegraph->movement_objects_) {
+					MovementObject* mov_obj = (MovementObject*)movement_object;
 					if (mov_obj->connected_pathpoint_id == path_obj->GetID()) {
 						char buffer[512];
 						mov_obj->GetDisplayName(buffer, 512);
@@ -1101,8 +1097,8 @@ static void DrawObjectInfoFlat(Object* obj) {
 				ImGui::EndListBox();
 			}
 			if (ImGui::BeginListBox("Available characters")) {
-				for (size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
-					MovementObject* obj = (MovementObject*)scenegraph->movement_objects_[i];
+				for (auto & movement_object : scenegraph->movement_objects_) {
+					MovementObject* obj = (MovementObject*)movement_object;
 					if (obj->connected_pathpoint_id != path_obj->GetID()) {
 						char buffer[512];
 						obj->GetDisplayName(buffer, 512);
@@ -1136,15 +1132,15 @@ static void DrawObjectInfoFlat(Object* obj) {
 				ImGui::EndListBox();
 			}
 			if (ImGui::BeginListBox("Available")) {
-				for (size_t i = 0; i < scenegraph->navmesh_connections_.size(); ++i) {
-					NavmeshConnectionObject* obj = (NavmeshConnectionObject*)scenegraph->navmesh_connections_[i];
+				for (auto & navmesh_connection : scenegraph->navmesh_connections_) {
+					NavmeshConnectionObject* obj = (NavmeshConnectionObject*)navmesh_connection;
 					if (obj->GetID() == nav_con->GetID()
 						|| (!show_connected && !obj->connections.empty())) {
 						continue;
 					}
 					bool connected = false;
-					for (size_t j = 0; j < nav_con->connections.size(); j++) {
-						if (obj->GetID() == nav_con->connections[j].other_object_id) {
+					for (auto & connection : nav_con->connections) {
+						if (obj->GetID() == connection.other_object_id) {
 							connected = true;
 							break;
 						}
@@ -1583,8 +1579,8 @@ static bool TreeScenegraphElementVisible(Object* obj, Object* root, char* buf) {
                 if(search_children_scenegraph && obj->IsGroupDerived()) {
                     char child_buf[kBufSize];
                     Group* group = static_cast<Group*>(obj);
-                    for(size_t i = 0; i < group->children.size(); i++) {
-                        group->children[i].direct_ptr->GetDisplayName(child_buf, kBufSize);
+                    for(auto & i : group->children) {
+                        i.direct_ptr->GetDisplayName(child_buf, kBufSize);
                         if(scenegraph_filter.PassFilter( child_buf )) {
                             return true;
                         }
@@ -1758,17 +1754,17 @@ static void ParseSpawner() {
 
     const std::vector<ModInstance*>& mods = ModLoading::Instance().GetMods();
 
-    for( unsigned i = 0; i < mods.size(); i++ ) {
-        if( mods[i]->IsActive() ) {
-            for( unsigned u = 0; u < mods[i]->items.size(); u++ ) {
-                const ModInstance::Item& item = mods[i]->items[u];
+    for(auto mod : mods) {
+        if( mod->IsActive() ) {
+            for( unsigned u = 0; u < mod->items.size(); u++ ) {
+                const ModInstance::Item& item = mod->items[u];
 
                 SpawnerTab* spawner_tab_ptr = &spawner_tabs[std::string(item.category)];
                 spawner_tab_ptr->resize(spawner_tab_ptr->size()+1);
 
                 SpawnerItem* new_item = &spawner_tab_ptr->back();
 
-                new_item->mod_source_title = mods[i]->name;
+                new_item->mod_source_title = mod->name;
                 new_item->display_name = item.title;
                 new_item->path = item.path;
                 new_item->thumbnail_path = item.thumbnail;
@@ -2075,9 +2071,9 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
             char temp[kBufSize];
             FormatString(buf, kBufSize, "Keys(game): ");
             Keyboard::KeyStatusMap* keys = &Input::Instance()->getKeyboard().keys;
-            for(Keyboard::KeyStatusMap::iterator iter = keys->begin(); iter != keys->end(); ++iter){
-                if(iter->second.down){
-                    FormatString(temp, kBufSize, "%s%s ", buf, SDLKeycodeToString(iter->first));
+            for(auto & key : *keys){
+                if(key.second.down){
+                    FormatString(temp, kBufSize, "%s%s ", buf, SDLKeycodeToString(key.first));
                     FormatString(buf, kBufSize, "%s", temp);
                 }
             }
@@ -2417,16 +2413,16 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     bool any_selected_object_has_custom_gui = false;
                     bool selected_items_changed = false;
 
-                    for(unsigned selected_i = 0; selected_i < selected.size(); ++selected_i) {
-                        if(selected[selected_i]->GetType() == _hotspot_object) {
-                            Hotspot* hotspot = (Hotspot*)selected[selected_i];
+                    for(auto & selected_i : selected) {
+                        if(selected_i->GetType() == _hotspot_object) {
+                            Hotspot* hotspot = (Hotspot*)selected_i;
 
                             if(hotspot->HasCustomGUI()) {
                                 any_selected_object_has_custom_gui = true;
                                 break;
                             }
-                        } else if(selected[selected_i]->GetType() == _placeholder_object) {
-                            PlaceholderObject* placeholder = (PlaceholderObject*)selected[selected_i];
+                        } else if(selected_i->GetType() == _placeholder_object) {
+                            PlaceholderObject* placeholder = (PlaceholderObject*)selected_i;
 
                             if(placeholder->GetScriptParams()->HasParam("Dialogue")) {
                                 any_selected_object_has_custom_gui = true;
@@ -2444,9 +2440,9 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         LOGI << "Launch custom editor(s)" << std::endl;
                         scenegraph->level->Message("edit_selected_dialogue");
 
-                        for(unsigned selected_i = 0; selected_i < selected.size(); ++selected_i) {
-                            if(selected[selected_i]->GetType() == _hotspot_object) {
-                                Hotspot* hotspot = (Hotspot*)selected[selected_i];
+                        for(auto & selected_i : selected) {
+                            if(selected_i->GetType() == _hotspot_object) {
+                                Hotspot* hotspot = (Hotspot*)selected_i;
 
                                 if(hotspot->HasCustomGUI()) {
                                     hotspot->LaunchCustomGUI();
@@ -2526,8 +2522,8 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     }
 
                     bool any_movement_objects_selected = false;
-                    for(unsigned selected_i = 0; selected_i < selected.size(); ++selected_i) {
-                        if(selected[selected_i]->GetType() == _movement_object) {
+                    for(auto & selected_i : selected) {
+                        if(selected_i->GetType() == _movement_object) {
                             any_movement_objects_selected = true;
                             break;
                         }
@@ -2590,22 +2586,22 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     }
 
                     if (spawner_global_filter.IsActive()) {
-                        for (SpawnerTabMap::iterator tab_iter = spawner_tabs.begin(); tab_iter != spawner_tabs.end(); ++tab_iter) {
-                            SpawnerTab* tab = &tab_iter->second;
+                        for (auto & spawner_tab : spawner_tabs) {
+                            SpawnerTab* tab = &spawner_tab.second;
 
-                            for (SpawnerTab::iterator item_iter = tab->begin(); item_iter != tab->end(); ++item_iter) {
-                                std::string item_display_name = tab_iter->first + " -> " + item_iter->display_name;
+                            for (auto & item_iter : *tab) {
+                                std::string item_display_name = spawner_tab.first + " -> " + item_iter.display_name;
 
-                                if (spawner_global_filter.PassFilter( item_iter->mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
-                                    AddSpawnerItem(&(*item_iter), scenegraph);
+                                if (spawner_global_filter.PassFilter( item_iter.mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
+                                    AddSpawnerItem(&item_iter, scenegraph);
                                 }
                             }
                         }
                     } else {
-                        for (SpawnerTabMap::iterator tab_iter = spawner_tabs.begin(); tab_iter != spawner_tabs.end(); ++tab_iter) {
-                            if (ImGui::BeginMenu(tab_iter->first.c_str())) {
-                                SpawnerTab* tab = &tab_iter->second;
-                                ImGuiTextFilter& current_tab_filter = spawner_tab_filters[tab_iter->first];
+                        for (auto & spawner_tab : spawner_tabs) {
+                            if (ImGui::BeginMenu(spawner_tab.first.c_str())) {
+                                SpawnerTab* tab = &spawner_tab.second;
+                                ImGuiTextFilter& current_tab_filter = spawner_tab_filters[spawner_tab.first];
 
                                 //if (ImGui::IsWindowHovered()) {
                                 //    ImGui::SetKeyboardFocusHere();
@@ -2616,9 +2612,9 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                                     current_tab_filter.Build();
                                 }
 
-                                for (SpawnerTab::iterator item_iter = tab->begin(); item_iter != tab->end(); ++item_iter) {
-                                    if (current_tab_filter.PassFilter(item_iter->mod_source_title.c_str()) || current_tab_filter.PassFilter(item_iter->display_name.c_str())) {
-                                        AddSpawnerItem(&(*item_iter), scenegraph);
+                                for (auto & item_iter : *tab) {
+                                    if (current_tab_filter.PassFilter(item_iter.mod_source_title.c_str()) || current_tab_filter.PassFilter(item_iter.display_name.c_str())) {
+                                        AddSpawnerItem(&item_iter, scenegraph);
                                     }
                                 }
                                 ImGui::EndMenu();
@@ -2828,9 +2824,9 @@ Mark Stockton\nMikko Tarmia");
             if(scenegraph && scenegraph->level) {
                 bool draw_menu = false;
                 const std::vector<Level::HookedASContext>& contexts = scenegraph->level->as_contexts_;
-                for(std::vector<Level::HookedASContext>::iterator iter = scenegraph->level->as_contexts_.begin(); iter != scenegraph->level->as_contexts_.end(); ++iter) {
-                    if(iter->context_name == "mod_level_hook") {
-                        if(iter->ctx->HasFunction(iter->as_funcs.menu)) {
+                for(auto & as_context : scenegraph->level->as_contexts_) {
+                    if(as_context.context_name == "mod_level_hook") {
+                        if(as_context.ctx->HasFunction(as_context.as_funcs.menu)) {
                             draw_menu = true;
                             break;
                         }
@@ -2838,9 +2834,9 @@ Mark Stockton\nMikko Tarmia");
                 }
                 if(draw_menu && ImGui::BeginMenu("Mods")) {
                     const std::vector<Level::HookedASContext>& contexts = scenegraph->level->as_contexts_;
-                    for(std::vector<Level::HookedASContext>::iterator iter = scenegraph->level->as_contexts_.begin(); iter != scenegraph->level->as_contexts_.end(); ++iter) {
-                        if(iter->context_name == "mod_level_hook") {
-                            iter->ctx->CallScriptFunction(iter->as_funcs.menu);
+                    for(auto & as_context : scenegraph->level->as_contexts_) {
+                        if(as_context.context_name == "mod_level_hook") {
+                            as_context.ctx->CallScriptFunction(as_context.as_funcs.menu);
                         }
                     }
                     ImGui::EndMenu();
@@ -2896,12 +2892,12 @@ Mark Stockton\nMikko Tarmia");
                 for (SpawnerTabMap::iterator tab_iter = spawner_tabs.begin(); !item_clicked && tab_iter != spawner_tabs.end(); ++tab_iter) {
                     SpawnerTab* tab = &tab_iter->second;
 
-                    for (SpawnerTab::iterator item_iter = tab->begin(); item_iter != tab->end(); ++item_iter) {
-                        std::string item_display_name = tab_iter->first + " -> " + item_iter->display_name;
+                    for (auto & item_iter : *tab) {
+                        std::string item_display_name = tab_iter->first + " -> " + item_iter.display_name;
 
-                        if (spawner_global_filter.PassFilter( item_iter->mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
-                            if (pressed_number == items + 1 && scenegraph->map_editor->state_ == MapEditor::kIdle  && scenegraph->map_editor->LoadEntitiesFromFile(item_iter->path)==0) {
-                                scenegraph->level->PushSpawnerItemRecent(*item_iter);
+                        if (spawner_global_filter.PassFilter( item_iter.mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
+                            if (pressed_number == items + 1 && scenegraph->map_editor->state_ == MapEditor::kIdle  && scenegraph->map_editor->LoadEntitiesFromFile(item_iter.path)==0) {
+                                scenegraph->level->PushSpawnerItemRecent(item_iter);
                                 scenegraph->map_editor->active_tool_ = EditorTypes::ADD_ONCE;
                                 item_clicked = true;
                                 break;
@@ -2913,23 +2909,23 @@ Mark Stockton\nMikko Tarmia");
             } else {
                 int items = 0;
                 if (spawner_global_filter.IsActive()) {
-                    for (SpawnerTabMap::iterator tab_iter = spawner_tabs.begin(); tab_iter != spawner_tabs.end(); ++tab_iter) {
-                        SpawnerTab* tab = &tab_iter->second;
+                    for (auto & spawner_tab : spawner_tabs) {
+                        SpawnerTab* tab = &spawner_tab.second;
 
-                        for (SpawnerTab::iterator item_iter = tab->begin(); item_iter != tab->end(); ++item_iter) {
-                            std::string item_display_name = tab_iter->first + " -> " + item_iter->display_name;
+                        for (auto & item_iter : *tab) {
+                            std::string item_display_name = spawner_tab.first + " -> " + item_iter.display_name;
 
-                            if (spawner_global_filter.PassFilter( item_iter->mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
+                            if (spawner_global_filter.PassFilter( item_iter.mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
                                 if(items < 9) {
                                     char buffer[32];
                                     sprintf(buffer, "%i", items + 1);
                                     ImGui::Text("%s", buffer);
                                     ImGui::SameLine(0.0f, 16.0f);
-                                    if(AddSpawnerItem(&(*item_iter), scenegraph)) {
+                                    if(AddSpawnerItem(&item_iter, scenegraph)) {
                                         item_clicked = true;
                                     }
                                 } else {
-                                    if(AddSpawnerItem(&(*item_iter), scenegraph)) {
+                                    if(AddSpawnerItem(&item_iter, scenegraph)) {
                                         item_clicked = true;
                                     }
                                 }
@@ -3176,11 +3172,9 @@ Mark Stockton\nMikko Tarmia");
             ImGui::Checkbox("Search children", &search_children_scenegraph);
             ImGui::Checkbox("Named Only", &show_named_only_scenegraph);
             if( show_flat_scenegraph ) {
-                for(size_t i=0, len=scenegraph->objects_.size(); i<len; ++i){
+                for(auto obj : scenegraph->objects_){
                     const int kBufSize = 512;
                     char buf[kBufSize];
-                    Object* obj = scenegraph->objects_[i];
-
                     if((show_named_only_scenegraph == false || obj->GetName().empty() == false) && obj->selectable_) {
                         obj->GetDisplayName(buf, kBufSize);
                         if (scenegraph_filter.IsActive() && !scenegraph_filter.PassFilter( buf )){
@@ -3189,8 +3183,8 @@ Mark Stockton\nMikko Tarmia");
                                 if(obj->IsGroupDerived()) {
                                     char child_buf[kBufSize];
                                     Group* group = static_cast<Group*>(obj);
-                                    for(size_t i = 0; i < group->children.size(); i++) {
-                                        group->children[i].direct_ptr->GetDisplayName(child_buf, kBufSize);
+                                    for(auto & i : group->children) {
+                                        i.direct_ptr->GetDisplayName(child_buf, kBufSize);
                                         if(scenegraph_filter.PassFilter( child_buf )) {
                                             pass = true;
                                             break;
@@ -3372,13 +3366,12 @@ Mark Stockton\nMikko Tarmia");
             ImGui::RadioButton("No climb", &paintbrush_type, 9);
             if(paintbrush_type == 9) {
                 if(ImGui::Button("Apply 'no climb' to all unlabeled surfaces")){
-                    for(size_t obj_index=0, len=scenegraph->collide_objects_.size(); obj_index<len; ++obj_index){
-                        Object* obj = scenegraph->collide_objects_[obj_index];
+                    for(auto obj : scenegraph->collide_objects_){
                         if(obj->GetType() == _env_object){
                             EnvObject* eo = (EnvObject*)obj;
-                            for(size_t i=0, len=eo->normal_override_custom.size(); i<len; ++i){
-                                if(eo->normal_override_custom[i] == vec4(0.0f)){
-                                    eo->normal_override_custom[i] = vec4(0.0f,9.5f,0.0f,1.0f);
+                            for(auto & i : eo->normal_override_custom){
+                                if(i == vec4(0.0f)){
+                                    i = vec4(0.0f,9.5f,0.0f,1.0f);
                                 }
                             }
                             eo->normal_override_buffer_dirty = true;
@@ -3468,8 +3461,8 @@ Mark Stockton\nMikko Tarmia");
                         }
                         if(paint_type == 0){
                             if(actually_painting){
-                                for(size_t i=0, len=eo->normal_override_custom.size(); i<len; ++i){
-                                    eo->normal_override_custom[i] = norm;
+                                for(auto & i : eo->normal_override_custom){
+                                    i = norm;
                                 }
                                 eo->normal_override_buffer_dirty = true;
                             }
@@ -3505,11 +3498,11 @@ Mark Stockton\nMikko Tarmia");
                                 std::vector<int> checked;
                                 checked.resize(half_edges.size(), 0);
                                 std::queue<HalfEdge*> to_check;
-                                for(size_t index=0, len=half_edges.size(); index<len; ++index){
-                                    if(half_edges[index].vert[0] == vert_translate[0] &&
-                                        half_edges[index].vert[1] == vert_translate[1])
+                                for(auto & half_edge : half_edges){
+                                    if(half_edge.vert[0] == vert_translate[0] &&
+                                        half_edge.vert[1] == vert_translate[1])
                                     {
-                                        to_check.push(&half_edges[index]);
+                                        to_check.push(&half_edge);
                                     }
                                 }
                                 vec3 start_norm;
@@ -3522,9 +3515,9 @@ Mark Stockton\nMikko Tarmia");
                                     }
 
                                     vec3 verts[3];
-                                    for(int i=0; i<3; ++i){
+                                    for(auto & vert : verts){
                                         int vert_index = processed_model.old_vert_id[curr->vert[0]]*3;
-                                        memcpy(&verts[i], &model->vertices[vert_index], sizeof(vec3));
+                                        memcpy(&vert, &model->vertices[vert_index], sizeof(vec3));
                                         curr = curr->next;
                                     }
 
@@ -3578,15 +3571,15 @@ Mark Stockton\nMikko Tarmia");
                                     }
                                 }
                                 eo->ledge_lines.clear();
-                                for(size_t index=0, len=half_edges.size(); index<len; ++index){
-                                    HalfEdge* curr = &half_edges[index];
+                                for(auto & half_edge : half_edges){
+                                    HalfEdge* curr = &half_edge;
                                     if(curr->twin) {
                                         if( (int)eo->normal_override_custom.size() > half_edge_faces[curr->id] ) {
                                             int curr_color = (int)(eo->normal_override_custom[half_edge_faces[curr->id]][1]);
                                             int neighbor_color = (int)(eo->normal_override_custom[half_edge_faces[curr->twin->id]][1]);
                                             if(curr_color == 6 && neighbor_color < 4){
-                                                for(int j=0; j<2; ++j){
-                                                    int vert_index = processed_model.old_vert_id[curr->vert[j]]*3;
+                                                for(int j : curr->vert){
+                                                    int vert_index = processed_model.old_vert_id[j]*3;
                                                     eo->ledge_lines.push_back(vert_index);
                                                 }
                                             }
@@ -3683,8 +3676,8 @@ Mark Stockton\nMikko Tarmia");
 			std::string current_hot_join_char = online->GetDefaultHotJoinCharacter();
 			ImGui::Text(("Hot join character: " + current_hot_join_char).c_str());
 			if (ImGui::BeginMenu("Select hot join character")) {
-				for (uint32_t i = 0; i < character_tab->size(); i++) {
-					SpawnerItem *  item = &((*character_tab)[i]); // no way that the asm is pretty here
+				for (auto & i : *character_tab) {
+					SpawnerItem *  item = &i; // no way that the asm is pretty here
 
 					if (IsCharacterSelceted(item)) {
 						online->SetDefaultHotJoinCharacter(item->path);
@@ -3793,8 +3786,8 @@ Mark Stockton\nMikko Tarmia");
 
                 // Display actual chat messages
                 ImGui::PushTextWrapPos();
-                for(size_t i = 0; i < chat_messages.size(); i++) {
-                    ImGui::Text(chat_messages[i].message.c_str());
+                for(const auto & chat_message : chat_messages) {
+                    ImGui::Text(chat_message.message.c_str());
                 }
                 ImGui::PopTextWrapPos();
 
@@ -4728,8 +4721,7 @@ Mark Stockton\nMikko Tarmia");
             const int kBufSize = 1024;
             char* buf_sanityerror = (char*)alloc.stack.Alloc(kBufSize);
             char* buf_dispname = (char*)alloc.stack.Alloc(kBufSize);
-            for( unsigned i = 0; i < SceneGraph::kMaxWarnings; i++ ) {
-                ObjectSanityState& sanity = scenegraph->sanity_list[i];
+            for(auto & sanity : scenegraph->sanity_list) {
                 if(sanity.Valid() && sanity.Ok() == false) {
                     Object* obj = scenegraph->GetObjectFromID(sanity.GetID());
                     if(obj) {
@@ -4790,11 +4782,11 @@ Mark Stockton\nMikko Tarmia");
 
         ImGui::Text("File breakpoints");
         const std::vector<std::pair<std::string, int> > global_breakpoints = ASDebugger::GetGlobalBreakpoints();
-        for(size_t i = 0; i < global_breakpoints.size(); ++i) {
+        for(const auto & global_breakpoint : global_breakpoints) {
             char buffer[256];
-            sprintf(buffer, "%s:%d", global_breakpoints[i].first.c_str(), global_breakpoints[i].second);
+            sprintf(buffer, "%s:%d", global_breakpoint.first.c_str(), global_breakpoint.second);
             if(ImGui::Button(buffer)) {
-                ASDebugger::RemoveGlobalBreakpoint(global_breakpoints[i].first.c_str(), global_breakpoints[i].second);
+                ASDebugger::RemoveGlobalBreakpoint(global_breakpoint.first.c_str(), global_breakpoint.second);
             }
         }
 
@@ -4861,8 +4853,8 @@ Mark Stockton\nMikko Tarmia");
 
                 bool is_breakpoint = false;
                 if(breakpoints != NULL) {
-                    for(size_t i = 0; i < breakpoints->size(); ++i) {
-                        if(breakpoints->at(i) == line_nr) {
+                    for(int breakpoint : *breakpoints) {
+                        if(breakpoint == line_nr) {
                             is_breakpoint = true;
                             break;
                         }
@@ -4918,9 +4910,9 @@ Mark Stockton\nMikko Tarmia");
         ImGui::Text("Each time point is calculated by taking the max time over %d frames", ASProfiler::GetMaxWindowSize());
         ImGui::Text("Times may appear to be lagging because not all functions are called each frame");
 
-        for(size_t i = 0; i < active_contexts.size(); ++i) {
-            if(active_contexts[i]->profiler.enabled)
-                active_contexts[i]->profiler.Draw();
+        for(auto active_context : active_contexts) {
+            if(active_context->profiler.enabled)
+                active_context->profiler.Draw();
         }
 
         ImGui::End();

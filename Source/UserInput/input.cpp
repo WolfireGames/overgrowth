@@ -69,10 +69,10 @@ namespace {
 
     void PrintControllers(const Input::JoystickMap &open_joysticks){
         LOGI << "Current controllers:" << std::endl;
-        for(Input::JoystickMap::const_iterator iter=open_joysticks.begin(); iter!=open_joysticks.end(); ++iter){
-            const Input::RC_JoystickStruct& js = iter->second;
+        for(const auto & open_joystick : open_joysticks){
+            const Input::RC_JoystickStruct& js = open_joystick.second;
             SDL_Joystick* joystick = (SDL_Joystick*)js.GetConst().sdl_joystick;
-            LOGI << "Joystick" << iter->first << "," << SDL_JoystickName(joystick) << std::endl;
+            LOGI << "Joystick" << open_joystick.first << "," << SDL_JoystickName(joystick) << std::endl;
         }
     }
 } // namespace ""
@@ -111,20 +111,20 @@ void Input::SetInvertYMouseLook(bool val) {
 }
 
 void Input::UpdateGamepadLookSensitivity() {
-    for(JoystickMap::iterator iter=open_joysticks_.begin(); iter!=open_joysticks_.end(); ++iter)
+    for(auto & open_joystick : open_joysticks_)
     {
         char buffer[64];
-        sprintf(buffer, "gamepad_%i_look_sensitivity", iter->second->player_input);
-        iter->second->joystick.look_sensitivity_ = config[buffer].toNumber<float>();
+        sprintf(buffer, "gamepad_%i_look_sensitivity", open_joystick.second->player_input);
+        open_joystick.second->joystick.look_sensitivity_ = config[buffer].toNumber<float>();
     }
 }
 
 void Input::UpdateGamepadDeadzone() {
-    for(JoystickMap::iterator iter=open_joysticks_.begin(); iter!=open_joysticks_.end(); ++iter)
+    for(auto & open_joystick : open_joysticks_)
     {
         char buffer[64];
-        sprintf(buffer, "gamepad_%i_deadzone", iter->second->player_input);
-        iter->second->joystick.deadzone = config[buffer].toNumber<float>();
+        sprintf(buffer, "gamepad_%i_deadzone", open_joystick.second->player_input);
+        open_joystick.second->joystick.deadzone = config[buffer].toNumber<float>();
     }
 }
 
@@ -256,8 +256,8 @@ void Input::Initialize() {
 }
 
 void Input::Dispose() {
-    for(JoystickMap::iterator iter=open_joysticks_.begin(); iter!=open_joysticks_.end(); ++iter){
-        RC_JoystickStruct js = iter->second;
+    for(auto & open_joystick : open_joysticks_){
+        RC_JoystickStruct js = open_joystick.second;
         SDL_Joystick* joystick = (SDL_Joystick*)js->sdl_joystick;
         SDL_JoystickClose(joystick);    
     }
@@ -576,9 +576,9 @@ void Input::ProcessController(int controller_id, float timestep) {
 
     // Set all keydown counts to negative
     PlayerInput::KeyDownMap &kd = control.key_down;
-    for(PlayerInput::KeyDownMap::iterator iter = kd.begin(); iter != kd.end(); ++iter){
-        iter->second.count *= -1;
-        iter->second.depth = 0.0f;
+    for(auto & iter : kd){
+        iter.second.count *= -1;
+        iter.second.depth = 0.0f;
     }
     std::set<std::string> active_buttons;
     // If any bound controller button is pressed more than halfway in
@@ -594,9 +594,9 @@ void Input::ProcessController(int controller_id, float timestep) {
             }
             const Joystick& joystick = js.GetConst().joystick;
             const Joystick::ButtonMap& bm = joystick.buttons_down_;
-            for(Joystick::ButtonMap::const_iterator iter2 = bm.begin(); iter2 != bm.end(); ++iter2){
-                if(iter2->second){
-                    float depth = iter2->second;
+            for(const auto & iter2 : bm){
+                if(iter2.second){
+                    float depth = iter2.second;
                     if(depth > 0.5f) {
                         use_controller_input_ = true;
                         run = false;
@@ -608,30 +608,30 @@ void Input::ProcessController(int controller_id, float timestep) {
     }
     // Joystick input
     if(allow_controller_input_ && use_controller_input_) {
-        for(JoystickMap::iterator iter = open_joysticks_.begin(); iter != open_joysticks_.end(); ++iter){
-            const RC_JoystickStruct js = iter->second;
+        for(auto & open_joystick : open_joysticks_){
+            const RC_JoystickStruct js = open_joystick.second;
             if(js.GetConst().player_input != controller_id){
                 continue;
             }
             const Joystick& joystick = js.GetConst().joystick;
             const Joystick::ButtonMap& bm = joystick.buttons_down_;
-            for(Joystick::ButtonMap::const_iterator iter2 = bm.begin(); iter2 != bm.end(); ++iter2){
-                if(iter2->second){
+            for(const auto & iter2 : bm){
+                if(iter2.second){
                     float sensitivity = 1.0f;
-                    if(memcmp(iter2->first.c_str(), "look", 4) == 0) {
+                    if(memcmp(iter2.first.c_str(), "look", 4) == 0) {
                         sensitivity = joystick.look_sensitivity_;
                     }
-                    float depth = iter2->second * sensitivity;
+                    float depth = iter2.second * sensitivity;
 
-                    int &count = control.key_down[iter2->first].count;
-                    int &depth_count = control.key_down[iter2->first].depth_count;
+                    int &count = control.key_down[iter2.first].count;
+                    int &depth_count = control.key_down[iter2.first].depth_count;
                     if(count <= 0){
                         count *= -1;
                         ++count;
                         if(depth > KeyState::kDepthThreshold)
                             ++depth_count;
                     }
-                    control.key_down[iter2->first].depth = depth;
+                    control.key_down[iter2.first].depth = depth;
                 }
             }
         }
@@ -641,9 +641,9 @@ void Input::ProcessController(int controller_id, float timestep) {
     if(catch_kbmouse){
         static const std::string kKey = "key";
         const StrMap &key_map = bindings_[kKey];
-        for(StrMap::const_iterator iter = key_map.begin(); iter != key_map.end(); ++iter) {
-            if(IsKeyDown(iter->second.c_str())) {
-                PlayerInputKeyDown(&control.key_down[iter->first]);
+        for(const auto & iter : key_map) {
+            if(IsKeyDown(iter.second.c_str())) {
+                PlayerInputKeyDown(&control.key_down[iter.first]);
                 use_controller_input_ = false;
             }
         }
@@ -657,11 +657,11 @@ void Input::ProcessController(int controller_id, float timestep) {
         }
     }
     // Zero all negative keydown counts
-    for(PlayerInput::KeyDownMap::iterator iter = kd.begin(); iter != kd.end(); ++iter){
-        if(iter->second.count < 0){
-            iter->second.count = 0;
-            iter->second.depth_count = 0;
-            iter->second.depth = 0.0f;
+    for(auto & iter : kd){
+        if(iter.second.count < 0){
+            iter.second.count = 0;
+            iter.second.depth_count = 0;
+            iter.second.depth = 0.0f;
         }
     }
 }
@@ -785,15 +785,15 @@ PlayerInput* Input::GetController( int id ) {
 }
 
 void Input::ProcessBindings() {
-    for(JoystickMap::iterator js_iter = open_joysticks_.begin(); js_iter != open_joysticks_.end(); ++js_iter){
-        RC_JoystickStruct js = js_iter->second;
+    for(auto & open_joystick : open_joysticks_){
+        RC_JoystickStruct js = open_joystick.second;
         js->joystick.ClearBinding();
         char gamepad_name[32];
         FormatString(gamepad_name, 32, "gamepad_%i", js->player_input);
         if(!js->gamepad_bind.empty()){
             StrMap& gamepad_map = bindings_[gamepad_name];
-            for(StrMap::iterator xb_iter = gamepad_map.begin(); xb_iter != gamepad_map.end(); ++xb_iter){
-                const std::string& input_str = xb_iter->second;
+            for(auto & xb_iter : gamepad_map){
+                const std::string& input_str = xb_iter.second;
                 ControllerInput::Input input = SDLStringToController(input_str.c_str());
                 if(input != ControllerInput::NONE){
                    SDL_GameControllerButtonBind bind;
@@ -821,7 +821,7 @@ void Input::ProcessBindings() {
                             break;
                     }
                     if(bind.bindType != SDL_CONTROLLER_BINDTYPE_NONE){
-                        js->joystick.ProcessBinding(input, xb_iter->first);
+                        js->joystick.ProcessBinding(input, xb_iter.first);
                     }
                 }
             }
@@ -862,8 +862,8 @@ void Input::SetUpForXPlayers( unsigned num_players ) {
         }
 
         if(num_players <= 1){
-            for(JoystickMap::iterator iter = open_joysticks_.begin(); iter != open_joysticks_.end(); ++iter){
-                RC_JoystickStruct js = iter->second;
+            for(auto & open_joystick : open_joysticks_){
+                RC_JoystickStruct js = open_joystick.second;
                 js->player_input = 0;
                 std::map<std::string, float>::iterator buttons_iter = js->joystick.buttons_down_.begin();
                 for(; buttons_iter != js->joystick.buttons_down_.end(); ++buttons_iter) {
@@ -875,8 +875,8 @@ void Input::SetUpForXPlayers( unsigned num_players ) {
         if(num_players >= 2){
             if(num_joysticks < (int)num_players){
                 int index = 1;
-                for(JoystickMap::iterator iter = open_joysticks_.begin(); iter != open_joysticks_.end(); ++iter){
-                    RC_JoystickStruct js = iter->second;
+                for(auto & open_joystick : open_joysticks_){
+                    RC_JoystickStruct js = open_joystick.second;
                     js->player_input = index;
                     ++index;
                     std::map<std::string, float>::iterator buttons_iter = js->joystick.buttons_down_.begin();
@@ -886,8 +886,8 @@ void Input::SetUpForXPlayers( unsigned num_players ) {
                 }
             } else {
                 int index = 0;
-                for(JoystickMap::iterator iter = open_joysticks_.begin(); iter != open_joysticks_.end(); ++iter){
-                    RC_JoystickStruct js = iter->second;
+                for(auto & open_joystick : open_joysticks_){
+                    RC_JoystickStruct js = open_joystick.second;
                     js->player_input = index;
                     ++index;
                     std::map<std::string, float>::iterator buttons_iter = js->joystick.buttons_down_.begin();
@@ -923,10 +923,10 @@ void CheckBinding(const Config::Map::const_iterator &iter, const std::string &ty
 
 static void CompleteGamepadBindings(const std::string &type, BindMap &bind_map) {
     StrMap& gamepad = bind_map[type];
-    for(StrMap::iterator iter = bind_map["gamepad"].begin(), end = bind_map["gamepad"].end(); iter != end; ++iter) {
-        StrMap::iterator gamepad_iter = gamepad.find(iter->first);
+    for(auto & iter : bind_map["gamepad"]) {
+        StrMap::iterator gamepad_iter = gamepad.find(iter.first);
         if(gamepad_iter == gamepad.end()) {
-            gamepad[iter->first] = iter->second;
+            gamepad[iter.first] = iter.second;
         }
     }
     char buffer[128];
@@ -1055,12 +1055,12 @@ std::vector<Mouse::MousePress> Input::GetMouseInputs() {
 
 std::vector<Joystick::JoystickPress> Input::GetJoystickInputs(int player_index) {
     std::vector<Joystick::JoystickPress> ret_inputs;
-    for(JoystickMap::iterator iter = open_joysticks_.begin(); iter != open_joysticks_.end(); ++iter) {
-        if(iter->second->player_input == player_index) {
-            std::vector<Joystick::JoystickPress> inputs = iter->second->joystick.GetJoystickInputs();
+    for(auto & open_joystick : open_joysticks_) {
+        if(open_joystick.second->player_input == player_index) {
+            std::vector<Joystick::JoystickPress> inputs = open_joystick.second->joystick.GetJoystickInputs();
             ret_inputs.reserve(ret_inputs.size() + inputs.size());
-            for(size_t i = 0; i < inputs.size(); ++i) {
-                ret_inputs.push_back(inputs[i]);
+            for(auto & input : inputs) {
+                ret_inputs.push_back(input);
             }
         }
     }

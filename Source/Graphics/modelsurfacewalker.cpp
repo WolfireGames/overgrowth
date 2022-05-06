@@ -107,16 +107,16 @@ void ModelSurfaceWalker::AttachTo(const std::vector<float> &vertices, const std:
     std::vector<Tri> tris(faces.size()/3);
 
     int index = 0;
-    for(int i=0, len=tris.size(); i<len; ++i){
+    for(auto & tri : tris){
         for(int j=0; j<3; ++j) {
             for(int k=0; k<2; ++k){
-                tris[i].edges[j].points[k] = first_dup[faces[index+(j+k)%3]];
+                tri.edges[j].points[k] = first_dup[faces[index+(j+k)%3]];
             }
-            if(tris[i].edges[j].points[0] > tris[i].edges[j].points[1]){
-                std::swap(tris[i].edges[j].points[0], tris[i].edges[j].points[1]);
-                tris[i].edge_swapped[j] = true;
+            if(tri.edges[j].points[0] > tri.edges[j].points[1]){
+                std::swap(tri.edges[j].points[0], tri.edges[j].points[1]);
+                tri.edge_swapped[j] = true;
             } else {
-                tris[i].edge_swapped[j] = false;
+                tri.edge_swapped[j] = false;
             }
         }
         index += 3;
@@ -133,12 +133,10 @@ void ModelSurfaceWalker::AttachTo(const std::vector<float> &vertices, const std:
     // Use the list of triangles for each edge to get a list of neighbors for
     // each triangle
     tri_info.resize(tris.size());
-    for(std::map<Edge, std::vector<int> >::iterator iter = edge_tris.begin(); 
-        iter != edge_tris.end(); 
-        ++iter)
+    for(auto & edge_tri : edge_tris)
     {
-        const Edge& edge = iter->first;
-        const std::vector<int> &faces = iter->second;
+        const Edge& edge = edge_tri.first;
+        const std::vector<int> &faces = edge_tri.second;
         if(faces.size() == 2){
             for(unsigned i=0; i<2; ++i){
                 const int &face = faces[i];
@@ -158,16 +156,16 @@ void ModelSurfaceWalker::AttachTo(const std::vector<float> &vertices, const std:
     // Get the length of each edge of each triangle
     vec3 points[3];
     int face_index = 0;
-    for(unsigned i=0; i<tri_info.size(); ++i){
-        for(unsigned j=0; j<3; ++j){
-            points[j] = vec3(vertices[faces[face_index]*3+0],
+    for(auto & i : tri_info){
+        for(auto & point : points){
+            point = vec3(vertices[faces[face_index]*3+0],
                              vertices[faces[face_index]*3+1],
                              vertices[faces[face_index]*3+2]);
             ++face_index;
         }
-        tri_info[i].edge_length[0] = distance(points[0], points[1]);
-        tri_info[i].edge_length[1] = distance(points[1], points[2]);
-        tri_info[i].edge_length[2] = distance(points[2], points[0]);
+        i.edge_length[0] = distance(points[0], points[1]);
+        i.edge_length[1] = distance(points[1], points[2]);
+        i.edge_length[2] = distance(points[2], points[0]);
     }
 }
 

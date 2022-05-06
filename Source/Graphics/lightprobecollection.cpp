@@ -183,9 +183,9 @@ LightProbe* LightProbeCollection::GetNextProbeToProcess() {
 }
 
 LightProbe* LightProbeCollection::GetProbeFromID(int id) {
-    for(int i=0, len=light_probes.size(); i<len; ++i){
-        if(light_probes[i].id == id) {
-            return &light_probes[i];
+    for(auto & light_probe : light_probes){
+        if(light_probe.id == id) {
+            return &light_probe;
         }
     }
     return NULL;
@@ -585,9 +585,9 @@ void LightProbeCollection::UpdateTextureBuffer(BulletWorld& bw) {
                             ++index;
                         }
                     } else {
-                        for(int face=0; face<6; ++face){
+                        for(auto & face : probe.ambient_cube_color){
                             for(int channel=0; channel<3; ++channel){
-                                unsigned val = (unsigned)(probe.ambient_cube_color[face][channel] * 255.0f / 4.0f);
+                                unsigned val = (unsigned)(face[channel] * 255.0f / 4.0f);
                                 tet_colors[index] = (val > 255)?255:val;
                                 ++index;
                             }
@@ -624,8 +624,8 @@ void LightProbeCollection::UpdateTextureBuffer(BulletWorld& bw) {
                             }
                         }
                     }
-                    for(int avg_index=0; avg_index<18; ++avg_index){
-                        avg_col[avg_index] /= num_positive;
+                    for(int & avg_index : avg_col){
+                        avg_index /= num_positive;
                     }
                     // Assign average color to negative probes in this tet
                     for(int point=0; point<4; ++point){
@@ -720,8 +720,8 @@ void LightProbeCollection::UpdateTextureBuffer(BulletWorld& bw) {
             buf_u[buf_index++] = neighbors_u[2];
             buf_u[buf_index++] = neighbors_u[3];
 
-            for(int i=0; i<18; ++i){
-                buf_u[buf_index++] = colors_u[i];
+            for(unsigned int i : colors_u){
+                buf_u[buf_index++] = i;
             }
             buf_u[buf_index++] = 0;
             buf_u[buf_index++] = 0;
@@ -934,15 +934,15 @@ void LightProbeCollection::Draw(BulletWorld& bw) {
             CHECK_GL_ERROR();
 
             // Check long name if short name is not found
-            for(int i=0; i<5; ++i){
-                if(indices[i] == GL_INVALID_INDEX){
+            for(unsigned int index : indices){
+                if(index == GL_INVALID_INDEX){
                     glGetUniformIndices(programHandle, 5, &names[5], indices);
                     break;
                 }
             }
 
-            for(int i=0; i<5; ++i){
-                if(indices[i] == GL_INVALID_INDEX){
+            for(unsigned int index : indices){
+                if(index == GL_INVALID_INDEX){
                     return;
                 }
             }

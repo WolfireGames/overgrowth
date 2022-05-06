@@ -229,11 +229,9 @@ bool hasEnding (string const &fullString, string const &ending) {
 
 bool hasAnyOfEndings( const string &fullString, const vector<string> &endings)
 {
-    for( vector<string>::const_iterator sit = endings.begin();
-         sit != endings.end();
-         sit++ )
+    for(const auto & ending : endings)
     {
-        if( hasEnding( fullString, *sit ) )
+        if( hasEnding( fullString, ending ) )
         {
             return true;
         }

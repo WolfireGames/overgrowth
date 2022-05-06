@@ -93,27 +93,27 @@ void EntityDescription::AddString( EntityDescriptionFieldType type, const std::s
 }
 
 const EntityDescriptionField* EntityDescription::GetField( EntityDescriptionFieldType type ) const {
-    for(unsigned i=0; i<fields.size(); ++i){
-        if(fields[i].type == type){
-            return &fields[i];
+    for(const auto & field : fields){
+        if(field.type == type){
+            return &field;
         }
     }
     return NULL;
 }
 
 EntityDescriptionField* EntityDescription::GetField( EntityDescriptionFieldType type ) {
-	for(unsigned i=0; i<fields.size(); ++i){
-		if(fields[i].type == type){
-			return &fields[i];
+	for(auto & field : fields){
+		if(field.type == type){
+			return &field;
 		}
 	}
 	return NULL;
 }
 
 EntityDescriptionField* EntityDescription::GetEditableField( EntityDescriptionFieldType type ){
-    for(unsigned i=0; i<fields.size(); ++i){
-        if(fields[i].type == type){
-            return &fields[i];
+    for(auto & field : fields){
+        if(field.type == type){
+            return &field;
         }
     }
     return NULL;
@@ -132,8 +132,7 @@ void EntityDescription::AddPalette( EntityDescriptionFieldType type, const OGPal
 void EntityDescription::ReturnPaths( PathSet& path_set ){  
     std::string str;
     EntityType type = _no_type;
-    for(unsigned i=0; i<fields.size(); ++i){
-        EntityDescriptionField &field = fields[i];
+    for(auto & field : fields){
         switch(field.type){
             case EDF_FILE_PATH:
                 field.ReadString(&str);
@@ -176,14 +175,12 @@ void EntityDescription::ReturnPaths( PathSet& path_set ){
             Engine::Instance()->GetAssetManager()->LoadSync<Item>(str)->ReturnPaths(path_set);
             break;
         case _group:{
-            for(EntityDescriptionList::iterator iter = children.begin(); iter != children.end(); ++iter){
-                EntityDescription& child = (*iter);
+            for(auto & child : children){
                 child.ReturnPaths(path_set);
             }
             break;}
         case _prefab:{
-            for(EntityDescriptionList::iterator iter = children.begin(); iter != children.end(); ++iter){
-                EntityDescription& child = (*iter);
+            for(auto & child : children){
                 child.ReturnPaths(path_set);
             }
             break;}
@@ -222,8 +219,7 @@ void EntityDescription::AddType( EntityDescriptionFieldType type ) {
 void EntityDescription::SaveToXML( TiXmlElement* parent ) const {
     TiXmlElement* object = new TiXmlElement("Unknown Type");
     parent->LinkEndChild(object);
-    for(unsigned i=0; i<fields.size(); ++i){
-        const EntityDescriptionField &field = fields[i];
+    for(const auto & field : fields){
         switch(field.type){
             case EDF_ID: {
                 int id;
@@ -374,9 +370,9 @@ void EntityDescription::SaveToXML( TiXmlElement* parent ) const {
                 // Write connections to XML
                 TiXmlElement* connections_el = new TiXmlElement("Connections");
                 object->LinkEndChild(connections_el);
-                for(size_t i=0, len=connections.size(); i<len; ++i){
+                for(int i : connections){
                     TiXmlElement* connection = new TiXmlElement("Connection");
-                    connection->SetAttribute("id", connections[i]);
+                    connection->SetAttribute("id", i);
                     connections_el->LinkEndChild(connection);
                 }
                 break;}
@@ -387,9 +383,9 @@ void EntityDescription::SaveToXML( TiXmlElement* parent ) const {
                 // Write connections to XML
                 TiXmlElement* connections_el = new TiXmlElement("ConnectionsFrom");
                 object->LinkEndChild(connections_el);
-                for(size_t i=0, len=connections.size(); i<len; ++i){
+                for(int i : connections){
                     TiXmlElement* connection = new TiXmlElement("Connection");
-                    connection->SetAttribute("id", connections[i]);
+                    connection->SetAttribute("id", i);
                     connections_el->LinkEndChild(connection);
                 }
                 break;}
@@ -399,8 +395,7 @@ void EntityDescription::SaveToXML( TiXmlElement* parent ) const {
                 // Write item connections to XML
                 TiXmlElement* item_connections_el = new TiXmlElement("ItemConnections");
                 object->LinkEndChild(item_connections_el);
-                for(size_t i=0, len=item_connections.size(); i<len; ++i) {
-                    ItemConnectionData& item_connection = item_connections[i];
+                for(auto & item_connection : item_connections) {
                     TiXmlElement* item_connection_el = new TiXmlElement("ItemConnection");
                     item_connection_el->SetAttribute("id", item_connection.id);
                     item_connection_el->SetAttribute("type", item_connection.attachment_type);
@@ -491,14 +486,12 @@ void EntityDescription::SaveToXML( TiXmlElement* parent ) const {
                 Deserialize(field.data, aeo_vec);
                 TiXmlElement* env_object_attachments = new TiXmlElement("EnvObjectAttachments");
                 object->LinkEndChild(env_object_attachments);
-                for(unsigned i=0; i<aeo_vec.size(); ++i){
+                for(auto & aeo : aeo_vec){
                     TiXmlElement* connection = new TiXmlElement("EnvObjectAttachment");
                     env_object_attachments->LinkEndChild(connection);
-                    const AttachedEnvObject& aeo = aeo_vec[i];
-                    for(unsigned j=0; j<kMaxBoneConnects; ++j){
+                    for(const auto & bone_connect : aeo.bone_connects){
                         TiXmlElement* bone_connect_el = new TiXmlElement("BoneConnect");
                         connection->LinkEndChild(bone_connect_el);
-                        const BoneConnect &bone_connect = aeo.bone_connects[j];
                         bone_connect_el->SetAttribute("bone_id", bone_connect.bone_id);
                         bone_connect_el->SetAttribute("num_connections", bone_connect.num_connections);
                         int index;
@@ -528,8 +521,7 @@ void EntityDescription::SaveToXML( TiXmlElement* parent ) const {
 
                 TiXmlElement* navmesh_connections_el = new TiXmlElement("NavMeshConnections");
                 object->LinkEndChild(navmesh_connections_el);
-                for(size_t i=0, len=navmesh_connections.size(); i<len; ++i) {
-                    NavMeshConnectionData& navmesh_connection = navmesh_connections[i]; 
+                for(auto & navmesh_connection : navmesh_connections) {
                     TiXmlElement* navmesh_connection_el = new TiXmlElement("NavMeshConnection");
                     navmesh_connection_el->SetAttribute("other_object_id", navmesh_connection.other_object_id);
                     navmesh_connection_el->SetAttribute("offmesh_connection_id", navmesh_connection.offmesh_connection_id);
@@ -574,10 +566,8 @@ void EntityDescription::SaveToXML( TiXmlElement* parent ) const {
         }
     }
     
-    for(EntityDescriptionList::const_iterator iter = children.begin();
-        iter != children.end(); ++iter)
+    for(const auto & child : children)
     {
-        const EntityDescription& child = (*iter);
         child.SaveToXML(object);
     }
 }
@@ -1262,10 +1252,9 @@ void ClearDescID(EntityDescription *desc) {
 		memwrite(&null_id, sizeof(int), 1, edf->data);
 	}
 	EntityDescriptionList &children = desc->children;
-	for(EntityDescriptionList::iterator it = children.begin();
-		it != children.end(); ++it)
+	for(auto & it : children)
 	{
-		ClearDescID(&(*it));
+		ClearDescID(&it);
 	}
 }
 

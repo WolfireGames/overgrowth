@@ -133,8 +133,7 @@ void ReflectionCaptureObject::GetDesc(EntityDescription &desc) const {
 bool ReflectionCaptureObject::SetFromDesc( const EntityDescription& desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
             case EDF_GI_COEFFICIENTS: {
                 memcpy(avg_color, &field.data[0], kLightProbeNumCoeffs * sizeof(float));

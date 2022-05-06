@@ -189,8 +189,8 @@ SceneGraph::SceneGraph()
       , hotspots_modified_(false)
 {
     memset(destruction_sanity,0,destruction_sanity_size*sizeof(Object*));
-    for( unsigned i = 0; i < destruction_memory_size; i++ ) {
-        destruction_memory_ids[i] = -1;
+    for(int & destruction_memory_id : destruction_memory_ids) {
+        destruction_memory_id = -1;
     }
     memset(destruction_memory_strings,'\0',destruction_memory_size*destruction_memory_string_size);
 
@@ -298,15 +298,15 @@ bool SceneGraph::addObject(Object* new_object) {
 }
 
 void SceneGraph::LinkObject(Object* new_object) {
-    for( size_t i = 0; i < destruction_sanity_size; i++ ) {
-        if( destruction_sanity[i] == new_object ) {
-            destruction_sanity[i] = NULL;
+    for(auto & i : destruction_sanity) {
+        if( i == new_object ) {
+            i = NULL;
         }
     }
 
-    for( size_t i = 0; i < destruction_memory_size; i++ ) {
-        if( destruction_memory_ids[i] == new_object->GetID() ) {
-            destruction_memory_ids[i] = 0;
+    for(int & destruction_memory_id : destruction_memory_ids) {
+        if( destruction_memory_id == new_object->GetID() ) {
+            destruction_memory_id = 0;
         }
     }
 
@@ -386,8 +386,7 @@ Collision SceneGraph::lineCheck(const vec3 &start, const vec3 &end) {
     LineCheckAll(start, end, &collisions);
     Collision *closest = NULL;
     float closest_distance;
-    for(std::vector<Collision>::iterator it = collisions.begin(); it != collisions.end(); ++it) {
-        Collision &c = *it;
+    for(auto & c : collisions) {
         float dist = distance_squared(start, c.hit_where);
         if(!closest || dist < closest_distance){
             closest = &c;
@@ -406,8 +405,7 @@ Collision SceneGraph::lineCheckCollidable(const vec3 &start, const vec3 &end, Ob
     LineCheckAll(start, end, &collisions);
     Collision *closest = NULL;
     float closest_distance;
-    for(std::vector<Collision>::iterator it = collisions.begin(); it != collisions.end(); ++it) {
-        Collision &c = *it;
+    for(auto & c : collisions) {
         if(c.hit_what->collidable && c.hit_what != not_hit){
             float dist = distance_squared(start, c.hit_where);
             if(!closest || dist < closest_distance){
@@ -425,8 +423,7 @@ Collision SceneGraph::lineCheckCollidable(const vec3 &start, const vec3 &end, Ob
 
 void SceneGraph::LineCheckAll(const vec3 &start, const vec3 &end, std::vector<Collision> *collisions) {    
     PROFILER_ZONE(g_profiler_ctx, "SceneGraph::LineCheckAll");
-    for(object_list::iterator it = objects_.begin(); it != objects_.end(); ++it) {
-        Object* obj = *it;
+    for(auto obj : objects_) {
         vec3 point, normal;
         int collision_tri = obj->lineCheck(start, end, &point, &normal);
         if(collision_tri != -1) {
@@ -631,8 +628,7 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
     PROFILER_ENTER(g_profiler_ctx, "List visible objects / frustum cull");
     if( !nav_mesh_renderer_.IsCollisionMeshVisible() )
     {
-        for(std::vector<uint16_t>::iterator it = visible_static_mesh_indices_.begin(); it != visible_static_mesh_indices_.end(); ++it) {
-            uint16_t index = *it;
+        for(unsigned short index : visible_static_mesh_indices_) {
             EnvObject* eo = visible_static_meshes_[index];
             if(!eo->transparent && eo->enabled_) {
                 if(camera->checkSphereInFrustum(eo->sphere_center_, eo->sphere_radius_)){
@@ -679,8 +675,7 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
             batch_start = i;
         }
 	}
-    for(int i = 0; i < detail_objects_surfaces_to_draw.size(); ++i) {
-        auto current = detail_objects_surfaces_to_draw[i];
+    for(auto current : detail_objects_surfaces_to_draw) {
         current.draw_owner->DrawDetailObjectInstances(current.instance_array, current.num_instances, Object::kFullDraw);
     }
     if(g_draw_collision){
@@ -732,8 +727,8 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
     {
         //First non transparent, then transparent objects.
         PROFILER_ZONE(g_profiler_ctx, "Draw objects");
-        for(object_list::iterator it = visible_objects_.begin(); it != visible_objects_.end(); ++it) {
-            Object& obj = *(*it);
+        for(auto & visible_object : visible_objects_) {
+            Object& obj = *visible_object;
 			const EntityType& obj_type = obj.GetType();
 			switch(obj_type){
 			case _decal_object:
@@ -830,14 +825,14 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
 
 			{
 				PROFILER_ZONE(g_profiler_ctx, "Draw transparent objects");
-                for(std::vector<EnvObject*>::iterator it = visible_static_meshes_.begin(); it != visible_static_meshes_.end(); ++it) {
-					EnvObject& obj = *(*it);
+                for(auto & visible_static_meshe : visible_static_meshes_) {
+					EnvObject& obj = *visible_static_meshe;
 					if(obj.enabled_ && obj.transparent){
 						PROFILER_ZONE(g_profiler_ctx,"%s %d draw",CStringFromEntityType(((Object*)&obj)->GetType()),obj.GetID());
                         // Avoid calling EnvObject::Draw repeatedly, so matrices etc can be shared instead of reacquired for every draw call
                         // TODO: last_ofr_is_valid is set to false in EnvObject::Draw - is it important?
-                        obj.DrawInstances(&(*it), 1, proj_view_mat, prev_proj_view_mat, &shadow_matrix, cam_pos, Object::kFullDraw);
-                        obj.DrawDetailObjectInstances(&(*it), 1, Object::kFullDraw);
+                        obj.DrawInstances(&visible_static_meshe, 1, proj_view_mat, prev_proj_view_mat, &shadow_matrix, cam_pos, Object::kFullDraw);
+                        obj.DrawDetailObjectInstances(&visible_static_meshe, 1, Object::kFullDraw);
 					}
 				}
 			}
@@ -850,8 +845,8 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
             glDisable(GL_SAMPLE_ALPHA_TO_COVERAGE);
 		}
 		if(!Graphics::Instance()->media_mode() && map_editor->state_ != MapEditor::kInGame){
-			for(object_list::iterator it = decal_objects_.begin(); it != decal_objects_.end(); ++it) {
-				Object &obj = *(*it);
+			for(auto & decal_object : decal_objects_) {
+				Object &obj = *decal_object;
 				if(obj.enabled_ && obj.Selected() && obj.editor_visible) {
 					PROFILER_ZONE(g_profiler_ctx,"%s %d draw",CStringFromEntityType(obj.GetType()),obj.GetID());
 					obj.ReceiveObjectMessage(OBJECT_MSG::DRAW);
@@ -869,8 +864,8 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
 	// Draw hotspots
 	if(map_editor->state_ == MapEditor::kInGame || map_editor->IsTypeEnabled(_hotspot_object)){
 		PROFILER_ZONE(g_profiler_ctx,"Draw Hotspots");
-		for (object_list::iterator it = hotspots_.begin(); it != hotspots_.end(); ++it) {
-			((Hotspot*)(*it))->Draw();
+		for (auto & hotspot : hotspots_) {
+			((Hotspot*)hotspot)->Draw();
 		}
 	}
     {
@@ -890,26 +885,26 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
 
 Object* SceneGraph::GetLastSelected() {
     Object * res = NULL;
-    for( unsigned i = 0; i < objects_.size(); i++ ) {
-        if( res == NULL || objects_[i]->Selected() > res->Selected() ) {
-            res = objects_[i];
+    for(auto & object : objects_) {
+        if( res == NULL || object->Selected() > res->Selected() ) {
+            res = object;
         }
     }
     return res;
 }
 
 void SceneGraph::ReturnSelected(std::vector<Object*>* selected) {
-    for( unsigned i = 0; i < objects_.size(); i++ ) {
-        if( objects_[i]->Selected() ) {
-            selected->push_back(objects_[i]);
+    for(auto & object : objects_) {
+        if( object->Selected() ) {
+            selected->push_back(object);
         }
     }
 }
 
 void SceneGraph::UnselectAll() {
-    for( unsigned i = 0; i < objects_.size(); i++ ) {
-        if( objects_[i]->Selected() ) {
-            objects_[i]->Select(false);
+    for(auto & object : objects_) {
+        if( object->Selected() ) {
+            object->Select(false);
         }
     }
 }
@@ -974,9 +969,9 @@ void SceneGraph::Update(float timestep, float curr_game_time) {
         ObjectSanityState oss = objects_[i]->GetSanity();
 
         if( oss.Ok() ) {
-            for( unsigned k = 0; k < kMaxWarnings; k++ ) {
-                if( sanity_list[k].GetID() == oss.GetID() ) {
-                    sanity_list[k] = ObjectSanityState();
+            for(auto & k : sanity_list) {
+                if( k.GetID() == oss.GetID() ) {
+                    k = ObjectSanityState();
                 }
             }
         } else {
@@ -1150,9 +1145,9 @@ void SceneGraph::UnlinkObject(Object *o) {
         }
     }
 
-    for( unsigned i = 0; i < kMaxWarnings; i++ ) {
-        if( sanity_list[i].GetID() == id )  {
-            sanity_list[i] = ObjectSanityState();
+    for(auto & i : sanity_list) {
+        if( i.GetID() == id )  {
+            i = ObjectSanityState();
         }
     }
 }
@@ -1559,15 +1554,15 @@ vec3 SceneGraph::GetColorAtPoint( const vec3 &pos )
 
 void SceneGraph::UpdatePhysicsTransforms()
 {
-    for(std::vector<EnvObject*>::iterator it = visible_static_meshes_.begin(); it != visible_static_meshes_.end(); ++it){
-        (*it)->UpdatePhysicsTransform();
+    for(auto & visible_static_meshe : visible_static_meshes_){
+        visible_static_meshe->UpdatePhysicsTransform();
     }
 }
 
 void SceneGraph::GetPlayerCharacterIDs(int* num_avatars, int avatar_ids[], int max_avatars) {
     *num_avatars = 0;
-    for(unsigned i=0; i < movement_objects_.size(); ++i) {
-        MovementObject* mo = (MovementObject*)movement_objects_[i];
+    for(auto & movement_object : movement_objects_) {
+        MovementObject* mo = (MovementObject*)movement_object;
         if(mo->is_player){
             if(*num_avatars < max_avatars){
                 avatar_ids[*num_avatars] = mo->GetID();
@@ -1581,8 +1576,8 @@ void SceneGraph::GetPlayerCharacterIDs(int* num_avatars, int avatar_ids[], int m
 
 void SceneGraph::GetNPCCharacterIDs(int * num_avatars, int avatar_ids[], int max_avatars) {
 	*num_avatars = 0;
-	for (unsigned i = 0; i < movement_objects_.size(); ++i) {
-		MovementObject* mo = (MovementObject*)movement_objects_[i];
+	for (auto & movement_object : movement_objects_) {
+		MovementObject* mo = (MovementObject*)movement_object;
 		if (!mo->is_player) {
 			if (*num_avatars < max_avatars) {
 				avatar_ids[*num_avatars] = mo->GetID();
@@ -1597,8 +1592,8 @@ void SceneGraph::GetNPCCharacterIDs(int * num_avatars, int avatar_ids[], int max
 
 void SceneGraph::GetCharacterIDs(int *num_avatars, int avatar_ids[], int max_avatars) {
 	*num_avatars = 0;
-	for (unsigned i = 0; i < movement_objects_.size(); ++i) {
-		MovementObject* mo = (MovementObject*)movement_objects_[i];
+	for (auto & movement_object : movement_objects_) {
+		MovementObject* mo = (MovementObject*)movement_object;
         if (*num_avatars < max_avatars) {
             avatar_ids[*num_avatars] = mo->GetID();
             ++*num_avatars;
@@ -1643,8 +1638,8 @@ float SceneGraph::GetMaterialSharpPenetration( const vec3 &pos, Object* excluded
 
 void SceneGraph::GetSweptSphereCollisionCharacters( const vec3 &pos, const vec3 &pos2, float radius, SphereCollision &as_col ) {
     vec3 end = pos2;
-    for(unsigned i=0; i<movement_objects_.size(); ++i){
-        MovementObject* mo = (MovementObject*)movement_objects_[i];
+    for(auto & movement_object : movement_objects_){
+        MovementObject* mo = (MovementObject*)movement_object;
         mo->rigged_object()->skeleton().GetSweptSphereCollisionCharacter(pos, end, radius, as_col);
         end = as_col.position;
     }
@@ -1655,8 +1650,8 @@ int SceneGraph::CheckRayCollisionCharacters( const vec3 &start, const vec3 &end,
     vec3 temp_point;
     vec3 temp_normal;
     int char_id = -1;
-    for(unsigned i=0; i<movement_objects_.size(); ++i){
-        MovementObject* mo = (MovementObject*)movement_objects_[i];
+    for(auto & movement_object : movement_objects_){
+        MovementObject* mo = (MovementObject*)movement_object;
 		const btCollisionObject* bone_col = mo->rigged_object()->skeleton().CheckRayCollision(start, new_end, &temp_point, &temp_normal);
         if(bone_col != NULL){
             if(point){
@@ -1686,8 +1681,7 @@ void SceneGraph::SendMessageToAllObjects( OBJECT_MSG::Type type ) {
     //passing way past the end. Likely because objects_ is sometimes changed as a result of this call.
     //This solution means that most objects get called, some might not if they are first destroyed.
     //New objects will also be called assuming they are added last to the list.
-    for( unsigned int i = 0; i < objects_.size(); i++ ) {
-        Object* obj = objects_[i];
+    for(auto obj : objects_) {
         if( obj )
         {
             obj->ReceiveObjectMessage(type);
@@ -1700,8 +1694,7 @@ void SceneGraph::SendMessageToAllObjects( OBJECT_MSG::Type type ) {
 }
 
 void SceneGraph::SendScriptMessageToAllObjects( std::string& msg ) {
-    for( unsigned int i = 0; i < objects_.size(); i++ ) {
-        Object* obj = objects_[i];
+    for(auto obj : objects_) {
         if( obj )
         {
             obj->ReceiveObjectMessage(OBJECT_MSG::SCRIPT, &msg);
@@ -1738,8 +1731,7 @@ std::vector<MovementObject*> SceneGraph::GetControllableMovementObjects() {
 }
 
 bool SceneGraph::VerifySanity() {
-    for( unsigned i = 0; i < kMaxWarnings; i++ ) {
-        ObjectSanityState& sanity = sanity_list[i];
+    for(auto & sanity : sanity_list) {
         if(sanity.Valid() && sanity.Ok() == false) {
             return false;
         }
@@ -1774,15 +1766,15 @@ void SceneGraph::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_pla
         visible_objects_copy = visible_objects_;
         PROFILER_ZONE(g_profiler_ctx, "Draw dynamic objects");
         if(scene_draw_type == kStaticAndDynamic){
-            for(object_list::iterator it = visible_objects_copy.begin(); it != visible_objects_copy.end(); ++it) {
-                Object& obj = *(*it);
+            for(auto & it : visible_objects_copy) {
+                Object& obj = *it;
                 if(obj.enabled_ && obj.GetType() != _decal_object && obj.GetType() != _env_object){
                     obj.DrawDepthMap(proj_view_matrix, cull_planes, num_cull_planes, object_draw_type);
                 }
             }
         } else {
-            for(object_list::iterator it = visible_objects_copy.begin(); it != visible_objects_copy.end(); ++it) {
-                Object& obj = *(*it);
+            for(auto & it : visible_objects_copy) {
+                Object& obj = *it;
                 if(obj.enabled_ && obj.GetType() == _terrain_type){
                     obj.DrawDepthMap(proj_view_matrix, cull_planes, num_cull_planes, object_draw_type);
                 }
@@ -1805,8 +1797,7 @@ void SceneGraph::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_pla
         static_meshes_to_draw.clear();
         static_meshes_to_draw.reserve(visible_static_meshes_.size());
         PROFILER_ENTER(g_profiler_ctx, "List visible objects / frustum cull");
-        for(std::vector<uint16_t>::iterator it = visible_static_mesh_indices_.begin(); it != visible_static_mesh_indices_.end(); ++it) {
-            uint16_t index = *it;
+        for(unsigned short index : visible_static_mesh_indices_) {
             EnvObject* eo = visible_static_meshes_[index];
             if(!eo->transparent && eo->enabled_) {
                 bool culled = false;
@@ -1851,8 +1842,7 @@ void SceneGraph::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_pla
                     batch_start = i;
                 }
             }
-            for(unsigned int i = 0; i < detail_objects_surfaces_to_draw.size(); ++i) {
-                auto current = detail_objects_surfaces_to_draw[i];
+            for(auto current : detail_objects_surfaces_to_draw) {
                 current.draw_owner->DrawDetailObjectInstances(current.instance_array, current.num_instances, object_draw_type);
             }
         }
@@ -1903,11 +1893,11 @@ void SceneGraph::UnlinkUpdateObject(Object* obj, int entry) {
 }
 
 void SceneGraph::Dispose() {
-    for(object_list::iterator it = objects_.begin(); it != objects_.end(); ++it) {
-        (*it)->Dispose();
+    for(auto & object : objects_) {
+        object->Dispose();
     }
-    for(object_list::iterator it = objects_.begin(); it != objects_.end(); ++it) {
-        delete (*it);
+    for(auto & object : objects_) {
+        delete object;
     }
     object_from_id_map_.clear();
     if(bullet_world_){
@@ -2945,8 +2935,8 @@ int SceneGraph::CountObjectsWithName(const char* name) {
 bool SceneGraph::IsObjectSane(Object* obj) {
     if(obj == NULL) return false;
 
-    for( size_t i = 0; i < destruction_sanity_size; i++ ) {
-        if( destruction_sanity[i] == obj ) {
+    for(auto & i : destruction_sanity) {
+        if( i == obj ) {
             return false;
         }
     }
@@ -2973,9 +2963,9 @@ void SceneGraph::DumpState() {
     
     if( output.is_open() ) {
         LOGI << "Dumping all objects in scenegraph into " <<  dump_path << std::endl;
-        for( size_t i = 0; i < objects_.size(); i++ ) {
+        for(auto & object : objects_) {
             if( output.good() ) {
-                output << "[" << objects_[i]->GetID()  << "]: \"" << CStringFromEntityType(objects_[i]->GetType()) << "\" " << objects_[i]->GetName() << std::endl;
+                output << "[" << object->GetID()  << "]: \"" << CStringFromEntityType(object->GetType()) << "\" " << object->GetName() << std::endl;
             }
         }
     } else {
@@ -3055,15 +3045,15 @@ void SceneGraph::PreloadForDrawType(std::map<std::string, int>& preload_shaders,
     }
 
     UpdateShaderSuffix(this, draw_type);
-    for(std::map<std::string, int>::iterator iter = preload_shaders.begin(); iter != preload_shaders.end(); ++iter) {
-        if(iter->second & type) {
+    for(auto & preload_shader : preload_shaders) {
+        if(preload_shader.second & type) {
             const int kShaderStrSize = 1024;
             char buf[kShaderStrSize];
-            FormatString(buf, kShaderStrSize, "%s %s", iter->first.c_str(), global_shader_suffix);
+            FormatString(buf, kShaderStrSize, "%s %s", preload_shader.first.c_str(), global_shader_suffix);
             Shaders::OptionalShaders optional = Shaders::kNone;
-            if(iter->second & kOptionalGeometry)
+            if(preload_shader.second & kOptionalGeometry)
                 optional = Shaders::kGeometry;
-            else if(iter->second & kOptionalTessellation)
+            else if(preload_shader.second & kOptionalTessellation)
                 optional = Shaders::kTesselation;
             shaders->createProgram(shaders->returnProgram(buf, optional));
         }
@@ -3084,12 +3074,12 @@ void SceneGraph::PreloadShaders() {
         , "envobject #DETAIL_OBJECT #TERRAIN #PLANT #LESS_PLANT_MOVEMENT"
     };
 
-    for(int i = 0; i < 6; ++i) {
+    for(auto & detail_object_name : detail_object_names) {
         const int kShaderStrSize = 1024;
         char buf[2][kShaderStrSize];
         char* shader_str[2] = {buf[0], buf[1]};
 
-        FormatString(shader_str[0], kShaderStrSize, "%s", detail_object_names[i]);
+        FormatString(shader_str[0], kShaderStrSize, "%s", detail_object_name);
         if(!Graphics::Instance()->config_.detail_object_decals()) {
             FormatString(shader_str[1], kShaderStrSize, "%s %s", shader_str[0], "#NO_DECALS");
             std::swap(shader_str[0], shader_str[1]);
@@ -3114,19 +3104,19 @@ void SceneGraph::PreloadShaders() {
         , kWireframe
         , kDecal
     };
-    for(int i = 0; i < 6; ++i)
-        PreloadForDrawType(preload_shaders, preload_types[i]);
+    for(auto preload_type : preload_types)
+        PreloadForDrawType(preload_shaders, preload_type);
 
     // Load everything that isn't any of the above types
     Shaders* shaders = Shaders::Instance();
-    for(std::map<std::string, int>::iterator iter = preload_shaders.begin(); iter != preload_shaders.end(); ++iter) {
-        if((iter->second & kPreloadTypeAll) == 0) {
+    for(auto & preload_shader : preload_shaders) {
+        if((preload_shader.second & kPreloadTypeAll) == 0) {
             Shaders::OptionalShaders optional = Shaders::kNone;
-            if(iter->second & kOptionalGeometry)
+            if(preload_shader.second & kOptionalGeometry)
                 optional = Shaders::kGeometry;
-            else if(iter->second & kOptionalTessellation)
+            else if(preload_shader.second & kOptionalTessellation)
                 optional = Shaders::kTesselation;
-            shaders->createProgram(shaders->returnProgram(iter->first, optional));
+            shaders->createProgram(shaders->returnProgram(preload_shader.first, optional));
         }
     }
 }
@@ -3134,12 +3124,9 @@ void SceneGraph::PreloadShaders() {
 void SceneGraph::LoadReflectionCaptureCubemaps()
 {
 	PROFILER_ZONE(g_profiler_ctx, "Load reflection capture cubemaps");
-	for (object_list::iterator iter = objects_.begin();
-		iter != objects_.end();
-		++iter)
+	for (auto obj : objects_)
 	{
-		Object* obj = *iter;
-		if(obj->GetType() == _reflection_capture_object){
+			if(obj->GetType() == _reflection_capture_object){
 			char save_path[kPathSize];
 			FormatString(save_path, kPathSize, "%s_refl_cap_%d.hdrcube", level_path_.GetOriginalPath(), obj->GetID());
 			char abs_path[kPathSize];
@@ -3162,12 +3149,9 @@ void SceneGraph::LoadReflectionCaptureCubemaps()
 
 //TODO: make a version that only clears the dynamic cubemaps.
 void SceneGraph::UnloadReflectionCaptureCubemaps() {
-	for (object_list::iterator iter = objects_.begin();
-		iter != objects_.end();
-		++iter)
+	for (auto obj : objects_)
 	{
-		Object* obj = *iter;
-		if(obj->GetType() == _reflection_capture_object){
+			if(obj->GetType() == _reflection_capture_object){
             ReflectionCaptureObject* rco = (ReflectionCaptureObject*)obj;
             rco->cube_map_ref.clear();
             rco->dirty = true;

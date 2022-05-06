@@ -57,8 +57,8 @@ bool PathPointObject::ConnectTo( Object& other, bool checking_other /*= false*/ 
             return false;
         } else {
             int other_id = ppo->GetID();
-            for(unsigned i=0; i<connection_ids.size(); ++i){ // Disconnect if we're already connected
-                if(connection_ids[i] == other_id){
+            for(int connection_id : connection_ids){ // Disconnect if we're already connected
+                if(connection_id == other_id){
                    Disconnect(other, checking_other);
                 }       
             }    
@@ -103,8 +103,8 @@ bool PathPointObject::Disconnect( Object& other, bool checking_other ) {
 }
 
 void PathPointObject::GetConnectionIDs(std::vector<int>* cons) {
-    for( uint32_t i = 0; i < connection_ids.size(); i++ ) {
-        cons->push_back(connection_ids[i]);
+    for(int & connection_id : connection_ids) {
+        cons->push_back(connection_id);
     } 
 }
 
@@ -126,8 +126,7 @@ void PathPointObject::GetDesc(EntityDescription &desc) const {
 bool PathPointObject::SetFromDesc( const EntityDescription& desc ) {
     bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for(unsigned i=0; i<desc.fields.size(); ++i){
-            const EntityDescriptionField& field = desc.fields[i];
+        for(const auto & field : desc.fields){
             switch(field.type){
                 case EDF_CONNECTIONS:
                     field.ReadIntVec(&connection_ids);
@@ -174,28 +173,28 @@ void PathPointObject::Draw() {
        scenegraph_->map_editor->state_ != MapEditor::kInGame)
     {
         DebugDraw::Instance()->AddWireSphere(GetTranslation(), 0.5f, vec4(0.0f,0.5f,0.5f,0.5f), _delete_on_draw);
-        for(unsigned i=0; i<connection_ids.size(); ++i){
-            Object* obj = scenegraph_->GetObjectFromID(connection_ids[i]);
+        for(int connection_id : connection_ids){
+            Object* obj = scenegraph_->GetObjectFromID(connection_id);
             DebugDraw::Instance()->AddLine(GetTranslation(), obj->GetTranslation(), vec4(0.0f,0.5f,0.5f,0.5f), _delete_on_draw);
         }
     }
 }
 
 void PathPointObject::RemapReferences(std::map<int,int> id_map) {
-    for( unsigned i = 0; i < connection_ids.size(); i++ ) {
-        if( id_map.find(connection_ids[i]) != id_map.end() ) {
-            connection_ids[i] = id_map[connection_ids[i]];
+    for(int & connection_id : connection_ids) {
+        if( id_map.find(connection_id) != id_map.end() ) {
+            connection_id = id_map[connection_id];
         } else {
             //The remapped id could belong to this, in which case it is valid
             bool is_this = false;
-            for(std::map<int,int>::iterator iter = id_map.begin(); iter != id_map.end(); ++iter) {
-                if(iter->second == this->GetID()) {
+            for(auto & iter : id_map) {
+                if(iter.second == this->GetID()) {
                     is_this = true;
                     break;
                 }
             }
             if(!is_this)
-                connection_ids[i] = -1;
+                connection_id = -1;
         }
     }
 }

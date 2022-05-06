@@ -155,20 +155,20 @@ static std::vector<std::string> extensions;
 
 static void LazyInit() {
     if(initialized == false) {
-        for (unsigned int i = 0; i < ARRAYSIZE(GLQUERY_INFOS); ++i) {
+        for (auto i : GLQUERY_INFOS) {
             GLint values[2];
-            glGetIntegerv(GLQUERY_INFOS[i].m_GLint, values);
+            glGetIntegerv(i.m_GLint, values);
             GLenum err = glGetError();
             if (err != GL_NONE) {
-                integer_limits[GLQUERY_INFOS[i].m_name] = -1;
-            } else if (GLQUERY_INFOS[i].m_numValues == 1) {
-                integer_limits[GLQUERY_INFOS[i].m_name] = values[0];
+                integer_limits[i.m_name] = -1;
+            } else if (i.m_numValues == 1) {
+                integer_limits[i.m_name] = values[0];
 
-                if( GLQUERY_INFOS[i].m_GLint == GL_MAX_TEXTURE_SIZE ) {
+                if( i.m_GLint == GL_MAX_TEXTURE_SIZE ) {
                     max_texture_size = values[0];
                 }
             } else {
-                ivec2_limits[GLQUERY_INFOS[i].m_name] = ivec2(values[0],values[1]);
+                ivec2_limits[i.m_name] = ivec2(values[0],values[1]);
             }
         }
 
@@ -271,8 +271,8 @@ void PrintGPU(std::string &total_string, bool short_output)
         }
 
         total_string += "\n[Available OpenGL extensions]\n";
-        for (int i = 0; i < extensions.size(); i++) {
-            FormatString(temp_string, TEMP_STRING_LENGTH, "%s\n", extensions[i].c_str());
+        for (auto & extension : extensions) {
+            FormatString(temp_string, TEMP_STRING_LENGTH, "%s\n", extension.c_str());
             total_string += temp_string;
         }
     }

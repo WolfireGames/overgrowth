@@ -417,9 +417,9 @@ float SyncedAnimationGroup::GetGroundSpeed( const BlendMap& blendmap ) const {
 
 std::vector<NormalizedAnimationEvent> SyncedAnimationGroup::GetEvents(int& anim_id, bool mirrored) const {
     std::vector<NormalizedAnimationEvent> normalized_events;
-    for(unsigned i=0; i<animations.size(); i++){
+    for(const auto & i : animations){
         std::vector<NormalizedAnimationEvent> new_events;
-        const AnimationAsset& animation = (*animations[i].animation);
+        const AnimationAsset& animation = (*i.animation);
         new_events = animation.GetEvents(anim_id, mirrored);
         normalized_events.insert(normalized_events.end(),
                                  new_events.begin(),
@@ -455,8 +455,8 @@ float SyncedAnimationGroup::AbsoluteTimeFromNormalized( float normalized_time ) 
 
 void SyncedAnimationGroup::ReturnPaths( PathSet& path_set ) {
     path_set.insert("synced_animation "+path_);
-    for(unsigned i=0; i<animations.size(); ++i){
-        animations[i].animation->ReturnPaths(path_set);
+    for(auto & animation : animations){
+        animation.animation->ReturnPaths(path_set);
     }
 }
 

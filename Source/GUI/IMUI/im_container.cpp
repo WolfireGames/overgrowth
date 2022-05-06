@@ -153,10 +153,8 @@ void IMContainer::setOwnerParent( IMGUI* _owner, IMElement* _parent ) {
         contents->setOwnerParent( _owner, this );
     }
     
-    for( FEMap::iterator it = floatingContents.begin();
-         it != floatingContents.end();
-         ++it ) {
-        it->second->getElement()->setOwnerParent(_owner, this);
+    for(auto & floatingContent : floatingContents) {
+        floatingContent.second->getElement()->setOwnerParent(_owner, this);
     }
 
 }
@@ -254,10 +252,8 @@ void IMContainer::clear() {
 
     floatingContents.clear();
     
-    for( FEMap::iterator it = deletemap.begin();
-         it != deletemap.end();
-         ++it ) {
-        delete it->second;
+    for(auto & it : deletemap) {
+        delete it.second;
     }
 
     // clear the contained element
@@ -306,10 +302,8 @@ void IMContainer::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) 
         contents->update( delta, drawOffset + drawDisplacement + contentsOffset, guistate);
     }   
 
-    for( FEMap::iterator it = floatingContents.begin();
-         it != floatingContents.end();
-         ++it ) {
-        AHFloatingElement* floatingElement = it->second;
+    for(auto & floatingContent : floatingContents) {
+        AHFloatingElement* floatingElement = floatingContent.second;
         floatingElement->getElement()->update( delta, drawOffset + drawDisplacement + floatingElement->relativePos, guistate );
 
         if(floatingContents.empty()) {
@@ -361,10 +355,8 @@ void IMContainer::render( vec2 drawOffset, vec2 clipPos, vec2 clipSize ) {
     }
 
     // Render the floating elements
-    for( FEMap::iterator it = floatingContents.begin();
-         it != floatingContents.end();
-         ++it ) {
-        AHFloatingElement* floatingElement = it->second;
+    for(auto & floatingContent : floatingContents) {
+        AHFloatingElement* floatingElement = floatingContent.second;
         floatingElement->getElement()->render( drawOffset + drawDisplacement + floatingElement->relativePos, currentClipPos, currentClipSize );
     }
 
@@ -392,11 +384,9 @@ void IMContainer::render( vec2 drawOffset, vec2 clipPos, vec2 clipSize ) {
     }
     
     // Now trigger the children
-    for( FEMap::iterator it = floatingContents.begin();
-         it != floatingContents.end();
-         ++it ) {
+    for(auto & floatingContent : floatingContents) {
         
-        AHFloatingElement* felement = it->second;
+        AHFloatingElement* felement = floatingContent.second;
         
         
         // see if we need to center this element
@@ -526,10 +516,8 @@ void IMContainer::checkRegion() {
         contents->doScreenResize();
     }
 
-    for( FEMap::iterator it = floatingContents.begin();
-         it != floatingContents.end();
-         ++it ) {
-        it->second->getElement()->doScreenResize();
+    for(auto & floatingContent : floatingContents) {
+        floatingContent.second->getElement()->doScreenResize();
     }
 
  }
@@ -841,10 +829,8 @@ void IMContainer::setPauseBehaviors( bool pause ) {
         contents->setPauseBehaviors( pause );
     }
 
-    for( FEMap::iterator it = floatingContents.begin();
-         it != floatingContents.end();
-         ++it ) {
-        AHFloatingElement* floatingElement = it->second;
+    for(auto & floatingContent : floatingContents) {
+        AHFloatingElement* floatingElement = floatingContent.second;
         floatingElement->getElement()->setPauseBehaviors( pause );
     }
 }
@@ -868,8 +854,8 @@ void IMContainer::clense() {
 std::vector<IMElement*> IMContainer::getFloatingContents() {
     std::vector<IMElement*> elements;
     elements.reserve(floatingContents.size());
-    for(FEMap::iterator iter = floatingContents.begin(); iter != floatingContents.end(); ++iter) {
-        IMElement* element = iter->second->getElement();
+    for(auto & floatingContent : floatingContents) {
+        IMElement* element = floatingContent.second->getElement();
         //element->AddRef();
         elements.push_back(element);
     }

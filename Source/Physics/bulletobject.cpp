@@ -524,8 +524,8 @@ void BulletObject::CheckForNAN() {
     btTransform bt_transform;
     GetDisplayTransform(&bt_transform);
     mat4 test_mat = SafeGetOpenGLMatrix(body->getWorldTransform());
-    for(unsigned i=0; i<16; ++i){
-        if(test_mat.entries[i] != test_mat.entries[i]){
+    for(float entry : test_mat.entries){
+        if(entry != entry){
             LOGE << "NAN found in BulletObject" << std::endl;
             break;
         }

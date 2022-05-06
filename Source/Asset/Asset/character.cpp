@@ -267,23 +267,23 @@ void Character::ReturnPaths( PathSet &path_set ) {
         //Materials::Instance()->ReturnRef(clothing_path)->ReturnPaths(path_set);
         Engine::Instance()->GetAssetManager()->LoadSync<Material>(clothing_path)->ReturnPaths(path_set);
     }
-    for(unsigned i=0; i<morph_info.size(); ++i){
-        if(morph_info[i].num_steps == 1){
-            path_set.insert("morph "+GetMorphPath(ofr->model_name, morph_info[i].label));
+    for(auto & info : morph_info){
+        if(info.num_steps == 1){
+            path_set.insert("morph "+GetMorphPath(ofr->model_name, info.label));
         } else {
-            for(int j=0; j<morph_info[i].num_steps; ++j){
+            for(int j=0; j<info.num_steps; ++j){
                 ostringstream oss;
-                oss << morph_info[i].label << j;
+                oss << info.label << j;
                 path_set.insert("morph "+GetMorphPath(ofr->model_name, oss.str()));
             }
         }
     }
-    for(StringMap::iterator iter = anim_paths.begin(); iter != anim_paths.end(); ++iter) {
-        ReturnAnimationAssetRef(iter->second)->ReturnPaths(path_set);
+    for(auto & anim_path : anim_paths) {
+        ReturnAnimationAssetRef(anim_path.second)->ReturnPaths(path_set);
     }
-    for(StringMap::iterator iter = attack_paths.begin(); iter != attack_paths.end(); ++iter) {
+    for(auto & attack_path : attack_paths) {
         //Attacks::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
-        Engine::Instance()->GetAssetManager()->LoadSync<Attack>(iter->second)->ReturnPaths(path_set);
+        Engine::Instance()->GetAssetManager()->LoadSync<Attack>(attack_path.second)->ReturnPaths(path_set);
     }
     if(!voice_path.empty()){
         //VoiceFiles::Instance()->ReturnRef(voice_path)->ReturnPaths(path_set);
@@ -315,10 +315,10 @@ float Character::GetDefaultScale() {
 }
 
 bool Character::GetMorphMeta(const string& label, vec3 & start, vec3 & end) {
-    for(size_t i=0, len=morph_meta.size(); i<len; ++i){
-        if(morph_meta[i].label == label){
-            start = morph_meta[i].start;
-            end = morph_meta[i].end;
+    for(auto & meta : morph_meta){
+        if(meta.label == label){
+            start = meta.start;
+            end = meta.end;
             return true;
         }
     }

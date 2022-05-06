@@ -698,11 +698,11 @@ static void ThreadedSoundLoop()
 
             std::vector<AudioEmitter*> emitters = sound->GetActiveSounds();
 
-            for( uint32_t i = 0; i < emitters.size(); i++ ) {
+            for(auto & emitter : emitters) {
                 SoundSourceInfo ss;
 
-                strscpy(ss.name, emitters[i]->display_name.c_str(), sizeof(ss.name));
-                ss.pos = emitters[i]->GetPosition();
+                strscpy(ss.name, emitter->display_name.c_str(), sizeof(ss.name));
+                ss.pos = emitter->GetPosition();
 
                 sdc.sound_source.push_back(ss);
             }

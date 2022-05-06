@@ -67,21 +67,21 @@ void Group::GetChildren(std::vector<Object*>* ret_children) {
 }
 
 void Group::GetBottomUpCompleteChildren(std::vector<Object*>* ret_children) {
-    for(int i=0, len=children.size(); i<len; ++i){
-        Object *obj = children[i].direct_ptr;
+    for(auto & i : children){
+        Object *obj = i.direct_ptr;
         obj->GetBottomUpCompleteChildren(ret_children);
         ret_children->push_back(obj); 
     }
 }
 
 void Group::GetTopDownCompleteChildren(std::vector<Object*>* ret_children) {
-    for(int i=0, len=children.size(); i<len; ++i){
-        Object *obj = children[i].direct_ptr;
+    for(auto & i : children){
+        Object *obj = i.direct_ptr;
         ret_children->push_back(obj); 
     }
 
-    for(int i=0, len=children.size(); i<len; ++i){
-        Object *obj = children[i].direct_ptr;
+    for(auto & i : children){
+        Object *obj = i.direct_ptr;
         obj->GetTopDownCompleteChildren(ret_children);
     }
 }
@@ -99,19 +99,16 @@ void Group::ChildLost(Object *obj){
 
 void Group::FinalizeLoadedConnections() {
     Object::FinalizeLoadedConnections();
-	for(int i=0, len=children.size(); i<len; ++i ){
-		children[i].direct_ptr->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
+	for(auto & i : children){
+		i.direct_ptr->ReceiveObjectMessage(OBJECT_MSG::FINALIZE_LOADED_CONNECTIONS);
 	}
 }
 
 bool Group::SetFromDesc( const EntityDescription &desc ) {
 	bool ret = Object::SetFromDesc(desc);
     if( ret ) {
-        for (int i=0, len=desc.children.size(); 
-             i<len; 
-             ++i) 
+        for (auto new_desc : desc.children) 
         {
-            EntityDescription new_desc = desc.children[i];
             Object* obj = CreateObjectFromDesc(new_desc); 
             if(obj){
                 obj->SetParent(this);
@@ -134,8 +131,8 @@ bool Group::SetFromDesc( const EntityDescription &desc ) {
 void Group::GetDesc(EntityDescription &desc) const {
     Object::GetDesc(desc);
 	desc.AddInt(EDF_VERSION, 1);
-    for(int i=0, len=children.size(); i<len; ++i){
-        Object* obj = children[i].direct_ptr;
+    for(const auto & i : children){
+        Object* obj = i.direct_ptr;
         if(obj){
             if(obj == this){
                 FatalError("Error", "Group %d: GetDesc() including copy of itself", GetID());
@@ -147,8 +144,8 @@ void Group::GetDesc(EntityDescription &desc) const {
 }
 
 void Group::InitRelMats() {
-    for(int i=0, len=children.size(); i<len; ++i){
-        Object* obj = children[i].direct_ptr;
+    for(auto & i : children){
+        Object* obj = i.direct_ptr;
         if(obj && (obj->GetType() == _group || obj->GetType() == _prefab) && !obj->Selected()){
             Group* child_group = (Group*)obj;
             child_group->InitRelMats();
@@ -156,9 +153,9 @@ void Group::InitRelMats() {
     }
 
 	// Get child transforms relative to group transform
-	for(int i=0, len=children.size(); i<len; ++i){
-		Child& child = children[i];
-		Object* obj = children[i].direct_ptr;
+	for(auto & i : children){
+		Child& child = i;
+		Object* obj = i.direct_ptr;
 		if(obj){
 			child.rel_rotation    = invert(GetRotation()) * obj->GetRotation();
 			child.rel_translation = (invert(GetRotation()) * ((obj->GetTranslation() - translation_))/scale_);
@@ -172,8 +169,8 @@ void Group::InitShape() {
         return;
     }
 
-    for(int i=0, len=children.size(); i<len; ++i){
-        Object* obj = children[i].direct_ptr;
+    for(auto & i : children){
+        Object* obj = i.direct_ptr;
         if(obj && (obj->GetType() == _group || obj->GetType() == _prefab) && !obj->Selected()){
             Group* child_group = (Group*)obj;
             child_group->InitShape();
@@ -184,9 +181,9 @@ void Group::InitShape() {
     static const int MAX_POINTS = 800;
     int num_points = 0;
     vec3 points[MAX_POINTS];
-    for(int i=0, len=children.size(); i<len; ++i){
+    for(auto & i : children){
         if(num_points <= MAX_POINTS-8){
-            Object* obj = children[i].direct_ptr;
+            Object* obj = i.direct_ptr;
             if(obj){
                 //int index = 0;
                 for(int j=0; j<8; ++j){
@@ -235,8 +232,7 @@ void Group::PreDrawFrame(float curr_game_time) {
         PropagateTransformsDown(false);
     }
 
-    for(int i=0, len=children.size(); i<len; ++i){
-        Child& child = children[i];
+    for(auto & child : children){
         Object* obj = child.direct_ptr;
         if(obj){
             obj->PreDrawFrame(curr_game_time);
@@ -251,8 +247,7 @@ void Group::SetTranslationRotationFast(const vec3& trans, const quaternion& rota
 }
 
 void Group::PropagateTransformsDownFast(bool deep) {
-    for(int i=0, len=children.size(); i<len; ++i){
-        Child& child = children[i];
+    for(auto & child : children){
         Object* obj = child.direct_ptr;
         if(obj){
 			obj->SetTranslationRotationFast(translation_ + (GetRotation() * (scale_ * child.rel_translation)), GetRotation() * child.rel_rotation);
@@ -265,8 +260,7 @@ void Group::PropagateTransformsDownFast(bool deep) {
 }
 
 void Group::PropagateTransformsDown(bool deep) {
-    for(int i=0, len=children.size(); i<len; ++i){
-        Child& child = children[i];
+    for(auto & child : children){
         Object* obj = child.direct_ptr;
         if(obj){
             obj->SetScale((invert(child.rel_rotation) * child.rel_scale) * scale_);
@@ -288,8 +282,7 @@ void Group::PreDrawCamera(float curr_game_time) {
         return;
     }
 
-    for(int i=0, len=children.size(); i<len; ++i){
-        Child& child = children[i];
+    for(auto & child : children){
         Object* obj = child.direct_ptr;
         if(obj){
             obj->PreDrawCamera(curr_game_time);
@@ -307,8 +300,8 @@ void Group::ChildMoved(Object::MoveType type) {
 }
 
 void Group::UpdateParentHierarchy() {
-	for(int i=0, len=children.size(); i<len; ++i){
-		children[i].direct_ptr->UpdateParentHierarchy();
+	for(auto & i : children){
+		i.direct_ptr->UpdateParentHierarchy();
 	}
 }
 
@@ -322,8 +315,7 @@ void Group::GetDisplayName(char* buf, int buf_size) {
 
 void Group::SetEnabled(bool val) {
     enabled_ = val;
-    for(int i=0, len=children.size(); i<len; ++i){
-        Child& child = children[i];
+    for(auto & child : children){
         Object* obj = child.direct_ptr;
         if(obj){
             obj->SetEnabled(val);
@@ -333,8 +325,7 @@ void Group::SetEnabled(bool val) {
 }
 
 void Group::HandleTransformationOccured() {
-    for(int i=0, len=children.size(); i<len; ++i){
-        Child& child = children[i];
+    for(auto & child : children){
         Object* obj = child.direct_ptr;
         if(obj){
             obj->HandleTransformationOccurred();
@@ -361,8 +352,8 @@ void Group::ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) {
 }
 
 void Group::RemapReferences(std::map<int,int> id_map) {
-    for(int i=0, len=children.size(); i<len; ++i){
-       children[i].direct_ptr->RemapReferences(id_map);  
+    for(auto & i : children){
+       i.direct_ptr->RemapReferences(id_map);  
     }
 }
 
@@ -373,8 +364,8 @@ ObjectSanityState Group::GetSanity() {
         sanity_flags |= kObjectSanity_G_Empty;
     }
 
-    for( uint32_t i = 0; i < children.size(); i++ ) {
-        if( children[i].direct_ptr ) {
+    for(auto & i : children) {
+        if( i.direct_ptr ) {
         } else {
             sanity_flags |= kObjectSanity_G_NullChild;
         }
@@ -393,10 +384,10 @@ ObjectSanityState Group::GetSanity() {
             std::vector<int> connections;
             obj->GetConnectionIDs(&connections);
 
-            for( uint32_t k = 0; k < connections.size(); k++ ) {
+            for(int connection : connections) {
                 bool internally_connected = false;
                 for( uint32_t t = 0; t < all_children.size(); t++ ) {
-                    if(all_children[i] && all_children[t]->GetID() == connections[k] ) {
+                    if(all_children[i] && all_children[t]->GetID() == connection ) {
                         internally_connected = true;
                     }
                 }

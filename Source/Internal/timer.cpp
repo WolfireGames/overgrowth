@@ -89,8 +89,8 @@ float Timer::GetRenderTime() {
 
 float Timer::GetAverageFrameTime() { 
 	float sum = .0f;
-	for (int i = 0; i < NUM_AVERAGED_FRAMES; i++) {
-		sum += frame[i];
+	for (unsigned long i : frame) {
+		sum += i;
 	}
 
 	return sum / (float)NUM_AVERAGED_FRAMES;
@@ -185,7 +185,7 @@ Timer::Timer():
 	last_tick(0),
     wall_time(0)
 {
-    for(int i=0; i<NUM_AVERAGED_FRAMES; i++){
-        frame[i]=0;
+    for (auto& i : frame) {
+        i = 0;
     }
 }

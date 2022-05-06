@@ -73,7 +73,7 @@ void DetailObjectSurface::AttachTo( const Model& model, mat4 transform ) {
     vec3 verts[3];
     int face_index = 0;
     int vert_index;
-    for(unsigned i=0; i<triangle_area.size(); ++i){
+    for(float & i : triangle_area){
         for(unsigned j=0; j<3; ++j){
             vert_index = model.faces[face_index+j]*3;
             verts[j] = vec3(model.vertices[vert_index+0],
@@ -81,7 +81,7 @@ void DetailObjectSurface::AttachTo( const Model& model, mat4 transform ) {
                             model.vertices[vert_index+2]);
             verts[j] = transform * verts[j];
         }
-        triangle_area[i] = length(cross(verts[2]-verts[0], verts[1]-verts[0]))*0.5f;
+        i = length(cross(verts[2]-verts[0], verts[1]-verts[0]))*0.5f;
         face_index += 3;
         static const bool debug_draw = false;
         if(debug_draw){
@@ -784,14 +784,14 @@ void DetailObjectSurface::CalcPatchInstances( const TriInt &coords, DOPatch &pat
 	if(!patch.detail_instance_transforms.empty()){
 		PROFILER_ZONE(g_profiler_ctx, "Get bounding sphere");
         vec3 sphere_center;
-        for(unsigned j=0; j<patch.detail_instance_transforms.size(); ++j){
-            sphere_center += patch.detail_instance_transforms[j].GetTranslationPart();
+        for(auto & detail_instance_transform : patch.detail_instance_transforms){
+            sphere_center += detail_instance_transform.GetTranslationPart();
         }
         sphere_center /= (float)patch.detail_instance_transforms.size();
         float least_distance = distance_squared(sphere_center, patch.detail_instance_transforms[0].GetTranslationPart());
-        for(unsigned j=0; j<patch.detail_instance_transforms.size(); ++j){
+        for(auto & detail_instance_transform : patch.detail_instance_transforms){
             least_distance = max(least_distance,
-                distance_squared(sphere_center, patch.detail_instance_transforms[j].GetTranslationPart()));
+                distance_squared(sphere_center, detail_instance_transform.GetTranslationPart()));
         }
         patch.sphere_center = sphere_center;
         patch.sphere_radius = sqrtf(least_distance);
