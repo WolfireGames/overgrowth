@@ -290,18 +290,18 @@ void ActorObjectLevelSeeker::SearchGroup( std::vector<Item>& items, const Item& 
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "CameraObject", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
 
         ActorObject ao( "parameters", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "AmbientSoundObject", "ambient_sound_object", false, params  );
         aos.push_back(ao);
     }
@@ -347,7 +347,7 @@ void ActorObjectLevelSeeker::SearchGroup( std::vector<Item>& items, const Item& 
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "Decal", "decal_object", false, params  );
         aos.push_back(ao);
     }
@@ -411,7 +411,7 @@ void ActorObjectLevelSeeker::SearchGroup( std::vector<Item>& items, const Item& 
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "ItemObject", "item", false, params  );
         aos.push_back(ao);
     }
@@ -424,17 +424,17 @@ void ActorObjectLevelSeeker::SearchGroup( std::vector<Item>& items, const Item& 
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "NavmeshRegionObject", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "NavmeshHintObject", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "NavmeshConnectionObject", "", true, params  );
         aos.push_back(ao);
     }
@@ -446,7 +446,7 @@ void ActorObjectLevelSeeker::SearchGroup( std::vector<Item>& items, const Item& 
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
         ActorObject ao( "LightVolumeObject", "", true, params  );
         aos.push_back(ao);
     }
@@ -468,37 +468,37 @@ void ActorObjectLevelSeeker::SearchGroup( std::vector<Item>& items, const Item& 
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
 
         ActorObject ao( "Group", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
 
         ActorObject ao( "Prefab", "prefab", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
 
         ActorObject ao( "EnvObjectAttachments", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
 
         ActorObject ao( "Palette", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
 
         ActorObject ao( "ItemConnections", "", true, params  );
         aos.push_back(ao);
     }
     {
-        std::vector<Parameter> params = global_params;
+        const std::vector<Parameter>& params = global_params;
 
         ActorObject ao( "Connections", "", true, params  );
         aos.push_back(ao);

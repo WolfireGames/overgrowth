@@ -1146,7 +1146,8 @@ static void RasterizeTrisToVoxelField(const std::vector<vec3>& tri_verts, VoxelF
         for(int voxel_x = 0; voxel_x < voxel_size[0]; ++voxel_x){
             // Start with initial triangle
             std::vector<vec3> poly_verts;
-            for(int i=0; i<3; ++i){
+            poly_verts.reserve(3);
+for(int i=0; i<3; ++i){
                 poly_verts.push_back(tri_verts[tri_index+i]);
             }
             // Clip to slice bounds
@@ -6419,7 +6420,7 @@ void Engine::ScriptableUICallback(const std::string &level)
     if( hasEnding( level, ".as" ) )
     {
         std::string short_path = script_dir_path + level;
-        std::string long_path = level;
+        const std::string& long_path = level;
 
         //First check if a full path was entered.
         if( FileExists( long_path, kAnyPath ) )
@@ -6445,7 +6446,7 @@ void Engine::ScriptableUICallback(const std::string &level)
     else if( hasEnding( level, ".xml" ) )
     {
         std::string short_path = "Data/Levels/" + level;
-        std::string long_path = level;
+        const std::string& long_path = level;
 
         EngineStateType target_state_type = kEngineLevelState;
         if(current_engine_state_.type == kEngineEditorLevelState){

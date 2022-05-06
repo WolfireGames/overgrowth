@@ -767,7 +767,8 @@ void RiggedObject::Draw(const mat4& proj_view_matrix, Object::DrawType type) {
             shaders->SetUniformVec3("blood_tint", vec3(-1,-1,-1)); // Presumably this is here to force refreshing this uniform?
             shaders->SetUniformVec3("blood_tint", Graphics::Instance()->config_.blood_color());
             std::vector<vec3> ambient_cube_color_vec;
-            for(auto & i : ambient_cube_color){
+            ambient_cube_color_vec.reserve(6);
+            for (auto& i : ambient_cube_color) {
                 ambient_cube_color_vec.push_back(i);
             }
             shaders->SetUniformVec3Array("ambient_cube_color", ambient_cube_color_vec);        
@@ -3342,7 +3343,7 @@ void UpdateStuckItem(AttachedItem& stuck_item, const Skeleton &skeleton, bool an
     int bone = stuck_item.bone_id;
     mat4 bone_mat = skeleton.physics_bones[bone].bullet_object->GetTransform();
     mat4 the_weap_mat = bone_mat * stuck_item.rel_mat;
-    mat4 temp_weap_mat = the_weap_mat;
+    const mat4& temp_weap_mat = the_weap_mat;
     ItemObjectScriptReader &item = stuck_item.item;
     item.SetPhysicsTransform(temp_weap_mat);
     if(item.just_created){

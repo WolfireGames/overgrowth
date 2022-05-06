@@ -1143,7 +1143,7 @@ void ModInstance::Reload( ) {
             const static size_t LOC_LENGTH = strlen("Localized/");
             if(memcmp("Localized/", str.c_str(), LOC_LENGTH) == 0) {
                 if(str.size() > 9 && strcmp(str.c_str() + str.size() - 9, "_meta.xml") == 0) {
-                    size_t second_slash = str.find("/", LOC_LENGTH);
+                    size_t second_slash = str.find('/', LOC_LENGTH);
 
                     std::string shortcode = str.substr(LOC_LENGTH, second_slash - LOC_LENGTH);
                     std::string level = str.substr(second_slash + 1, str.size() - (second_slash + 1));

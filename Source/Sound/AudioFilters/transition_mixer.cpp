@@ -80,8 +80,8 @@ bool TransitionMixer::Step( HighResBufferSegment* out, const HighResBufferSegmen
         {
             //Crossfade in a sinusoid to preserve the energy.
             float dp = d*(float)PI/2;
-            dl = sin(dp);
-            dr = cos(dp);
+            dl = std::sin(dp);
+            dr = std::cos(dp);
         }
         else if( transition_type == Linear )
         {

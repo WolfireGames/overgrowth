@@ -32,7 +32,7 @@
 #include <algorithm>
 
 void PlaneSpace(const vec3 &n, vec3 &p, vec3 &q) {
-    if (fabs(n[2]) > 0.7071067f) {
+    if (std::fabs(n[2]) > 0.7071067f) {
         // choose p in y-z plane
         float a = n[1]*n[1] + n[2]*n[2]; 
         float k = 1.0f/sqrtf(a);
@@ -79,7 +79,7 @@ float YAxisRotationFromVector(const vec3 &theVector)
 {
     vec3 vector(theVector.x(),0,theVector.z());
     vector = normalize(vector);
-    float new_rotation = acos(vector.z())/3.1415f*180.0f;
+    float new_rotation = std::acos(vector.z())/3.1415f*180.0f;
     if(vector.x()<0)new_rotation*=-1;
     new_rotation+=180;
     return new_rotation;

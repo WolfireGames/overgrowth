@@ -105,7 +105,7 @@ void QuaternionToAxisAngle(quaternion quat, vec3 * axis, float * angle) {
 
     QuaternionNormalize(&quat);
     sinAngle = sqrtf(1.0f - (quat.entries[3] * quat.entries[3]));
-    if (fabs(sinAngle) < 0.0005f) sinAngle = 1.0f;
+    if (std::fabs(sinAngle) < 0.0005f) sinAngle = 1.0f;
     axis->entries[0] = (quat.entries[0] / sinAngle);
     axis->entries[1] = (quat.entries[1] / sinAngle);
     axis->entries[2] = (quat.entries[2] / sinAngle);
@@ -224,8 +224,8 @@ vec4 Quat_2_AA(quaternion Quat)
             Ang_Ax.entries[0]=1.0f; Ang_Ax.entries[1] = 0.0f; Ang_Ax.entries[2] = 0.0f; Ang_Ax.angle() = 0.0f;
             return Ang_Ax;
         }
-        tw = (float)acos(Quat.entries[3]) * 2;
-        scale = (float)sin(tw / 2.0f);
+        tw = std::acos(Quat.entries[3]) * 2;
+        scale = std::sin(tw / 2.0f);
         Ang_Ax.entries[0] = Quat.entries[0] / scale;
         Ang_Ax.entries[1] = Quat.entries[1] / scale;
         Ang_Ax.entries[2] = Quat.entries[2] / scale;
@@ -247,12 +247,12 @@ quaternion::quaternion(bool In_Degrees, vec3 Euler)
         }
         //Calculate trig identities
         //Formerly roll, pitch, yaw
-        cr = float(cos(Euler.entries[0]/2));
-        cp = float(cos(Euler.entries[1]/2));
-        cy = float(cos(Euler.entries[2]/2));
-        sr = float(sin(Euler.entries[0]/2));
-        sp = float(sin(Euler.entries[1]/2));
-        sy = float(sin(Euler.entries[2]/2));
+        cr = std::cos(Euler.entries[0]/2);
+        cp = std::cos(Euler.entries[1]/2);
+        cy = std::cos(Euler.entries[2]/2);
+        sr = std::sin(Euler.entries[0]/2);
+        sp = std::sin(Euler.entries[1]/2);
+        sy = std::sin(Euler.entries[2]/2);
 
         
         cpcy = cp * cy;
@@ -551,29 +551,29 @@ bool operator==(const quaternion &a, const quaternion &b) {
 vec3 QuaternionToEuler(const quaternion& quat) {
     vec3 euler_angles;
     quaternion q(quat[3], quat[0], quat[1], quat[2]);
-    euler_angles[0] = atan2(2*(q[0]*q[1] + q[2]*q[3]), 1 - 2*(q[1]*q[1] + q[2]*q[2]));
+    euler_angles[0] = std::atan2(2*(q[0]*q[1] + q[2]*q[3]), 1 - 2*(q[1]*q[1] + q[2]*q[2]));
     float sinval = 2*(q[0]*q[2] - q[3]*q[1]);
-    if(fabs(sinval) >= 1.0f)
+    if(std::fabs(sinval) >= 1.0f)
         if(sinval >= 0.0f)
             euler_angles[1] = 3.14159266f / 2.0f;
         else
             euler_angles[1] = 3.14159266f / -2.0f;
     else
-        euler_angles[1] = asin(2*(q[0]*q[2] - q[3]*q[1]));
-    euler_angles[2] = atan2(2*(q[0]*q[3] + q[1]*q[2]), 1 - 2*(q[2]*q[2] + q[3]*q[3]));
+        euler_angles[1] = std::asin(2*(q[0]*q[2] - q[3]*q[1]));
+    euler_angles[2] = std::atan2(2*(q[0]*q[3] + q[1]*q[2]), 1 - 2*(q[2]*q[2] + q[3]*q[3]));
     return euler_angles;
 }
 
 quaternion EulerToQuaternion(const vec3& euler) {
     quaternion q;
     vec3 eu = euler * 0.5f; // makes conversion simpler
-    q[3] = cos(eu[0])*cos(eu[1])*cos(eu[2]) +
-        sin(eu[0])*sin(eu[1])*sin(eu[2]);
-    q[0] = sin(eu[0])*cos(eu[1])*cos(eu[2]) -
-        cos(eu[0])*sin(eu[1])*sin(eu[2]);
-    q[1] = cos(eu[0])*sin(eu[1])*cos(eu[2]) +
-        sin(eu[0])*cos(eu[1])*sin(eu[2]);
-    q[2] = cos(eu[0])*cos(eu[1])*sin(eu[2]) -
-        sin(eu[0])*sin(eu[1])*cos(eu[2]);
+    q[3] = std::cos(eu[0])*std::cos(eu[1])*std::cos(eu[2]) +
+        std::sin(eu[0])*std::sin(eu[1])*std::sin(eu[2]);
+    q[0] = std::sin(eu[0])*std::cos(eu[1])*std::cos(eu[2]) -
+        std::cos(eu[0])*std::sin(eu[1])*std::sin(eu[2]);
+    q[1] = std::cos(eu[0])*std::sin(eu[1])*std::cos(eu[2]) +
+        std::sin(eu[0])*std::cos(eu[1])*std::sin(eu[2]);
+    q[2] = std::cos(eu[0])*std::cos(eu[1])*std::sin(eu[2]) -
+        std::sin(eu[0])*std::sin(eu[1])*std::cos(eu[2]);
     return q;
 }

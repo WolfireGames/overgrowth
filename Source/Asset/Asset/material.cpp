@@ -160,8 +160,7 @@ void Material::ReportLoad()
 void Material::HandleEvent( const std::string &the_event, const vec3 &pos )
 {
     // Make local copies so they can be passed to Angelscript without const
-    std::string event_string = the_event;
-    //vec3 event_pos = pos;
+       //vec3 event_pos = pos;
     
     //Arglist args;
     //args.AddObject(&event_string);
