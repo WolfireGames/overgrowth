@@ -767,9 +767,9 @@ void RiggedObject::Draw(const mat4& proj_view_matrix, Object::DrawType type) {
             shaders->SetUniformVec3("blood_tint", vec3(-1,-1,-1)); // Presumably this is here to force refreshing this uniform?
             shaders->SetUniformVec3("blood_tint", Graphics::Instance()->config_.blood_color());
             std::vector<vec3> ambient_cube_color_vec;
-            ambient_cube_color_vec.reserve(ambient_cube_color.size());
+            ambient_cube_color_vec.reserve(6);
             for (auto& i : ambient_cube_color) {
-                ambient_cube_color_vec.push_back(ambient_cube_color[i]);
+                ambient_cube_color_vec.push_back(i);
             }
             shaders->SetUniformVec3Array("ambient_cube_color", ambient_cube_color_vec);        
             shaders->SetUniformVec3Array("tint_palette", palette_colors_srgb);
