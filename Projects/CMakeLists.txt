@@ -116,13 +116,10 @@ IF(APPLE)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     #-------
 
-
     SET(ENABLE_RAD_TELEMETRY OFF)
 ENDIF()
 
-IF(ENABLE_RAD_TELEMETRY)
-
-ELSE()
+IF(NOT ENABLE_RAD_TELEMETRY)
 	ADD_DEFINITIONS(-DNTELEMETRY)
 ENDIF()
 
@@ -136,6 +133,10 @@ ENDIF()
 
 IF(OPEN_CONSOLE)
     ADD_DEFINITIONS(-DOPEN_WIN32_CONSOLE=1)
+ENDIF()
+
+IF(BREAKPAD)
+    ADD_DEFINITIONS(-DBREAKPAD=1)
 ENDIF()
 
 MESSAGE( STATUS "Type: ${CMAKE_BUILD_TYPE}" )
@@ -202,11 +203,6 @@ IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     SET(LINUX TRUE)
 ENDIF()
 
-IF(BREAKPAD)
-    ADD_DEFINITIONS(-DBREAKPAD=1)
-ENDIF()
-
-
 if(LINUX)
     OPTION(FORCE32 "Force a 32build on a 64bit host" OFF)
     SET(OS_OUT "Linux")
@@ -262,14 +258,8 @@ IF(LINUX)
     FIND_PACKAGE(OpenAL REQUIRED)
 ENDIF()
 
-#Build static libraries only for FFTW
+#Build static libraries only for subprojects
 SET(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-#Enable floating point for FFTW
-SET(ENABLE_FLOAT ON CACHE BOOL "" FORCE)
-#Enable SSE2 for FFTW
-SET(ENABLE_SSE2 ON CACHE BOOL "" FORCE)
-#Disable bench tests for FFTW
-SET(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
@@ -1013,7 +1003,6 @@ ENDIF()
 IF(WIN32)
 	LIST(APPEND OVERGROWTH_INTERNAL_SRCS 
             ${SRCDIR}/Compat/Win/os_dialogs_win.cpp
-            ${SRCDIR}/Compat/Win/win_filepath.cpp
             ${SRCDIR}/Compat/Win/win_hardware_info.cpp
 	)
 
