@@ -2241,7 +2241,7 @@ int ASDebugDrawLines( const CScriptArray &array, vec4 color, int lifespan_int ) 
     std::vector<vec3> data;
 
     data.reserve((int)array.GetSize());
-for( int n = 0; n < (int)array.GetSize(); n++ )
+    for (int n = 0; n < (int)array.GetSize(); n++)
     {
         data.push_back(*((vec3*)array.At(n)));
     }
@@ -3936,7 +3936,7 @@ bool AS_ImGui_Combo(const std::string& label, int& current_item, const CScriptAr
     std::vector<const char*> items_data;
 
     items_data.reserve(items_count);
-for(int n = 0; n < items_count; ++n) {
+    for (int n = 0; n < items_count; ++n) {
         items_data.push_back(reinterpret_cast<const std::string*>(items.At(n))->c_str());
     }
 
@@ -4253,7 +4253,7 @@ bool AS_ImGui_ListBox(const std::string& label, int& current_item, const CScript
     std::vector<const char*> items_data;
 
     items_data.reserve(items_count);
-for(int n = 0; n < items_count; ++n) {
+    for (int n = 0; n < items_count; ++n) {
         items_data.push_back(reinterpret_cast<const std::string*>(items.At(n))->c_str());
     }
 
