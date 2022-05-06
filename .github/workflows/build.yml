@@ -39,7 +39,15 @@ jobs:
         run: cmake --build ./Build --verbose -j4
 
   windows:
-    runs-on: windows-latest
+    strategy:
+      matrix:
+        version:
+          # - 'windows-2016' DEPRECATED unfortunately
+          - 'windows-2019'
+          - 'windows-2022'
+      fail-fast: false
+
+    runs-on: ${{ matrix.version }}
 
     steps:
       - uses: actions/checkout@v2
