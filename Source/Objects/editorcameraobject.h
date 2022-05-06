@@ -31,7 +31,7 @@
 
 class EditorCameraObject: public CameraObject {
 public:
-    virtual EntityType GetType() const { return _camera_type; }
+    EntityType GetType() const override { return _camera_type; }
     EditorCameraObject() {
         frozen=false;
         speed=12;
@@ -39,14 +39,14 @@ public:
         rotation2=0;
     };
 
-    virtual ~EditorCameraObject()
+    ~EditorCameraObject() override
     {
 #ifdef _DEBUG
         printf("editor camera destroyed\n");
 #endif
     }
     
-    virtual void IgnoreInput(bool val);
-    void IgnoreMouseInput(bool val);
-    virtual void GetDisplayName(char* buf, int buf_size);
+    void IgnoreInput(bool val) override;
+    void IgnoreMouseInput(bool val) override;
+    void GetDisplayName(char* buf, int buf_size) override;
 };

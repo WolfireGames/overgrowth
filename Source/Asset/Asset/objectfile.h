@@ -82,15 +82,15 @@ public:
     void Unload();
 
     void Reload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
 
-    void ReturnPaths(PathSet& path_set);
+    void ReturnPaths(PathSet& path_set) override;
 
     static AssetType GetType() { return OBJECT_FILE_ASSET; }
     static const char* GetTypeName() { return "OBJECT_FILE_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<ObjectFile> ObjectFileRef;

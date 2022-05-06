@@ -30,10 +30,10 @@ class JobHandler;
 class AnimationRetargetSeeker : public XMLSeekerBase
 {
 public:
-    virtual std::vector<Item> SearchXML( const Item & item, TiXmlDocument& doc );
-    virtual void HandleElementCallback( std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata );
+    std::vector<Item> SearchXML( const Item & item, TiXmlDocument& doc ) override;
+    void HandleElementCallback( std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata ) override;
 
-    virtual inline const char* GetName()
+    inline const char* GetName() override
     {
         return "animation_retarget_seeker";
     }

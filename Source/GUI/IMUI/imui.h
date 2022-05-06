@@ -191,7 +191,7 @@ struct IMUIImage : public IMUIRenderable {
      * @brief  Destructor
      *
      */
-    ~IMUIImage() {
+    ~IMUIImage() override {
     }
     
     /*******************************************************************************************/
@@ -313,7 +313,7 @@ struct IMUIText : public IMUIRenderable {
      * @brief  Destructor
      *
      */
-    ~IMUIText() {
+    ~IMUIText() override {
     }
     
     /*******************************************************************************************/

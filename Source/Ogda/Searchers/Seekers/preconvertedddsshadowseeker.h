@@ -29,9 +29,9 @@ class JobHandler;
 class PreConvertedDDSSeeker : public SeekerBase
 {
 public:
-    virtual std::vector<Item> Search( const Item& item );
+    std::vector<Item> Search( const Item& item ) override;
 
-    virtual inline const char* GetName()
+    inline const char* GetName() override
     {
         return "pre_converted_dds_shadow";
     }

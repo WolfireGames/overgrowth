@@ -34,13 +34,13 @@ class NavMesh;
 class NavmeshRegionObject: public Object {
 public:
     NavmeshRegionObject();
-    virtual ~NavmeshRegionObject();
+    ~NavmeshRegionObject() override;
 
-    virtual EntityType GetType() const { return _navmesh_region_object; }
-    virtual bool Initialize();
-    virtual void Draw();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    EntityType GetType() const override { return _navmesh_region_object; }
+    bool Initialize() override;
+    void Draw() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
 
     vec3 GetMinBounds();
     vec3 GetMaxBounds();

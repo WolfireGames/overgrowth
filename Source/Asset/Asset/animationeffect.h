@@ -54,15 +54,15 @@ public:
     
     void Unload();
     void Reload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
 
-    ~AnimationEffect();
+    ~AnimationEffect() override;
     AnimationEffect(AssetManager* owner, uint32_t asset_id);
     
     static AssetType GetType() { return ANIMATION_EFFECT_ASSET; }
     static const char* GetTypeName() { return "ANIMATION_EFFECT_ASSET"; }
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
     static bool AssetWarning() { return true; }
 };
 

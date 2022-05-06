@@ -50,11 +50,11 @@ public:
 
     void Unload();
     void Reload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
 
     void clear();
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
     static bool AssetWarning() { return true; }
 };
 

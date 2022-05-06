@@ -55,7 +55,7 @@ public:
     void Unload();
     void Reload();
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<FZXAsset> FZXAssetRef;

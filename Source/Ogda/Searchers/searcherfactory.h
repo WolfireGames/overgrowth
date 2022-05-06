@@ -37,12 +37,12 @@ private:
     template<class Seeker>
     class SeekerFactory : public SeekerFactoryBase
     {
-        virtual SeekerBase* NewInstance()
+        SeekerBase* NewInstance() override
         {
             return new Seeker();
         }
 
-        virtual std::string GetSeekerName()
+        std::string GetSeekerName() override
         {
             return std::string(Seeker().GetName());
         }

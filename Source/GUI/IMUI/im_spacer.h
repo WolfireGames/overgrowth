@@ -76,14 +76,14 @@ public:
      * @returns name of the element type as a string
      *
      */
-    std::string getElementTypeName();
+    std::string getElementTypeName() override;
     
     /*******************************************************************************************/
     /**
      * @brief  Destructor
      *
      */
-    virtual ~IMSpacer();
+    ~IMSpacer() override;
 };
 
 

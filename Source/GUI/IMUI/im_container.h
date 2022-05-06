@@ -188,7 +188,7 @@ public:
      * @param _parent New parent
      *
      */
-    void setOwnerParent( IMGUI* _owner, IMElement* _parent );
+    void setOwnerParent( IMGUI* _owner, IMElement* _parent ) override;
 
     /*******************************************************************************************/
     /**
@@ -207,7 +207,7 @@ public:
      * @returns name of the element type as a string
      *
      */
-    std::string getElementTypeName();
+    std::string getElementTypeName() override;
 
     /*******************************************************************************************/
     /**
@@ -216,7 +216,7 @@ public:
      * @param _size 2d size vector (-1 element implies undefined - or use UNDEFINEDSIZE)
      *
      */
-    void setSize( const vec2 _size );
+    void setSize( const vec2 _size ) override;
 
     /*******************************************************************************************/
     /**
@@ -225,7 +225,7 @@ public:
      * @param x x dimension size (-1 implies undefined - or use UNDEFINEDSIZE)
      *
      */
-    void setSizeX( const float x );
+    void setSizeX( const float x ) override;
 
     /*******************************************************************************************/
     /**
@@ -235,7 +235,7 @@ public:
      * @param resetBoundarySize Should we reset the boundary if it's too small?
      *
      */
-    void setSizeY( const float y );
+    void setSizeY( const float y ) override;
 
     /*******************************************************************************************/
     /**
@@ -253,7 +253,7 @@ public:
      * @param guistate The state of the GUI at this update
      *
      */
-    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
 
     /*******************************************************************************************/
     /**
@@ -264,14 +264,14 @@ public:
      * @param clipSize size of clipping region
      *
      */
-    void render( vec2 drawOffset, vec2 clipPos, vec2 clipSize );
+    void render( vec2 drawOffset, vec2 clipPos, vec2 clipSize ) override;
 
     /*******************************************************************************************/
     /**
      * @brief  When a resize, move, etc has happened do whatever is necessary
      * 
      */
-     void doRelayout();
+     void doRelayout() override;
 
     /*******************************************************************************************/
     /**
@@ -286,7 +286,7 @@ public:
      * @brief  Do whatever is necessary when the resolution changes
      *
      */
-     void doScreenResize();
+     void doScreenResize() override;
 
     /*******************************************************************************************/
     /**
@@ -375,7 +375,7 @@ public:
      *  
      *
      */
-    IMElement* findElement( std::string const& elementName );
+    IMElement* findElement( std::string const& elementName ) override;
 
     /*******************************************************************************************/
     /**
@@ -386,14 +386,14 @@ public:
      */
     void setBackgroundImage( std::string const& fileName, vec4 color = vec4(1.0) );
 
-    virtual void setPauseBehaviors( bool pause );
+    void setPauseBehaviors( bool pause ) override;
     
     /*******************************************************************************************/
     /**
      * @brief  Remove all referenced object without releaseing references
      *
      */
-    virtual void clense();
+    void clense() override;
 
     IMElement* getContents() { if(contents) contents->AddRef(); return contents; }
     std::vector<IMElement*> getFloatingContents();
@@ -403,10 +403,10 @@ public:
      * @brief  Destructor
      *
      */
-    virtual ~IMContainer();
+    ~IMContainer() override;
     
-    virtual void DestroyedIMElement( IMElement* element );
-    virtual void DestroyedIMGUI( IMGUI* imgui );
+    void DestroyedIMElement( IMElement* element ) override;
+    void DestroyedIMGUI( IMGUI* imgui ) override;
 };
 
 

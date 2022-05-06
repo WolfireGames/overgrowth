@@ -32,14 +32,14 @@ class CStdStringFactory : public asIStringFactory
 {
 public:
 	CStdStringFactory() {}
-	~CStdStringFactory() 
+	~CStdStringFactory() override 
 	{
 		// The script engine must release each string 
 		// constant that it has requested
 		assert(stringCache.size() == 0);
 	}
 
-	const void *GetStringConstant(const char *data, asUINT length)
+	const void *GetStringConstant(const char *data, asUINT length) override
 	{
 		string str(data, length);
 		map_t::iterator it = stringCache.find(str);
@@ -51,7 +51,7 @@ public:
 		return reinterpret_cast<const void*>(&it->first);
 	}
 
-	int  ReleaseStringConstant(const void *str)
+	int  ReleaseStringConstant(const void *str) override
 	{
 		if (str == 0)
 			return asERROR;
@@ -66,7 +66,7 @@ public:
 		return asSUCCESS;
 	}
 
-	int  GetRawStringData(const void *str, char *data, asUINT *length) const
+	int  GetRawStringData(const void *str, char *data, asUINT *length) const override
 	{
 		if (str == 0)
 			return asERROR;

@@ -30,9 +30,9 @@ class ActorObjectLevelSeeker : public LevelSeekerBase
 {
 public:
     virtual void SearchGroup( std::vector<Item>& items, const Item& item, TiXmlElement* root );
-    virtual std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot );
+    std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot ) override;
 
-    virtual inline const char* GetName()
+    inline const char* GetName() override
     {
         return "actor_object_level_seeker";
     }

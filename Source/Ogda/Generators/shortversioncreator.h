@@ -30,7 +30,7 @@ class JobHandler;
 class ShortVersionCreator : public CreatorBase
 {
     public:
-        virtual ManifestResult Run(const JobHandler& jh, const Manifest& manifest);
-        virtual inline const char* GetName() const { return "shortversion"; }
-        virtual inline const char* GetVersion() const {return "1";}
+        ManifestResult Run(const JobHandler& jh, const Manifest& manifest) override;
+        inline const char* GetName() const override { return "shortversion"; }
+        inline const char* GetVersion() const override {return "1";}
 };

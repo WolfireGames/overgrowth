@@ -60,7 +60,7 @@ public:
                              int index0,
                              const btCollisionObjectWrapper* colObj1Wrap,
                              int partId1,
-                             int index1);
+                             int index1) override;
 };
 
 typedef std::map<BulletObject*, std::vector<int> > TriListResults;
@@ -77,7 +77,7 @@ public:
         int index0,
         const btCollisionObjectWrapper* colObj1Wrap,
         int partId1,
-        int index1);
+        int index1) override;
 };
 
 class MeshCollisionCallback: public btCollisionWorld::ContactResultCallback {
@@ -91,7 +91,7 @@ public:
         int index0,
         const btCollisionObjectWrapper* colObj1Wrap,
         int partId1,
-        int index1);
+        int index1) override;
 };
 
 struct ContactInfo {
@@ -110,7 +110,7 @@ public:
         int index0,
         const btCollisionObjectWrapper* colObj1Wrap,
         int partId1,
-        int index1);
+        int index1) override;
 };
 
 class RayContactInfoCallback: public btCollisionWorld::ContactResultCallback {
@@ -122,7 +122,7 @@ public:
         int index0,
         const btCollisionObjectWrapper* colObj1Wrap,
         int partId1,
-        int index1);
+        int index1) override;
 };
 
 class SweptSlideCallback: public btCollisionWorld::ConvexResultCallback {
@@ -138,7 +138,7 @@ public:
     {}
 
     btScalar addSingleResult(btCollisionWorld::LocalConvexResult& convexResult, 
-                             bool normalInWorldSpace);
+                             bool normalInWorldSpace) override;
 };
 
 struct RayContactInfo {
@@ -152,14 +152,14 @@ struct    SimpleRayResultCallbackInfo : public btCollisionWorld::RayResultCallba
 {    
     btAlignedObjectArray<RayContactInfo> contact_info;
     btScalar addSingleResult(btCollisionWorld::LocalRayResult& rayResult,
-        bool normalInWorldSpace);
+        bool normalInWorldSpace) override;
 };
 
 struct    SimpleRayResultCallback : public btCollisionWorld::RayResultCallback
 {    
     vec3 m_hit_normal;
     btScalar addSingleResult(btCollisionWorld::LocalRayResult& rayResult,
-        bool normalInWorldSpace);
+        bool normalInWorldSpace) override;
 
     const vec3 &GetHitNormal();
 };
@@ -171,7 +171,7 @@ struct    SimpleRayTriResultCallback : public btCollisionWorld::RayResultCallbac
     vec3 m_hit_pos;
     BulletObject* m_object;
     btScalar addSingleResult(btCollisionWorld::LocalRayResult& rayResult,
-        bool normalInWorldSpace);
+        bool normalInWorldSpace) override;
 
     const vec3 &GetHitNormal();
 };

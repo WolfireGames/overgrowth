@@ -29,9 +29,9 @@ class TiXmlElement;
 class SkyLevelSeeker : public LevelSeekerBase
 {
 public:
-    virtual std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot );
+    std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot ) override;
 
-    virtual inline const char* GetName()
+    inline const char* GetName() override
     {
         return "sky_level_seeker";
     }

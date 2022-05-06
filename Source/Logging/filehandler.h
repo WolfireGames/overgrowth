@@ -38,14 +38,14 @@ public:
 	*/
 	FileHandler( std::string path, size_t _startup_file_size, size_t _max_file_size );
 	
-	virtual ~FileHandler();
+	~FileHandler() override;
 
 	/*! 
 		\param message will print message to file if file is open 
 	*/
-	virtual void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message );
+	void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message ) override;
     
-    virtual void Flush();
+    void Flush() override;
 
     void SetMaxWriteLimit( size_t size );
 private:

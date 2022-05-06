@@ -89,7 +89,7 @@ public:
      * @returns name of the element type as a string
      *
      */
-    virtual std::string getElementTypeName() {
+    std::string getElementTypeName() override {
         return "TextSelectionList";
     }
     
@@ -119,7 +119,7 @@ public:
      * @brief  Destructor
      *
      */
-    virtual ~IMTextSelectionList();
+    ~IMTextSelectionList() override;
     
 };
 

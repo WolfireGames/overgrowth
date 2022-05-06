@@ -97,7 +97,7 @@ public:
      * @returns name of the element type as a string
      *
      */
-    std::string getElementTypeName();
+    std::string getElementTypeName() override;
 
     void setSkipAspectFitting(bool val);
     void setCenter(bool val);
@@ -139,7 +139,7 @@ public:
      * @param clipSize size of clipping region
      *
      */
-    void render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize );
+    void render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize ) override;
     
     /*******************************************************************************************/
     /**
@@ -150,7 +150,7 @@ public:
      * @param guistate The state of the GUI at this update
      *
      */
-    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     
     /*******************************************************************************************/
     /**
@@ -187,14 +187,14 @@ public:
      * @brief  Remove all referenced object without releaseing references
      *
      */
-    virtual void clense();
+    void clense() override;
     
     /*******************************************************************************************/
     /**
      * @brief  Destructor
      *
      */
-    virtual ~IMImage();
+    ~IMImage() override;
     
 };
 

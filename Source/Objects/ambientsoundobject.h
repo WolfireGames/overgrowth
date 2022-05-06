@@ -36,21 +36,21 @@
 class AmbientSoundObject: public Object
 {
 public:
-    virtual EntityType GetType() const { return _ambient_sound_object; }
+    EntityType GetType() const override { return _ambient_sound_object; }
     AmbientSoundObject();
-    virtual ~AmbientSoundObject();
+    ~AmbientSoundObject() override;
 
-    bool Initialize();
+    bool Initialize() override;
 
-    void Update(float timestep);
-    void Draw();
+    void Update(float timestep) override;
+    void Draw() override;
     void Copied();
 
-    virtual void Moved(Object::MoveType type);
+    void Moved(Object::MoveType type) override;
     const std::string & GetPath();
     bool InCameraRange();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
 
 private:
     float delay;

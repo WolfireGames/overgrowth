@@ -30,26 +30,26 @@ public:
     ambientSound(float volume = 1.0f);
 
     /// Set to false to allow the emitter to time out (useful only on non-looping sounds)
-    virtual bool KeepPlaying();
+    bool KeepPlaying() override;
     /// if true is returned, this will be a relative-to-listener sound
-    virtual bool GetPosition(vec3 &p);
-    virtual const vec3 GetPosition();
-    virtual const vec3 GetOcclusionPosition();
-    virtual void GetDirection(vec3 &p);
-    virtual const vec3& GetVelocity();
+    bool GetPosition(vec3 &p) override;
+    const vec3 GetPosition() override;
+    const vec3 GetOcclusionPosition() override;
+    void GetDirection(vec3 &p) override;
+    const vec3& GetVelocity() override;
 
     /// allows you to change the global alAudio pitch multiplier for this sound
-    virtual float GetPitchMultiplier();
+    float GetPitchMultiplier() override;
 
     /// allows you to change the global alAudio gain multiplier for this sound
-    virtual float GetVolume();
+    float GetVolume() override;
 
     /// Indicate the priority of this effect to make room for newer/higher priority effects
-    virtual unsigned char GetPriority();
+    unsigned char GetPriority() override;
 
-    void SetVolume(float volume);
+    void SetVolume(float volume) override;
     void SetPitch(float pitch);
-    virtual bool IsTransient() { return false; }
+    bool IsTransient() override { return false; }
 
 private:
     float m_volume;

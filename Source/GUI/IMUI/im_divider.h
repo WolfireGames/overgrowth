@@ -85,7 +85,7 @@ public:
      * @returns name of the element type as a string
      *
      */
-    std::string getElementTypeName();
+    std::string getElementTypeName() override;
     
     /*******************************************************************************************/
     /**
@@ -94,7 +94,7 @@ public:
      * @param _parent New parent
      *
      */
-    void setOwnerParent( IMGUI* _owner, IMElement* _parent );
+    void setOwnerParent( IMGUI* _owner, IMElement* _parent ) override;
     
     /*******************************************************************************************/
     /**
@@ -123,7 +123,7 @@ public:
      * @param guistate The state of the GUI at this update
      *
      */
-    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate );
+    void update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) override;
     
     /*******************************************************************************************/
     /**
@@ -134,7 +134,7 @@ public:
      * @param clipSize size of clipping region
      *
      */
-    void render( vec2 drawOffset, vec2 clipPos, vec2 clipSize );
+    void render( vec2 drawOffset, vec2 clipPos, vec2 clipSize ) override;
     
     /*******************************************************************************************/
     /**
@@ -148,14 +148,14 @@ public:
      * @brief  When a resize, move, etc has happened do whatever is necessary
      * 
      */
-    void doRelayout();
+    void doRelayout() override;
     
     /*******************************************************************************************/
     /**
      * @brief  Do whatever is necessary when the resolution changes
      *
      */
-    void doScreenResize();
+    void doScreenResize() override;
     
 
     /*******************************************************************************************/
@@ -227,9 +227,9 @@ public:
      *  
      *
      */
-    IMElement* findElement( std::string const& elementName );
+    IMElement* findElement( std::string const& elementName ) override;
 
-    void setPauseBehaviors( bool pause );
+    void setPauseBehaviors( bool pause ) override;
 
     DividerOrientation getOrientation() const { return orientation; }
     
@@ -238,18 +238,18 @@ public:
      * @brief  Remove all referenced object without releaseing references
      *
      */
-    virtual void clense();
+    void clense() override;
     
     /*******************************************************************************************/
     /**
      * @brief  Destructor
      *
      */
-    virtual ~IMDivider();
+    ~IMDivider() override;
     
 
-    virtual void DestroyedIMElement( IMElement* element );
-    virtual void DestroyedIMGUI( IMGUI* imgui );
+    void DestroyedIMElement( IMElement* element ) override;
+    void DestroyedIMGUI( IMGUI* imgui ) override;
 };
 
 

@@ -85,7 +85,7 @@ class SkeletonAsset : public Asset {
     std::string error_string;
 public:
     SkeletonAsset(AssetManager* owner, uint32_t asset_id);
-    ~SkeletonAsset();
+    ~SkeletonAsset() override;
 
     const SkeletonFileData& GetData();
     unsigned short checksum() {return checksum_;}
@@ -97,12 +97,12 @@ public:
     void Unload();
 
     void Reload( );
-    virtual void ReportLoad();
+    void ReportLoad() override;
     static AssetType GetType() { return SKELETON_ASSET; };
     static const char* GetTypeName() { return "SKELETON_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<SkeletonAsset> SkeletonAssetRef;

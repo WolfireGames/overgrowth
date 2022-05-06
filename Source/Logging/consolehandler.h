@@ -32,10 +32,10 @@ class ConsoleHandler : public LogHandler
 public:
 	ConsoleHandler();
 
-	virtual ~ConsoleHandler();
+	~ConsoleHandler() override;
 
 	/*! \param message will be printed to std::cout */
-	virtual void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message );
-    virtual void Flush();
+	void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message ) override;
+    void Flush() override;
 };
 

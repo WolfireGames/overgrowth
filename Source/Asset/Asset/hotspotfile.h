@@ -48,11 +48,11 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
     
-    void ReturnPaths(PathSet& path_set);
+    void ReturnPaths(PathSet& path_set) override;
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<HotspotFile> HotspotFileRef;

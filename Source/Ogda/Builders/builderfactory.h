@@ -39,17 +39,17 @@ private:
     template<class Action>
     class ActionFactory : public ActionFactoryBase
     {
-        virtual ActionBase* NewInstance()
+        ActionBase* NewInstance() override
         {
             return new Action();
         }
 
-        virtual std::string GetActionName()
+        std::string GetActionName() override
         {
             return std::string(Action().GetName());
         }
 
-        virtual bool StoreResultInDatabase()
+        bool StoreResultInDatabase() override
         {
             return Action().StoreResultInDatabase(); 
         }

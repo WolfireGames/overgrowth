@@ -41,7 +41,7 @@ public:
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
     static const char* GetTypeName() { return "SONG_LIST_ASSET"; }
     static bool AssetWarning() { return true; }
 };

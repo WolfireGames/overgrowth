@@ -106,7 +106,7 @@ public:
     Level();
     virtual ~Level();
 
-    virtual void IncomingTCPData(SocketID socket, uint8_t* data, size_t len);
+    void IncomingTCPData(SocketID socket, uint8_t* data, size_t len) override;
 
     void StartDialogue(const std::string& dialogue) const;
 	void RegisterMPCallbacks() const;

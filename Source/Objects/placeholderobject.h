@@ -35,32 +35,32 @@ public:
         kSpawn, kCamPreview, kPlayerConnect
     };
     PlaceholderObject();
-    virtual ~PlaceholderObject();
-    virtual EntityType GetType() const { return _placeholder_object; }
+    ~PlaceholderObject() override;
+    EntityType GetType() const override { return _placeholder_object; }
     PlaceholderObjectType GetSpecialType();
     void SetSpecialType(PlaceholderObjectType val);
-    virtual bool Initialize();
+    bool Initialize() override;
     void SetPreview(const std::string& path);
     void SetBillboard(const std::string& path);
-    virtual bool AcceptConnectionsFrom(ConnectionType type, Object& object);
-    virtual void Draw();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
+    void Draw() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
     void SetVisible(bool visible);
     bool connectable();
     uint64_t GetConnectToTypeFilterFlags();
     void SetConnectToTypeFilterFlags(uint64_t entity_type_flags);
-    virtual bool ConnectTo( Object& other, bool checking_other = false );
+    bool ConnectTo( Object& other, bool checking_other = false ) override;
     virtual bool Disconnect( Object& other, bool checking_other = false );
-    virtual void GetConnectionIDs(std::vector<int>* cons);
+    void GetConnectionIDs(std::vector<int>* cons) override;
 
     int GetConnectID();
-    virtual void NotifyDeleted( Object* o );
-    virtual void Moved(Object::MoveType type);
+    void NotifyDeleted( Object* o ) override;
+    void Moved(Object::MoveType type) override;
     std::string editor_display_name;
-    virtual void GetDisplayName(char* buf, int buf_size);
+    void GetDisplayName(char* buf, int buf_size) override;
 
-    virtual ObjectSanityState GetSanity();
+    ObjectSanityState GetSanity() override;
 
     bool unsaved_changes;
 private:
@@ -82,5 +82,5 @@ private:
     void DrawEditorLabel();
     void ClearEditorLabel();
 
-    virtual void RemapReferences(std::map<int,int> id_map);
+    void RemapReferences(std::map<int,int> id_map) override;
 };

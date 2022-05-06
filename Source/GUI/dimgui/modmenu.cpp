@@ -1108,7 +1108,7 @@ static void DrawUpdateToSteamworks() {
 static void ModActivationChanged(const ModInstance* mod);
 class ImGuiModMenuLoadingCallback : public ModLoadingCallback {
 public:
-    virtual void ModActivationChange(const ModInstance* mod) {
+    void ModActivationChange(const ModInstance* mod) override {
         ModActivationChanged(mod);
     }
 };

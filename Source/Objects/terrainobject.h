@@ -42,25 +42,25 @@ class BulletObject;
 class TerrainObject: public Object {
     public:   
         const TerrainInfo& terrain_info() const;
-        virtual EntityType GetType() const { return _terrain_type; }
+        EntityType GetType() const override { return _terrain_type; }
         
         TerrainObject(const TerrainInfo &terrain_info);
-        ~TerrainObject();
-        virtual void HandleMaterialEvent( const std::string &the_event, const vec3 &event_pos, int* tri );
-        virtual void PreDrawCamera(float curr_game_time);
-        virtual void PreDrawFrame(float curr_game_time);
-        virtual void Draw();
-        virtual void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type);
-        virtual int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal=0);
-        virtual bool Initialize();
-        virtual void GetShaderNames(std::map<std::string, int>& preload_shaders);
-        virtual const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, int* tri );
-        virtual const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, const std::string &mod, int* tri );
-        virtual const MaterialDecal& GetMaterialDecal( const std::string &type, const vec3 &pos, int* tri );
-        virtual const MaterialParticle& GetMaterialParticle( const std::string &type, const vec3 &pos, int* tri );
-        virtual void GetDisplayName(char* buf, int buf_size);
-        virtual MaterialRef GetMaterial( const vec3 &pos, int* tri = NULL );
-        virtual vec3 GetColorAtPoint( const vec3 &pos, int* tri );
+        ~TerrainObject() override;
+        void HandleMaterialEvent( const std::string &the_event, const vec3 &event_pos, int* tri ) override;
+        void PreDrawCamera(float curr_game_time) override;
+        void PreDrawFrame(float curr_game_time) override;
+        void Draw() override;
+        void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type) override;
+        int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal=0) override;
+        bool Initialize() override;
+        void GetShaderNames(std::map<std::string, int>& preload_shaders) override;
+        const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, int* tri ) override;
+        const MaterialEvent& GetMaterialEvent( const std::string &the_event, const vec3 &event_pos, const std::string &mod, int* tri ) override;
+        const MaterialDecal& GetMaterialDecal( const std::string &type, const vec3 &pos, int* tri ) override;
+        const MaterialParticle& GetMaterialParticle( const std::string &type, const vec3 &pos, int* tri ) override;
+        void GetDisplayName(char* buf, int buf_size) override;
+        MaterialRef GetMaterial( const vec3 &pos, int* tri = NULL ) override;
+        vec3 GetColorAtPoint( const vec3 &pos, int* tri ) override;
         
         void PreparePhysicsMesh();
         const Model* GetModel() const;
@@ -68,7 +68,7 @@ class TerrainObject: public Object {
 
         bool preview_mode;
 
-        virtual void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args );
+        void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
         BulletObject* bullet_object_;
         Terrain terrain_;
 

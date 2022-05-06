@@ -45,8 +45,8 @@ public:
     static bool AssetWarning() { return false; }
 
     int Load( const std::string &path, uint32_t load_flags );
-    virtual void ReportLoad();
-    virtual AssetLoaderBase* NewLoader();
+    void ReportLoad() override;
+    AssetLoaderBase* NewLoader() override;
     void Unload();
 
     const std::string GetLevelName();

@@ -31,20 +31,20 @@
 class DynamicLightObject: public Object
 {
 public:
-    virtual EntityType GetType() const { return _dynamic_light_object; }
-    virtual void Draw();
-    virtual bool Initialize();
+    EntityType GetType() const override { return _dynamic_light_object; }
+    void Draw() override;
+    bool Initialize() override;
 
-    virtual void Moved(Object::MoveType type);
-    virtual void Dispose();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    void Moved(Object::MoveType type) override;
+    void Dispose() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
     vec3 GetTint() const;
     float GetOverbright() const; 
 	DynamicLightObject();
-	virtual ~DynamicLightObject();
-    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args );
-	virtual void SetEnabled(bool val);
+	~DynamicLightObject() override;
+    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
+	void SetEnabled(bool val) override;
 
 private:
     int light_id_;

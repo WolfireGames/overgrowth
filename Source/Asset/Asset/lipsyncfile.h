@@ -61,7 +61,7 @@ public:
     void Reload();
     void GetWeights(float time, int &marker, std::vector<KeyWeight> &weights );
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<LipSyncFile> LipSyncFileRef;

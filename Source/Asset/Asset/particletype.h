@@ -79,12 +79,12 @@ public:
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
-    virtual void ReportLoad();
+    void ReportLoad() override;
     void Reload( );
 
     void clear();
 
-    virtual AssetLoaderBase* NewLoader();
+    AssetLoaderBase* NewLoader() override;
 };
 
 typedef AssetRef<ParticleType> ParticleTypeRef;

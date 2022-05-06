@@ -30,7 +30,7 @@ class JobHandler;
 class VoidCreator : public CreatorBase
 {
     public:
-        virtual ManifestResult Run(const JobHandler& jh, const Manifest& manifest);
-        virtual inline const char* GetName() const { return "void"; }
-        virtual inline const char* GetVersion() const {return "1";}
+        ManifestResult Run(const JobHandler& jh, const Manifest& manifest) override;
+        inline const char* GetName() const override { return "void"; }
+        inline const char* GetVersion() const override {return "1";}
 };

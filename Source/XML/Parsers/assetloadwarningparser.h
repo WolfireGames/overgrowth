@@ -47,9 +47,9 @@ public:
 
     std::set<AssetWarning> asset_warnings;
 
-    virtual uint32_t Load( const std::string& path );
-    virtual bool Save( const std::string& path );
-    virtual void Clear();
+    uint32_t Load( const std::string& path ) override;
+    bool Save( const std::string& path ) override;
+    void Clear() override;
 
     void AddAssetWarning(AssetWarning asset_warning);
 };

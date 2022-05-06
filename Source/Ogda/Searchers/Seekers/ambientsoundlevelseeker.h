@@ -29,9 +29,9 @@ class TiXmlElement;
 class AmbientSoundLevelSeeker : public LevelSeekerBase
 {
 public:
-    virtual std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot );
+    std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot ) override;
 
-    virtual inline const char* GetName()
+    inline const char* GetName() override
     {
         return "ambient_sound_level_seeker";
     }

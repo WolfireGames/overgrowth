@@ -120,7 +120,7 @@ public:
     DebugDrawWire(const vec4 &_color, const DDFlag& _flags);
     DebugDrawWire(const mat4 &_transform, const vec4 &_color, const DDFlag& _flags);
     DebugDrawWire(const RC_VBOContainer& _vbo, const mat4 &_transform, const vec4 &_color, const DDFlag& _flags);
-    void Draw();
+    void Draw() override;
 };
 
 class LabelText;
@@ -132,21 +132,21 @@ class DebugDrawText : public DebugDrawElement {
         mat4 transform;
         float scale;
     public:
-        void Draw();
+        void Draw() override;
         DebugDrawText(const vec3 &_position,
                       const float &_scale,
                       const std::string &_content,
                       const DDFlag& _flags,
                       const vec4 & _color);
-        ~DebugDrawText();
-        virtual bool SetPosition(const vec3& position);
+        ~DebugDrawText() override;
+        bool SetPosition(const vec3& position) override;
 };
 
 
 class DebugDrawBillboard: public DebugDrawElement {
 public:
-    void Draw();
-    virtual bool SetPosition(const vec3 &position);
+    void Draw() override;
+    bool SetPosition(const vec3 &position) override;
     void SetScale(float scale);
     DebugDrawBillboard(const TextureRef& ref, const vec3 &position, float scale, const vec4& color, AlphaMode mode);
 private: 
@@ -159,7 +159,7 @@ private:
 
 class DebugDrawRibbon: public DebugDrawElement {
 public:
-    void Draw();
+    void Draw() override;
     DebugDrawRibbon(const DDFlag& flags);
     DebugDrawRibbon(const vec3 &start, 
                     const vec3 &end, 
@@ -206,7 +206,7 @@ public:
     DebugDrawWireMesh(const RC_VBOContainer& _vbo,
                       const mat4 &_transform,
                       const vec4 &_color);
-    ~DebugDrawWireMesh();
+    ~DebugDrawWireMesh() override;
 };
 
 class DebugDrawStippleMesh : public DebugDrawElement {
@@ -220,7 +220,7 @@ public:
                          const mat4 &_transform,
                          const vec4 &_color,
                          const DDFlag& _flags);
-    void Draw();
+    void Draw() override;
 };
 
 
@@ -229,7 +229,7 @@ class DebugDrawPoint : public DebugDrawElement {
         vec4 color;
         mat4 transform; 
     public:
-        void Draw();
+        void Draw() override;
         DebugDrawPoint(const vec3 &point, 
                       const vec4 &color,
                       const DDFlag& _flags = _DD_NO_FLAG);
@@ -246,7 +246,7 @@ class DebugDrawWireSphere : public DebugDrawWire {
                             const float radius,
                             const vec3 &scale = vec3(1.0f,1.0f,1.0f),
                             const vec4 &color = vec4(1.0f,1.0f,1.0f,1.0f));
-        ~DebugDrawWireSphere();
+        ~DebugDrawWireSphere() override;
 };
 
 class DebugDrawCircle : public DebugDrawWire {
@@ -266,7 +266,7 @@ class DebugDrawWireCylinder : public DebugDrawWire {
                               const float radius,
                               const float height,
                               const vec4 &color);
-        ~DebugDrawWireCylinder();
+        ~DebugDrawWireCylinder() override;
 };
 
 

@@ -32,16 +32,16 @@
 class LightVolumeObject: public Object
 {
 public:
-    virtual EntityType GetType() const { return _light_volume_object; }
-    virtual bool Initialize();
+    EntityType GetType() const override { return _light_volume_object; }
+    bool Initialize() override;
 
-    virtual void Moved(Object::MoveType type);
-    virtual void Dispose();
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc( const EntityDescription& desc );
+    void Moved(Object::MoveType type) override;
+    void Dispose() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
     LightVolumeObject();
-    void Draw();
-    virtual ~LightVolumeObject();
+    void Draw() override;
+    ~LightVolumeObject() override;
 
     bool dirty;
 };

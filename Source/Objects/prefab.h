@@ -38,18 +38,18 @@ public:
 
     vec3 original_scale_;
 
-    bool Initialize();
-    virtual EntityType GetType() const { return _prefab; }
+    bool Initialize() override;
+    EntityType GetType() const override { return _prefab; }
 
-    virtual void GetDisplayName(char* buf, int buf_size);
+    void GetDisplayName(char* buf, int buf_size) override;
 
-    virtual bool SetFromDesc( const EntityDescription &desc );
-    virtual void GetDesc(EntityDescription &desc) const;
-    virtual void InfrequentUpdate();
+    bool SetFromDesc( const EntityDescription &desc ) override;
+    void GetDesc(EntityDescription &desc) const override;
+    void InfrequentUpdate() override;
 
-    virtual void InitShape();
+    void InitShape() override;
 
-    virtual bool LockedChildren();
+    bool LockedChildren() override;
 
-    virtual ObjectSanityState GetSanity();
+    ObjectSanityState GetSanity() override;
 };

@@ -44,7 +44,7 @@ private:
     };
 public:
     ASDebugger();
-    ~ASDebugger();
+    ~ASDebugger() override;
 
     void SetModule(ASModule* module);
 
@@ -52,7 +52,7 @@ public:
 
     void Break();
 
-    void LineCallback(asIScriptContext* ctx);
+    void LineCallback(asIScriptContext* ctx) override;
 
     void ToggleBreakpoint(const char* file_name, int line);
     void AddBreakpoint(const char* file_name, int line);

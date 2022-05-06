@@ -30,8 +30,8 @@ class JobHandler;
 class VoidSeeker : public SeekerBase
 {
 public:
-    virtual std::vector<Item> Search( const Item& item );
-    virtual inline const char* GetName()
+    std::vector<Item> Search( const Item& item ) override;
+    inline const char* GetName() override
     {
         return "void";
     }

@@ -118,7 +118,7 @@ public:
     std::vector<OcclusionState> occlusion_states;
     std::vector<OcclusionQuery> occlusion_queries;
 
-    virtual EntityType GetType() const { return _movement_object; }
+    EntityType GetType() const override { return _movement_object; }
     bool controlled;
     bool remote;
     bool was_controlled;
@@ -174,35 +174,35 @@ public:
     float last_walltime_diff = 0.0f;
 
     MovementObject();
-    virtual ~MovementObject();
+    ~MovementObject() override;
 
-    bool Initialize();
+    bool Initialize() override;
 	bool InitializeMultiplayer();
-    void GetShaderNames(std::map<std::string, int>& shaders);
+    void GetShaderNames(std::map<std::string, int>& shaders) override;
 
-    void Update(float timestep);
-    void Draw();
+    void Update(float timestep) override;
+    void Draw() override;
     void ClientBeforeDraw();
     virtual void HandleTransformationOccured();
-    void PreDrawFrame(float curr_game_time);
+    void PreDrawFrame(float curr_game_time) override;
 
-	virtual void Reload();
+	void Reload() override;
 	void ActualPreDraw(float curr_game_time);
-    virtual void NotifyDeleted(Object* other);
-    virtual bool ConnectTo(Object& other, bool checking_other = false);
-    virtual bool AcceptConnectionsFrom(ConnectionType type, Object& object);
-    virtual bool Disconnect(Object& other, bool from_socket = false, bool checking_other = false);
-    void FinalizeLoadedConnections();
-    void GetDesc(EntityDescription &desc) const;
-    virtual bool SetFromDesc(const EntityDescription &desc);
+    void NotifyDeleted(Object* other) override;
+    bool ConnectTo(Object& other, bool checking_other = false) override;
+    bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
+    bool Disconnect(Object& other, bool from_socket = false, bool checking_other = false) override;
+    void FinalizeLoadedConnections() override;
+    void GetDesc(EntityDescription &desc) const override;
+    bool SetFromDesc(const EntityDescription &desc) override;
     void ChangeControlScript(const std::string &script_path);
     void CollideWith( MovementObject* other );
     void ASSetScriptUpdatePeriod(int val);
     bool HasFunction(const std::string& function_definition);
     int QueryIntFunction(std::string func);
-    void SetScriptParams( const ScriptParamMap& spm );
+    void SetScriptParams( const ScriptParamMap& spm ) override;
     void ApplyPalette( const OGPalette& palette, bool from_socket = false );
-    OGPalette *GetPalette();
+    OGPalette *GetPalette() override;
     void HitByItem( int id, const vec3 &point, const std::string &material, int type );
     void Execute(std::string);
     float ASGetFloatVar( std::string name );
@@ -214,20 +214,20 @@ public:
     void ASSetArrayIntVar( std::string name, int index, int value );
     void ASSetFloatVar( std::string name, float value );
     void ASSetBoolVar( std::string name, bool value );
-    void Dispose( );
+    void Dispose( ) override;
     bool ASOnSameTeam(MovementObject* other);
     void AttachItemToSlot( int which, AttachmentType type, bool mirrored );
     void AttachItemToSlotEditor( int which, AttachmentType type, bool mirrored, const AttachmentRef& attachment_ref, bool from_socket = false );
     void RemovePhysicsShapes();
     void ReceiveMessage(std::string msg);
-    void UpdateScriptParams();
+    void UpdateScriptParams() override;
     void SetRotationFromFacing(vec3 facing);
-    virtual void GetDisplayName(char* buf, int buf_size);
+    void GetDisplayName(char* buf, int buf_size) override;
     RiggedObject* rigged_object();
 
-    virtual void RemapReferences(std::map<int,int> id_map);
+    void RemapReferences(std::map<int,int> id_map) override;
 
-    virtual void GetConnectionIDs(std::vector<int>* cons);
+    void GetConnectionIDs(std::vector<int>* cons) override;
 
     void UpdatePaused();
     int AboutToBeHitByItem(int id);
@@ -302,9 +302,9 @@ private:
     void ReInitializeASFunctions();
 
 	void RegisterMPCallbacks() const;
-    void Collided( const vec3& pos, float impulse, const CollideInfo &collide_info, BulletObject* object );
-    void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type);
-    void PreDrawCamera(float curr_game_time);
+    void Collided( const vec3& pos, float impulse, const CollideInfo &collide_info, BulletObject* object ) override;
+    void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type) override;
+    void PreDrawCamera(float curr_game_time) override;
     void GoLimp();
     void ApplyForce(vec3 force);
     void Ragdoll();
@@ -327,7 +327,7 @@ private:
     void HandleMaterialEventDefault(std::string the_event, vec3 event_pos);
     void ForceSoundGroupVoice(std::string path, float delay);
     int GetWaypointTarget();
-    void Reset(); 
+    void Reset() override; 
     void SetRotationFromEditorTransform();
     void ASSetCharAnimation(std::string path, float fade_speed, char flags);
     void ASSetCharAnimation(std::string path, float fade_speed);
@@ -337,19 +337,19 @@ private:
     static void InvalidatedItemCallback(ItemObjectScriptReader *invalidated, void* this_ptr);
     void ASDetachAllItems();
     bool OnTeam(const std::string &other_team);
-    virtual void SetEnabled(bool val);
+    void SetEnabled(bool val) override;
     void AttachItemToSlotAttachmentRef( int which, AttachmentType type, bool mirrored, const AttachmentRef* ref, bool from_socket = false );
     void AddToAttackHistory(const std::string &str);
     float CheckAttackHistory( const std::string &str);
     void ClearAttackHistory();
-    virtual void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args );
+    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
     void OverrideCharAnim(const std::string &label, const std::string &new_path);
     void UpdateWeapons();
-    virtual void Moved(Object::MoveType type);
-    void ChildLost(Object* obj);
-    virtual void GetChildren(std::vector<Object*>* ret_children);
-    virtual void GetBottomUpCompleteChildren(std::vector<Object*>* ret_children);
-    virtual bool IsMultiplayerSupported();
+    void Moved(Object::MoveType type) override;
+    void ChildLost(Object* obj) override;
+    void GetChildren(std::vector<Object*>* ret_children) override;
+    void GetBottomUpCompleteChildren(std::vector<Object*>* ret_children) override;
+    bool IsMultiplayerSupported() override;
     void RegenerateNametag();
     void DrawNametag();
 

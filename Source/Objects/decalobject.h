@@ -38,18 +38,18 @@ class DecalEditor;
 
 class DecalObject : public Object {
 public:
-    virtual EntityType GetType() const { return _decal_object; }
+    EntityType GetType() const override { return _decal_object; }
     DecalObject();
-    bool Initialize();
-    virtual void Dispose();
-    virtual void GetDisplayName(char* buf, int buf_size);
-    virtual void Draw();
-    virtual bool SetFromDesc( const EntityDescription& desc );
-    virtual void GetDesc(EntityDescription &desc) const;
+    bool Initialize() override;
+    void Dispose() override;
+    void GetDisplayName(char* buf, int buf_size) override;
+    void Draw() override;
+    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription &desc) const override;
     void Load( const std::string& type_file );
-    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args );
+    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
 
-    virtual void PreDrawFrame(float curr_game_time);
+    void PreDrawFrame(float curr_game_time) override;
     ColorTintComponent color_tint_component_;
     float spawn_time_;
     
