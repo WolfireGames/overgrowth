@@ -49,7 +49,7 @@ Path FindImagePath( const char* path, PathFlagsBitfield flags = kAnyPath, bool i
 Path FindFilePath( const std::string& path, PathFlagsBitfield flags = kAnyPath, bool is_necessary = true );
 Path FindFilePath( const char* path, PathFlagsBitfield flags = kAnyPath, bool is_necessary = true );
 
-int FindImagePath( const char* path, char* buf, int buf_size, PathFlagsBitfield flags, bool is_necessary = true, PathFlags* resulting_path = NULL, bool allow_crn = true, ModID* modsource = NULL);
+int FindImagePath( const char* path, char* buf, int buf_size, PathFlagsBitfield flags, bool is_necessary = true, PathFlags* resulting_path = NULL, bool allow_crn = true, bool allow_dds = true, ModID* modsource = NULL);
 int FindFilePath(const char* path, char* buf, int buf_size, PathFlagsBitfield flags, bool is_necessary = true, PathFlags* resulting_path = NULL, ModID* modsource = NULL);
 int FindFilePaths(const char* path, char* bufs, int buf_size, int num_bufs, PathFlagsBitfield flags, bool is_necessary, PathFlags* resulting_paths, ModID* modsourceids );
 void AddPath(const char* path, PathFlags type);

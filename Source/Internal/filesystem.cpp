@@ -178,7 +178,7 @@ const int overgrowth_dds_cache_version = 1;
 //The case for looking for both the normal image and the converted became so common I felt the need for this simplification.
 
 //Currently ignoring the modsource, should set it to the correct source if it's not null TODO
-int FindImagePath( const char* path, char* buf, int buf_size, PathFlagsBitfield flags, bool is_necessary, PathFlags* resulting_path, bool allow_crn, ModID* modsource )
+int FindImagePath( const char* path, char* buf, int buf_size, PathFlagsBitfield flags, bool is_necessary, PathFlags* resulting_path, bool allow_crn, bool allow_dds, ModID* modsource )
 {
     const char* fallback = "Data/Textures/error.tga";
     // We might want a converted image, let's assume it's priority for reasons like performance
@@ -192,7 +192,10 @@ int FindImagePath( const char* path, char* buf, int buf_size, PathFlagsBitfield 
     ModID dds_modsources[kMaxPaths];
     PathFlags orig_flags[kMaxPaths];
     ModID orig_modsources[kMaxPaths];
-    int num_dds_paths_found = FindFilePaths( dds_converted.c_str(), dds_paths, buf_size, kMaxPaths, flags, false, dds_flags, dds_modsources );
+    int num_dds_paths_found = 0;
+    if( allow_dds) {
+        num_dds_paths_found = FindFilePaths( dds_converted.c_str(), dds_paths, buf_size, kMaxPaths, flags, false, dds_flags, dds_modsources );
+    }
     if (num_dds_paths_found == 0 && allow_crn) {
         num_dds_paths_found = FindFilePaths( crn_converted.c_str(), dds_paths, buf_size, kMaxPaths, flags, false, dds_flags, dds_modsources );
     }

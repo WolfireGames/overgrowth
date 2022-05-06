@@ -56,7 +56,7 @@ int AverageColor::Load( const string& rel_path, uint32_t load_flags ) {
     
     char abs_path[kPathSize];
     ModID modsource;
-    if(FindImagePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths, true, NULL, true, &modsource) == -1){
+    if(FindImagePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths, true, NULL, true, true, &modsource) == -1){
         //FatalError("Error", "Could not get average color of %s", rel_path.c_str());
         return kLoadErrorMissingFile;
     }
