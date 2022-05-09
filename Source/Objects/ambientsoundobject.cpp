@@ -34,7 +34,7 @@
 #include <Objects/group.h>
 
 #include <Sound/sound.h>
-#include <Asset/Asset//ambientsounds.h>
+#include <Asset/Asset/ambientsounds.h>
 #include <Main/scenegraph.h>
 
 #include <tinyxml.h>
