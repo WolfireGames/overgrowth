@@ -30,10 +30,9 @@
 class JobHandler;
 class Item;
 
-class CreatorBase
-{
-    public:
-        virtual ManifestResult Run(const JobHandler& jh, const Manifest& manifest ) = 0;
-        virtual const char* GetName() const = 0;
-        virtual const char* GetVersion() const  = 0;
+class CreatorBase {
+   public:
+    virtual ManifestResult Run(const JobHandler& jh, const Manifest& manifest) = 0;
+    virtual const char* GetName() const = 0;
+    virtual const char* GetVersion() const = 0;
 };

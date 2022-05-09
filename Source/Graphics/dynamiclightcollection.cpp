@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: dynamiclightcollection.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -47,9 +47,9 @@ DynamicLightCollection::DynamicLightCollection() {
 DynamicLightCollection::~DynamicLightCollection() {
 }
 
-int DynamicLightCollection::AddLight(const vec3& pos, const vec3 &color, float radius) {
-	dynamic_lights.resize(dynamic_lights.size() + 1);
-    DynamicLight &light = dynamic_lights.back();
+int DynamicLightCollection::AddLight(const vec3& pos, const vec3& color, float radius) {
+    dynamic_lights.resize(dynamic_lights.size() + 1);
+    DynamicLight& light = dynamic_lights.back();
     light.pos = pos;
     light.id = next_id++;
     light.color = color;
@@ -59,7 +59,7 @@ int DynamicLightCollection::AddLight(const vec3& pos, const vec3 &color, float r
 
 bool DynamicLightCollection::MoveLight(int id, const vec3& pos) {
     DynamicLight* light = GetLightFromID(id);
-    if(light){
+    if (light) {
         light->pos = pos;
         return true;
     } else {
@@ -68,8 +68,8 @@ bool DynamicLightCollection::MoveLight(int id, const vec3& pos) {
 }
 
 bool DynamicLightCollection::DeleteLight(int id) {
-    for(int i=0, len=dynamic_lights.size(); i<len; ++i){
-        if(dynamic_lights[i].id == id) {
+    for (int i = 0, len = dynamic_lights.size(); i < len; ++i) {
+        if (dynamic_lights[i].id == id) {
             dynamic_lights.erase(dynamic_lights.begin() + i);
             return true;
         }
@@ -84,8 +84,8 @@ void DynamicLightCollection::Dispose() {
 }
 
 DynamicLight* DynamicLightCollection::GetLightFromID(int id) {
-    for(auto & dynamic_light : dynamic_lights){
-        if(dynamic_light.id == id) {
+    for (auto& dynamic_light : dynamic_lights) {
+        if (dynamic_light.id == id) {
             return &dynamic_light;
         }
     }

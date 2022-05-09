@@ -24,9 +24,8 @@
 
 #include <Sound/al_audio.h>
 
-class ambientSound : public AudioEmitter
-{
-public:
+class ambientSound : public AudioEmitter {
+   public:
     ambientSound(float volume = 1.0f);
 
     /// Set to false to allow the emitter to time out (useful only on non-looping sounds)
@@ -36,7 +35,7 @@ public:
     const vec3 GetPosition() override;
     const vec3 GetOcclusionPosition() override;
     void GetDirection(vec3 &p) override;
-    const vec3& GetVelocity() override;
+    const vec3 &GetVelocity() override;
 
     /// allows you to change the global alAudio pitch multiplier for this sound
     float GetPitchMultiplier() override;
@@ -51,7 +50,7 @@ public:
     void SetPitch(float pitch);
     bool IsTransient() override { return false; }
 
-private:
+   private:
     float m_volume;
     float m_pitch;
     vec3 m_velocity;

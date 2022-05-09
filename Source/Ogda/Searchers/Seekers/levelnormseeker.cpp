@@ -24,14 +24,14 @@
 #include "Internal/filesystem.h"
 #include "Logging/logdata.h"
 
-std::vector<Item> LevelNormSeeker::Search(const Item& item ) {
+std::vector<Item> LevelNormSeeker::Search(const Item& item) {
     std::vector<Item> items;
     const std::string full_path = item.GetAbsPath();
 
     std::string col_full_path = full_path + ".col_norm.zip";
-    if( CheckFileAccess(col_full_path.c_str()) ) {
-        items.push_back(Item(item.input_folder, item.GetPath() + ".col_norm.zip", "level_norm", item.source ));
+    if (CheckFileAccess(col_full_path.c_str())) {
+        items.push_back(Item(item.input_folder, item.GetPath() + ".col_norm.zip", "level_norm", item.source));
     }
-    
+
     return items;
 }

@@ -24,53 +24,40 @@
 
 #include <cstring>
 
-voidLoader::voidLoader()
-{
+voidLoader::voidLoader() {
 }
 
-voidLoader::~voidLoader()
-{
-
+voidLoader::~voidLoader() {
 }
 
-int voidLoader::stream_buffer_int16( char* buffer, int size )
-{
+int voidLoader::stream_buffer_int16(char* buffer, int size) {
     ::memset(buffer, 0, size);
     return size;
 }
 
-unsigned long voidLoader::get_sample_count()
-{
+unsigned long voidLoader::get_sample_count() {
     return 22000;
 }
 
-unsigned long voidLoader::get_channels()
-{
+unsigned long voidLoader::get_channels() {
     return 2;
 }
 
-int voidLoader::get_sample_rate()
-{
+int voidLoader::get_sample_rate() {
     return 44100;
 }
 
-int voidLoader::rewind()
-{
+int voidLoader::rewind() {
     return 0;
 }
 
-bool voidLoader::is_at_end()
-{
+bool voidLoader::is_at_end() {
     return true;
 }
 
-int64_t voidLoader::get_pcm_pos()
-{
+int64_t voidLoader::get_pcm_pos() {
     return 0;
 }
 
-void voidLoader::set_pcm_pos( int64_t pos )
-{
-    
+void voidLoader::set_pcm_pos(int64_t pos) {
 }
-

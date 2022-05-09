@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: send_level_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,17 +29,17 @@
 using std::string;
 
 namespace OnlineMessages {
-    class SendLevelMessage : public OnlineMessageBase {
-    private:
-        string msg;
+class SendLevelMessage : public OnlineMessageBase {
+   private:
+    string msg;
 
-    public:
-        SendLevelMessage(string msg);
+   public:
+    SendLevelMessage(string msg);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

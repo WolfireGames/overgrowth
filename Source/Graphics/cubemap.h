@@ -29,7 +29,8 @@
 #include <Asset/Asset/texture.h>
 
 namespace Cubemap {
-    enum HemisphereEnabled {HEMISPHERE, SPHERE};
+enum HemisphereEnabled { HEMISPHERE,
+                         SPHERE };
 }
 
 mat4 GetCubeMapRotation(int i);

@@ -48,77 +48,77 @@ using namespace Dialog;
 
 #ifdef _WIN32
 static DialogErr SetUpWindowsFilterString(wchar_t* buffer, int buffer_size, int BUFFER_SIZE, const wchar_t* extension) {
-	size_t cur_len = 0;
+    size_t cur_len = 0;
 
-	// Build description string, e.g.: "(*.tga; *.jpg; *.dds)\0*.tga;*.jpg;*.dds"
-	if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L"(") != S_OK)
-		return INTERNAL_BUFFER_TOO_SMALL;
-	cur_len += wcslen(&buffer[cur_len]);
+    // Build description string, e.g.: "(*.tga; *.jpg; *.dds)\0*.tga;*.jpg;*.dds"
+    if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L"(") != S_OK)
+        return INTERNAL_BUFFER_TOO_SMALL;
+    cur_len += wcslen(&buffer[cur_len]);
 
-	for(size_t offset = 0; offset < buffer_size; ) {
-		if(offset > 0) {
-			if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L"; ") != S_OK)
-				return INTERNAL_BUFFER_TOO_SMALL;
-			cur_len += wcslen(&buffer[cur_len]);
-		}
+    for (size_t offset = 0; offset < buffer_size;) {
+        if (offset > 0) {
+            if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L"; ") != S_OK)
+                return INTERNAL_BUFFER_TOO_SMALL;
+            cur_len += wcslen(&buffer[cur_len]);
+        }
 
-		if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L"*.%s", &extension[offset]) != S_OK)
-			return INTERNAL_BUFFER_TOO_SMALL;
-		cur_len += wcslen(&buffer[cur_len]);
+        if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L"*.%s", &extension[offset]) != S_OK)
+            return INTERNAL_BUFFER_TOO_SMALL;
+        cur_len += wcslen(&buffer[cur_len]);
 
-		offset += wcslen(&extension[offset]) + 1;
-	}
+        offset += wcslen(&extension[offset]) + 1;
+    }
 
-	if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L")") != S_OK)
-		return INTERNAL_BUFFER_TOO_SMALL;
-	cur_len += wcslen(&buffer[cur_len]) + 1;
+    if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L")") != S_OK)
+        return INTERNAL_BUFFER_TOO_SMALL;
+    cur_len += wcslen(&buffer[cur_len]) + 1;
 
-	for(size_t offset = 0; offset < buffer_size; ) {
-		if(offset > 0) {
-			if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L";") != S_OK)
-				return INTERNAL_BUFFER_TOO_SMALL;
-			cur_len += wcslen(&buffer[cur_len]);
-		}
+    for (size_t offset = 0; offset < buffer_size;) {
+        if (offset > 0) {
+            if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L";") != S_OK)
+                return INTERNAL_BUFFER_TOO_SMALL;
+            cur_len += wcslen(&buffer[cur_len]);
+        }
 
-		if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L"*.%s", &extension[offset]) != S_OK)
-			return INTERNAL_BUFFER_TOO_SMALL;
-		cur_len += wcslen(&buffer[cur_len]);
+        if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L"*.%s", &extension[offset]) != S_OK)
+            return INTERNAL_BUFFER_TOO_SMALL;
+        cur_len += wcslen(&buffer[cur_len]);
 
-		offset += wcslen(&extension[offset]) + 1;
-	}
+        offset += wcslen(&extension[offset]) + 1;
+    }
 
-	// Separate filter from wildcard option with null
-	cur_len += 1;
+    // Separate filter from wildcard option with null
+    cur_len += 1;
 
-	// Add wildcard option description: "All Files (*.*)\0*.*"
-	if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L"All Files (*.*)") != S_OK)
-		return INTERNAL_BUFFER_TOO_SMALL;
-	cur_len += wcslen(&buffer[cur_len]) + 1;
+    // Add wildcard option description: "All Files (*.*)\0*.*"
+    if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L"All Files (*.*)") != S_OK)
+        return INTERNAL_BUFFER_TOO_SMALL;
+    cur_len += wcslen(&buffer[cur_len]) + 1;
 
-	if(StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE-(cur_len+1), L"*.*") != S_OK)
-		return INTERNAL_BUFFER_TOO_SMALL;
-	cur_len += wcslen(&buffer[cur_len]) + 1;
+    if (StringCbPrintfW(&buffer[cur_len], BUFFER_SIZE - (cur_len + 1), L"*.*") != S_OK)
+        return INTERNAL_BUFFER_TOO_SMALL;
+    cur_len += wcslen(&buffer[cur_len]) + 1;
 
-	// Add final double-null to end the list
-	buffer[cur_len] = '\0';
+    // Add final double-null to end the list
+    buffer[cur_len] = '\0';
 
-	return NO_ERR;
+    return NO_ERR;
 }
 
-static DialogErr FormatFullPath(wchar_t *buffer, int BUFFER_SIZE, const wchar_t* initial_dir) {
-    if(!_wgetcwd(buffer,BUFFER_SIZE)){
+static DialogErr FormatFullPath(wchar_t* buffer, int BUFFER_SIZE, const wchar_t* initial_dir) {
+    if (!_wgetcwd(buffer, BUFFER_SIZE)) {
         return GET_CWD_FAILED;
     }
-    if((int)(wcslen(buffer) + 1 + wcslen(initial_dir)) >= BUFFER_SIZE){
+    if ((int)(wcslen(buffer) + 1 + wcslen(initial_dir)) >= BUFFER_SIZE) {
         return INTERNAL_BUFFER_TOO_SMALL;
     }
-    wcscat(buffer,L"\\");
-    wcscat(buffer,initial_dir);
+    wcscat(buffer, L"\\");
+    wcscat(buffer, initial_dir);
     // Convert / to \ for Windows
-    for(int i=0; i<BUFFER_SIZE; i++){
-        if(buffer[i]=='\0'){
+    for (int i = 0; i < BUFFER_SIZE; i++) {
+        if (buffer[i] == '\0') {
             break;
-        } else if(buffer[i]=='/'){
+        } else if (buffer[i] == '/') {
             buffer[i] = '\\';
         }
     }
@@ -128,19 +128,19 @@ static DialogErr FormatFullPath(wchar_t *buffer, int BUFFER_SIZE, const wchar_t*
 
 static bool has_valid_dialogues = false;
 void Dialog::Initialize() {
-    #if PLATFORM_UNIX
-        #ifndef __APPLE__
-            has_valid_dialogues = gtk_init_check( NULL, NULL );
-        #else
-            has_valid_dialogues = true;
-        #endif
-    #else
-        has_valid_dialogues = true;
-    #endif
+#if PLATFORM_UNIX
+#ifndef __APPLE__
+    has_valid_dialogues = gtk_init_check(NULL, NULL);
+#else
+    has_valid_dialogues = true;
+#endif
+#else
+    has_valid_dialogues = true;
+#endif
 }
 
-DialogErr Dialog::readFile( const char* extension, int extension_count, const char* initial_dir, char *path_buffer, int PATH_BUFFER_SIZE) {
-    if( has_valid_dialogues == false ) {
+DialogErr Dialog::readFile(const char* extension, int extension_count, const char* initial_dir, char* path_buffer, int PATH_BUFFER_SIZE) {
+    if (has_valid_dialogues == false) {
         LOGE << "Dialogue system was not initialized" << std::endl;
         return UNKNOWN_ERR;
     }
@@ -150,40 +150,36 @@ DialogErr Dialog::readFile( const char* extension, int extension_count, const ch
 #if PLATFORM_UNIX
 #ifndef __APPLE__
 
-    GtkWidget *dialog;
+    GtkWidget* dialog;
     DialogErr err;
-    dialog = gtk_file_chooser_dialog_new ("Open File",
-                          NULL,
-                          GTK_FILE_CHOOSER_ACTION_OPEN,
-                          GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                          GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
-                          NULL);
+    dialog = gtk_file_chooser_dialog_new("Open File",
+                                         NULL,
+                                         GTK_FILE_CHOOSER_ACTION_OPEN,
+                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                         GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
+                                         NULL);
 
-    if( initial_dir )
-    {
-        gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), initial_dir);
+    if (initial_dir) {
+        gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog), initial_dir);
     }
 
-    if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
-    {
-        char *filename;
-        filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+        char* filename;
+        filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 
         int target_size = snprintf(path_buffer, PATH_BUFFER_SIZE, "%s", filename);
-        if((int)strlen(path_buffer) < target_size){
+        if ((int)strlen(path_buffer) < target_size) {
             err = USER_BUFFER_TOO_SMALL;
         }
         err = NO_ERR;  // TODO: This clobbers the previous error. Should it be removed? Should it be placed before the if?
 
-        g_free (filename);
-    }
-    else
-    {
+        g_free(filename);
+    } else {
         err = NO_SELECTION;
     }
 
     gtk_widget_hide(dialog);
-    gtk_widget_destroy (dialog);
+    gtk_widget_destroy(dialog);
     while (gtk_events_pending()) gtk_main_iteration();
     return err;
 #else
@@ -192,11 +188,11 @@ DialogErr Dialog::readFile( const char* extension, int extension_count, const ch
     char* filename = NULL;
     DialogErr err = OsFileDialogsMac::OpenDialog(extension, initial_dir, &filename);
 
-    if(err == NO_ERR) {
-        if(filename != NULL) {
+    if (err == NO_ERR) {
+        if (filename != NULL) {
             int target_size = snprintf(path_buffer, PATH_BUFFER_SIZE, "%s", filename);
 
-            if((int)strlen(path_buffer) < target_size) {
+            if ((int)strlen(path_buffer) < target_size) {
                 err = USER_BUFFER_TOO_SMALL;
             }
 
@@ -211,46 +207,46 @@ DialogErr Dialog::readFile( const char* extension, int extension_count, const ch
     return err;
 #endif
 #else
-    //Get the initial home directory
+    // Get the initial home directory
     wchar_t initial_working_directory[kPathSize];
-    if(!_wgetcwd(initial_working_directory,kPathSize)){
+    if (!_wgetcwd(initial_working_directory, kPathSize)) {
         return GET_CWD_FAILED;
     }
 
     wchar_t wide_extension[kPathSize];
-	size_t length = 0;
-	for(int i = 0; i < extension_count; ++i) {
-		length += strlen(&extension[length]) + 1;
-	}
+    size_t length = 0;
+    for (int i = 0; i < extension_count; ++i) {
+        length += strlen(&extension[length]) + 1;
+    }
 
-    MultiByteToWideChar(CP_UTF8, 0, extension, (int) length, wide_extension, kPathSize);
+    MultiByteToWideChar(CP_UTF8, 0, extension, (int)length, wide_extension, kPathSize);
 
     // Create string specifying file types that can be opened
     wchar_t buffer[kPathSize];
-    DialogErr err = SetUpWindowsFilterString(buffer, (int) length, kPathSize, wide_extension);
-    if(err != NO_ERR){
+    DialogErr err = SetUpWindowsFilterString(buffer, (int)length, kPathSize, wide_extension);
+    if (err != NO_ERR) {
         return err;
     }
 
-    //Set up file name structure
+    // Set up file name structure
     OPENFILENAMEW ofn = {0};
     wchar_t szFileName[MAX_PATH] = L"";
     ofn.lpstrFile = szFileName;
     ofn.lStructSize = sizeof(ofn);
     ofn.hwndOwner = NULL;
-    ofn.lpstrFilter= buffer;
+    ofn.lpstrFilter = buffer;
     ofn.nMaxFile = MAX_PATH;
     ofn.Flags = OFN_FILEMUSTEXIST;
     ofn.lpstrDefExt = wide_extension;
 
     // Convert / to \ in path; Windows is picky about that
-    for(char* c = initial_dir_abs_path; *c!='\0'; ++c){
-        if(*c == '/'){
+    for (char* c = initial_dir_abs_path; *c != '\0'; ++c) {
+        if (*c == '/') {
             *c = '\\';
         }
     }
 
-    if(initial_dir){
+    if (initial_dir) {
         wchar_t wide_initial_dir[kPathSize];
         MultiByteToWideChar(CP_UTF8, 0, initial_dir_abs_path, -1, wide_initial_dir, kPathSize);
         ofn.lpstrInitialDir = wide_initial_dir;
@@ -258,23 +254,23 @@ DialogErr Dialog::readFile( const char* extension, int extension_count, const ch
         ofn.lpstrInitialDir = NULL;
     }
 
-    //Open "Open..." dialogue box
+    // Open "Open..." dialogue box
     BOOL selected = GetOpenFileNameW(&ofn);
 
     // Restore initial working directory
     _wchdir(initial_working_directory);
 
-    if(!selected) {
+    if (!selected) {
         return NO_SELECTION;
     } else {
-        for(size_t i = 0; i < MAX_PATH; ++i) {
-            if(szFileName[i] == '\\')
+        for (size_t i = 0; i < MAX_PATH; ++i) {
+            if (szFileName[i] == '\\')
                 szFileName[i] = '/';
-            else if(szFileName[i] == '\0')
+            else if (szFileName[i] == '\0')
                 break;
         }
         int target_size = WideCharToMultiByte(CP_UTF8, 0, szFileName, -1, NULL, NULL, NULL, NULL);
-        if(target_size > PATH_BUFFER_SIZE){
+        if (target_size > PATH_BUFFER_SIZE) {
             return USER_BUFFER_TOO_SMALL;
         }
         WideCharToMultiByte(CP_UTF8, 0, szFileName, -1, path_buffer, PATH_BUFFER_SIZE, NULL, NULL);
@@ -283,64 +279,56 @@ DialogErr Dialog::readFile( const char* extension, int extension_count, const ch
 #endif
 }
 
-DialogErr Dialog::writeFile( const char* extension, int extension_count, const char* initial_dir, char *path_buffer, int PATH_BUFFER_SIZE)
-{
-    if( has_valid_dialogues == false ) {
+DialogErr Dialog::writeFile(const char* extension, int extension_count, const char* initial_dir, char* path_buffer, int PATH_BUFFER_SIZE) {
+    if (has_valid_dialogues == false) {
         LOGE << "Dialogue system was not initialized" << std::endl;
         return UNKNOWN_ERR;
     }
 
 #if PLATFORM_UNIX
 #ifndef __APPLE__
-    GtkWidget *dialog;
+    GtkWidget* dialog;
     DialogErr err;
 
-    dialog = gtk_file_chooser_dialog_new ("Save File",
-                          NULL,
-                          GTK_FILE_CHOOSER_ACTION_SAVE,
-                          GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-                          GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
-                          NULL);
+    dialog = gtk_file_chooser_dialog_new("Save File",
+                                         NULL,
+                                         GTK_FILE_CHOOSER_ACTION_SAVE,
+                                         GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                                         GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+                                         NULL);
 
     gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(dialog), TRUE);
 
-    if (true) //user_edited_a_new_document)
+    if (true)  // user_edited_a_new_document)
     {
-        if( initial_dir )
-        {
-            gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), initial_dir);
+        if (initial_dir) {
+            gtk_file_chooser_set_current_folder(GTK_FILE_CHOOSER(dialog), initial_dir);
         }
 
-        gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (dialog), "");
-    }
-    else
-    {
-        if( initial_dir )
-        {
-            gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (dialog), initial_dir);
+        gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(dialog), "");
+    } else {
+        if (initial_dir) {
+            gtk_file_chooser_set_filename(GTK_FILE_CHOOSER(dialog), initial_dir);
         }
     }
 
-    if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
-    {
-        char *filename;
-        filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
+    if (gtk_dialog_run(GTK_DIALOG(dialog)) == GTK_RESPONSE_ACCEPT) {
+        char* filename;
+        filename = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog));
 
         int target_size = snprintf(path_buffer, PATH_BUFFER_SIZE, "%s", filename);
-        if((int)strlen(path_buffer) < target_size){
+        if ((int)strlen(path_buffer) < target_size) {
             err = USER_BUFFER_TOO_SMALL;
         }
         err = NO_ERR;
 
-        g_free (filename);
-    }
-    else
-    {
+        g_free(filename);
+    } else {
         err = NO_SELECTION;
     }
 
     gtk_widget_hide(dialog);
-    gtk_widget_destroy (dialog);
+    gtk_widget_destroy(dialog);
     while (gtk_events_pending()) gtk_main_iteration();
     return err;
 #else
@@ -349,11 +337,11 @@ DialogErr Dialog::writeFile( const char* extension, int extension_count, const c
     char* filename = NULL;
     DialogErr err = OsFileDialogsMac::SaveDialog(extension, initial_dir, &filename);
 
-    if(err == NO_ERR) {
-        if(filename != NULL) {
+    if (err == NO_ERR) {
+        if (filename != NULL) {
             int target_size = snprintf(path_buffer, PATH_BUFFER_SIZE, "%s", filename);
 
-            if((int)strlen(path_buffer) < target_size) {
+            if ((int)strlen(path_buffer) < target_size) {
                 err = USER_BUFFER_TOO_SMALL;
             }
 
@@ -366,68 +354,68 @@ DialogErr Dialog::writeFile( const char* extension, int extension_count, const c
     UIShowCursor(false);
 
     return err;
-#endif    
+#endif
 #else
-    //Get the initial home directory
+    // Get the initial home directory
     wchar_t initial_working_directory[kPathSize];
-    if(!_wgetcwd(initial_working_directory,kPathSize)){
+    if (!_wgetcwd(initial_working_directory, kPathSize)) {
         return GET_CWD_FAILED;
     }
 
-	wchar_t wide_extension[kPathSize];
-	size_t length = 0;
-	for(int i = 0; i < extension_count; ++i) {
-		length += strlen(&extension[length]) + 1;
-	}
+    wchar_t wide_extension[kPathSize];
+    size_t length = 0;
+    for (int i = 0; i < extension_count; ++i) {
+        length += strlen(&extension[length]) + 1;
+    }
 
-	MultiByteToWideChar(CP_UTF8, 0, extension, (int) length, wide_extension, kPathSize);
+    MultiByteToWideChar(CP_UTF8, 0, extension, (int)length, wide_extension, kPathSize);
 
-	// Create string specifying file types that can be opened
-	wchar_t buffer[kPathSize];
-	DialogErr err = SetUpWindowsFilterString(buffer, (int) length, kPathSize, wide_extension);
-	if(err != NO_ERR){
-		return err;
-	}    
-    //Set up file name structure
+    // Create string specifying file types that can be opened
+    wchar_t buffer[kPathSize];
+    DialogErr err = SetUpWindowsFilterString(buffer, (int)length, kPathSize, wide_extension);
+    if (err != NO_ERR) {
+        return err;
+    }
+    // Set up file name structure
     OPENFILENAMEW ofn;
     wchar_t szFileName[MAX_PATH] = L"";
     ZeroMemory(&ofn, sizeof(ofn));
     ofn.lStructSize = sizeof(ofn);
-    ofn.hwndOwner = NULL;    
-    ofn.lpstrFilter= buffer;
+    ofn.hwndOwner = NULL;
+    ofn.lpstrFilter = buffer;
     ofn.lpstrFile = szFileName;
     ofn.nMaxFile = MAX_PATH;
     ofn.Flags = OFN_HIDEREADONLY | OFN_OVERWRITEPROMPT;
     ofn.lpstrDefExt = wide_extension;
-    
+
     wchar_t wide_initial_dir[kPathSize];
     length = MultiByteToWideChar(CP_UTF8, 0, initial_dir, -1, NULL, NULL);
-    if(length > kPathSize)
+    if (length > kPathSize)
         return INTERNAL_BUFFER_TOO_SMALL;
     MultiByteToWideChar(CP_UTF8, 0, initial_dir, -1, wide_initial_dir, kPathSize);
 
     wchar_t full_path[kPathSize];
-    if(initial_dir){
+    if (initial_dir) {
         err = FormatFullPath(full_path, kPathSize, wide_initial_dir);
-        if(err != NO_ERR){
+        if (err != NO_ERR) {
             return err;
         }
         ofn.lpstrInitialDir = full_path;
     } else {
         ofn.lpstrInitialDir = NULL;
     }
-        
-    //Open "Save as..." dialogue box
+
+    // Open "Save as..." dialogue box
     BOOL selected = GetSaveFileNameW(&ofn);
 
-    //Restore the home directory
+    // Restore the home directory
     _wchdir(initial_working_directory);
 
-    if(!selected) {
+    if (!selected) {
         return NO_SELECTION;
     } else {
         int target_size = WideCharToMultiByte(CP_UTF8, 0, szFileName, -1, NULL, NULL, NULL, NULL);
-        if(target_size > PATH_BUFFER_SIZE){
+        if (target_size > PATH_BUFFER_SIZE) {
             return USER_BUFFER_TOO_SMALL;
         }
         WideCharToMultiByte(CP_UTF8, 0, szFileName, -1, path_buffer, PATH_BUFFER_SIZE, NULL, NULL);

@@ -26,13 +26,11 @@
 
 class TiXmlHandle;
 
-class DecalSeeker : public XMLSeekerBase
-{
-public:
-    std::vector<Item> SearchXML( const Item& item, TiXmlDocument& doc ) override;
+class DecalSeeker : public XMLSeekerBase {
+   public:
+    std::vector<Item> SearchXML(const Item& item, TiXmlDocument& doc) override;
 
-    inline const char* GetName() override
-    {
+    inline const char* GetName() override {
         return "decal_seeker";
     }
 };

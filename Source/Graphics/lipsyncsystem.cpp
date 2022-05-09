@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: lipsyncsystem.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,49 +29,48 @@
 
 #include <iostream>
 
-LipSyncSystem::LipSyncSystem()
-{
+LipSyncSystem::LipSyncSystem() {
     const char* rel_path = "Data/Sounds/voice/phonemes.txt";
     char abs_path[kPathSize];
     FindFilePath(rel_path, abs_path, kPathSize, kDataPaths | kModPaths);
     std::ifstream file;
     my_ifstream_open(file, abs_path);
-    if(file.fail()){
+    if (file.fail()) {
         FatalError("Error", "Could not open phonemes file: %s", rel_path);
     }
-    
-    // Create 3 maps that map a phoneme string to a viseme id 
+
+    // Create 3 maps that map a phoneme string to a viseme id
     // for 9, 12 or 17 visemes
     phn2vis.resize(3);
     vis2phn.resize(3);
     char the_char;
     std::string label;
     int level = 0;
-    int group[3] = {-1,-1,-1};
-    while(!file.eof()){
+    int group[3] = {-1, -1, -1};
+    while (!file.eof()) {
         file.get(the_char);
-        if(the_char == '\n' || the_char == ' '){
+        if (the_char == '\n' || the_char == ' ') {
             continue;
         }
-        if(the_char == '['){
+        if (the_char == '[') {
             ++group[level];
             ++level;
             continue;
         }
-        if(the_char == ']' || the_char == ','){
-            if(!label.empty()){
-                for(int i=0; i<3; ++i){
-                    phn2vis[i][label]=group[i];
-                    vis2phn[i][group[i]]=label;
+        if (the_char == ']' || the_char == ',') {
+            if (!label.empty()) {
+                for (int i = 0; i < 3; ++i) {
+                    phn2vis[i][label] = group[i];
+                    vis2phn[i][group[i]] = label;
                 }
                 label.clear();
             }
-            if(the_char == ']'){
+            if (the_char == ']') {
                 --level;
             }
             continue;
         }
-        if(the_char == '\r'){
+        if (the_char == '\r') {
             continue;
         }
         label.push_back(the_char);

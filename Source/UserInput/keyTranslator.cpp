@@ -31,8 +31,7 @@
 #include <map>
 #include <vector>
 
-struct CStrCmp
-{
+struct CStrCmp {
     bool operator()(const char* lhs, const char* rhs) const {
         return std::strcmp(lhs, rhs) < 0;
     }
@@ -302,8 +301,7 @@ uint32_t SDL_SCANCODES[] = {
     SDL_SCANCODE_SLEEP,
 
     SDL_SCANCODE_APP1,
-    SDL_SCANCODE_APP2
-};
+    SDL_SCANCODE_APP2};
 
 /*
 uint32_t SDLKS[] = {
@@ -344,7 +342,7 @@ uint32_t SDLKS[] = {
     SDLK_GREATER,
     SDLK_QUESTION,
     SDLK_AT,
-    
+
     SDLK_LEFTBRACKET,
     SDLK_BACKSLASH,
     SDLK_RIGHTBRACKET,
@@ -377,9 +375,9 @@ uint32_t SDLKS[] = {
     SDLK_x,
     SDLK_y,
     SDLK_z,
-    
+
     SDLK_CAPSLOCK,
-    
+
     SDLK_F1,
     SDLK_F2,
     SDLK_F3,
@@ -392,7 +390,7 @@ uint32_t SDLKS[] = {
     SDLK_F10,
     SDLK_F11,
     SDLK_F12,
-    
+
     SDLK_PRINTSCREEN,
     SDLK_SCROLLLOCK,
     SDLK_PAUSE,
@@ -406,7 +404,7 @@ uint32_t SDLKS[] = {
     SDLK_LEFT,
     SDLK_DOWN,
     SDLK_UP,
-    
+
     SDLK_NUMLOCKCLEAR,
     SDLK_KP_DIVIDE,
     SDLK_KP_MULTIPLY,
@@ -424,7 +422,7 @@ uint32_t SDLKS[] = {
     SDLK_KP_9,
     SDLK_KP_0,
     SDLK_KP_PERIOD,
-    
+
     SDLK_APPLICATION,
     SDLK_POWER,
     SDLK_KP_EQUALS,
@@ -456,7 +454,7 @@ uint32_t SDLKS[] = {
     SDLK_VOLUMEDOWN,
     SDLK_KP_COMMA,
     SDLK_KP_EQUALSAS400,
-    
+
     SDLK_ALTERASE,
     SDLK_SYSREQ,
     SDLK_CANCEL,
@@ -469,7 +467,7 @@ uint32_t SDLKS[] = {
     SDLK_CLEARAGAIN,
     SDLK_CRSEL,
     SDLK_EXSEL,
-    
+
     SDLK_KP_00,
     SDLK_KP_000,
     SDLK_THOUSANDSSEPARATOR,
@@ -516,7 +514,7 @@ uint32_t SDLKS[] = {
     SDLK_KP_OCTAL,
     SDLK_KP_DECIMAL,
     SDLK_KP_HEXADECIMAL,
-    
+
     SDLK_LCTRL,
     SDLK_LSHIFT,
     SDLK_LALT,
@@ -525,9 +523,9 @@ uint32_t SDLKS[] = {
     SDLK_RSHIFT,
     SDLK_RALT,
     SDLK_RGUI,
-    
+
     SDLK_MODE,
-    
+
     SDLK_AUDIONEXT,
     SDLK_AUDIOPREV,
     SDLK_AUDIOSTOP,
@@ -545,7 +543,7 @@ uint32_t SDLKS[] = {
     SDLK_AC_STOP,
     SDLK_AC_REFRESH,
     SDLK_AC_BOOKMARKS,
-    
+
     SDLK_BRIGHTNESSDOWN,
     SDLK_BRIGHTNESSUP,
     SDLK_DISPLAYSWITCH,
@@ -562,160 +560,160 @@ static std::vector<char> key_translation_memory;
 void InitKeyTranslator() {
     keys.clear();
     key_translation_memory.resize(1024);
-    std::vector<std::pair<int,uint32_t> > offsets;
+    std::vector<std::pair<int, uint32_t> > offsets;
 
     size_t cur_index = 0;
-    for(unsigned int & i : SDL_SCANCODES) {
-        const char* scancodename = SDL_GetScancodeName((SDL_Scancode)i);  
+    for (unsigned int& i : SDL_SCANCODES) {
+        const char* scancodename = SDL_GetScancodeName((SDL_Scancode)i);
         size_t memlen = strlen(scancodename) + 1;
-        if(cur_index + memlen > key_translation_memory.size()) {
-            key_translation_memory.resize(key_translation_memory.size()+1024);
+        if (cur_index + memlen > key_translation_memory.size()) {
+            key_translation_memory.resize(key_translation_memory.size() + 1024);
         }
         memcpy(&key_translation_memory[cur_index], scancodename, memlen);
         UTF8InPlaceLower(&key_translation_memory[cur_index]);
-        offsets.push_back(std::pair<int,uint32_t>(cur_index,i));
+        offsets.push_back(std::pair<int, uint32_t>(cur_index, i));
         cur_index += memlen;
     }
 
-    for(auto & offset : offsets) {
+    for (auto& offset : offsets) {
         keys.push_back(KeyPair(&key_translation_memory[offset.first], (SDL_Scancode)offset.second));
     }
 
     keys.push_back(KeyPair("backspace", SDL_SCANCODE_BACKSPACE));
-    keys.push_back(KeyPair("tab",SDL_SCANCODE_TAB));
-    keys.push_back(KeyPair("clear",SDL_SCANCODE_CLEAR));
-    keys.push_back(KeyPair("return",SDL_SCANCODE_RETURN));
-    keys.push_back(KeyPair("pause",SDL_SCANCODE_PAUSE));
-    keys.push_back(KeyPair("esc",SDL_SCANCODE_ESCAPE));
-    keys.push_back(KeyPair("space",SDL_SCANCODE_SPACE));
-    //keys.push_back(KeyPair("!",SDL_SCANCODE_EXCLAIM));
-    //keys.push_back(KeyPair("\"",SDL_SCANCODE_QUOTEDBL));
-    //keys.push_back(KeyPair("#",SDL_SCANCODE_HASH));
-    //keys.push_back(KeyPair("$",SDL_SCANCODE_DOLLAR));
-    //keys.push_back(KeyPair("&",SDL_SCANCODE_AMPERSAND));
-    //keys.push_back(KeyPair("\'",SDL_SCANCODE_QUOTE));
-    //keys.push_back(KeyPair("(",SDL_SCANCODE_LEFTPAREN));
-    //keys.push_back(KeyPair(")",SDL_SCANCODE_RIGHTPAREN));
-    //keys.push_back(KeyPair("*",SDL_SCANCODE_ASTERISK));
-    //keys.push_back(KeyPair("+",SDL_SCANCODE_PLUS));
-    keys.push_back(KeyPair(",",SDL_SCANCODE_COMMA));
-    keys.push_back(KeyPair("-",SDL_SCANCODE_MINUS));
-    keys.push_back(KeyPair(".",SDL_SCANCODE_PERIOD));
-    keys.push_back(KeyPair("/",SDL_SCANCODE_SLASH));
-    keys.push_back(KeyPair("0",SDL_SCANCODE_0));
-    keys.push_back(KeyPair("1",SDL_SCANCODE_1));
-    keys.push_back(KeyPair("2",SDL_SCANCODE_2));
-    keys.push_back(KeyPair("3",SDL_SCANCODE_3));
-    keys.push_back(KeyPair("4",SDL_SCANCODE_4));
-    keys.push_back(KeyPair("5",SDL_SCANCODE_5));
-    keys.push_back(KeyPair("6",SDL_SCANCODE_6));
-    keys.push_back(KeyPair("7",SDL_SCANCODE_7));
-    keys.push_back(KeyPair("8",SDL_SCANCODE_8));
-    keys.push_back(KeyPair("9",SDL_SCANCODE_9));
-    //keys.push_back(KeyPair(":",SDL_SCANCODE_COLON));
-    keys.push_back(KeyPair(";",SDL_SCANCODE_SEMICOLON));
-    //keys.push_back(KeyPair("<",SDL_SCANCODE_LESS));
-    keys.push_back(KeyPair("=",SDL_SCANCODE_EQUALS));
-    //keys.push_back(KeyPair(">",SDL_SCANCODE_GREATER));
-    //keys.push_back(KeyPair("?",SDL_SCANCODE_QUESTION));
-    //keys.push_back(KeyPair("@",SDL_SCANCODE_AT));
-    keys.push_back(KeyPair("[",SDL_SCANCODE_LEFTBRACKET));
-    keys.push_back(KeyPair("\\",SDL_SCANCODE_BACKSLASH));
-    keys.push_back(KeyPair("]",SDL_SCANCODE_RIGHTBRACKET));
-    //keys.push_back(KeyPair("^",SDL_SCANCODE_CARET));
-    //keys.push_back(KeyPair("_",SDL_SCANCODE_UNDERSCORE));
-    keys.push_back(KeyPair("`",SDL_SCANCODE_GRAVE));
-    keys.push_back(KeyPair("a",SDL_SCANCODE_A));
-    keys.push_back(KeyPair("b",SDL_SCANCODE_B));
-    keys.push_back(KeyPair("c",SDL_SCANCODE_C));
-    keys.push_back(KeyPair("d",SDL_SCANCODE_D));
-    keys.push_back(KeyPair("e",SDL_SCANCODE_E));
-    keys.push_back(KeyPair("f",SDL_SCANCODE_F));
-    keys.push_back(KeyPair("g",SDL_SCANCODE_G));
-    keys.push_back(KeyPair("h",SDL_SCANCODE_H));
-    keys.push_back(KeyPair("i",SDL_SCANCODE_I));
-    keys.push_back(KeyPair("j",SDL_SCANCODE_J));
-    keys.push_back(KeyPair("k",SDL_SCANCODE_K));
-    keys.push_back(KeyPair("l",SDL_SCANCODE_L));
-    keys.push_back(KeyPair("m",SDL_SCANCODE_M));
-    keys.push_back(KeyPair("n",SDL_SCANCODE_N));
-    keys.push_back(KeyPair("o",SDL_SCANCODE_O));
-    keys.push_back(KeyPair("p",SDL_SCANCODE_P));
-    keys.push_back(KeyPair("q",SDL_SCANCODE_Q));
-    keys.push_back(KeyPair("r",SDL_SCANCODE_R));
-    keys.push_back(KeyPair("s",SDL_SCANCODE_S));
-    keys.push_back(KeyPair("t",SDL_SCANCODE_T));
-    keys.push_back(KeyPair("u",SDL_SCANCODE_U));
-    keys.push_back(KeyPair("v",SDL_SCANCODE_V));
-    keys.push_back(KeyPair("w",SDL_SCANCODE_W));
-    keys.push_back(KeyPair("x",SDL_SCANCODE_X));
-    keys.push_back(KeyPair("y",SDL_SCANCODE_Y));
-    keys.push_back(KeyPair("z",SDL_SCANCODE_Z));
-    keys.push_back(KeyPair("delete",SDL_SCANCODE_DELETE));
-    keys.push_back(KeyPair("keypad0",SDL_SCANCODE_KP_0));
-    keys.push_back(KeyPair("keypad1",SDL_SCANCODE_KP_1));
-    keys.push_back(KeyPair("keypad2",SDL_SCANCODE_KP_2));
-    keys.push_back(KeyPair("keypad3",SDL_SCANCODE_KP_3));
-    keys.push_back(KeyPair("keypad4",SDL_SCANCODE_KP_4));
-    keys.push_back(KeyPair("keypad5",SDL_SCANCODE_KP_5));
-    keys.push_back(KeyPair("keypad6",SDL_SCANCODE_KP_6));
-    keys.push_back(KeyPair("keypad7",SDL_SCANCODE_KP_7));
-    keys.push_back(KeyPair("keypad8",SDL_SCANCODE_KP_8));
-    keys.push_back(KeyPair("keypad9",SDL_SCANCODE_KP_9));
-    keys.push_back(KeyPair("keypad.",SDL_SCANCODE_KP_PERIOD));
-    keys.push_back(KeyPair("keypad/",SDL_SCANCODE_KP_DIVIDE));
-    keys.push_back(KeyPair("keypad*",SDL_SCANCODE_KP_MULTIPLY));
-    keys.push_back(KeyPair("keypad-",SDL_SCANCODE_KP_MINUS));
-    keys.push_back(KeyPair("keypad+",SDL_SCANCODE_KP_PLUS));
-    keys.push_back(KeyPair("keypadenter",SDL_SCANCODE_KP_ENTER));
-    keys.push_back(KeyPair("keypad=",SDL_SCANCODE_KP_EQUALS));
-    keys.push_back(KeyPair("up",SDL_SCANCODE_UP));
-    keys.push_back(KeyPair("down",SDL_SCANCODE_DOWN));
-    keys.push_back(KeyPair("right",SDL_SCANCODE_RIGHT));
-    keys.push_back(KeyPair("left",SDL_SCANCODE_LEFT));
-    keys.push_back(KeyPair("insert",SDL_SCANCODE_INSERT));
-    keys.push_back(KeyPair("home",SDL_SCANCODE_HOME));
-    keys.push_back(KeyPair("end",SDL_SCANCODE_END));
-    keys.push_back(KeyPair("pageup",SDL_SCANCODE_PAGEUP));
-    keys.push_back(KeyPair("pagedown",SDL_SCANCODE_PAGEDOWN));
-    keys.push_back(KeyPair("f1",SDL_SCANCODE_F1));
-    keys.push_back(KeyPair("f2",SDL_SCANCODE_F2));
-    keys.push_back(KeyPair("f3",SDL_SCANCODE_F3));
-    keys.push_back(KeyPair("f4",SDL_SCANCODE_F4));
-    keys.push_back(KeyPair("f5",SDL_SCANCODE_F5));
-    keys.push_back(KeyPair("f6",SDL_SCANCODE_F6));
-    keys.push_back(KeyPair("f7",SDL_SCANCODE_F7));
-    keys.push_back(KeyPair("f8",SDL_SCANCODE_F8));
-    keys.push_back(KeyPair("f9",SDL_SCANCODE_F9));
-    keys.push_back(KeyPair("f10",SDL_SCANCODE_F10));
-    keys.push_back(KeyPair("f11",SDL_SCANCODE_F11));
-    keys.push_back(KeyPair("f12",SDL_SCANCODE_F12));
-    keys.push_back(KeyPair("f13",SDL_SCANCODE_F13));
-    keys.push_back(KeyPair("f14",SDL_SCANCODE_F14));
-    keys.push_back(KeyPair("f15",SDL_SCANCODE_F15));
-    keys.push_back(KeyPair("numlock",SDL_SCANCODE_NUMLOCKCLEAR));
-    keys.push_back(KeyPair("capslock",SDL_SCANCODE_CAPSLOCK));
-    keys.push_back(KeyPair("scrollock",SDL_SCANCODE_SCROLLLOCK));
-    keys.push_back(KeyPair("rshift",SDL_SCANCODE_RSHIFT));
-    keys.push_back(KeyPair("lshift",SDL_SCANCODE_LSHIFT));
-    //keys.push_back(KeyPair("shift",SDL_SCANCODE_SHIFT));
-    keys.push_back(KeyPair("rctrl",SDL_SCANCODE_RCTRL));
-    keys.push_back(KeyPair("lctrl",SDL_SCANCODE_LCTRL));
-    //keys.push_back(KeyPair("ctrl",SDL_SCANCODE_CTRL));
-    keys.push_back(KeyPair("ralt",SDL_SCANCODE_RALT));
-    keys.push_back(KeyPair("lalt",SDL_SCANCODE_LALT));
-    keys.push_back(KeyPair("rgui",SDL_SCANCODE_RGUI));
-    keys.push_back(KeyPair("lgui",SDL_SCANCODE_LGUI));
-    keys.push_back(KeyPair("mode",SDL_SCANCODE_MODE));
-    keys.push_back(KeyPair("help",SDL_SCANCODE_HELP));
-    keys.push_back(KeyPair("print",SDL_SCANCODE_PRINTSCREEN));
-    keys.push_back(KeyPair("sysreq",SDL_SCANCODE_SYSREQ));
-    keys.push_back(KeyPair("menu",SDL_SCANCODE_MENU));
-    keys.push_back(KeyPair("power",SDL_SCANCODE_POWER));
+    keys.push_back(KeyPair("tab", SDL_SCANCODE_TAB));
+    keys.push_back(KeyPair("clear", SDL_SCANCODE_CLEAR));
+    keys.push_back(KeyPair("return", SDL_SCANCODE_RETURN));
+    keys.push_back(KeyPair("pause", SDL_SCANCODE_PAUSE));
+    keys.push_back(KeyPair("esc", SDL_SCANCODE_ESCAPE));
+    keys.push_back(KeyPair("space", SDL_SCANCODE_SPACE));
+    // keys.push_back(KeyPair("!",SDL_SCANCODE_EXCLAIM));
+    // keys.push_back(KeyPair("\"",SDL_SCANCODE_QUOTEDBL));
+    // keys.push_back(KeyPair("#",SDL_SCANCODE_HASH));
+    // keys.push_back(KeyPair("$",SDL_SCANCODE_DOLLAR));
+    // keys.push_back(KeyPair("&",SDL_SCANCODE_AMPERSAND));
+    // keys.push_back(KeyPair("\'",SDL_SCANCODE_QUOTE));
+    // keys.push_back(KeyPair("(",SDL_SCANCODE_LEFTPAREN));
+    // keys.push_back(KeyPair(")",SDL_SCANCODE_RIGHTPAREN));
+    // keys.push_back(KeyPair("*",SDL_SCANCODE_ASTERISK));
+    // keys.push_back(KeyPair("+",SDL_SCANCODE_PLUS));
+    keys.push_back(KeyPair(",", SDL_SCANCODE_COMMA));
+    keys.push_back(KeyPair("-", SDL_SCANCODE_MINUS));
+    keys.push_back(KeyPair(".", SDL_SCANCODE_PERIOD));
+    keys.push_back(KeyPair("/", SDL_SCANCODE_SLASH));
+    keys.push_back(KeyPair("0", SDL_SCANCODE_0));
+    keys.push_back(KeyPair("1", SDL_SCANCODE_1));
+    keys.push_back(KeyPair("2", SDL_SCANCODE_2));
+    keys.push_back(KeyPair("3", SDL_SCANCODE_3));
+    keys.push_back(KeyPair("4", SDL_SCANCODE_4));
+    keys.push_back(KeyPair("5", SDL_SCANCODE_5));
+    keys.push_back(KeyPair("6", SDL_SCANCODE_6));
+    keys.push_back(KeyPair("7", SDL_SCANCODE_7));
+    keys.push_back(KeyPair("8", SDL_SCANCODE_8));
+    keys.push_back(KeyPair("9", SDL_SCANCODE_9));
+    // keys.push_back(KeyPair(":",SDL_SCANCODE_COLON));
+    keys.push_back(KeyPair(";", SDL_SCANCODE_SEMICOLON));
+    // keys.push_back(KeyPair("<",SDL_SCANCODE_LESS));
+    keys.push_back(KeyPair("=", SDL_SCANCODE_EQUALS));
+    // keys.push_back(KeyPair(">",SDL_SCANCODE_GREATER));
+    // keys.push_back(KeyPair("?",SDL_SCANCODE_QUESTION));
+    // keys.push_back(KeyPair("@",SDL_SCANCODE_AT));
+    keys.push_back(KeyPair("[", SDL_SCANCODE_LEFTBRACKET));
+    keys.push_back(KeyPair("\\", SDL_SCANCODE_BACKSLASH));
+    keys.push_back(KeyPair("]", SDL_SCANCODE_RIGHTBRACKET));
+    // keys.push_back(KeyPair("^",SDL_SCANCODE_CARET));
+    // keys.push_back(KeyPair("_",SDL_SCANCODE_UNDERSCORE));
+    keys.push_back(KeyPair("`", SDL_SCANCODE_GRAVE));
+    keys.push_back(KeyPair("a", SDL_SCANCODE_A));
+    keys.push_back(KeyPair("b", SDL_SCANCODE_B));
+    keys.push_back(KeyPair("c", SDL_SCANCODE_C));
+    keys.push_back(KeyPair("d", SDL_SCANCODE_D));
+    keys.push_back(KeyPair("e", SDL_SCANCODE_E));
+    keys.push_back(KeyPair("f", SDL_SCANCODE_F));
+    keys.push_back(KeyPair("g", SDL_SCANCODE_G));
+    keys.push_back(KeyPair("h", SDL_SCANCODE_H));
+    keys.push_back(KeyPair("i", SDL_SCANCODE_I));
+    keys.push_back(KeyPair("j", SDL_SCANCODE_J));
+    keys.push_back(KeyPair("k", SDL_SCANCODE_K));
+    keys.push_back(KeyPair("l", SDL_SCANCODE_L));
+    keys.push_back(KeyPair("m", SDL_SCANCODE_M));
+    keys.push_back(KeyPair("n", SDL_SCANCODE_N));
+    keys.push_back(KeyPair("o", SDL_SCANCODE_O));
+    keys.push_back(KeyPair("p", SDL_SCANCODE_P));
+    keys.push_back(KeyPair("q", SDL_SCANCODE_Q));
+    keys.push_back(KeyPair("r", SDL_SCANCODE_R));
+    keys.push_back(KeyPair("s", SDL_SCANCODE_S));
+    keys.push_back(KeyPair("t", SDL_SCANCODE_T));
+    keys.push_back(KeyPair("u", SDL_SCANCODE_U));
+    keys.push_back(KeyPair("v", SDL_SCANCODE_V));
+    keys.push_back(KeyPair("w", SDL_SCANCODE_W));
+    keys.push_back(KeyPair("x", SDL_SCANCODE_X));
+    keys.push_back(KeyPair("y", SDL_SCANCODE_Y));
+    keys.push_back(KeyPair("z", SDL_SCANCODE_Z));
+    keys.push_back(KeyPair("delete", SDL_SCANCODE_DELETE));
+    keys.push_back(KeyPair("keypad0", SDL_SCANCODE_KP_0));
+    keys.push_back(KeyPair("keypad1", SDL_SCANCODE_KP_1));
+    keys.push_back(KeyPair("keypad2", SDL_SCANCODE_KP_2));
+    keys.push_back(KeyPair("keypad3", SDL_SCANCODE_KP_3));
+    keys.push_back(KeyPair("keypad4", SDL_SCANCODE_KP_4));
+    keys.push_back(KeyPair("keypad5", SDL_SCANCODE_KP_5));
+    keys.push_back(KeyPair("keypad6", SDL_SCANCODE_KP_6));
+    keys.push_back(KeyPair("keypad7", SDL_SCANCODE_KP_7));
+    keys.push_back(KeyPair("keypad8", SDL_SCANCODE_KP_8));
+    keys.push_back(KeyPair("keypad9", SDL_SCANCODE_KP_9));
+    keys.push_back(KeyPair("keypad.", SDL_SCANCODE_KP_PERIOD));
+    keys.push_back(KeyPair("keypad/", SDL_SCANCODE_KP_DIVIDE));
+    keys.push_back(KeyPair("keypad*", SDL_SCANCODE_KP_MULTIPLY));
+    keys.push_back(KeyPair("keypad-", SDL_SCANCODE_KP_MINUS));
+    keys.push_back(KeyPair("keypad+", SDL_SCANCODE_KP_PLUS));
+    keys.push_back(KeyPair("keypadenter", SDL_SCANCODE_KP_ENTER));
+    keys.push_back(KeyPair("keypad=", SDL_SCANCODE_KP_EQUALS));
+    keys.push_back(KeyPair("up", SDL_SCANCODE_UP));
+    keys.push_back(KeyPair("down", SDL_SCANCODE_DOWN));
+    keys.push_back(KeyPair("right", SDL_SCANCODE_RIGHT));
+    keys.push_back(KeyPair("left", SDL_SCANCODE_LEFT));
+    keys.push_back(KeyPair("insert", SDL_SCANCODE_INSERT));
+    keys.push_back(KeyPair("home", SDL_SCANCODE_HOME));
+    keys.push_back(KeyPair("end", SDL_SCANCODE_END));
+    keys.push_back(KeyPair("pageup", SDL_SCANCODE_PAGEUP));
+    keys.push_back(KeyPair("pagedown", SDL_SCANCODE_PAGEDOWN));
+    keys.push_back(KeyPair("f1", SDL_SCANCODE_F1));
+    keys.push_back(KeyPair("f2", SDL_SCANCODE_F2));
+    keys.push_back(KeyPair("f3", SDL_SCANCODE_F3));
+    keys.push_back(KeyPair("f4", SDL_SCANCODE_F4));
+    keys.push_back(KeyPair("f5", SDL_SCANCODE_F5));
+    keys.push_back(KeyPair("f6", SDL_SCANCODE_F6));
+    keys.push_back(KeyPair("f7", SDL_SCANCODE_F7));
+    keys.push_back(KeyPair("f8", SDL_SCANCODE_F8));
+    keys.push_back(KeyPair("f9", SDL_SCANCODE_F9));
+    keys.push_back(KeyPair("f10", SDL_SCANCODE_F10));
+    keys.push_back(KeyPair("f11", SDL_SCANCODE_F11));
+    keys.push_back(KeyPair("f12", SDL_SCANCODE_F12));
+    keys.push_back(KeyPair("f13", SDL_SCANCODE_F13));
+    keys.push_back(KeyPair("f14", SDL_SCANCODE_F14));
+    keys.push_back(KeyPair("f15", SDL_SCANCODE_F15));
+    keys.push_back(KeyPair("numlock", SDL_SCANCODE_NUMLOCKCLEAR));
+    keys.push_back(KeyPair("capslock", SDL_SCANCODE_CAPSLOCK));
+    keys.push_back(KeyPair("scrollock", SDL_SCANCODE_SCROLLLOCK));
+    keys.push_back(KeyPair("rshift", SDL_SCANCODE_RSHIFT));
+    keys.push_back(KeyPair("lshift", SDL_SCANCODE_LSHIFT));
+    // keys.push_back(KeyPair("shift",SDL_SCANCODE_SHIFT));
+    keys.push_back(KeyPair("rctrl", SDL_SCANCODE_RCTRL));
+    keys.push_back(KeyPair("lctrl", SDL_SCANCODE_LCTRL));
+    // keys.push_back(KeyPair("ctrl",SDL_SCANCODE_CTRL));
+    keys.push_back(KeyPair("ralt", SDL_SCANCODE_RALT));
+    keys.push_back(KeyPair("lalt", SDL_SCANCODE_LALT));
+    keys.push_back(KeyPair("rgui", SDL_SCANCODE_RGUI));
+    keys.push_back(KeyPair("lgui", SDL_SCANCODE_LGUI));
+    keys.push_back(KeyPair("mode", SDL_SCANCODE_MODE));
+    keys.push_back(KeyPair("help", SDL_SCANCODE_HELP));
+    keys.push_back(KeyPair("print", SDL_SCANCODE_PRINTSCREEN));
+    keys.push_back(KeyPair("sysreq", SDL_SCANCODE_SYSREQ));
+    keys.push_back(KeyPair("menu", SDL_SCANCODE_MENU));
+    keys.push_back(KeyPair("power", SDL_SCANCODE_POWER));
 
     int num_keys = keys.size();
-    for(int i=0; i<num_keys; ++i){
-        const KeyPair &key_pair = keys[i];
+    for (int i = 0; i < num_keys; ++i) {
+        const KeyPair& key_pair = keys[i];
         str_to_key_map[key_pair.first] = key_pair.second;
         key_to_str_map[key_pair.second] = key_pair.first;
     }
@@ -739,8 +737,8 @@ void InitKeyTranslator() {
     str_to_controller_map["R_STICK_Y-"] = ControllerInput::R_STICK_YN;
     str_to_controller_map["L_TRIGGER"] = ControllerInput::L_TRIGGER;
     str_to_controller_map["R_TRIGGER"] = ControllerInput::R_TRIGGER;
-    str_to_controller_map["RT"] = ControllerInput::R_TRIGGER; // Backwards compat
-    str_to_controller_map["LT"] = ControllerInput::L_TRIGGER; // Backwards compat
+    str_to_controller_map["RT"] = ControllerInput::R_TRIGGER;  // Backwards compat
+    str_to_controller_map["LT"] = ControllerInput::L_TRIGGER;  // Backwards compat
     str_to_controller_map["R_STICK_PRESSED"] = ControllerInput::R_STICK_PRESSED;
     str_to_controller_map["L_STICK_PRESSED"] = ControllerInput::L_STICK_PRESSED;
     str_to_controller_map["D_UP"] = ControllerInput::D_UP;
@@ -750,8 +748,8 @@ void InitKeyTranslator() {
 
     input_to_string_map["lshift"] = "Shift";
     input_to_string_map["rshift"] = "Shift";
-    input_to_string_map["space"]  = "Space";
-    input_to_string_map["tab"]  = "Tab";
+    input_to_string_map["space"] = "Space";
+    input_to_string_map["tab"] = "Tab";
     input_to_string_map["q"] = "Q";
     input_to_string_map["e"] = "E";
     input_to_string_map["w"] = "W";
@@ -763,9 +761,9 @@ void InitKeyTranslator() {
     input_to_string_map["mouse2"] = "Right mouse button";
 }
 
-SDL_Scancode StringToSDLScancode(const std::string &s) {
+SDL_Scancode StringToSDLScancode(const std::string& s) {
     std::map<std::string, SDL_Scancode>::const_iterator iter = str_to_key_map.find(UTF8ToLower(s));
-    if(iter != str_to_key_map.end()){
+    if (iter != str_to_key_map.end()) {
         return iter->second;
     } else {
         return (SDL_Scancode)SDL_SCANCODE_SYSREQ;
@@ -774,7 +772,7 @@ SDL_Scancode StringToSDLScancode(const std::string &s) {
 
 const char* SDLScancodeToString(SDL_Scancode key) {
     std::map<SDL_Scancode, const char*>::const_iterator iter = key_to_str_map.find(key);
-    if(iter != key_to_str_map.end()){
+    if (iter != key_to_str_map.end()) {
         return iter->second;
     } else {
         return NULL;
@@ -784,7 +782,7 @@ const char* SDLScancodeToString(SDL_Scancode key) {
 const char* SDLKeycodeToString(SDL_Keycode keycode) {
     SDL_Scancode key = SDL_GetScancodeFromKey(keycode);
     std::map<SDL_Scancode, const char*>::const_iterator iter = key_to_str_map.find(key);
-    if(iter != key_to_str_map.end()){
+    if (iter != key_to_str_map.end()) {
         return iter->second;
     } else {
         return NULL;
@@ -793,18 +791,18 @@ const char* SDLKeycodeToString(SDL_Keycode keycode) {
 
 std::string StringFromInput(const std::string& input) {
     InputToStrMap::iterator iter = input_to_string_map.find(input.c_str());
-    if(iter != input_to_string_map.end()) {
+    if (iter != input_to_string_map.end()) {
         return iter->second;
     }
 
     return input;
 }
 
-std::string SDLLocaleAdjustedStringFromScancode( SDL_Scancode scancode ) {
+std::string SDLLocaleAdjustedStringFromScancode(SDL_Scancode scancode) {
     std::string str = std::string(SDL_GetKeyName(SDL_GetKeyFromScancode(scancode)));
-    if( str.empty() ) {
+    if (str.empty()) {
         str = std::string(SDL_GetScancodeName(scancode));
-        if( str.empty() ) {
+        if (str.empty()) {
             str = std::string(SDLScancodeToString(scancode));
         }
     }
@@ -812,7 +810,7 @@ std::string SDLLocaleAdjustedStringFromScancode( SDL_Scancode scancode ) {
 }
 
 std::string StringFromMouseButton(int button) {
-    switch(button) {
+    switch (button) {
         case 0:
             return "Left mouse";
         case 1:
@@ -828,13 +826,13 @@ std::string StringFromMouseButton(int button) {
 }
 
 std::string StringFromMouseString(const std::string& text) {
-    if(text == "mousescrollup") {
+    if (text == "mousescrollup") {
         return "scroll up";
-    } else if(text == "mousescrolldown") {
+    } else if (text == "mousescrolldown") {
         return "scroll down";
-    } else if(text == "mousescrollleft") {
+    } else if (text == "mousescrollleft") {
         return "scroll left";
-    } else if(text == "mousescrollright") {
+    } else if (text == "mousescrollright") {
         return "scroll right";
     } else {
         int button = std::atoi(text.c_str() + 5);
@@ -844,7 +842,7 @@ std::string StringFromMouseString(const std::string& text) {
 }
 
 std::string StringFromControllerInput(ControllerInput::Input input) {
-    switch(input) {
+    switch (input) {
         case ControllerInput::A:
         case ControllerInput::B:
         case ControllerInput::X:
@@ -906,22 +904,37 @@ std::string StringFromControllerInput(ControllerInput::Input input) {
 }
 
 ControllerInput::Input SDLControllerButtonToController(SDL_GameControllerButton button) {
-    switch(button) {
-        case SDL_CONTROLLER_BUTTON_A: return ControllerInput::A;
-        case SDL_CONTROLLER_BUTTON_B: return ControllerInput::B;
-        case SDL_CONTROLLER_BUTTON_X: return ControllerInput::X;
-        case SDL_CONTROLLER_BUTTON_Y: return ControllerInput::Y;
-        case SDL_CONTROLLER_BUTTON_LEFTSHOULDER: return ControllerInput::LB;
-        case SDL_CONTROLLER_BUTTON_RIGHTSHOULDER: return ControllerInput::RB;
-        case SDL_CONTROLLER_BUTTON_BACK: return ControllerInput::BACK;
-        case SDL_CONTROLLER_BUTTON_GUIDE: return ControllerInput::GUIDE;
-        case SDL_CONTROLLER_BUTTON_START: return ControllerInput::START;
-        case SDL_CONTROLLER_BUTTON_LEFTSTICK: return ControllerInput::L_STICK_PRESSED;
-        case SDL_CONTROLLER_BUTTON_RIGHTSTICK: return ControllerInput::R_STICK_PRESSED;
-        case SDL_CONTROLLER_BUTTON_DPAD_UP: return ControllerInput::D_UP;
-        case SDL_CONTROLLER_BUTTON_DPAD_DOWN: return ControllerInput::D_DOWN;
-        case SDL_CONTROLLER_BUTTON_DPAD_LEFT: return ControllerInput::D_LEFT;
-        case SDL_CONTROLLER_BUTTON_DPAD_RIGHT: return ControllerInput::D_RIGHT;
+    switch (button) {
+        case SDL_CONTROLLER_BUTTON_A:
+            return ControllerInput::A;
+        case SDL_CONTROLLER_BUTTON_B:
+            return ControllerInput::B;
+        case SDL_CONTROLLER_BUTTON_X:
+            return ControllerInput::X;
+        case SDL_CONTROLLER_BUTTON_Y:
+            return ControllerInput::Y;
+        case SDL_CONTROLLER_BUTTON_LEFTSHOULDER:
+            return ControllerInput::LB;
+        case SDL_CONTROLLER_BUTTON_RIGHTSHOULDER:
+            return ControllerInput::RB;
+        case SDL_CONTROLLER_BUTTON_BACK:
+            return ControllerInput::BACK;
+        case SDL_CONTROLLER_BUTTON_GUIDE:
+            return ControllerInput::GUIDE;
+        case SDL_CONTROLLER_BUTTON_START:
+            return ControllerInput::START;
+        case SDL_CONTROLLER_BUTTON_LEFTSTICK:
+            return ControllerInput::L_STICK_PRESSED;
+        case SDL_CONTROLLER_BUTTON_RIGHTSTICK:
+            return ControllerInput::R_STICK_PRESSED;
+        case SDL_CONTROLLER_BUTTON_DPAD_UP:
+            return ControllerInput::D_UP;
+        case SDL_CONTROLLER_BUTTON_DPAD_DOWN:
+            return ControllerInput::D_DOWN;
+        case SDL_CONTROLLER_BUTTON_DPAD_LEFT:
+            return ControllerInput::D_LEFT;
+        case SDL_CONTROLLER_BUTTON_DPAD_RIGHT:
+            return ControllerInput::D_RIGHT;
         case SDL_CONTROLLER_BUTTON_INVALID:
             LOGW << "Got unhandled SDL_CONTROLLER_BUTTON_INVALID" << std::endl;
             return ControllerInput::NONE;
@@ -935,13 +948,19 @@ ControllerInput::Input SDLControllerButtonToController(SDL_GameControllerButton 
 }
 
 ControllerInput::Input SDLControllerAxisToController(SDL_GameControllerAxis axis) {
-    switch(axis) {
-        case SDL_CONTROLLER_AXIS_LEFTX: return ControllerInput::L_STICK_X;
-        case SDL_CONTROLLER_AXIS_LEFTY: return ControllerInput::L_STICK_Y;
-        case SDL_CONTROLLER_AXIS_RIGHTX: return ControllerInput::R_STICK_X;
-        case SDL_CONTROLLER_AXIS_RIGHTY: return ControllerInput::R_STICK_Y;
-        case SDL_CONTROLLER_AXIS_TRIGGERLEFT: return ControllerInput::L_TRIGGER;
-        case SDL_CONTROLLER_AXIS_TRIGGERRIGHT: return ControllerInput::R_TRIGGER;
+    switch (axis) {
+        case SDL_CONTROLLER_AXIS_LEFTX:
+            return ControllerInput::L_STICK_X;
+        case SDL_CONTROLLER_AXIS_LEFTY:
+            return ControllerInput::L_STICK_Y;
+        case SDL_CONTROLLER_AXIS_RIGHTX:
+            return ControllerInput::R_STICK_X;
+        case SDL_CONTROLLER_AXIS_RIGHTY:
+            return ControllerInput::R_STICK_Y;
+        case SDL_CONTROLLER_AXIS_TRIGGERLEFT:
+            return ControllerInput::L_TRIGGER;
+        case SDL_CONTROLLER_AXIS_TRIGGERRIGHT:
+            return ControllerInput::R_TRIGGER;
         case SDL_CONTROLLER_AXIS_INVALID:
             LOGW << "Got unhandled SDL_CONTROLLER_AXIS_INVALID" << std::endl;
             return ControllerInput::NONE;
@@ -955,22 +974,37 @@ ControllerInput::Input SDLControllerAxisToController(SDL_GameControllerAxis axis
 }
 
 SDL_GameControllerButton ControllerToSDLControllerButton(ControllerInput::Input input) {
-    switch(input) {
-        case ControllerInput::A: return SDL_CONTROLLER_BUTTON_A;
-        case ControllerInput::B: return SDL_CONTROLLER_BUTTON_B;
-        case ControllerInput::X: return SDL_CONTROLLER_BUTTON_X;
-        case ControllerInput::Y: return SDL_CONTROLLER_BUTTON_Y;
-        case ControllerInput::LB: return SDL_CONTROLLER_BUTTON_LEFTSHOULDER;
-        case ControllerInput::RB: return SDL_CONTROLLER_BUTTON_RIGHTSHOULDER;
-        case ControllerInput::BACK: return SDL_CONTROLLER_BUTTON_BACK;
-        case ControllerInput::GUIDE: return SDL_CONTROLLER_BUTTON_GUIDE;
-        case ControllerInput::START: return SDL_CONTROLLER_BUTTON_START;
-        case ControllerInput::L_STICK_PRESSED: return SDL_CONTROLLER_BUTTON_LEFTSTICK;
-        case ControllerInput::R_STICK_PRESSED: return SDL_CONTROLLER_BUTTON_RIGHTSTICK;
-        case ControllerInput::D_UP: return SDL_CONTROLLER_BUTTON_DPAD_UP;
-        case ControllerInput::D_DOWN: return SDL_CONTROLLER_BUTTON_DPAD_DOWN;
-        case ControllerInput::D_LEFT: return SDL_CONTROLLER_BUTTON_DPAD_LEFT;
-        case ControllerInput::D_RIGHT: return SDL_CONTROLLER_BUTTON_DPAD_RIGHT;
+    switch (input) {
+        case ControllerInput::A:
+            return SDL_CONTROLLER_BUTTON_A;
+        case ControllerInput::B:
+            return SDL_CONTROLLER_BUTTON_B;
+        case ControllerInput::X:
+            return SDL_CONTROLLER_BUTTON_X;
+        case ControllerInput::Y:
+            return SDL_CONTROLLER_BUTTON_Y;
+        case ControllerInput::LB:
+            return SDL_CONTROLLER_BUTTON_LEFTSHOULDER;
+        case ControllerInput::RB:
+            return SDL_CONTROLLER_BUTTON_RIGHTSHOULDER;
+        case ControllerInput::BACK:
+            return SDL_CONTROLLER_BUTTON_BACK;
+        case ControllerInput::GUIDE:
+            return SDL_CONTROLLER_BUTTON_GUIDE;
+        case ControllerInput::START:
+            return SDL_CONTROLLER_BUTTON_START;
+        case ControllerInput::L_STICK_PRESSED:
+            return SDL_CONTROLLER_BUTTON_LEFTSTICK;
+        case ControllerInput::R_STICK_PRESSED:
+            return SDL_CONTROLLER_BUTTON_RIGHTSTICK;
+        case ControllerInput::D_UP:
+            return SDL_CONTROLLER_BUTTON_DPAD_UP;
+        case ControllerInput::D_DOWN:
+            return SDL_CONTROLLER_BUTTON_DPAD_DOWN;
+        case ControllerInput::D_LEFT:
+            return SDL_CONTROLLER_BUTTON_DPAD_LEFT;
+        case ControllerInput::D_RIGHT:
+            return SDL_CONTROLLER_BUTTON_DPAD_RIGHT;
         case ControllerInput::NONE:
             LOGW << "Got unhandled NONE" << std::endl;
             return SDL_CONTROLLER_BUTTON_INVALID;
@@ -981,7 +1015,7 @@ SDL_GameControllerButton ControllerToSDLControllerButton(ControllerInput::Input 
 }
 
 SDL_GameControllerAxis ControllerToSDLControllerAxis(ControllerInput::Input input) {
-    switch(input) {
+    switch (input) {
         case ControllerInput::L_STICK_XN:
         case ControllerInput::L_STICK_XP:
         case ControllerInput::L_STICK_X:
@@ -998,8 +1032,10 @@ SDL_GameControllerAxis ControllerToSDLControllerAxis(ControllerInput::Input inpu
         case ControllerInput::R_STICK_YP:
         case ControllerInput::R_STICK_Y:
             return SDL_CONTROLLER_AXIS_RIGHTY;
-        case ControllerInput::L_TRIGGER: return SDL_CONTROLLER_AXIS_TRIGGERLEFT;
-        case ControllerInput::R_TRIGGER: return SDL_CONTROLLER_AXIS_TRIGGERRIGHT;
+        case ControllerInput::L_TRIGGER:
+            return SDL_CONTROLLER_AXIS_TRIGGERLEFT;
+        case ControllerInput::R_TRIGGER:
+            return SDL_CONTROLLER_AXIS_TRIGGERRIGHT;
         case ControllerInput::NONE:
             LOGW << "Got unhandled NONE" << std::endl;
             return SDL_CONTROLLER_AXIS_INVALID;
@@ -1011,48 +1047,48 @@ SDL_GameControllerAxis ControllerToSDLControllerAxis(ControllerInput::Input inpu
 
 ControllerInput::Input SDLStringToController(const char* string) {
     SDL_GameControllerButton button = SDL_GameControllerGetButtonFromString(string);
-    if(button != SDL_CONTROLLER_BUTTON_INVALID) {
+    if (button != SDL_CONTROLLER_BUTTON_INVALID) {
         return SDLControllerButtonToController(button);
     }
     char buffer[128];
     strcpy(buffer, string);
     int last = strlen(buffer) - 1;
-    if(last > 0) {
-        if(buffer[last] == '+' || buffer[last] == '-') {
+    if (last > 0) {
+        if (buffer[last] == '+' || buffer[last] == '-') {
             buffer[last] = '\0';
         }
         SDL_GameControllerAxis axis = SDL_GameControllerGetAxisFromString(buffer);
-        if(axis != SDL_CONTROLLER_AXIS_INVALID) {
+        if (axis != SDL_CONTROLLER_AXIS_INVALID) {
             ControllerInput::Input input = SDLControllerAxisToController(axis);
-            switch(input) {
+            switch (input) {
                 case ControllerInput::L_STICK_X:
-                    if(string[last] == '+') {
+                    if (string[last] == '+') {
                         return ControllerInput::L_STICK_XP;
-                    } else if(string[last] == '-') {
+                    } else if (string[last] == '-') {
                         return ControllerInput::L_STICK_XN;
                     } else {
                         return input;
                     }
                 case ControllerInput::L_STICK_Y:
-                    if(string[last] == '+') {
+                    if (string[last] == '+') {
                         return ControllerInput::L_STICK_YP;
-                    } else if(string[last] == '-') {
+                    } else if (string[last] == '-') {
                         return ControllerInput::L_STICK_YN;
                     } else {
                         return input;
                     }
                 case ControllerInput::R_STICK_X:
-                    if(string[last] == '+') {
+                    if (string[last] == '+') {
                         return ControllerInput::R_STICK_XP;
-                    } else if(string[last] == '-') {
+                    } else if (string[last] == '-') {
                         return ControllerInput::R_STICK_XN;
                     } else {
                         return input;
                     }
                 case ControllerInput::R_STICK_Y:
-                    if(string[last] == '+') {
+                    if (string[last] == '+') {
                         return ControllerInput::R_STICK_YP;
-                    } else if(string[last] == '-') {
+                    } else if (string[last] == '-') {
                         return ControllerInput::R_STICK_YN;
                     } else {
                         return input;

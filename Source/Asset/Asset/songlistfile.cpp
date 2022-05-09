@@ -35,24 +35,24 @@ void SongListFile::Reload() {
     Load(path_, 0x0);
 }
 
-int SongListFile::Load( const std::string &_path, uint32_t load_flags ) {
+int SongListFile::Load(const std::string& _path, uint32_t load_flags) {
     song_paths.clear();
     path_ = "";
 
     TiXmlDocument doc;
 
-    if(LoadXMLRetryable(doc, path_, "Song list")) {
+    if (LoadXMLRetryable(doc, path_, "Song list")) {
         path_ = _path;
-        if(doc.Error()) {
+        if (doc.Error()) {
             return kLoadErrorCorruptFile;
         } else {
             TiXmlHandle h_doc(&doc);
             TiXmlHandle h_root = h_doc.FirstChildElement();
             TiXmlElement* field = h_root.ToElement()->FirstChildElement();
-            for( ; field; field = field->NextSiblingElement()) {
+            for (; field; field = field->NextSiblingElement()) {
                 std::string field_str(field->Value());
                 song_paths[field_str] = field->Attribute("path");
-                LOGI << "Loaded song " << field_str <<  " -> " << song_paths[field_str] << std::endl;
+                LOGI << "Loaded song " << field_str << " -> " << song_paths[field_str] << std::endl;
             }
             return kLoadOk;
         }
@@ -67,22 +67,19 @@ const char* SongListFile::GetLoadErrorString() {
 }
 
 void SongListFile::Unload() {
-
 }
 
-const std::string & SongListFile::GetSongPath( const std::string song )
-{
+const std::string& SongListFile::GetSongPath(const std::string song) {
     std::map<std::string, std::string>::iterator iter;
     iter = song_paths.find(song);
-    if(iter != song_paths.end()){
+    if (iter != song_paths.end()) {
         return iter->second;
     } else {
         return null_string;
     }
 }
 
-const std::map<std::string, std::string> & SongListFile::GetSongPaths()
-{
+const std::map<std::string, std::string>& SongListFile::GetSongPaths() {
     return song_paths;
 }
 

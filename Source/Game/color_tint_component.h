@@ -27,10 +27,10 @@
 #include <Math/vec3.h>
 
 class ColorTintComponent : public Phoenix::Component {
-public:
+   public:
     vec3 tint_;
     float overbright_;
-    ColorTintComponent():tint_(1.0f), overbright_(0.0f) {}
+    ColorTintComponent() : tint_(1.0f), overbright_(0.0f) {}
     static void LoadDescriptionFromXML(EntityDescription& desc, const TiXmlElement* el);
     void SetFromDescription(const EntityDescription& desc) override;
     virtual void AddToDescription(EntityDescription& desc) const;

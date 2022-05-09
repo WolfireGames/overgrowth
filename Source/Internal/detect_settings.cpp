@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: detect_settings.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -33,24 +33,24 @@ extern bool g_no_reflection_capture;
 extern bool g_s3tc_dxt5_support;
 
 void DetectAndSetOpenGLFeatureRestrictions() {
-    if( HasHardwareS3TCSupport() ) {
-        LOGI << "Verified support for S3TC DXT5 compressed textures" <<  std::endl;
+    if (HasHardwareS3TCSupport()) {
+        LOGI << "Verified support for S3TC DXT5 compressed textures" << std::endl;
         g_s3tc_dxt5_support = true;
     } else {
-        LOGI << "Could not Verify support for S3TC DXT5 compressed textures, disabling compressed texture loads." <<  std::endl;
+        LOGI << "Could not Verify support for S3TC DXT5 compressed textures, disabling compressed texture loads." << std::endl;
         g_s3tc_dxt5_support = false;
     }
 }
 
 void DetectAndSetSettings() {
     LOGI << "Detecting hardware and setting graphics settings to match hardware" << std::endl;
-    std::map<std::string,int> gfx_int = GetHardwareLimitationsInt();
-    //Disable reflections if we don't have enough image units to allow it to fit.
-    if( gfx_int["GL_MAX_TEXTURE_IMAGE_UNITS"] <= 16 ) {
+    std::map<std::string, int> gfx_int = GetHardwareLimitationsInt();
+    // Disable reflections if we don't have enough image units to allow it to fit.
+    if (gfx_int["GL_MAX_TEXTURE_IMAGE_UNITS"] <= 16) {
         g_no_reflection_capture = true;
         config.GetRef("no_reflection_capture") = true;
         LOGI << "Limited texture samplers, disabling reflection capture" << std::endl;
-    }  else {
+    } else {
         LOGI << "Sufficient amount of samplers to support all features." << std::endl;
     }
 }

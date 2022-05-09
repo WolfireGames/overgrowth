@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: profiler.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -35,20 +35,17 @@
 #include <string>
 #include <vector>
 
-
 #define GPUMARKBUFSIZE 512
 
 struct ProfStack {
     std::vector<std::string> messages;
 };
 
-
 __thread unsigned int stack_depth = 0;
 __thread ProfStack *prof_stack = NULL;
 
-
 class SanityCheck {
-public:
+   public:
     SanityCheck() {
         assert(stack_depth == 0);
     }
@@ -57,7 +54,6 @@ public:
         assert(stack_depth == 0);
     }
 } san_check;
-
 
 void profileEnter(ProfilerContext *ctx, const char *msg, va_list args) {
     if (prof_stack == NULL) {
@@ -77,7 +73,6 @@ void profileEnter(ProfilerContext *ctx, const char *msg, va_list args) {
     stack_depth++;
 }
 
-
 void profileEnter(ProfilerContext *ctx, const char *msg, ...) {
     va_list args;
 
@@ -85,7 +80,6 @@ void profileEnter(ProfilerContext *ctx, const char *msg, ...) {
     profileEnter(ctx, msg, args);
     va_end(args);
 }
-
 
 void profileLeave(ProfilerContext *ctx) {
     assert(prof_stack != NULL);
@@ -96,11 +90,8 @@ void profileLeave(ProfilerContext *ctx) {
     stack_depth--;
 }
 
-
 ProfilerScopedZone::ProfilerScopedZone(ProfilerContext *ctx_, const char *msg, ...)
-: ctx(ctx_)
-, expected_depth(stack_depth)
-{
+    : ctx(ctx_), expected_depth(stack_depth) {
     va_list args;
 
     va_start(args, msg);
@@ -108,38 +99,34 @@ ProfilerScopedZone::ProfilerScopedZone(ProfilerContext *ctx_, const char *msg, .
     va_end(args);
 }
 
-
 ProfilerScopedZone::~ProfilerScopedZone() {
     assert(stack_depth == expected_depth + 1);
 
     profileLeave(ctx);
 }
 
-
 #elif !defined(NTELEMETRY)
-
 
 void ProfilerContext::Init(StackAllocator* stack_allocator) {
     memory = stack_allocator->Alloc(ProfilerContext::kMemSize);
-    if(!memory){
+    if (!memory) {
         FatalError("Error",
-            "Memory allocation error in file %s : %d", __FILE__, __LINE__);
+                   "Memory allocation error in file %s : %d", __FILE__, __LINE__);
     }
-    tmLoadTelemetry(TM_LOAD_CHECKED_LIBRARY); // Load telemetry dll
-    if(TM_OK != tmStartup()) {
-        FatalError("Error", "Could not start up Telemetry -- "
-            "check if DLL is in correct place");
+    tmLoadTelemetry(TM_LOAD_CHECKED_LIBRARY);  // Load telemetry dll
+    if (TM_OK != tmStartup()) {
+        FatalError("Error",
+                   "Could not start up Telemetry -- "
+                   "check if DLL is in correct place");
     }
-    if(TM_OK != tmInitializeContext( 
-        &tm_context, memory, ProfilerContext::kMemSize)) 
-    {
+    if (TM_OK != tmInitializeContext(
+                     &tm_context, memory, ProfilerContext::kMemSize)) {
         FatalError("Error", "Could not initialize Telemetry context");
     }
-    if(TM_OK != tmOpen( 
-        tm_context, "Overgrowth", __DATE__ " " __TIME__, 
-        "localhost", TMCT_TCP, TELEMETRY_DEFAULT_PORT, 
-        TMOF_DEFAULT | TMOF_INIT_NETWORKING, 1000 )) 
-    {
+    if (TM_OK != tmOpen(
+                     tm_context, "Overgrowth", __DATE__ " " __TIME__,
+                     "localhost", TMCT_TCP, TELEMETRY_DEFAULT_PORT,
+                     TMOF_DEFAULT | TMOF_INIT_NETWORKING, 1000)) {
         LOGE << "Could not open Telemetry -- check if server is open" << std::endl;
     }
     tmThreadName(tm_context, 0, "Main thread");
@@ -148,12 +135,11 @@ void ProfilerContext::Init(StackAllocator* stack_allocator) {
 void ProfilerContext::Dispose(StackAllocator* stack_allocator) {
     tmClose(tm_context);
     tmShutdownContext(tm_context);
-    if(TM_OK != tmShutdown()) {
+    if (TM_OK != tmShutdown()) {
         FatalError("Error", "Could not shutdown telemetry");
     }
     stack_allocator->Free(memory);
 }
-
 
 #elif GPU_MARKERS
 
@@ -165,43 +151,40 @@ void ProfilerContext::Dispose(StackAllocator* stack_allocator) {
 #include <cassert>
 #include <cstdarg>
 
-
 #define GPUMARKBUFSIZE 512
 
 ProfilerScopedGPUZone::ProfilerScopedGPUZone(const char *msg, ...) {
-	AssertMainThread();
+    AssertMainThread();
 
-	if (GLAD_GL_KHR_debug) {
-		char buf[GPUMARKBUFSIZE];
+    if (GLAD_GL_KHR_debug) {
+        char buf[GPUMARKBUFSIZE];
         va_list args;
 
         va_start(args, msg);
 
-		int ret = vsnprintf(buf, GPUMARKBUFSIZE, msg, args);
+        int ret = vsnprintf(buf, GPUMARKBUFSIZE, msg, args);
         va_end(args);
 
-		// We want to crash if this fails
-		// If we want to continue we'd have to keep track of whether this succeeded to avoid GL errors
-		assert(ret >= 0);
+        // We want to crash if this fails
+        // If we want to continue we'd have to keep track of whether this succeeded to avoid GL errors
+        assert(ret >= 0);
 
-		if (ret < GPUMARKBUFSIZE) {
-			buf[ret] = '\0';
-		} else {
-			buf[GPUMARKBUFSIZE - 1] = '\0';
-		}
+        if (ret < GPUMARKBUFSIZE) {
+            buf[ret] = '\0';
+        } else {
+            buf[GPUMARKBUFSIZE - 1] = '\0';
+        }
 
-		glPushDebugGroup(GL_DEBUG_SOURCE_APPLICATION, 0, -1, buf);
-	}
+        glPushDebugGroup(GL_DEBUG_SOURCE_APPLICATION, 0, -1, buf);
+    }
 }
-
 
 ProfilerScopedGPUZone::~ProfilerScopedGPUZone() {
-	AssertMainThread();
+    AssertMainThread();
 
-	if (GLAD_GL_KHR_debug) {
-		glPopDebugGroup();
-	}
+    if (GLAD_GL_KHR_debug) {
+        glPopDebugGroup();
+    }
 }
 
-
-#endif //NTELEMETRY
+#endif  // NTELEMETRY

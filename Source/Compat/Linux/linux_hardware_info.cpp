@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: linux_hardware_info.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //

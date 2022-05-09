@@ -58,9 +58,7 @@ extern std::string script_dir_path;
 const char* Level::DEFAULT_ENEMY_SCRIPT = "enemycontrol.as";
 const char* Level::DEFAULT_PLAYER_SCRIPT = "playercontrol.as";
 
-Level::Level() :
-    metaDataDirty( false )
-{}
+Level::Level() : metaDataDirty(false) {}
 
 Level::~Level() {
     Dispose();
@@ -69,7 +67,7 @@ Level::~Level() {
 void Level::Dispose() {
     Message("dispose_level");
 
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
         delete as_context.ctx;
         as_context.ctx = NULL;
     }
@@ -78,7 +76,7 @@ void Level::Dispose() {
     Engine::Instance()->GetASNetwork()->DeRegisterASNetworkCallback(this);
 
     old_col_map_.clear();
-    for(auto & text_element : text_elements){
+    for (auto& text_element : text_elements) {
         text_element.in_use = false;
         text_element.text_canvas_texture.Reset();
     }
@@ -86,7 +84,7 @@ void Level::Dispose() {
 
 Path Level::FindScript(const std::string& path) {
     Path out_path = FindFilePath(path, kDataPaths | kModPaths, false);
-    if(out_path.isValid() == false){
+    if (out_path.isValid() == false) {
         out_path = FindFilePath(script_dir_path + path, kDataPaths | kModPaths, false);
     }
 
@@ -96,7 +94,7 @@ Path Level::FindScript(const std::string& path) {
 void Level::StartDialogue(const std::string& dialogue) const {
     ASArglist args;
     args.AddObject((void*)&dialogue);
-    for (const auto & as_context : as_contexts_) {
+    for (const auto& as_context : as_contexts_) {
         if (as_context.ctx->HasFunction(as_context.as_funcs.start_dialogue)) {
             as_context.ctx->CallScriptFunction(as_context.as_funcs.start_dialogue);
         }
@@ -104,35 +102,35 @@ void Level::StartDialogue(const std::string& dialogue) const {
 }
 
 void Level::RegisterMPCallbacks() const {
-	for (const auto & as_context : as_contexts_) {
-		if (as_context.ctx->HasFunction(as_context.as_funcs.register_mp_callbacks)) {
-			as_context.ctx->CallScriptFunction(as_context.as_funcs.register_mp_callbacks);
-		}
-	}
+    for (const auto& as_context : as_contexts_) {
+        if (as_context.ctx->HasFunction(as_context.as_funcs.register_mp_callbacks)) {
+            as_context.ctx->CallScriptFunction(as_context.as_funcs.register_mp_callbacks);
+        }
+    }
 }
 
-void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
+void Level::Initialize(SceneGraph* scenegraph, GUI* gui) {
     Dispose();
 
     this->scenegraph = scenegraph;
 
     Engine::Instance()->GetASNetwork()->RegisterASNetworkCallback(this);
 
-    Path script_path = FindFilePath(script_dir_path+"level.as", kDataPaths|kModPaths);
+    Path script_path = FindFilePath(script_dir_path + "level.as", kDataPaths | kModPaths);
 
     HookedASContext hasc;
     hasc.path = script_path;
     hasc.context_name = "main_level_script";
     as_contexts_.push_back(hasc);
 
-    if(!level_specific_script_.empty()){
+    if (!level_specific_script_.empty()) {
         Path level_specific_script_path = FindScript(level_specific_script_);
-        if(level_specific_script_path.isValid() == false) {
+        if (level_specific_script_path.isValid() == false) {
             DisplayError("Couldn't find file", "Couldn't find player script file, default will be used", ErrorType::_ok);
             LOGE << "Could not find file specified in <Script> in level: " << level_specific_script_ << std::endl;
         }
 
-        if( level_specific_script_path.isValid() ) {
+        if (level_specific_script_path.isValid()) {
             HookedASContext hasc;
             hasc.path = level_specific_script_path;
             hasc.context_name = "level_specific";
@@ -140,32 +138,32 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
         }
     }
 
-    if(!pc_script_.empty()){
+    if (!pc_script_.empty()) {
         Path pc_script_path = FindScript(pc_script_);
-        while(!pc_script_path.isValid() && DisplayError("Couldn't find file", "Couldn't find player script file, default will be used instead", ErrorType::_ok_cancel_retry) == ErrorResponse::_retry) {
+        while (!pc_script_path.isValid() && DisplayError("Couldn't find file", "Couldn't find player script file, default will be used instead", ErrorType::_ok_cancel_retry) == ErrorResponse::_retry) {
             pc_script_path = FindScript(pc_script_);
             LOGE << "Could not find file specified in <PCScript> in level: " << pc_script_ << std::endl;
         }
 
-        if(!pc_script_path.isValid())
+        if (!pc_script_path.isValid())
             pc_script_ = "";
     }
 
-    if(!npc_script_.empty()){
+    if (!npc_script_.empty()) {
         Path npc_script_path = FindScript(npc_script_);
-        while(!npc_script_path.isValid() && DisplayError("Couldn't find file", "Couldn't find enemy script file, default will be used instead", ErrorType::_ok_cancel_retry) == ErrorResponse::_retry) {
+        while (!npc_script_path.isValid() && DisplayError("Couldn't find file", "Couldn't find enemy script file, default will be used instead", ErrorType::_ok_cancel_retry) == ErrorResponse::_retry) {
             npc_script_path = FindScript(npc_script_);
             LOGE << "Could not find file specified in <NPCScript> in level: " << npc_script_ << std::endl;
         }
 
-        if(!npc_script_path.isValid())
+        if (!npc_script_path.isValid())
             npc_script_ = "";
     }
 
-    if(!npc_script_.empty()) {
-        for(auto & movement_object : scenegraph->movement_objects_) {
+    if (!npc_script_.empty()) {
+        for (auto& movement_object : scenegraph->movement_objects_) {
             MovementObject* obj = (MovementObject*)movement_object;
-            if(obj->GetNPCObjectScript().empty()) {
+            if (obj->GetNPCObjectScript().empty()) {
                 obj->ChangeControlScript(npc_script_);
             }
         }
@@ -173,11 +171,11 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
 
     std::vector<std::string> mod_level_hooks = ModLoading::Instance().ActiveLevelHooks();
     std::vector<std::string>::iterator modlhit = mod_level_hooks.begin();
-    for(; modlhit != mod_level_hooks.end(); modlhit++) {
+    for (; modlhit != mod_level_hooks.end(); modlhit++) {
         HookedASContext hasc;
         Path level_path = FindFilePath(modlhit->c_str(), kDataPaths | kModPaths);
-        if(level_path.isValid()){
-	        hasc.path = level_path;
+        if (level_path.isValid()) {
+            hasc.path = level_path;
             hasc.context_name = "mod_level_hook";
             as_contexts_.push_back(hasc);
         } else {
@@ -191,8 +189,8 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
 
     as_collisions.reset(new ASCollisions(scenegraph));
 
-    for(auto & as_context : as_contexts_) {
-        ASContext* ctx = new ASContext(as_context.context_name.c_str(),as_data);
+    for (auto& as_context : as_contexts_) {
+        ASContext* ctx = new ASContext(as_context.context_name.c_str(), as_data);
 
         AttachASNetwork(ctx);
         AttachUIQueries(ctx);
@@ -214,50 +212,49 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
         AttachUndo(ctx);
         AttachIMGUI(ctx);
         AttachIMGUIModding(ctx);
-		AttachOnline(ctx);
+        AttachOnline(ctx);
         hud_images.AttachToContext(ctx);
         AttachSaveFile(ctx, &Engine::Instance()->save_file_);
         character_script_getter_.AttachToScript(ctx, "character_getter");
         as_collisions->AttachToContext(ctx);
 
-        as_context.as_funcs.init                       = ctx->RegisterExpectedFunction("void Init(string level_name)", true);
-        as_context.as_funcs.update                     = ctx->RegisterExpectedFunction("void Update(int is_paused)", false);
-        as_context.as_funcs.update_deprecated          = ctx->RegisterExpectedFunction("void Update()", false);
+        as_context.as_funcs.init = ctx->RegisterExpectedFunction("void Init(string level_name)", true);
+        as_context.as_funcs.update = ctx->RegisterExpectedFunction("void Update(int is_paused)", false);
+        as_context.as_funcs.update_deprecated = ctx->RegisterExpectedFunction("void Update()", false);
 
-        as_context.as_funcs.hotspot_exit               = ctx->RegisterExpectedFunction("void HotspotExit(string event, MovementObject @mo)", false);
-        as_context.as_funcs.hotspot_enter              = ctx->RegisterExpectedFunction("void HotspotEnter(string event, MovementObject @mo)", false);
-        as_context.as_funcs.receive_message            = ctx->RegisterExpectedFunction("void ReceiveMessage(string message)", false);
-        as_context.as_funcs.draw_gui                   = ctx->RegisterExpectedFunction("void DrawGUI()", false);
-        as_context.as_funcs.draw_gui2                  = ctx->RegisterExpectedFunction("void DrawGUI2()", false);
-        as_context.as_funcs.draw_gui3                  = ctx->RegisterExpectedFunction("void DrawGUI3()", false);
-        as_context.as_funcs.has_focus                  = ctx->RegisterExpectedFunction("bool HasFocus()", false);
-        as_context.as_funcs.dialogue_camera_control    = ctx->RegisterExpectedFunction("bool DialogueCameraControl()", false);
-        as_context.as_funcs.save_history_state         = ctx->RegisterExpectedFunction("void SaveHistoryState(SavedChunk@ chunk)", false);
-        as_context.as_funcs.read_chunk                 = ctx->RegisterExpectedFunction("void ReadChunk(SavedChunk@ chunk)", false);
-        as_context.as_funcs.set_window_dimensions      = ctx->RegisterExpectedFunction("void SetWindowDimensions(int width, int height)", false);
-        as_context.as_funcs.incoming_tcp_data          = ctx->RegisterExpectedFunction("void IncomingTCPData(uint socket, array<uint8>@ data)", false);
+        as_context.as_funcs.hotspot_exit = ctx->RegisterExpectedFunction("void HotspotExit(string event, MovementObject @mo)", false);
+        as_context.as_funcs.hotspot_enter = ctx->RegisterExpectedFunction("void HotspotEnter(string event, MovementObject @mo)", false);
+        as_context.as_funcs.receive_message = ctx->RegisterExpectedFunction("void ReceiveMessage(string message)", false);
+        as_context.as_funcs.draw_gui = ctx->RegisterExpectedFunction("void DrawGUI()", false);
+        as_context.as_funcs.draw_gui2 = ctx->RegisterExpectedFunction("void DrawGUI2()", false);
+        as_context.as_funcs.draw_gui3 = ctx->RegisterExpectedFunction("void DrawGUI3()", false);
+        as_context.as_funcs.has_focus = ctx->RegisterExpectedFunction("bool HasFocus()", false);
+        as_context.as_funcs.dialogue_camera_control = ctx->RegisterExpectedFunction("bool DialogueCameraControl()", false);
+        as_context.as_funcs.save_history_state = ctx->RegisterExpectedFunction("void SaveHistoryState(SavedChunk@ chunk)", false);
+        as_context.as_funcs.read_chunk = ctx->RegisterExpectedFunction("void ReadChunk(SavedChunk@ chunk)", false);
+        as_context.as_funcs.set_window_dimensions = ctx->RegisterExpectedFunction("void SetWindowDimensions(int width, int height)", false);
+        as_context.as_funcs.incoming_tcp_data = ctx->RegisterExpectedFunction("void IncomingTCPData(uint socket, array<uint8>@ data)", false);
 
-        as_context.as_funcs.pre_script_reload          = ctx->RegisterExpectedFunction("void PreScriptReload()", false);
-        as_context.as_funcs.post_script_reload         = ctx->RegisterExpectedFunction("void PostScriptReload()", false);
+        as_context.as_funcs.pre_script_reload = ctx->RegisterExpectedFunction("void PreScriptReload()", false);
+        as_context.as_funcs.post_script_reload = ctx->RegisterExpectedFunction("void PostScriptReload()", false);
 
-        as_context.as_funcs.menu                       = ctx->RegisterExpectedFunction("void Menu()", false);
-		as_context.as_funcs.register_mp_callbacks		= ctx->RegisterExpectedFunction("void RegisterMPCallBacks()", false);
-        as_context.as_funcs.start_dialogue             = ctx->RegisterExpectedFunction("void StartDialogue(const string &in name", false);
- 
+        as_context.as_funcs.menu = ctx->RegisterExpectedFunction("void Menu()", false);
+        as_context.as_funcs.register_mp_callbacks = ctx->RegisterExpectedFunction("void RegisterMPCallBacks()", false);
+        as_context.as_funcs.start_dialogue = ctx->RegisterExpectedFunction("void StartDialogue(const string &in name", false);
+
         ctx->LoadScript(as_context.path);
 
         as_context.ctx = ctx;
     }
 
-    for(auto & as_context : as_contexts_) {
-        LOGI << "Calling void Init(string level_name) for level hook file." << std::endl; 
+    for (auto& as_context : as_contexts_) {
+        LOGI << "Calling void Init(string level_name) for level hook file." << std::endl;
         ASArglist args;
         args.AddObject(&scenegraph->level_name_);
         as_context.ctx->CallScriptFunction(as_context.as_funcs.init, &args);
-
     }
 
-	RegisterMPCallbacks(); 
+    RegisterMPCallbacks();
 
     PROFILER_ENTER(g_profiler_ctx, "Exporting docs");
     char path[kPathSize];
@@ -267,256 +264,255 @@ void Level::Initialize(SceneGraph *scenegraph, GUI* gui) {
 }
 
 void Level::Update(bool paused) {
-	ASArglist args;
+    ASArglist args;
     ASArglist args2;
-	args.Add(paused?1:0);
-	std::vector<HookedASContext >::iterator cit = as_contexts_.begin();
+    args.Add(paused ? 1 : 0);
+    std::vector<HookedASContext>::iterator cit = as_contexts_.begin();
     PROFILER_ENTER(g_profiler_ctx, "Level script Update()");
-    for(auto & as_context : as_contexts_) {
-		if( as_context.ctx->CallScriptFunction(as_context.as_funcs.update, &args) == false) {
-            if(paused == false) {
-		        as_context.ctx->CallScriptFunction(as_context.as_funcs.update_deprecated, &args2);
+    for (auto& as_context : as_contexts_) {
+        if (as_context.ctx->CallScriptFunction(as_context.as_funcs.update, &args) == false) {
+            if (paused == false) {
+                as_context.ctx->CallScriptFunction(as_context.as_funcs.update_deprecated, &args2);
             }
         }
-	}
+    }
 
-	Online* online = Online::Instance();
-	if (online->IsActive()) {
-		AngelScriptUpdate update;
-		if (online->GetIfPendingAngelScriptUpdates()) {
-			update = online->GetAngelScriptUpdate();
-			  
-			std::vector<char>& temp = update.data;
-			
-			bool angelscriptCallSuccesfull = false;
+    Online* online = Online::Instance();
+    if (online->IsActive()) {
+        AngelScriptUpdate update;
+        if (online->GetIfPendingAngelScriptUpdates()) {
+            update = online->GetAngelScriptUpdate();
 
-			for (auto & as_context : as_contexts_) {
-				if (as_context.ctx->CallMPCallBack(update.state, temp) ) { 
-					angelscriptCallSuccesfull = true;
-				}
-			}
+            std::vector<char>& temp = update.data;
 
-			if (angelscriptCallSuccesfull) {
-				online->MoveAngelScriptQueueForward();
-			}
-		}
-		
-		if (online->GetIfPendingAngelScriptStates()) {
+            bool angelscriptCallSuccesfull = false;
 
-			update = online->GetAngelScriptStates();
- 			std::vector<char>& temp = update.data;
+            for (auto& as_context : as_contexts_) {
+                if (as_context.ctx->CallMPCallBack(update.state, temp)) {
+                    angelscriptCallSuccesfull = true;
+                }
+            }
 
-			bool angelscriptCallSuccesfull = false;
+            if (angelscriptCallSuccesfull) {
+                online->MoveAngelScriptQueueForward();
+            }
+        }
 
-			for (auto & as_context : as_contexts_) {
-				if (as_context.ctx->CallMPCallBack(update.state, temp)) {
-					angelscriptCallSuccesfull = true;
-				}
-			}
+        if (online->GetIfPendingAngelScriptStates()) {
+            update = online->GetAngelScriptStates();
+            std::vector<char>& temp = update.data;
 
-			if (angelscriptCallSuccesfull) {
-				online->MoveAngelStateQueueForward();
-			}
-		}
-	}
- 
+            bool angelscriptCallSuccesfull = false;
+
+            for (auto& as_context : as_contexts_) {
+                if (as_context.ctx->CallMPCallBack(update.state, temp)) {
+                    angelscriptCallSuccesfull = true;
+                }
+            }
+
+            if (angelscriptCallSuccesfull) {
+                online->MoveAngelStateQueueForward();
+            }
+        }
+    }
+
     PROFILER_LEAVE(g_profiler_ctx);
 }
 
 void Level::LiveUpdateCheck() {
-	std::vector<HookedASContext>::iterator cit = as_contexts_.begin();
-	for(; cit != as_contexts_.end(); cit++ ) {
+    std::vector<HookedASContext>::iterator cit = as_contexts_.begin();
+    for (; cit != as_contexts_.end(); cit++) {
         cit->ctx->CallScriptFunction(cit->as_funcs.pre_script_reload);
         cit->ctx->Reload();
         cit->ctx->CallScriptFunction(cit->as_funcs.post_script_reload);
-	}
+    }
 }
 
-void Level::HandleCollisions( CollisionPtrMap &col_map, SceneGraph &scenegraph ) {
-	exit_call_queue.clear();
-	enter_call_queue.clear();
-    
+void Level::HandleCollisions(CollisionPtrMap& col_map, SceneGraph& scenegraph) {
+    exit_call_queue.clear();
+    enter_call_queue.clear();
+
     // Convert old collision ids into pointers
-	{
-		PROFILER_ZONE(g_profiler_ctx, "A");
-		old_col_ptr_map.clear();
-		{
-			CollisionMap &map = old_col_map_;
-			for(auto & iter : map){
-				int id = iter.first;
-				Object* obj_a_ptr = scenegraph.GetObjectFromID(id);
-				if(obj_a_ptr){
-					CollisionSet &set = iter.second;
-					for(int id : set){
-							Object* obj_b_ptr = scenegraph.GetObjectFromID(id);
-						if(obj_b_ptr){
-							old_col_ptr_map[obj_a_ptr].insert(obj_b_ptr);
-						}
-					}
-				}
-			}
-		}
-	}
-
-	{
-		PROFILER_ZONE(g_profiler_ctx, "B");
-		// Check for collisions that used to be happening, and are now gone
-		CollisionPtrMap::iterator oci = old_col_ptr_map.begin();
-		for(;oci != old_col_ptr_map.end(); ++oci){
-			CollisionPtrMap::iterator ci = col_map.find(oci->first);
-			Object* obj_a = (Object*)oci->first;
-			CollisionPtrSet::iterator oci2 = oci->second.begin();
-			for(;oci2 != oci->second.end(); ++oci2){
-				Object* obj_b = (Object*)(*oci2);
-				bool not_found = false;
-				if(ci == col_map.end()){
-					not_found = true;
-				} else {
-					CollisionPtrSet::iterator ci2 = ci->second.find(*oci2);
-					if(ci2 == ci->second.end()){
-						not_found = true;
-					}
-				}
-				if(!not_found){
-					continue;
-				}
-				Object* temp_obj_a = obj_a;
-				if(obj_b->GetType() == _hotspot_object){
-					std::swap(temp_obj_a, obj_b);
-				}
-				if(temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _movement_object){
-					Hotspot* hotspot = (Hotspot*)temp_obj_a;
-					MovementObject* mo = (MovementObject*)obj_b;
-
-					exit_call_queue.push_back(std::pair<Hotspot*,MovementObject*>(hotspot,mo));
-				}
-				if(temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _item_object){
-					Hotspot* hotspot = (Hotspot*)temp_obj_a;
-					ItemObject* obj = (ItemObject*)obj_b;
-					hotspot->HandleEventItem("exit", obj);
-				}
-			}
-		}
-	}
-
-	{
-		PROFILER_ZONE(g_profiler_ctx, "C");
-		// Check for collisions that now exist
-		CollisionPtrMap::iterator ci = col_map.begin();
-		for(;ci != col_map.end(); ++ci){
-			CollisionPtrMap::iterator oci = old_col_ptr_map.find(ci->first);
-			Object* obj_a = (Object*)ci->first;
-			std::set<void*>::iterator ci2 = ci->second.begin();
-			for(;ci2 != ci->second.end(); ++ci2){
-				Object* obj_b = (Object*)(*ci2);
-				if(obj_a->GetType() == _movement_object && obj_b->GetType() == _movement_object){
-					((MovementObject*)obj_a)->CollideWith((MovementObject*)obj_b);
-					continue;
-				}
-
-				bool not_found = false;
-				if(oci == old_col_ptr_map.end()){
-					not_found = true;
-				} else {
-					std::set<void*>::iterator oci2 = oci->second.find(*ci2);
-					if(oci2 == oci->second.end()){
-						not_found = true;
-					}
-				}
-				if(!not_found){
-					continue;
-				}
-				Object* temp_obj_a = obj_a;
-				if(obj_b->GetType() == _hotspot_object){
-					std::swap(temp_obj_a, obj_b);
-				}
-				if(temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _movement_object){
-					Hotspot* hotspot = (Hotspot*)temp_obj_a;
-					MovementObject* mo = (MovementObject*)obj_b;
-					enter_call_queue.push_back(std::pair<Hotspot*,MovementObject*>(hotspot,mo));
-				}
-				if(temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _item_object){
-					Hotspot* hotspot = (Hotspot*)temp_obj_a;
-					ItemObject* obj = (ItemObject*)obj_b;
-					hotspot->HandleEventItem("enter", obj);
-				}
-			}
-		}
-	}
-
-	{
-		PROFILER_ZONE(g_profiler_ctx, "D");
-		// Convert old collision pointers to ids
-		CollisionPtrMap &map = col_map;
-		old_col_map_.clear();
-		for(auto & iter : map){
-			int id_a = ((Object*)iter.first)->GetID();
-			CollisionPtrSet &set = iter.second;
-			for(auto iter : set){
-				int id_b = ((Object*)iter)->GetID();
-				old_col_map_[id_a].insert(id_b);
-			}
-		}
-	}
-
-	{
-		PROFILER_ZONE(g_profiler_ctx, "E");
-		//Do the delayed calls
-		std::vector<std::pair<Hotspot*,MovementObject*> >::iterator exit_call_queue_it = exit_call_queue.begin();
-		for(;exit_call_queue_it != exit_call_queue.end(); exit_call_queue_it++) {
-			exit_call_queue_it->first->HandleEvent("exit", exit_call_queue_it->second);
-            ASArglist args;
-			args.AddObject((void*)&exit_call_queue_it->first->GetScriptFile());
-			args.AddAddress((void*)exit_call_queue_it->second);
-
-            for(auto & as_context : as_contexts_) {
-			    as_context.ctx->CallScriptFunction(as_context.as_funcs.hotspot_exit, &args);
+    {
+        PROFILER_ZONE(g_profiler_ctx, "A");
+        old_col_ptr_map.clear();
+        {
+            CollisionMap& map = old_col_map_;
+            for (auto& iter : map) {
+                int id = iter.first;
+                Object* obj_a_ptr = scenegraph.GetObjectFromID(id);
+                if (obj_a_ptr) {
+                    CollisionSet& set = iter.second;
+                    for (int id : set) {
+                        Object* obj_b_ptr = scenegraph.GetObjectFromID(id);
+                        if (obj_b_ptr) {
+                            old_col_ptr_map[obj_a_ptr].insert(obj_b_ptr);
+                        }
+                    }
+                }
             }
-		}
+        }
+    }
 
-		std::vector<std::pair<Hotspot*,MovementObject*> >::iterator enter_call_queue_it = enter_call_queue.begin();
-		for(;enter_call_queue_it != enter_call_queue.end(); enter_call_queue_it++) {
-			enter_call_queue_it->first->HandleEvent("enter", enter_call_queue_it->second);
-            ASArglist args;
-			args.AddObject((void*)&enter_call_queue_it->first->GetScriptFile());
-			args.AddAddress((void*)enter_call_queue_it->second);
+    {
+        PROFILER_ZONE(g_profiler_ctx, "B");
+        // Check for collisions that used to be happening, and are now gone
+        CollisionPtrMap::iterator oci = old_col_ptr_map.begin();
+        for (; oci != old_col_ptr_map.end(); ++oci) {
+            CollisionPtrMap::iterator ci = col_map.find(oci->first);
+            Object* obj_a = (Object*)oci->first;
+            CollisionPtrSet::iterator oci2 = oci->second.begin();
+            for (; oci2 != oci->second.end(); ++oci2) {
+                Object* obj_b = (Object*)(*oci2);
+                bool not_found = false;
+                if (ci == col_map.end()) {
+                    not_found = true;
+                } else {
+                    CollisionPtrSet::iterator ci2 = ci->second.find(*oci2);
+                    if (ci2 == ci->second.end()) {
+                        not_found = true;
+                    }
+                }
+                if (!not_found) {
+                    continue;
+                }
+                Object* temp_obj_a = obj_a;
+                if (obj_b->GetType() == _hotspot_object) {
+                    std::swap(temp_obj_a, obj_b);
+                }
+                if (temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _movement_object) {
+                    Hotspot* hotspot = (Hotspot*)temp_obj_a;
+                    MovementObject* mo = (MovementObject*)obj_b;
 
-            for(auto & as_context : as_contexts_) {
-			    as_context.ctx->CallScriptFunction(as_context.as_funcs.hotspot_enter, &args);
+                    exit_call_queue.push_back(std::pair<Hotspot*, MovementObject*>(hotspot, mo));
+                }
+                if (temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _item_object) {
+                    Hotspot* hotspot = (Hotspot*)temp_obj_a;
+                    ItemObject* obj = (ItemObject*)obj_b;
+                    hotspot->HandleEventItem("exit", obj);
+                }
             }
-		}
-	}
+        }
+    }
+
+    {
+        PROFILER_ZONE(g_profiler_ctx, "C");
+        // Check for collisions that now exist
+        CollisionPtrMap::iterator ci = col_map.begin();
+        for (; ci != col_map.end(); ++ci) {
+            CollisionPtrMap::iterator oci = old_col_ptr_map.find(ci->first);
+            Object* obj_a = (Object*)ci->first;
+            std::set<void*>::iterator ci2 = ci->second.begin();
+            for (; ci2 != ci->second.end(); ++ci2) {
+                Object* obj_b = (Object*)(*ci2);
+                if (obj_a->GetType() == _movement_object && obj_b->GetType() == _movement_object) {
+                    ((MovementObject*)obj_a)->CollideWith((MovementObject*)obj_b);
+                    continue;
+                }
+
+                bool not_found = false;
+                if (oci == old_col_ptr_map.end()) {
+                    not_found = true;
+                } else {
+                    std::set<void*>::iterator oci2 = oci->second.find(*ci2);
+                    if (oci2 == oci->second.end()) {
+                        not_found = true;
+                    }
+                }
+                if (!not_found) {
+                    continue;
+                }
+                Object* temp_obj_a = obj_a;
+                if (obj_b->GetType() == _hotspot_object) {
+                    std::swap(temp_obj_a, obj_b);
+                }
+                if (temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _movement_object) {
+                    Hotspot* hotspot = (Hotspot*)temp_obj_a;
+                    MovementObject* mo = (MovementObject*)obj_b;
+                    enter_call_queue.push_back(std::pair<Hotspot*, MovementObject*>(hotspot, mo));
+                }
+                if (temp_obj_a->GetType() == _hotspot_object && obj_b->GetType() == _item_object) {
+                    Hotspot* hotspot = (Hotspot*)temp_obj_a;
+                    ItemObject* obj = (ItemObject*)obj_b;
+                    hotspot->HandleEventItem("enter", obj);
+                }
+            }
+        }
+    }
+
+    {
+        PROFILER_ZONE(g_profiler_ctx, "D");
+        // Convert old collision pointers to ids
+        CollisionPtrMap& map = col_map;
+        old_col_map_.clear();
+        for (auto& iter : map) {
+            int id_a = ((Object*)iter.first)->GetID();
+            CollisionPtrSet& set = iter.second;
+            for (auto iter : set) {
+                int id_b = ((Object*)iter)->GetID();
+                old_col_map_[id_a].insert(id_b);
+            }
+        }
+    }
+
+    {
+        PROFILER_ZONE(g_profiler_ctx, "E");
+        // Do the delayed calls
+        std::vector<std::pair<Hotspot*, MovementObject*> >::iterator exit_call_queue_it = exit_call_queue.begin();
+        for (; exit_call_queue_it != exit_call_queue.end(); exit_call_queue_it++) {
+            exit_call_queue_it->first->HandleEvent("exit", exit_call_queue_it->second);
+            ASArglist args;
+            args.AddObject((void*)&exit_call_queue_it->first->GetScriptFile());
+            args.AddAddress((void*)exit_call_queue_it->second);
+
+            for (auto& as_context : as_contexts_) {
+                as_context.ctx->CallScriptFunction(as_context.as_funcs.hotspot_exit, &args);
+            }
+        }
+
+        std::vector<std::pair<Hotspot*, MovementObject*> >::iterator enter_call_queue_it = enter_call_queue.begin();
+        for (; enter_call_queue_it != enter_call_queue.end(); enter_call_queue_it++) {
+            enter_call_queue_it->first->HandleEvent("enter", enter_call_queue_it->second);
+            ASArglist args;
+            args.AddObject((void*)&enter_call_queue_it->first->GetScriptFile());
+            args.AddAddress((void*)enter_call_queue_it->second);
+
+            for (auto& as_context : as_contexts_) {
+                as_context.ctx->CallScriptFunction(as_context.as_funcs.hotspot_enter, &args);
+            }
+        }
+    }
 }
 
 bool Level::HasFunction(const std::string& function_definition) {
     bool result = false;
 
-    if(as_contexts_.size() > 0) {
+    if (as_contexts_.size() > 0) {
         result = as_contexts_[0].ctx->HasFunction(function_definition);
     }
 
     return result;
 }
 
-int Level::QueryIntFunction( const std::string &func ) {
+int Level::QueryIntFunction(const std::string& func) {
     ASArglist args;
     int val;
     ASArg return_val;
     return_val.type = _as_int;
     return_val.data = &val;
-    if( as_contexts_.size() > 0 ) {
+    if (as_contexts_.size() > 0) {
         as_contexts_[0].ctx->CallScriptFunction(func, &args, &return_val);
     }
     return val;
 }
 
-void Level::Execute( std::string code ) {
-    if( as_contexts_.size() > 0 ) {
+void Level::Execute(std::string code) {
+    if (as_contexts_.size() > 0) {
         as_contexts_[0].ctx->Execute(code);
     }
 }
 
-void Level::Message( const std::string &msg ) {
+void Level::Message(const std::string& msg) {
     Online* online = Online::Instance();
     ASArglist args;
     args.AddObject((void*)&msg);
@@ -525,13 +521,13 @@ void Level::Message( const std::string &msg ) {
         online->SendLevelMessage(msg);
     }
 
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.receive_message, &args);
     }
 
-    for(int level_event_receiver : level_event_receivers){
+    for (int level_event_receiver : level_event_receivers) {
         Object* obj = scenegraph->GetObjectFromID(level_event_receiver);
-        if(obj){
+        if (obj) {
             obj->ReceiveScriptMessage("level_event " + msg);
         } else {
             const int kBufSize = 256;
@@ -542,15 +538,15 @@ void Level::Message( const std::string &msg ) {
     }
 }
 
-int GetNumParamElements(const ScriptParams &sp, const char* name){
-    const ScriptParamMap &spm = sp.GetParameterMap();
+int GetNumParamElements(const ScriptParams& sp, const char* name) {
+    const ScriptParamMap& spm = sp.GetParameterMap();
     ScriptParamMap::const_iterator spm_iter = spm.find(name);
-    if(spm_iter == spm.end()){
+    if (spm_iter == spm.end()) {
         return 0;
     }
     CSLIterator iter(spm_iter->second.GetString());
     int num = 0;
-    while(iter.GetNext(NULL)){
+    while (iter.GetNext(NULL)) {
         ++num;
     }
     return num;
@@ -564,12 +560,12 @@ int Level::GetNumAchievements() {
     return GetNumParamElements(sp_, "Achievements");
 }
 
-void GetParamElement(const ScriptParams &sp, const char* name, int which, std::string &str){
-    if(which >= 0) {
+void GetParamElement(const ScriptParams& sp, const char* name, int which, std::string& str) {
+    if (which >= 0) {
         CSLIterator iter(sp.GetStringVal(name));
         int num = 0;
-        while(iter.GetNext(&str)) {
-            if(num == which){
+        while (iter.GetNext(&str)) {
+            if (num == which) {
                 return;
             }
             ++num;
@@ -592,17 +588,17 @@ std::string Level::GetAchievement(int which) {
 }
 
 // Set's the script for this level (no path)
-void Level::SetLevelSpecificScript( std::string& script_name ) {
+void Level::SetLevelSpecificScript(std::string& script_name) {
     metaDataDirty = true;
     level_specific_script_ = script_name;
 }
 
-void Level::SetPCScript( std::string& script_name ) {
+void Level::SetPCScript(std::string& script_name) {
     metaDataDirty = true;
     pc_script_ = script_name;
 }
 
-void Level::SetNPCScript( std::string& script_name ) {
+void Level::SetNPCScript(std::string& script_name) {
     metaDataDirty = true;
     npc_script_ = script_name;
 }
@@ -622,10 +618,10 @@ std::string Level::GetLevelSpecificScript() {
 }
 
 std::string Level::GetPCScript(const MovementObject* object) {
-    if(object) {
-        if(!object->GetPCObjectScript().empty()) {
+    if (object) {
+        if (!object->GetPCObjectScript().empty()) {
             return object->GetPCObjectScript();
-        } else if(!pc_script_.empty()) {
+        } else if (!pc_script_.empty()) {
             return pc_script_;
         } else {
             return "playercontrol.as";
@@ -636,14 +632,14 @@ std::string Level::GetPCScript(const MovementObject* object) {
 }
 
 std::string Level::GetNPCScript(const MovementObject* object) {
-    if(object) {
-        if(!object->GetNPCObjectScript().empty()) { // First is per-object script
+    if (object) {
+        if (!object->GetNPCObjectScript().empty()) {  // First is per-object script
             return object->GetNPCObjectScript();
-        } else if(!npc_script_.empty()) { // Then per-level script
+        } else if (!npc_script_.empty()) {  // Then per-level script
             return npc_script_;
-        } else if(!object->GetActorScript().empty()) { // Then actor script
+        } else if (!object->GetActorScript().empty()) {  // Then actor script
             return object->GetActorScript();
-        } else { // Finally the default script
+        } else {  // Finally the default script
             return "enemycontrol.as";
         }
     } else {
@@ -654,8 +650,8 @@ std::string Level::GetNPCScript(const MovementObject* object) {
 // Return the id of an unused text element, or -1 if can't find one
 int Level::CreateTextElement() {
     // Return first unused text element, and mark it as in use
-    for(int i=0; i<kMaxTextElements; ++i){
-        if(!text_elements[i].in_use){
+    for (int i = 0; i < kMaxTextElements; ++i) {
+        if (!text_elements[i].in_use) {
             text_elements[i].in_use = true;
             LOGD << "Allocated Text Element: " << i << std::endl;
             return i;
@@ -667,7 +663,7 @@ int Level::CreateTextElement() {
 
 // Free a text element so someone else can use it, and dispose of its resources
 void Level::DeleteTextElement(int which) {
-    LOGD << "Freed Text Element: " << which << std::endl; 
+    LOGD << "Freed Text Element: " << which << std::endl;
     text_elements[which].in_use = false;
     text_elements[which].text_canvas_texture.Reset();
 }
@@ -678,124 +674,123 @@ TextCanvasTexture* Level::GetTextElement(int which) {
 }
 
 namespace {
-    bool GetLevelBoundaries(Level* level) {
-        return level->script_params().ASGetInt("Level Boundaries") == 1;
-    }
+bool GetLevelBoundaries(Level* level) {
+    return level->script_params().ASGetInt("Level Boundaries") == 1;
 }
+}  // namespace
 
-static ScriptParams* ASGetScriptParams(Level* level){
+static ScriptParams* ASGetScriptParams(Level* level) {
     return &level->script_params();
 }
 
-static bool ASHasVar( Level* level, const std::string &name ) {
+static bool ASHasVar(Level* level, const std::string& name) {
     bool result = false;
-    if( level->as_contexts_.size() > 0 ) {
+    if (level->as_contexts_.size() > 0) {
         result = level->as_contexts_[0].ctx->GetVarPtr(name.c_str()) != NULL;
     }
     return result;
 }
 
-static int ASGetIntVar( Level* level, const std::string &name ) {
-    if( level->as_contexts_.size() > 0 ) {
-	    return *((int*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()));
+static int ASGetIntVar(Level* level, const std::string& name) {
+    if (level->as_contexts_.size() > 0) {
+        return *((int*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()));
     }
     return 0;
 }
 
-static int ASGetArrayIntVar( Level* level, const std::string &name, int index ) {
-    if( level->as_contexts_.size() > 0 ) {
+static int ASGetArrayIntVar(Level* level, const std::string& name, int index) {
+    if (level->as_contexts_.size() > 0) {
         return *((int*)level->as_contexts_[0].ctx->GetArrayVarPtr(name, index));
     }
     return 0;
 }
 
-static float ASGetFloatVar( Level* level, const std::string &name ) {
-    if( level->as_contexts_.size() > 0 ) {
-	    return *((float*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()));
+static float ASGetFloatVar(Level* level, const std::string& name) {
+    if (level->as_contexts_.size() > 0) {
+        return *((float*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()));
     }
     return 0.0f;
 }
 
-static bool ASGetBoolVar( Level* level, const std::string &name ) {
-    if( level->as_contexts_.size() > 0 ) {
-	    return *((bool*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()));
+static bool ASGetBoolVar(Level* level, const std::string& name) {
+    if (level->as_contexts_.size() > 0) {
+        return *((bool*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()));
     }
     return false;
 }
 
-static void ASSetIntVar( Level* level, const std::string &name, int value ) {
-    if( level->as_contexts_.size() > 0 ) {
-	    *(int*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()) = value;
+static void ASSetIntVar(Level* level, const std::string& name, int value) {
+    if (level->as_contexts_.size() > 0) {
+        *(int*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()) = value;
     }
 }
 
-static void ASSetArrayIntVar( Level* level, const std::string &name, int index, int value ) {
-    if( level->as_contexts_.size() > 0 ) {
+static void ASSetArrayIntVar(Level* level, const std::string& name, int index, int value) {
+    if (level->as_contexts_.size() > 0) {
         *(int*)level->as_contexts_[0].ctx->GetArrayVarPtr(name, index) = value;
     }
 }
 
-static void ASSetFloatVar( Level* level, const std::string &name, float value ) {
-    if( level->as_contexts_.size() > 0 ) {
-	    *(float*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()) = value;
+static void ASSetFloatVar(Level* level, const std::string& name, float value) {
+    if (level->as_contexts_.size() > 0) {
+        *(float*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()) = value;
     }
 }
 
-static void ASSetBoolVar( Level* level, const std::string &name, bool value ) {
-    if( level->as_contexts_.size() > 0 ) {
-	    *(bool*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()) = value;
+static void ASSetBoolVar(Level* level, const std::string& name, bool value) {
+    if (level->as_contexts_.size() > 0) {
+        *(bool*)level->as_contexts_[0].ctx->GetVarPtr(name.c_str()) = value;
     }
 }
 
 static bool ASWaitingForInput() {
-	return Engine::Instance()->waiting_for_input_;
+    return Engine::Instance()->waiting_for_input_;
 }
 
-void Level::DefineLevelTypePublic(ASContext *as_context) {
-    as_context->RegisterObjectType("Level", 0, asOBJ_REF | asOBJ_NOCOUNT); 
-    as_context->RegisterObjectMethod("Level", "bool HasFunction(const string &in function_definition)", asMETHOD(Level,HasFunction), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "int QueryIntFunction(const string &in function)", asMETHOD(Level,QueryIntFunction), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "int GetNumObjectives()", asMETHOD(Level,GetNumObjectives), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "int GetNumAchievements()", asMETHOD(Level,GetNumAchievements), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "string GetObjective(int which)", asMETHOD(Level,GetObjective), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "string GetAchievement(int which)", asMETHOD(Level,GetAchievement), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "void SendMessage(const string& in message)", asMETHOD(Level,Message), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "void Execute(string code)", asMETHOD(Level,Execute), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "const string& GetPath(const string& in key)", asMETHOD(Level,GetPath), asCALL_THISCALL, "Get path from paths xml file");
-    as_context->RegisterObjectMethod("Level", "bool HasFocus()", asMETHOD(Level,HasFocus), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "bool DialogueCameraControl()", asMETHOD(Level,DialogueCameraControl), asCALL_THISCALL);
+void Level::DefineLevelTypePublic(ASContext* as_context) {
+    as_context->RegisterObjectType("Level", 0, asOBJ_REF | asOBJ_NOCOUNT);
+    as_context->RegisterObjectMethod("Level", "bool HasFunction(const string &in function_definition)", asMETHOD(Level, HasFunction), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "int QueryIntFunction(const string &in function)", asMETHOD(Level, QueryIntFunction), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "int GetNumObjectives()", asMETHOD(Level, GetNumObjectives), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "int GetNumAchievements()", asMETHOD(Level, GetNumAchievements), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "string GetObjective(int which)", asMETHOD(Level, GetObjective), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "string GetAchievement(int which)", asMETHOD(Level, GetAchievement), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "void SendMessage(const string& in message)", asMETHOD(Level, Message), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "void Execute(string code)", asMETHOD(Level, Execute), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "const string& GetPath(const string& in key)", asMETHOD(Level, GetPath), asCALL_THISCALL, "Get path from paths xml file");
+    as_context->RegisterObjectMethod("Level", "bool HasFocus()", asMETHOD(Level, HasFocus), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "bool DialogueCameraControl()", asMETHOD(Level, DialogueCameraControl), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Level", "bool LevelBoundaries()", asFUNCTION(GetLevelBoundaries), asCALL_CDECL_OBJFIRST);
-    as_context->RegisterObjectMethod("Level", "int CreateTextElement()", asMETHOD(Level,CreateTextElement), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "void DeleteTextElement(int which)", asMETHOD(Level,DeleteTextElement), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "TextCanvasTexture@ GetTextElement(int which)", asMETHOD(Level,GetTextElement), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("Level", "void GetCollidingObjects(int id, array<int> @array)", asMETHOD(Level,GetCollidingObjects), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "int CreateTextElement()", asMETHOD(Level, CreateTextElement), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "void DeleteTextElement(int which)", asMETHOD(Level, DeleteTextElement), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "TextCanvasTexture@ GetTextElement(int which)", asMETHOD(Level, GetTextElement), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "void GetCollidingObjects(int id, array<int> @array)", asMETHOD(Level, GetCollidingObjects), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Level", "void ReceiveLevelEvents(int id)", asMETHOD(Level, ReceiveLevelEvents), asCALL_THISCALL);
-	as_context->RegisterObjectMethod("Level", "void StopReceivingLevelEvents(int id)", asMETHOD(Level, StopReceivingLevelEvents), asCALL_THISCALL);
-	as_context->RegisterObjectMethod("Level", "bool HasVar(const string &in name)", asFUNCTION(ASHasVar), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "int GetIntVar(const string &in name)", asFUNCTION(ASGetIntVar), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "void StopReceivingLevelEvents(int id)", asMETHOD(Level, StopReceivingLevelEvents), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("Level", "bool HasVar(const string &in name)", asFUNCTION(ASHasVar), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "int GetIntVar(const string &in name)", asFUNCTION(ASGetIntVar), asCALL_CDECL_OBJFIRST);
     as_context->RegisterObjectMethod("Level", "int GetArrayIntVar(const string &in name, int index)", asFUNCTION(ASGetArrayIntVar), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "float GetFloatVar(const string &in name)", asFUNCTION(ASGetIntVar), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "bool GetBoolVar(const string &in name)", asFUNCTION(ASGetIntVar), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "void SetIntVar(const string &in name, int value)", asFUNCTION(ASSetIntVar), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "float GetFloatVar(const string &in name)", asFUNCTION(ASGetIntVar), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "bool GetBoolVar(const string &in name)", asFUNCTION(ASGetIntVar), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "void SetIntVar(const string &in name, int value)", asFUNCTION(ASSetIntVar), asCALL_CDECL_OBJFIRST);
     as_context->RegisterObjectMethod("Level", "void SetArrayIntVar(const string &in name, int index, int value)", asFUNCTION(ASSetArrayIntVar), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "void SetFloatVar(const string &in name, float value)", asFUNCTION(ASSetIntVar), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "void SetBoolVar(const string &in name, bool value)", asFUNCTION(ASSetIntVar), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "bool WaitingForInput()", asFUNCTION(ASWaitingForInput), asCALL_CDECL_OBJFIRST);
-	as_context->RegisterObjectMethod("Level", "ScriptParams@ GetScriptParams()", asFUNCTION(ASGetScriptParams), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "void SetFloatVar(const string &in name, float value)", asFUNCTION(ASSetIntVar), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "void SetBoolVar(const string &in name, bool value)", asFUNCTION(ASSetIntVar), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "bool WaitingForInput()", asFUNCTION(ASWaitingForInput), asCALL_CDECL_OBJFIRST);
+    as_context->RegisterObjectMethod("Level", "ScriptParams@ GetScriptParams()", asFUNCTION(ASGetScriptParams), asCALL_CDECL_OBJFIRST);
     as_context->DocsCloseBrace();
 }
 
-
-void Level::GetCollidingObjects( int id, CScriptArray *array ) {
+void Level::GetCollidingObjects(int id, CScriptArray* array) {
     int collision[2];
-    for(auto & iter : old_col_map_){
+    for (auto& iter : old_col_map_) {
         collision[0] = iter.first;
-        CollisionSet &set = iter.second;
-        for(int iter : set){
+        CollisionSet& set = iter.second;
+        for (int iter : set) {
             collision[1] = iter;
-            if(collision[0] == id){
+            if (collision[0] == id) {
                 array->InsertLast(&collision[1]);
-            } else if(collision[1] == id){
+            } else if (collision[1] == id) {
                 array->InsertLast(&collision[0]);
             }
         }
@@ -803,30 +798,30 @@ void Level::GetCollidingObjects( int id, CScriptArray *array ) {
 }
 
 void Level::Draw() {
-	PROFILER_GPU_ZONE(g_profiler_ctx, "Level::Draw");
-    for(auto & as_context : as_contexts_) {
+    PROFILER_GPU_ZONE(g_profiler_ctx, "Level::Draw");
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.draw_gui);
     }
-	hud_images.Draw();
-    for(auto & as_context : as_contexts_) {
-		as_context.ctx->CallScriptFunction(as_context.as_funcs.draw_gui2);
-	}
     hud_images.Draw();
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.draw_gui2);
+    }
+    hud_images.Draw();
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.draw_gui3);
     }
     hud_images.Draw();
 }
 
-void Level::SetFromLevelInfo( const LevelInfo &li ) {
+void Level::SetFromLevelInfo(const LevelInfo& li) {
     level_specific_script_ = li.script_;
     pc_script_ = li.pc_script_;
     npc_script_ = li.npc_script_;
     level_script_paths.clear();
-    for(const auto & script_path : li.script_paths_){
+    for (const auto& script_path : li.script_paths_) {
         level_script_paths[script_path.first] = script_path.second;
     }
-    recently_created_items_ = li.recently_created_items_; 
+    recently_created_items_ = li.recently_created_items_;
     nav_mesh_parameters_ = li.nav_mesh_parameters_;
     loading_screen_ = li.loading_screen_;
 }
@@ -841,9 +836,9 @@ bool Level::HasFocus() {
     ASArg return_arg;
     return_arg.data = &has_focus;
     return_arg.type = _as_bool;
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.has_focus, &args, &return_arg);
-        if(has_focus) {
+        if (has_focus) {
             return true;
         }
     }
@@ -856,9 +851,9 @@ bool Level::DialogueCameraControl() {
     ASArg return_arg;
     return_arg.data = &dialogue_control;
     return_arg.type = _as_bool;
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.dialogue_camera_control, &args, &return_arg);
-        if(dialogue_control) {
+        if (dialogue_control) {
             return true;
         }
     }
@@ -873,46 +868,46 @@ void Level::SetScriptParams(const ScriptParamMap& spm) {
     sp_.SetParameterMap(spm);
 }
 
-const std::string & Level::GetPath(const std::string& key) const {
+const std::string& Level::GetPath(const std::string& key) const {
     StringMap::const_iterator iter = level_script_paths.find(key);
-    if(iter == level_script_paths.end()){
+    if (iter == level_script_paths.end()) {
         FatalError("Error", "No path found with key: %s", key.c_str());
     }
     return iter->second;
 }
 
-void Level::SaveHistoryState(std::list<SavedChunk> & chunks, int state_id) {
+void Level::SaveHistoryState(std::list<SavedChunk>& chunks, int state_id) {
     SavedChunk saved_chunk;
     saved_chunk.obj_id = 0;
     saved_chunk.type = ChunkType::LEVEL;
 
     ASArglist args;
     args.AddAddress(&saved_chunk);
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.save_history_state, &args);
     }
     AddChunkToHistory(chunks, state_id, saved_chunk);
 }
 
-void Level::ReadChunk(const SavedChunk &the_chunk) {
+void Level::ReadChunk(const SavedChunk& the_chunk) {
     ASArglist args;
     args.AddAddress((void*)&the_chunk);
 
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.read_chunk, &args);
     }
 }
 
 bool Level::isMetaDataDirty() {
-    if(metaDataDirty) {
+    if (metaDataDirty) {
         return true;
     }
 
-    for(auto & object : scenegraph->objects_) {
-        if(object->GetType() == _placeholder_object) {
+    for (auto& object : scenegraph->objects_) {
+        if (object->GetType() == _placeholder_object) {
             PlaceholderObject* obj = (PlaceholderObject*)object;
-            if(obj->GetScriptParams()->HasParam("Dialogue")) {
-                if(obj->unsaved_changes) {
+            if (obj->GetScriptParams()->HasParam("Dialogue")) {
+                if (obj->unsaved_changes) {
                     return true;
                 }
             }
@@ -924,8 +919,8 @@ bool Level::isMetaDataDirty() {
 
 void Level::setMetaDataClean() {
     metaDataDirty = false;
-    for(auto & object : scenegraph->objects_) {
-        if(object->GetType() == _placeholder_object) {
+    for (auto& object : scenegraph->objects_) {
+        if (object->GetType() == _placeholder_object) {
             ((PlaceholderObject*)object)->unsaved_changes = false;
         }
     }
@@ -940,27 +935,27 @@ void Level::ReceiveLevelEvents(int id) {
 }
 
 void Level::StopReceivingLevelEvents(int id) {
-    for(int i=0; i<(int)level_event_receivers.size(); ++i){
-        while(i<(int)level_event_receivers.size() && level_event_receivers[i] == id){
+    for (int i = 0; i < (int)level_event_receivers.size(); ++i) {
+        while (i < (int)level_event_receivers.size() && level_event_receivers[i] == id) {
             level_event_receivers[i] = level_event_receivers.back();
-            level_event_receivers.resize(level_event_receivers.size()-1);
+            level_event_receivers.resize(level_event_receivers.size() - 1);
         }
     }
 }
 
-void Level::WindowResized(ivec2 value ) {
+void Level::WindowResized(ivec2 value) {
     ASArglist args;
     args.Add(value[0]);
     args.Add(value[1]);
-    for(auto & as_context : as_contexts_) {
+    for (auto& as_context : as_contexts_) {
         as_context.ctx->CallScriptFunction(as_context.as_funcs.set_window_dimensions, &args);
     }
 }
 
 void Level::PushSpawnerItemRecent(const SpawnerItem& item) {
     std::vector<SpawnerItem>::iterator spawner_it = recently_created_items_.begin();
-    while( spawner_it != recently_created_items_.end()) {
-        if( *spawner_it == item ) {
+    while (spawner_it != recently_created_items_.end()) {
+        if (*spawner_it == item) {
             recently_created_items_.erase(spawner_it);
             spawner_it = recently_created_items_.begin();
         } else {
@@ -975,14 +970,14 @@ std::vector<SpawnerItem> Level::GetRecentlyCreatedItems() {
 }
 
 void Level::IncomingTCPData(SocketID socket, uint8_t* data, size_t len) {
-    for(auto & as_context : as_contexts_) {
-        asIScriptEngine *engine = as_context.ctx->GetEngine();
-        asITypeInfo *arrayType = engine->GetTypeInfoByDecl("array<uint8>");
+    for (auto& as_context : as_contexts_) {
+        asIScriptEngine* engine = as_context.ctx->GetEngine();
+        asITypeInfo* arrayType = engine->GetTypeInfoByDecl("array<uint8>");
 
         CScriptArray* array = CScriptArray::Create(arrayType);
         array->Reserve(len);
 
-        for( unsigned i = 0; i < len; i++ ) {
+        for (unsigned i = 0; i < len; i++) {
             array->InsertLast(&data[i]);
         }
 
@@ -990,7 +985,7 @@ void Level::IncomingTCPData(SocketID socket, uint8_t* data, size_t len) {
         args.Add(socket);
         args.AddAddress((void*)array);
 
-        as_context.ctx->CallScriptFunction(as_context.as_funcs.incoming_tcp_data, &args, NULL); 
+        as_context.ctx->CallScriptFunction(as_context.as_funcs.incoming_tcp_data, &args, NULL);
 
         array->Release();
     }

@@ -22,12 +22,9 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-
 #ifndef __GNUC__
-
 
 #define __builtin_unreachable()
 #define __attribute__(x)
-
 
 #endif  // __GNUC__

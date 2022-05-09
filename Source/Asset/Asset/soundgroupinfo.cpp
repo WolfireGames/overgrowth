@@ -36,40 +36,37 @@
 
 #include <sstream>
 
-SoundGroupInfo::SoundGroupInfo( AssetManager* owner, uint32_t asset_id ) : AssetInfo(owner, asset_id)
-{
-
+SoundGroupInfo::SoundGroupInfo(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id) {
 }
 
-bool SoundGroupInfo::ParseXML( const char* data )
-{
+bool SoundGroupInfo::ParseXML(const char* data) {
     TiXmlDocument doc;
     doc.Parse(data);
     bool ret_value = false;
 
-    if(!doc.Error()) {
+    if (!doc.Error()) {
         TiXmlHandle hDoc(&doc);
         TiXmlHandle hRoot = hDoc.FirstChildElement();
         TiXmlElement* root = hRoot.ToElement();
-        if( root ) {
-            if(root->QueryIntAttribute("variants", &num_variants) != TIXML_SUCCESS){
+        if (root) {
+            if (root->QueryIntAttribute("variants", &num_variants) != TIXML_SUCCESS) {
                 num_variants = 1;
                 LOGW << "Missing element \"variants\" in SoundGroupInfo asset: " << path_ << std::endl;
             }
 
-            if(root->QueryFloatAttribute("delay", &delay) != TIXML_SUCCESS){
+            if (root->QueryFloatAttribute("delay", &delay) != TIXML_SUCCESS) {
                 delay = 0.0f;
                 LOGW << "Missing element \"delay\" in SoundGroupInfo asset: " << path_ << std::endl;
             }
 
-            if(root->QueryFloatAttribute("volume", &volume) != TIXML_SUCCESS){
+            if (root->QueryFloatAttribute("volume", &volume) != TIXML_SUCCESS) {
                 volume = 1.0f;
                 LOGW << "Missing element \"volume\" in SoundGroupInfo asset: " << path_ << std::endl;
             }
 
-            if(root->QueryFloatAttribute("max_distance", &max_distance) != TIXML_SUCCESS){
+            if (root->QueryFloatAttribute("max_distance", &max_distance) != TIXML_SUCCESS) {
                 max_distance = 30.0f;
-                //LOGW << "Missing element \"max_distance\" in SoundGroupInfo asset: " << path_ << std::endl;
+                // LOGW << "Missing element \"max_distance\" in SoundGroupInfo asset: " << path_ << std::endl;
             }
 
             ret_value = true;
@@ -83,26 +80,24 @@ bool SoundGroupInfo::ParseXML( const char* data )
     return ret_value;
 }
 
-int SoundGroupInfo::Load( const std::string &_path, uint32_t load_flags )
-{
+int SoundGroupInfo::Load(const std::string& _path, uint32_t load_flags) {
     path_ = _path;
-    if(path_.size() < 4){
+    if (path_.size() < 4) {
         return kLoadErrorMissingFile;
     }
-    const char* suffix = &path_[path_.size()-4];
-    if(strmtch(suffix, ".xml")){
+    const char* suffix = &path_[path_.size() - 4];
+    if (strmtch(suffix, ".xml")) {
         size_t size_out;
-        uint8_t *data = StackLoadText(path_.c_str(),&size_out);
-        if(data) {
-            if( ParseXML((const char*)data) ) {
-
+        uint8_t* data = StackLoadText(path_.c_str(), &size_out);
+        if (data) {
+            if (ParseXML((const char*)data)) {
             } else {
                 LOGE << "Failed to parse xml contents from file: " << path_ << std::endl;
             }
             alloc.stack.Free(data);
         } else {
-            LOGE << "LoadText on " << _path << " failed, will not parse" << std::endl; 
-            return  kLoadErrorMissingFile;
+            LOGE << "LoadText on " << _path << " failed, will not parse" << std::endl;
+            return kLoadErrorMissingFile;
         }
     } else {
         return kLoadErrorInvalidFileEnding;
@@ -115,31 +110,24 @@ const char* SoundGroupInfo::GetLoadErrorString() {
 }
 
 void SoundGroupInfo::Unload() {
-
 }
 
-void SoundGroupInfo::Reload( )
-{
-
+void SoundGroupInfo::Reload() {
 }
 
-void SoundGroupInfo::ReportLoad()
-{
-
+void SoundGroupInfo::ReportLoad() {
 }
 
-void SoundGroupInfo::ReturnPaths( PathSet &path_set )
-{
-    path_set.insert("soundgroup "+path_);
-    for(int i=0; i<num_variants; ++i){
-        path_set.insert("sound "+GetSoundPath(i));
+void SoundGroupInfo::ReturnPaths(PathSet& path_set) {
+    path_set.insert("soundgroup " + path_);
+    for (int i = 0; i < num_variants; ++i) {
+        path_set.insert("sound " + GetSoundPath(i));
     }
 }
 
-std::string SoundGroupInfo::GetSoundPath ( int choice ) const
-{
+std::string SoundGroupInfo::GetSoundPath(int choice) const {
     std::ostringstream oss;
-    oss << path_.substr(0,path_.size()-4) << "_" << choice+1 << ".wav";
+    oss << path_.substr(0, path_.size() - 4) << "_" << choice + 1 << ".wav";
     return oss.str();
 }
 

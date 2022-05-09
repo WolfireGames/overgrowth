@@ -47,23 +47,23 @@ struct SphereCollision {
     vec3 position;
     vec3 adjusted_position;
     std::vector<CollisionPoint> contacts;
-    size_t NumContacts() {return contacts.size();}
-    CollisionPoint GetContact(int which) {return contacts[which];}
-    void SetFromCallback( const vec3 &pos, const vec3 &pos2, const SweptSlideCallback &cb);
-    void SetFromCallback( const SweptSlideCallback &cb);
-    void SetFromCallback( const ContactSlideCallback &cb);
-    void SetFromCallback( const ContactInfoCallback &cb);
-	void SetFromCallback( const SimpleRayResultCallbackInfo &cb);
+    size_t NumContacts() { return contacts.size(); }
+    CollisionPoint GetContact(int which) { return contacts[which]; }
+    void SetFromCallback(const vec3& pos, const vec3& pos2, const SweptSlideCallback& cb);
+    void SetFromCallback(const SweptSlideCallback& cb);
+    void SetFromCallback(const ContactSlideCallback& cb);
+    void SetFromCallback(const ContactInfoCallback& cb);
+    void SetFromCallback(const SimpleRayResultCallbackInfo& cb);
 };
 
 class ASCollisions {
-public:
+   public:
     enum CollisionSides {
         SINGLE_SIDED,
         DOUBLE_SIDED
     };
     void GetSlidingSphereCollision(vec3 pos, float radius, SphereCollision& col, CollisionSides sides);
-    vec3 GetSlidingCapsuleCollision( vec3 pos, vec3 pos2, float radius );
+    vec3 GetSlidingCapsuleCollision(vec3 pos, vec3 pos2, float radius);
     void ASGetSlidingSphereCollision(vec3 pos, float radius);
     void ASGetSlidingSphereCollisionDoubleSided(vec3 pos, float radius);
     void ASGetSweptSphereCollision(const vec3& pos, const vec3& pos2, float radius);
@@ -71,7 +71,7 @@ public:
     void GetSweptSphereCollision(const vec3& pos, const vec3& pos2, float radius, SphereCollision& col);
     void GetSweptBoxCollision(vec3 pos, vec3 pos2, vec3 dimensions, SphereCollision& col);
     void ASGetSweptBoxCollision(vec3 pos, vec3 pos2, vec3 dimensions);
-    void GetSweptCylinderCollision( vec3 pos, vec3 pos2, float radius, float height, SphereCollision& col, CollisionSides sides );
+    void GetSweptCylinderCollision(vec3 pos, vec3 pos2, float radius, float height, SphereCollision& col, CollisionSides sides);
     void ASGetSweptCylinderCollisionDoubleSided(vec3 pos, vec3 pos2, float radius, float height);
     void ASGetSweptCylinderCollision(vec3 pos, vec3 pos2, float radius, float height);
     void GetCylinderCollision(vec3 pos, float radius, float height, SphereCollision& col, CollisionSides sides);
@@ -82,16 +82,16 @@ public:
     void ASGetScaledSpherePlantCollision(vec3 pos, float radius, vec3 scale);
     void GetSlidingScaledSphereCollision(vec3 pos, float radius, vec3 scale, SphereCollision& col);
     void ASGetSlidingScaledSphereCollision(vec3 pos, float radius, vec3 scale);
-    void ASCheckRayCollisionCharacters( vec3 pos, vec3 pos2 );
-    vec3 GetRayCollision( vec3 pos, vec3 pos2);
-	void ASGetObjRayCollision( vec3 pos, vec3 pos2);
-	void GetObjRayCollision( vec3 start, vec3 end, SphereCollision& col);
-	void ASGetObjectsInSphere(vec3 pos, float radius);
-	void GetObjectsInSphere(vec3 pos, float radius, SphereCollision& col);
+    void ASCheckRayCollisionCharacters(vec3 pos, vec3 pos2);
+    vec3 GetRayCollision(vec3 pos, vec3 pos2);
+    void ASGetObjRayCollision(vec3 pos, vec3 pos2);
+    void GetObjRayCollision(vec3 start, vec3 end, SphereCollision& col);
+    void ASGetObjectsInSphere(vec3 pos, float radius);
+    void GetObjectsInSphere(vec3 pos, float radius, SphereCollision& col);
 
-    SceneGraph *scenegraph;
+    SceneGraph* scenegraph;
     SphereCollision as_col;
-    void AttachToContext(ASContext *as_context);
+    void AttachToContext(ASContext* as_context);
 
     ASCollisions(SceneGraph* _scenegraph);
     ~ASCollisions();

@@ -33,23 +33,23 @@
 #include <vector>
 
 class HotspotFile : public AssetInfo {
-public:
-    HotspotFile( AssetManager* owner, uint32_t asset_id );
+   public:
+    HotspotFile(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return HOTSPOT_FILE_ASSET; }
     static const char* GetTypeName() { return "HOTSPOT_FILE_ASSET"; }
     static bool AssetWarning() { return true; }
-    
+
     std::string billboard_color_map;
     std::string script;
-    
+
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
     void ReportLoad() override;
-    
+
     void ReturnPaths(PathSet& path_set) override;
 
     AssetLoaderBase* NewLoader() override;

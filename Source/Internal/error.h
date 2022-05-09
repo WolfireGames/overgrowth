@@ -28,25 +28,24 @@
 
 #include <string>
 
-/** 
-*Displays an error message.
-*@param title The title of the message box.
-*@param contents The contents of the message box.
-*@param type Which buttons are available
-*@param allow_repetition If false, skips error if exact content has already 
-*                         been displayed
-*/
+/**
+ *Displays an error message.
+ *@param title The title of the message box.
+ *@param contents The contents of the message box.
+ *@param type Which buttons are available
+ *@param allow_repetition If false, skips error if exact content has already
+ *                         been displayed
+ */
 ErrorResponse DisplayError(const char* title,
                            const char* contents,
                            ErrorType type = _ok_cancel,
                            bool allow_repetition = true);
 
 ErrorResponse DisplayFormatError(ErrorType type,
-                           bool allow_repetition,
-                           const char* title,
-                           const char* fmtcontents,
-                           ...
-);
+                                 bool allow_repetition,
+                                 const char* title,
+                                 const char* fmtcontents,
+                                 ...);
 
 // Display a message with an OK button only
 void DisplayMessage(const char* title,
@@ -57,13 +56,13 @@ void DisplayFormatMessage(const char* title,
 
 ErrorResponse DisplayLastQueuedError();
 
-/** 
-*Displays an error message and then exits the program.
-*@param title The title of the message box.
-*@param contents The contents of the message box.
-*/
+/**
+ *Displays an error message and then exits the program.
+ *@param title The title of the message box.
+ *@param contents The contents of the message box.
+ */
 void FatalError(const char* title, const char* fmt, ...) __attribute__((noreturn));
 
-//bool Query(std::string title, std::string contents);
+// bool Query(std::string title, std::string contents);
 
-//std::string QueryString(std::string title, std::string contents);
+// std::string QueryString(std::string title, std::string contents);

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: cut_line.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,23 +31,23 @@
 using std::vector;
 
 namespace OnlineMessages {
-    class CutLine : public OnlineMessageBase {
-    private:
-        CommonObjectID id;
+class CutLine : public OnlineMessageBase {
+   private:
+    CommonObjectID id;
 
-    public:
-        vec3 points[3];
-        vec3 pos;
-        vec3 normal;
-        vec3 dir;
-        int type;
-        int depth;
-        int num_hit;
-        vector<int> hit_list;
+   public:
+    vec3 points[3];
+    vec3 pos;
+    vec3 normal;
+    vec3 dir;
+    int type;
+    int depth;
+    int num_hit;
+    vector<int> hit_list;
 
-    public:
-        CutLine();
-        CutLine(ObjectID id,
+   public:
+    CutLine();
+    CutLine(ObjectID id,
             const vec3* points,
             const vec3& pos,
             const vec3& normal,
@@ -57,10 +57,10 @@ namespace OnlineMessages {
             int num_hit,
             const vector<int>& hit_list);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

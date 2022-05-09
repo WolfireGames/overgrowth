@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: scriptable_ui.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -46,21 +46,21 @@
 
 #include <cassert>
 
-namespace { 
-void AttachScriptableUI(ASContext *as_context, ScriptableUI *sui) {
+namespace {
+void AttachScriptableUI(ASContext* as_context, ScriptableUI* sui) {
     as_context->RegisterObjectType("ScriptableUI", 0, asOBJ_REF | asOBJ_NOHANDLE);
     as_context->RegisterObjectMethod("ScriptableUI", "void SendCallback(const string &in)", asMETHOD(ScriptableUI, SendCallback), asCALL_THISCALL);
     as_context->DocsCloseBrace();
     as_context->RegisterGlobalProperty("ScriptableUI this_ui", sui);
 }
-} //Anonymous namespace
+}  // Anonymous namespace
 
 void ScriptableUI::Initialize(const Path& script_path, const ASData& as_data, bool debug_break) {
     mod_activation_change_ = false;
     LOG_ASSERT(!as_context && !hud_images);
     // Construct all the components
     as_context = new ASContext("scriptable_ui", as_data);
-    if(debug_break)
+    if (debug_break)
         as_context->dbg.Break();
     hud_images = new HUDImages();
     // Attach necessary script functionality
@@ -81,21 +81,21 @@ void ScriptableUI::Initialize(const Path& script_path, const ASData& as_data, bo
     AttachInterlevelData(as_context);
     AttachEngine(as_context);
     AttachOnline(as_context);
-    
-    AttachSaveFile( as_context, &Engine::Instance()->save_file_ );
 
-    as_funcs.initialize             = as_context->RegisterExpectedFunction("void Initialize()",true);
-    as_funcs.can_go_back            = as_context->RegisterExpectedFunction("bool CanGoBack()",true);
-    as_funcs.dispose                = as_context->RegisterExpectedFunction("void Dispose()",true);
-    as_funcs.draw_gui               = as_context->RegisterExpectedFunction("void DrawGUI()",true);
-    as_funcs.update                 = as_context->RegisterExpectedFunction("void Update()",true);
+    AttachSaveFile(as_context, &Engine::Instance()->save_file_);
 
-    as_funcs.mod_activation_reload  = as_context->RegisterExpectedFunction("void ModActivationReload()",false);
-    as_funcs.resize                 = as_context->RegisterExpectedFunction("void Resize()",false);
-    as_funcs.script_reloaded        = as_context->RegisterExpectedFunction("void ScriptReloaded()",false);
-    
-    as_funcs.queue_basic_popup      = as_context->RegisterExpectedFunction("void QueueBasicPopup(string title, string body)",false);
-    
+    as_funcs.initialize = as_context->RegisterExpectedFunction("void Initialize()", true);
+    as_funcs.can_go_back = as_context->RegisterExpectedFunction("bool CanGoBack()", true);
+    as_funcs.dispose = as_context->RegisterExpectedFunction("void Dispose()", true);
+    as_funcs.draw_gui = as_context->RegisterExpectedFunction("void DrawGUI()", true);
+    as_funcs.update = as_context->RegisterExpectedFunction("void Update()", true);
+
+    as_funcs.mod_activation_reload = as_context->RegisterExpectedFunction("void ModActivationReload()", false);
+    as_funcs.resize = as_context->RegisterExpectedFunction("void Resize()", false);
+    as_funcs.script_reloaded = as_context->RegisterExpectedFunction("void ScriptReloaded()", false);
+
+    as_funcs.queue_basic_popup = as_context->RegisterExpectedFunction("void QueueBasicPopup(string title, string body)", false);
+
     // Get screen dimensions so we can detect when things change
     currentWindowDims[0] = Graphics::Instance()->window_dims[0];
     currentWindowDims[1] = Graphics::Instance()->window_dims[1];
@@ -106,7 +106,6 @@ void ScriptableUI::Initialize(const Path& script_path, const ASData& as_data, bo
     as_context->ExportDocs(path);
     PROFILER_LEAVE(g_profiler_ctx);
 
-    
     // Load script and run init function
     as_context->LoadScript(script_path);
     as_context->CallScriptFunction(as_funcs.initialize);
@@ -114,9 +113,8 @@ void ScriptableUI::Initialize(const Path& script_path, const ASData& as_data, bo
     ModLoading::Instance().RegisterCallback(this);
 }
 
-bool ScriptableUI::CanGoBack()
-{
-    ASArg ret; 
+bool ScriptableUI::CanGoBack() {
+    ASArg ret;
     asBYTE retvalue;
     ret.type = _as_bool;
     ret.data = &retvalue;
@@ -145,25 +143,25 @@ void ScriptableUI::Draw() {
 }
 
 void ScriptableUI::Update() {
-    if(  mod_activation_change_ ) {
+    if (mod_activation_change_) {
         LOGI << "ModActivation: ModActivationReload() called" << std::endl;
         as_context->CallScriptFunction(as_funcs.mod_activation_reload);
-        mod_activation_change_ = false;    
+        mod_activation_change_ = false;
     }
 
     // See if the window size has changed
-    if( currentWindowDims[0] != Graphics::Instance()->window_dims[0] ||
-        currentWindowDims[1] != Graphics::Instance()->window_dims[1] ) {
+    if (currentWindowDims[0] != Graphics::Instance()->window_dims[0] ||
+        currentWindowDims[1] != Graphics::Instance()->window_dims[1]) {
         currentWindowDims[0] = Graphics::Instance()->window_dims[0];
         currentWindowDims[1] = Graphics::Instance()->window_dims[1];
         as_context->CallScriptFunction(as_funcs.resize);
     }
-    
+
     as_context->CallScriptFunction(as_funcs.update);
 }
 
 void ScriptableUI::QueueBasicPopup(const std::string& title, const std::string& body) {
-    if(as_context->HasFunction(as_funcs.queue_basic_popup)) {
+    if (as_context->HasFunction(as_funcs.queue_basic_popup)) {
         ASArglist args;
         args.AddString(&const_cast<std::string&>(title));
         args.AddString(&const_cast<std::string&>(body));
@@ -174,15 +172,15 @@ void ScriptableUI::QueueBasicPopup(const std::string& title, const std::string& 
     }
 }
 
-void ScriptableUI::SendCallback( const std::string& message ) {
+void ScriptableUI::SendCallback(const std::string& message) {
     LOG_ASSERT(notification_callback_ && callback_instance_);
     notification_callback_(callback_instance_, message);
 }
 
 void ScriptableUI::Reload(bool force) {
-    if( as_context && as_context->Reload() ) {
+    if (as_context && as_context->Reload()) {
         as_context->CallScriptFunction(as_funcs.script_reloaded);
-    } else if(force) {
+    } else if (force) {
         as_context->CallScriptFunction(as_funcs.script_reloaded);
     }
 }
@@ -192,9 +190,9 @@ void ScriptableUI::ScheduleDelete() {
 }
 
 bool ScriptableUI::IsDeleteScheduled() {
-    return to_delete_;  
+    return to_delete_;
 }
 
-void ScriptableUI::ModActivationChange( const ModInstance* mod ) {
-    mod_activation_change_ = true; 
+void ScriptableUI::ModActivationChange(const ModInstance* mod) {
+    mod_activation_change_ = true;
 }

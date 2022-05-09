@@ -33,87 +33,74 @@
 #include <unistd.h>
 #endif
 
-struct ItemJob
-{
+struct ItemJob {
     Item* item;
     int step;
     int count;
     volatile int performed;
 };
 
-static void* CalculateItemHash( void* item )
-{
-    ItemJob* ij = static_cast<ItemJob*>(item); 
+static void* CalculateItemHash(void* item) {
+    ItemJob* ij = static_cast<ItemJob*>(item);
     ij->performed = 0;
-    for( int i = 0; i < ij->count; i++ )
-    {
-        ij->item[i*ij->step].CalculateHash();
+    for (int i = 0; i < ij->count; i++) {
+        ij->item[i * ij->step].CalculateHash();
         ij->performed++;
     }
     return 0;
 }
 
-JobHandlerThreadPool::JobHandlerThreadPool( int thread_count ) : thread_count(thread_count)
-{
-    threads = static_cast<pthread_t*>(OG_MALLOC( sizeof(pthread_t) * thread_count ));
+JobHandlerThreadPool::JobHandlerThreadPool(int thread_count) : thread_count(thread_count) {
+    threads = static_cast<pthread_t*>(OG_MALLOC(sizeof(pthread_t) * thread_count));
 }
 
-JobHandlerThreadPool::~JobHandlerThreadPool()
-{
+JobHandlerThreadPool::~JobHandlerThreadPool() {
     OG_FREE(threads);
 }
 
-void JobHandlerThreadPool::RunHashCalculation(std::vector<Item>& arr)
-{
-    ItemJob* itemjobs = static_cast<ItemJob*>(OG_MALLOC(sizeof(ItemJob)*thread_count));
-    
-    int step = arr.size()/thread_count;
+void JobHandlerThreadPool::RunHashCalculation(std::vector<Item>& arr) {
+    ItemJob* itemjobs = static_cast<ItemJob*>(OG_MALLOC(sizeof(ItemJob) * thread_count));
 
-    for( int i = 0; i < thread_count; i++ )
-    {
+    int step = arr.size() / thread_count;
+
+    for (int i = 0; i < thread_count; i++) {
         itemjobs[i].item = &arr[i];
         itemjobs[i].step = thread_count;
         itemjobs[i].count = step;
 
-        int err = pthread_create( &threads[i], NULL, CalculateItemHash, &itemjobs[i]);
+        int err = pthread_create(&threads[i], NULL, CalculateItemHash, &itemjobs[i]);
 
-        if( err != 0 )
-        {
+        if (err != 0) {
             LOGE << "Thread create failed" << std::endl;
         }
     }
 
-    //Do the remaining items in our main thread.
-    for( int i = step*thread_count; i < arr.size(); i++ )
-    {
+    // Do the remaining items in our main thread.
+    for (int i = step * thread_count; i < arr.size(); i++) {
         arr[i].CalculateHash();
     }
 
     int count = 0;
-    while( count < arr.size() )
-    {
+    while (count < arr.size()) {
 #ifdef PLATFORM_LINUX
         sleep(1);
 #endif
         std::stringstream ss;
-        count = arr.size()-step*thread_count;
-        for( int i = 0; i < thread_count; i++ )
-        {
+        count = arr.size() - step * thread_count;
+        for (int i = 0; i < thread_count; i++) {
             count += itemjobs[i].performed;
             ss << ((itemjobs[i].performed == itemjobs[i].count) ? "d" : ".");
         }
-        SetPercent(ss.str().c_str(), (int)(100.0f*((float)count/(float)arr.size())));
+        SetPercent(ss.str().c_str(), (int)(100.0f * ((float)count / (float)arr.size())));
     }
 
-    for( int i = 0; i < thread_count; i++ )
-    {
-        void* retval; 
-        int err = pthread_join( threads[i], &retval );
+    for (int i = 0; i < thread_count; i++) {
+        void* retval;
+        int err = pthread_join(threads[i], &retval);
 
-        if( err != 0 )
-        {
+        if (err != 0) {
             LOGE << "Thread join failed" << std::endl;
         }
     }
-    OG_FREE( itemjobs );
+    OG_FREE(itemjobs);
 }

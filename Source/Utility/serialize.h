@@ -25,7 +25,7 @@
 #include <Internal/integer.h>
 
 uint8_t from_hex(char v);
-char to_hex( uint8_t v );
+char to_hex(uint8_t v);
 
-int string_flags_to_uint32(uint32_t* dest, const char* source );
+int string_flags_to_uint32(uint32_t* dest, const char* source);
 int flags_to_string(char* dest, uint32_t val);

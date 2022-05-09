@@ -20,14 +20,13 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include "xmlseekerbase.h"
 
 class TiXmlHandle;
 
-class LevelSeekerBase : public XMLSeekerBase
-{
-    std::vector<Item> SearchXML( const Item& item, TiXmlDocument& doc ) override;
-    virtual std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot ) = 0;
+class LevelSeekerBase : public XMLSeekerBase {
+    std::vector<Item> SearchXML(const Item& item, TiXmlDocument& doc) override;
+    virtual std::vector<Item> SearchLevelRoot(const Item& item, TiXmlHandle& hRoot) = 0;
 };

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: im_events.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,17 +29,18 @@ class IMGUI;
 class IMElement;
 
 class IMEventListener {
-public:
-    virtual void DestroyedIMElement( IMElement* element ) = 0;
-    virtual void DestroyedIMGUI( IMGUI* IMGUI ) = 0;
+   public:
+    virtual void DestroyedIMElement(IMElement* element) = 0;
+    virtual void DestroyedIMGUI(IMGUI* IMGUI) = 0;
 };
 
 class IMEvents {
-private:
+   private:
     std::vector<IMEventListener*> listeners;
-public:
-    void RegisterListener( IMEventListener *eventlistener );
-    void DeRegisterListener( IMEventListener *eventlistener );
+
+   public:
+    void RegisterListener(IMEventListener* eventlistener);
+    void DeRegisterListener(IMEventListener* eventlistener);
 
     void TriggerDestroyed(IMElement* elem);
     void TriggerDestroyed(IMGUI* imgui);

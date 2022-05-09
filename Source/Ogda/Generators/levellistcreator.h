@@ -27,10 +27,9 @@
 
 class JobHandler;
 
-class LevelListCreator : public CreatorBase
-{
-    public:
-        ManifestResult Run(const JobHandler& jh, const Manifest& manifest) override;
-        inline const char* GetName() const override { return "levellist"; }
-        inline const char* GetVersion() const override {return "1";}
+class LevelListCreator : public CreatorBase {
+   public:
+    ManifestResult Run(const JobHandler& jh, const Manifest& manifest) override;
+    inline const char* GetName() const override { return "levellist"; }
+    inline const char* GetVersion() const override { return "1"; }
 };

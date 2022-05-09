@@ -27,25 +27,18 @@
 #include <fstream>
 #include <string>
 
-std::vector<Item> JSONSeekerBase::Search(const Item& item)
-{
+std::vector<Item> JSONSeekerBase::Search(const Item& item) {
     std::fstream fs(item.GetAbsPath().c_str(), std::fstream::in);
 
-    if( fs.good() )
-    {
+    if (fs.good()) {
         SimpleJSONWrapper json;
         std::string err;
-        if( json.parseIstream( fs, err ) )
-        {
-            return SearchJSON(item, json.getRoot() );
-        }
-        else
-        {
+        if (json.parseIstream(fs, err)) {
+            return SearchJSON(item, json.getRoot());
+        } else {
             LOGE << "Unable to parse " << item << " in json parser, reason: " << err << std::endl;
         }
-    }
-    else
-    {
+    } else {
         LOGE << "Unable to open " << item << " in json parser" << std::endl;
         return std::vector<Item>();
     }

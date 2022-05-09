@@ -20,16 +20,14 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include "seekerbase.h"
 
-class LevelNormSeeker : public SeekerBase
-{
-public:
-    std::vector<Item> Search(const Item& item ) override;
-    const char* GetName() override
-    {
+class LevelNormSeeker : public SeekerBase {
+   public:
+    std::vector<Item> Search(const Item& item) override;
+    const char* GetName() override {
         return "level_norm_seeker";
     }
 };

@@ -38,45 +38,43 @@
 using std::string;
 
 void AmbientSound::Unload() {
-
 }
 
 void AmbientSound::Reload() {
-    Load(path_,0x0);
+    Load(path_, 0x0);
 }
 
-AmbientSound::AmbientSound( AssetManager *owner, uint32_t asset_id ) : AssetInfo( owner, asset_id ), sub_error(0) {
-
+AmbientSound::AmbientSound(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id), sub_error(0) {
 }
 
-int AmbientSound::Load( const string &path, uint32_t load_flags ) {
+int AmbientSound::Load(const string& path, uint32_t load_flags) {
     sub_error = 0;
     TiXmlDocument doc;
-    if( LoadXMLRetryable(doc, path, "Ambient sound") ) {
+    if (LoadXMLRetryable(doc, path, "Ambient sound")) {
         sound_path.clear();
         type = _continuous;
 
         TiXmlHandle h_doc(&doc);
-        if( doc.Error() ) {
+        if (doc.Error()) {
             return kLoadErrorCorruptFile;
         }
-        
+
         TiXmlHandle h_root = h_doc.FirstChildElement();
         TiXmlElement* field = h_root.ToElement();
 
         const char* c_str;
         c_str = field->Attribute("path");
-        if(c_str){
+        if (c_str) {
             sound_path = c_str;
         } else {
             sub_error = 1;
             return kLoadErrorIncompleteXML;
         }
         c_str = field->Attribute("type");
-        if(c_str){
-            if(strcmp(c_str, "continuous") == 0){
+        if (c_str) {
+            if (strcmp(c_str, "continuous") == 0) {
                 type = _continuous;
-            } else if(strcmp(c_str, "occasional") == 0){
+            } else if (strcmp(c_str, "occasional") == 0) {
                 type = _occasional;
             }
         } else {
@@ -93,19 +91,22 @@ int AmbientSound::Load( const string &path, uint32_t load_flags ) {
 }
 
 const char* AmbientSound::GetLoadErrorString() {
-    switch(sub_error) {
-        case 0: return "";
-        case 1: return "path attribute missing in xml";
-        case 2: return "type attribute missing in xml";
-        default: return "Undefined error";
-    } 
+    switch (sub_error) {
+        case 0:
+            return "";
+        case 1:
+            return "path attribute missing in xml";
+        case 2:
+            return "type attribute missing in xml";
+        default:
+            return "Undefined error";
+    }
 }
 
 void AmbientSound::ReportLoad() {
-    
 }
 
-const string & AmbientSound::GetPath() {
+const string& AmbientSound::GetPath() {
     return sound_path;
 }
 
@@ -113,21 +114,18 @@ AmbientSoundType AmbientSound::GetSoundType() {
     return type;
 }
 
-float AmbientSound::GetDelay()
-{
+float AmbientSound::GetDelay() {
     return RangedRandomFloat(delay_min, delay_max);
 }
 
-float AmbientSound::GetDelayNoLower()
-{
+float AmbientSound::GetDelayNoLower() {
     return RangedRandomFloat(0.0f, delay_max);
 }
 
-void AmbientSound::ReturnPaths( PathSet &path_set )
-{
-    path_set.insert("ambientsound "+path_);
-    //SoundGroupInfoCollection::Instance()->ReturnRef(sound_path)->ReturnPaths(path_set);
-    Engine::Instance()->GetAssetManager()->LoadSync<SoundGroupInfo>(sound_path)->ReturnPaths(path_set);  
+void AmbientSound::ReturnPaths(PathSet& path_set) {
+    path_set.insert("ambientsound " + path_);
+    // SoundGroupInfoCollection::Instance()->ReturnRef(sound_path)->ReturnPaths(path_set);
+    Engine::Instance()->GetAssetManager()->LoadSync<SoundGroupInfo>(sound_path)->ReturnPaths(path_set);
 }
 
 AssetLoaderBase* AmbientSound::NewLoader() {

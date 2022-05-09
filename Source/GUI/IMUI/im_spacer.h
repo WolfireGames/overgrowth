@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
 //           Name: im_spacer.h
 //      Developer: Wolfire Games LLC
-//    Description: Blank space element class for creating adhoc GUIs as part 
-//                 of the UI tools. You probably don't want to create these 
+//    Description: Blank space element class for creating adhoc GUIs as part
+//                 of the UI tools. You probably don't want to create these
 //                 yourself, instead use the method in Divider
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -33,51 +33,48 @@
  * @brief Blank space
  *
  */
-class IMSpacer : public IMElement
-{
-
-public:
-    
-    DividerOrientation orientation; // what direction is the host divider
-    bool isStatic;  // should this grow and shrink by the needs of its container?
+class IMSpacer : public IMElement {
+   public:
+    DividerOrientation orientation;  // what direction is the host divider
+    bool isStatic;                   // should this grow and shrink by the needs of its container?
 
     /*******************************************************************************************/
     /**
-     * @brief  Constructor - static divider 
+     * @brief  Constructor - static divider
      *
      */
-    IMSpacer( DividerOrientation _orientation, float size );
-    
+    IMSpacer(DividerOrientation _orientation, float size);
+
     /*******************************************************************************************/
     /**
-     * @brief  Constructor - expanding divider 
+     * @brief  Constructor - expanding divider
      *
      */
-    IMSpacer( DividerOrientation _orientation );
+    IMSpacer(DividerOrientation _orientation);
     IMSpacer();
-    
+
     /*******
      *
      * Angelscript factory
      *
      */
-    static IMSpacer* ASFactory_static( DividerOrientation _orientation, float size ) {
-        return new IMSpacer( _orientation, size );
+    static IMSpacer* ASFactory_static(DividerOrientation _orientation, float size) {
+        return new IMSpacer(_orientation, size);
     }
-    
-    static IMSpacer* ASFactory_dynamic( DividerOrientation _orientation ) {
-        return new IMSpacer( _orientation );
+
+    static IMSpacer* ASFactory_dynamic(DividerOrientation _orientation) {
+        return new IMSpacer(_orientation);
     }
-    
+
     /*******************************************************************************************/
     /**
      * @brief  Gets the name of the type of this element — for autonaming and debugging
-     * 
+     *
      * @returns name of the element type as a string
      *
      */
     std::string getElementTypeName() override;
-    
+
     /*******************************************************************************************/
     /**
      * @brief  Destructor
@@ -85,5 +82,3 @@ public:
      */
     ~IMSpacer() override;
 };
-
-

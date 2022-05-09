@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: locale.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -35,8 +35,8 @@ struct LevelLocalizationData {
     std::string name;
     std::string loading_tip;
 };
-typedef std::map<std::string, LevelLocalizationData> MapDataMap; // Maps level path -> per-level data
-typedef std::map<std::string, MapDataMap> LocalizedLevelMap; // Maps locale shortcode -> map of level data
+typedef std::map<std::string, LevelLocalizationData> MapDataMap;  // Maps level path -> per-level data
+typedef std::map<std::string, MapDataMap> LocalizedLevelMap;      // Maps locale shortcode -> map of level data
 static LocalizedLevelMap localized_levels;
 
 void ClearLocale() {
@@ -45,7 +45,7 @@ void ClearLocale() {
 }
 
 void AddLocale(const char* shortcode, const char* name, const char* local_name) {
-    if(local_name && strlen(local_name) > 0) {
+    if (local_name && strlen(local_name) > 0) {
         locales.insert(std::pair<std::string, std::string>(std::string(shortcode), std::string(name) + "/" + std::string(local_name)));
     } else {
         locales.insert(std::pair<std::string, std::string>(std::string(shortcode), std::string(name)));
@@ -62,9 +62,9 @@ void AddLevelTip(const char* shortcode, const char* level, const char* tip) {
 
 const char* GetLevelTip(const char* shortcode, const char* level) {
     LocalizedLevelMap::iterator loc_it = localized_levels.find(shortcode);
-    if(loc_it != localized_levels.end()) {
+    if (loc_it != localized_levels.end()) {
         MapDataMap::iterator it = loc_it->second.find(level);
-        if(it != loc_it->second.end()) {
+        if (it != loc_it->second.end()) {
             return it->second.loading_tip.c_str();
         }
     }
@@ -72,13 +72,13 @@ const char* GetLevelTip(const char* shortcode, const char* level) {
 }
 
 static CScriptArray* ASGetLocaleShortcodes() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(locales.size());
 
-    for(auto & locale : locales) {
+    for (auto& locale : locales) {
         // InsertLast doesn't actually do anything but copy from the pointer,
         // so a const_cast would be fine, but maybe an update to AS could change
         // that
@@ -90,13 +90,13 @@ static CScriptArray* ASGetLocaleShortcodes() {
 }
 
 static CScriptArray* ASGetLocaleNames() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(locales.size());
 
-    for(auto & locale : locales) {
+    for (auto& locale : locales) {
         // InsertLast doesn't actually do anything but copy from the pointer,
         // so a const_cast would be fine, but maybe an update to AS could change
         // that
@@ -109,9 +109,9 @@ static CScriptArray* ASGetLocaleNames() {
 
 static std::string ASGetLevelName(const std::string& shortcode, const std::string& path) {
     LocalizedLevelMap::iterator loc_it = localized_levels.find(shortcode);
-    if(loc_it != localized_levels.end()) {
+    if (loc_it != localized_levels.end()) {
         MapDataMap::iterator it = loc_it->second.find("Data/Levels/" + path);
-        if(it != loc_it->second.end()) {
+        if (it != loc_it->second.end()) {
             return it->second.name;
         }
     }

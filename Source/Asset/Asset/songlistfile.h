@@ -33,10 +33,10 @@ class SongListFile : public Asset {
     std::map<std::string, std::string> song_paths;
     std::string null_string;
 
-public:
-    const std::string &GetSongPath(const std::string song);
-    const std::map<std::string, std::string> &GetSongPaths();
-    int Load(const std::string &path, uint32_t load_flags);
+   public:
+    const std::string& GetSongPath(const std::string song);
+    const std::map<std::string, std::string>& GetSongPaths();
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();

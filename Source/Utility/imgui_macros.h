@@ -22,4 +22,4 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-bool ImGui_TooltipMenuItem( const char* body, const char* shortcut, const char* tooltip );
+bool ImGui_TooltipMenuItem(const char* body, const char* shortcut, const char* tooltip);

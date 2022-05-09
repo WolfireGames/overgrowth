@@ -56,32 +56,32 @@ class Material : public AssetInfo {
     float hardness;
     float friction;
     float sharp_penetration;
-    //ASContext *context;
-public:
+    // ASContext *context;
+   public:
     Material(AssetManager *owner, uint32_t asset_id);
     ~Material() override;
 
     int Load(const std::string &path, uint32_t load_flags);
-    const char* GetLoadErrorString();
-    const char* GetLoadErrorStringExtended() { return ""; }
+    const char *GetLoadErrorString();
+    const char *GetLoadErrorStringExtended() { return ""; }
     void Unload();
-    void Reload( );
+    void Reload();
     void ReportLoad() override;
     void HandleEvent(const std::string &the_event, const vec3 &pos);
-    const MaterialEvent& GetEvent( const std::string &the_event );
-    const MaterialEvent& GetEvent( const std::string &the_event, const std::string &mod );
-    const MaterialDecal& GetDecal( const std::string &type );
-    const MaterialParticle& GetParticle( const std::string &type );
+    const MaterialEvent &GetEvent(const std::string &the_event);
+    const MaterialEvent &GetEvent(const std::string &the_event, const std::string &mod);
+    const MaterialDecal &GetDecal(const std::string &type);
+    const MaterialParticle &GetParticle(const std::string &type);
     float GetHardness() const;
     float GetFriction() const;
     float GetSharpPenetration() const;
-    void ReturnPaths( PathSet & path_set ) override;
+    void ReturnPaths(PathSet &path_set) override;
 
     static AssetType GetType() { return MATERIAL_ASSET; }
-    static const char* GetTypeName() { return "MATERIAL_ASSET"; }
+    static const char *GetTypeName() { return "MATERIAL_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    AssetLoaderBase* NewLoader() override;
+    AssetLoaderBase *NewLoader() override;
 };
 
 typedef AssetRef<Material> MaterialRef;

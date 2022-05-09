@@ -31,19 +31,18 @@
 #include <Internal/filesystem.h>
 #include <Ogda/jobhandler.h>
 
-ManifestResult ShortVersionCreator::Run(const JobHandler& jh, const Manifest& manifest)
-{
+ManifestResult ShortVersionCreator::Run(const JobHandler& jh, const Manifest& manifest) {
     std::string destination("short_version");
 
-    std::string full_path = AssemblePath( jh.output_folder, destination );
+    std::string full_path = AssemblePath(jh.output_folder, destination);
 
-    std::ofstream f( full_path.c_str(), std::ios::out | std::ios::binary );
+    std::ofstream f(full_path.c_str(), std::ios::out | std::ios::binary);
 
     LOGI << "Writing short_version: " << full_path << std::endl;
 
     f << GetBuildVersion() << std::endl;
-    
+
     f.close();
 
-    return ManifestResult(jh, destination, true, *this,"short_version");
+    return ManifestResult(jh, destination, true, *this, "short_version");
 }

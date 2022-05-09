@@ -21,31 +21,32 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include <Asset/assetbase.h>
 #include <Asset/assettypes.h>
 
 class AssetRefBase {
-protected:
+   protected:
     AssetRefBase();
-public:
+
+   public:
     virtual ~AssetRefBase();
     virtual AssetType GetType() = 0;
 };
 
-template<class T>
+template <class T>
 class AssetRef : public AssetRefBase {
-private:
-    T *asset_ptr_;
+   private:
+    T* asset_ptr_;
 
-public:
+   public:
     AssetType GetType() override {
         return T::GetType();
     };
 
     void clear() {
-        if(asset_ptr_ != NULL){
+        if (asset_ptr_ != NULL) {
             asset_ptr_->DecrementRefCount();
             asset_ptr_ = NULL;
         }
@@ -61,57 +62,54 @@ public:
 
     AssetRef(T* _asset_ptr) {
         asset_ptr_ = _asset_ptr;
-        if(asset_ptr_ != NULL){
+        if (asset_ptr_ != NULL) {
             asset_ptr_->IncrementRefCount();
         }
     }
 
-    AssetRef(const AssetRef &other) {
+    AssetRef(const AssetRef& other) {
         asset_ptr_ = other.asset_ptr_;
-        if(asset_ptr_ != NULL){
+        if (asset_ptr_ != NULL) {
             asset_ptr_->IncrementRefCount();
         }
     }
 
     ~AssetRef() override {
-        if(asset_ptr_ != NULL){
+        if (asset_ptr_ != NULL) {
             asset_ptr_->DecrementRefCount();
             asset_ptr_ = NULL;
         }
     }
 
-    T& operator*(){
+    T& operator*() {
         return *asset_ptr_;
     }
 
-    const T& operator*() const{
+    const T& operator*() const {
         return *asset_ptr_;
     }
 
     const AssetRef& operator=(const AssetRef& other) {
         clear();
         asset_ptr_ = other.asset_ptr_;
-        if(asset_ptr_){
+        if (asset_ptr_) {
             asset_ptr_->IncrementRefCount();
         }
         return *this;
     }
 
-    bool operator!=( const AssetRef& other ) const
-    {
+    bool operator!=(const AssetRef& other) const {
         return asset_ptr_ != other.asset_ptr_;
     }
 
-    bool operator==( const AssetRef& other ) const
-    {
+    bool operator==(const AssetRef& other) const {
         return asset_ptr_ == other.asset_ptr_;
     }
 
-    bool operator<( const AssetRef& other ) const
-    {
+    bool operator<(const AssetRef& other) const {
         return asset_ptr_ < other.asset_ptr_;
     }
-    
+
     T* operator->() const {
         return asset_ptr_;
     }

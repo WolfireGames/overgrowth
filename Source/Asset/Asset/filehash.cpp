@@ -27,14 +27,13 @@
 #include <Asset/AssetLoader/fallbackassetloader.h>
 
 FileHashAsset::FileHashAsset(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id), sub_error(0) {
-
 }
 
-int FileHashAsset::Load(const std::string &path, uint32_t load_flags) {
+int FileHashAsset::Load(const std::string& path, uint32_t load_flags) {
     Path file = FindFilePath(path, kAnyPath);
 
-    if( file.isValid() ) {
-        hash = GetFileHash(file.GetAbsPathStr().c_str());   
+    if (file.isValid()) {
+        hash = GetFileHash(file.GetAbsPathStr().c_str());
         return kLoadOk;
     } else {
         return kLoadErrorMissingFile;
@@ -46,11 +45,9 @@ const char* FileHashAsset::GetLoadErrorString() {
 }
 
 void FileHashAsset::Unload() {
-
 }
 
 void FileHashAsset::Reload() {
-
 }
 
 AssetLoaderBase* FileHashAsset::NewLoader() {

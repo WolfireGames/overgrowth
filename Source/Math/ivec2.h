@@ -24,8 +24,8 @@
 
 #include <iostream>
 
-class ivec2{
-public:
+class ivec2 {
+   public:
     int entries[2];
 
     inline ivec2(int val = 0) {
@@ -47,20 +47,19 @@ public:
     }
 
     inline ivec2& operator=(int param) {
-        entries[0]=param;
-        entries[1]=param;
+        entries[0] = param;
+        entries[1] = param;
         return *this;
     }
 
-    inline ivec2& operator=(const ivec2 &param) {
-        entries[0]=param.entries[0];
-        entries[1]=param.entries[1];
+    inline ivec2& operator=(const ivec2& param) {
+        entries[0] = param.entries[0];
+        entries[1] = param.entries[1];
         return *this;
     }
 };
 
-inline std::ostream& operator<<(std::ostream& os, const ivec2& v )
-{
+inline std::ostream& operator<<(std::ostream& os, const ivec2& v) {
     os << "ivec2(" << v[0] << "," << v[1] << ")";
     return os;
 }

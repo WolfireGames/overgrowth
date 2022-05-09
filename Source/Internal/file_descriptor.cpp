@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: file_descriptor.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,22 +27,22 @@
 
 #include <cstring>
 
-bool DiskFileDescriptor::ReadBytes( void* dst, int num_bytes ) {
+bool DiskFileDescriptor::ReadBytes(void* dst, int num_bytes) {
     int elements_read = fread(dst, num_bytes, 1, file_);
-    if(ferror(file_)){
+    if (ferror(file_)) {
         perror("File error:");
     }
-    if(feof(file_)){
+    if (feof(file_)) {
         LOGE << "End of file" << std::endl;
     }
     return (elements_read == 1);
 }
 
-bool DiskFileDescriptor::WriteBytes( const void* src, int num_bytes ) {
+bool DiskFileDescriptor::WriteBytes(const void* src, int num_bytes) {
     return (fwrite(src, num_bytes, 1, file_) == 1);
 }
 
-bool DiskFileDescriptor::Open( const std::string& abs_path, const std::string& mode ) {
+bool DiskFileDescriptor::Open(const std::string& abs_path, const std::string& mode) {
     file_ = my_fopen(abs_path.c_str(), mode.c_str());
     return (file_ != NULL);
 }
@@ -55,14 +55,14 @@ bool DiskFileDescriptor::Close() {
 
 int DiskFileDescriptor::GetSize() {
     int index = ftell(file_);
-    fseek (file_, 0, SEEK_END);
+    fseek(file_, 0, SEEK_END);
     int file_size = ftell(file_);
-    fseek (file_ , index , SEEK_SET );
+    fseek(file_, index, SEEK_SET);
     return file_size;
 }
 
 DiskFileDescriptor::~DiskFileDescriptor() {
-    if(file_){
+    if (file_) {
         fclose(file_);
     }
 }
@@ -71,24 +71,24 @@ int DiskFileDescriptor::ReadBytesPartial(void* dst, int num_bytes) {
     return fread(dst, 1, num_bytes, file_);
 }
 
-bool MemReadFileDescriptor::ReadBytes( void* dst, int num_bytes ) {
-    if(!ptr_){
+bool MemReadFileDescriptor::ReadBytes(void* dst, int num_bytes) {
+    if (!ptr_) {
         return false;
     }
-    if(num_bytes == 0){
+    if (num_bytes == 0) {
         return true;
     }
     memcpy(dst, (char*)ptr_ + index_, num_bytes);
     index_ += num_bytes;
-    return true; // memcpy performs no error checking
+    return true;  // memcpy performs no error checking
 }
 
-bool MemWriteFileDescriptor::WriteBytes( const void* src, int num_bytes ) {
-    if(num_bytes == 0){
+bool MemWriteFileDescriptor::WriteBytes(const void* src, int num_bytes) {
+    if (num_bytes == 0) {
         return true;
     }
     vec_.resize(vec_.size() + num_bytes);
-    uint8_t *dst = &vec_[vec_.size()-num_bytes];
+    uint8_t* dst = &vec_[vec_.size() - num_bytes];
     memcpy(dst, src, num_bytes);
-    return true; // memcpy performs no error checking
+    return true;  // memcpy performs no error checking
 }

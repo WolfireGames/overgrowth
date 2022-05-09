@@ -29,27 +29,24 @@
 #include <string>
 #include <iostream>
 
-class JobXMLParser : public XMLParserBase
-{
-public:
+class JobXMLParser : public XMLParserBase {
+   public:
     JobXMLParser();
 
-    uint32_t Load( const std::string& path ) override;
-    bool Save( const std::string& path ) override;
+    uint32_t Load(const std::string& path) override;
+    bool Save(const std::string& path) override;
     void Clear() override;
 
-    class Searcher
-    {
-    public:
+    class Searcher {
+       public:
         int row;
         std::string type_pattern_re;
         std::string path_ending;
         std::string searcher;
     };
 
-    class Item
-    {
-    public:
+    class Item {
+       public:
         int row;
         std::string type;
         std::string path;
@@ -58,18 +55,16 @@ public:
         bool operator<(const Item& rhs) const;
     };
 
-    class Builder
-    {
-    public:
+    class Builder {
+       public:
         int row;
         std::string type_pattern_re;
         std::string path_ending;
         std::string builder;
     };
 
-    class Generator
-    {
-    public:
+    class Generator {
+       public:
         int row;
         std::string generator;
     };
@@ -81,66 +76,55 @@ public:
     std::vector<Generator> generators;
 };
 
-inline std::ostream& operator<<( std::ostream& out, const JobXMLParser::Searcher& s )
-{
+inline std::ostream& operator<<(std::ostream& out, const JobXMLParser::Searcher& s) {
     out << "XmlSearcher(" << s.type_pattern_re << "," << s.path_ending << "," << s.searcher << ")";
     return out;
 }
 
-inline std::ostream& operator<<( std::ostream& out, const JobXMLParser::Item& item )
-{
-    out << "XmlItem(" << item.path << ":" << item.row << "," << item.type << "," << item.recursive << "," << item.path_ending  << ")";
+inline std::ostream& operator<<(std::ostream& out, const JobXMLParser::Item& item) {
+    out << "XmlItem(" << item.path << ":" << item.row << "," << item.type << "," << item.recursive << "," << item.path_ending << ")";
     return out;
 }
 
-inline std::ostream& operator<<( std::ostream& out, const JobXMLParser::Builder& b )
-{
+inline std::ostream& operator<<(std::ostream& out, const JobXMLParser::Builder& b) {
     out << "XmlBuilder(" << b.type_pattern_re << "," << b.path_ending << "," << b.builder << ")";
     return out;
 }
 
-inline std::ostream& operator<<(std::ostream& out, const std::vector<JobXMLParser::Searcher>& filters)
-{
+inline std::ostream& operator<<(std::ostream& out, const std::vector<JobXMLParser::Searcher>& filters) {
     std::vector<JobXMLParser::Searcher>::const_iterator filter_it;
     filter_it = filters.begin();
     out << "XmlSearchers(";
-    for( ; filter_it != filters.end(); filter_it++ )
-    {
+    for (; filter_it != filters.end(); filter_it++) {
         out << *filter_it << ",";
     }
     out << ")";
     return out;
 }
 
-inline std::ostream& operator<<(std::ostream& out, const std::vector<JobXMLParser::Item>& items)
-{
-    out << "XmlItems("; 
+inline std::ostream& operator<<(std::ostream& out, const std::vector<JobXMLParser::Item>& items) {
+    out << "XmlItems(";
     std::vector<JobXMLParser::Item>::const_iterator item_it;
     item_it = items.begin();
-    for(; item_it != items.end(); item_it++ )
-    {
+    for (; item_it != items.end(); item_it++) {
         out << *item_it << ",";
     }
     out << ")";
     return out;
 }
 
-inline std::ostream& operator<<(std::ostream& out, const std::vector<JobXMLParser::Builder>& builders)
-{
-    out << "XmlBuilders("; 
+inline std::ostream& operator<<(std::ostream& out, const std::vector<JobXMLParser::Builder>& builders) {
+    out << "XmlBuilders(";
     std::vector<JobXMLParser::Builder>::const_iterator builder_it;
     builder_it = builders.begin();
-    for(; builder_it != builders.end(); builder_it++ )
-    {
+    for (; builder_it != builders.end(); builder_it++) {
         out << *builder_it << ",";
     }
     out << ")";
     return out;
 }
 
-
-inline std::ostream& operator<<( std::ostream& out, const JobXMLParser& dat )
-{
+inline std::ostream& operator<<(std::ostream& out, const JobXMLParser& dat) {
     out << "JobXMLParser(" << dat.searchers << "," << dat.items << "," << dat.builders << ")";
     return out;
 }

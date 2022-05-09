@@ -25,7 +25,6 @@
 #include <Logging/logdata.h>
 #include <Ogda/item.h>
 
-ManifestResult VoidAction::Run(const JobHandler& jh, const Item& y)
-{
+ManifestResult VoidAction::Run(const JobHandler& jh, const Item& y) {
     return ManifestResult(jh, y, std::string(""), true, *this, "void");
 }

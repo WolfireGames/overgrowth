@@ -28,14 +28,14 @@
 
 #include <string>
 
-/** 
-*Displays an error message.
-*@param title The title of the message box.
-*@param contents The contents of the message box.
-*@param type Which buttons are available
-*@param allow_repetition If false, skips error if exact content has already 
-*                         been displayed
-*/
+/**
+ *Displays an error message.
+ *@param title The title of the message box.
+ *@param contents The contents of the message box.
+ *@param type Which buttons are available
+ *@param allow_repetition If false, skips error if exact content has already
+ *                         been displayed
+ */
 ErrorResponse OSDisplayError(const char* title,
-                           const char* contents,
-                           ErrorType type = _ok_cancel);
+                             const char* contents,
+                             ErrorType type = _ok_cancel);

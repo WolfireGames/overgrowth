@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: im_events.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,26 +28,26 @@
 
 IMEvents imevents;
 
-void IMEvents::RegisterListener( IMEventListener *listener ) {
+void IMEvents::RegisterListener(IMEventListener* listener) {
     listeners.push_back(listener);
 }
 
-void IMEvents::DeRegisterListener( IMEventListener *listener ) {
-    for( int i = listeners.size()-1; i >= 0; i-- ) {
-        if( listeners[i] == listener ) {
-            listeners.erase(listeners.begin()+i);
+void IMEvents::DeRegisterListener(IMEventListener* listener) {
+    for (int i = listeners.size() - 1; i >= 0; i--) {
+        if (listeners[i] == listener) {
+            listeners.erase(listeners.begin() + i);
         }
     }
 }
 
 void IMEvents::TriggerDestroyed(IMElement* elem) {
-    for(auto & listener : listeners) {
+    for (auto& listener : listeners) {
         listener->DestroyedIMElement(elem);
     }
 }
 
-void IMEvents::TriggerDestroyed(IMGUI* imgui) { 
-    for(auto & listener : listeners) {
+void IMEvents::TriggerDestroyed(IMGUI* imgui) {
+    for (auto& listener : listeners) {
         listener->DestroyedIMGUI(imgui);
     }
 }

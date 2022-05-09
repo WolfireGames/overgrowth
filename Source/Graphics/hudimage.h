@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: hudimage.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -50,7 +50,7 @@ struct HUDImage {
     float GetWidth() const;
     float GetHeight() const;
     bool SetImageFromPath(const std::string &path);
-    void SetImageFromText( const TextCanvasTexture *text_canvas_texture);
+    void SetImageFromText(const TextCanvasTexture *text_canvas_texture);
 };
 
 struct HUDImages {
@@ -58,6 +58,7 @@ struct HUDImages {
     HUDImages();
     void AttachToContext(ASContext *as_context);
     void Draw();
-private:
-    HUDImage* AddImage();
+
+   private:
+    HUDImage *AddImage();
 };

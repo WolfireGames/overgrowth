@@ -21,7 +21,7 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include <Compat/os_dialogs.h>
 #include <Logging/logdata.h>
@@ -34,7 +34,6 @@
 #include <map>
 #include <string>
 
-
 ErrorResponse OSDisplayError(const char* title, const char* contents, ErrorType type) {
     bool old_mouse = Input::Instance()->GetGrabMouse();
     Input::Instance()->SetGrabMouse(false);
@@ -44,33 +43,33 @@ ErrorResponse OSDisplayError(const char* title, const char* contents, ErrorType 
     switch (type) {
         case _ok_cancel_retry:
             msgboxID = MessageBox(NULL,
-                                  contents, 
-                                  title, 
-                                  MB_CANCELTRYCONTINUE | 
-                                  MB_DEFBUTTON2 | 
-                                  MB_ICONHAND | 
-                                  MB_TOPMOST | 
-                                  MB_SETFOREGROUND);
-            break;    
+                                  contents,
+                                  title,
+                                  MB_CANCELTRYCONTINUE |
+                                      MB_DEFBUTTON2 |
+                                      MB_ICONHAND |
+                                      MB_TOPMOST |
+                                      MB_SETFOREGROUND);
+            break;
         case _ok_cancel:
             msgboxID = MessageBox(NULL,
-                                  contents, 
-                                  title, 
-                                  MB_OKCANCEL | 
-                                  MB_DEFBUTTON1 | 
-                                  MB_ICONHAND | 
-                                  MB_TOPMOST | 
-                                  MB_SETFOREGROUND);
-            break;    
+                                  contents,
+                                  title,
+                                  MB_OKCANCEL |
+                                      MB_DEFBUTTON1 |
+                                      MB_ICONHAND |
+                                      MB_TOPMOST |
+                                      MB_SETFOREGROUND);
+            break;
         case _ok:
             msgboxID = MessageBox(NULL,
-                                  contents, 
-                                  title, 
-                                  MB_DEFBUTTON1 | 
-                                  MB_ICONHAND | 
-                                  MB_TOPMOST | 
-                                  MB_SETFOREGROUND);
-            break;    
+                                  contents,
+                                  title,
+                                  MB_DEFBUTTON1 |
+                                      MB_ICONHAND |
+                                      MB_TOPMOST |
+                                      MB_SETFOREGROUND);
+            break;
     }
     switch (msgboxID) {
         case IDCANCEL:

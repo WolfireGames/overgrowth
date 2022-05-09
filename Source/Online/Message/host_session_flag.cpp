@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: host_session_flag.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,50 +25,48 @@
 #include <Online/online.h>
 
 namespace OnlineMessages {
-    HostSessionFlag::HostSessionFlag(OnlineFlags flag, bool value) :
-        OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
-        flag(flag), value(value)
-    {
+HostSessionFlag::HostSessionFlag(OnlineFlags flag, bool value) : OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
+                                                                 flag(flag),
+                                                                 value(value) {
+}
 
-    }
+binn* HostSessionFlag::Serialize(void* object) {
+    HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
+    binn* l = binn_object();
 
-    binn* HostSessionFlag::Serialize(void* object) {
-        HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
-        binn* l = binn_object();
+    binn_object_set_uint32(l, "f", (uint32_t)hsf->flag);
+    binn_object_set_bool(l, "v", hsf->value);
 
-        binn_object_set_uint32(l, "f", (uint32_t)hsf->flag);
-        binn_object_set_bool(l, "v", hsf->value);
+    return l;
+}
 
-        return l;
-    }
+void HostSessionFlag::Deserialize(void* object, binn* l) {
+    HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
 
-    void HostSessionFlag::Deserialize(void* object, binn* l) {
-        HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
+    uint32_t flag;
+    binn_object_get_uint32(l, "f", &flag);
+    hsf->flag = (OnlineFlags)flag;
 
-        uint32_t flag;
-        binn_object_get_uint32(l, "f", &flag);
-        hsf->flag = (OnlineFlags)flag;
+    BOOL value;
+    binn_object_get_bool(l, "v", &value);
+    hsf->value = (bool)value;
+}
 
-        BOOL value;
-        binn_object_get_bool(l, "v", &value);
-        hsf->value = (bool)value;
-    }
+void HostSessionFlag::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
+    Online* online = Online::Instance();
 
-    void HostSessionFlag::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
-        Online* online = Online::Instance();
-
-        if(online != nullptr && online->online_session != nullptr) {
-            online->online_session->host_session_flags[hsf->flag] = hsf->value;
-        }
-    }
-
-    void* HostSessionFlag::Construct(void* mem) {
-        return new(mem) HostSessionFlag(OnlineFlags::INVALID, false);
-    }
-
-    void HostSessionFlag::Destroy(void* object) {
-        HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
-        hsf->~HostSessionFlag();
+    if (online != nullptr && online->online_session != nullptr) {
+        online->online_session->host_session_flags[hsf->flag] = hsf->value;
     }
 }
+
+void* HostSessionFlag::Construct(void* mem) {
+    return new (mem) HostSessionFlag(OnlineFlags::INVALID, false);
+}
+
+void HostSessionFlag::Destroy(void* object) {
+    HostSessionFlag* hsf = static_cast<HostSessionFlag*>(object);
+    hsf->~HostSessionFlag();
+}
+}  // namespace OnlineMessages

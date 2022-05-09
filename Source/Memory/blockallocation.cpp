@@ -22,18 +22,14 @@
 //-----------------------------------------------------------------------------
 #include "blockallocation.h"
 
-BlockAllocation::BlockAllocation( ) 
-: block_index(0), block_count(0), ptr(NULL)
-{
+BlockAllocation::BlockAllocation()
+    : block_index(0), block_count(0), ptr(NULL) {
 }
 
-BlockAllocation::BlockAllocation( size_t _block_index, size_t _block_count, void* _ptr )
-: block_index(_block_index), block_count(_block_count), ptr(_ptr)
-{
+BlockAllocation::BlockAllocation(size_t _block_index, size_t _block_count, void* _ptr)
+    : block_index(_block_index), block_count(_block_count), ptr(_ptr) {
 }
 
-
-bool BlockAllocation::IsValid()
-{
+bool BlockAllocation::IsValid() {
     return block_count != 0;
 }

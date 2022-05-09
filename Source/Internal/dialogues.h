@@ -32,21 +32,26 @@ enum DialogErr {
     UNKNOWN_ERR
 };
 
-inline const char* DialogErrString( DialogErr e )
-{
-    switch( e )
-    {
-        case NO_ERR: return "NO_ERR";
-        case NO_SELECTION: return "NO_SELECTION";
-        case INTERNAL_BUFFER_TOO_SMALL: return "INTERNAL_BUFFER_TOO_SMALL";
-        case USER_BUFFER_TOO_SMALL: return "USER_BUFFER_TOO_SMALL";
-        case GET_CWD_FAILED: return "GET_CWD_FAILED";
-        case UNKNOWN_ERR: return "UNKNOWN_ERR";
-        default: return "(no string correspondent)";
+inline const char* DialogErrString(DialogErr e) {
+    switch (e) {
+        case NO_ERR:
+            return "NO_ERR";
+        case NO_SELECTION:
+            return "NO_SELECTION";
+        case INTERNAL_BUFFER_TOO_SMALL:
+            return "INTERNAL_BUFFER_TOO_SMALL";
+        case USER_BUFFER_TOO_SMALL:
+            return "USER_BUFFER_TOO_SMALL";
+        case GET_CWD_FAILED:
+            return "GET_CWD_FAILED";
+        case UNKNOWN_ERR:
+            return "UNKNOWN_ERR";
+        default:
+            return "(no string correspondent)";
     }
 }
 
 void Initialize();
-DialogErr readFile( const char* extension, int extension_count, const char* initial_dir, char *path_buffer, int PATH_BUFFER_SIZE);
-DialogErr writeFile( const char* extension, int extension_count, const char* initial_dir, char *path_buffer, int PATH_BUFFER_SIZE);
-}
+DialogErr readFile(const char* extension, int extension_count, const char* initial_dir, char* path_buffer, int PATH_BUFFER_SIZE);
+DialogErr writeFile(const char* extension, int extension_count, const char* initial_dir, char* path_buffer, int PATH_BUFFER_SIZE);
+}  // namespace Dialog

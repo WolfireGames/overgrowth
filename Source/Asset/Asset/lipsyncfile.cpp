@@ -34,62 +34,61 @@
 #include <Logging/logdata.h>
 #include <Main/engine.h>
 
-LipSyncFile::LipSyncFile(AssetManager* owner, uint32_t asset_id ) : Asset(owner,asset_id), sub_error(0) {
-
+LipSyncFile::LipSyncFile(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id), sub_error(0) {
 }
 
-int LipSyncFile::Load( const std::string &path, uint32_t load_flags ) {
+int LipSyncFile::Load(const std::string& path, uint32_t load_flags) {
     sub_error = 0;
     char abs_path[kPathSize];
-    if(FindFilePath(path.c_str(), abs_path, kPathSize, kDataPaths|kModPaths) != 0) {
+    if (FindFilePath(path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths) != 0) {
         return kLoadErrorMissingFile;
-    } 
+    }
 
     std::ifstream file;
     my_ifstream_open(file, abs_path);
-    if(file.fail()){
+    if (file.fail()) {
         return kLoadErrorCouldNotOpen;
     }
 
-    const std::map<std::string, int> &phn2vis = 
+    const std::map<std::string, int>& phn2vis =
         Engine::Instance()->GetLipSyncSystem()->phn2vis[0];
     std::map<std::string, int>::const_iterator iter;
     LipSyncKey new_key;
     std::string line;
-    while(!file.eof()){
+    while (!file.eof()) {
         // Extract lines with format:
-        // phn_vis start_time end_time num_keys phoneme weight...  
+        // phn_vis start_time end_time num_keys phoneme weight...
         file >> line;
-        if(line == "phn_vis"){
+        if (line == "phn_vis") {
             file >> new_key.time;
-            new_key.time -= 50.0f; //"Disney trick" to make shape before sound
-            //new_key.time *= 0.001f;
+            new_key.time -= 50.0f;  //"Disney trick" to make shape before sound
+            // new_key.time *= 0.001f;
             new_key.time /= 970.0f;
-            file.ignore(256,' ');
-            file.ignore(256,' ');
+            file.ignore(256, ' ');
+            file.ignore(256, ' ');
             file >> line;
             int num_keys = atoi(line.c_str());
             new_key.keys.resize(num_keys);
-            for(int i = 0; i < num_keys; ++i){
+            for (int i = 0; i < num_keys; ++i) {
                 file >> line;
                 iter = phn2vis.find(line);
-                if(iter == phn2vis.end()){
+                if (iter == phn2vis.end()) {
                     FatalError("Error",
-                        "Could not find \"%d\" in phn2id", line.c_str());
+                               "Could not find \"%d\" in phn2id", line.c_str());
                 }
                 new_key.keys[i].id = iter->second;
                 file >> new_key.keys[i].weight;
             }
             keys.push_back(new_key);
         } else {
-            file.ignore(256, '\n'); // Skip this line
+            file.ignore(256, '\n');  // Skip this line
         }
     }
     file.close();
 
     time_bound[0] = keys[0].time;
     time_bound[1] = keys[0].time;
-    for(unsigned i=1; i<keys.size(); ++i){
+    for (unsigned i = 1; i < keys.size(); ++i) {
         time_bound[0] = min(time_bound[0], keys[i].time);
         time_bound[1] = max(time_bound[1], keys[i].time);
     }
@@ -102,18 +101,16 @@ const char* LipSyncFile::GetLoadErrorString() {
 }
 
 void LipSyncFile::Unload() {
-
 }
-
 
 void LipSyncFile::Reload() {
-    Load(path_,0x0);
+    Load(path_, 0x0);
 }
 
-void LipSyncFile::GetWeights(float time, 
-                             int &marker, 
-                             std::vector<KeyWeight> &weights ) {
-    while(keys[marker].time < time){
+void LipSyncFile::GetWeights(float time,
+                             int& marker,
+                             std::vector<KeyWeight>& weights) {
+    while (keys[marker].time < time) {
         ++marker;
     }
     weights = keys[marker].keys;
@@ -124,28 +121,28 @@ AssetLoaderBase* LipSyncFile::NewLoader() {
 }
 
 void LipSyncFileReader::Update(float timestep) {
-    if(!valid()){
+    if (!valid()) {
         return;
     }
     time += timestep;
-    if(time > ls_ref->time_bound[1]){
+    if (time > ls_ref->time_bound[1]) {
         ls_ref.clear();
     }
 }
 
 void LipSyncFileReader::UpdateWeights() {
-    if(!valid()){
+    if (!valid()) {
         return;
     }
     ls_ref->GetWeights(time, marker, vis_weights);
 
     std::map<std::string, float>::iterator iter;
-    for(iter = morph_weights.begin(); iter != morph_weights.end(); ++iter){
+    for (iter = morph_weights.begin(); iter != morph_weights.end(); ++iter) {
         iter->second = 0.0f;
     }
 
-    for(auto & vis_weight : vis_weights){
-        morph_weights[id2morph[vis_weight.id]] += vis_weight.weight;    
+    for (auto& vis_weight : vis_weights) {
+        morph_weights[id2morph[vis_weight.id]] += vis_weight.weight;
     }
 }
 
@@ -153,19 +150,18 @@ bool LipSyncFileReader::valid() {
     return ls_ref.valid();
 }
 
-void LipSyncFileReader::AttachTo( LipSyncFileRef& _ls_ref ) {
+void LipSyncFileReader::AttachTo(LipSyncFileRef& _ls_ref) {
     ls_ref = _ls_ref;
     time = ls_ref->time_bound[0];
     marker = 0;
 }
 
-void LipSyncFileReader::SetVisemeMorphs(const std::map<std::string, std::string> &phn2morph )
-{
+void LipSyncFileReader::SetVisemeMorphs(const std::map<std::string, std::string>& phn2morph) {
     std::string phn;
     std::string morph;
     std::map<std::string, int> phn2vis = Engine::Instance()->GetLipSyncSystem()->phn2vis[0];
     std::map<std::string, std::string>::const_iterator iter;
-    for(iter = phn2morph.begin(); iter != phn2morph.end(); ++iter){
+    for (iter = phn2morph.begin(); iter != phn2morph.end(); ++iter) {
         phn = iter->first;
         morph = iter->second;
         int id = phn2vis[phn];
@@ -177,4 +173,3 @@ void LipSyncFileReader::SetVisemeMorphs(const std::map<std::string, std::string>
 std::map<std::string, float>& LipSyncFileReader::GetMorphWeights() {
     return morph_weights;
 }
-

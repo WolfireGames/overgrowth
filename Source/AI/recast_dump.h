@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
 //           Name: recast_dump.h
 //      Developer: External
-//         Author: 
-//    Description: This is a utility file from the Recast project which has been 
+//         Author:
+//    Description: This is a utility file from the Recast project which has been
 //                 extracted and modified by Wolfire Games LLC
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -28,13 +28,12 @@
 #ifndef RECAST_DUMP_H
 #define RECAST_DUMP_H
 
-struct duFileIO
-{
-	virtual ~duFileIO() = 0;
-	virtual bool isWriting() const = 0;
-	virtual bool isReading() const = 0;
-	virtual bool write(const void* ptr, const size_t size) = 0;
-	virtual bool read(void* ptr, const size_t size) = 0;
+struct duFileIO {
+    virtual ~duFileIO() = 0;
+    virtual bool isWriting() const = 0;
+    virtual bool isReading() const = 0;
+    virtual bool write(const void* ptr, const size_t size) = 0;
+    virtual bool read(void* ptr, const size_t size) = 0;
 };
 
 bool duDumpPolyMeshToObj(struct rcPolyMesh& pmesh, duFileIO* io);
@@ -48,5 +47,4 @@ bool duReadCompactHeightfield(struct rcCompactHeightfield& chf, duFileIO* io);
 
 void duLogBuildTimes(rcContext& ctx, const int totalTileUsec);
 
-
-#endif // RECAST_DUMP_H
+#endif  // RECAST_DUMP_H

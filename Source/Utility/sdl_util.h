@@ -24,15 +24,15 @@
 
 #include <SDL.h>
 
-static const char* SDL_GLprofile_string( SDL_GLprofile v ) {
-        switch( v ) {
-            case SDL_GL_CONTEXT_PROFILE_CORE:
-                return "SDL_GL_CONTEXT_PROFILE_CORE";
-            case SDL_GL_CONTEXT_PROFILE_COMPATIBILITY:
-                return "SDL_GL_CONTEXT_PROFILE_COMPATIBILITY";
-            case SDL_GL_CONTEXT_PROFILE_ES:
-                return "SDL_GL_CONTEXT_PROFILE_ES";
-            default:
-                return "SDL_GL_CONTEXT_PROFILE_UNKNOWN";
-        }
+static const char* SDL_GLprofile_string(SDL_GLprofile v) {
+    switch (v) {
+        case SDL_GL_CONTEXT_PROFILE_CORE:
+            return "SDL_GL_CONTEXT_PROFILE_CORE";
+        case SDL_GL_CONTEXT_PROFILE_COMPATIBILITY:
+            return "SDL_GL_CONTEXT_PROFILE_COMPATIBILITY";
+        case SDL_GL_CONTEXT_PROFILE_ES:
+            return "SDL_GL_CONTEXT_PROFILE_ES";
+        default:
+            return "SDL_GL_CONTEXT_PROFILE_UNKNOWN";
+    }
 }

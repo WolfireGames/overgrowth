@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: glstate.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,7 +23,9 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-enum AlphaMode {kPremultiplied, kStraight, kStraightBlend};
+enum AlphaMode { kPremultiplied,
+                 kStraight,
+                 kStraightBlend };
 
 struct GLState {
     bool depth_test;

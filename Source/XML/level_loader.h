@@ -29,13 +29,14 @@ class TiXmlNode;
 class SceneGraph;
 
 namespace LevelLoader {
-    bool LoadLevel(const Path& level_path, SceneGraph& s);
-    enum SaveLevelType {
-        kSaveInPlace, kSaveAs
-    };
+bool LoadLevel(const Path& level_path, SceneGraph& s);
+enum SaveLevelType {
+    kSaveInPlace,
+    kSaveAs
+};
 
-    void SaveLevel(SceneGraph& s, SaveLevelType type);
-    void SaveTerrain(TiXmlNode* doc, SceneGraph* s);
-}
+void SaveLevel(SceneGraph& s, SaveLevelType type);
+void SaveTerrain(TiXmlNode* doc, SceneGraph* s);
+}  // namespace LevelLoader
 
 EntityType CheckGenericType(TiXmlDocument& doc);

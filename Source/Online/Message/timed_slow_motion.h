@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: timed_slow_motion.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,19 +27,19 @@
 #include <Online/online_datastructures.h>
 
 namespace OnlineMessages {
-    class TimedSlowMotion : public OnlineMessageBase {
-    private:
-        float target_time_scale;
-        float how_long;
-        float delay;
+class TimedSlowMotion : public OnlineMessageBase {
+   private:
+    float target_time_scale;
+    float how_long;
+    float delay;
 
-    public:
-        TimedSlowMotion(float target_time_scale, float how_long, float delay);
+   public:
+    TimedSlowMotion(float target_time_scale, float how_long, float delay);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

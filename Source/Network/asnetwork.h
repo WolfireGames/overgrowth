@@ -28,15 +28,14 @@
 
 #include <map>
 
-
 #define SOCKET_ID_INVALID 0xFFFFFFFF
 
 typedef uint32_t SocketID;
 
 class SocketData {
-public:
+   public:
     TCPsocket socket;
-   
+
     static const unsigned BUF_SIZE = 128;
     bool valid;
     size_t used;
@@ -44,12 +43,12 @@ public:
 };
 
 class ASNetworkCallback {
-public:
+   public:
     virtual void IncomingTCPData(SocketID socket, uint8_t* data, size_t len) = 0;
 };
 
 class ASNetwork {
-private:
+   private:
     std::vector<ASNetworkCallback*> callbacks;
 
     static const int MAX_SOCKETS;
@@ -57,7 +56,8 @@ private:
     std::map<SocketID, SocketData> sockets;
 
     SDLNet_SocketSet socketset;
-public:
+
+   public:
     void Initialize();
     void Dispose();
 
@@ -70,6 +70,6 @@ public:
 
     bool IsValidSocketTCP(SocketID socket);
 
-    void RegisterASNetworkCallback( ASNetworkCallback* cb ); 
-    void DeRegisterASNetworkCallback( ASNetworkCallback* cb ); 
+    void RegisterASNetworkCallback(ASNetworkCallback* cb);
+    void DeRegisterASNetworkCallback(ASNetworkCallback* cb);
 };

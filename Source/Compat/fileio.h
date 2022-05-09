@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: fileio.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,18 +25,18 @@
 #include <stdio.h>
 #include <fstream>
 
-using std::wstring;
-using std::string;
 using std::fstream;
 using std::ifstream;
-using std::ofstream;
 using std::ios_base;
+using std::ofstream;
+using std::string;
+using std::wstring;
 
 #ifdef _WIN32
-wstring UTF16fromUTF8( const string& path_utf8 );
-string UTF8fromUTF16( const wstring& path_utf16);
+wstring UTF16fromUTF8(const string& path_utf8);
+string UTF8fromUTF16(const wstring& path_utf16);
 #endif
 FILE* my_fopen(const char* path, const char* mode);
-void my_fstream_open(fstream &file, const string& path, ios_base::openmode mode);
-void my_ifstream_open(ifstream &file, const string& path, ios_base::openmode mode = ios_base::in);
-void my_ofstream_open(ofstream &file, const string& path, ios_base::openmode mode = ios_base::out);
+void my_fstream_open(fstream& file, const string& path, ios_base::openmode mode);
+void my_ifstream_open(ifstream& file, const string& path, ios_base::openmode mode = ios_base::in);
+void my_ofstream_open(ofstream& file, const string& path, ios_base::openmode mode = ios_base::out);

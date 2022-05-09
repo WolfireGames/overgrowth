@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_loop_at_location_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,19 +25,19 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class AudioPlaySoundLoopAtLocationMessage : public OnlineMessageBase {
-    private:
-        std::string path;
-        vec3 pos;
-        float gain;
+class AudioPlaySoundLoopAtLocationMessage : public OnlineMessageBase {
+   private:
+    std::string path;
+    vec3 pos;
+    float gain;
 
-    public:
-        AudioPlaySoundLoopAtLocationMessage(const std::string& path, float gain, vec3 pos);
+   public:
+    AudioPlaySoundLoopAtLocationMessage(const std::string& path, float gain, vec3 pos);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: drawbatch.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -37,10 +37,14 @@
 #include <vector>
 #include <string>
 
-enum UniformType {_mat3, _mat4, _vec3, _vec4, _float};
+enum UniformType { _mat3,
+                   _mat4,
+                   _vec3,
+                   _vec4,
+                   _float };
 
 class Uniform {
-public:
+   public:
     UniformType type;
     std::string name;
     std::vector<GLfloat> data;
@@ -52,8 +56,8 @@ public:
 class DrawBatch;
 
 class AddedBatch {
-public:
-    const DrawBatch* batch;
+   public:
+    const DrawBatch *batch;
     GLuint start_face;
     GLuint end_face;
     GLuint start_vertex;
@@ -63,7 +67,7 @@ public:
 const int _vbo_threshold = 5;
 
 class DrawBatch {
-public:
+   public:
     bool visible;
     bool no_vbo;
     vec4 shadow_offset;
@@ -71,7 +75,7 @@ public:
     std::vector<GLfloat> normals;
     std::vector<GLfloat> vertices;
     std::vector<GLfloat> tex_coords[8];
-    int         tex_coord_elements[8];
+    int tex_coord_elements[8];
     std::vector<GLuint> faces;
 
     bool use_vbo_texcoords[8];
@@ -84,11 +88,11 @@ public:
     vec3 bounding_sphere_center;
     float bounding_sphere_radius;
 
-    GLfloat* normal_ptr;
-    GLfloat* vertex_ptr;
-    GLfloat* tex_coord_ptr[8];
-    const GLuint* face_ptr;
-    GLuint   num_face_ids;
+    GLfloat *normal_ptr;
+    GLfloat *vertex_ptr;
+    GLfloat *tex_coord_ptr[8];
+    const GLuint *face_ptr;
+    GLuint num_face_ids;
 
     int draw_times;
 
@@ -99,7 +103,7 @@ public:
     bool use_light;
 
     bool transparent;
-    
+
     GLState gl_state;
 
     mat4 shadow_proj_matrix;
@@ -120,7 +124,8 @@ public:
     void SetTransform(const mat4 &_transform);
     DrawBatch();
 
-    enum CreateVBOParam {NO_FACE_VBO, FACE_VBO};
+    enum CreateVBOParam { NO_FACE_VBO,
+                          FACE_VBO };
 
     void Draw();
 
@@ -132,21 +137,21 @@ public:
     void AddUniformMat4(std::string _name, const GLfloat *_data);
     void AddUniformVec3(std::string _name, const GLfloat *_data);
     void AddUniformVec3(std::string _name, const vec3 &_data);
-    void AddUniformVec4( std::string _name, const GLfloat *_data );
+    void AddUniformVec4(std::string _name, const GLfloat *_data);
     void AddUniformVec4(std::string _name, const vec4 &_data);
-    void TexCoordPointer( int size, GLfloat* data, int which_tex );
-    void VertexPointer( GLfloat* data );
-    void NormalPointer( GLfloat* data );
-    void DrawElements( GLuint size, const GLuint* data );
+    void TexCoordPointer(int size, GLfloat *data, int which_tex);
+    void VertexPointer(GLfloat *data);
+    void NormalPointer(GLfloat *data);
+    void DrawElements(GLuint size, const GLuint *data);
     void AddBatch(const DrawBatch &other);
     void Dispose();
     void CreateVBO(CreateVBOParam create_vbo_param);
     void DrawVertexArrays() const;
     void DrawVertexArrayRange(GLuint start, GLuint end, GLuint start_vertex, GLuint end_vertex) const;
     void EndVertexArrays() const;
-    void AddUniformFloat( std::string _name, GLfloat data );
-    void SetUniformFloat( std::string _name, GLfloat data );
-    void SetUniformVec3( std::string _name, const vec3 &_data );
-    void SetUniformVec4( std::string _name, const vec4 &_data );
-    void MakeUniformIndividual( std::string _name );
+    void AddUniformFloat(std::string _name, GLfloat data);
+    void SetUniformFloat(std::string _name, GLfloat data);
+    void SetUniformVec3(std::string _name, const vec3 &_data);
+    void SetUniformVec4(std::string _name, const vec4 &_data);
+    void MakeUniformIndividual(std::string _name);
 };

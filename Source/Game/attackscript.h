@@ -28,7 +28,7 @@
 class ASContext;
 
 class AttackScriptGetter {
-public:
+   public:
     AttackScriptGetter();
 
     AttackRef attack_ref_;
@@ -54,7 +54,7 @@ public:
     int GetUnblockable();
     int GetFleshUnblockable();
     int GetMobile();
-    int GetSwapStanceBlocked();    
+    int GetSwapStanceBlocked();
     std::string GetThrowAnimPath();
     std::string GetThrownAnimPath();
     std::string GetThrownCounterAnimPath();
@@ -70,9 +70,9 @@ public:
 
     void AddRef();
     void ReleaseRef();
-    const AttackRef& attack_ref() const {return attack_ref_;}
-    bool mirror() const {return mirror_;}
-    bool Load( std::string path );
+    const AttackRef& attack_ref() const { return attack_ref_; }
+    bool mirror() const { return mirror_; }
+    bool Load(std::string path);
 };
 
-void AttachAttackScriptGetter( ASContext *as_context );
+void AttachAttackScriptGetter(ASContext* as_context);

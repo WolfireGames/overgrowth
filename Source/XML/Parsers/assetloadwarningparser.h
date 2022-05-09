@@ -30,9 +30,8 @@
 #include <set>
 #include <string>
 
-class AssetLoadWarningParser : public XMLParserBase
-{
-public:
+class AssetLoadWarningParser : public XMLParserBase {
+   public:
     AssetLoadWarningParser();
 
     struct AssetWarning {
@@ -42,16 +41,15 @@ public:
         uint32_t load_flags;
         std::string asset_type;
         std::string level_name;
-
     };
 
     std::set<AssetWarning> asset_warnings;
 
-    uint32_t Load( const std::string& path ) override;
-    bool Save( const std::string& path ) override;
+    uint32_t Load(const std::string& path) override;
+    bool Save(const std::string& path) override;
     void Clear() override;
 
     void AddAssetWarning(AssetWarning asset_warning);
 };
 
-bool operator<( const AssetLoadWarningParser::AssetWarning& lhs,const AssetLoadWarningParser::AssetWarning& rhs);
+bool operator<(const AssetLoadWarningParser::AssetWarning& lhs, const AssetLoadWarningParser::AssetWarning& rhs);

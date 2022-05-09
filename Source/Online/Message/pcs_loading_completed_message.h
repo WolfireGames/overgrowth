@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_loading_completed_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,17 +25,17 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class PCSLoadingCompletedMessage : public OnlineMessageBase {
-    private:
-        std::string level_name;
+class PCSLoadingCompletedMessage : public OnlineMessageBase {
+   private:
+    std::string level_name;
 
-    public:
-        PCSLoadingCompletedMessage();
+   public:
+    PCSLoadingCompletedMessage();
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

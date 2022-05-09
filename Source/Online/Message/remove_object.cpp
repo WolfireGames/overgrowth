@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: remove_object.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,55 +27,53 @@
 #include <Editors/map_editor.h>
 
 namespace OnlineMessages {
-    RemoveObject::RemoveObject(ObjectID id, EntityType type) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
-        type(type)
-    {
-        this->id = Online::Instance()->GetOriginalID(id);
-    }
+RemoveObject::RemoveObject(ObjectID id, EntityType type) : OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
+                                                           type(type) {
+    this->id = Online::Instance()->GetOriginalID(id);
+}
 
-    binn* RemoveObject::Serialize(void* object) {
-        RemoveObject* ro = static_cast<RemoveObject*>(object);
+binn* RemoveObject::Serialize(void* object) {
+    RemoveObject* ro = static_cast<RemoveObject*>(object);
 
-        binn* l = binn_object();
+    binn* l = binn_object();
 
-        binn_object_set_int32(l, "id", ro->id);
-        binn_object_set_int32(l, "type", ro->type);
+    binn_object_set_int32(l, "id", ro->id);
+    binn_object_set_int32(l, "type", ro->type);
 
-        return l;
-    }
+    return l;
+}
 
-    void RemoveObject::Deserialize(void* object, binn* l) {
-        RemoveObject* ro = static_cast<RemoveObject*>(object);
+void RemoveObject::Deserialize(void* object, binn* l) {
+    RemoveObject* ro = static_cast<RemoveObject*>(object);
 
-        binn_object_get_int32(l, "id", &ro->id);
-        int32_t type;
-        binn_object_get_int32(l, "type", &type);
-        ro->type = (EntityType)type;
-    }
+    binn_object_get_int32(l, "id", &ro->id);
+    int32_t type;
+    binn_object_get_int32(l, "type", &type);
+    ro->type = (EntityType)type;
+}
 
-    void RemoveObject::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        RemoveObject* ro = static_cast<RemoveObject*>(object);
-        ObjectID object_id = Online::Instance()->GetObjectID(ro->id);
-        SceneGraph* sg = Engine::Instance()->GetSceneGraph();
+void RemoveObject::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    RemoveObject* ro = static_cast<RemoveObject*>(object);
+    ObjectID object_id = Online::Instance()->GetObjectID(ro->id);
+    SceneGraph* sg = Engine::Instance()->GetSceneGraph();
 
-        if(sg != nullptr) {
-            Object* o = sg->GetObjectFromID(object_id);
-            if (o != nullptr) {
-                sg->map_editor->RemoveObject(o, sg, true);
-                Online::Instance()->DeRegisterHostClientIDTranslation(object_id);
-            } else {
-                LOGW << "Was asked to delete object: " << object_id << " (" << ro->id << "), but was unable to find it";
-            }
+    if (sg != nullptr) {
+        Object* o = sg->GetObjectFromID(object_id);
+        if (o != nullptr) {
+            sg->map_editor->RemoveObject(o, sg, true);
+            Online::Instance()->DeRegisterHostClientIDTranslation(object_id);
+        } else {
+            LOGW << "Was asked to delete object: " << object_id << " (" << ro->id << "), but was unable to find it";
         }
     }
-
-    void* RemoveObject::Construct(void* mem) {
-        return new(mem) RemoveObject((ObjectID)-1,(EntityType)0);
-    }
-
-    void RemoveObject::Destroy(void* object) {
-        RemoveObject* ro = static_cast<RemoveObject*>(object);
-        ro->~RemoveObject();
-    }
 }
+
+void* RemoveObject::Construct(void* mem) {
+    return new (mem) RemoveObject((ObjectID)-1, (EntityType)0);
+}
+
+void RemoveObject::Destroy(void* object) {
+    RemoveObject* ro = static_cast<RemoveObject*>(object);
+    ro->~RemoveObject();
+}
+}  // namespace OnlineMessages

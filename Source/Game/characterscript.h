@@ -36,25 +36,25 @@ class CharacterScriptGetter {
     typedef std::map<std::string, std::string> CharAnimOverrideMap;
     CharAnimOverrideMap char_anim_overrides_;
 
-public:
+   public:
     void OverrideCharAnim(const std::string &label, const std::string &new_path);
-    void AttachToScript( ASContext *as_context, const std::string& as_name );
-    void AttachExtraToScript( ASContext *as_context, const std::string& as_name );
-    void ItemsChanged( const std::vector<ItemRef> &_items );
+    void AttachToScript(ASContext *as_context, const std::string &as_name);
+    void AttachExtraToScript(ASContext *as_context, const std::string &as_name);
+    void ItemsChanged(const std::vector<ItemRef> &_items);
     const std::string GetClothingPath();
-    const std::string& GetSoundMod();
-    bool Load( const std::string& path );
-    std::string GetAttackPath( const std::string& action );
-    std::string GetAnimPath( const std::string& action );
-    std::string GetSkeletonPath( );
-    std::string GetObjPath( );
-    bool GetMorphMetaPoints(const std::string& label, vec3 &start, vec3 &end);
+    const std::string &GetSoundMod();
+    bool Load(const std::string &path);
+    std::string GetAttackPath(const std::string &action);
+    std::string GetAnimPath(const std::string &action);
+    std::string GetSkeletonPath();
+    std::string GetObjPath();
+    bool GetMorphMetaPoints(const std::string &label, vec3 &start, vec3 &end);
     float GetDefaultScale();
     float GetModelScale();
-    int OnSameTeam( const std::string& character_path );
+    int OnSameTeam(const std::string &character_path);
     float GetHearing();
-    char GetAnimFlags( const std::string& path );
+    char GetAnimFlags(const std::string &path);
     void GetTeamString(std::string &str);
     const std::string &GetChannel(int which);
-    const std::string &GetTag( const std::string &key );
+    const std::string &GetTag(const std::string &key);
 };

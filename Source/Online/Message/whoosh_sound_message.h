@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: whoosh_sound_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,18 +25,18 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class WhooshSoundMessage : public OnlineMessageBase {
-    private:
-        float whoosh_amount;
-        float whoosh_pitch;
+class WhooshSoundMessage : public OnlineMessageBase {
+   private:
+    float whoosh_amount;
+    float whoosh_pitch;
 
-    public:
-        WhooshSoundMessage(float whoosh_amount, float whoosh_pitch);
+   public:
+    WhooshSoundMessage(float whoosh_amount, float whoosh_pitch);
 
-        static binn* Serialize(void *object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

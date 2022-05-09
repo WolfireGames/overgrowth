@@ -34,8 +34,7 @@
 
 #include <tinyxml.h>
 
-void TerrainInfo::Print()
-{
+void TerrainInfo::Print() {
     LOGI << "Minimal: " << minimal << std::endl;
     LOGI << "Heightmap: " << heightmap << std::endl;
     LOGI << "Colormap: " << colormap << std::endl;
@@ -43,15 +42,13 @@ void TerrainInfo::Print()
     LOGI << "Model Override: " << model_override << std::endl;
     LOGI << "Shader Extra: " << shader_extra << std::endl;
     LOGI << "Detail maps:" << std::endl;
-    for (auto & i : detail_map_info)
-    {
+    for (auto &i : detail_map_info) {
         i.Print();
     }
     LOGI << "Detail objects: " << std::endl;
-    for (auto & i : detail_object_info)
-    {
+    for (auto &i : detail_object_info) {
         LOGI << "Obj path: " << i.obj_path << std::endl;
-    }    
+    }
 }
 
 void TerrainInfo::SetDefaults() {
@@ -65,21 +62,20 @@ void TerrainInfo::SetDefaults() {
     shader_extra.clear();
 }
 
-void TerrainInfo::ReturnPaths( PathSet &path_set )
-{
-    path_set.insert("heightmap "+heightmap);
-    path_set.insert("texture "+colormap);
-    if(!weightmap.empty()){
-        path_set.insert("texture "+weightmap);
-        path_set.insert("image_sample "+weightmap);
+void TerrainInfo::ReturnPaths(PathSet &path_set) {
+    path_set.insert("heightmap " + heightmap);
+    path_set.insert("texture " + colormap);
+    if (!weightmap.empty()) {
+        path_set.insert("texture " + weightmap);
+        path_set.insert("image_sample " + weightmap);
     }
-    if(!model_override.empty()){
-        path_set.insert("model "+model_override);
+    if (!model_override.empty()) {
+        path_set.insert("model " + model_override);
     }
-    for(auto & i : detail_map_info){
+    for (auto &i : detail_map_info) {
         i.ReturnPaths(path_set);
     }
-    for(auto & i : detail_object_info){
+    for (auto &i : detail_object_info) {
         i.ReturnPaths(path_set);
     }
 }

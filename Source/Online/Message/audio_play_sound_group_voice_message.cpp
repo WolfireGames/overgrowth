@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_group_voice_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,56 +27,55 @@
 #include <Online/online.h>
 
 namespace OnlineMessages {
-    AudioPlaySoundGroupVoiceMessage::AudioPlaySoundGroupVoiceMessage(const std::string& path, ObjectID id, float delay) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        path(path), delay(delay)
-    {
-        this->id = Online::Instance()->GetOriginalID(id);
-    }
+AudioPlaySoundGroupVoiceMessage::AudioPlaySoundGroupVoiceMessage(const std::string& path, ObjectID id, float delay) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                                                      path(path),
+                                                                                                                      delay(delay) {
+    this->id = Online::Instance()->GetOriginalID(id);
+}
 
-    binn* AudioPlaySoundGroupVoiceMessage::Serialize(void* object) {
-        AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
-        binn* l = binn_object();
+binn* AudioPlaySoundGroupVoiceMessage::Serialize(void* object) {
+    AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
+    binn* l = binn_object();
 
-        binn_object_set_std_string(l, "path", t->path);
-        binn_object_set_int32(l, "id", t->id);
-        binn_object_set_float(l, "delay", t->delay);
+    binn_object_set_std_string(l, "path", t->path);
+    binn_object_set_int32(l, "id", t->id);
+    binn_object_set_float(l, "delay", t->delay);
 
-        return l;
-    }
+    return l;
+}
 
-    void AudioPlaySoundGroupVoiceMessage::Deserialize(void* object, binn* l) {
-        AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
+void AudioPlaySoundGroupVoiceMessage::Deserialize(void* object, binn* l) {
+    AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
 
-        binn_object_get_std_string(l, "path", &t->path);
-        binn_object_get_int32(l, "id", &t->id);
-        binn_object_get_float(l, "delay", &t->delay);
-    }
+    binn_object_get_std_string(l, "path", &t->path);
+    binn_object_get_int32(l, "id", &t->id);
+    binn_object_get_float(l, "delay", &t->delay);
+}
 
-    void AudioPlaySoundGroupVoiceMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
-        ObjectID object_id = Online::Instance()->GetOriginalID(t->id);
+void AudioPlaySoundGroupVoiceMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
+    ObjectID object_id = Online::Instance()->GetOriginalID(t->id);
 
-        SceneGraph* scene_graph = Engine::Instance()->GetSceneGraph();
-        if(scene_graph != nullptr) {
-            Object* obj = scene_graph->GetObjectFromID(object_id);
-            if(obj != nullptr && obj->GetType() == _movement_object) {
-                MovementObject* movement_object = (MovementObject*) obj;
-                movement_object->PlaySoundGroupVoice(t->path, t->delay);
-            } else {
-                LOGW << "Unable to find movement object with ID: " << object_id << " (" << t->id << ")" << std::endl;
-            }
+    SceneGraph* scene_graph = Engine::Instance()->GetSceneGraph();
+    if (scene_graph != nullptr) {
+        Object* obj = scene_graph->GetObjectFromID(object_id);
+        if (obj != nullptr && obj->GetType() == _movement_object) {
+            MovementObject* movement_object = (MovementObject*)obj;
+            movement_object->PlaySoundGroupVoice(t->path, t->delay);
         } else {
-            LOGW << "Unable to apply group voice sound due to missing scene graph" << std::endl;
+            LOGW << "Unable to find movement object with ID: " << object_id << " (" << t->id << ")" << std::endl;
         }
-    }
-
-    void* AudioPlaySoundGroupVoiceMessage::Construct(void *mem) {
-        return new(mem) AudioPlaySoundGroupVoiceMessage("", 0, 0.0f);
-    }
-
-    void AudioPlaySoundGroupVoiceMessage::Destroy(void* object) {
-        AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
-        t->~AudioPlaySoundGroupVoiceMessage();
+    } else {
+        LOGW << "Unable to apply group voice sound due to missing scene graph" << std::endl;
     }
 }
+
+void* AudioPlaySoundGroupVoiceMessage::Construct(void* mem) {
+    return new (mem) AudioPlaySoundGroupVoiceMessage("", 0, 0.0f);
+}
+
+void AudioPlaySoundGroupVoiceMessage::Destroy(void* object) {
+    AudioPlaySoundGroupVoiceMessage* t = static_cast<AudioPlaySoundGroupVoiceMessage*>(object);
+    t->~AudioPlaySoundGroupVoiceMessage();
+}
+}  // namespace OnlineMessages

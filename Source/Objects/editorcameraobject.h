@@ -29,23 +29,22 @@
 #include <stdio.h>
 #endif
 
-class EditorCameraObject: public CameraObject {
-public:
+class EditorCameraObject : public CameraObject {
+   public:
     EntityType GetType() const override { return _camera_type; }
     EditorCameraObject() {
-        frozen=false;
-        speed=12;
-        rotation=0;
-        rotation2=0;
+        frozen = false;
+        speed = 12;
+        rotation = 0;
+        rotation2 = 0;
     };
 
-    ~EditorCameraObject() override
-    {
+    ~EditorCameraObject() override {
 #ifdef _DEBUG
         printf("editor camera destroyed\n");
 #endif
     }
-    
+
     void IgnoreInput(bool val) override;
     void IgnoreMouseInput(bool val) override;
     void GetDisplayName(char* buf, int buf_size) override;

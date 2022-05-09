@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: fileio.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -34,15 +34,15 @@
 #include <windows.h>
 #endif
 
-using std::string;
-using std::wstring;
-using std::ios_base;
 using std::fstream;
 using std::ifstream;
+using std::ios_base;
 using std::ofstream;
+using std::string;
+using std::wstring;
 
 #ifdef _WIN32
-wstring UTF16fromUTF8( const string& path_utf8 ) {
+wstring UTF16fromUTF8(const string& path_utf8) {
     int size = MultiByteToWideChar(CP_UTF8, 0, path_utf8.c_str(), -1, NULL, 0);
     wstring path_utf16;
     path_utf16.resize(size);
@@ -50,24 +50,24 @@ wstring UTF16fromUTF8( const string& path_utf8 ) {
     return path_utf16;
 }
 
-string UTF8fromUTF16( const wstring& path_utf16) {
-	int size = WideCharToMultiByte(CP_UTF8, 0, path_utf16.c_str(), -1, NULL, 0, NULL, NULL );
-	string output;
-	output.resize(size);
-	WideCharToMultiByte(CP_UTF8, 0, path_utf16.c_str(), -1, &output[0], size, NULL, NULL );
-	return output;
+string UTF8fromUTF16(const wstring& path_utf16) {
+    int size = WideCharToMultiByte(CP_UTF8, 0, path_utf16.c_str(), -1, NULL, 0, NULL, NULL);
+    string output;
+    output.resize(size);
+    WideCharToMultiByte(CP_UTF8, 0, path_utf16.c_str(), -1, &output[0], size, NULL, NULL);
+    return output;
 }
 #endif
 
-FILE* my_fopen( const char* abs_path, const char* mode ) {
+FILE* my_fopen(const char* abs_path, const char* mode) {
 #ifdef _WIN32
     FILE* file = _wfopen(UTF16fromUTF8(abs_path).c_str(), UTF16fromUTF8(mode).c_str());
 #else
     FILE* file = fopen(abs_path, mode);
 #endif
-    if(!file){
+    if (!file) {
         // If writing, make sure the necessary directories exist
-        if(mode[0] == 'w'){
+        if (mode[0] == 'w') {
             CreateParentDirs(abs_path);
 #ifdef _WIN32
             file = _wfopen(UTF16fromUTF8(abs_path).c_str(), UTF16fromUTF8(mode).c_str());
@@ -78,29 +78,29 @@ FILE* my_fopen( const char* abs_path, const char* mode ) {
             return NULL;
         }
     }
-    if(!file){
+    if (!file) {
         return NULL;
     }
     return file;
 }
 
-void my_fstream_open( fstream &file, const string& path, ios_base::openmode mode) {
+void my_fstream_open(fstream& file, const string& path, ios_base::openmode mode) {
 #ifdef _WIN32
-	file.open(UTF16fromUTF8(path).c_str(), mode);
+    file.open(UTF16fromUTF8(path).c_str(), mode);
 #else
-	file.open(path.c_str(), mode);
+    file.open(path.c_str(), mode);
 #endif
 }
 
-void my_ifstream_open( ifstream &file, const string& path, ios_base::openmode mode /*= ios_base::in*/ ) {
+void my_ifstream_open(ifstream& file, const string& path, ios_base::openmode mode /*= ios_base::in*/) {
 #ifdef _WIN32
-	file.open(UTF16fromUTF8(path).c_str(), mode);
+    file.open(UTF16fromUTF8(path).c_str(), mode);
 #else
-	file.open(path.c_str(), mode);
+    file.open(path.c_str(), mode);
 #endif
 }
 
-void my_ofstream_open( ofstream &file, const string& path, ios_base::openmode mode /*= ios_base::out*/ ) {
+void my_ofstream_open(ofstream& file, const string& path, ios_base::openmode mode /*= ios_base::out*/) {
 #ifdef _WIN32
     file.open(UTF16fromUTF8(path).c_str(), mode);
 #else

@@ -27,64 +27,52 @@
 #include <Logging/logdata.h>
 #include <Internal/filesystem.h>
 
-struct AngelScriptContext
-{
+struct AngelScriptContext {
     AngelScriptContext();
     bool allocated;
     char name[64];
-    ASContext *context;
+    ASContext* context;
 };
 
-AngelScriptContext::AngelScriptContext() : allocated(false)
-{
-
+AngelScriptContext::AngelScriptContext() : allocated(false) {
 }
 
 static const int CONTEXT_COUNT = 16;
 static AngelScriptContext contexts[CONTEXT_COUNT];
 
-void RegisterAngelscriptContext( const char* name, ASContext* ascontext )
-{
-    for(auto & context : contexts)
-    {
-        if( context.allocated == false )
-        {
-            strncpy( context.name, name, 64 );
+void RegisterAngelscriptContext(const char* name, ASContext* ascontext) {
+    for (auto& context : contexts) {
+        if (context.allocated == false) {
+            strncpy(context.name, name, 64);
             context.name[63] = '\0';
             context.allocated = true;
             context.context = ascontext;
             return;
         }
-    }    
+    }
 }
 
-void DeregisterAngelscriptContext( ASContext* ascontext )
-{
-    for(auto & context : contexts)
-    {
-        if( context.context == ascontext )
-        {
+void DeregisterAngelscriptContext(ASContext* ascontext) {
+    for (auto& context : contexts) {
+        if (context.context == ascontext) {
             context.allocated = false;
         }
     }
 }
 
-void DumpAngelscriptStates()
-{
+void DumpAngelscriptStates() {
     std::ofstream output;
     char dump_path[kPathSize];
     GetASDumpPath(dump_path, kPathSize);
-    
-    my_ofstream_open(output,dump_path);
 
-    if( output.is_open() ) {
+    my_ofstream_open(output, dump_path);
+
+    if (output.is_open()) {
         LOGI << "Dumping angelscript states to: " << dump_path << std::endl;
-        for(auto & context : contexts)
-        {
-            if( context.allocated )
-            {
+        for (auto& context : contexts) {
+            if (context.allocated) {
                 LOGI << "Dumping angelscript state for: " << context.name << std::endl;
-                if( output.good() ) {
+                if (output.good()) {
                     context.context->DumpCallstack(output);
                 }
             }

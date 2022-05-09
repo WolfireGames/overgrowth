@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: sp_remove_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,47 +27,45 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    SPRemoveMessage::SPRemoveMessage(ObjectID param_id, const std::string& key_name) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
-        key_name(key_name)
-    {
-        this->param_id = Online::Instance()->GetOriginalID(param_id);
-    }
+SPRemoveMessage::SPRemoveMessage(ObjectID param_id, const std::string& key_name) : OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
+                                                                                   key_name(key_name) {
+    this->param_id = Online::Instance()->GetOriginalID(param_id);
+}
 
-    binn* SPRemoveMessage::Serialize(void* object) {
-        SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
-        binn* l = binn_object();
+binn* SPRemoveMessage::Serialize(void* object) {
+    SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
+    binn* l = binn_object();
 
-        binn_object_set_int32(l, "param_id", t->param_id);
-        binn_object_set_std_string(l, "key_name", t->key_name);
+    binn_object_set_int32(l, "param_id", t->param_id);
+    binn_object_set_std_string(l, "key_name", t->key_name);
 
-        return l;
-    }
+    return l;
+}
 
-    void SPRemoveMessage::Deserialize(void* object, binn* l) {
-        SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
+void SPRemoveMessage::Deserialize(void* object, binn* l) {
+    SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
 
-        binn_object_get_int32(l, "param_id", &t->param_id);
-        binn_object_get_std_string(l, "key_name", &t->key_name);
-    }
+    binn_object_get_int32(l, "param_id", &t->param_id);
+    binn_object_get_std_string(l, "key_name", &t->key_name);
+}
 
-    void SPRemoveMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
-        ObjectID object_id = Online::Instance()->GetObjectID(t->param_id);
+void SPRemoveMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
+    ObjectID object_id = Online::Instance()->GetObjectID(t->param_id);
 
-        ScriptParams* params = Online::Instance()->GetScriptParamsFromID(object_id);
-        if(params != nullptr) {
-            params->ASRemove(t->key_name);
-            Online::Instance()->UpdateMovementObjectFromID(object_id);
-        }
-    }
-
-    void* SPRemoveMessage::Construct(void *mem) {
-        return new(mem) SPRemoveMessage(0, "");
-    }
-
-    void SPRemoveMessage::Destroy(void* object) {
-        SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
-        t->~SPRemoveMessage();
+    ScriptParams* params = Online::Instance()->GetScriptParamsFromID(object_id);
+    if (params != nullptr) {
+        params->ASRemove(t->key_name);
+        Online::Instance()->UpdateMovementObjectFromID(object_id);
     }
 }
+
+void* SPRemoveMessage::Construct(void* mem) {
+    return new (mem) SPRemoveMessage(0, "");
+}
+
+void SPRemoveMessage::Destroy(void* object) {
+    SPRemoveMessage* t = static_cast<SPRemoveMessage*>(object);
+    t->~SPRemoveMessage();
+}
+}  // namespace OnlineMessages

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: unix_filepath.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -38,11 +38,11 @@ std::string FindPath(std::string path) {
     return path;
 }
 
-std::string AbsPathFromRel(std::string path){
-		const int max = 512;
-		char curr[max];
-		getcwd(curr, max);
-		return std::string(curr)+path;
+std::string AbsPathFromRel(std::string path) {
+    const int max = 512;
+    char curr[max];
+    getcwd(curr, max);
+    return std::string(curr) + path;
 }
 
 void GetCaseCorrectPath(const char* input_path, char* correct_path) {
@@ -50,6 +50,6 @@ void GetCaseCorrectPath(const char* input_path, char* correct_path) {
     int num_dirs = CountCharsInString(input_path, '/');
     char path[kPathSize];
     realpath(input_path, path);
-    char *cut_path = &path[FindNthCharFromBack(path,'/',num_dirs+1)+1];
+    char* cut_path = &path[FindNthCharFromBack(path, '/', num_dirs + 1) + 1];
     strcpy(correct_path, cut_path);
 }

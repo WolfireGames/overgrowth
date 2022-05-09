@@ -31,7 +31,6 @@
 #include <cstring>
 
 Path AssetPreload::ResolveID(const char* id) {
-
     return Path();
 }
 
@@ -39,7 +38,7 @@ std::vector<LevelAssetPreloadParser::Asset>& AssetPreload::GetPreloadFiles() {
     return amp.assets;
 }
 
-static AssetPreload asset_manifest; 
+static AssetPreload asset_manifest;
 
 AssetPreload& AssetPreload::Instance() {
     return asset_manifest;
@@ -51,11 +50,10 @@ void AssetPreload::Initialize() {
 
 void AssetPreload::Reload() {
     Path p = FindFilePath("Data/preload.xml", kDataPaths, true);
-    if( p.isValid() ) {
+    if (p.isValid()) {
         amp.Load(p.GetFullPath());
     }
 }
 
 void AssetPreload::Dispose() {
-
 }

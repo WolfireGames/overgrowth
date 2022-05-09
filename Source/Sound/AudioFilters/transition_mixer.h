@@ -25,22 +25,21 @@
 #include <Sound/buffer_segment.h>
 #include <Sound/high_res_buffer_segment.h>
 
-
-class TransitionMixer
-{
-public: 
-    enum TransitionType
-    {
+class TransitionMixer {
+   public:
+    enum TransitionType {
         Linear,
         Sinusoid
     };
-private:
+
+   private:
     TransitionType transition_type;
     float transition_length_sec;
     size_t transition_position;
-public:
-    TransitionMixer( TransitionType trans_type, float transition_length_seconds ); 
 
-    bool Step( HighResBufferSegment* out, const HighResBufferSegment* first, const HighResBufferSegment* second );
+   public:
+    TransitionMixer(TransitionType trans_type, float transition_length_seconds);
+
+    bool Step(HighResBufferSegment* out, const HighResBufferSegment* first, const HighResBufferSegment* second);
     void Reset();
 };

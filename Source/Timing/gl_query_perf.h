@@ -47,11 +47,10 @@ struct PerfQuery {
     GLuint query_id;
 };
 
-
 class GLTimerQueryPerf {
-    static const size_t MAX_QUERY_COUNT = 2048*16;
+    static const size_t MAX_QUERY_COUNT = 2048 * 16;
     bool perf_available;
-   
+
     bool begun_perf;
     GLuint frame_counter;
     GLuint query_ids[MAX_QUERY_COUNT];
@@ -62,33 +61,32 @@ class GLTimerQueryPerf {
 
     std::set<const char*> file_names;
 
-	std::ofstream csv_output;
-public:
+    std::ofstream csv_output;
 
+   public:
     void Init();
     void Finalize();
-	void PerfGPUBegin(const char* file, const int line);
-	void PerfGPUEnd( );
+    void PerfGPUBegin(const char* file, const int line);
+    void PerfGPUEnd();
     void PostFrameSwap();
 };
 
 extern GLTimerQueryPerf* glTimingQuery;
 
+#define GL_TIMER_QUERY_INIT() \
+    glTimingQuery->Init()
 
-#define GL_TIMER_QUERY_INIT( ) \
-glTimingQuery->Init()
+#define GL_TIMER_QUERY_DISPOSE() \
+    glTimingQuery->Dispose()
 
-#define GL_TIMER_QUERY_DISPOSE( ) \
-glTimingQuery->Dispose()
+#define GL_TIMER_QUERY_START() \
+    if (glTimingQuery) glTimingQuery->PerfGPUBegin(__FILE__, __LINE__)
 
-#define GL_TIMER_QUERY_START( ) \
-	if( glTimingQuery ) glTimingQuery->PerfGPUBegin( __FILE__, __LINE__ )
-
-#define GL_TIMER_QUERY_END( ) \
-	if( glTimingQuery ) glTimingQuery->PerfGPUEnd()
+#define GL_TIMER_QUERY_END() \
+    if (glTimingQuery) glTimingQuery->PerfGPUEnd()
 
 #define GL_TIMER_QUERY_SWAP() \
-	glTimingQuery->PostFrameSwap()
+    glTimingQuery->PostFrameSwap()
 
 #define GL_TIMER_QUERY_FINALIZE() \
     glTimingQuery->Finalize()
@@ -97,9 +95,9 @@ glTimingQuery->Dispose()
 
 #define GL_TIMER_QUERY_INIT()
 
-#define GL_TIMER_QUERY_START( )
+#define GL_TIMER_QUERY_START()
 
-#define GL_TIMER_QUERY_END( )
+#define GL_TIMER_QUERY_END()
 
 #define GL_TIMER_QUERY_SWAP()
 

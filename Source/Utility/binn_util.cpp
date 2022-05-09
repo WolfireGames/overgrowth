@@ -22,7 +22,7 @@
 //-----------------------------------------------------------------------------
 #include "binn_util.h"
 
-void binn_object_set_vec3(binn* l, const char* key, const vec3& v){ 
+void binn_object_set_vec3(binn* l, const char* key, const vec3& v) {
     binn* l_vec3 = binn_list();
 
     binn_list_add_float(l_vec3, v.x());
@@ -50,11 +50,11 @@ void binn_object_set_quat(binn* l, const char* key, const quaternion& v) {
 void binn_object_set_mat4(binn* l, const char* key, const mat4& v) {
     binn* l_mat4 = binn_list();
 
-    for(int i = 0; i < 4; i++) {
-        binn_list_add_float(l_mat4, v[i*4 + 0]);
-        binn_list_add_float(l_mat4, v[i*4 + 1]);
-        binn_list_add_float(l_mat4, v[i*4 + 2]);
-        binn_list_add_float(l_mat4, v[i*4 + 3]);
+    for (int i = 0; i < 4; i++) {
+        binn_list_add_float(l_mat4, v[i * 4 + 0]);
+        binn_list_add_float(l_mat4, v[i * 4 + 1]);
+        binn_list_add_float(l_mat4, v[i * 4 + 2]);
+        binn_list_add_float(l_mat4, v[i * 4 + 3]);
     }
 
     binn_object_set_list(l, key, l_mat4);
@@ -67,23 +67,23 @@ void binn_object_set_std_string(binn* l, const char* key, const string& v) {
 }
 
 void binn_object_set_vector_int(binn* l, const char* key, const vector<int>& arr) {
-     binn* l_vec_int = binn_list();
+    binn* l_vec_int = binn_list();
 
-     for(int i : arr) {
-         binn_list_add_int32(l_vec_int, i);
-     }
+    for (int i : arr) {
+        binn_list_add_int32(l_vec_int, i);
+    }
 
-     binn_object_set_list(l, key, l_vec_int);
-     binn_free(l_vec_int);
+    binn_object_set_list(l, key, l_vec_int);
+    binn_free(l_vec_int);
 }
 
 bool binn_object_get_vec3(binn* l, const char* key, vec3* v) {
     void* l_vec3;
-    if(binn_object_get_list(l, key, &l_vec3) == false) return false;
+    if (binn_object_get_list(l, key, &l_vec3) == false) return false;
 
-    if(binn_list_get_float(l_vec3, 1, &v->entries[0]) == false) return false;
-    if(binn_list_get_float(l_vec3, 2, &v->entries[1]) == false) return false;
-    if(binn_list_get_float(l_vec3, 3, &v->entries[2]) == false) return false;
+    if (binn_list_get_float(l_vec3, 1, &v->entries[0]) == false) return false;
+    if (binn_list_get_float(l_vec3, 2, &v->entries[1]) == false) return false;
+    if (binn_list_get_float(l_vec3, 3, &v->entries[2]) == false) return false;
 
     return true;
 }
@@ -91,12 +91,12 @@ bool binn_object_get_vec3(binn* l, const char* key, vec3* v) {
 bool binn_object_get_quat(binn* l, const char* key, quaternion* v) {
     void* l_quat;
 
-    if(binn_object_get_list(l, key, &l_quat) == false) return false;
+    if (binn_object_get_list(l, key, &l_quat) == false) return false;
 
-    if(binn_list_get_float(l_quat, 1, &v->entries[0]) == false) return false;
-    if(binn_list_get_float(l_quat, 2, &v->entries[1]) == false) return false;
-    if(binn_list_get_float(l_quat, 3, &v->entries[2]) == false) return false;
-    if(binn_list_get_float(l_quat, 4, &v->entries[3]) == false) return false;
+    if (binn_list_get_float(l_quat, 1, &v->entries[0]) == false) return false;
+    if (binn_list_get_float(l_quat, 2, &v->entries[1]) == false) return false;
+    if (binn_list_get_float(l_quat, 3, &v->entries[2]) == false) return false;
+    if (binn_list_get_float(l_quat, 4, &v->entries[3]) == false) return false;
 
     return true;
 }
@@ -104,13 +104,13 @@ bool binn_object_get_quat(binn* l, const char* key, quaternion* v) {
 bool binn_object_get_mat4(binn* l, const char* key, mat4* v) {
     void* l_mat4;
 
-    if(binn_object_get_list(l, key, &l_mat4) == false) return false;
+    if (binn_object_get_list(l, key, &l_mat4) == false) return false;
 
-    for(int i = 0; i < 4; i++) {
-        if(binn_list_get_float(l_mat4, i*4 + 1, &v->entries[i*4 + 0]) == false) return false;
-        if(binn_list_get_float(l_mat4, i*4 + 2, &v->entries[i*4 + 1]) == false) return false;
-        if(binn_list_get_float(l_mat4, i*4 + 3, &v->entries[i*4 + 2]) == false) return false;
-        if(binn_list_get_float(l_mat4, i*4 + 4, &v->entries[i*4 + 3]) == false) return false;
+    for (int i = 0; i < 4; i++) {
+        if (binn_list_get_float(l_mat4, i * 4 + 1, &v->entries[i * 4 + 0]) == false) return false;
+        if (binn_list_get_float(l_mat4, i * 4 + 2, &v->entries[i * 4 + 1]) == false) return false;
+        if (binn_list_get_float(l_mat4, i * 4 + 3, &v->entries[i * 4 + 2]) == false) return false;
+        if (binn_list_get_float(l_mat4, i * 4 + 4, &v->entries[i * 4 + 3]) == false) return false;
     }
 
     return true;
@@ -118,10 +118,10 @@ bool binn_object_get_mat4(binn* l, const char* key, mat4* v) {
 
 bool binn_object_get_std_string(binn* l, const char* key, string* v) {
     char* c_str;
-    if(binn_object_get_str(l, key, &c_str) == false) return false;
+    if (binn_object_get_str(l, key, &c_str) == false) return false;
 
     *v = string(c_str);
-    
+
     return true;
 }
 
@@ -135,7 +135,7 @@ bool binn_object_get_vector_int(binn* l, const char* key, vector<int>* arr) {
     binn_list_foreach(l_vec_int, value) {
         int32_t v;
         binn_get_int32(&value, &v);
-        arr->push_back(v); 
+        arr->push_back(v);
     }
 
     return true;
@@ -147,7 +147,7 @@ void binn_list_add_std_string(binn* l, const string& v) {
 
 bool binn_list_get_std_string(binn* l, const int pos, string* v) {
     char* c_str;
-    if(binn_list_get_str(l, pos, &c_str) == false) return false;
+    if (binn_list_get_str(l, pos, &c_str) == false) return false;
 
     *v = string(c_str);
     return true;

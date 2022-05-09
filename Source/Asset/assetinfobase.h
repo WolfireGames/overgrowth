@@ -21,7 +21,7 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include <Internal/path_set.h>
 
@@ -29,9 +29,9 @@
 #include <Asset/assetmanager.h>
 
 class AssetInfo : public Asset {
-public:
-    AssetInfo( AssetManager* owner, uint32_t asset_id );
-    virtual void Print(){}
-    virtual void SetDefaults(){}
-    virtual void ReturnPaths(PathSet &path_set){}
+   public:
+    AssetInfo(AssetManager* owner, uint32_t asset_id);
+    virtual void Print() {}
+    virtual void SetDefaults() {}
+    virtual void ReturnPaths(PathSet& path_set) {}
 };

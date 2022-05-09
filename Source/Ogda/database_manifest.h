@@ -30,19 +30,19 @@ class JobHandler;
 class Builder;
 class Item;
 
-class DatabaseManifest
-{
+class DatabaseManifest {
     int thread;
     std::vector<DatabaseManifestResult> results;
     std::set<uint64_t> hash_set;
-public:
+
+   public:
     DatabaseManifest();
 
     bool Load(const std::string& manifest);
     bool Save(const std::string& manifest);
 
-    void AddResult( const DatabaseManifestResult& results );
+    void AddResult(const DatabaseManifestResult& results);
 
-    bool HasBuiltResultFor( JobHandler& jh, const Item& item, const Builder& builder );
-    DatabaseManifestResult GetPreviouslyBuiltResult( const Item& item, const Builder& builder);
+    bool HasBuiltResultFor(JobHandler& jh, const Item& item, const Builder& builder);
+    DatabaseManifestResult GetPreviouslyBuiltResult(const Item& item, const Builder& builder);
 };

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: prefab.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -24,39 +24,37 @@
 
 #include <Internal/memwrite.h>
 
-Prefab::Prefab() :
-    Group(),
-    prefab_locked(true),
-    original_scale_(0.0f)
-{}
+Prefab::Prefab() : Group(),
+                   prefab_locked(true),
+                   original_scale_(0.0f) {}
 
 bool Prefab::Initialize() {
     return true;
 }
 
 void Prefab::GetDisplayName(char* buf, int buf_size) {
-    if( GetName().empty() ) {
+    if (GetName().empty()) {
         FormatString(buf, buf_size, "%d, Prefab with %d children", GetID(), children.size());
-    } else { 
+    } else {
         FormatString(buf, buf_size, "%s, Prefab with %d children", GetName().c_str(), children.size());
     }
 }
 
-bool Prefab::SetFromDesc( const EntityDescription &desc ) {
-	bool ret = Group::SetFromDesc(desc);
-    if( ret ) {
+bool Prefab::SetFromDesc(const EntityDescription& desc) {
+    bool ret = Group::SetFromDesc(desc);
+    if (ret) {
         const EntityDescriptionField* l_prefab_locked = desc.GetField(EDF_PREFAB_LOCKED);
-        if(l_prefab_locked){
+        if (l_prefab_locked) {
             l_prefab_locked->ReadBool(&prefab_locked);
         }
 
         const EntityDescriptionField* l_prefab_path = desc.GetField(EDF_PREFAB_PATH);
-        if(l_prefab_path){
+        if (l_prefab_path) {
             l_prefab_path->ReadPath(&prefab_path);
         }
 
         const EntityDescriptionField* l_original_scale = desc.GetField(EDF_ORIGINAL_SCALE);
-        if(l_original_scale){
+        if (l_original_scale) {
             memread(original_scale_.entries, sizeof(float), 3, l_original_scale->data);
         }
 
@@ -65,7 +63,7 @@ bool Prefab::SetFromDesc( const EntityDescription &desc ) {
     return ret;
 }
 
-void Prefab::GetDesc(EntityDescription &desc) const {
+void Prefab::GetDesc(EntityDescription& desc) const {
     Group::GetDesc(desc);
     desc.AddBool(EDF_PREFAB_LOCKED, prefab_locked);
     desc.AddPath(EDF_PREFAB_PATH, prefab_path);
@@ -74,10 +72,10 @@ void Prefab::GetDesc(EntityDescription &desc) const {
 
 void Prefab::InfrequentUpdate() {
     Group::InfrequentUpdate();
-    if( prefab_locked ) {
-        box_color = vec4(22/255.0f, 183/255.0f, 204/255.0f, 1.0f);
+    if (prefab_locked) {
+        box_color = vec4(22 / 255.0f, 183 / 255.0f, 204 / 255.0f, 1.0f);
     } else {
-        box_color = vec4(53/255.0f, 253/255.0f, 104/255.0f, 1.0f);
+        box_color = vec4(53 / 255.0f, 253 / 255.0f, 104 / 255.0f, 1.0f);
     }
 }
 

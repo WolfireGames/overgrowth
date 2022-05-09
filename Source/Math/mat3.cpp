@@ -25,8 +25,7 @@
 #include <memory>
 #include <cstring>
 
-mat3::mat3(float val)
-{
+mat3::mat3(float val) {
     entries[0] = val;
     entries[4] = val;
     entries[8] = val;
@@ -34,9 +33,8 @@ mat3::mat3(float val)
     entries[7] = entries[6] = entries[5] = 0.0f;
 }
 mat3::mat3(float e0, float e1, float e2,
-          float e3, float e4, float e5,
-          float e6, float e7, float e8)
-{
+           float e3, float e4, float e5,
+           float e6, float e7, float e8) {
     entries[0] = e0;
     entries[1] = e1;
     entries[2] = e2;
@@ -46,15 +44,12 @@ mat3::mat3(float e0, float e1, float e2,
     entries[6] = e6;
     entries[7] = e7;
     entries[8] = e8;
-    
-}        
-mat3::mat3(const float * rhs)
-{
-    memcpy(entries,rhs,sizeof(entries));
+}
+mat3::mat3(const float* rhs) {
+    memcpy(entries, rhs, sizeof(entries));
 }
 
-mat3::mat3(const mat4& m)
-{
+mat3::mat3(const mat4& m) {
     entries[0] = m[0];
     entries[1] = m[1];
     entries[2] = m[2];
@@ -66,8 +61,8 @@ mat3::mat3(const mat4& m)
     entries[8] = m[10];
 }
 
-vec3 mat3::operator*(const vec3 &rhs) const {
-    return vec3(entries[0]*rhs[0] + entries[3]*rhs[1] + entries[6]*rhs[2],
-                entries[1]*rhs[0] + entries[4]*rhs[1] + entries[7]*rhs[2],
-                entries[2]*rhs[0] + entries[5]*rhs[1] + entries[8]*rhs[2]);
+vec3 mat3::operator*(const vec3& rhs) const {
+    return vec3(entries[0] * rhs[0] + entries[3] * rhs[1] + entries[6] * rhs[2],
+                entries[1] * rhs[0] + entries[4] * rhs[1] + entries[7] * rhs[2],
+                entries[2] * rhs[0] + entries[5] * rhs[1] + entries[8] * rhs[2]);
 }

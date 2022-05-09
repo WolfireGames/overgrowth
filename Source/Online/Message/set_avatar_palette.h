@@ -25,20 +25,20 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class SetAvatarPalette : public OnlineMessageBase {
-    private:
-        CommonObjectID id;
-        vec3 color;
-        uint8_t channel;
+class SetAvatarPalette : public OnlineMessageBase {
+   private:
+    CommonObjectID id;
+    vec3 color;
+    uint8_t channel;
 
-    public:
-        SetAvatarPalette(ObjectID id, const vec3& color, uint8_t channel);
+   public:
+    SetAvatarPalette(ObjectID id, const vec3& color, uint8_t channel);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
 
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

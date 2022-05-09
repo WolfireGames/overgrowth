@@ -34,50 +34,49 @@
 #include <tinyxml.h>
 
 ActiveModsParser::ActiveModsParser() {
-
 }
 
-uint32_t ActiveModsParser::Load( const std::string& path ) {
+uint32_t ActiveModsParser::Load(const std::string& path) {
     load_checksum = Checksum(path);
 
     Clear();
-    TiXmlDocument doc( path.c_str() );
+    TiXmlDocument doc(path.c_str());
     doc.LoadFile();
-    if( !doc.Error() ) {
+    if (!doc.Error()) {
         TiXmlElement* pRoot = doc.RootElement();
-        if( pRoot ) {
+        if (pRoot) {
             TiXmlElement* eModInstance = pRoot->FirstChildElement("ModInstance");
             bool parse_error;
-            while( eModInstance ) {
-                ModInstance mi; 
+            while (eModInstance) {
+                ModInstance mi;
                 int err;
                 parse_error = false;
 
                 err = strscpy(mi.id, eModInstance->Attribute("id"), MOD_ID_MAX_LENGTH);
-                if( err == SOURCE_TOO_LONG ) {
+                if (err == SOURCE_TOO_LONG) {
                     parse_error = true;
-                } else if( err == SOURCE_IS_NULL ) {
+                } else if (err == SOURCE_IS_NULL) {
                     parse_error = true;
                 }
 
                 int saystrue = saysTrue(eModInstance->Attribute("activated"));
-                if( saystrue == 1 ) {
+                if (saystrue == 1) {
                     mi.activated = true;
-                } else if( saystrue == 0 ) {
+                } else if (saystrue == 0) {
                     mi.activated = false;
-                } else if( saystrue == SAYS_TRUE_NULL_INPUT) {
+                } else if (saystrue == SAYS_TRUE_NULL_INPUT) {
                     parse_error = true;
-                } else if( saystrue == SAYS_TRUE_NO_MATCH) {
+                } else if (saystrue == SAYS_TRUE_NO_MATCH) {
                     parse_error = true;
                 } else {
                     parse_error = true;
                 }
 
                 const char* modsource = eModInstance->Attribute("modsource");
-                if( modsource ) {
-                    if( strmtch(modsource,"steamworks")) {
+                if (modsource) {
+                    if (strmtch(modsource, "steamworks")) {
                         mi.modsource = ModSourceSteamworks;
-                    } else if( strmtch(modsource,"local")) {
+                    } else if (strmtch(modsource, "local")) {
                         mi.modsource = ModSourceLocalModFolder;
                     } else {
                         LOGE << "Unknown modsource " << modsource << " on " << mi.id << std::endl;
@@ -89,14 +88,14 @@ uint32_t ActiveModsParser::Load( const std::string& path ) {
                 }
 
                 err = strscpy(mi.version, eModInstance->Attribute("version"), MOD_VERSION_MAX_LENGTH);
-                if( err == SOURCE_TOO_LONG ) {
+                if (err == SOURCE_TOO_LONG) {
                     parse_error = true;
-                } else if( err == SOURCE_IS_NULL ) {
+                } else if (err == SOURCE_IS_NULL) {
                     parse_error = true;
                 }
 
-                if( parse_error == false ) {
-                    mod_instances.push_back(mi); 
+                if (parse_error == false) {
+                    mod_instances.push_back(mi);
                 }
 
                 eModInstance = eModInstance->NextSiblingElement();
@@ -106,15 +105,15 @@ uint32_t ActiveModsParser::Load( const std::string& path ) {
     return 1;
 }
 
-bool ActiveModsParser::SerializeInto( TiXmlDocument* doc ) {
-    TiXmlDeclaration * decl = new TiXmlDeclaration( "2.0", "", "" );
-    TiXmlElement * root = new TiXmlElement("ActiveMods");
-    for(auto & mod_instance : mod_instances) {
-        TiXmlElement * mi = new TiXmlElement("ModInstance");
-        mi->SetAttribute( "id", mod_instance.id );
-        mi->SetAttribute( "activated", mod_instance.activated ? "true" : "false" );
+bool ActiveModsParser::SerializeInto(TiXmlDocument* doc) {
+    TiXmlDeclaration* decl = new TiXmlDeclaration("2.0", "", "");
+    TiXmlElement* root = new TiXmlElement("ActiveMods");
+    for (auto& mod_instance : mod_instances) {
+        TiXmlElement* mi = new TiXmlElement("ModInstance");
+        mi->SetAttribute("id", mod_instance.id);
+        mi->SetAttribute("activated", mod_instance.activated ? "true" : "false");
         const char* modsource = "";
-        switch(mod_instance.modsource) {
+        switch (mod_instance.modsource) {
             case ModSourceLocalModFolder:
                 modsource = "local";
                 break;
@@ -126,7 +125,7 @@ bool ActiveModsParser::SerializeInto( TiXmlDocument* doc ) {
                 modsource = "unknown";
                 break;
         }
-        mi->SetAttribute("modsource", modsource); 
+        mi->SetAttribute("modsource", modsource);
         mi->SetAttribute("version", mod_instance.version);
         root->LinkEndChild(mi);
     }
@@ -135,11 +134,10 @@ bool ActiveModsParser::SerializeInto( TiXmlDocument* doc ) {
     return !doc->Error();
 }
 
-uint16_t ActiveModsParser::LocalChecksum() 
-{
-    std::string path = AssemblePath(GetWritePath(CoreGameModID).c_str(),"Data/Temp/activemodsparser.temp.xml");
+uint16_t ActiveModsParser::LocalChecksum() {
+    std::string path = AssemblePath(GetWritePath(CoreGameModID).c_str(), "Data/Temp/activemodsparser.temp.xml");
     TiXmlDocument doc;
-    
+
     SerializeInto(&doc);
 
     doc.SaveFile(path.c_str());
@@ -147,7 +145,7 @@ uint16_t ActiveModsParser::LocalChecksum()
     return Checksum(path);
 }
 
-bool ActiveModsParser::Save( const std::string& path ) {
+bool ActiveModsParser::Save(const std::string& path) {
     TiXmlDocument doc;
 
     SerializeInto(&doc);
@@ -159,14 +157,14 @@ bool ActiveModsParser::Save( const std::string& path ) {
 }
 
 void ActiveModsParser::SetModInstanceActive(const char* id, ModSource modsource, bool activated, const char* version) {
-    ModInstance mi = ModInstance(id,modsource,activated,version);
+    ModInstance mi = ModInstance(id, modsource, activated, version);
     int found = -1;
-    for( unsigned i = 0; i < mod_instances.size(); i++ ) {
-        if(strmtch(mod_instances[i].id,id) && mod_instances[i].modsource == modsource) {
+    for (unsigned i = 0; i < mod_instances.size(); i++) {
+        if (strmtch(mod_instances[i].id, id) && mod_instances[i].modsource == modsource) {
             found = i;
         }
     }
-    if( found == -1 ) {
+    if (found == -1) {
         mod_instances.push_back(mi);
     } else {
         mod_instances[found] = mi;
@@ -174,8 +172,8 @@ void ActiveModsParser::SetModInstanceActive(const char* id, ModSource modsource,
 }
 
 bool ActiveModsParser::HasModInstance(const char* id, ModSource modsource) {
-    for(auto & mod_instance : mod_instances) {
-        if(strmtch(mod_instance.id,id) && mod_instance.modsource == modsource) {
+    for (auto& mod_instance : mod_instances) {
+        if (strmtch(mod_instance.id, id) && mod_instance.modsource == modsource) {
             return true;
         }
     }
@@ -183,24 +181,24 @@ bool ActiveModsParser::HasModInstance(const char* id, ModSource modsource) {
 }
 
 ActiveModsParser::ModInstance ActiveModsParser::GetModInstance(const char* id, ModSource modsource) {
-    for(auto & mod_instance : mod_instances) {
-        if(strmtch(mod_instance.id,id) && mod_instance.modsource == modsource) {
+    for (auto& mod_instance : mod_instances) {
+        if (strmtch(mod_instance.id, id) && mod_instance.modsource == modsource) {
             return mod_instance;
         }
     }
-    return ModInstance(id,modsource,false,"");
+    return ModInstance(id, modsource, false, "");
 }
 
 void ActiveModsParser::RemoveModInstance(const char* id, ModSource modsource) {
-    for( unsigned i = 0; i < mod_instances.size(); i++ ) {
-        if(strmtch(mod_instances[i].id,id) && mod_instances[i].modsource == modsource) {
-            mod_instances.erase(mod_instances.begin()+i);
+    for (unsigned i = 0; i < mod_instances.size(); i++) {
+        if (strmtch(mod_instances[i].id, id) && mod_instances[i].modsource == modsource) {
+            mod_instances.erase(mod_instances.begin() + i);
         }
     }
 }
 
 void ActiveModsParser::Clear() {
-    mod_instances.clear(); 
+    mod_instances.clear();
 }
 
 ActiveModsParser::ModInstance::ModInstance() {
@@ -211,8 +209,8 @@ ActiveModsParser::ModInstance::ModInstance() {
 }
 
 ActiveModsParser::ModInstance::ModInstance(const char* id, ModSource modsource, bool activated, const char* version) {
-    strscpy(this->id,id,MOD_ID_MAX_LENGTH);
+    strscpy(this->id, id, MOD_ID_MAX_LENGTH);
     this->modsource = modsource;
     this->activated = activated;
-    strscpy(this->version,version,MOD_VERSION_MAX_LENGTH);
+    strscpy(this->version, version, MOD_VERSION_MAX_LENGTH);
 }

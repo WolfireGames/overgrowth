@@ -29,10 +29,10 @@
 
 #include <cstdlib>
 
-AssetLoaderThreadedInstance::AssetLoaderThreadedInstance( ) : loader(NULL), load_id(0), step(0), return_state(kLoadOk) {
+AssetLoaderThreadedInstance::AssetLoaderThreadedInstance() : loader(NULL), load_id(0), step(0), return_state(kLoadOk) {
 }
 
-AssetLoaderThreadedInstance::AssetLoaderThreadedInstance( AssetLoaderBase* loader, uint32_t load_id, int step ) : loader(loader), load_id(load_id), step(step), return_state(kLoadOk) {
+AssetLoaderThreadedInstance::AssetLoaderThreadedInstance(AssetLoaderBase* loader, uint32_t load_id, int step) : loader(loader), load_id(load_id), step(step), return_state(kLoadOk) {
 }
 
 AssetManagerThreadedInstanceQueue::AssetManagerThreadedInstanceQueue() : queue(NULL), queue_count(0), queue_size(0) {
@@ -40,24 +40,22 @@ AssetManagerThreadedInstanceQueue::AssetManagerThreadedInstanceQueue() : queue(N
 }
 
 AssetManagerThreadedInstanceQueue::~AssetManagerThreadedInstanceQueue() {
-    OG_FREE( queue );
+    OG_FREE(queue);
     queue = NULL;
     queue_count = 0;
     queue_size = 0;
 
     delete accessmutex;
-	accessmutex = NULL;
+    accessmutex = NULL;
 }
 
 AssetLoaderThreadedInstance AssetManagerThreadedInstanceQueue::Pop() {
     AssetLoaderThreadedInstance instance;
     accessmutex->lock();
-    if( queue_count > 0 )
-    {
-        instance = queue[0];   
-        for( unsigned i = 1;  i < queue_count; i++ )
-        {
-            queue[i-1] = queue[i];
+    if (queue_count > 0) {
+        instance = queue[0];
+        for (unsigned i = 1; i < queue_count; i++) {
+            queue[i - 1] = queue[i];
         }
         queue_count -= 1;
     }
@@ -69,10 +67,9 @@ AssetLoaderThreadedInstance AssetManagerThreadedInstanceQueue::Pop() {
 void AssetManagerThreadedInstanceQueue::Push(const AssetLoaderThreadedInstance& input) {
     accessmutex->lock();
 
-    if( queue_size >= queue_count )
-    {
+    if (queue_size >= queue_count) {
         queue_size += 32;
-        queue = static_cast<AssetLoaderThreadedInstance*>(realloc( queue, sizeof( AssetLoaderThreadedInstance ) * queue_size ));
+        queue = static_cast<AssetLoaderThreadedInstance*>(realloc(queue, sizeof(AssetLoaderThreadedInstance) * queue_size));
     }
 
     queue[queue_count] = input;
@@ -89,31 +86,30 @@ size_t AssetManagerThreadedInstanceQueue::Count() {
     return ret;
 }
 
-AssetManagerThreadInstance::AssetManagerThreadInstance(AssetManagerThreadedInstanceQueue* queue_in, AssetManagerThreadedInstanceQueue* queue_out, bool* stop) : queue_in(queue_in), queue_out( queue_out ), stop(stop) {
-
+AssetManagerThreadInstance::AssetManagerThreadInstance(AssetManagerThreadedInstanceQueue* queue_in, AssetManagerThreadedInstanceQueue* queue_out, bool* stop) : queue_in(queue_in), queue_out(queue_out), stop(stop) {
 }
 
 void AssetManagerThreadHandler_Operate(void* userdata) {
     AssetManagerThreadInstance* data = static_cast<AssetManagerThreadInstance*>(userdata);
-    while(*(data->stop) == false) {
-        if(data->queue_in->Count() > 0) {
+    while (*(data->stop) == false) {
+        if (data->queue_in->Count() > 0) {
             AssetLoaderThreadedInstance instance = data->queue_in->Pop();
 
-            instance.return_state = instance.loader->DoLoadStep( instance.step );
+            instance.return_state = instance.loader->DoLoadStep(instance.step);
 
-            data->queue_out->Push(instance); 
+            data->queue_out->Push(instance);
         } else {
-			std::this_thread::sleep_for(std::chrono::milliseconds(16));
+            std::this_thread::sleep_for(std::chrono::milliseconds(16));
         }
-    } 
+    }
 
-	delete data;
+    delete data;
 }
 
 AssetManagerThreadHandler::AssetManagerThreadHandler(int thread_count) : stop(false) {
-    for( int i = 0; i < thread_count; i++ ) {
-		AssetManagerThreadInstance* threadInstance = new AssetManagerThreadInstance(&queue_in, &queue_out, &stop);
-		std::thread* thread = new std::thread(AssetManagerThreadHandler_Operate, threadInstance);
+    for (int i = 0; i < thread_count; i++) {
+        AssetManagerThreadInstance* threadInstance = new AssetManagerThreadInstance(&queue_in, &queue_out, &stop);
+        std::thread* thread = new std::thread(AssetManagerThreadHandler_Operate, threadInstance);
         threads.push_back(thread);
     }
 }
@@ -121,8 +117,8 @@ AssetManagerThreadHandler::AssetManagerThreadHandler(int thread_count) : stop(fa
 AssetManagerThreadHandler::~AssetManagerThreadHandler() {
     stop = true;
 
-    for(auto & thread : threads) {
+    for (auto& thread : threads) {
         thread->join();
-		thread = NULL;
+        thread = NULL;
     }
 }

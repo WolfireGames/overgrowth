@@ -30,36 +30,35 @@
 
 #include <vector>
 
-enum TextureAssetRefFlags{
-    PX_SRGB = (1<<0),
-    PX_NOMIPMAP = (1<<1),
-    PX_NOCONVERT = (1<<2),
-    PX_NOLIVEUPDATE = (1<<3),
-    PX_NOREDUCE = (1<<4)
+enum TextureAssetRefFlags {
+    PX_SRGB = (1 << 0),
+    PX_NOMIPMAP = (1 << 1),
+    PX_NOCONVERT = (1 << 2),
+    PX_NOLIVEUPDATE = (1 << 3),
+    PX_NOREDUCE = (1 << 4)
 };
 
-class TextureAsset : public Asset 
-{
-private:
+class TextureAsset : public Asset {
+   private:
     friend class Textures;
     unsigned int id;
-public:
 
+   public:
     TextureRef GetTextureRef();
 
-    TextureAsset( AssetManager* owner, uint32_t asset_id );
+    TextureAsset(AssetManager* owner, uint32_t asset_id);
     ~TextureAsset() override;
 
     static AssetType GetType() { return TEXTURE_ASSET; }
     static const char* GetTypeName() { return "TEXTURE_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    int Load( const std::string &path, uint32_t load_flags );
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
 
-    void ReportLoad() override{}
+    void ReportLoad() override {}
     AssetLoaderBase* NewLoader() override;
 
     unsigned int GetTexID();

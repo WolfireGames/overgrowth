@@ -29,64 +29,60 @@
 
 #include <tinyxml.h>
 
-LevelSet::LevelSet( AssetManager* owner, uint32_t asset_id ) : AssetInfo( owner, asset_id ), sub_error(0) {
+LevelSet::LevelSet(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id), sub_error(0) {
 }
 
 void LevelSet::clear() {
     level_paths_.clear();
 }
 
-int LevelSet::Load( const std::string &path, uint32_t load_flags ) {
+int LevelSet::Load(const std::string& path, uint32_t load_flags) {
     sub_error = 0;
     TiXmlDocument doc;
-    if( LoadXMLRetryable(doc, path, "LevelSet") )
-    {
+    if (LoadXMLRetryable(doc, path, "LevelSet")) {
         clear();
 
         TiXmlHandle h_doc(&doc);
         TiXmlHandle h_root = h_doc.FirstChildElement("LevelSet").FirstChildElement("Levels").FirstChildElement("Level");
         TiXmlElement* field = h_root.ToElement();
-        for( ; field; field = field->NextSiblingElement()) {
+        for (; field; field = field->NextSiblingElement()) {
             std::string field_str(field->Value());
-            if(field_str == "Level"){
+            if (field_str == "Level") {
                 const char* path;
                 path = field->Attribute("path");
-                if(path){
+                if (path) {
                     level_paths_.push_back(path);
                 }
             }
         }
-    }
-    else
-    {
+    } else {
         return kLoadErrorMissingFile;
     }
     return kLoadOk;
 }
 
 const char* LevelSet::GetLoadErrorString() {
-    switch(sub_error) {
-        case 0: return "";
-        default: return "Undefined error";
+    switch (sub_error) {
+        case 0:
+            return "";
+        default:
+            return "Undefined error";
     }
 }
 
 void LevelSet::Unload() {
-
 }
 
 void LevelSet::Reload() {
-    Load(path_,0x0);
+    Load(path_, 0x0);
 }
 
 void LevelSet::ReportLoad() {
-
 }
 
-void LevelSet::ReturnPaths( PathSet &path_set ) {
-    for(auto & level_path : level_paths_)
-    {
-        path_set.insert("level "+level_path);
+void LevelSet::ReturnPaths(PathSet& path_set) {
+    for (auto& level_path : level_paths_) {
+        path_set.insert("level " + level_path);
     }
 }
 

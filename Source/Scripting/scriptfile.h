@@ -44,15 +44,14 @@ struct IncludeFileRange {
     Path file_path;
     unsigned offset;
     unsigned length;
-    IncludeFileRange(unsigned _start, 
-                     unsigned _length, 
-                     unsigned _offset, 
+    IncludeFileRange(unsigned _start,
+                     unsigned _length,
+                     unsigned _offset,
                      const Path &_file_path)
-        :start(_start),
-         file_path(_file_path),
-         offset(_offset),
-         length(_length)
-    {}
+        : start(_start),
+          file_path(_file_path),
+          offset(_offset),
+          length(_length) {}
 };
 
 typedef std::list<IncludeFileRange> FileRangeList;
@@ -63,13 +62,12 @@ struct LineFile {
 
     LineFile(unsigned _line_number,
              const Path &_file)
-        :line_number(_line_number),
-         file(_file)
-    {}
+        : line_number(_line_number),
+          file(_file) {}
 };
 
 struct ScriptFile {
-    const ScriptFile* parent;
+    const ScriptFile *parent;
     std::string unexpanded_contents;
     std::string contents;
     Path file_path;
@@ -83,7 +81,7 @@ struct ScriptFile {
 
     std::string GetModPollutionInformation() const;
 
-private:
+   private:
     bool AlreadyAddedIncludeFile(const Path &path);
 };
 
@@ -92,7 +90,7 @@ typedef std::map<std::string, ScriptFile> ScriptFileMap;
 struct ScriptFileCache {
     ScriptFileMap files;
 
-    static ScriptFileCache* Instance() {
+    static ScriptFileCache *Instance() {
         static ScriptFileCache instance;
         return &instance;
     }
@@ -101,8 +99,8 @@ struct ScriptFileCache {
 };
 
 namespace ScriptFileUtil {
-    const ScriptFile* GetScriptFile(const Path& path);
-    bool DetectScriptFileChanged(const Path &path);
-    int64_t GetLatestModification(const Path &path);
-    void ReturnPaths(const Path &path, PathSet &path_set);
-}
+const ScriptFile *GetScriptFile(const Path &path);
+bool DetectScriptFileChanged(const Path &path);
+int64_t GetLatestModification(const Path &path);
+void ReturnPaths(const Path &path, PathSet &path_set);
+}  // namespace ScriptFileUtil

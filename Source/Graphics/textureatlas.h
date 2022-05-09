@@ -34,9 +34,8 @@
 
 class TextureAtlas;
 
-struct TextureAtlasRef
-{
-public:
+struct TextureAtlasRef {
+   public:
     ivec2 pos;
     ivec2 dim;
     vec2 uv_start;
@@ -44,20 +43,20 @@ public:
     TextureAtlas* source;
 };
 
-class TextureAtlas
-{
-private:
-    std::queue<std::pair<std::string,AtlasNodeTree::AtlasNode*> > dirtyNodes;
+class TextureAtlas {
+   private:
+    std::queue<std::pair<std::string, AtlasNodeTree::AtlasNode*> > dirtyNodes;
 
-    void DrawToAtlasNode( const std::string& rel_path, const AtlasNodeTree::AtlasNode& node );
-public:
-    GLuint framebuffer; 
+    void DrawToAtlasNode(const std::string& rel_path, const AtlasNodeTree::AtlasNode& node);
+
+   public:
+    GLuint framebuffer;
     TextureRef atlas_texture;
     ivec2 dim;
     TextureAtlas(AtlasNodeTree& atlasNodeTree, TextureData::ColorSpace colorSpace);
 
-    //AtlasTextureAssetRef
+    // AtlasTextureAssetRef
 
-    TextureAtlasRef SetTextureToNode(const std::string& rel_path, AtlasNodeTree::AtlasNodeRef node );
+    TextureAtlasRef SetTextureToNode(const std::string& rel_path, AtlasNodeTree::AtlasNodeRef node);
     void Draw();
 };

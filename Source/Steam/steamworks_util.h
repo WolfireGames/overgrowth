@@ -24,17 +24,14 @@
 
 #include <Logging/logdata.h>
 
-
 #if ENABLE_STEAMWORKS
 #include <steam_api.h>
 #endif
 
 #include <ostream>
 
-
 #if ENABLE_STEAMWORKS
-const char* GetEResultString( const EResult& error );
+const char* GetEResultString(const EResult& error);
 
-std::ostream& operator<< ( std::ostream& data, const EResult& obj );
+std::ostream& operator<<(std::ostream& data, const EResult& obj);
 #endif
-

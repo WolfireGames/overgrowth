@@ -27,17 +27,15 @@
 
 #include <iostream>
 
-using std::exception;
 using std::cerr;
 using std::endl;
+using std::exception;
 
-namespace tut
-{
-    test_runner_singleton runner;
+namespace tut {
+test_runner_singleton runner;
 }
 
-int RunUnitTests()
-{
+int RunUnitTests() {
     tut::reporter reporter;
     tut::runner.get().set_callback(&reporter);
 

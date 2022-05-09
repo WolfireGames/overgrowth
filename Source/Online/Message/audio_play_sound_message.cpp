@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,44 +26,41 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    AudioPlaySoundMessage::AudioPlaySoundMessage(const std::string & path) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        path(path)
-    {
-
-    }
-
-    binn* AudioPlaySoundMessage::Serialize(void* object) {
-        AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
-        binn* l = binn_object();
-
-        binn_object_set_std_string(l, "path", t->path);
-
-        return l;
-    }
-
-    void AudioPlaySoundMessage::Deserialize(void* object, binn* l) {
-        AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
-
-        binn_object_get_std_string(l, "path", &t->path);
-    }
-
-    void AudioPlaySoundMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
-
-        SoundPlayInfo spi;
-        spi.path = t->path;
-        spi.flags = spi.flags | SoundFlags::kRelative;
-        int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
-        Engine::Instance()->GetSound()->Play(handle, spi);
-    }
-
-    void* AudioPlaySoundMessage::Construct(void *mem) {
-        return new(mem) AudioPlaySoundMessage("");
-    }
-
-    void AudioPlaySoundMessage::Destroy(void* object) {
-        AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
-        t->~AudioPlaySoundMessage();
-    }
+AudioPlaySoundMessage::AudioPlaySoundMessage(const std::string& path) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                        path(path) {
 }
+
+binn* AudioPlaySoundMessage::Serialize(void* object) {
+    AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
+    binn* l = binn_object();
+
+    binn_object_set_std_string(l, "path", t->path);
+
+    return l;
+}
+
+void AudioPlaySoundMessage::Deserialize(void* object, binn* l) {
+    AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
+
+    binn_object_get_std_string(l, "path", &t->path);
+}
+
+void AudioPlaySoundMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
+
+    SoundPlayInfo spi;
+    spi.path = t->path;
+    spi.flags = spi.flags | SoundFlags::kRelative;
+    int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
+    Engine::Instance()->GetSound()->Play(handle, spi);
+}
+
+void* AudioPlaySoundMessage::Construct(void* mem) {
+    return new (mem) AudioPlaySoundMessage("");
+}
+
+void AudioPlaySoundMessage::Destroy(void* object) {
+    AudioPlaySoundMessage* t = static_cast<AudioPlaySoundMessage*>(object);
+    t->~AudioPlaySoundMessage();
+}
+}  // namespace OnlineMessages

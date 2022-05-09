@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: win_compat.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -35,18 +35,26 @@
 #define PATH_MAX 2048
 #endif
 
-extern "C" { void nonExistantFunctionToAlertYouToStubbedCode(void); }
-#define STUBBED(txt) { static bool virgin = true; if (virgin) { virgin = false; fprintf(stderr, "STUBBED: %s at %s:%d\n", txt, __FILE__, __LINE__); } }
+extern "C" {
+void nonExistantFunctionToAlertYouToStubbedCode(void);
+}
+#define STUBBED(txt)                                                            \
+    {                                                                           \
+        static bool virgin = true;                                              \
+        if (virgin) {                                                           \
+            virgin = false;                                                     \
+            fprintf(stderr, "STUBBED: %s at %s:%d\n", txt, __FILE__, __LINE__); \
+        }                                                                       \
+    }
 
-char* strtok_r(char *str, const char *delim, char **nextp);
+char* strtok_r(char* str, const char* delim, char** nextp);
 
 static const char* win_compat_err_str[] = {
     "No error",
     "Problem getting documents path",
     "Error converting utf16 string to utf8",
     "Write dir is too long.",
-	"Error getting short-path version of write dir",
-	"Short path version of write dir could not fit in buffer"
-};
+    "Error getting short-path version of write dir",
+    "Short path version of write dir could not fit in buffer"};
 
 void SetWorkingDir(const char* path);

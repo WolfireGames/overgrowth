@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pathpointobject.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -36,7 +36,7 @@
 extern bool g_debug_runtime_disable_pathpoint_object_draw;
 
 //-----------------------------------------------------------------------------
-//Functions
+// Functions
 //-----------------------------------------------------------------------------
 
 PathPointObject::PathPointObject() {
@@ -44,29 +44,29 @@ PathPointObject::PathPointObject() {
     box_.dims = vec3(1.0f);
 }
 
-bool PathPointObject::ConnectTo( Object& other, bool checking_other /*= false*/ ) {
-    if(other.GetType() == _movement_object){
+bool PathPointObject::ConnectTo(Object& other, bool checking_other /*= false*/) {
+    if (other.GetType() == _movement_object) {
         return other.ConnectTo(*this, true);
-    } else if(other.GetType() == _hotspot_object) {
+    } else if (other.GetType() == _hotspot_object) {
         return Object::ConnectTo(other, checking_other);
-    } else if(other.GetType() != _path_point_object){
+    } else if (other.GetType() != _path_point_object) {
         return false;
-    } else { // Connecting to another pathpoint
+    } else {  // Connecting to another pathpoint
         PathPointObject* ppo = (PathPointObject*)&other;
-        if(ppo == this){ // Can't connect to itself
+        if (ppo == this) {  // Can't connect to itself
             return false;
         } else {
             int other_id = ppo->GetID();
-            for(int connection_id : connection_ids){ // Disconnect if we're already connected
-                if(connection_id == other_id){
-                   Disconnect(other, checking_other);
-                }       
-            }    
-            if(!checking_other){
-                connection_ids.insert(connection_ids.begin(), other_id); // We're first, so add to beginning
-                ppo->ConnectTo(*this, true);  // Make sure other path point logs the connection also
+            for (int connection_id : connection_ids) {  // Disconnect if we're already connected
+                if (connection_id == other_id) {
+                    Disconnect(other, checking_other);
+                }
+            }
+            if (!checking_other) {
+                connection_ids.insert(connection_ids.begin(), other_id);  // We're first, so add to beginning
+                ppo->ConnectTo(*this, true);                              // Make sure other path point logs the connection also
             } else {
-                connection_ids.push_back(other_id); // We're second, so add to end
+                connection_ids.push_back(other_id);  // We're second, so add to end
             }
             return true;
         }
@@ -77,24 +77,24 @@ bool PathPointObject::AcceptConnectionsFrom(Object::ConnectionType type, Object&
     return type == kCTMovementObjects || type == kCTPathPoints;
 }
 
-bool PathPointObject::Disconnect( Object& other, bool checking_other ) {
-    if(other.GetType() == _movement_object){
+bool PathPointObject::Disconnect(Object& other, bool checking_other) {
+    if (other.GetType() == _movement_object) {
         return other.Disconnect(*this, true);
-    } else if(other.GetType() == _hotspot_object) {
+    } else if (other.GetType() == _hotspot_object) {
         return Object::Disconnect(other, checking_other);
-    } else if(other.GetType() != _path_point_object){
+    } else if (other.GetType() != _path_point_object) {
         return false;
     } else {
         PathPointObject* ppo = (PathPointObject*)&other;
-        if(ppo == this){
+        if (ppo == this) {
             return false;
         } else {
             int other_id = ppo->GetID();
             std::vector<int>::iterator iter = std::find(connection_ids.begin(), connection_ids.end(), other_id);
-            if(iter != connection_ids.end()){
+            if (iter != connection_ids.end()) {
                 connection_ids.erase(iter);
             }
-            if(!checking_other){
+            if (!checking_other) {
                 ppo->Disconnect(*this, true);
             }
             return true;
@@ -103,31 +103,31 @@ bool PathPointObject::Disconnect( Object& other, bool checking_other ) {
 }
 
 void PathPointObject::GetConnectionIDs(std::vector<int>* cons) {
-    for(int & connection_id : connection_ids) {
+    for (int& connection_id : connection_ids) {
         cons->push_back(connection_id);
-    } 
+    }
 }
 
-void PathPointObject::NotifyDeleted( Object* o ) {
+void PathPointObject::NotifyDeleted(Object* o) {
     Object::NotifyDeleted(o);
-    std::vector<int>::iterator iter = 
+    std::vector<int>::iterator iter =
         std::find(connection_ids.begin(), connection_ids.end(), o->GetID());
-    if(iter != connection_ids.end()){
+    if (iter != connection_ids.end()) {
         connection_ids.erase(iter);
     }
 }
 
-void PathPointObject::GetDesc(EntityDescription &desc) const {
+void PathPointObject::GetDesc(EntityDescription& desc) const {
     Object::GetDesc(desc);
     desc.AddString(EDF_FILE_PATH, "");
     desc.AddIntVec(EDF_CONNECTIONS, connection_ids);
 }
 
-bool PathPointObject::SetFromDesc( const EntityDescription& desc ) {
+bool PathPointObject::SetFromDesc(const EntityDescription& desc) {
     bool ret = Object::SetFromDesc(desc);
-    if( ret ) {
-        for(const auto & field : desc.fields){
-            switch(field.type){
+    if (ret) {
+        for (const auto& field : desc.fields) {
+            switch (field.type) {
                 case EDF_CONNECTIONS:
                     field.ReadIntVec(&connection_ids);
                     break;
@@ -144,22 +144,22 @@ bool PathPointObject::Initialize() {
     return true;
 }
 
-static int ASNumConnectionIDs(PathPointObject* obj){
-    return (int) obj->connection_ids.size();
+static int ASNumConnectionIDs(PathPointObject* obj) {
+    return (int)obj->connection_ids.size();
 }
 
-static int ASGetConnectionID(PathPointObject* obj, int which){
+static int ASGetConnectionID(PathPointObject* obj, int which) {
     return obj->connection_ids[which];
 }
 
 void PathPointObject::RegisterToScript(ASContext* as_context) {
     as_context->RegisterObjectType("PathPointObject", 0, asOBJ_REF | asOBJ_NOCOUNT);
     as_context->RegisterObjectMethod("PathPointObject",
-        "int NumConnectionIDs()",
-        asFUNCTION(ASNumConnectionIDs), asCALL_CDECL_OBJFIRST);
+                                     "int NumConnectionIDs()",
+                                     asFUNCTION(ASNumConnectionIDs), asCALL_CDECL_OBJFIRST);
     as_context->RegisterObjectMethod("PathPointObject",
-        "int GetConnectionID(int which)",
-        asFUNCTION(ASGetConnectionID), asCALL_CDECL_OBJFIRST);
+                                     "int GetConnectionID(int which)",
+                                     asFUNCTION(ASGetConnectionID), asCALL_CDECL_OBJFIRST);
     as_context->DocsCloseBrace();
 }
 
@@ -168,32 +168,31 @@ void PathPointObject::Draw() {
         return;
     }
 
-    if(scenegraph_->map_editor->IsTypeEnabled(_path_point_object) &&
-       !Graphics::Instance()->media_mode() && 
-       scenegraph_->map_editor->state_ != MapEditor::kInGame)
-    {
-        DebugDraw::Instance()->AddWireSphere(GetTranslation(), 0.5f, vec4(0.0f,0.5f,0.5f,0.5f), _delete_on_draw);
-        for(int connection_id : connection_ids){
+    if (scenegraph_->map_editor->IsTypeEnabled(_path_point_object) &&
+        !Graphics::Instance()->media_mode() &&
+        scenegraph_->map_editor->state_ != MapEditor::kInGame) {
+        DebugDraw::Instance()->AddWireSphere(GetTranslation(), 0.5f, vec4(0.0f, 0.5f, 0.5f, 0.5f), _delete_on_draw);
+        for (int connection_id : connection_ids) {
             Object* obj = scenegraph_->GetObjectFromID(connection_id);
-            DebugDraw::Instance()->AddLine(GetTranslation(), obj->GetTranslation(), vec4(0.0f,0.5f,0.5f,0.5f), _delete_on_draw);
+            DebugDraw::Instance()->AddLine(GetTranslation(), obj->GetTranslation(), vec4(0.0f, 0.5f, 0.5f, 0.5f), _delete_on_draw);
         }
     }
 }
 
-void PathPointObject::RemapReferences(std::map<int,int> id_map) {
-    for(int & connection_id : connection_ids) {
-        if( id_map.find(connection_id) != id_map.end() ) {
+void PathPointObject::RemapReferences(std::map<int, int> id_map) {
+    for (int& connection_id : connection_ids) {
+        if (id_map.find(connection_id) != id_map.end()) {
             connection_id = id_map[connection_id];
         } else {
-            //The remapped id could belong to this, in which case it is valid
+            // The remapped id could belong to this, in which case it is valid
             bool is_this = false;
-            for(auto & iter : id_map) {
-                if(iter.second == this->GetID()) {
+            for (auto& iter : id_map) {
+                if (iter.second == this->GetID()) {
                     is_this = true;
                     break;
                 }
             }
-            if(!is_this)
+            if (!is_this)
                 connection_id = -1;
         }
     }

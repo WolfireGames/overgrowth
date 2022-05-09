@@ -35,33 +35,33 @@
 #if ENABLE_STEAMWORKS
 
 class SteamworksFriends {
-private:
+   private:
     friend class Steamworks;
     SteamworksFriends();
 
-public:
+   public:
     ~SteamworksFriends();
 
-	// activates the game overlay, with an optional dialog to open 
-	// valid options are "Friends", "Community", "Players", "Settings", "OfficialGameGroup", "Stats", "Achievements"
-	void ActivateGameOverlay( const char *pchDialog );
+    // activates the game overlay, with an optional dialog to open
+    // valid options are "Friends", "Community", "Players", "Settings", "OfficialGameGroup", "Stats", "Achievements"
+    void ActivateGameOverlay(const char *pchDialog);
 
-	// activates game overlay to a specific place
-	// valid options are
-	//		"steamid" - opens the overlay web browser to the specified user or groups profile
-	//		"chat" - opens a chat window to the specified user, or joins the group chat 
-	//		"jointrade" - opens a window to a Steam Trading session that was started with the ISteamEconomy/StartTrade Web API
-	//		"stats" - opens the overlay web browser to the specified user's stats
-	//		"achievements" - opens the overlay web browser to the specified user's achievements
-	//		"friendadd" - opens the overlay in minimal mode prompting the user to add the target user as a friend
-	//		"friendremove" - opens the overlay in minimal mode prompting the user to remove the target friend
-	//		"friendrequestaccept" - opens the overlay in minimal mode prompting the user to accept an incoming friend invite
-	//		"friendrequestignore" - opens the overlay in minimal mode prompting the user to ignore an incoming friend invite
-	void ActivateGameOverlayToUser( const char *pchDialog, CSteamID steamID );
+    // activates game overlay to a specific place
+    // valid options are
+    //		"steamid" - opens the overlay web browser to the specified user or groups profile
+    //		"chat" - opens a chat window to the specified user, or joins the group chat
+    //		"jointrade" - opens a window to a Steam Trading session that was started with the ISteamEconomy/StartTrade Web API
+    //		"stats" - opens the overlay web browser to the specified user's stats
+    //		"achievements" - opens the overlay web browser to the specified user's achievements
+    //		"friendadd" - opens the overlay in minimal mode prompting the user to add the target user as a friend
+    //		"friendremove" - opens the overlay in minimal mode prompting the user to remove the target friend
+    //		"friendrequestaccept" - opens the overlay in minimal mode prompting the user to accept an incoming friend invite
+    //		"friendrequestignore" - opens the overlay in minimal mode prompting the user to ignore an incoming friend invite
+    void ActivateGameOverlayToUser(const char *pchDialog, CSteamID steamID);
 
-	// activates game overlay web browser directly to the specified URL
-	// full address with protocol type is required, e.g. http://www.steamgames.com/
-	void ActivateGameOverlayToWebPage( const char *pchURL );
+    // activates game overlay web browser directly to the specified URL
+    // full address with protocol type is required, e.g. http://www.steamgames.com/
+    void ActivateGameOverlayToWebPage(const char *pchURL);
 
     std::vector<CSteamID> GetClans();
 

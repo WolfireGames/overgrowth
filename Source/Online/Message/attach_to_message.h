@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: attach_to_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,21 +25,21 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class AttachToMessage : public OnlineMessageBase {
-    public:
-        CommonObjectID parent_id;
-        CommonObjectID child_id;
-        uint32_t bone_id;
-        bool attach;
-        bool mirrored;
+class AttachToMessage : public OnlineMessageBase {
+   public:
+    CommonObjectID parent_id;
+    CommonObjectID child_id;
+    uint32_t bone_id;
+    bool attach;
+    bool mirrored;
 
-    public:
-        AttachToMessage(ObjectID parent_id, ObjectID child_id, uint32_t bone_id, bool attach, bool mirrored);
+   public:
+    AttachToMessage(ObjectID parent_id, ObjectID child_id, uint32_t bone_id, bool attach, bool mirrored);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

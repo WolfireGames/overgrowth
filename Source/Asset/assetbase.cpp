@@ -30,14 +30,11 @@
 #include <cxxabi.h>
 #endif
 
-Asset::Asset(AssetManager* owner, uint32_t asset_id): 
-asset_id(asset_id),
-owner(owner) {
-
+Asset::Asset(AssetManager* owner, uint32_t asset_id) : asset_id(asset_id),
+                                                       owner(owner) {
 }
 
-Asset::~Asset() 
-{
+Asset::~Asset() {
     /*
     if( ref_count_ != 0 )
     {
@@ -59,18 +56,16 @@ Asset::~Asset()
     */
 }
 
-void Asset::IncrementRefCount()
-{
-    if( owner ) {
+void Asset::IncrementRefCount() {
+    if (owner) {
         owner->IncrementAsset(asset_id);
     } else {
         LOGE << "This asset was orphaned before it was destroyed, someone was holding a reference too long" << std::endl;
     }
 }
 
-void Asset::DecrementRefCount()
-{
-    if( owner ) {
+void Asset::DecrementRefCount() {
+    if (owner) {
         owner->DecrementAsset(asset_id);
     } else {
         LOGE << "This asset was orphaned before it was destroyed, someone was holding a reference too long" << std::endl;

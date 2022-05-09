@@ -58,68 +58,65 @@
 
 #include <assert.h>
 
-ParticleType::ParticleType( AssetManager* owner, uint32_t asset_id ) : Asset( owner, asset_id ) 
-{
-
+ParticleType::ParticleType(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id) {
 }
 
-TextureAssetRef LoadXMLTex(TiXmlElement* el, const char* label){
+TextureAssetRef LoadXMLTex(TiXmlElement* el, const char* label) {
     const char* str = el->Attribute(label);
-    if(str){
+    if (str) {
         return Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>(str);
     } else {
         return TextureAssetRef();
     }
 }
 
-AnimationEffectRef LoadXMLAERef(TiXmlElement* el, const char* label){
+AnimationEffectRef LoadXMLAERef(TiXmlElement* el, const char* label) {
     const char* str = el->Attribute(label);
-    if(str){
-        //return AnimationEffects::Instance()->ReturnRef(str);
+    if (str) {
+        // return AnimationEffects::Instance()->ReturnRef(str);
         return Engine::Instance()->GetAssetManager()->LoadSync<AnimationEffect>(str);
     } else {
         return AnimationEffectRef();
     }
 }
 
-int ParticleType::Load( const std::string &path, uint32_t load_flags ) {
+int ParticleType::Load(const std::string& path, uint32_t load_flags) {
     sub_error = 0;
     TiXmlDocument doc;
 
-    if(LoadXMLRetryable(doc, path, "Particle"))
-    {
+    if (LoadXMLRetryable(doc, path, "Particle")) {
         clear();
 
         TiXmlHandle h_doc(&doc);
         TiXmlHandle h_root = h_doc.FirstChildElement();
         TiXmlElement* field = h_root.ToElement()->FirstChildElement();
-        for( ; field; field = field->NextSiblingElement()) {
+        for (; field; field = field->NextSiblingElement()) {
             std::string field_str(field->Value());
-            if(field_str == "textures"){
+            if (field_str == "textures") {
                 ae_ref = LoadXMLAERef(field, "animation_effect");
                 color_map = LoadXMLTex(field, "color_map");
                 normal_map = LoadXMLTex(field, "normal_map");
                 const char* shader_str = field->Attribute("shader");
                 const char* soft_shader_str = field->Attribute("soft_shader");
-                if(soft_shader_str){
+                if (soft_shader_str) {
                     FormatString(shader_name, kMaxNameLen, "%s", soft_shader_str);
                 } else {
                     FormatString(shader_name, kMaxNameLen, "%s", shader_str);
                 }
-            } else if(field_str == "size"){
+            } else if (field_str == "size") {
                 GetRange(field, "val", "min", "max", size_range[0], size_range[1]);
-            }  else if(field_str == "rotation"){
+            } else if (field_str == "rotation") {
                 GetRange(field, "val", "min", "max", rotation_range[0], rotation_range[1]);
-            } else if(field_str == "color"){
-                GetRange(field, "red", "red_min", "red_max", 
-                    color_range[0][0], color_range[1][0]);
-                GetRange(field, "green", "green_min", "green_max", 
-                    color_range[0][1], color_range[1][1]);
-                GetRange(field, "blue", "blue_min", "blue_max", 
-                    color_range[0][2], color_range[1][2]);
-                GetRange(field, "alpha", "alpha_min", "alpha_max", 
-                    color_range[0][3], color_range[1][3]);
-            } else if(field_str == "behavior"){
+            } else if (field_str == "color") {
+                GetRange(field, "red", "red_min", "red_max",
+                         color_range[0][0], color_range[1][0]);
+                GetRange(field, "green", "green_min", "green_max",
+                         color_range[0][1], color_range[1][1]);
+                GetRange(field, "blue", "blue_min", "blue_max",
+                         color_range[0][2], color_range[1][2]);
+                GetRange(field, "alpha", "alpha_min", "alpha_max",
+                         color_range[0][3], color_range[1][3]);
+            } else if (field_str == "behavior") {
                 field->QueryFloatAttribute("inertia", &inertia);
                 field->QueryFloatAttribute("gravity", &gravity);
                 field->QueryFloatAttribute("wind", &wind);
@@ -127,40 +124,40 @@ int ParticleType::Load( const std::string &path, uint32_t load_flags ) {
                 field->QueryFloatAttribute("opacity_decay_rate", &opacity_decay_rate);
                 opacity_ramp_time = 0.0f;
                 field->QueryFloatAttribute("opacity_ramp_time", &opacity_ramp_time);
-            } else if(field_str == "quadratic_expansion"){
+            } else if (field_str == "quadratic_expansion") {
                 quadratic_expansion = true;
                 field->QueryFloatAttribute("speed", &qe_speed);
-            } else if(field_str == "quadratic_dispersion"){
+            } else if (field_str == "quadratic_dispersion") {
                 quadratic_dispersion = true;
                 field->QueryFloatAttribute("persistence", &qd_mult);
-            } else if(field_str == "stretch"){
+            } else if (field_str == "stretch") {
                 const char* tf;
                 tf = field->Attribute("velocity_axis");
-                velocity_axis = (tf && strcmp(tf, "true")==0);
+                velocity_axis = (tf && strcmp(tf, "true") == 0);
                 tf = field->Attribute("speed_stretch");
-                speed_stretch = (tf && strcmp(tf, "true")==0);
+                speed_stretch = (tf && strcmp(tf, "true") == 0);
                 tf = field->Attribute("min_squash");
-                min_squash = (tf && strcmp(tf, "true")==0);
+                min_squash = (tf && strcmp(tf, "true") == 0);
                 tf = field->Attribute("speed_mult");
                 speed_mult = 1.0f;
                 field->QueryFloatAttribute("speed_mult", &speed_mult);
-            } else if(field_str == "no_rotation"){
+            } else if (field_str == "no_rotation") {
                 no_rotation = true;
-            } else if(field_str == "collision"){
+            } else if (field_str == "collision") {
                 collision = true;
                 const char* tf;
                 tf = field->Attribute("destroy");
-                collision_destroy = (tf && strcmp(tf, "true")==0);
+                collision_destroy = (tf && strcmp(tf, "true") == 0);
                 tf = field->Attribute("character_collide");
-                character_collide = (tf && strcmp(tf, "true")==0);
+                character_collide = (tf && strcmp(tf, "true") == 0);
                 tf = field->Attribute("character_add_blood");
-                character_add_blood = (tf && strcmp(tf, "true")==0);
+                character_add_blood = (tf && strcmp(tf, "true") == 0);
                 const char* c_str = field->Attribute("decal");
-                if(c_str){
+                if (c_str) {
                     collision_decal = c_str;
                 }
                 c_str = field->Attribute("materialevent");
-                if(c_str){
+                if (c_str) {
                     collision_event = c_str;
                 }
                 field->QueryFloatAttribute("decal_size_mult", &collision_decal_size_mult);
@@ -177,16 +174,13 @@ const char* ParticleType::GetLoadErrorString() {
 }
 
 void ParticleType::Unload() {
-
 }
 
-void ParticleType::ReportLoad()
-{
-
+void ParticleType::ReportLoad() {
 }
 
 void ParticleType::clear() {
-    size_decay_rate = 1.0f; 
+    size_decay_rate = 1.0f;
     opacity_decay_rate = 1.0f;
     quadratic_expansion = false;
     qe_speed = 1.0f;
@@ -213,7 +207,7 @@ void ParticleType::clear() {
 }
 
 void ParticleType::Reload() {
-    Load(path_,0x0);
+    Load(path_, 0x0);
 }
 
 AssetLoaderBase* ParticleType::NewLoader() {

@@ -28,10 +28,10 @@ class Item;
 class JobHandler;
 
 class CopyAction : public ActionBase {
-    public:
-        ManifestResult Run(const JobHandler& jh, const Item& y) override;
-        inline const char* GetName() const override { return "copy"; }
-        inline const char* GetVersion() const override {return "2";}
-        inline bool RunEvenOnIdenticalSource() const override { return false; }
-        inline bool StoreResultInDatabase() const override { return false; }
+   public:
+    ManifestResult Run(const JobHandler& jh, const Item& y) override;
+    inline const char* GetName() const override { return "copy"; }
+    inline const char* GetVersion() const override { return "2"; }
+    inline bool RunEvenOnIdenticalSource() const override { return false; }
+    inline bool StoreResultInDatabase() const override { return false; }
 };

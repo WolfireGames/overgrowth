@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: modelsurfacewalker.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -36,7 +36,9 @@ struct MSWTriInfo {
 };
 
 struct SurfaceWalker {
-    enum Type {BLOOD, WATER, FIRE};
+    enum Type { BLOOD,
+                WATER,
+                FIRE };
     int on_edge;
     int tri;
     int last_tri;
@@ -61,11 +63,11 @@ struct WalkLine {
 };
 
 class ModelSurfaceWalker {
-public:
-    std::vector<MSWTriInfo> tri_info; // Neighbors and edge lengths of each triangle
+   public:
+    std::vector<MSWTriInfo> tri_info;  // Neighbors and edge lengths of each triangle
     void AttachTo(const std::vector<float> &vertices, const std::vector<unsigned> &faces);
-    int GetNeighbor( int tri, int neighbor );
-    SWresults Move( SurfaceWalker& sw, vec3* points, const vec3& dir, float drip_dist, std::vector<WalkLine>* trace );
+    int GetNeighbor(int tri, int neighbor);
+    SWresults Move(SurfaceWalker &sw, vec3 *points, const vec3 &dir, float drip_dist, std::vector<WalkLine> *trace);
 };
 
-vec3 bary_coords(const vec2 &p, const vec2 &a, const vec2 &b, const vec2&c);
+vec3 bary_coords(const vec2 &p, const vec2 &a, const vec2 &b, const vec2 &c);

@@ -28,52 +28,52 @@
 
 // Represents a combination of controller axes and buttons
 namespace ControllerInput {
-    enum Input {
-        A = 0,
-        B,
-        X,
-        Y,
-        D_UP,
-        D_RIGHT,
-        D_DOWN,
-        D_LEFT,
-        START,
-        BACK,
-        GUIDE,
-        L_STICK_PRESSED,
-        R_STICK_PRESSED,
-        LB,
-        RB,
-        L_STICK_X,
-        L_STICK_Y,
-        R_STICK_X,
-        R_STICK_Y,
-        L_TRIGGER,
-        R_TRIGGER,
-        NUM_INPUTS,
-        // There are constraints upon existing inputs, therefore they should not
-        // count to the number of available inputs.
-        L_STICK_XN,
-        L_STICK_XP,
-        L_STICK_YN,
-        L_STICK_YP,
-        R_STICK_XN,
-        R_STICK_XP,
-        R_STICK_YN,
-        R_STICK_YP,
-        NONE
-    };
+enum Input {
+    A = 0,
+    B,
+    X,
+    Y,
+    D_UP,
+    D_RIGHT,
+    D_DOWN,
+    D_LEFT,
+    START,
+    BACK,
+    GUIDE,
+    L_STICK_PRESSED,
+    R_STICK_PRESSED,
+    LB,
+    RB,
+    L_STICK_X,
+    L_STICK_Y,
+    R_STICK_X,
+    R_STICK_Y,
+    L_TRIGGER,
+    R_TRIGGER,
+    NUM_INPUTS,
+    // There are constraints upon existing inputs, therefore they should not
+    // count to the number of available inputs.
+    L_STICK_XN,
+    L_STICK_XP,
+    L_STICK_YN,
+    L_STICK_YP,
+    R_STICK_XN,
+    R_STICK_XP,
+    R_STICK_YN,
+    R_STICK_YP,
+    NONE
+};
 }
 
 void InitKeyTranslator();
 // Translate to human readable strings
-std::string SDLLocaleAdjustedStringFromScancode( SDL_Scancode scancode );
+std::string SDLLocaleAdjustedStringFromScancode(SDL_Scancode scancode);
 std::string StringFromMouseButton(int button);
-std::string StringFromMouseString(const std::string& text); // e.g. mouse0 -> Left Mouse Button
+std::string StringFromMouseString(const std::string& text);  // e.g. mouse0 -> Left Mouse Button
 std::string StringFromControllerInput(ControllerInput::Input input);
-std::string StringFromInput(const std::string& input); // e.g. lshift -> Shift
+std::string StringFromInput(const std::string& input);  // e.g. lshift -> Shift
 
-SDL_Scancode StringToSDLScancode(const std::string &s);
+SDL_Scancode StringToSDLScancode(const std::string& s);
 /*#ifdef WIN32
     int XBoxToXInput(const std::string &s);
 #endif*/

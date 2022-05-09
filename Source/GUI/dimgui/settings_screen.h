@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: settings_screen.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,6 +25,7 @@
 
 class ASContext;
 class SceneGraph;
-enum ImGuiSettingsType {IMGST_MENU, IMGST_WINDOW};
+enum ImGuiSettingsType { IMGST_MENU,
+                         IMGST_WINDOW };
 void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type);
 void AttachSettingsScreen(ASContext* ctx);

@@ -40,42 +40,42 @@ class GameCursor;
 
 /// The SkyEditor class allows the player to drag, tint, and resize the sun.
 class SkyEditor {
-public:
+   public:
     /**
-    * Initialize a new SkyEditor.
-    * @param s A pointer to the active scenegraph.
-    */
+     * Initialize a new SkyEditor.
+     * @param s A pointer to the active scenegraph.
+     */
     SkyEditor(SceneGraph* s);
 
     /**
-    * Draw the controls for the sky editor. 
-    * Namely, the sun radius circle and the color picker circle.
-    */
+     * Draw the controls for the sky editor.
+     * Namely, the sun radius circle and the color picker circle.
+     */
     void Draw();
 
     /**
-    *  Set the cursor to reflect the value of m_tool.
-    */
+     *  Set the cursor to reflect the value of m_tool.
+     */
     void UpdateCursor(GameCursor* cursor);
 
     /**
-    * Load the sky data from the level xml file.
-    * @param filename The path to the level xml file.
-    */
-    void ApplySkyInfo( const SkyInfo &si );
+     * Load the sky data from the level xml file.
+     * @param filename The path to the level xml file.
+     */
+    void ApplySkyInfo(const SkyInfo& si);
 
     /**
-    * Save the sky data to a level xml file.
-    * @param doc A reference to the level xml file.
-    */
+     * Save the sky data to a level xml file.
+     * @param doc A reference to the level xml file.
+     */
     void SaveSky(TiXmlNode* root);
 
-    void SaveHistoryState( std::list<SavedChunk> &chunk_list, int state_id );
-    bool ReadChunk( SavedChunk &saved_chunk );
+    void SaveHistoryState(std::list<SavedChunk>& chunk_list, int state_id);
+    bool ReadChunk(SavedChunk& saved_chunk);
 
     // Control and tool handlers
     EditorTypes::Tool OmniGetTool(float angle_from_sun, const LineSegment& mouseray);
-    bool HandleSelect(float angle_from_sun);    // returns true is something happened
+    bool HandleSelect(float angle_from_sun);  // returns true is something happened
     void HandleSunTranslate(float angle_from_sun);
     void HandleSunScale(float angle_from_sun);
     void HandleSunRotate(float angle_from_sun, const vec3& mouseray, GameCursor* cursor);
@@ -88,49 +88,49 @@ public:
     void ScaleSun(float factor);
     void RotateSun(float angle);
 
-    bool m_sun_selected; /// Whether the sun is selected or not.
+    bool m_sun_selected;  /// Whether the sun is selected or not.
 
-    EditorTypes::Tool m_tool; /// Which tool is active.
+    EditorTypes::Tool m_tool;  /// Which tool is active.
 
     Flare* flare;
-    vec3 sun_dir_;    /// ray >>to<< sun.
+    vec3 sun_dir_;  /// ray >>to<< sun.
 
-    vec4 translation_offset_; /// Used to drag the sun from points other than the center.
-    float scale_angle_zero_; /// The original value of m_sun_angular_rad when scaling begins.
-    vec3 rotation_zero_; /// The original rotation value when rotation begins.
+    vec4 translation_offset_;  /// Used to drag the sun from points other than the center.
+    float scale_angle_zero_;   /// The original value of m_sun_angular_rad when scaling begins.
+    vec3 rotation_zero_;       /// The original rotation value when rotation begins.
 
-    float m_sun_angular_rad; /// Angle between the center of the sun and a point on the ring.
-    float m_sun_brightness; /// The 'brightness' (size) of the sun.
-    float m_sun_color_angle; /// Angle of the sun on the color wheel (in degrees).
+    float m_sun_angular_rad;  /// Angle between the center of the sun and a point on the ring.
+    float m_sun_brightness;   /// The 'brightness' (size) of the sun.
+    float m_sun_color_angle;  /// Angle of the sun on the color wheel (in degrees).
 
-    bool m_sun_translating; /// Currently dragging sun to translate.
-    bool m_sun_scaling; /// Currently dragging scale in and out.
-    bool m_sun_rotating; /// Currently dragging on color wheel.
+    bool m_sun_translating;  /// Currently dragging sun to translate.
+    bool m_sun_scaling;      /// Currently dragging scale in and out.
+    bool m_sun_rotating;     /// Currently dragging on color wheel.
 
-    GLState m_gl_state; /// GLState for drawing the editor lines
+    GLState m_gl_state;  /// GLState for drawing the editor lines
 
-    mat4 m_viewing_transform; /// Transformation from world space to editor space.
+    mat4 m_viewing_transform;  /// Transformation from world space to editor space.
 
-    SceneGraph* scenegraph_; /// Pointer to relevant scenegraph.
+    SceneGraph* scenegraph_;  /// Pointer to relevant scenegraph.
 
-    bool m_lighting_changed; /// Whether the sun has changed or not.
+    bool m_lighting_changed;  /// Whether the sun has changed or not.
 
     /**
-    * Takes a mouseray and returns whether it intersects the color wheel orb.
-    * @param mouseray The mouse ray vector.
-    * @return True if the mouseray intersects the orb.
-    */
+     * Takes a mouseray and returns whether it intersects the color wheel orb.
+     * @param mouseray The mouse ray vector.
+     * @return True if the mouseray intersects the orb.
+     */
     bool MouseOverColorOrb(const LineSegment& mouseray);
 
     /**
-    * Calculates m_sun_brightness from m_sun_angular_rad.
-    */
+     * Calculates m_sun_brightness from m_sun_angular_rad.
+     */
     void CalcBrightnessFromAngularRad();
 
     /**
-    * Calculates the sun color from an angle on the color wheel.
-    * @param angle The angle on the color wheel.
-    * @return A vec3 representing the color.
-    */
-    vec3 CalcColorFromAngle(float angle);    // angle in degrees
+     * Calculates the sun color from an angle on the color wheel.
+     * @param angle The angle on the color wheel.
+     * @return A vec3 representing the color.
+     */
+    vec3 CalcColorFromAngle(float angle);  // angle in degrees
 };

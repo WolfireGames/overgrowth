@@ -32,19 +32,19 @@
 #include <Editors/editor_types.h>
 
 class OmniTool {
-public:
+   public:
     EditorTypes::Tool t;
 };
 
 class BoxSelector {
-public:
+   public:
     BoxSelector();
     void Draw();
 
     bool acting;
-	vec2 points[2];
+    vec2 points[2];
 
-private:
+   private:
     GLState gl_state_;
     VBOContainer fill_vbo_;
     VBOContainer edge_vbo_;

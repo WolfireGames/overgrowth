@@ -31,36 +31,34 @@
 
 class TiXmlDocument;
 
-class ActiveModsParser : public XMLParserBase 
-{
-private:
+class ActiveModsParser : public XMLParserBase {
+   private:
     uint16_t load_checksum;
     uint16_t save_checksum;
 
-    bool SerializeInto( TiXmlDocument* doc );  
+    bool SerializeInto(TiXmlDocument* doc);
 
     uint16_t LocalChecksum();
-    
-public:
+
+   public:
     ActiveModsParser();
 
-    uint32_t Load( const std::string& path ) override;
-    bool Save( const std::string& path ) override;
+    uint32_t Load(const std::string& path) override;
+    bool Save(const std::string& path) override;
 
     void Clear() override;
 
     bool FileChangedSinceLastLoad();
     bool LocalChangedSinceLastSave();
 
-    class ModInstance
-    {
-    public:
+    class ModInstance {
+       public:
         ModInstance();
-        ModInstance(const char* id,ModSource modsource,bool activated, const char* version);
-        
+        ModInstance(const char* id, ModSource modsource, bool activated, const char* version);
+
         char id[MOD_ID_MAX_LENGTH];
-        ModSource modsource; 
-        bool activated;        
+        ModSource modsource;
+        bool activated;
         char version[MOD_VERSION_MAX_LENGTH];
     };
 

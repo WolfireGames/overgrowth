@@ -24,34 +24,30 @@
 #include "searcher.h"
 #include <vector>
 
-class SearcherFactory
-{
-private:
-    class SeekerFactoryBase
-    { 
-    public:
+class SearcherFactory {
+   private:
+    class SeekerFactoryBase {
+       public:
         virtual SeekerBase* NewInstance() = 0;
         virtual std::string GetSeekerName() = 0;
     };
 
-    template<class Seeker>
-    class SeekerFactory : public SeekerFactoryBase
-    {
-        SeekerBase* NewInstance() override
-        {
+    template <class Seeker>
+    class SeekerFactory : public SeekerFactoryBase {
+        SeekerBase* NewInstance() override {
             return new Seeker();
         }
 
-        std::string GetSeekerName() override
-        {
+        std::string GetSeekerName() override {
             return std::string(Seeker().GetName());
         }
     };
 
     std::vector<SeekerFactoryBase*> seekers;
-public:
+
+   public:
     SearcherFactory();
     ~SearcherFactory();
-    bool HasSearcher( const std::string& searcher );
-    Searcher CreateSearcher( const std::string& searcher, const std::string& path_ending, const std::string& type_pattern_re );
+    bool HasSearcher(const std::string& searcher);
+    Searcher CreateSearcher(const std::string& searcher, const std::string& path_ending, const std::string& type_pattern_re);
 };

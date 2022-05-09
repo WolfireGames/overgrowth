@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: imui_state.h
 //      Developer: Wolfire Games LLC
-//    Description: Internal helper class for creating adhoc GUIs as part of the UI tools  
+//    Description: Internal helper class for creating adhoc GUIs as part of the UI tools
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,20 +30,15 @@
  * @brief The current state of the GUI passed during update
  *
  */
-struct GUIState
-{
+struct GUIState {
     vec2 mousePosition;
     IMUIContext::ButtonState leftMouseState;
     bool inheritedMouseOver;
     bool inheritedMouseDown;
     IMUIContext::ButtonState inheritedMouseState;
     bool clickHandled;
-    
-    GUIState() :
-        inheritedMouseOver(false),
-        inheritedMouseDown(false),
-        clickHandled(false)
-    {}
-    
-};
 
+    GUIState() : inheritedMouseOver(false),
+                 inheritedMouseDown(false),
+                 clickHandled(false) {}
+};

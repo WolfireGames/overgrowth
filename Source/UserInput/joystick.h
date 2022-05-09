@@ -29,7 +29,7 @@
 #include <vector>
 
 class Joystick {
-public:
+   public:
     static const size_t button_input_buffer_size = 16;
     struct JoystickPress {
         uint32_t s_id;
@@ -45,17 +45,18 @@ public:
     Joystick(float look_sensitivity);
     bool HandleInputChange(ControllerInput::Input input, float val, uint32_t sequence_id);
     float GetButtonDown(const std::string &name) const;
-    void ProcessBinding( ControllerInput::Input input, const std::string command);
-    void SetButtonDown( const std::string &name, float depth );
+    void ProcessBinding(ControllerInput::Input input, const std::string command);
+    void SetButtonDown(const std::string &name, float depth);
     void ClearBinding();
 
     std::vector<JoystickPress> GetJoystickInputs();
 
     typedef std::map<std::string, float> ButtonMap;
     ButtonMap buttons_down_;
-private:
+
+   private:
     typedef std::multimap<ControllerInput::Input, std::string> BindingMap;
-    
+
     BindingMap binding_;
 
     void AddInputBufferItem(ControllerInput::Input input, float depth, uint32_t sequence_id);
@@ -63,26 +64,26 @@ private:
 };
 
 class KeyState {
-public:
+   public:
     const static float kDepthThreshold;
     KeyState();
 
-    bool operator!=(const KeyState& other) const;
+    bool operator!=(const KeyState &other) const;
 
     int count;
-    int depth_count; // This is only incremented when depth is greater than kDepthThreshold
+    int depth_count;  // This is only incremented when depth is greater than kDepthThreshold
     float depth;
 };
 
 struct PlayerInput {
     typedef std::map<std::string, KeyState> KeyDownMap;
 
-    //Set depending on if there is a purpose of polling for a local character,
-    //Usually set to false for controller 2-4 if split-screen is disabled.
+    // Set depending on if there is a purpose of polling for a local character,
+    // Usually set to false for controller 2-4 if split-screen is disabled.
     bool enabled;
 
-    //Disable local processing of input for this PlayerInput, and instead expect input to
-    //come from the Multiplayer system.
+    // Disable local processing of input for this PlayerInput, and instead expect input to
+    // come from the Multiplayer system.
     bool remote_controlled;
 
     KeyDownMap key_down;

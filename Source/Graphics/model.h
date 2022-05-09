@@ -44,11 +44,11 @@ class DrawBatch;
 // Class Definition
 //-----------------------------------------------------------------------------
 
-enum ModelFlags{
-    _MDL_CENTER = (1<<0),
-    _MDL_SIMPLE = (1<<1),
-    _MDL_FLIP_FACES = (1<<2),
-    _MDL_USE_TANGENT = (1<<3)
+enum ModelFlags {
+    _MDL_CENTER = (1 << 0),
+    _MDL_SIMPLE = (1 << 1),
+    _MDL_FLIP_FACES = (1 << 2),
+    _MDL_USE_TANGENT = (1 << 3)
 };
 
 const unsigned short _model_cache_version = 41;
@@ -58,7 +58,7 @@ class Model;
 class vec4;
 
 class Model {
-public:
+   public:
     std::vector<GLfloat> vertices;
     std::vector<GLfloat> normals;
     std::vector<GLfloat> tangents;
@@ -83,14 +83,14 @@ public:
     bool vbo_enabled;
     unsigned short checksum;
 
-    VBOContainer    VBO_vertices;
-    VBOContainer    VBO_normals;
-    VBOContainer    VBO_tangents;
-    VBOContainer    VBO_bitangents;
-    VBOContainer    VBO_tex_coords;
-    VBOContainer    VBO_tex_coords2;
-    VBOContainer    VBO_aux;
-    VBOContainer    VBO_faces;
+    VBOContainer VBO_vertices;
+    VBOContainer VBO_normals;
+    VBOContainer VBO_tangents;
+    VBOContainer VBO_bitangents;
+    VBOContainer VBO_tex_coords;
+    VBOContainer VBO_tex_coords2;
+    VBOContainer VBO_aux;
+    VBOContainer VBO_faces;
 
     std::vector<int> optimize_vert_reorder;
     std::vector<int> precollapse_vert_reorder;
@@ -101,23 +101,23 @@ public:
 
     vec3 bounding_sphere_origin;
     float bounding_sphere_radius;
-    
+
     float texel_density;
     float average_triangle_edge_length;
 
-    std::string path; //Source file. Primarily for debugging purposes.
+    std::string path;  // Source file. Primarily for debugging purposes.
     ModID modsource_;
 
-    int lineCheckNoBackface(const vec3& p1,const vec3& p2, vec3* p, vec3 *normal=0) const;
-    int lineCheck(const vec3& p1,const vec3& p2, vec3* p, vec3 *normal=0, bool backface = true) const;
+    int lineCheckNoBackface(const vec3 &p1, const vec3 &p2, vec3 *p, vec3 *normal = 0) const;
+    int lineCheck(const vec3 &p1, const vec3 &p2, vec3 *p, vec3 *normal = 0, bool backface = true) const;
     void LoadObj(const std::string &name, char flags = _MDL_CENTER, const std::string &alt_name = "", const PathFlags searchPaths = kAnyPath);
     void RemoveDoubledTriangles();
-    void Draw();        
+    void Draw();
     void DrawAltTexCoords();
     void DrawToTextureCoords();
-    void SmoothNormals();        
+    void SmoothNormals();
     void SmoothTangents();
-    void calcFaceNormals();      
+    void calcFaceNormals();
     void calcBoundingBox();
     void calcBoundingSphere();
     void CenterModel();
@@ -136,16 +136,16 @@ public:
 
     Model();
     Model(const Model &copy);
-    Model& operator=( const Model &copy );
+    Model &operator=(const Model &copy);
 
     virtual ~Model();
 
     void StartPreset();
     void EndPreset();
     void DrawPreset();
-    void CopyFacesFromModel( const Model &source_model, const std::vector<int> &faces );
-    void LoadObjMorph( const std::string &name, const std::string &base_name );
-    void CopyVertCollapse( const Model &source_model );
+    void CopyFacesFromModel(const Model &source_model, const std::vector<int> &faces);
+    void LoadObjMorph(const std::string &name, const std::string &base_name);
+    void CopyVertCollapse(const Model &source_model);
     void RemoveDuplicatedVerts();
     void OptimizeTriangleOrder();
     void SortTrianglesBackToFront(const vec3 &camera);
@@ -156,10 +156,10 @@ public:
 
     const static int ERROR_MORE_THAN_ONE_OBJECT;
     int SimpleLoadTriangleCutObj(const std::string &name_to_load);
-    const char* GetLoadErrorString(int err);
+    const char *GetLoadErrorString(int err);
 };
-void CopyTexCoords2( Model &a, const Model& b );
+void CopyTexCoords2(Model &a, const Model &b);
 
 class Shaders;
 class Graphics;
-void DrawModelVerts(Model& model, const char* vert_attrib_str, Shaders* shaders, Graphics* graphics, int shader);
+void DrawModelVerts(Model &model, const char *vert_attrib_str, Shaders *shaders, Graphics *graphics, int shader);

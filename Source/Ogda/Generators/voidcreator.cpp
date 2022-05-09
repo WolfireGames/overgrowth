@@ -22,7 +22,6 @@
 //-----------------------------------------------------------------------------
 #include "voidcreator.h"
 
-ManifestResult VoidCreator::Run(const JobHandler& jh, const Manifest& manifest)
-{
-    return ManifestResult(jh, std::string(""), false, *this,"void");
+ManifestResult VoidCreator::Run(const JobHandler& jh, const Manifest& manifest) {
+    return ManifestResult(jh, std::string(""), false, *this, "void");
 }

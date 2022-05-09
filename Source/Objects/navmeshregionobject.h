@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: navmeshregionobject.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,16 +31,16 @@
 
 class NavMesh;
 
-class NavmeshRegionObject: public Object {
-public:
+class NavmeshRegionObject : public Object {
+   public:
     NavmeshRegionObject();
     ~NavmeshRegionObject() override;
 
     EntityType GetType() const override { return _navmesh_region_object; }
     bool Initialize() override;
     void Draw() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
 
     vec3 GetMinBounds();
     vec3 GetMaxBounds();

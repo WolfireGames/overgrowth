@@ -42,17 +42,15 @@
 #include <Main/engine.h>
 
 ScriptableCampaign::ScriptableCampaign() {
-
 }
 
 ScriptableCampaign::~ScriptableCampaign() {
-
 }
 
-static void ASSendLevelMessage( const std::string& msg ) {
+static void ASSendLevelMessage(const std::string& msg) {
     SceneGraph* s = Engine::Instance()->GetSceneGraph();
 
-    if(s) {
+    if (s) {
         s->level->Message(msg);
     } else {
         LOGW << "Sending message from campaign to level, but there is no scenegraph, going to the void, it was: " << msg << std::endl;
@@ -66,7 +64,7 @@ void ScriptableCampaign::Initialize(Path script_path, std::string _campaign_id) 
 
     as_context = new ASContext("scriptable_campaign", as_data);
 
-    as_context->RegisterGlobalFunction("void SendLevelMessage(const string& in msg)",                asFUNCTION(ASSendLevelMessage),                  asCALL_CDECL);
+    as_context->RegisterGlobalFunction("void SendLevelMessage(const string& in msg)", asFUNCTION(ASSendLevelMessage), asCALL_CDECL);
 
     AttachLevelSet(as_context);
     AttachLevelXML(as_context);
@@ -77,23 +75,23 @@ void ScriptableCampaign::Initialize(Path script_path, std::string _campaign_id) 
     AttachEngine(as_context);
     AttachOnline(as_context);
 
-    AttachSaveFile( as_context, &Engine::Instance()->save_file_ );
+    AttachSaveFile(as_context, &Engine::Instance()->save_file_);
 
-    as_funcs.init                   = as_context->RegisterExpectedFunction("void Init()", false);
-    as_funcs.receive_message        = as_context->RegisterExpectedFunction("void ReceiveMessage(string)", false);
-    as_funcs.set_window_dimensions  = as_context->RegisterExpectedFunction("void SetWindowDimensions(int width, int height)", false);
+    as_funcs.init = as_context->RegisterExpectedFunction("void Init()", false);
+    as_funcs.receive_message = as_context->RegisterExpectedFunction("void ReceiveMessage(string)", false);
+    as_funcs.set_window_dimensions = as_context->RegisterExpectedFunction("void SetWindowDimensions(int width, int height)", false);
 
-    as_funcs.update                 = as_context->RegisterExpectedFunction("void Update()", true);
-    as_funcs.dispose                = as_context->RegisterExpectedFunction("void Dispose()", true);
-    as_funcs.enter_campaign         = as_context->RegisterExpectedFunction("void EnterCampaign()", true);
-    as_funcs.enter_level            = as_context->RegisterExpectedFunction("void EnterLevel()", true);
-    as_funcs.leave_campaign         = as_context->RegisterExpectedFunction("void LeaveCampaign()", true);
-    as_funcs.leave_level            = as_context->RegisterExpectedFunction("void LeaveLevel()", true);
+    as_funcs.update = as_context->RegisterExpectedFunction("void Update()", true);
+    as_funcs.dispose = as_context->RegisterExpectedFunction("void Dispose()", true);
+    as_funcs.enter_campaign = as_context->RegisterExpectedFunction("void EnterCampaign()", true);
+    as_funcs.enter_level = as_context->RegisterExpectedFunction("void EnterLevel()", true);
+    as_funcs.leave_campaign = as_context->RegisterExpectedFunction("void LeaveCampaign()", true);
+    as_funcs.leave_level = as_context->RegisterExpectedFunction("void LeaveLevel()", true);
 
     char path[kPathSize];
     FormatString(path, kPathSize, "%sasscriptable_campaign_docs.h", GetWritePath(CoreGameModID).c_str());
     as_context->ExportDocs(path);
-    
+
     // Load script and run init function
     as_context->LoadScript(script_path);
 
@@ -106,44 +104,44 @@ void ScriptableCampaign::Dispose() {
 }
 
 void ScriptableCampaign::Update() {
-    if(as_context) {
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.update);
-    } 
+    }
 }
 
 void ScriptableCampaign::EnterCampaign() {
-    if(as_context) {
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.enter_campaign);
-    } 
+    }
 }
 
 void ScriptableCampaign::EnterLevel() {
-    if(as_context) {
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.enter_level);
-    } 
+    }
 }
 
 void ScriptableCampaign::LeaveCampaign() {
-    if(as_context) {
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.leave_campaign);
-    } 
+    }
 }
 
 void ScriptableCampaign::LeaveLevel() {
-    if(as_context) {
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.leave_level);
-    } 
+    }
 }
 
 void ScriptableCampaign::ReceiveMessage(std::string message) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         args.AddObject(&message);
         as_context->CallScriptFunction(as_funcs.receive_message, &args);
     }
 }
 
-void ScriptableCampaign::WindowResized(ivec2 value ) {
+void ScriptableCampaign::WindowResized(ivec2 value) {
     ASArglist args;
     args.Add(value[0]);
     args.Add(value[1]);

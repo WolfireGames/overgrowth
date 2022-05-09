@@ -30,7 +30,7 @@
 
 template <typename TAsset>
 class FallbackAssetLoader : public AssetLoaderBase {
-private:
+   private:
     std::string path;
     uint32_t load_flags;
 
@@ -38,23 +38,21 @@ private:
     std::string error_message;
     std::string error_message_extended;
 
-public:
+   public:
     FallbackAssetLoader() {
-
     }
 
     ~FallbackAssetLoader() override {
-        
     }
 
     void Initialize(const std::string& path, uint32_t load_flags, Asset* asset) override {
         this->load_flags = load_flags;
-        this->path = path; 
+        this->path = path;
         this->asset = static_cast<TAsset*>(asset);
     }
 
     const AssetLoaderStepType* GetAssetLoadSteps() const override {
-        static const AssetLoaderStepType tl[] = { ASSET_LOADER_SYNC_JOB };
+        static const AssetLoaderStepType tl[] = {ASSET_LOADER_SYNC_JOB};
         return tl;
     }
 
@@ -62,12 +60,12 @@ public:
         return 1;
     }
 
-    int DoLoadStep( const int step_id ) override {
-        switch( step_id ) {
+    int DoLoadStep(const int step_id) override {
+        switch (step_id) {
             case 0:
                 asset->path_ = path;
-                int error_code = asset->Load(path,load_flags);
-                if( error_code == kLoadOk ) {
+                int error_code = asset->Load(path, load_flags);
+                if (error_code == kLoadOk) {
                     asset->ReportLoad();
                 } else {
                     error_message = asset->GetLoadErrorString();
@@ -78,7 +76,7 @@ public:
         }
         return false;
     }
-     
+
     const char* GetLoadErrorString() override {
         return error_message.c_str();
     }
@@ -88,7 +86,7 @@ public:
     }
 
     const AssetLoaderStepType* GetAssetUnloadSteps() const override {
-        static const AssetLoaderStepType tl[] = { ASSET_LOADER_SYNC_JOB };
+        static const AssetLoaderStepType tl[] = {ASSET_LOADER_SYNC_JOB};
         return tl;
     }
 
@@ -96,9 +94,8 @@ public:
         return 1;
     }
 
-    bool DoUnloadStep( const int step_id ) override {
-        switch( step_id )
-        {
+    bool DoUnloadStep(const int step_id) override {
+        switch (step_id) {
             case 0:
                 asset->path_ = path;
                 asset->Unload();
@@ -109,6 +106,6 @@ public:
     }
 
     const char* GetTypeName() override {
-        return TAsset::GetTypeName(); 
+        return TAsset::GetTypeName();
     }
 };

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: datemodified.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,6 +26,6 @@
 
 #include <cstdint>
 
-bool GetDateModifiedString(const char *file_name, char* buffer, int buffer_size); // returns true on success
-int64_t GetDateModifiedInt64(const char *file_name);
+bool GetDateModifiedString(const char* file_name, char* buffer, int buffer_size);  // returns true on success
+int64_t GetDateModifiedInt64(const char* file_name);
 int64_t GetDateModifiedInt64(const Path& path);

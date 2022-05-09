@@ -25,18 +25,18 @@
 #include <Sound/buffer_segment.h>
 #include <Sound/high_res_buffer_segment.h>
 
-
 class LimiterAudioFilter {
-private:
+   private:
     float current_limit_gain;
     float target_limit_gain;
     int frame_delay_limit;
 
     HighResBufferSegment next1;
     HighResBufferSegment next_f;
-public:
-    LimiterAudioFilter(); 
 
-    bool Step( HighResBufferSegment* buf );
+   public:
+    LimiterAudioFilter();
+
+    bool Step(HighResBufferSegment* buf);
     void Reset();
 };

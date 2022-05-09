@@ -27,16 +27,16 @@
 
 #include <cstdlib>
 
-class alAudioBuffer
-{
-public:
-    alAudioBuffer(); 
+class alAudioBuffer {
+   public:
+    alAudioBuffer();
     ~alAudioBuffer();
     void BufferData(ALenum format, const ALvoid *data, ALsizei size, ALsizei freq);
 
     void Allocate();
     bool IsValid();
-private:
+
+   private:
     static const ALuint INVALID_BUF = 0xFFFFFFFF;
     ALuint buf;
     friend class alAudioSource;

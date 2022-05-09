@@ -28,7 +28,7 @@
 #include <vector>
 
 class OnlineUtility {
-public:
+   public:
     static bool IsValidPlayerName(const std::string& name);
     static std::string GetDefaultPlayerName();
     static std::string GetPlayerName();
@@ -37,6 +37,7 @@ public:
     static std::string GetActiveIncompatibleModsString();
     static bool IsCommand(const std::string& message);
     static void HandleCommand(PlayerID playerID, const std::string& message);
-private:
-    static std::vector<std::string> CommandFromString(const std::string& message); // removes '/' and split the rest of the string on ' '
+
+   private:
+    static std::vector<std::string> CommandFromString(const std::string& message);  // removes '/' and split the rest of the string on ' '
 };

@@ -26,31 +26,30 @@
 #include <Logging/loghandler.h>
 
 /*!
-	Potential child of LogHandler and will print messages to file. 
+        Potential child of LogHandler and will print messages to file.
 */
-class FileHandler : public LogHandler
-{
-public:
-	/*!	
-	\param Type is the channel to use this object. 
-	\param Path is the relative path to the file.
-	\param Append will cause the messages to be appended to the file.
-	*/
-	FileHandler( std::string path, size_t _startup_file_size, size_t _max_file_size );
-	
-	~FileHandler() override;
+class FileHandler : public LogHandler {
+   public:
+    /*!
+    \param Type is the channel to use this object.
+    \param Path is the relative path to the file.
+    \param Append will cause the messages to be appended to the file.
+    */
+    FileHandler(std::string path, size_t _startup_file_size, size_t _max_file_size);
 
-	/*! 
-		\param message will print message to file if file is open 
-	*/
-	void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message ) override;
-    
+    ~FileHandler() override;
+
+    /*!
+            \param message will print message to file if file is open
+    */
+    void Log(LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message) override;
+
     void Flush() override;
 
-    void SetMaxWriteLimit( size_t size );
-private:
-	std::fstream m_file;
+    void SetMaxWriteLimit(size_t size);
+
+   private:
+    std::fstream m_file;
     size_t startup_file_size;
     size_t max_file_size;
-
 };

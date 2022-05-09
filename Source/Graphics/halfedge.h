@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: halfedge.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,7 +23,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <Math/enginemath.h> 
+#include <Math/enginemath.h>
 #include <Math/mat4.h>
 
 #include <Wrappers/glm.h>
@@ -36,7 +36,7 @@ struct HalfEdge;
 
 struct HalfEdgeNode {
     HalfEdge *edge;
-}; 
+};
 
 typedef std::multiset<HalfEdgeNode> HalfEdgeNodeHeap;
 
@@ -63,20 +63,20 @@ struct VertSortable {
 
 static const float UNDEFINED_ERROR = -1.0f;
 
-bool operator<(const HalfEdgeNode& a, const HalfEdgeNode& b);
+bool operator<(const HalfEdgeNode &a, const HalfEdgeNode &b);
 
-typedef std::set<HalfEdge*> HalfEdgeSet;
+typedef std::set<HalfEdge *> HalfEdgeSet;
 typedef std::vector<HalfEdgeSet> HalfEdgeSetVec;
 
-bool HalfEdgePairFind(const HalfEdge& a, const HalfEdge& b);
+bool HalfEdgePairFind(const HalfEdge &a, const HalfEdge &b);
 void CollapseHalfEdge(HalfEdgeNodeHeap &heap, HalfEdge *edge);
 void CollapseVertPositions(std::vector<float> &verts, int edge[], float pos);
 void CollapseTexPositions(std::vector<float> &tex, int edge[], float pos);
 int GetNumTexCoords(const HalfEdge *edge, int which);
 void CollapseParentRecord(WOLFIRE_SIMPLIFY::ParentRecordList &a, WOLFIRE_SIMPLIFY::ParentRecordList &b, float weight);
-void CollapseEdge(HalfEdgeNodeHeap &heap, HalfEdge *edge, std::vector<float>& vertices, std::vector<float>& tex_coords, std::vector<glm::mat4> &quadrics, WOLFIRE_SIMPLIFY::ParentRecordListVec &vert_parents, WOLFIRE_SIMPLIFY::ParentRecordListVec &tex_parents, HalfEdgeSetVec &vert_edges, HalfEdgeSetVec &tex_edges, bool include_tex);
+void CollapseEdge(HalfEdgeNodeHeap &heap, HalfEdge *edge, std::vector<float> &vertices, std::vector<float> &tex_coords, std::vector<glm::mat4> &quadrics, WOLFIRE_SIMPLIFY::ParentRecordListVec &vert_parents, WOLFIRE_SIMPLIFY::ParentRecordListVec &tex_parents, HalfEdgeSetVec &vert_edges, HalfEdgeSetVec &tex_edges, bool include_tex);
 void ReconstructModel(const std::vector<HalfEdge> &half_edges, WOLFIRE_SIMPLIFY::SimplifyModel *model, bool include_tex);
 
-bool HalfEdgePairFind(const HalfEdge& a, const HalfEdge& b);
-bool SortEdgeSortable(const EdgeSortable& a, const EdgeSortable& b);
-bool SortVertSortable(const VertSortable& a, const VertSortable& b);
+bool HalfEdgePairFind(const HalfEdge &a, const HalfEdge &b);
+bool SortEdgeSortable(const EdgeSortable &a, const EdgeSortable &b);
+bool SortVertSortable(const VertSortable &a, const VertSortable &b);

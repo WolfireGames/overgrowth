@@ -27,10 +27,9 @@
 
 class JobHandler;
 
-class VoidCreator : public CreatorBase
-{
-    public:
-        ManifestResult Run(const JobHandler& jh, const Manifest& manifest) override;
-        inline const char* GetName() const override { return "void"; }
-        inline const char* GetVersion() const override {return "1";}
+class VoidCreator : public CreatorBase {
+   public:
+    ManifestResult Run(const JobHandler& jh, const Manifest& manifest) override;
+    inline const char* GetName() const override { return "void"; }
+    inline const char* GetVersion() const override { return "1"; }
 };

@@ -27,16 +27,15 @@
 
 #include <ostream>
 
-void OutOfDateInfo::Print()
-{
+void OutOfDateInfo::Print() {
     LOGI << "Out of date: " << std::endl;
-    if(ao){
+    if (ao) {
         LOGI << "ao " << std::endl;
     }
-    if(shadow){
+    if (shadow) {
         LOGI << "shadow " << std::endl;
     }
-    if(nav_mesh){
+    if (nav_mesh) {
         LOGI << "nav_mesh " << std::endl;
     }
     LOGI << std::endl;

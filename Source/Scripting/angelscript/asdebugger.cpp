@@ -40,17 +40,8 @@ std::vector<ASContext*> ASDebugger::active_contexts;
 std::vector<std::pair<std::string, int> > ASDebugger::global_breakpoints;
 
 ASDebugger::ASDebugger()
-    : paused(false)
-    , break_next(false)
-    , current_line(-1)
-    , current_stack_level(0)
-    , ctx(NULL)
-    , auto_scroll(false)
-    , show_local_variables(false)
-    , show_global_variables(false)
-    , show_stack_trace(false)
-{
-    for(auto & global_breakpoint : global_breakpoints) {
+    : paused(false), break_next(false), current_line(-1), current_stack_level(0), ctx(NULL), auto_scroll(false), show_local_variables(false), show_global_variables(false), show_stack_trace(false) {
+    for (auto& global_breakpoint : global_breakpoints) {
         ToggleBreakpoint(global_breakpoint.first.c_str(), global_breakpoint.second);
     }
 }
@@ -60,20 +51,20 @@ ASDebugger::~ASDebugger() {
 
 void ASDebugger::AddContext(ASContext* context) {
     bool add = true;
-    for(auto & active_context : active_contexts) {
-        if(active_context == context) {
+    for (auto& active_context : active_contexts) {
+        if (active_context == context) {
             add = false;
             break;
         }
     }
 
-    if(add)
+    if (add)
         active_contexts.push_back(context);
 }
 
 void ASDebugger::RemoveContext(ASContext* context) {
-    for(size_t i = 0; i < active_contexts.size(); ++i) {
-        if(active_contexts[i] == context) {
+    for (size_t i = 0; i < active_contexts.size(); ++i) {
+        if (active_contexts[i] == context) {
             active_contexts.erase(active_contexts.begin() + i);
             break;
         }
@@ -86,26 +77,26 @@ const std::vector<ASContext*>& ASDebugger::GetActiveContexts() {
 
 void ASDebugger::AddGlobalBreakpoint(const char* file, int line) {
     bool found = false;
-    for(auto & global_breakpoint : global_breakpoints) {
-        if(strcmp(global_breakpoint.first.c_str(), file) == 0 && global_breakpoint.second == line) {
+    for (auto& global_breakpoint : global_breakpoints) {
+        if (strcmp(global_breakpoint.first.c_str(), file) == 0 && global_breakpoint.second == line) {
             found = true;
             break;
         }
     }
 
-    if(!found) {
+    if (!found) {
         global_breakpoints.push_back(std::pair<std::string, int>(file, line));
-        for(auto & active_context : active_contexts) {
+        for (auto& active_context : active_contexts) {
             active_context->dbg.AddBreakpoint(file, line);
         }
     }
 }
 
 void ASDebugger::RemoveGlobalBreakpoint(const char* file, int line) {
-    for(size_t i = 0; i < global_breakpoints.size(); ++i) {
-        if(strcmp(global_breakpoints[i].first.c_str(), file) == 0 && global_breakpoints[i].second == line) {
+    for (size_t i = 0; i < global_breakpoints.size(); ++i) {
+        if (strcmp(global_breakpoints[i].first.c_str(), file) == 0 && global_breakpoints[i].second == line) {
             global_breakpoints.erase(global_breakpoints.begin() + i);
-            for(auto & active_context : active_contexts) {
+            for (auto& active_context : active_contexts) {
                 active_context->dbg.RemoveBreakpoint(file, line);
             }
             break;
@@ -123,18 +114,18 @@ void ASDebugger::SetModule(ASModule* module) {
 
 void ASDebugger::PrintCType(Variable& variable, asIScriptContext* ctx) {
     void* ptr = variable.ptr;
-    if(variable.type_id & asTYPEID_OBJHANDLE) {
+    if (variable.type_id & asTYPEID_OBJHANDLE) {
         ptr = *(void**)ptr;
-        if(!ptr) {
+        if (!ptr) {
             ImGui::Text("%s points to null", variable.name);
             return;
         }
     }
 
-    if(variable.type_id & asTYPEID_SCRIPTOBJECT) {
-        if(ImGui::TreeNodeEx(variable.name, 0)) {
+    if (variable.type_id & asTYPEID_SCRIPTOBJECT) {
+        if (ImGui::TreeNodeEx(variable.name, 0)) {
             asIScriptObject* obj = (asIScriptObject*)ptr;
-            for(asUINT i = 0; i < obj->GetPropertyCount(); ++i) {
+            for (asUINT i = 0; i < obj->GetPropertyCount(); ++i) {
                 Variable member;
                 member.type_id = obj->GetPropertyTypeId(i);
                 member.name = obj->GetPropertyName(i);
@@ -146,18 +137,18 @@ void ASDebugger::PrintCType(Variable& variable, asIScriptContext* ctx) {
         return;
     }
     asITypeInfo* info = ctx->GetEngine()->GetTypeInfoById(variable.type_id);
-    if(strcmp(info->GetName(), "string") == 0) {
+    if (strcmp(info->GetName(), "string") == 0) {
         std::string* string = (std::string*)ptr;
-        if(string) {
+        if (string) {
             ImGui::Text("%s = \"%s\"", variable.name, string->c_str());
         } else {
             ImGui::Text("%s = ?", variable.name);
         }
-    } else if(strcmp(info->GetName(), "array") == 0) {
-        if(ImGui::TreeNodeEx(variable.name, 0)) {
+    } else if (strcmp(info->GetName(), "array") == 0) {
+        if (ImGui::TreeNodeEx(variable.name, 0)) {
             CScriptArray* arr = (CScriptArray*)ptr;
             int new_type_id = info->GetSubTypeId(0);
-            for(size_t i = 0; i < arr->GetSize(); ++i) {
+            for (size_t i = 0; i < arr->GetSize(); ++i) {
                 char buffer[16];
                 sprintf(buffer, "[%d]", (int)i);
                 Variable variable;
@@ -169,9 +160,9 @@ void ASDebugger::PrintCType(Variable& variable, asIScriptContext* ctx) {
             ImGui::TreePop();
         }
     } else {
-        if(info->GetPropertyCount() > 0) {
-            if(ImGui::TreeNodeEx(variable.name, 0)) {
-                for(size_t i = 0; i < info->GetPropertyCount(); ++i) {
+        if (info->GetPropertyCount() > 0) {
+            if (ImGui::TreeNodeEx(variable.name, 0)) {
+                for (size_t i = 0; i < info->GetPropertyCount(); ++i) {
                     int property_offset;
                     Variable property;
                     info->GetProperty(i, &property.name, &property.type_id, NULL, NULL, &property_offset);
@@ -188,7 +179,7 @@ void ASDebugger::PrintCType(Variable& variable, asIScriptContext* ctx) {
 }
 
 void ASDebugger::PrintVar(Variable& variable, asIScriptContext* ctx) {
-    switch(variable.type_id) {
+    switch (variable.type_id) {
         case asTYPEID_BOOL:
             ImGui::Text("%s = %d\n", variable.name, *(bool*)variable.ptr);
             break;
@@ -199,7 +190,7 @@ void ASDebugger::PrintVar(Variable& variable, asIScriptContext* ctx) {
             ImGui::Text("%s = %d\n", variable.name, (int)*(int16_t*)variable.ptr);
             break;
         case asTYPEID_INT32:
-            ImGui::Text("%s = %ld\n", variable.name, (long)(*(int32_t*)variable.ptr)); // These casts are done to avoid warnings on 32/64 bit builds
+            ImGui::Text("%s = %ld\n", variable.name, (long)(*(int32_t*)variable.ptr));  // These casts are done to avoid warnings on 32/64 bit builds
             break;
         case asTYPEID_INT64:
             ImGui::Text("%s = %lld\n", variable.name, (long long)(*(int64_t*)variable.ptr));
@@ -221,7 +212,7 @@ void ASDebugger::PrintVar(Variable& variable, asIScriptContext* ctx) {
             ImGui::Text("%s = %f\n", variable.name, *(float*)variable.ptr);
             break;
         default: {
-            if(variable.ptr == NULL)
+            if (variable.ptr == NULL)
                 return;
             PrintCType(variable, ctx);
             return;
@@ -232,44 +223,44 @@ void ASDebugger::PrintVar(Variable& variable, asIScriptContext* ctx) {
 void ASDebugger::Print() {
     std::set<void*> printed_variables;
     asUINT callstack_size = ctx->GetCallstackSize();
-    for(asUINT stack_level = 0; stack_level < callstack_size; ++stack_level) {
+    for (asUINT stack_level = 0; stack_level < callstack_size; ++stack_level) {
         int variable_count = ctx->GetVarCount(stack_level);
 
-        for(int var_index = 0; var_index < variable_count; ++var_index) {
+        for (int var_index = 0; var_index < variable_count; ++var_index) {
             Variable variable;
             variable.name = ctx->GetVarName(var_index, stack_level);
             variable.type_id = ctx->GetVarTypeId(var_index, stack_level);
             variable.ptr = ctx->GetAddressOfVar(var_index, stack_level);
 
-            if(printed_variables.find(variable.ptr) != printed_variables.end())
+            if (printed_variables.find(variable.ptr) != printed_variables.end())
                 continue;
             printed_variables.insert(variable.ptr);
             local_variables.push_back(variable);
         }
     }
 
-	asIScriptFunction* function = ctx->GetFunction();
-	if(!function)
+    asIScriptFunction* function = ctx->GetFunction();
+    if (!function)
         return;
-	asIScriptModule* script_mod = function->GetModule();
-	if(!script_mod)
+    asIScriptModule* script_mod = function->GetModule();
+    if (!script_mod)
         return;
 
-    for(asUINT variable_index = 0; variable_index < script_mod->GetGlobalVarCount(); ++variable_index) {
+    for (asUINT variable_index = 0; variable_index < script_mod->GetGlobalVarCount(); ++variable_index) {
         Variable variable;
         script_mod->GetGlobalVar(variable_index, &variable.name, NULL, &variable.type_id);
         variable.ptr = script_mod->GetAddressOfGlobalVar(variable_index);
-        if(printed_variables.find(variable.ptr) != printed_variables.end())
+        if (printed_variables.find(variable.ptr) != printed_variables.end())
             continue;
         printed_variables.insert(variable.ptr);
         global_variables.push_back(variable);
     }
 
     asIScriptEngine* engine = ctx->GetEngine();
-    for(asUINT variable_index = 0; variable_index < engine->GetGlobalPropertyCount(); ++variable_index) {
+    for (asUINT variable_index = 0; variable_index < engine->GetGlobalPropertyCount(); ++variable_index) {
         Variable variable;
         engine->GetGlobalPropertyByIndex(variable_index, &variable.name, NULL, &variable.type_id, NULL, NULL, &variable.ptr);
-        if(printed_variables.find(variable.ptr) != printed_variables.end())
+        if (printed_variables.find(variable.ptr) != printed_variables.end())
             continue;
         printed_variables.insert(variable.ptr);
         global_variables.push_back(variable);
@@ -285,14 +276,13 @@ void ASDebugger::ToggleBreakpoint(const char* file_name, int line) {
     std::string file(file_name);
 
     Breakpoint_iter breakpoint_iter = breakpoints.find(file);
-    if(breakpoint_iter == breakpoints.end())
+    if (breakpoint_iter == breakpoints.end())
         breakpoints.insert(std::pair<std::string, std::vector<int> >(file, std::vector<int>(1, line)));
-    else
-    {
+    else {
         std::vector<int>& lines = breakpoint_iter->second;
 
-        for(size_t i = 0; i < lines.size(); ++i) {
-            if(lines[i] == line) {
+        for (size_t i = 0; i < lines.size(); ++i) {
+            if (lines[i] == line) {
                 lines.erase(lines.begin() + i);
                 return;
             }
@@ -306,14 +296,13 @@ void ASDebugger::AddBreakpoint(const char* file_name, int line) {
     std::string file(file_name);
 
     Breakpoint_iter breakpoint_iter = breakpoints.find(file);
-    if(breakpoint_iter == breakpoints.end())
+    if (breakpoint_iter == breakpoints.end())
         breakpoints.insert(std::pair<std::string, std::vector<int> >(file, std::vector<int>(1, line)));
-    else
-    {
+    else {
         std::vector<int>& lines = breakpoint_iter->second;
 
-        for(int i : lines) {
-            if(i == line) {
+        for (int i : lines) {
+            if (i == line) {
                 return;
             }
         }
@@ -326,12 +315,11 @@ void ASDebugger::RemoveBreakpoint(const char* file_name, int line) {
     std::string file(file_name);
 
     Breakpoint_iter breakpoint_iter = breakpoints.find(file);
-    if(breakpoint_iter != breakpoints.end())
-    {
+    if (breakpoint_iter != breakpoints.end()) {
         std::vector<int>& lines = breakpoint_iter->second;
 
-        for(size_t i = 0; i < lines.size(); ++i) {
-            if(lines[i] == line) {
+        for (size_t i = 0; i < lines.size(); ++i) {
+            if (lines[i] == line) {
                 lines.erase(lines.begin() + i);
                 return;
             }
@@ -343,14 +331,14 @@ const std::vector<int>* ASDebugger::GetBreakpoints(const char* file_name) {
     std::string file(file_name);
 
     Breakpoint_iter breakpoint_iter = breakpoints.find(file);
-    if(breakpoint_iter != breakpoints.end())
+    if (breakpoint_iter != breakpoints.end())
         return &(breakpoint_iter->second);
     else
         return NULL;
 }
 
 void ASDebugger::LineCallback(asIScriptContext* ctx) {
-    if(paused) {
+    if (paused) {
         // After suspending, the line callback is called once again
         local_variables.clear();
         global_variables.clear();
@@ -365,7 +353,7 @@ void ASDebugger::LineCallback(asIScriptContext* ctx) {
     current_file = lf.file;
     current_line = lf.line_number;
 
-    if(break_next) {
+    if (break_next) {
         break_next = false;
         paused = true;
         ctx->Suspend();
@@ -376,11 +364,11 @@ void ASDebugger::LineCallback(asIScriptContext* ctx) {
     file_path = file_path.substr(file_path.find_last_of("\\/") + 1);
 
     const std::vector<int>* breakpoints = GetBreakpoints(file_path.c_str());
-    if(breakpoints == NULL)
+    if (breakpoints == NULL)
         return;
     else {
-        for(int breakpoint : *breakpoints) {
-            if(breakpoint == current_line) {
+        for (int breakpoint : *breakpoints) {
+            if (breakpoint == current_line) {
                 paused = true;
                 auto_scroll = true;
                 ctx->Suspend();
@@ -394,7 +382,7 @@ void ASDebugger::StepOver(asIScriptContext* ctx) {
 
     int stack_level = ctx->GetCallstackSize();
 
-    if(stack_level <= current_stack_level) {
+    if (stack_level <= current_stack_level) {
         current_file = lf.file;
         current_line = lf.line_number;
         ctx->Suspend();
@@ -408,7 +396,7 @@ void ASDebugger::StepOver(asIScriptContext* ctx) {
 void ASDebugger::StepInto(asIScriptContext* ctx) {
     LineFile lf = GetLF(ctx);
 
-    if((int)lf.line_number != current_line) {
+    if ((int)lf.line_number != current_line) {
         current_file = lf.file;
         current_line = lf.line_number;
         ctx->Suspend();
@@ -420,7 +408,7 @@ void ASDebugger::StepInto(asIScriptContext* ctx) {
 void ASDebugger::StepOut(asIScriptContext* ctx) {
     int stack_level = ctx->GetCallstackSize();
 
-    if(stack_level < current_stack_level) {
+    if (stack_level < current_stack_level) {
         LineFile lf = GetLF(ctx);
         current_file = lf.file;
         current_line = lf.line_number;
@@ -432,19 +420,19 @@ void ASDebugger::StepOut(asIScriptContext* ctx) {
 
 void ASDebugger::Continue(asIScriptContext* ctx) {
     LineFile lf = GetLF(ctx);
-    if((int)lf.line_number != current_line)
+    if ((int)lf.line_number != current_line)
         continue_break = true;
 
-    if(continue_break) {
+    if (continue_break) {
         std::string file_path = lf.file.GetOriginalPathStr();
         file_path = file_path.substr(file_path.find_last_of("\\/") + 1);
 
         const std::vector<int>* breakpoints = GetBreakpoints(file_path.c_str());
-        if(breakpoints == NULL)
+        if (breakpoints == NULL)
             return;
         else {
-            for(int breakpoint : *breakpoints) {
-                if(breakpoint == (int)lf.line_number) {
+            for (int breakpoint : *breakpoints) {
+                if (breakpoint == (int)lf.line_number) {
                     current_file = lf.file;
                     current_line = lf.line_number;
                     ctx->Suspend();
@@ -462,34 +450,33 @@ void ASDebugger::DebugLoop() {
 
     input->cursor->SetVisible(true);
     input->SetGrabMouse(false);
-    while(paused) {
+    while (paused) {
         ctx->ClearLineCallback();
         PollEvents();
 
-		bool imgui_begun = true; //ImGui::FrameBegun();
-        if(imgui_begun) {
+        bool imgui_begun = true;  // ImGui::FrameBegun();
+        if (imgui_begun) {
             ImGui::EndFrame();
         }
 
         ImGui_ImplSdlGL3_NewFrame(graphics->sdl_window_, input->GetGrabMouse());
         bool update_variables = true;
-        switch(UpdateGUI())
-        {
+        switch (UpdateGUI()) {
             case CONTINUE:
                 continue_break = false;
                 ctx->SetLineCallback(asMETHOD(ASDebugger, Continue), this, asCALL_THISCALL);
                 paused = false;
                 do {
                     int ret = ctx->Execute();
-                    if(ret == asEXECUTION_FINISHED) {
+                    if (ret == asEXECUTION_FINISHED) {
                         ctx->SetLineCallback(asMETHOD(ASDebugger, LineCallback), this, asCALL_THISCALL);
                         ImGui::Render();
-                        if(imgui_begun) {
+                        if (imgui_begun) {
                             ImGui_ImplSdlGL3_NewFrame(graphics->sdl_window_, input->GetGrabMouse());
                         }
                         return;
                     }
-                } while(!paused);
+                } while (!paused);
                 break;
             case OVER:
                 current_stack_level = ctx->GetCallstackSize();
@@ -497,30 +484,30 @@ void ASDebugger::DebugLoop() {
                 paused = false;
                 do {
                     int ret = ctx->Execute();
-                    if(ret == asEXECUTION_FINISHED) {
+                    if (ret == asEXECUTION_FINISHED) {
                         ctx->SetLineCallback(asMETHOD(ASDebugger, LineCallback), this, asCALL_THISCALL);
                         ImGui::Render();
-                        if(imgui_begun) {
+                        if (imgui_begun) {
                             ImGui_ImplSdlGL3_NewFrame(graphics->sdl_window_, input->GetGrabMouse());
                         }
                         return;
                     }
-                } while(!paused);
+                } while (!paused);
                 break;
             case INTO:
                 ctx->SetLineCallback(asMETHOD(ASDebugger, StepInto), this, asCALL_THISCALL);
                 paused = false;
                 do {
                     int ret = ctx->Execute();
-                    if(ret == asEXECUTION_FINISHED) {
+                    if (ret == asEXECUTION_FINISHED) {
                         ctx->SetLineCallback(asMETHOD(ASDebugger, LineCallback), this, asCALL_THISCALL);
                         ImGui::Render();
-                        if(imgui_begun) {
+                        if (imgui_begun) {
                             ImGui_ImplSdlGL3_NewFrame(graphics->sdl_window_, input->GetGrabMouse());
                         }
                         return;
                     }
-                } while(!paused);
+                } while (!paused);
                 break;
             case LEAVE:
                 current_stack_level = ctx->GetCallstackSize();
@@ -528,21 +515,21 @@ void ASDebugger::DebugLoop() {
                 paused = false;
                 do {
                     int ret = ctx->Execute();
-                    if(ret == asEXECUTION_FINISHED) {
+                    if (ret == asEXECUTION_FINISHED) {
                         ctx->SetLineCallback(asMETHOD(ASDebugger, LineCallback), this, asCALL_THISCALL);
                         ImGui::Render();
-                        if(imgui_begun) {
+                        if (imgui_begun) {
                             ImGui_ImplSdlGL3_NewFrame(graphics->sdl_window_, input->GetGrabMouse());
                         }
                         return;
                     }
-                } while(!paused);
+                } while (!paused);
                 break;
             default:
                 update_variables = false;
                 break;
         }
-        if(update_variables) {
+        if (update_variables) {
             local_variables.clear();
             global_variables.clear();
             Print();
@@ -552,8 +539,8 @@ void ASDebugger::DebugLoop() {
         std::stack<ViewportDims> viewport_dims_stack;
         std::stack<GLuint> fbo_stack;
 
-        graphics->PushViewport(); // Viewport is set to entire window
-        graphics->PushFramebuffer(); // Framebuffer is set to 0
+        graphics->PushViewport();     // Viewport is set to entire window
+        graphics->PushFramebuffer();  // Framebuffer is set to 0
         // Back these up to temporarily so no assertions fail/states change
         viewport_dims_stack = graphics->viewport_dims_stack;
         fbo_stack = graphics->fbo_stack;
@@ -581,7 +568,7 @@ void ASDebugger::DebugLoop() {
 
         static uint32_t last_time = 0;
         uint32_t diff = 16 - (SDL_TS_GetTicks() - last_time) - 1;
-        if( diff > 15 ){
+        if (diff > 15) {
             diff = 15;
         }
         SDL_Delay(diff);
@@ -597,57 +584,57 @@ void ASDebugger::PollEvents() {
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         ProcessEventImGui(&event);
-        //Redirect input events to the controller
-        switch( event.type ) {
-        case SDL_WINDOWEVENT:
-            switch(event.window.event){
-            case SDL_WINDOWEVENT_FOCUS_LOST:
-                input->HandleEvent(event);
+        // Redirect input events to the controller
+        switch (event.type) {
+            case SDL_WINDOWEVENT:
+                switch (event.window.event) {
+                    case SDL_WINDOWEVENT_FOCUS_LOST:
+                        input->HandleEvent(event);
+                        break;
+                    case SDL_WINDOWEVENT_FOCUS_GAINED:
+                        input->HandleEvent(event);
+                        break;
+                }
                 break;
-            case SDL_WINDOWEVENT_FOCUS_GAINED:
-                input->HandleEvent(event);
+            case SDL_QUIT:
+                input->RequestQuit();
+                return;
+            case SDL_MOUSEBUTTONDOWN:
+            case SDL_MOUSEWHEEL:
+                if (!WantMouseImGui()) {
+                    input->HandleEvent(event);
+                }
                 break;
-            }
-            break;
-        case SDL_QUIT:
-            input->RequestQuit();
-            return;
-        case SDL_MOUSEBUTTONDOWN:
-        case SDL_MOUSEWHEEL:
-            if(!WantMouseImGui()){
+            case SDL_KEYDOWN:
+            case SDL_TEXTINPUT:
+                if (!WantKeyboardImGui()) {
+                    input->HandleEvent(event);
+                }
+                break;
+            default:
                 input->HandleEvent(event);
-            }
-            break;
-        case SDL_KEYDOWN:
-        case SDL_TEXTINPUT:
-            if(!WantKeyboardImGui()){
-                input->HandleEvent(event);
-            }
-            break;
-        default:
-            input->HandleEvent(event);
         }
     }
 }
 
 void ASDebugger::VariablesMenu(const char* window_name, ImGuiTextFilter& filter, std::vector<Variable>& variables, bool& show_variables) {
-    if(show_variables) {
+    if (show_variables) {
         ImGui::SetNextWindowSize(ImVec2(640.0f, 480.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin(window_name, &show_variables);
-        if(ImGui::InputText("Filters:", filter.InputBuf, IM_ARRAYSIZE(filter.InputBuf))) {
+        if (ImGui::InputText("Filters:", filter.InputBuf, IM_ARRAYSIZE(filter.InputBuf))) {
             filter.Build();
         }
 
-        if(filter.IsActive()) {
-            for(size_t i = 0; i < variables.size(); ++i) {
-                if(filter.PassFilter(variables[i].name)) {
+        if (filter.IsActive()) {
+            for (size_t i = 0; i < variables.size(); ++i) {
+                if (filter.PassFilter(variables[i].name)) {
                     ImGui::PushID(i);
                     PrintVar(variables[i], ctx);
                     ImGui::PopID();
                 }
             }
         } else {
-            for(size_t i = 0; i < variables.size(); ++i) {
+            for (size_t i = 0; i < variables.size(); ++i) {
                 ImGui::PushID(i);
                 PrintVar(variables[i], ctx);
                 ImGui::PopID();
@@ -668,19 +655,19 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
 
     ImGui::Text("Currently executing %s", current_file.resolved);
 
-    if(ImGui::Button("Continue")) {
+    if (ImGui::Button("Continue")) {
         action = CONTINUE;
     }
     ImGui::SameLine();
-    if(ImGui::Button("Step over")) {
+    if (ImGui::Button("Step over")) {
         action = OVER;
     }
     ImGui::SameLine();
-    if(ImGui::Button("Step into")) {
+    if (ImGui::Button("Step into")) {
         action = INTO;
     }
     ImGui::SameLine();
-    if(ImGui::Button("Step out")) {
+    if (ImGui::Button("Step out")) {
         action = LEAVE;
     }
 
@@ -693,8 +680,8 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
     const ScriptFile* script = ScriptFileUtil::GetScriptFile(current_file);
     const char* file_name = script->file_path.GetFullPath();
     int last_slash = 0;
-    for(size_t i = 0; i < std::strlen(file_name); ++i) {
-        if(file_name[i] == '\\' || file_name[i] == '/')
+    for (size_t i = 0; i < std::strlen(file_name); ++i) {
+        if (file_name[i] == '\\' || file_name[i] == '/')
             last_slash = i;
     }
     file_name += last_slash + 1;
@@ -703,7 +690,7 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
     int start_index = 0;
     int end_index = 0;
 
-    ImGui::BeginChild("ASSourceMain", ImVec2(0,0), false, 0);
+    ImGui::BeginChild("ASSourceMain", ImVec2(0, 0), false, 0);
     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
     ImGui::Columns(2);
 
@@ -716,7 +703,7 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
 
     ImGui::PushStyleVar(ImGuiStyleVar_ButtonTextAlign, ImVec2(0.0f, 0.5f));
     ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0.0f, 0.0f));
-    while(end_index != (int)script_source.size()) {
+    while (end_index != (int)script_source.size()) {
         end_index = std::min(script_source.find('\n', start_index), script_source.size());
 
         int copy_length = std::min(MAX_LINE_LENGTH, end_index - start_index);
@@ -725,9 +712,9 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
         start_index = end_index + 1;
 
         bool is_breakpoint = false;
-        if(breakpoints != NULL) {
-            for(int breakpoint : *breakpoints) {
-                if(breakpoint == line_nr) {
+        if (breakpoints != NULL) {
+            for (int breakpoint : *breakpoints) {
+                if (breakpoint == line_nr) {
                     is_breakpoint = true;
                     break;
                 }
@@ -735,34 +722,33 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
         }
 
         bool is_current_line = false;
-        if(line_nr == GetCurrentLine()) {
+        if (line_nr == GetCurrentLine()) {
             is_current_line = true;
         }
 
-        if(is_current_line) {
-            if(is_breakpoint)
+        if (is_current_line) {
+            if (is_breakpoint)
                 ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.4f, 0.0f, 0.5f));
             else
                 ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.8f, 0.0f, 0.5f));
 
-            if(auto_scroll) {
+            if (auto_scroll) {
                 ImGui::SetScrollHereY();
                 auto_scroll = false;
             }
-        }
-        else if(is_breakpoint)
+        } else if (is_breakpoint)
             ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.0f, 0.0f, 0.5f));
 
         ImGui::Text("%d", line_nr);
         ImGui::NextColumn();
         ImGui::PushID(line_nr);
         ImGui::SetColumnOffset(-1, 36);
-        if(ImGui::ButtonEx(line, ImVec2(ImGui::GetWindowWidth() - 36, 0), ImGuiButtonFlags_AlignTextBaseLine)) {
+        if (ImGui::ButtonEx(line, ImVec2(ImGui::GetWindowWidth() - 36, 0), ImGuiButtonFlags_AlignTextBaseLine)) {
             ToggleBreakpoint(file_name, line_nr);
         }
         ImGui::NextColumn();
         ImGui::PopID();
-        if(is_current_line || is_breakpoint)
+        if (is_current_line || is_breakpoint)
             ImGui::PopStyleColor();
 
         ++line_nr;
@@ -773,9 +759,9 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
     ImGui::EndChild();
     ImGui::End();
 
-    if(show_stack_trace) {
+    if (show_stack_trace) {
         const char* file;
-        for(asUINT i = 0; i < ctx->GetCallstackSize(); ++i) {
+        for (asUINT i = 0; i < ctx->GetCallstackSize(); ++i) {
             int line = ctx->GetLineNumber(i, 0, &file);
             LineFile lineFile = module->GetCorrectedLine(line);
             ImGui::Text("%s:%d %s", lineFile.file.GetOriginalPath(), lineFile.line_number, ctx->GetFunction(i)->GetDeclaration());
@@ -784,12 +770,12 @@ ASDebugger::BreakAction ASDebugger::UpdateGUI() {
 
     VariablesMenu("Angelscript local variables", local_filter, local_variables, show_local_variables);
     VariablesMenu("Angelscript global variables", global_filter, global_variables, show_global_variables);
-    
+
     return action;
 }
 
 LineFile ASDebugger::GetLF(asIScriptContext* ctx) {
-    const char *scriptSection;
+    const char* scriptSection;
     int line = ctx->GetLineNumber(0, 0, &scriptSection);
     return module->GetCorrectedLine(line);
 }

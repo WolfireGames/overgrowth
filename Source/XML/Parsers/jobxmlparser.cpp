@@ -28,296 +28,226 @@
 
 #include <tinyxml.h>
 
-JobXMLParser::JobXMLParser()
-{
-
+JobXMLParser::JobXMLParser() {
 }
 
-uint32_t JobXMLParser::Load( const std::string& path )
-{
+uint32_t JobXMLParser::Load(const std::string& path) {
     CommonRegex cr;
     Clear();
-    TiXmlDocument doc( path.c_str() );
+    TiXmlDocument doc(path.c_str());
     doc.LoadFile();
 
-    if( !doc.Error() )
-    {
+    if (!doc.Error()) {
         TiXmlElement* pRoot = doc.RootElement();
 
-        if( pRoot )  
-        {
+        if (pRoot) {
             TiXmlHandle hRoot(pRoot);
 
             TiXmlElement* eInputs = hRoot.FirstChild("Inputs").Element();
 
-	    if( eInputs ) 
-	    { 
+            if (eInputs) {
                 TiXmlNode* nInputsIt = NULL;
 
-		while( (nInputsIt = eInputs->IterateChildren(nInputsIt)) )
-		{
-		    if(strcmp(nInputsIt->Value(), "Input") == 0)
-		    {
-		        TiXmlElement* eInput = nInputsIt->ToElement();
+                while ((nInputsIt = eInputs->IterateChildren(nInputsIt))) {
+                    if (strcmp(nInputsIt->Value(), "Input") == 0) {
+                        TiXmlElement* eInput = nInputsIt->ToElement();
 
-		        if( eInput )
-			{
-			    inputs.push_back(eInput->GetText());
-			}
-		    }
-		    else
-		    {
-                        if( nInputsIt->ToComment() == NULL )
+                        if (eInput) {
+                            inputs.push_back(eInput->GetText());
+                        }
+                    } else {
+                        if (nInputsIt->ToComment() == NULL)
                             LOGE << "Found invalid tag \"<" << nInputsIt->Value() << ">\" in <Inputs>" << std::endl;
-		    }
-		}
-	    }
+                    }
+                }
+            }
 
             TiXmlElement* eSearcher = hRoot.FirstChild("Searchers").Element();
 
-            if( eSearcher ) 
-            {
-                TiXmlNode * nSearcherIt = NULL;
+            if (eSearcher) {
+                TiXmlNode* nSearcherIt = NULL;
 
-                while( (nSearcherIt = eSearcher->IterateChildren(nSearcherIt)) )
-                {
-                    if( strcmp(nSearcherIt->Value(), "Searcher") == 0 )
-                    {
+                while ((nSearcherIt = eSearcher->IterateChildren(nSearcherIt))) {
+                    if (strcmp(nSearcherIt->Value(), "Searcher") == 0) {
                         TiXmlElement* eSearcher = nSearcherIt->ToElement();
 
-                        if( eSearcher )
-                        {
-                            Searcher sSearcher; 
+                        if (eSearcher) {
+                            Searcher sSearcher;
 
-                            const char *type_pattern_re = eSearcher->Attribute("type_pattern_re");
-                            const char *path_ending = eSearcher->Attribute("path_ending");
-                            const char *searcher = eSearcher->Attribute("searcher");
+                            const char* type_pattern_re = eSearcher->Attribute("type_pattern_re");
+                            const char* path_ending = eSearcher->Attribute("path_ending");
+                            const char* searcher = eSearcher->Attribute("searcher");
 
-                            if( type_pattern_re )
-                                sSearcher.type_pattern_re = std::string( type_pattern_re );
-                            if( path_ending )
-                                sSearcher.path_ending = std::string( path_ending );
-                            if( searcher )
-                                sSearcher.searcher = std::string( searcher );
+                            if (type_pattern_re)
+                                sSearcher.type_pattern_re = std::string(type_pattern_re);
+                            if (path_ending)
+                                sSearcher.path_ending = std::string(path_ending);
+                            if (searcher)
+                                sSearcher.searcher = std::string(searcher);
 
                             sSearcher.row = eSearcher->Row();
 
-                            searchers.push_back( sSearcher );
+                            searchers.push_back(sSearcher);
                         }
-                    }
-                    else
-                    {
-                        if( nSearcherIt->ToComment() == NULL )
+                    } else {
+                        if (nSearcherIt->ToComment() == NULL)
                             LOGE << "Found invalid tag \"<" << nSearcherIt->Value() << ">\" in <Searchers>" << std::endl;
                     }
                 }
-            } 
+            }
 
-            TiXmlElement* eItems = hRoot.FirstChild( "Items" ).Element();
+            TiXmlElement* eItems = hRoot.FirstChild("Items").Element();
 
-            if( eItems )
-            {
-                TiXmlNode * nItemsIt = NULL;
+            if (eItems) {
+                TiXmlNode* nItemsIt = NULL;
 
-                while( (nItemsIt = eItems->IterateChildren(nItemsIt)) )
-                {
-                    if( strcmp(nItemsIt->Value(), "Item") == 0 )
-                    {
+                while ((nItemsIt = eItems->IterateChildren(nItemsIt))) {
+                    if (strcmp(nItemsIt->Value(), "Item") == 0) {
                         TiXmlElement* eItem = nItemsIt->ToElement();
-                    
-                        if( eItem )
-                        {
+
+                        if (eItem) {
                             Item item;
 
-                            const char *path = eItem->GetText();
-                            if( path )
-                            {
+                            const char* path = eItem->GetText();
+                            if (path) {
                                 item.path = std::string(path);
                             }
 
-                            const char *type = eItem->Attribute("type");
-                            if( type )
-                            {
+                            const char* type = eItem->Attribute("type");
+                            if (type) {
                                 item.type = std::string(type);
                             }
 
                             bool recursive = cr.saysTrue(eItem->Attribute("recursive"));
                             item.recursive = recursive;
 
-                            const char *path_ending = eItem->Attribute("path_ending");
-                            if( path_ending )
+                            const char* path_ending = eItem->Attribute("path_ending");
+                            if (path_ending)
                                 item.path_ending = std::string(path_ending);
 
                             item.row = eItem->Row();
                             items.push_back(item);
                         }
-                    }
-                    else
-                    {
-                        if( nItemsIt->ToComment() == NULL )
+                    } else {
+                        if (nItemsIt->ToComment() == NULL)
                             LOGE << "Found invalid tag \"<" << nItemsIt->Value() << ">\" in <Items>" << std::endl;
                     }
                 }
             }
 
-            TiXmlElement* eBuilders = hRoot.FirstChild( "Builders" ).Element();
+            TiXmlElement* eBuilders = hRoot.FirstChild("Builders").Element();
 
-            if( eBuilders )
-            {
+            if (eBuilders) {
                 TiXmlNode* nBuilderIt = NULL;
-                
-                while( (nBuilderIt = eBuilders->IterateChildren(nBuilderIt)) )
-                {
-                    if( strcmp(nBuilderIt->Value(), "Builder") == 0 )
-                    {
+
+                while ((nBuilderIt = eBuilders->IterateChildren(nBuilderIt))) {
+                    if (strcmp(nBuilderIt->Value(), "Builder") == 0) {
                         TiXmlElement* eBuilder = nBuilderIt->ToElement();
 
-                        if( eBuilder )
-                        {
+                        if (eBuilder) {
                             Builder b;
 
-                            const char *type_pattern_re = eBuilder->Attribute("type_pattern_re");
-                            const char *path_ending = eBuilder->Attribute("path_ending");
-                            const char *builder         = eBuilder->Attribute("builder");
+                            const char* type_pattern_re = eBuilder->Attribute("type_pattern_re");
+                            const char* path_ending = eBuilder->Attribute("path_ending");
+                            const char* builder = eBuilder->Attribute("builder");
 
-                            if( type_pattern_re )
+                            if (type_pattern_re)
                                 b.type_pattern_re = std::string(type_pattern_re);
-                            if( path_ending )
+                            if (path_ending)
                                 b.path_ending = std::string(path_ending);
-                            if( builder )
+                            if (builder)
                                 b.builder = std::string(builder);
 
                             b.row = eBuilder->Row();
 
                             builders.push_back(b);
                         }
-                    }
-                    else
-                    {
-                        if( nBuilderIt->ToComment() == NULL )
+                    } else {
+                        if (nBuilderIt->ToComment() == NULL)
                             LOGE << "Found invalid tag \"<" << nBuilderIt->Value() << ">\" in <Builders>" << std::endl;
                     }
                 }
             }
 
-            TiXmlElement* eGenerators = hRoot.FirstChild( "Generators" ).Element();
+            TiXmlElement* eGenerators = hRoot.FirstChild("Generators").Element();
 
-            if( eGenerators )
-            {
+            if (eGenerators) {
                 TiXmlNode* nGeneratorIt = NULL;
-                
-                while( (nGeneratorIt = eGenerators->IterateChildren(nGeneratorIt)) )
-                {
-                    if( strcmp(nGeneratorIt->Value(), "Generator") == 0 )
-                    {
+
+                while ((nGeneratorIt = eGenerators->IterateChildren(nGeneratorIt))) {
+                    if (strcmp(nGeneratorIt->Value(), "Generator") == 0) {
                         TiXmlElement* eGenerator = nGeneratorIt->ToElement();
 
-                        if( eGenerator )
-                        {
+                        if (eGenerator) {
                             Generator b;
 
-                            const char *generator         = eGenerator->Attribute("generator");
+                            const char* generator = eGenerator->Attribute("generator");
 
-                            if( generator )
+                            if (generator)
                                 b.generator = std::string(generator);
 
                             b.row = eGenerator->Row();
 
                             generators.push_back(b);
                         }
-                    }
-                    else
-                    {
-                        if( nGeneratorIt->ToComment() == NULL )
+                    } else {
+                        if (nGeneratorIt->ToComment() == NULL)
                             LOGE << "Found invalid tag \"<" << nGeneratorIt->Value() << ">\" in <Generators>" << std::endl;
                     }
                 }
             }
 
             return true;
-        }
-        else
-        {
+        } else {
             LOGE << "Problem loading job file" << path << std::endl;
             return false;
         }
-    }
-    else
-    {
+    } else {
         LOGE << "Error parsing job file: \"" << doc.ErrorDesc() << "\"" << std::endl;
         return false;
     }
 }
 
-bool JobXMLParser::Save( const std::string& path )
-{
+bool JobXMLParser::Save(const std::string& path) {
     return false;
 }
 
-void JobXMLParser::Clear()
-{
+void JobXMLParser::Clear() {
     searchers.clear();
     items.clear();
     builders.clear();
 }
 
-
-bool JobXMLParser::Item::operator<(const Item& rhs) const
-{
-    if( row < rhs.row  )
-    {
+bool JobXMLParser::Item::operator<(const Item& rhs) const {
+    if (row < rhs.row) {
         return true;
-    }
-    else if( row == rhs.row )
-    {
-        if( path_ending < rhs.path_ending  )
-        {
+    } else if (row == rhs.row) {
+        if (path_ending < rhs.path_ending) {
             return true;
-        }
-        else if( path_ending == rhs.path_ending )
-        {
-            if( path < rhs.path )
-            {
+        } else if (path_ending == rhs.path_ending) {
+            if (path < rhs.path) {
                 return true;
-            }
-            else if( path == rhs.path )
-            {
-                if( type < rhs.type )
-                {
+            } else if (path == rhs.path) {
+                if (type < rhs.type) {
                     return true;
-                }
-                else if( type == rhs.type )
-                {
-                    if( recursive < rhs.recursive )
-                    {
+                } else if (type == rhs.type) {
+                    if (recursive < rhs.recursive) {
                         return true;
-                    }
-                    else if( recursive == rhs.recursive )
-                    {
+                    } else if (recursive == rhs.recursive) {
+                        return false;
+                    } else {
                         return false;
                     }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
+                } else {
                     return false;
                 }
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        else
-        {
+        } else {
             return false;
         }
-    }
-    else
-    {
+    } else {
         return false;
     }
 }

@@ -31,18 +31,18 @@
 using std::vector;
 
 class PackageHeader {
-public:
+   public:
     enum class Type {
         MESSAGE_OBJECT,
-    };    
+    };
 
     Type package_type;
 
-    //Data for OnlineMessageObject
+    // Data for OnlineMessageObject
     OnlineMessageRef message_ref;
 
     binn* Serialize();
     void Deserialize(void* data);
 
-    PackageHeader() {};
+    PackageHeader(){};
 };

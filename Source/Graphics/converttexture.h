@@ -27,7 +27,7 @@
 
 #include <string>
 
-bool ConvertImage( std::string src, std::string dst, std::string temp_conversion_path, TextureData::ConversionQuality quality );
+bool ConvertImage(std::string src, std::string dst, std::string temp_conversion_path, TextureData::ConversionQuality quality);
 
 // Get a location that we can use to write a temporary .dds file, so that we don't end
 // up with an incomplete dds file if the conversion fails halfway through

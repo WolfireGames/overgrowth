@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: material_sound_event.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,22 +31,22 @@
 using std::string;
 
 namespace OnlineMessages {
-    class MaterialSoundEvent : public OnlineMessageBase {
-    private:
-        CommonObjectID object_id;
+class MaterialSoundEvent : public OnlineMessageBase {
+   private:
+    CommonObjectID object_id;
 
-    public:
-        string event_name;
-        vec3 pos;
-        float gain;
+   public:
+    string event_name;
+    vec3 pos;
+    float gain;
 
-    public:
-        MaterialSoundEvent(ObjectID object_id, const string& ev, const vec3& pos, float gain);
+   public:
+    MaterialSoundEvent(ObjectID object_id, const string& ev, const vec3& pos, float gain);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

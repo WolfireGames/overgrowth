@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_group_gain_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,48 +26,47 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    AudioPlaySoundGroupGainMessage::AudioPlaySoundGroupGainMessage(const std::string& path, vec3 pos, float gain) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        path(path), pos(pos), gain(gain)
-    {
-
-    }
-
-    binn* AudioPlaySoundGroupGainMessage::Serialize(void* object) {
-        AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
-        binn* l = binn_object();
-
-        binn_object_set_std_string(l, "path", t->path);
-        binn_object_set_vec3(l, "pos", t->pos);
-        binn_object_set_float(l, "gain", t->gain);
-
-        return l;
-    }
-
-    void AudioPlaySoundGroupGainMessage::Deserialize(void* object, binn* l) {
-        AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
-
-        binn_object_get_std_string(l, "path", &t->path);
-        binn_object_get_vec3(l, "pos", &t->pos);
-        binn_object_get_float(l, "gain", &t->gain);
-    }
-
-    void AudioPlaySoundGroupGainMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
-
-        SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(t->path);
-        SoundGroupPlayInfo sgpi(*sgr, t->pos);
-        sgpi.gain = t->gain;
-        int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
-        Engine::Instance()->GetSound()->PlayGroup(handle, sgpi);
-    }
-
-    void* AudioPlaySoundGroupGainMessage::Construct(void *mem) {
-        return new(mem) AudioPlaySoundGroupGainMessage("", vec3(), 0.0f);
-    }
-
-    void AudioPlaySoundGroupGainMessage::Destroy(void* object) {
-        AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
-        t->~AudioPlaySoundGroupGainMessage();
-    }
+AudioPlaySoundGroupGainMessage::AudioPlaySoundGroupGainMessage(const std::string& path, vec3 pos, float gain) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                                                path(path),
+                                                                                                                pos(pos),
+                                                                                                                gain(gain) {
 }
+
+binn* AudioPlaySoundGroupGainMessage::Serialize(void* object) {
+    AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
+    binn* l = binn_object();
+
+    binn_object_set_std_string(l, "path", t->path);
+    binn_object_set_vec3(l, "pos", t->pos);
+    binn_object_set_float(l, "gain", t->gain);
+
+    return l;
+}
+
+void AudioPlaySoundGroupGainMessage::Deserialize(void* object, binn* l) {
+    AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
+
+    binn_object_get_std_string(l, "path", &t->path);
+    binn_object_get_vec3(l, "pos", &t->pos);
+    binn_object_get_float(l, "gain", &t->gain);
+}
+
+void AudioPlaySoundGroupGainMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
+
+    SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(t->path);
+    SoundGroupPlayInfo sgpi(*sgr, t->pos);
+    sgpi.gain = t->gain;
+    int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
+    Engine::Instance()->GetSound()->PlayGroup(handle, sgpi);
+}
+
+void* AudioPlaySoundGroupGainMessage::Construct(void* mem) {
+    return new (mem) AudioPlaySoundGroupGainMessage("", vec3(), 0.0f);
+}
+
+void AudioPlaySoundGroupGainMessage::Destroy(void* object) {
+    AudioPlaySoundGroupGainMessage* t = static_cast<AudioPlaySoundGroupGainMessage*>(object);
+    t->~AudioPlaySoundGroupGainMessage();
+}
+}  // namespace OnlineMessages

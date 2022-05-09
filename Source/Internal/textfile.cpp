@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: textfile.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 // textfile.cpp
@@ -34,8 +34,8 @@
 void textFileRead(const std::string &filename, std::string *dst) {
     FILE *fp;
     if (filename.c_str() != NULL) {
-        fp = my_fopen(filename.c_str(),"rb");   
-        if(!fp){
+        fp = my_fopen(filename.c_str(), "rb");
+        if (!fp) {
             FatalError("Error", "Could not open file txt \"%s\"", filename.c_str());
         }
         fseek(fp, 0, SEEK_END);
@@ -45,15 +45,15 @@ void textFileRead(const std::string &filename, std::string *dst) {
             dst->clear();
             if (count > 0) {
                 dst->resize(count);
-                fread(&dst->at(0),sizeof(char),count,fp);
+                fread(&dst->at(0), sizeof(char), count, fp);
             }
             fclose(fp);
         }
     }
     // Remove trailing '\0' characters, they mess up include file expansion
-    for(int i=(int)dst->length()-1; i>=0; --i){
-        if(dst->at(i) != '\0'){
-            dst->resize(i+1);
+    for (int i = (int)dst->length() - 1; i >= 0; --i) {
+        if (dst->at(i) != '\0') {
+            dst->resize(i + 1);
             break;
         }
     }
@@ -64,19 +64,12 @@ int textFileWrite(char *fn, char *s) {
     int status = 0;
 
     if (fn != NULL) {
-        fp = my_fopen(fn,"w");
-        if (fp != NULL) {            
-            if (fwrite(s,sizeof(char),strlen(s),fp) == strlen(s))
+        fp = my_fopen(fn, "w");
+        if (fp != NULL) {
+            if (fwrite(s, sizeof(char), strlen(s), fp) == strlen(s))
                 status = 1;
             fclose(fp);
         }
     }
-    return(status);
+    return (status);
 }
-
-
-
-
-
-
-

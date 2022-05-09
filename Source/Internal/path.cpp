@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: path.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,66 +30,54 @@
 #include <string>
 #include <cstring>
 
-using std::string;
-using std::ostream;
 using std::endl;
+using std::ostream;
+using std::string;
 
-Path::Path()
-{
-    memset( original, '\0', kPathSize * sizeof(char));
-    memset( resolved, '\0', kPathSize * sizeof(char));
+Path::Path() {
+    memset(original, '\0', kPathSize * sizeof(char));
+    memset(resolved, '\0', kPathSize * sizeof(char));
     source = kNoPath;
     valid = false;
 }
 
-string Path::GetAbsPathStr() const
-{ 
+string Path::GetAbsPathStr() const {
     return GetAbsPath(resolved);
 }
 
-string Path::GetFullPathStr() const
-{ 
+string Path::GetFullPathStr() const {
     return string(resolved);
 }
 
-const char* Path::GetFullPath() const
-{
+const char* Path::GetFullPath() const {
     return resolved;
 }
 
-string Path::GetOriginalPathStr() const
-{
+string Path::GetOriginalPathStr() const {
     return string(original);
 }
 
-const char* Path::GetOriginalPath() const
-{
+const char* Path::GetOriginalPath() const {
     return original;
 }
 
-ModID Path::GetModsource() const 
-{
+ModID Path::GetModsource() const {
     return mod_source;
 }
 
-bool Path::isValid() const 
-{
+bool Path::isValid() const {
     return valid;
 }
 
 bool Path::operator==(const Path& rhs) const {
-    return strmtch(resolved,rhs.resolved)
-    && strmtch(original,rhs.original)
-    && source == rhs.source
-    && valid == rhs.valid;
+    return strmtch(resolved, rhs.resolved) && strmtch(original, rhs.original) && source == rhs.source && valid == rhs.valid;
 }
 
 bool Path::operator<(const Path& rhs) const {
-    return strcmp(resolved,rhs.resolved);
+    return strcmp(resolved, rhs.resolved);
 }
 
-ostream& operator<<(ostream& out, const Path& path )
-{
+ostream& operator<<(ostream& out, const Path& path) {
     out << "\"" << path.GetFullPath() << "\" (" << (path.valid ? "valid" : "invalid") << ")" << endl;
     return out;
 }

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: test_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,15 +29,15 @@
 using std::string;
 
 namespace OnlineMessages {
-    class TestMessage : public OnlineMessageBase {
-    public:
-        string message;
-        TestMessage(string message);
+class TestMessage : public OnlineMessageBase {
+   public:
+    string message;
+    TestMessage(string message);
 
-        static binn* Serialize(void *object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: detailmapinfo.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,17 +30,15 @@
 #include <Game/detailobjectlayer.h>
 #include <Main/engine.h>
 
-void DetailMapInfo::Print()
-{
-    LOGI << "Colorpath: " <<  colorpath << std::endl;
+void DetailMapInfo::Print() {
+    LOGI << "Colorpath: " << colorpath << std::endl;
     LOGI << "Normalpath: " << normalpath << std::endl;
-    LOGI << "Materialpath: " <<  materialpath << std::endl;
+    LOGI << "Materialpath: " << materialpath << std::endl;
 }
 
-void DetailMapInfo::ReturnPaths( PathSet &path_set )
-{
-    path_set.insert("texture "+colorpath);
-    path_set.insert("texture "+normalpath);
-    //Materials::Instance()->ReturnRef(materialpath)->ReturnPaths(path_set);
+void DetailMapInfo::ReturnPaths(PathSet &path_set) {
+    path_set.insert("texture " + colorpath);
+    path_set.insert("texture " + normalpath);
+    // Materials::Instance()->ReturnRef(materialpath)->ReturnPaths(path_set);
     Engine::Instance()->GetAssetManager()->LoadSync<Material>(materialpath)->ReturnPaths(path_set);
 }

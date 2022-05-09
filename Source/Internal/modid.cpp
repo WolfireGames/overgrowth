@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: modid.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -24,12 +24,12 @@
 
 #include <Logging/logdata.h>
 
-using std::ostream;
 using std::endl;
+using std::ostream;
 
 const ModID CoreGameModID(-2);
 
-ModID::ModID(): id(-1) {
+ModID::ModID() : id(-1) {
 }
 
 ModID::ModID(int id) : id(id) {
@@ -39,24 +39,23 @@ bool ModID::Valid() const {
     return id != -1;
 }
 
-bool ModID::operator==( const ModID& modid ) const {
+bool ModID::operator==(const ModID& modid) const {
     return this->id == modid.id;
 }
 
-bool ModID::operator!=( const ModID& modid ) const {
+bool ModID::operator!=(const ModID& modid) const {
     return this->id != modid.id;
 }
 
 ModValidity::ModValidity() : upper(0ULL), lower(0ULL) {
-    
 }
 
-ModValidity::ModValidity(uint16_t bit) {  
-    if( bit < 64 ) { 
+ModValidity::ModValidity(uint16_t bit) {
+    if (bit < 64) {
         upper = 0ULL;
-        lower |= 1ULL << bit; 
-    } else if( bit < 128 ) {
-        upper |= 1ULL << (bit-64);
+        lower |= 1ULL << bit;
+    } else if (bit < 128) {
+        upper |= 1ULL << (bit - 64);
         lower = 0ULL;
     } else {
         LOGE << "Bit too high" << endl;
@@ -64,7 +63,6 @@ ModValidity::ModValidity(uint16_t bit) {
 }
 
 ModValidity::ModValidity(uint64_t upper, uint64_t lower) : upper(upper), lower(lower) {
-
 }
 
 ModValidity ModValidity::Intersection(const ModValidity& other) const {
@@ -89,7 +87,7 @@ bool ModValidity::NotEmpty() const {
     return !Empty();
 }
 
-bool ModValidity::Intersects(const ModValidity &other) const {
+bool ModValidity::Intersects(const ModValidity& other) const {
     return (*this & other).NotEmpty();
 }
 
@@ -102,24 +100,24 @@ ModValidity ModValidity::operator|(const ModValidity& rhs) const {
 }
 
 ModValidity& ModValidity::operator|=(const ModValidity& rhs) {
-    Append(rhs); 
+    Append(rhs);
     return *this;
 }
 
 ModValidity ModValidity::operator~() const {
-    return ModValidity(~upper,~lower);   
+    return ModValidity(~upper, ~lower);
 }
 
 bool ModValidity::operator!=(const ModValidity& rhs) const {
     return upper != rhs.upper || lower != rhs.lower;
 }
 
-ostream& operator<<(ostream& os, const ModID &mi ) {
+ostream& operator<<(ostream& os, const ModID& mi) {
     os << mi.id;
     return os;
 }
 
-ostream& operator<<(ostream& os, const ModValidity &mi ) {
+ostream& operator<<(ostream& os, const ModValidity& mi) {
     os << "ModValidity(" << mi.upper << "," << mi.lower << ")";
     return os;
 }

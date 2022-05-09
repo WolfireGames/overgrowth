@@ -27,13 +27,11 @@
 class TiXmlDocument;
 class JobHandler;
 
-class ItemSeeker : public XMLSeekerBase
-{
-public:
-    std::vector<Item> SearchXML( const Item & item, TiXmlDocument& doc ) override;
-    void HandleElementCallback( std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata ) override;
-    inline const char* GetName() override
-    {
+class ItemSeeker : public XMLSeekerBase {
+   public:
+    std::vector<Item> SearchXML(const Item& item, TiXmlDocument& doc) override;
+    void HandleElementCallback(std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata) override;
+    inline const char* GetName() override {
         return "item_seeker";
     }
 };

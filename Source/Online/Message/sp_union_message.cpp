@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: sp_union_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,90 +27,91 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    SPUnionMessage::SPUnionMessage(ObjectID param_id, const std::string& key_name, int32_t value, ScriptParam::ScriptParamType type, ScriptParamEditorType::Type editor_type, const std::string& editor_details) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
-        key_name(key_name), type(type), editor_type(editor_type), editor_details(editor_details)
-    {
-        value_int = value;
-        this->param_id = Online::Instance()->GetOriginalID(param_id);
+SPUnionMessage::SPUnionMessage(ObjectID param_id, const std::string& key_name, int32_t value, ScriptParam::ScriptParamType type, ScriptParamEditorType::Type editor_type, const std::string& editor_details) : OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
+                                                                                                                                                                                                               key_name(key_name),
+                                                                                                                                                                                                               type(type),
+                                                                                                                                                                                                               editor_type(editor_type),
+                                                                                                                                                                                                               editor_details(editor_details) {
+    value_int = value;
+    this->param_id = Online::Instance()->GetOriginalID(param_id);
+}
+
+binn* SPUnionMessage::Serialize(void* object) {
+    SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
+    binn* l = binn_object();
+
+    binn_object_set_int32(l, "param_id", t->param_id);
+    binn_object_set_std_string(l, "key_name", t->key_name);
+    binn_object_set_uint8(l, "type", t->type);
+
+    if (t->type == ScriptParam::ScriptParamType::FLOAT) {
+        binn_object_set_float(l, "value", t->value_float);
+    } else if (t->type == ScriptParam::ScriptParamType::INT) {
+        binn_object_set_int32(l, "value", t->value_int);
+    } else {
+        LOGE << "Unhandled type" << endl;
     }
 
-    binn* SPUnionMessage::Serialize(void* object) {
-        SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
-        binn* l = binn_object();
+    binn_object_set_uint8(l, "editor_type", t->editor_type);
+    binn_object_set_std_string(l, "editor_details", t->editor_details);
 
-        binn_object_set_int32(l, "param_id", t->param_id);
-        binn_object_set_std_string(l, "key_name", t->key_name);
-        binn_object_set_uint8(l, "type", t->type);
+    return l;
+}
 
-        if(t->type == ScriptParam::ScriptParamType::FLOAT) {
-            binn_object_set_float(l, "value", t->value_float);
-        } else if(t->type == ScriptParam::ScriptParamType::INT) {
-            binn_object_set_int32(l, "value", t->value_int);
-        } else {
-            LOGE << "Unhandled type" << endl;
-        }
+void SPUnionMessage::Deserialize(void* object, binn* l) {
+    SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
 
-        binn_object_set_uint8(l, "editor_type", t->editor_type);
-        binn_object_set_std_string(l, "editor_details", t->editor_details);
+    binn_object_get_int32(l, "param_id", &t->param_id);
+    binn_object_get_std_string(l, "key_name", &t->key_name);
 
-        return l;
+    uint8_t type;
+    binn_object_get_uint8(l, "type", &type);
+    t->type = (ScriptParam::ScriptParamType)type;
+
+    if (t->type == ScriptParam::ScriptParamType::FLOAT) {
+        binn_object_get_float(l, "value", &t->value_float);
+    } else if (t->type == ScriptParam::ScriptParamType::INT) {
+        binn_object_get_int32(l, "value", &t->value_int);
+    } else {
+        LOGE << "Unhandled type" << endl;
     }
 
-    void SPUnionMessage::Deserialize(void* object, binn* l) {
-        SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
+    uint8_t editor_type;
+    binn_object_get_uint8(l, "editor_type", &editor_type);
+    t->editor_type = (ScriptParamEditorType::Type)editor_type;
 
-        binn_object_get_int32(l, "param_id", &t->param_id);
-        binn_object_get_std_string(l, "key_name", &t->key_name);
+    binn_object_get_std_string(l, "editor_details", &t->editor_details);
+}
 
-        uint8_t type;
-        binn_object_get_uint8(l, "type", &type);
-        t->type = (ScriptParam::ScriptParamType)type;
+void SPUnionMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
+    ObjectID object_id = Online::Instance()->GetObjectID(t->param_id);
 
-        if(t->type == ScriptParam::ScriptParamType::FLOAT) {
-            binn_object_get_float(l, "value", &t->value_float);
-        } else if(t->type == ScriptParam::ScriptParamType::INT) {
-            binn_object_get_int32(l, "value", &t->value_int);
-        } else {
-            LOGE << "Unhandled type" << endl;
-        }
-
-        uint8_t editor_type;
-        binn_object_get_uint8(l, "editor_type", &editor_type);
-        t->editor_type = (ScriptParamEditorType::Type)editor_type;
-
-        binn_object_get_std_string(l, "editor_details", &t->editor_details);
+    ScriptParam param;
+    if (t->type == ScriptParam::ScriptParamType::FLOAT) {
+        param.SetFloat(t->value_float);
+    } else {
+        param.SetInt(t->value_int);
     }
 
-    void SPUnionMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
-        ObjectID object_id = Online::Instance()->GetObjectID(t->param_id);
+    param.editor().SetDetails(t->editor_details);
+    param.editor().SetType(t->editor_type);
 
-        ScriptParam param;
-        if (t->type == ScriptParam::ScriptParamType::FLOAT) {
-            param.SetFloat(t->value_float);
-        } else {
-            param.SetInt(t->value_int);
-        }
-
-        param.editor().SetDetails(t->editor_details);
-        param.editor().SetType(t->editor_type);
-
-        ScriptParams* params = Online::Instance()->GetScriptParamsFromID(object_id);
-        if(params != nullptr) {
-            params->InsertScriptParam(t->key_name, param);
-            Online::Instance()->UpdateMovementObjectFromID(object_id);
-        } else {
-            LOGW << "Unable to apply script param update for param_id: " << object_id << " (" << t->param_id << ")" << endl;
-        }
-    }
-
-    void* SPUnionMessage::Construct(void *mem) {
-        return new(mem) SPUnionMessage(0, "", 0, ScriptParam::ScriptParamType::OTHER, ScriptParamEditorType::Type::UNDEFINED, "");
-    }
-
-    void SPUnionMessage::Destroy(void* object) {
-        SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
-        t->~SPUnionMessage();
+    ScriptParams* params = Online::Instance()->GetScriptParamsFromID(object_id);
+    if (params != nullptr) {
+        params->InsertScriptParam(t->key_name, param);
+        Online::Instance()->UpdateMovementObjectFromID(object_id);
+    } else {
+        LOGW << "Unable to apply script param update for param_id: " << object_id << " (" << t->param_id << ")" << endl;
     }
 }
+
+void* SPUnionMessage::Construct(void* mem) {
+    return new (mem) SPUnionMessage(0, "", 0, ScriptParam::ScriptParamType::OTHER, ScriptParamEditorType::Type::UNDEFINED, "");
+}
+
+void SPUnionMessage::Destroy(void* object) {
+    SPUnionMessage* t = static_cast<SPUnionMessage*>(object);
+    t->~SPUnionMessage();
+}
+}  // namespace OnlineMessages

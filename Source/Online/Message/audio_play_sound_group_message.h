@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_group_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,18 +25,18 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class AudioPlaySoundGroupMessage : public OnlineMessageBase {
-    private:
-        std::string path;
-        vec3 pos;
+class AudioPlaySoundGroupMessage : public OnlineMessageBase {
+   private:
+    std::string path;
+    vec3 pos;
 
-    public:
-        AudioPlaySoundGroupMessage(const std::string& path, vec3 pos);
+   public:
+    AudioPlaySoundGroupMessage(const std::string& path, vec3 pos);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

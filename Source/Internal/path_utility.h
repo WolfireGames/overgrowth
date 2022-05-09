@@ -26,14 +26,12 @@
 #include <sstream>
 
 /**
- * Utilities for cross system path fixing, 
+ * Utilities for cross system path fixing,
  * mainly to resolve ifstream issues on windows right now
  */
 
-class pathUtility
-{
-public:
-    
+class pathUtility {
+   public:
     // Currently does nothing on non-windows platforms
     static std::string localPathToGlobal(const std::string &path);
     static std::string localPathToGlobal(const char *path);

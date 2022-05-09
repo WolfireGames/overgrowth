@@ -39,7 +39,7 @@
 #include <set>
 
 class SteamworksUGCItem {
-public:
+   public:
     enum UploadVerifyStatus {
         k_UploadVerifyOk = 0,
         k_UploadVerifyInvalidPreviewImage = 1UL << 0,
@@ -47,7 +47,7 @@ public:
         k_UploadVerifyMissingModSource = 1UL << 2,
         k_UploadVerifyWaitingForUpload = 1UL << 3,
         k_UploadVerifyInvalidModFolder = 1UL << 4,
-        k_UploadVerifyUnchangedVersion  = 1UL << 5
+        k_UploadVerifyUnchangedVersion = 1UL << 5
     };
 
     enum UploadDataControl {
@@ -79,12 +79,12 @@ public:
     bool has_eresult_error;
     EResult eresult_error;
 
-    //Stored in the metadata block
+    // Stored in the metadata block
     fixed_string<MOD_ID_MAX_LENGTH> id;
     fixed_string<MOD_VERSION_MAX_LENGTH> version;
     fixed_string<MOD_AUTHOR_MAX_LENGTH> author;
 
-    //Not in the metadata block
+    // Not in the metadata block
     fixed_string<MOD_NAME_MAX_LENGTH> name;
     fixed_string<MOD_DESCRIPTION_MAX_LENGTH> description;
 
@@ -92,8 +92,8 @@ public:
 
     std::set<std::string> tags;
 
-    SteamworksUGCItem( ModID sid );
-    SteamworksUGCItem( PublishedFileId_t id );
+    SteamworksUGCItem(ModID sid);
+    SteamworksUGCItem(PublishedFileId_t id);
 
     std::string GetSteamworksIDString();
 
@@ -111,7 +111,7 @@ public:
 
     void Reload();
 
-    //Function that keeps tabs on some state changes.
+    // Function that keeps tabs on some state changes.
     void Update();
 
     std::string ItemStateString(uint32_t flag);
@@ -120,7 +120,7 @@ public:
     float ItemDownloadProgress();
     uint64_t ItemDataSize();
 
-    float ItemUploadProgress(); 
+    float ItemUploadProgress();
     EItemUpdateStatus GetUpdateStatus();
     const char* UpdateStatusString();
 
@@ -143,32 +143,31 @@ public:
 
     void OnBecameInstalled();
     void OnBecameUninstalled();
-    
-    void OnUGCSteamUGCQueryCompleted( SteamUGCQueryCompleted_t *pResult, bool failed );
+
+    void OnUGCSteamUGCQueryCompleted(SteamUGCQueryCompleted_t* pResult, bool failed);
     CCallResult<SteamworksUGCItem, SteamUGCQueryCompleted_t> m_callSteamUGCQueryCompleted;
 
-    void OnUGCCreateItemResult( CreateItemResult_t *pResult, bool failed );
+    void OnUGCCreateItemResult(CreateItemResult_t* pResult, bool failed);
     CCallResult<SteamworksUGCItem, CreateItemResult_t> m_callResultsCreateItemResult;
 
-    void OnUGCSubmitItemUpdateResult( SubmitItemUpdateResult_t *pResult, bool failed );
+    void OnUGCSubmitItemUpdateResult(SubmitItemUpdateResult_t* pResult, bool failed);
     CCallResult<SteamworksUGCItem, SubmitItemUpdateResult_t> m_callResultSubmitItemUpdateResults;
 
-    void OnUGCGetUserItemVoteResult( GetUserItemVoteResult_t *pResult, bool failed );
+    void OnUGCGetUserItemVoteResult(GetUserItemVoteResult_t* pResult, bool failed);
     CCallResult<SteamworksUGCItem, GetUserItemVoteResult_t> m_callResultGetUserItemVoteResult;
 
-    void OnUGCSetUserItemVoteResult( SetUserItemVoteResult_t *pResult, bool failed );
+    void OnUGCSetUserItemVoteResult(SetUserItemVoteResult_t* pResult, bool failed);
     CCallResult<SteamworksUGCItem, SetUserItemVoteResult_t> m_callResultSetUserItemVoteResult;
 
-    void OnUGCUserFavoriteItemsListChanged( UserFavoriteItemsListChanged_t *pResult, bool failed );
+    void OnUGCUserFavoriteItemsListChanged(UserFavoriteItemsListChanged_t* pResult, bool failed);
     CCallResult<SteamworksUGCItem, UserFavoriteItemsListChanged_t> m_callResultUserFavoriteItemsListChanged;
-    
 
-private:
-    //Disable copying.
+   private:
+    // Disable copying.
     SteamworksUGCItem& operator=(const SteamworksUGCItem& item);
-    SteamworksUGCItem( SteamworksUGCItem& other );
+    SteamworksUGCItem(SteamworksUGCItem& other);
 
-	void UpdateModInstallationInfo();
+    void UpdateModInstallationInfo();
 
     bool waiting_for_details;
     bool waiting_for_create;
@@ -180,11 +179,11 @@ private:
 
     bool was_installed;
 
-    bool favorite; 
-    bool favorite_clean_for_query; //Marker when querying for favorite list, gets set to false when user changes value via game.
+    bool favorite;
+    bool favorite_clean_for_query;  // Marker when querying for favorite list, gets set to false when user changes value via game.
 
     float download_progress;
-	fixed_string<kPathSize> mod_path;
+    fixed_string<kPathSize> mod_path;
     uint64_t mod_data_size;
     bool need_update_installed_size;
 

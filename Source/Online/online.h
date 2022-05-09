@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -116,21 +116,21 @@ struct ZSTD_DCtx_s;
 typedef struct ZSTD_DCtx_s ZSTD_DCtx;
 
 using std::array;
-using std::unordered_map;
-using std::string;
-using std::list;
-using std::vector;
-using std::thread;
-using std::mutex;
-using std::unordered_set;
-using std::numeric_limits;
-using std::lock_guard;
-using std::pair;
 using std::endl;
-using std::to_string;
-using std::stringstream;
-using std::runtime_error;
+using std::list;
+using std::lock_guard;
 using std::map;
+using std::mutex;
+using std::numeric_limits;
+using std::pair;
+using std::runtime_error;
+using std::string;
+using std::stringstream;
+using std::thread;
+using std::to_string;
+using std::unordered_map;
+using std::unordered_set;
+using std::vector;
 
 using namespace OnlineMessages;
 
@@ -182,13 +182,13 @@ typedef OnlineMessageHandlerTemplate<
     SendLevelMessage,
     EditorTransformChange,
     Ping,
-    Pong
-> OnlineMessageHandler;
+    Pong>
+    OnlineMessageHandler;
 
 extern OnlineMessageHandler message_handler;
 
 class Online {
-public:
+   public:
     int compression_level;
 
     string level_name;
@@ -197,14 +197,14 @@ public:
 
     OnlineSession* online_session;
 
-private:
+   private:
     NetFramework net;
 
     OnlineFileTransferHandler online_file_transfer_handler;
 
     vector<char> compressed_serialization_buffer;
     thread socket_thread;
-    unordered_map<string, uint32_t> states; // This is angelscript states, these need to exist independent of Multiplayer to allow for states to be set while not hosting to transfer when starting to host
+    unordered_map<string, uint32_t> states;  // This is angelscript states, these need to exist independent of Multiplayer to allow for states to be set while not hosting to transfer when starting to host
     unordered_map<CommonObjectID, ObjectID> to_object_id;
     unordered_map<ObjectID, CommonObjectID> to_common_id;
 
@@ -224,13 +224,12 @@ private:
     uint32_t last_quarter_update_wall_ticks = 0;
     string default_hot_join_characte_path;
 
-    ZSTD_CCtx *zstdCContext;
-    ZSTD_DCtx *zstdDContext;
+    ZSTD_CCtx* zstdCContext;
+    ZSTD_DCtx* zstdDContext;
 
     map<string, KeyState> client_key_down_map_state;
 
-public:
-
+   public:
     static Online* Instance() {
         static Online online;
         return &online;
@@ -238,7 +237,6 @@ public:
 
     Online();
     void Dispose();
-
 
     bool IsClient() const;
     bool IsActive() const;
@@ -262,13 +260,13 @@ public:
     void AssignNewControllerForPlayer(PlayerID player_id);
     void ClearOnlineSession();
 
-    template<typename Message, typename... Args>
+    template <typename Message, typename... Args>
     OnlineMessageRef& CreateMessage(Args... args);
     void Send(const OnlineMessageRef& message);
     void SendTo(NetConnectionID target, const OnlineMessageRef& message);
-    template<typename Message, typename... Args>
+    template <typename Message, typename... Args>
     void Send(Args... args);
-    template<typename Message, typename... Args>
+    template <typename Message, typename... Args>
     void SendTo(NetConnectionID target, Args... args);
 
     void SendIntFloatScriptParam(uint32_t i, const string& key, const ScriptParam& param);
@@ -294,11 +292,11 @@ public:
     ObjectID CreateCharacter();
     void SetNoDataInterpStepOverRide(float override);
     float GetNoDataInterpStepOverRide() const;
-    void LateUpdate(SceneGraph * scenegraph);
+    void LateUpdate(SceneGraph* scenegraph);
 
     void SyncHostSessionFlags();
     void GenerateEnvObjectSyncPackages(NetConnectionID conn, SceneGraph* graph);
-    void GenerateMovementSyncPackages(NetConnectionID conn, SceneGraph * graph);
+    void GenerateMovementSyncPackages(NetConnectionID conn, SceneGraph* graph);
     void GenerateStateForNewConnection(NetConnectionID conn);
 
     bool CheckLoadedMapAndCampaignState(const string& campagin, const string& level_name);
@@ -323,7 +321,7 @@ public:
     void ClearIDTranslations();
 
     bool SendingRemovePackages() const;
-    void RemoveObject(Object * o, ObjectID my_id);
+    void RemoveObject(Object* o, ObjectID my_id);
     bool NetworkRemoveableType(Object* o) const;
     void ChangeLevel(const string& id);
     void PerformLevelChangeCleanUp();
@@ -334,7 +332,7 @@ public:
     vector<ObjectID> GetLocalAvatarIDs() const;
     PlayerState GenerateHostPlayerState() const;
 
-    void OnConnectionChange(NetFrameworkConnectionStatusChanged *data);
+    void OnConnectionChange(NetFrameworkConnectionStatusChanged* data);
 
     void BroadcastChatMessage(const string& chat_message);
     void SendRawChatMessage(const string& raw_chat_entry);
@@ -342,12 +340,12 @@ public:
     void RemoveOldChatMessages(float threshold);
     const vector<ChatMessage>& GetChatMessages() const;
 
-    void AddPeer(NetFrameworkConnectionStatusChanged *data);
+    void AddPeer(NetFrameworkConnectionStatusChanged* data);
     Peer* GetPeerFromConnection(NetConnectionID conn_id);
     Peer* GetPeerFromID(PeerID peer_id);
 
     bool HasFreeAvatars() const;
-    void UpdateObjects(SceneGraph *scenegraph_);
+    void UpdateObjects(SceneGraph* scenegraph_);
     uint32_t GetNumberOfFreeAvatars() const;
     uint8_t GetPlayerLimit();
     bool IsLobbyFull();
@@ -356,8 +354,8 @@ public:
     void RemoveFreeAvatarId(uint32_t id);
     ObjectID GetFreeAvatarID();
     void AddFreeAvatarId(uint32_t id);
-    void CreateListenSocketIP(const string &localAddress);
-    void ConnectByIPAddress(const string &address);
+    void CreateListenSocketIP(const string& localAddress);
+    void ConnectByIPAddress(const string& address);
 
     bool NetFrameworkHasFriendInviteOverlay() const;
     void ActivateGameOverlayInviteDialog();
@@ -367,32 +365,32 @@ public:
 
     PlayerState GetOwnPlayerState();
 
-    //Host and Client use, used to convert a PlayerInput binding name to a shared integer representation.
+    // Host and Client use, used to convert a PlayerInput binding name to a shared integer representation.
     uint8_t GetBindID(string bind_name);
 
-private:
-    //Explicitally disable copy constructors and assignment to prevent misuse.
-    Online(const Online&)               = delete;
-    Online &operator=(const Online &)   = delete;
-    Online(Online &&)                   = delete;
-    Online &operator=(Online &&)        = delete;
+   private:
+    // Explicitally disable copy constructors and assignment to prevent misuse.
+    Online(const Online&) = delete;
+    Online& operator=(const Online&) = delete;
+    Online(Online&&) = delete;
+    Online& operator=(Online&&) = delete;
 
-    //Host only function, clients get their bindings from the host.
+    // Host only function, clients get their bindings from the host.
     void AssignBindID(string bind_name);
 
-    //Client side cache, not used on the server.
+    // Client side cache, not used on the server.
     void SendPlayerInputState();
     void SendPlayerCameraState();
 
     void CloseConnectionImmediate(NetConnectionID conn, ConnectionClosedReason reason);
 
-    //Functions run inside a separate socket communication thread.
+    // Functions run inside a separate socket communication thread.
     void NetworkDataThread();
     void SendMessages();
     void SendMessageObjects();
     void HandleConnectionsToBeClosed();
 
-    void SendMessageToConnection(NetConnectionID conn_id, char * buffer, uint32_t bytes, bool reliable, bool flush);
+    void SendMessageToConnection(NetConnectionID conn_id, char* buffer, uint32_t bytes, bool reliable, bool flush);
     void SendStateMessages();
 
     void CheckNewMessages();
@@ -401,17 +399,17 @@ private:
     size_t DecompressData(vector<char>& target_buffer, const void* source_buffer, size_t source_size);
 };
 
-template<typename Message, typename... Args>
+template <typename Message, typename... Args>
 void Online::Send(Args... args) {
     Send(message_handler.Create<Message>(args...));
 }
 
-template<typename Message, typename... Args>
+template <typename Message, typename... Args>
 void Online::SendTo(NetConnectionID target, Args... args) {
     SendTo(target, message_handler.Create<Message>(args...));
 }
 
-template<typename Message, typename... Args>
+template <typename Message, typename... Args>
 OnlineMessageRef& Online::CreateMessage(Args... args) {
     return message_handler.Create<Message>(args...);
 }

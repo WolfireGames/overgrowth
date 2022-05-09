@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_assign_player_id.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,39 +26,36 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    PCSAssignPlayerID::PCSAssignPlayerID(PlayerID player_id) :
-        OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
-        player_id(player_id)
-    {
-
-    }
-
-    binn* PCSAssignPlayerID::Serialize(void* object) {
-        PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
-        binn* l = binn_object();
-
-        binn_object_set_uint8(l, "player_id", t->player_id);
-
-        return l;
-    }
-
-    void PCSAssignPlayerID::Deserialize(void* object, binn* l) {
-        PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
-
-        binn_object_get_uint8(l, "player_id", &t->player_id);
-    }
-
-    void PCSAssignPlayerID::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
-        Online::Instance()->online_session->local_player_id = t->player_id;
-    }
-
-    void* PCSAssignPlayerID::Construct(void *mem) {
-        return new(mem) PCSAssignPlayerID(0);
-    }
-
-    void PCSAssignPlayerID::Destroy(void* object) {
-        PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
-        t->~PCSAssignPlayerID();
-    }
+PCSAssignPlayerID::PCSAssignPlayerID(PlayerID player_id) : OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
+                                                           player_id(player_id) {
 }
+
+binn* PCSAssignPlayerID::Serialize(void* object) {
+    PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
+    binn* l = binn_object();
+
+    binn_object_set_uint8(l, "player_id", t->player_id);
+
+    return l;
+}
+
+void PCSAssignPlayerID::Deserialize(void* object, binn* l) {
+    PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
+
+    binn_object_get_uint8(l, "player_id", &t->player_id);
+}
+
+void PCSAssignPlayerID::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
+    Online::Instance()->online_session->local_player_id = t->player_id;
+}
+
+void* PCSAssignPlayerID::Construct(void* mem) {
+    return new (mem) PCSAssignPlayerID(0);
+}
+
+void PCSAssignPlayerID::Destroy(void* object) {
+    PCSAssignPlayerID* t = static_cast<PCSAssignPlayerID*>(object);
+    t->~PCSAssignPlayerID();
+}
+}  // namespace OnlineMessages

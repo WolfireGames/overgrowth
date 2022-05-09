@@ -29,7 +29,7 @@
 #include <string>
 
 using std::string;
- 
+
 enum AmbientSoundType {
     _continuous = 0,
     _occasional = 1
@@ -41,26 +41,26 @@ class AmbientSound : public AssetInfo {
     float delay_min;
     float delay_max;
 
-public:
-    AmbientSound( AssetManager* owner, uint32_t asset_id );
+   public:
+    AmbientSound(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return AMBIENT_SOUND_ASSET; }
     static const char* GetTypeName() { return "AMBIENT_SOUND_ASSET"; }
 
     float GetDelay();
-    const string &GetPath();
+    const string& GetPath();
     AmbientSoundType GetSoundType();
 
     int sub_error;
-    int Load(const string &path, uint32_t load_flags);
+    int Load(const string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
-    
+
     void Reload();
     void ReportLoad() override;
 
     float GetDelayNoLower();
-    void ReturnPaths(PathSet &path_set) override;
+    void ReturnPaths(PathSet& path_set) override;
 
     AssetLoaderBase* NewLoader() override;
     static bool AssetWarning() { return true; }

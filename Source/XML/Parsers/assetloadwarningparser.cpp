@@ -25,29 +25,26 @@
 #include <Utility/strings.h>
 #include <Utility/serialize.h>
 
-AssetLoadWarningParser::AssetWarning::AssetWarning(std::string path, uint32_t load_flags, std::string asset_type, std::string level_name) : 
-path(path),
-load_flags(load_flags),
-asset_type(asset_type),
-level_name(level_name) {
-
+AssetLoadWarningParser::AssetWarning::AssetWarning(std::string path, uint32_t load_flags, std::string asset_type, std::string level_name) : path(path),
+                                                                                                                                            load_flags(load_flags),
+                                                                                                                                            asset_type(asset_type),
+                                                                                                                                            level_name(level_name) {
 }
 
 AssetLoadWarningParser::AssetLoadWarningParser() {
-
 }
 
-uint32_t AssetLoadWarningParser::Load( const std::string& path ) {
-    TiXmlDocument doc( path.c_str() );
+uint32_t AssetLoadWarningParser::Load(const std::string& path) {
+    TiXmlDocument doc(path.c_str());
     doc.LoadFile();
-    if( !doc.Error() ) {
+    if (!doc.Error()) {
         TiXmlElement* pRoot = doc.RootElement();
-        if( pRoot ) {
+        if (pRoot) {
             TiXmlElement* e = pRoot->FirstChildElement("AssetWarning");
-            while(e) {
+            while (e) {
                 uint32_t flags;
                 string_flags_to_uint32(&flags, nullAsEmpty(e->Attribute("load_flags")));
-                asset_warnings.insert(AssetWarning(nullAsEmpty(e->Attribute("path")),flags, nullAsEmpty(e->Attribute("asset_type")),nullAsEmpty(e->Attribute("level_name"))));
+                asset_warnings.insert(AssetWarning(nullAsEmpty(e->Attribute("path")), flags, nullAsEmpty(e->Attribute("asset_type")), nullAsEmpty(e->Attribute("level_name"))));
                 e = e->NextSiblingElement("AssetWarning");
             }
         }
@@ -55,17 +52,19 @@ uint32_t AssetLoadWarningParser::Load( const std::string& path ) {
     return 0;
 }
 
-bool AssetLoadWarningParser::Save( const std::string& path ) {
+bool AssetLoadWarningParser::Save(const std::string& path) {
     TiXmlDocument doc;
-    TiXmlDeclaration * decl = new TiXmlDeclaration( "2.0", "", "" );
-    TiXmlElement * root = new TiXmlElement("AssetWarnings");
+    TiXmlDeclaration* decl = new TiXmlDeclaration("2.0", "", "");
+    TiXmlElement* root = new TiXmlElement("AssetWarnings");
 
-    for(const auto & asset_warning : asset_warnings) {
-        TiXmlElement * e = new TiXmlElement("AssetWarning");
-        e->SetAttribute("asset_type",asset_warning.asset_type.c_str());
-        e->SetAttribute("path",asset_warning.path.c_str());
-        e->SetAttribute("level_name",asset_warning.level_name.c_str());
-        char flags[9]; flags_to_string(flags,asset_warning.load_flags); e->SetAttribute("load_flags",flags);
+    for (const auto& asset_warning : asset_warnings) {
+        TiXmlElement* e = new TiXmlElement("AssetWarning");
+        e->SetAttribute("asset_type", asset_warning.asset_type.c_str());
+        e->SetAttribute("path", asset_warning.path.c_str());
+        e->SetAttribute("level_name", asset_warning.level_name.c_str());
+        char flags[9];
+        flags_to_string(flags, asset_warning.load_flags);
+        e->SetAttribute("load_flags", flags);
         root->LinkEndChild(e);
     }
 
@@ -84,23 +83,23 @@ void AssetLoadWarningParser::AddAssetWarning(AssetWarning asset_warning) {
     asset_warnings.insert(asset_warning);
 }
 
-bool operator<( const AssetLoadWarningParser::AssetWarning& lhs,const AssetLoadWarningParser::AssetWarning& rhs) {
-    if(lhs.asset_type < rhs.asset_type ) { 
+bool operator<(const AssetLoadWarningParser::AssetWarning& lhs, const AssetLoadWarningParser::AssetWarning& rhs) {
+    if (lhs.asset_type < rhs.asset_type) {
         return true;
-    } else if( lhs.asset_type > rhs.asset_type ) {
+    } else if (lhs.asset_type > rhs.asset_type) {
         return false;
     } else {
-        if(lhs.load_flags < rhs.load_flags ) { 
+        if (lhs.load_flags < rhs.load_flags) {
             return true;
-        } else if( lhs.load_flags > rhs.load_flags ) {
+        } else if (lhs.load_flags > rhs.load_flags) {
             return false;
         } else {
-            if( lhs.path < rhs.path ) {
+            if (lhs.path < rhs.path) {
                 return true;
-            } else if( lhs.path > rhs.path ) {
+            } else if (lhs.path > rhs.path) {
                 return false;
             } else {
-                if( lhs.level_name < rhs.level_name ) {
+                if (lhs.level_name < rhs.level_name) {
                     return true;
                 } else if (lhs.level_name > rhs.level_name) {
                     return false;

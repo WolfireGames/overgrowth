@@ -30,21 +30,20 @@
 
 #include <vector>
 
-class LevelInfoAsset : public Asset
-{
-private:
-    LevelXMLParser levelparser;  
+class LevelInfoAsset : public Asset {
+   private:
+    LevelXMLParser levelparser;
     std::string path;
 
-public:
-    LevelInfoAsset( AssetManager* owner, uint32_t asset_id );
+   public:
+    LevelInfoAsset(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return LEVEL_INFO_ASSET; }
     static const char* GetTypeName() { return "LEVEL_INFO_ASSET"; }
     const char* GetLoadErrorString() { return ""; }
     const char* GetLoadErrorStringExtended() { return ""; }
     static bool AssetWarning() { return false; }
 
-    int Load( const std::string &path, uint32_t load_flags );
+    int Load(const std::string& path, uint32_t load_flags);
     void ReportLoad() override;
     AssetLoaderBase* NewLoader() override;
     void Unload();

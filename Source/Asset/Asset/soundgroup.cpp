@@ -32,34 +32,36 @@
 #include <tinyxml.h>
 #include <sstream>
 
-SoundGroup::SoundGroup( AssetManager* owner, uint32_t asset_id ) : Asset( owner, asset_id ), sub_error(0) {
+SoundGroup::SoundGroup(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id), sub_error(0) {
 }
 
 void SoundGroup::Reload() {
     Load(path_, 0x0);
 }
 
-int SoundGroup::Load( const std::string &path, uint32_t load_flags ) {
-    //SoundGroupInfoCollection::Instance()->ReturnRef(path);
+int SoundGroup::Load(const std::string& path, uint32_t load_flags) {
+    // SoundGroupInfoCollection::Instance()->ReturnRef(path);
     sound_group_info = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroupInfo>(path);
 
-    history_size = int(float(sound_group_info->GetNumVariants())/2.0f);
+    history_size = int(float(sound_group_info->GetNumVariants()) / 2.0f);
     history.clear();
     history.resize(history_size, -1);
     history_index = 0;
 
     LOGD.Format("Soundgroup: %s\n", path.c_str());
-    //LOGD.Format("Num variants: %d\n", num_variants);
-    //LOGD.Format("Delay: %f\n", delay);
-    //LOGD.Format("Volume: %f\n", volume);
+    // LOGD.Format("Num variants: %d\n", num_variants);
+    // LOGD.Format("Delay: %f\n", delay);
+    // LOGD.Format("Volume: %f\n", volume);
     return kLoadOk;
 }
 
 const char* SoundGroup::GetLoadErrorString() {
-    switch(sub_error) {
-        case 0:  return "";
-        default: return "Undefined Errors";
-    } 
+    switch (sub_error) {
+        case 0:
+            return "";
+        default:
+            return "Undefined Errors";
+    }
 }
 
 void SoundGroup::Unload() {
@@ -68,20 +70,20 @@ void SoundGroup::Unload() {
 std::string SoundGroup::GetSoundPath() {
     bool bad_choice = true;
     int choice;
-    while(bad_choice){
-        choice = rand()%(sound_group_info->GetNumVariants());
+    while (bad_choice) {
+        choice = rand() % (sound_group_info->GetNumVariants());
         bad_choice = false;
-        for(int i=0; i<history_size; ++i){
-            if(choice == history[i]){
+        for (int i = 0; i < history_size; ++i) {
+            if (choice == history[i]) {
                 bad_choice = true;
                 break;
             }
         }
     }
 
-    if(history_size){
+    if (history_size) {
         history[history_index++] = choice;
-        history_index = history_index%history_size;
+        history_index = history_index % history_size;
     }
 
     return sound_group_info->GetSoundPath(choice);
@@ -110,4 +112,3 @@ float SoundGroup::GetMaxDistance() const {
 AssetLoaderBase* SoundGroup::NewLoader() {
     return new FallbackAssetLoader<SoundGroup>();
 }
-

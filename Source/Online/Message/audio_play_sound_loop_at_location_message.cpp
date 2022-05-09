@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_loop_at_location_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,50 +26,49 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    AudioPlaySoundLoopAtLocationMessage::AudioPlaySoundLoopAtLocationMessage(const std::string& path, float gain, vec3 pos) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        path(path), gain(gain), pos(pos)
-    {
-
-    }
-
-    binn* AudioPlaySoundLoopAtLocationMessage::Serialize(void* object) {
-        AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
-        binn* l = binn_object();
-
-        binn_object_set_std_string(l, "path", t->path);
-        binn_object_set_vec3(l, "pos", t->pos);
-        binn_object_set_float(l, "gain", t->gain);
-
-        return l;
-    }
-
-    void AudioPlaySoundLoopAtLocationMessage::Deserialize(void* object, binn* l) {
-        AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
-
-        binn_object_get_std_string(l, "path", &t->path);
-        binn_object_get_vec3(l, "pos", &t->pos);
-        binn_object_get_float(l, "gain", &t->gain);
-    }
-
-    void AudioPlaySoundLoopAtLocationMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
-
-        SoundPlayInfo spi;
-        spi.path = t->path;
-        spi.looping = true;
-        spi.volume = t->gain;
-        spi.position = t->pos;
-        int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
-        Engine::Instance()->GetSound()->Play(handle, spi);
-    }
-
-    void* AudioPlaySoundLoopAtLocationMessage::Construct(void *mem) {
-        return new(mem) AudioPlaySoundLoopAtLocationMessage("", 0.0f, vec3());
-    }
-
-    void AudioPlaySoundLoopAtLocationMessage::Destroy(void* object) {
-        AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
-        t->~AudioPlaySoundLoopAtLocationMessage();
-    }
+AudioPlaySoundLoopAtLocationMessage::AudioPlaySoundLoopAtLocationMessage(const std::string& path, float gain, vec3 pos) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                                                          path(path),
+                                                                                                                          gain(gain),
+                                                                                                                          pos(pos) {
 }
+
+binn* AudioPlaySoundLoopAtLocationMessage::Serialize(void* object) {
+    AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
+    binn* l = binn_object();
+
+    binn_object_set_std_string(l, "path", t->path);
+    binn_object_set_vec3(l, "pos", t->pos);
+    binn_object_set_float(l, "gain", t->gain);
+
+    return l;
+}
+
+void AudioPlaySoundLoopAtLocationMessage::Deserialize(void* object, binn* l) {
+    AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
+
+    binn_object_get_std_string(l, "path", &t->path);
+    binn_object_get_vec3(l, "pos", &t->pos);
+    binn_object_get_float(l, "gain", &t->gain);
+}
+
+void AudioPlaySoundLoopAtLocationMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
+
+    SoundPlayInfo spi;
+    spi.path = t->path;
+    spi.looping = true;
+    spi.volume = t->gain;
+    spi.position = t->pos;
+    int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
+    Engine::Instance()->GetSound()->Play(handle, spi);
+}
+
+void* AudioPlaySoundLoopAtLocationMessage::Construct(void* mem) {
+    return new (mem) AudioPlaySoundLoopAtLocationMessage("", 0.0f, vec3());
+}
+
+void AudioPlaySoundLoopAtLocationMessage::Destroy(void* object) {
+    AudioPlaySoundLoopAtLocationMessage* t = static_cast<AudioPlaySoundLoopAtLocationMessage*>(object);
+    t->~AudioPlaySoundLoopAtLocationMessage();
+}
+}  // namespace OnlineMessages

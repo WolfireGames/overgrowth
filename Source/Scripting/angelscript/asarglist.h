@@ -29,18 +29,26 @@
 #include <list>
 #include <vector>
 
-enum ASArgType {_as_char, _as_int, _as_unsigned, _as_float, _as_double, 
-              _as_address, _as_object, _as_bool, _as_string, _as_json };
+enum ASArgType { _as_char,
+                 _as_int,
+                 _as_unsigned,
+                 _as_float,
+                 _as_double,
+                 _as_address,
+                 _as_object,
+                 _as_bool,
+                 _as_string,
+                 _as_json };
 
 struct ASArg {
     ASArgType type;
-    void* data;
+    void *data;
     std::string strData;
     SimpleJSONWrapper jsonData;
 };
 
 class ASArglist {
-    public:
+   public:
     std::vector<ASArg> args;
     std::list<asBYTE> local_char_copies;
     std::list<asDWORD> local_int_copies;
@@ -48,13 +56,13 @@ class ASArglist {
     std::list<float> local_float_copies;
     std::list<double> local_double_copies;
 
-    ASArglist(){}
-    
+    ASArglist() {}
+
     unsigned size() const {
-        return (unsigned) args.size();
+        return (unsigned)args.size();
     }
 
-    const ASArg& operator[](int which) const{
+    const ASArg &operator[](int which) const {
         return args[which];
     }
 
@@ -69,60 +77,60 @@ class ASArglist {
 
     void Add(const char &val) {
         local_char_copies.push_back(val);
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_char;
-        args.back().data = (void*)&(local_char_copies.back());
+        args.back().data = (void *)&(local_char_copies.back());
     }
 
     void Add(const bool &val) {
         local_char_copies.push_back(val);
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_bool;
-        args.back().data = (void*)&(local_char_copies.back());
+        args.back().data = (void *)&(local_char_copies.back());
     }
 
     void Add(const int &val) {
         local_int_copies.push_back(val);
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_int;
-        args.back().data = (void*)&(local_int_copies.back());
+        args.back().data = (void *)&(local_int_copies.back());
     }
 
     void Add(const unsigned &val) {
         local_unsigned_copies.push_back(val);
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_unsigned;
-        args.back().data = (void*)&(local_unsigned_copies.back());
+        args.back().data = (void *)&(local_unsigned_copies.back());
     }
 
     void Add(const float &val) {
         local_float_copies.push_back(val);
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_float;
-        args.back().data = (void*)&(local_float_copies.back());
+        args.back().data = (void *)&(local_float_copies.back());
     }
 
     void Add(const double &val) {
         local_double_copies.push_back(val);
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_double;
-        args.back().data = (void*)&(local_double_copies.back());
+        args.back().data = (void *)&(local_double_copies.back());
     }
 
     void AddObject(void *val) {
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_object;
         args.back().data = val;
     }
 
     void AddAddress(void *val) {
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_address;
         args.back().data = val;
     }
 
     void AddString(std::string *str) {
-        args.resize(args.size()+1);
+        args.resize(args.size() + 1);
         args.back().type = _as_string;
         args.back().data = str;
     }

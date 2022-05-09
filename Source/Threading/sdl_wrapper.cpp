@@ -2,7 +2,7 @@
 //           Name: sdl_wrapper.cpp
 //      Developer: Wolfire Games LLC
 //         Author: Max Danielsson
-//    Description: This is a threadsafe wrapper around functions in SDL known 
+//    Description: This is a threadsafe wrapper around functions in SDL known
 //                 to be used from mutiple threads.
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -30,10 +30,9 @@
 
 static std::mutex GetTicks_mutex;
 
-unsigned int SDL_TS_GetTicks()
-{
+unsigned int SDL_TS_GetTicks() {
     unsigned int v = 0;
-    GetTicks_mutex.lock();    
+    GetTicks_mutex.lock();
     v = SDL_GetTicks();
     GetTicks_mutex.unlock();
     return v;

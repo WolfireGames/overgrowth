@@ -40,7 +40,7 @@ class TheoraMemoryFileDataSource;
 class AssetManager;
 
 class AnimationEffect : public Asset {
-public:
+   public:
     string video_path;
     vector<TextureAssetRef> frames;
     int frame_rate;
@@ -48,17 +48,17 @@ public:
     void clear();
 
     int sub_error;
-    int Load(const string &path, uint32_t load_flags);
+    int Load(const string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
-    
+
     void Unload();
     void Reload();
     void ReportLoad() override;
 
     ~AnimationEffect() override;
     AnimationEffect(AssetManager* owner, uint32_t asset_id);
-    
+
     static AssetType GetType() { return ANIMATION_EFFECT_ASSET; }
     static const char* GetTypeName() { return "ANIMATION_EFFECT_ASSET"; }
 
@@ -73,18 +73,18 @@ class AnimationEffectReader {
     float time;
     AnimationEffectRef ae_ref;
     bool use_theora;
-    TheoraVideoClip *clip;
+    TheoraVideoClip* clip;
     TheoraMemoryFileDataSource* clip_mem;
     TextureRef clip_tex;
-public:
+
+   public:
     bool Done();
     void Dispose();
     void Update(float timestep);
     bool valid();
     void AttachTo(const AnimationEffectRef& _ae_ref);
-    TextureRef &GetTextureAssetRef();
+    TextureRef& GetTextureAssetRef();
     AnimationEffectReader();
     AnimationEffectReader(const AnimationEffectReader& other);
     ~AnimationEffectReader();
 };
-

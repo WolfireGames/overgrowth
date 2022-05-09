@@ -31,33 +31,33 @@
 using namespace std;
 
 static void AssignVec32StringGeneric(asIScriptGeneric *gen) {
-    vec3 *a = static_cast<vec3*>(gen->GetAddressOfArg(0));
-    string *self = static_cast<string*>(gen->GetObject());
+    vec3 *a = static_cast<vec3 *>(gen->GetAddressOfArg(0));
+    string *self = static_cast<string *>(gen->GetObject());
     std::stringstream sstr;
     sstr << *a;
     *self = sstr.str();
     gen->SetReturnAddress(self);
 }
 
-static void AddAssignVec32StringGeneric(asIScriptGeneric * gen) {
-    vec3 *a = static_cast<vec3*>(gen->GetAddressOfArg(0));
-    string * self = static_cast<string *>(gen->GetObject());
+static void AddAssignVec32StringGeneric(asIScriptGeneric *gen) {
+    vec3 *a = static_cast<vec3 *>(gen->GetAddressOfArg(0));
+    string *self = static_cast<string *>(gen->GetObject());
     std::stringstream sstr;
     sstr << *a;
     *self += sstr.str();
     gen->SetReturnAddress(self);
 }
-static void AddString2Vec3Generic(asIScriptGeneric * gen) {
-    string * a = static_cast<string *>(gen->GetObject());
-    vec3 *b = static_cast<vec3*>(gen->GetAddressOfArg(0));
+static void AddString2Vec3Generic(asIScriptGeneric *gen) {
+    string *a = static_cast<string *>(gen->GetObject());
+    vec3 *b = static_cast<vec3 *>(gen->GetAddressOfArg(0));
     std::stringstream sstr;
     sstr << *a << *b;
     std::string ret_val = sstr.str();
     gen->SetReturnObject(&ret_val);
 }
 
-static void AddVec32StringGeneric(asIScriptGeneric * gen) {
-    vec3 *a = static_cast<vec3*>(gen->GetAddressOfArg(0));
+static void AddVec32StringGeneric(asIScriptGeneric *gen) {
+    vec3 *a = static_cast<vec3 *>(gen->GetAddressOfArg(0));
     string *b = static_cast<string *>(gen->GetObject());
     std::stringstream sstr;
     sstr << *a << *b;
@@ -65,7 +65,7 @@ static void AddVec32StringGeneric(asIScriptGeneric * gen) {
     gen->SetReturnObject(&ret_val);
 }
 
-void RegisterStdString_Extend(ASContext* ctx) {
+void RegisterStdString_Extend(ASContext *ctx) {
     ctx->RegisterObjectMethod("string", "string &opAssign(vec3)", asFUNCTION(AssignVec32StringGeneric), asCALL_GENERIC, "These 4 functions allow us to append vec3s to strings");
     ctx->RegisterObjectMethod("string", "string &opAddAssign(vec3)", asFUNCTION(AddAssignVec32StringGeneric), asCALL_GENERIC);
     ctx->RegisterObjectMethod("string", "string opAdd(vec3) const", asFUNCTION(AddString2Vec3Generic), asCALL_GENERIC);

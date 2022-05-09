@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: host_session_flag.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,18 +26,18 @@
 #include <Online/online_datastructures.h>
 
 namespace OnlineMessages {
-    class HostSessionFlag : public OnlineMessageBase {
-    public:
-        OnlineFlags flag;
-        bool value;
+class HostSessionFlag : public OnlineMessageBase {
+   public:
+    OnlineFlags flag;
+    bool value;
 
-    public:
-        HostSessionFlag(OnlineFlags flag, bool value);
+   public:
+    HostSessionFlag(OnlineFlags flag, bool value);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

@@ -20,18 +20,16 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include "jsonseekerbase.h"
 
-namespace Json
-{
-    class  Value;
+namespace Json {
+class Value;
 }
 
-class SpawnerListSeeker : public JSONSeekerBase
-{
-public:
-    std::vector<Item> SearchJSON( const Item & item, Json::Value& root ) override;
+class SpawnerListSeeker : public JSONSeekerBase {
+   public:
+    std::vector<Item> SearchJSON(const Item& item, Json::Value& root) override;
     const char* GetName() override { return "spawner_list_seeker"; }
 };

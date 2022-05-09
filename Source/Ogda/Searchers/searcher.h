@@ -34,16 +34,14 @@
 class JobHandler;
 class TiXmlElement;
 
-class Searcher 
-{
-public:
-
-    Searcher( SeekerBase* seeker, const std::string& path_ending, const std::string& type_pattern_re );
+class Searcher {
+   public:
+    Searcher(SeekerBase* seeker, const std::string& path_ending, const std::string& type_pattern_re);
     bool IsMatch(const Item& t);
-    std::vector<Item> TrySearch( JobHandler& jh, const Item& item, int* matchcounter );
+    std::vector<Item> TrySearch(JobHandler& jh, const Item& item, int* matchcounter);
     std::string GetSeekerName();
 
-private:
+   private:
     std::string path_ending;
     ReferenceCounter<TRexpp> type_pattern;
     ReferenceCounter<SeekerBase> seeker;

@@ -25,7 +25,6 @@
 #include <Logging/logdata.h>
 #include <Ogda/item.h>
 
-std::vector<Item> VoidSeeker::Search( const Item& item )
-{
-	return std::vector<Item>();
+std::vector<Item> VoidSeeker::Search(const Item& item) {
+    return std::vector<Item>();
 }

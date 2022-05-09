@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: modloading.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -44,20 +44,19 @@ enum class ModVisibilityOptions {
     Private = 2,
 };
 
-static const char* mod_visibility_options[] = { "Public", "Friends", "Private" };
+static const char* mod_visibility_options[] = {"Public", "Friends", "Private"};
 
 #if ENABLE_STEAMWORKS
-const ERemoteStoragePublishedFileVisibility mod_visibility_map[] = { k_ERemoteStoragePublishedFileVisibilityPublic, 
-                                                                         k_ERemoteStoragePublishedFileVisibilityFriendsOnly,
-                                                                         k_ERemoteStoragePublishedFileVisibilityPrivate };
+const ERemoteStoragePublishedFileVisibility mod_visibility_map[] = {k_ERemoteStoragePublishedFileVisibilityPublic,
+                                                                    k_ERemoteStoragePublishedFileVisibilityFriendsOnly,
+                                                                    k_ERemoteStoragePublishedFileVisibilityPrivate};
 static char edit_tags_field[k_cchTagListMax] = "";
 #endif
 
-const int update_to_visibilty_options_count = sizeof(mod_visibility_options)/sizeof(mod_visibility_options[0]);
+const int update_to_visibilty_options_count = sizeof(mod_visibility_options) / sizeof(mod_visibility_options[0]);
 
-class ModInstance
-{
-public:
+class ModInstance {
+   public:
     struct Attribute {
         fixed_string<MOD_ATTRIBUTE_ID_MAX_LENGTH> id;
         fixed_string<MOD_ATTRIBUTE_VALUE_MAX_LENGTH> value;
@@ -68,7 +67,7 @@ public:
         std::vector<std::string> versions;
     };
 
-    struct MenuItem  {
+    struct MenuItem {
         fixed_string<MOD_MENU_ITEM_TITLE_MAX_LENGTH> title;
         fixed_string<MOD_MENU_ITEM_CATEGORY_MAX_LENGTH> category;
         fixed_string<MOD_MENU_ITEM_PATH_MAX_LENGTH> path;
@@ -91,8 +90,8 @@ public:
         fixed_string<MOD_LEVEL_THUMBNAIL_MAX_LENGTH> thumbnail;
         fixed_string<MOD_LEVEL_PATH_MAX_LENGTH> path;
         bool completion_optional;
-		bool supports_online;
-		bool requires_online;
+        bool supports_online;
+        bool requires_online;
         Parameter parameter;
     };
 
@@ -111,114 +110,113 @@ public:
         fixed_string<MOD_CAMPAIGN_MAIN_SCRIPT_PATH_MAX_LENGTH> main_script;
 
         std::vector<ModInstance::Attribute> attributes;
-        std::vector<ModInstance::Level> levels;  
+        std::vector<ModInstance::Level> levels;
         Parameter parameter;
-		bool supports_online;
-		bool requires_online;
+        bool supports_online;
+        bool requires_online;
     };
 
-    struct Pose
-    {
+    struct Pose {
         fixed_string<MOD_POSE_NAME_MAX_LENGTH> name;
         fixed_string<MOD_POSE_NAME_MAX_LENGTH> command;
         fixed_string<MOD_POSE_PATH_MAX_LENGTH> path;
     };
 
-    static const ModValidity kValidityValid                        ; 
-    static const ModValidity kValidityBrokenXml                    ; 
-    static const ModValidity kValidityInvalidVersion               ; 
-    static const ModValidity kValidityMissingReadRights            ; 
-    static const ModValidity kValidityMissingXml                   ; 
-    static const ModValidity kValidityUnloaded                     ; 
-    static const ModValidity kValidityUnsupportedOvergrowthVersion ; 
-    static const ModValidity kValidityNoDataOnDisk                 ; 
-    static const ModValidity kValiditySteamworksError              ; 
-    static const ModValidity kValidityNotInstalled                 ; 
-    static const ModValidity kValidityNotSubscribed                ; 
+    static const ModValidity kValidityValid;
+    static const ModValidity kValidityBrokenXml;
+    static const ModValidity kValidityInvalidVersion;
+    static const ModValidity kValidityMissingReadRights;
+    static const ModValidity kValidityMissingXml;
+    static const ModValidity kValidityUnloaded;
+    static const ModValidity kValidityUnsupportedOvergrowthVersion;
+    static const ModValidity kValidityNoDataOnDisk;
+    static const ModValidity kValiditySteamworksError;
+    static const ModValidity kValidityNotInstalled;
+    static const ModValidity kValidityNotSubscribed;
 
-    static const ModValidity kValidityIDTooLong                    ; 
-    static const ModValidity kValidityIDMissing                    ; 
-    static const ModValidity kValidityIDInvalid                    ; 
+    static const ModValidity kValidityIDTooLong;
+    static const ModValidity kValidityIDMissing;
+    static const ModValidity kValidityIDInvalid;
 
-    static const ModValidity kValidityNameTooLong                  ; 
-    static const ModValidity kValidityVersionTooLong               ; 
-    static const ModValidity kValidityAuthorTooLong                ; 
+    static const ModValidity kValidityNameTooLong;
+    static const ModValidity kValidityVersionTooLong;
+    static const ModValidity kValidityAuthorTooLong;
 
-    static const ModValidity kValidityDescriptionTooLong           ; 
-    static const ModValidity kValidityThumbnailMaxLength           ; 
-    static const ModValidity kValidityTagsListTooLong              ; 
+    static const ModValidity kValidityDescriptionTooLong;
+    static const ModValidity kValidityThumbnailMaxLength;
+    static const ModValidity kValidityTagsListTooLong;
 
-    static const ModValidity kValidityMenuItemTitleTooLong         ; 
-    static const ModValidity kValidityMenuItemTitleMissing         ; 
+    static const ModValidity kValidityMenuItemTitleTooLong;
+    static const ModValidity kValidityMenuItemTitleMissing;
 
-    static const ModValidity kValidityMenuItemCategoryTooLong      ; 
-    static const ModValidity kValidityMenuItemCategoryMissing      ; 
+    static const ModValidity kValidityMenuItemCategoryTooLong;
+    static const ModValidity kValidityMenuItemCategoryMissing;
 
-    static const ModValidity kValidityMenuItemPathTooLong          ; 
-    static const ModValidity kValidityMenuItemPathMissing          ; 
-    static const ModValidity kValidityMenuItemPathInvalid          ; 
+    static const ModValidity kValidityMenuItemPathTooLong;
+    static const ModValidity kValidityMenuItemPathMissing;
+    static const ModValidity kValidityMenuItemPathInvalid;
 
-    static const ModValidity kValidityInvalidTag                   ; 
+    static const ModValidity kValidityInvalidTag;
 
-    static const ModValidity kValidityIDCollision                  ; 
-    static const ModValidity kValidityActiveModCollision           ; 
+    static const ModValidity kValidityIDCollision;
+    static const ModValidity kValidityActiveModCollision;
 
-    static const ModValidity kValidityMissingName                  ; 
-    static const ModValidity kValidityMissingAuthor                ; 
-    static const ModValidity kValidityMissingDescription           ; 
-    static const ModValidity kValidityMissingThumbnail             ; 
-    static const ModValidity kValidityMissingThumbnailFile         ; 
-    static const ModValidity kValidityMissingVersion               ; 
+    static const ModValidity kValidityMissingName;
+    static const ModValidity kValidityMissingAuthor;
+    static const ModValidity kValidityMissingDescription;
+    static const ModValidity kValidityMissingThumbnail;
+    static const ModValidity kValidityMissingThumbnailFile;
+    static const ModValidity kValidityMissingVersion;
 
-    static const ModValidity kValidityCampaignTitleTooLong         ; 
-    static const ModValidity kValidityCampaignTitleMissing         ; 
+    static const ModValidity kValidityCampaignTitleTooLong;
+    static const ModValidity kValidityCampaignTitleMissing;
 
-    static const ModValidity kValidityCampaignTypeTooLong          ; 
-    static const ModValidity kValidityCampaignTypeMissing          ; 
+    static const ModValidity kValidityCampaignTypeTooLong;
+    static const ModValidity kValidityCampaignTypeMissing;
 
-    static const ModValidity kValidityCampaignIsLinearInvalidEnum  ; 
+    static const ModValidity kValidityCampaignIsLinearInvalidEnum;
 
-    static const ModValidity kValidityLevelTitleTooLong            ; 
-    static const ModValidity kValidityLevelTitleMissing            ; 
+    static const ModValidity kValidityLevelTitleTooLong;
+    static const ModValidity kValidityLevelTitleMissing;
 
-    static const ModValidity kValidityLevelPathTooLong             ; 
-    static const ModValidity kValidityLevelPathMissing             ; 
-    static const ModValidity kValidityLevelPathInvalid             ; 
+    static const ModValidity kValidityLevelPathTooLong;
+    static const ModValidity kValidityLevelPathMissing;
+    static const ModValidity kValidityLevelPathInvalid;
 
-    static const ModValidity kValidityLevelThumbnailTooLong        ; 
-    static const ModValidity kValidityLevelThumbnailMissing        ; 
-    static const ModValidity kValidityLevelThumbnailInvalid        ; 
-    static const ModValidity kValidityInvalidPreviewImage          ; 
-    static const ModValidity kValidityInvalidSupportedVersion      ; 
-    static const ModValidity kValidityInvalidLevelHookFile         ; 
-    static const ModValidity kValidityInvalidNeedRestart           ; 
+    static const ModValidity kValidityLevelThumbnailTooLong;
+    static const ModValidity kValidityLevelThumbnailMissing;
+    static const ModValidity kValidityLevelThumbnailInvalid;
+    static const ModValidity kValidityInvalidPreviewImage;
+    static const ModValidity kValidityInvalidSupportedVersion;
+    static const ModValidity kValidityInvalidLevelHookFile;
+    static const ModValidity kValidityInvalidNeedRestart;
 
-    static const ModValidity kValidityItemTitleTooLong             ; 
-    static const ModValidity kValidityItemTitleMissing             ; 
+    static const ModValidity kValidityItemTitleTooLong;
+    static const ModValidity kValidityItemTitleMissing;
 
-    static const ModValidity kValidityItemCategoryTooLong          ; 
-    static const ModValidity kValidityItemCategoryMissing          ; 
+    static const ModValidity kValidityItemCategoryTooLong;
+    static const ModValidity kValidityItemCategoryMissing;
 
-    static const ModValidity kValidityItemPathTooLong              ; 
-    static const ModValidity kValidityItemPathMissing              ; 
-    static const ModValidity kValidityItemPathFileMissing          ; 
+    static const ModValidity kValidityItemPathTooLong;
+    static const ModValidity kValidityItemPathMissing;
+    static const ModValidity kValidityItemPathFileMissing;
 
-    static const ModValidity kValidityItemThumbnailTooLong         ; 
-    static const ModValidity kValidityItemThumbnailMissing         ; 
-    static const ModValidity kValidityItemThumbnailFileMissing     ; 
+    static const ModValidity kValidityItemThumbnailTooLong;
+    static const ModValidity kValidityItemThumbnailMissing;
+    static const ModValidity kValidityItemThumbnailFileMissing;
 
-    static const ModValidity kValidityCategoryTooLong              ; 
-    static const ModValidity kValidityCategoryMissing              ; 
+    static const ModValidity kValidityCategoryTooLong;
+    static const ModValidity kValidityCategoryMissing;
 
-    static const ModValidity kValidityCampaignThumbnailMissing     ;
-    static const ModValidity kValidityCampaignThumbnailTooLong     ;
-    static const ModValidity kValidityCampaignThumbnailInvalid     ;
+    static const ModValidity kValidityCampaignThumbnailMissing;
+    static const ModValidity kValidityCampaignThumbnailTooLong;
+    static const ModValidity kValidityCampaignThumbnailInvalid;
 
-    static const ModValidity kValidityMenuItemThumbnailTooLong     ;
-    static const ModValidity kValidityMenuItemThumbnailInvalid     ;
+    static const ModValidity kValidityMenuItemThumbnailTooLong;
+    static const ModValidity kValidityMenuItemThumbnailInvalid;
 
-    static const ModValidity kValidityCampaignMenuScriptTooLong    ;
-    static const ModValidity kValidityMainScriptTooLong            ;
+    static const ModValidity kValidityCampaignMenuScriptTooLong;
+    static const ModValidity kValidityMainScriptTooLong;
 
     static const ModValidity kValidityAttributeIdTooLong;
     static const ModValidity kValidityAttributeIdInvalid;
@@ -227,7 +225,7 @@ public:
     static const ModValidity kValidityAttributeValueInvalid;
 
     static const ModValidity kValidityLevelIdTooLong;
-    
+
     static const ModValidity kValidityCampaignIDTooLong;
     static const ModValidity kValidityCampaignIDMissing;
 
@@ -246,26 +244,26 @@ public:
     static const ModValidity kValidityPoseCommandTooLong;
     static const ModValidity kValidityPoseCommandMissing;
 
-    static const uint64_t kValidityFlagCount                   = 91;
+    static const uint64_t kValidityFlagCount = 91;
 
-    static const ModValidity kValidityUploadSteamworksBlockingMask ;
-    static const ModValidity kValidityActivationBreakingErrorMask  ;
+    static const ModValidity kValidityUploadSteamworksBlockingMask;
+    static const ModValidity kValidityActivationBreakingErrorMask;
 
-    static const ModValidity kValidityCampaignMenuMusicTooLong          ; 
-    static const ModValidity kValidityCampaignMenuMusicMissing          ; 
-    
-    static const uint32_t k_UploadValidityOk                      = 0;
-    static const uint32_t k_UploadValidityGenericValidityError    = 1UL << 0; //If any of the standard kValidity values are set, we don't allow an upload.
-    static const uint32_t k_UploadValidityInvalidPreviewImage     = 1UL << 1;
-    static const uint32_t k_UploadValidityMissingPreview          = 1UL << 2;
-    static const uint32_t k_UploadValidityInvalidModFolder        = 1UL << 3;
-    static const uint32_t k_UploadValidityBrokenXml               = 1UL << 4;
-    static const uint32_t k_UploadValidityInvalidID               = 1UL << 5;
-    static const uint32_t k_UploadValidityInvalidVersion          = 1UL << 6;
-    static const uint32_t k_UploadValidityMissingReadRights       = 1UL << 7;
-    static const uint32_t k_UploadValidityMissingXml              = 1UL << 8;
-    static const uint32_t k_UploadValidityInvalidThumbnail        = 1UL << 9;
-    static const uint32_t k_UploadValidityOversizedPreviewImage   = 1UL << 10;
+    static const ModValidity kValidityCampaignMenuMusicTooLong;
+    static const ModValidity kValidityCampaignMenuMusicMissing;
+
+    static const uint32_t k_UploadValidityOk = 0;
+    static const uint32_t k_UploadValidityGenericValidityError = 1UL << 0;  // If any of the standard kValidity values are set, we don't allow an upload.
+    static const uint32_t k_UploadValidityInvalidPreviewImage = 1UL << 1;
+    static const uint32_t k_UploadValidityMissingPreview = 1UL << 2;
+    static const uint32_t k_UploadValidityInvalidModFolder = 1UL << 3;
+    static const uint32_t k_UploadValidityBrokenXml = 1UL << 4;
+    static const uint32_t k_UploadValidityInvalidID = 1UL << 5;
+    static const uint32_t k_UploadValidityInvalidVersion = 1UL << 6;
+    static const uint32_t k_UploadValidityMissingReadRights = 1UL << 7;
+    static const uint32_t k_UploadValidityMissingXml = 1UL << 8;
+    static const uint32_t k_UploadValidityInvalidThumbnail = 1UL << 9;
+    static const uint32_t k_UploadValidityOversizedPreviewImage = 1UL << 10;
 
     enum UserVote {
         k_VoteUnknown,
@@ -274,7 +272,7 @@ public:
         k_VoteDown
     };
 
-private:
+   private:
     ModValidity valid;
 
     bool is_core;
@@ -284,19 +282,19 @@ private:
     bool explicit_version_support;
     ModID sid;
 
-    //Steamworks specific data
+    // Steamworks specific data
     UGCID ugc_id;
     //---
-    
+
     bool has_been_activated;
-    
+
     static int sid_counter;
 
-public:
-    ModInstance( const std::string &_path );
-    ModInstance( const UGCID _ugc_id );
+   public:
+    ModInstance(const std::string& _path);
+    ModInstance(const UGCID _ugc_id);
 
-    void ParseLevel(ModInstance::Level * dest, TiXmlElement* pElemLevel, uint32_t id_fallback);
+    void ParseLevel(ModInstance::Level* dest, TiXmlElement* pElemLevel, uint32_t id_fallback);
     void ParseParameter(ModInstance::Parameter* dest, TiXmlElement* pElemParameter, const char* parent_type);
 
     void PurgeActiveSettings();
@@ -336,7 +334,7 @@ public:
     void RequestVoteSet(bool voteup);
     void RequestFavoriteSet(bool fav);
 
-    void RequestUpdate( ModID source_sid, const char* update_message, ModVisibilityOptions visibility );
+    void RequestUpdate(ModID source_sid, const char* update_message, ModVisibilityOptions visibility);
     /** End to steamworks specific **/
 
     const char* GetModsourceString() const;
@@ -348,8 +346,8 @@ public:
     std::vector<ModID> GetCollisionsWithActiveMods() const;
     std::vector<ModID> GetIDCollisionsWithActiveMods() const;
 
-    static std::vector<std::string> GenerateValidityErrorsArr( const ModValidity& validity, const ModInstance* instance = NULL );
-    static std::string GenerateValidityErrors( const ModValidity& v, const ModInstance* instance = NULL );
+    static std::vector<std::string> GenerateValidityErrorsArr(const ModValidity& validity, const ModInstance* instance = NULL);
+    static std::string GenerateValidityErrors(const ModValidity& v, const ModInstance* instance = NULL);
     static std::vector<std::string> GetFileCollisions(const ModInstance* lhs, const ModInstance* rhs);
 
     Path GetFullAbsThumbnailPath() const;
@@ -388,61 +386,60 @@ public:
     std::vector<Campaign> campaigns;
 
     std::vector<Pose> poses;
-        
+
     std::vector<std::string> overload_files;
-    std::vector<std::string> manifest; //List of all files in the mod.
+    std::vector<std::string> manifest;  // List of all files in the mod.
 
     struct LevelLocalizationData {
         std::string name;
         std::string loading_screen_tip;
     };
     struct LanguageData {
-        std::string language; // Language name in english
-        std::string local_language; // Language name in the language
+        std::string language;        // Language name in english
+        std::string local_language;  // Language name in the language
         std::map<std::string, LevelLocalizationData> per_level_data;
     };
     // Language shortcode
     std::map<std::string, LanguageData> language_data;
 
-    friend std::ostream& operator<<(std::ostream& os, const ModInstance &mi );
+    friend std::ostream& operator<<(std::ostream& os, const ModInstance& mi);
 };
 
-class ModLoadingCallback
-{
-    public:
-        virtual void ModActivationChange( const ModInstance* mod ) = 0;
+class ModLoadingCallback {
+   public:
+    virtual void ModActivationChange(const ModInstance* mod) = 0;
 
-        virtual ~ModLoadingCallback() {}
+    virtual ~ModLoadingCallback() {}
 };
 
-class ModLoading
-{
-private:
+class ModLoading {
+   private:
     std::vector<ModInstance*> mods;
     std::vector<ModLoadingCallback*> callbacks;
 
     static ModLoading instance;
     ModLoading();
 
-    std::vector<ModInstance*>::iterator GetMod( const std::string& path );
+    std::vector<ModInstance*>::iterator GetMod(const std::string& path);
 
-    //void AddMod( const std::string& path );
-    void RemoveMod( const std::string& path );
-    void ReloadMod( const std::string& path );
+    // void AddMod( const std::string& path );
+    void RemoveMod(const std::string& path);
+    void ReloadMod(const std::string& path);
 
-    void SetMods( std::vector<std::string> modpaths );
+    void SetMods(std::vector<std::string> modpaths);
 
     friend class ModInstance;
-    void TriggerModActivationCallback( ModInstance* mod );
+    void TriggerModActivationCallback(ModInstance* mod);
 
     ActiveModsParser acp;
-public:
+
+   public:
     void AddMod(const std::string& path);
-	std::string WhichCampaignLevelBelongsTo(const std::string& level);
-	bool IsCampaignPresent(const std::string& campaign);
-	bool CampaignHasLevel(const std::string& campaign, const std::string& level_path);
-    ModInstance* GetMod( ModID sid );
-    std::string GetModName( ModID sid );
+    std::string WhichCampaignLevelBelongsTo(const std::string& level);
+    bool IsCampaignPresent(const std::string& campaign);
+    bool CampaignHasLevel(const std::string& campaign, const std::string& level_path);
+    ModInstance* GetMod(ModID sid);
+    std::string GetModName(ModID sid);
     std::string GetModID(ModID sid);
     bool IsActive(ModID sid);
     bool IsActive(std::string id);
@@ -465,13 +462,13 @@ public:
     void Reload();
 
 #if ENABLE_STEAMWORKS
-    ModID CreateSteamworksMod( UGCID steamworks_id );
+    ModID CreateSteamworksMod(UGCID steamworks_id);
 #endif
 
-    void RegisterCallback( ModLoadingCallback * callback );
-    void DeRegisterCallback( ModLoadingCallback * callback );
+    void RegisterCallback(ModLoadingCallback* callback);
+    void DeRegisterCallback(ModLoadingCallback* callback);
 
-    static ModLoading& Instance(); 
+    static ModLoading& Instance();
     void Initialize();
     void Dispose();
     void SaveModConfig();
@@ -481,5 +478,5 @@ public:
     void RebuildLocalization();
 };
 
-std::ostream& operator<<(std::ostream& os, const ModInstance::ModDependency &md );
-std::ostream& operator<<(std::ostream& os, const ModInstance &mi );
+std::ostream& operator<<(std::ostream& os, const ModInstance::ModDependency& md);
+std::ostream& operator<<(std::ostream& os, const ModInstance& mi);

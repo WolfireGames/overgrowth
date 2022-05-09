@@ -28,10 +28,10 @@ class Item;
 class JobHandler;
 
 class CrunchAction : public ActionBase {
-    public:
-        ManifestResult Run(const JobHandler& jh, const Item& y) override;
-        inline const char* GetName() const override { return "crunch"; }
-        inline const char* GetVersion() const override {return "1";}
-        inline bool RunEvenOnIdenticalSource() const override { return false; }
-        inline bool StoreResultInDatabase() const override { return true; }
+   public:
+    ManifestResult Run(const JobHandler& jh, const Item& y) override;
+    inline const char* GetName() const override { return "crunch"; }
+    inline const char* GetVersion() const override { return "1"; }
+    inline bool RunEvenOnIdenticalSource() const override { return false; }
+    inline bool StoreResultInDatabase() const override { return true; }
 };

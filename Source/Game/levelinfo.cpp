@@ -35,27 +35,25 @@
 
 #include <tinyxml.h>
 
-void LevelInfo::Print()
-{
+void LevelInfo::Print() {
     LOGI << "XML version: " << xml_version_ << std::endl;
     LOGI << "Level name: " << level_name_ << std::endl;
     LOGI << "Shader: " << shader_ << std::endl;
     LOGI << "Script: " << script_ << std::endl;
     terrain_info_.Print();
 
-    for(auto & ambient_sound : ambient_sounds_){
+    for (auto &ambient_sound : ambient_sounds_) {
         LOGI << "Ambient sound: " << ambient_sound << std::endl;
     }
 
     sky_info_.Print();
 
-    for(unsigned i=0; i<desc_list_.size(); ++i){
+    for (unsigned i = 0; i < desc_list_.size(); ++i) {
         LOGI << "EntityDesc" << std::endl;
     }
 }
 
-void LevelInfo::SetDefaults()
-{
+void LevelInfo::SetDefaults() {
     xml_version_.clear();
     level_name_.clear();
     shader_ = "post";
@@ -67,28 +65,27 @@ void LevelInfo::SetDefaults()
     sky_info_.SetDefaults();
     desc_list_.clear();
     script_.clear();
-    nav_mesh_parameters_ = NavMeshParameters();      
+    nav_mesh_parameters_ = NavMeshParameters();
     shadows_ = true;
 }
 
-void LevelInfo::ReturnPaths( PathSet &path_set )
-{
+void LevelInfo::ReturnPaths(PathSet &path_set) {
     static const int kBufSize = 256;
     char buf[kBufSize];
-    path_set.insert("level "+path_);
-    for(auto & ambient_sound : ambient_sounds_){
-        path_set.insert("sound "+ambient_sound+"_1.wav");
-        path_set.insert("sound "+ambient_sound+"_2.wav");
-        path_set.insert("sound "+ambient_sound+"_3.wav");
+    path_set.insert("level " + path_);
+    for (auto &ambient_sound : ambient_sounds_) {
+        path_set.insert("sound " + ambient_sound + "_1.wav");
+        path_set.insert("sound " + ambient_sound + "_2.wav");
+        path_set.insert("sound " + ambient_sound + "_3.wav");
     }
     terrain_info_.ReturnPaths(path_set);
     sky_info_.ReturnPaths(path_set);
-    for(auto & script_path : script_paths_){
+    for (auto &script_path : script_paths_) {
         FormatString(buf, kBufSize, "Finding script paths: %s", script_path.first.c_str());
         PROFILER_ZONE_DYNAMIC_STRING(g_profiler_ctx, buf);
         ReturnPathUtil::ReturnPathsFromPath(script_path.second, path_set);
     }
-    for(unsigned i=0; i<desc_list_.size(); ++i){
+    for (unsigned i = 0; i < desc_list_.size(); ++i) {
         FormatString(buf, kBufSize, "Finding desc_list paths: %d", i);
         PROFILER_ZONE_DYNAMIC_STRING(g_profiler_ctx, buf);
         desc_list_[i].ReturnPaths(path_set);

@@ -27,10 +27,10 @@
 #include <vector>
 
 class Mouse {
-public:
-    enum ClickState{
-        UP, 
-        CLICKED, 
+   public:
+    enum ClickState {
+        UP,
+        CLICKED,
         HELD
     };
     enum MouseButton {
@@ -63,17 +63,17 @@ public:
     int wheel_delta_y_;
     bool mouse_double_click_[NUM_BUTTONS];
     int mouse_down_[NUM_BUTTONS];
-    
+
     Mouse();
     void Update();
-    void MouseDownEvent( int which_button );
-    void MouseUpEvent( int sdl_button_index );
+    void MouseDownEvent(int which_button);
+    void MouseUpEvent(int sdl_button_index);
     void MouseWheelEvent(int x_amount, int y_amount);
 
-    void AddKeyCodeBufferItem( int sdl_button_index );
+    void AddKeyCodeBufferItem(int sdl_button_index);
     std::vector<MousePress> GetMouseInputs();
 
-private:
+   private:
     int double_click_timer_[NUM_BUTTONS];
     int mouse_click_count_[NUM_BUTTONS];
 };

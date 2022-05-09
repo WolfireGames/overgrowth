@@ -30,48 +30,39 @@
 
 #include <Logging/logdata.h>
 
-GeneratorFactory::GeneratorFactory()
-{
-    creators.push_back( new CreatorFactory<VersionXMLCreator>() );
-    creators.push_back( new CreatorFactory<ShortVersionCreator>() );
-    creators.push_back( new CreatorFactory<LevelListCreator>() );
+GeneratorFactory::GeneratorFactory() {
+    creators.push_back(new CreatorFactory<VersionXMLCreator>());
+    creators.push_back(new CreatorFactory<ShortVersionCreator>());
+    creators.push_back(new CreatorFactory<LevelListCreator>());
 }
 
-GeneratorFactory::~GeneratorFactory()
-{
+GeneratorFactory::~GeneratorFactory() {
     std::vector<CreatorFactoryBase*>::iterator factoryit;
 
-    for( factoryit = creators.begin(); factoryit != creators.end(); factoryit++ )
-    {
+    for (factoryit = creators.begin(); factoryit != creators.end(); factoryit++) {
         delete *factoryit;
     }
 
     creators.clear();
 }
 
-bool GeneratorFactory::HasGenerator( const std::string& generator )
-{
+bool GeneratorFactory::HasGenerator(const std::string& generator) {
     std::vector<CreatorFactoryBase*>::iterator factoryit;
-    for( factoryit = creators.begin(); factoryit != creators.end(); factoryit++ )
-    {
-        if( (*factoryit)->GetCreatorName() == generator )
-        {
+    for (factoryit = creators.begin(); factoryit != creators.end(); factoryit++) {
+        if ((*factoryit)->GetCreatorName() == generator) {
             return true;
         }
     }
     return false;
 }
 
-Generator GeneratorFactory::CreateGenerator( const std::string& generator )
-{
+Generator GeneratorFactory::CreateGenerator(const std::string& generator) {
     std::vector<CreatorFactoryBase*>::iterator factoryit;
-    for( factoryit = creators.begin(); factoryit != creators.end(); factoryit++ )
-    {
-        if( (*factoryit)->GetCreatorName() == generator )
-        {
+    for (factoryit = creators.begin(); factoryit != creators.end(); factoryit++) {
+        if ((*factoryit)->GetCreatorName() == generator) {
             return Generator((*factoryit)->NewInstance());
         }
     }
     LOGE << "Unable to find generator matching name " << generator << std::endl;
-    return Generator( new VoidCreator() );
+    return Generator(new VoidCreator());
 }

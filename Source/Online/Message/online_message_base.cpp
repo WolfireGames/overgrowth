@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_message_base.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,5 +22,5 @@
 //-----------------------------------------------------------------------------
 #include "online_message_base.h"
 
-OnlineMessageBase::OnlineMessageBase(OnlineMessageCategory cat) : cat(cat), reliable_delivery(true){
+OnlineMessageBase::OnlineMessageBase(OnlineMessageCategory cat) : cat(cat), reliable_delivery(true) {
 }

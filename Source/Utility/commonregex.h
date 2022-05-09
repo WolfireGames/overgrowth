@@ -23,9 +23,8 @@
 #pragma once
 #include <string>
 
-class CommonRegex
-{
-public:
+class CommonRegex {
+   public:
     CommonRegex();
     bool saysTrue(const std::string& str);
     bool saysFalse(const std::string& str);

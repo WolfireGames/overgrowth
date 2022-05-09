@@ -29,10 +29,9 @@
 
 #include <trex/trex.h>
 
-class Builder
-{
-public:
-    Builder( ActionBase* action, const std::string& path_ending_, const std::string& type_pattern_re );
+class Builder {
+   public:
+    Builder(ActionBase* action, const std::string& path_ending_, const std::string& type_pattern_re);
     bool IsMatch(const Item& t);
     bool RunEvenOnIdenticalSource();
     bool StoreResultInDatabase();
@@ -40,7 +39,8 @@ public:
     ManifestResult Run(const JobHandler& jh, const Item& t);
     std::string GetBuilderName() const;
     std::string GetBuilderVersion() const;
-private:
+
+   private:
     std::string path_ending;
     ReferenceCounter<TRexpp> type_pattern;
     ReferenceCounter<ActionBase> action;

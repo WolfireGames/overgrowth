@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: ikbone.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -40,8 +40,6 @@ struct BlendedBonePath {
     IKBone ik_bone;
     float weight;
     BoneTransform transform;
-    BoneTransform unmodified_transform; // Set by animationclient
-    BlendedBonePath():
-        weight(0.0f)
-    {}
+    BoneTransform unmodified_transform;  // Set by animationclient
+    BlendedBonePath() : weight(0.0f) {}
 };

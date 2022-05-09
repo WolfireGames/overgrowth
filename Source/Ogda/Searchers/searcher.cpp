@@ -30,68 +30,52 @@
 #include <XML/xml_helper.h>
 #include <Utility/strings.h>
 
-
-//Small convinence function so i don't write this block multiple times.
-void ai(JobHandler& j, const char* t, const char* type)
-{
-    if(t)
-    {
+// Small convinence function so i don't write this block multiple times.
+void ai(JobHandler& j, const char* t, const char* type) {
+    if (t) {
         std::string ts(t);
-        if( !ts.empty() )
-        {
-            //j.AddItem(ts,type);
+        if (!ts.empty()) {
+            // j.AddItem(ts,type);
             return;
         }
     }
     LOGW << "Skipping ItemTextureHandler as string value is nonexistant or empty" << std::endl;
 }
 
-//Small convinence function so i don't write this block multiple times.
-void aie( JobHandler& j, TiXmlElement* e, const char* type )
-{
-    if(e)
-    {
+// Small convinence function so i don't write this block multiple times.
+void aie(JobHandler& j, TiXmlElement* e, const char* type) {
+    if (e) {
         ai(j, e->GetText(), type);
     }
 }
 
-Searcher::Searcher( SeekerBase* seeker, const std::string& _path_ending, const std::string& type_pattern_re )
-: seeker(seeker), path_ending(_path_ending)
-{
-    try
-    {
-        type_pattern->Compile(type_pattern_re.c_str());  
-    } 
-    catch( const TRexParseException& pe )
-    {
+Searcher::Searcher(SeekerBase* seeker, const std::string& _path_ending, const std::string& type_pattern_re)
+    : seeker(seeker), path_ending(_path_ending) {
+    try {
+        type_pattern->Compile(type_pattern_re.c_str());
+    } catch (const TRexParseException& pe) {
         LOGE << "Failed to compile the type_pattern regex " << type_pattern_re << " reason: " << pe.desc << std::endl;
     }
 }
 
-bool Searcher::IsMatch(const Item& t)
-{
-    if( endswith(t.GetPath().c_str(), path_ending.c_str()) && type_pattern->Match(t.type.c_str()) )
+bool Searcher::IsMatch(const Item& t) {
+    if (endswith(t.GetPath().c_str(), path_ending.c_str()) && type_pattern->Match(t.type.c_str()))
         return true;
     else
         return false;
 }
 
-std::vector<Item> Searcher::TrySearch( JobHandler& jh, const Item& item, int* matchcounter )
-{
-    if( IsMatch(item) )
-    {
+std::vector<Item> Searcher::TrySearch(JobHandler& jh, const Item& item, int* matchcounter) {
+    if (IsMatch(item)) {
         LOGD << "Running " << seeker->GetName() << " on " << item << std::endl;
         (*matchcounter)++;
         return seeker->Search(item);
-    }
-    else
-    {
+    } else {
         LOGD << "Skipping " << seeker->GetName() << " on " << item << ", doesn't match pattern." << std::endl;
         return std::vector<Item>();
     }
 }
 
-std::string Searcher::GetSeekerName()
-{
-    return std::string(seeker->GetName()); 
+std::string Searcher::GetSeekerName() {
+    return std::string(seeker->GetName());
 }

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -75,19 +75,19 @@ OnlineMessageRef::OnlineMessageRef(const OnlineMessageID message_id) : message_i
 }
 
 OnlineMessageRef::OnlineMessageRef(const OnlineMessageRef& rhs) {
-    //Debug the fact that this RHS is corrupt sometimes when loading in debug.
+    // Debug the fact that this RHS is corrupt sometimes when loading in debug.
     message_id = rhs.message_id;
     message_handler.Acquire(message_id);
 }
 
 OnlineMessageRef::~OnlineMessageRef() {
-    if(IsValid()) {
+    if (IsValid()) {
         message_handler.Release(message_id);
     }
 }
 
-OnlineMessageRef& OnlineMessageRef::operator=(const OnlineMessageRef& rhs){
-    if(IsValid()) {
+OnlineMessageRef& OnlineMessageRef::operator=(const OnlineMessageRef& rhs) {
+    if (IsValid()) {
         message_handler.Release(message_id);
     }
 
@@ -155,18 +155,18 @@ bool Online::SendingRemovePackages() const {
     return !loading;
 }
 
-void Online::RemoveObject(Object * o, ObjectID my_id) {
+void Online::RemoveObject(Object* o, ObjectID my_id) {
     if (NetworkRemoveableType(o) && SendingRemovePackages()) {
         Send<OnlineMessages::RemoveObject>(my_id, o->GetType());
     }
 }
 
-bool Online::NetworkRemoveableType(Object * o) const {
+bool Online::NetworkRemoveableType(Object* o) const {
     EntityType type = o->GetType();
     return type == _env_object || type == _movement_object || type == _item_object;
 }
 
-void Online::ChangeLevel(const string & id) {
+void Online::ChangeLevel(const string& id) {
     campaign_id = ModLoading::Instance().WhichCampaignLevelBelongsTo(id);
     host_started_level = false;
     level_name = id;
@@ -177,7 +177,7 @@ void Online::ChangeLevel(const string & id) {
     online_session->outgoing_messages_lock.lock();
     // Clear out Level persistent messages
     for (int i = online_session->persistent_outgoing_messages.size() - 1; i >= 0; i--) {
-        OnlineMessageBase* message_base = (OnlineMessageBase*) online_session->persistent_outgoing_messages[i].GetData();
+        OnlineMessageBase* message_base = (OnlineMessageBase*)online_session->persistent_outgoing_messages[i].GetData();
         if (message_base->cat == OnlineMessageCategory::LEVEL_PERSISTENT) {
             online_session->persistent_outgoing_messages.erase(online_session->persistent_outgoing_messages.begin() + i);
         }
@@ -196,12 +196,15 @@ void Online::ChangeLevel(const string & id) {
 }
 
 Online::Online() : mode(MultiplayerMode::NoMultiplayer),
-                                initial_ts(0), next_available_state_id(1), next_free_peer_id(1),
-                                attach_avatar_camera(true), loading(false),
-                                default_hot_join_characte_path("Data/Objects/IGF_Characters/IGF_TurnerActor.xml"),
-                                compression_level(10), net(this), host_started_level(false)
-{
-
+                   initial_ts(0),
+                   next_available_state_id(1),
+                   next_free_peer_id(1),
+                   attach_avatar_camera(true),
+                   loading(false),
+                   default_hot_join_characte_path("Data/Objects/IGF_Characters/IGF_TurnerActor.xml"),
+                   compression_level(10),
+                   net(this),
+                   host_started_level(false) {
     zstdCContext = ZSTD_createCCtx();
     zstdDContext = ZSTD_createDCtx();
 }
@@ -214,7 +217,7 @@ bool Online::IsClient() const {
     return mode == MultiplayerMode::Client;
 }
 
-void Online::SendAvatarPaletteChange(const OGPalette & palette, ObjectID object_id) {
+void Online::SendAvatarPaletteChange(const OGPalette& palette, ObjectID object_id) {
     for (const auto& it : palette) {
         Send<OnlineMessages::SetAvatarPalette>(object_id, it.color, it.channel);
     }
@@ -223,7 +226,7 @@ void Online::SendAvatarPaletteChange(const OGPalette & palette, ObjectID object_
 bool Online::IsAvatarPossessed(ObjectID object_id) {
     Object* object = Engine::Instance()->GetSceneGraph()->GetObjectFromID(object_id);
     if (object != nullptr && object->GetType() == EntityType::_movement_object) {
-        MovementObject* mov = (MovementObject*) object;
+        MovementObject* mov = (MovementObject*)object;
         return mov->controlled;
     }
 
@@ -238,7 +241,7 @@ void Online::PossessAvatar(PlayerID player_id, ObjectID object_id) {
 }
 
 ObjectID Online::CreateCharacter() {
-    SceneGraph * scenegraph = Engine::Instance()->GetSceneGraph();
+    SceneGraph* scenegraph = Engine::Instance()->GetSceneGraph();
 
     ObjectID id = scenegraph->map_editor->CreateObject(default_hot_join_characte_path);
     std::string team = "";
@@ -246,7 +249,7 @@ ObjectID Online::CreateCharacter() {
 
     // Attempt to move character close to an existing one.
     vector<ObjectID> local_avatar_ids = GetLocalAvatarIDs();
-    if(local_avatar_ids.size() > 0) {
+    if (local_avatar_ids.size() > 0) {
         MovementObject* mymo = static_cast<MovementObject*>(scenegraph->GetObjectFromID(local_avatar_ids[0]));
         team = mymo->GetScriptParams()->GetStringVal("Teams");
         position = mymo->GetTranslation();
@@ -259,7 +262,7 @@ ObjectID Online::CreateCharacter() {
     mo->is_player = true;
     mo->created_on_the_fly = true;
 
-    ScriptParams * sp = mo->GetScriptParams();
+    ScriptParams* sp = mo->GetScriptParams();
     sp->ASSetString("Teams", team);
 
     Send<OnlineMessages::CreateEntity>(default_hot_join_characte_path, position, id);
@@ -283,20 +286,19 @@ float Online::GetNoDataInterpStepOverRide() const {
     return no_data_interpstep_override;
 }
 
-//Client side sending camera info to host
+// Client side sending camera info to host
 void Online::SendPlayerCameraState() {
     Camera* camera = ActiveCameras::Instance()->GetCamera(0);
     Send<OnlineMessages::CameraTransformMessage>(camera->GetPos(), camera->GetFlatFacing(), camera->GetFacing(), camera->GetUpVector(), camera->GetXRotation(), camera->GetYRotation());
 }
 
 void Online::SendPlayerInputState() {
-    //Assume player one control. For split screen multiplayer we have to start dealing with multiplayer controllers here.
+    // Assume player one control. For split screen multiplayer we have to start dealing with multiplayer controllers here.
     PlayerInput* player_input = Input::Instance()->GetController(0);
 
-    for(const string& binding : Input::Instance()->GetAllAvailableBindings()) {
-
+    for (const string& binding : Input::Instance()->GetAllAvailableBindings()) {
         // TODO Can we make it so these bindings don't even show up in available bindings?
-        if(binding == "look_left" || binding == "look_right" || binding == "look_up" || binding == "look_down") {
+        if (binding == "look_left" || binding == "look_right" || binding == "look_up" || binding == "look_down") {
             continue;
         }
 
@@ -304,17 +306,17 @@ void Online::SendPlayerInputState() {
         KeyState remote_keystate = client_key_down_map_state[binding];
 
         // if we have something that the remote does not have, update
-        if(local_keystate != remote_keystate) {
+        if (local_keystate != remote_keystate) {
             Send<OnlineMessages::PlayerInputMessage>(local_keystate.depth, local_keystate.depth_count, local_keystate.count, online_session->binding_id_map_[binding]);
             client_key_down_map_state[binding] = local_keystate;
         }
     }
 }
 
-void Online::LateUpdate(SceneGraph * scenegraph) {
+void Online::LateUpdate(SceneGraph* scenegraph) {
     if (IsActive()) {
-        //Send a ping every second.
-        if(online_session != nullptr && game_timer.wall_time > online_session->last_ping_time + 1.0f) {
+        // Send a ping every second.
+        if (online_session != nullptr && game_timer.wall_time > online_session->last_ping_time + 1.0f) {
             online_session->last_ping_id = online_session->ping_counter++;
             online_session->last_ping_time = game_timer.wall_time;
             Send<OnlineMessages::Ping>(online_session->last_ping_id);
@@ -330,9 +332,9 @@ void Online::LateUpdate(SceneGraph * scenegraph) {
 
 void Online::SyncHostSessionFlags() {
     lock_guard<mutex> guard(online_session->connected_peers_lock);
-    for(auto& conn : online_session->connected_peers) {
-        for(auto& flag : online_session->host_session_flags) {
-            if(conn.host_session_flags.find(flag.first) == conn.host_session_flags.end() || conn.host_session_flags.find(flag.first)->second != flag.second) {
+    for (auto& conn : online_session->connected_peers) {
+        for (auto& flag : online_session->host_session_flags) {
+            if (conn.host_session_flags.find(flag.first) == conn.host_session_flags.end() || conn.host_session_flags.find(flag.first)->second != flag.second) {
                 SendTo<OnlineMessages::HostSessionFlag>(conn.conn_id, flag.first, flag.second);
                 conn.host_session_flags[flag.first] = flag.second;
             }
@@ -357,11 +359,11 @@ void Online::GenerateEnvObjectSyncPackages(NetConnectionID conn, SceneGraph* gra
     }
 }
 
-void Online::GenerateMovementSyncPackages(NetConnectionID conn, SceneGraph * graph) {
+void Online::GenerateMovementSyncPackages(NetConnectionID conn, SceneGraph* graph) {
     std::vector<Object*> movobjects = graph->GetObjectsOfType(EntityType::_movement_object);
 
     for (const auto& it : movobjects) {
-        MovementObject * mov = static_cast<MovementObject*>(it);
+        MovementObject* mov = static_cast<MovementObject*>(it);
         ObjectID avatarid = mov->GetID();
 
         // riggedbody blood?
@@ -373,11 +375,11 @@ void Online::GenerateMovementSyncPackages(NetConnectionID conn, SceneGraph * gra
     }
 }
 
-bool Online::CheckLoadedMapAndCampaignState(const string & campagin, const string & level_name) {
-    Engine * engine = Engine::Instance();
-    SceneGraph * graph = engine->GetSceneGraph();
+bool Online::CheckLoadedMapAndCampaignState(const string& campagin, const string& level_name) {
+    Engine* engine = Engine::Instance();
+    SceneGraph* graph = engine->GetSceneGraph();
 
-    ScriptableCampaign * loaded_campagin = engine->GetCurrentCampaign();
+    ScriptableCampaign* loaded_campagin = engine->GetCurrentCampaign();
     if (loaded_campagin == nullptr || graph == nullptr) {
         return false;
     }
@@ -408,14 +410,14 @@ void Online::SetLevelLoaded() {
 }
 
 uint32_t Online::IncomingMessageCount() const {
-    if(IsActive()) {
+    if (IsActive()) {
         return online_session->incoming_messages.size();
     }
     return 0;
 }
 
 uint32_t Online::OutgoingMessageCount() const {
-    if(IsActive()) {
+    if (IsActive()) {
         return online_session->outgoing_messages.size();
     }
     return 0;
@@ -472,7 +474,7 @@ uint32_t Online::RegisterMPState(const string& state) {
     return states[state];
 }
 
-void Online::SetTickperiod(const uint32_t & tickperiod) {
+void Online::SetTickperiod(const uint32_t& tickperiod) {
     tick_period = tickperiod;
 }
 
@@ -489,20 +491,20 @@ bool Online::IsAwaitingShutdown() const {
 }
 
 void Online::StartMultiplayer(MultiplayerMode multiplayerMode) {
-    //for(string binding : Input::Instance()->GetAllAvailableBindings()) {
-    //    LOGI << binding << " " << (int)Input::Instance()->GetBindID(binding) << endl;
-    //}
+    // for(string binding : Input::Instance()->GetAllAvailableBindings()) {
+    //     LOGI << binding << " " << (int)Input::Instance()->GetBindID(binding) << endl;
+    // }
 
-    //for(string binding_cat : Input::Instance()->GetAvailableBindingCategories()) {
-    //    LOGI << binding_cat << endl;
-    //}
+    // for(string binding_cat : Input::Instance()->GetAvailableBindingCategories()) {
+    //     LOGI << binding_cat << endl;
+    // }
 
-    if(online_session != nullptr) {
+    if (online_session != nullptr) {
         LOGE << "Attempting to start multiplayer while the previous session is still valid!" << endl;
         // TODO can we close the application here with a big error? This should be a fatal issue!
     }
 
-    if(OnlineUtility::HasActiveIncompatibleMods()) {
+    if (OnlineUtility::HasActiveIncompatibleMods()) {
         LOGE << "Online multiplayer was enabled despite using unsupported mods, this might cause issues!" << std::endl;
         LOGE << "Incompatible mods: " << OnlineUtility::GetActiveIncompatibleModsString() << std::endl;
     }
@@ -514,8 +516,8 @@ void Online::StartMultiplayer(MultiplayerMode multiplayerMode) {
 
     mode = multiplayerMode;
 
-    Engine * engine = Engine::Instance();
-    SceneGraph * graph = engine->GetSceneGraph();
+    Engine* engine = Engine::Instance();
+    SceneGraph* graph = engine->GetSceneGraph();
 
     string mpcachedir = string(write_path) + string("multiplayercache/");
 
@@ -543,8 +545,8 @@ void Online::StartMultiplayer(MultiplayerMode multiplayerMode) {
             level_name = graph->level_path_.GetOriginalPathStr();
         }
 
-        //Assign mappings for input bindings.
-        for(const string& binding : Input::Instance()->GetAllAvailableBindings()) {
+        // Assign mappings for input bindings.
+        for (const string& binding : Input::Instance()->GetAllAvailableBindings()) {
             AssignBindID(binding);
         }
 
@@ -562,7 +564,7 @@ void Online::StartMultiplayer(MultiplayerMode multiplayerMode) {
 }
 
 void Online::StartHostingMultiplayer() {
-    if(!IsActive()) {
+    if (!IsActive()) {
         StartMultiplayer(MultiplayerMode::Host);
         CreateListenSocketIP("");
     }
@@ -573,14 +575,14 @@ void Online::PerformLevelChangeCleanUp() {
     online_session->state_packages.clear();
 }
 
-const vector<Peer> Online::GetPeers()  {
+const vector<Peer> Online::GetPeers() {
     lock_guard<mutex> guard(online_session->connected_peers_lock);
     return online_session->connected_peers;
 }
 
 Peer* Online::GetPeerFromConnection(NetConnectionID conn_id) {
-    for(auto & connected_peer : online_session->connected_peers) {
-        if(connected_peer.conn_id == conn_id) {
+    for (auto& connected_peer : online_session->connected_peers) {
+        if (connected_peer.conn_id == conn_id) {
             return &connected_peer;
         }
     }
@@ -588,8 +590,8 @@ Peer* Online::GetPeerFromConnection(NetConnectionID conn_id) {
 }
 
 Peer* Online::GetPeerFromID(PeerID peer_id) {
-    for(auto & connected_peer : online_session->connected_peers) {
-        if(connected_peer.peer_id == peer_id) {
+    for (auto& connected_peer : online_session->connected_peers) {
+        if (connected_peer.peer_id == peer_id) {
             return &connected_peer;
         }
     }
@@ -597,8 +599,8 @@ Peer* Online::GetPeerFromID(PeerID peer_id) {
 }
 
 vector<Peer>::iterator Online::GetPeerIt(NetConnectionID conn_id) {
-    for(int i = 0; i < online_session->connected_peers.size(); i++) {
-        if(online_session->connected_peers[i].conn_id == conn_id) {
+    for (int i = 0; i < online_session->connected_peers.size(); i++) {
+        if (online_session->connected_peers[i].conn_id == conn_id) {
             return online_session->connected_peers.begin() + i;
         }
     }
@@ -606,30 +608,30 @@ vector<Peer>::iterator Online::GetPeerIt(NetConnectionID conn_id) {
 }
 
 void Online::QueueStopMultiplayer() {
-    if(IsActive()) {
+    if (IsActive()) {
         mode = MultiplayerMode::AwaitingShutdown;
     }
 }
 
 void Online::StopMultiplayer() {
-    if(IsActive() || mode == MultiplayerMode::AwaitingShutdown) {
+    if (IsActive() || mode == MultiplayerMode::AwaitingShutdown) {
         mode = MultiplayerMode::CleanUp;
 
-        { // Immediately disconnect all clients
+        {  // Immediately disconnect all clients
             lock_guard<mutex> guard(online_session->connected_peers_lock);
             for (auto& it : online_session->connected_peers) {
                 // We kill the connection on the socket directly, we no longer want to keep track of any connection changes
                 // We can't call CloseConnectionImmediate here, as it modifies the array we are iterating over and uses the same lock
                 net.CloseConnection(it.conn_id, ConnectionClosedReason::HOST_STOPPED_HOSTING);
             }
-            online_session->connected_peers.clear(); // We shouldn't have to clear this, since we plan on getting rid of online_session shortyly
+            online_session->connected_peers.clear();  // We shouldn't have to clear this, since we plan on getting rid of online_session shortyly
             StopListening();
         }
 
         // Clear up on the fly
         SceneGraph* graph = Engine::Instance()->GetSceneGraph();
         if (graph != nullptr) {
-            vector<Object *> objects = graph->GetObjectsOfType(EntityType::_movement_object);
+            vector<Object*> objects = graph->GetObjectsOfType(EntityType::_movement_object);
 
             for (auto it : objects) {
                 if (it->created_on_the_fly) {
@@ -651,7 +653,7 @@ void Online::StopMultiplayer() {
         }
 
         // Make sure we get booted into the main menu, if we aren't there already.
-        if(Engine::Instance()->current_engine_state_.type != EngineStateType::kEngineScriptableUIState) {
+        if (Engine::Instance()->current_engine_state_.type != EngineStateType::kEngineScriptableUIState) {
             Engine::Instance()->ScriptableUICallback("back_to_main_menu");
         }
 
@@ -683,7 +685,7 @@ bool Online::IsLocalAvatar(const ObjectID avatar_id) const {
 vector<ObjectID> Online::GetLocalAvatarIDs() const {
     vector<ObjectID> local_avatar_ids;
     SceneGraph* sg = Engine::Instance()->GetSceneGraph();
-    if(sg != nullptr) {
+    if (sg != nullptr) {
         for (const auto& it : sg->GetControllableMovementObjects()) {
             if (IsLocalAvatar(it->GetID())) {
                 local_avatar_ids.push_back(it->GetID());
@@ -694,7 +696,7 @@ vector<ObjectID> Online::GetLocalAvatarIDs() const {
 }
 
 PlayerState Online::GenerateHostPlayerState() const {
-    if(!IsHosting()) {
+    if (!IsHosting()) {
         LOGW << "Called GenerateHostPlayerState(), but wasn't hosting. Only the host should generate playerstates, especially his own!" << std::endl;
         PlayerState player_state;
         return player_state;
@@ -715,14 +717,15 @@ void Online::AddLocalChatMessage(string chat_message) {
 void Online::RemoveOldChatMessages(float threshold) {
     lock_guard<mutex> guard(online_session->chat_messages_lock);
     online_session->chat_messages.erase(remove_if(online_session->chat_messages.begin(), online_session->chat_messages.end(),
-        [threshold](ChatMessage i) { return game_timer.game_time - i.time > threshold; }), online_session->chat_messages.end());
- }
+                                                  [threshold](ChatMessage i) { return game_timer.game_time - i.time > threshold; }),
+                                        online_session->chat_messages.end());
+}
 
 const vector<ChatMessage>& Online::GetChatMessages() const {
     return online_session->chat_messages;
 }
 
-void Online::AddPeer(NetFrameworkConnectionStatusChanged *data) {
+void Online::AddPeer(NetFrameworkConnectionStatusChanged* data) {
     if (IsHosting()) {
         if (IsLobbyFull()) {
             CloseConnection(data->conn_id, ConnectionClosedReason::LOBBY_FULL);
@@ -752,7 +755,7 @@ void Online::AddPeer(NetFrameworkConnectionStatusChanged *data) {
 
 /// Queue termination of a connection
 void Online::CloseConnection(NetConnectionID conn_id, ConnectionClosedReason reason) {
-    if(online_session != nullptr) {
+    if (online_session != nullptr) {
         ConnectionToBeClosed temp;
         temp.conn_id = conn_id;
         temp.reason = reason;
@@ -760,7 +763,7 @@ void Online::CloseConnection(NetConnectionID conn_id, ConnectionClosedReason rea
         online_session->connections_waiting_to_be_closed.push(temp);
     } else {
         LOGW << "Attempted to close a connection without a valid online session" << endl;
-        assert(online_session != nullptr); // Kill the application for now, this should not be happening!
+        assert(online_session != nullptr);  // Kill the application for now, this should not be happening!
     }
 }
 
@@ -768,20 +771,20 @@ void Online::CloseConnection(NetConnectionID conn_id, ConnectionClosedReason rea
 void Online::CloseConnectionImmediate(NetConnectionID conn_id, ConnectionClosedReason reason) {
     lock_guard<mutex> guard(online_session->connected_peers_lock);
 
-    net.CloseConnection(conn_id,reason);
+    net.CloseConnection(conn_id, reason);
 
     vector<Peer>::iterator peer = GetPeerIt(conn_id);
     if (peer != online_session->connected_peers.end()) {
-        PlayerID player_id = peer->peer_id; // TODO We assume peer_id == player_id
+        PlayerID player_id = peer->peer_id;  // TODO We assume peer_id == player_id
         if (online_session->player_states.find(player_id) != online_session->player_states.end()) {
             auto& player_state = online_session->player_states[player_id];
 
             SendRawChatMessage(player_state.playername + " disconnected!");
 
             // Clean up objects assigned to disconnected player
-            SceneGraph * graph = Engine::Instance()->GetSceneGraph();
+            SceneGraph* graph = Engine::Instance()->GetSceneGraph();
             if (graph != nullptr) {
-                Object * o = graph->GetObjectFromID(player_state.object_id);
+                Object* o = graph->GetObjectFromID(player_state.object_id);
                 if (o != nullptr) {
                     if (o->created_on_the_fly) {
                         graph->map_editor->RemoveObject(o, graph);
@@ -807,15 +810,15 @@ void Online::CloseConnectionImmediate(NetConnectionID conn_id, ConnectionClosedR
 }
 
 void Online::CheckPendingMessages() {
-    //Locking online_session->connected_peers_lock here because it's used in some arrays here, and if done more specifically
-    //theres a risk for overlapping locks with CheckNewMessages(), causing a full lockup.
-    //TODO: Reduce number of locks in multiplayer.
+    // Locking online_session->connected_peers_lock here because it's used in some arrays here, and if done more specifically
+    // theres a risk for overlapping locks with CheckNewMessages(), causing a full lockup.
+    // TODO: Reduce number of locks in multiplayer.
     lock_guard<mutex> guard(online_session->connected_peers_lock);
 
     {
         lock_guard<mutex> guard(online_session->incoming_messages_lock);
 
-        for(auto& it : online_session->incoming_messages) {
+        for (auto& it : online_session->incoming_messages) {
             message_handler.Execute(it.message, it.from);
         }
 
@@ -828,7 +831,7 @@ void Online::CheckPendingMessages() {
 }
 
 void Online::ApplyPlayerInput() {
-    for(auto& it : online_session->player_inputs) {
+    for (auto& it : online_session->player_inputs) {
         // We don't want to apply two inputs of the same key on the same frame
         // Releasing and pressing down the key should not be processed on the same frame
         unordered_map<uint8_t, int> depth;
@@ -878,7 +881,7 @@ void Online::ApplyPlayerInput() {
 }
 
 PlayerState Online::GetOwnPlayerState() {
-    std::lock_guard<std::mutex> guard (online_session->connected_peers_lock);
+    std::lock_guard<std::mutex> guard(online_session->connected_peers_lock);
 
     auto it = online_session->player_states.find(online_session->local_player_id);
     if (it != online_session->player_states.end()) {
@@ -911,18 +914,18 @@ void Online::AssignNewControllerForPlayer(PlayerID player_id) {
 size_t Online::CompressData(vector<char>& target_buffer, const void* source_buffer, uint32_t source_size) {
     size_t maxSize = ZSTD_compressBound(source_size);
 
-    if(target_buffer.size() < maxSize) {
+    if (target_buffer.size() < maxSize) {
         target_buffer.resize(maxSize);
     }
 
     size_t compressedSize = ZSTD_compressCCtx(zstdCContext,
-        target_buffer.data(),
-        target_buffer.size(),
-        source_buffer,
-        source_size,
-        compression_level);
+                                              target_buffer.data(),
+                                              target_buffer.size(),
+                                              source_buffer,
+                                              source_size,
+                                              compression_level);
 
-    if(compressedSize > maxSize) {
+    if (compressedSize > maxSize) {
         LOGE << "Failed to compress data, assumed size was smaller than the real size" << endl;
     }
 
@@ -934,21 +937,21 @@ size_t Online::CompressData(vector<char>& target_buffer, const void* source_buff
 size_t Online::DecompressData(vector<char>& target_buffer, const void* source_buffer, size_t source_size) {
     size_t decompressed_size = ZSTD_getFrameContentSize(source_buffer, source_size);
 
-    if(decompressed_size == ZSTD_CONTENTSIZE_UNKNOWN) {
+    if (decompressed_size == ZSTD_CONTENTSIZE_UNKNOWN) {
         LOGW << "Unable to determine uncompressed package size" << std::endl;
     } else if (decompressed_size == ZSTD_CONTENTSIZE_ERROR) {
         LOGE << "Error while trying to determine content size" << std::endl;
-    } else if(target_buffer.size() < decompressed_size) {
+    } else if (target_buffer.size() < decompressed_size) {
         target_buffer.resize(decompressed_size);
     }
 
     size_t final_decompressed_size = 0;
-    while(true) {
+    while (true) {
         size_t final_decompressed_size = ZSTD_decompressDCtx(zstdDContext, target_buffer.data(), target_buffer.size(), source_buffer, source_size);
         if (ZSTD_isError(final_decompressed_size)) {
             LOGE << ZSTD_getErrorString(ZSTD_getErrorCode(final_decompressed_size)) << endl;
-        } else if(final_decompressed_size > target_buffer.size()) {
-            //If the final decompressed size is larger than the target buffer, re-do the decompression after resizing.
+        } else if (final_decompressed_size > target_buffer.size()) {
+            // If the final decompressed size is larger than the target buffer, re-do the decompression after resizing.
             target_buffer.resize(final_decompressed_size);
             continue;
         }
@@ -965,8 +968,8 @@ uint32_t Online::GetPlayerCount() {
 
 /// Hosts will add their name here, clients will have their name added by the host later
 void Online::BroadcastChatMessage(const string& chat_message) {
-    if(IsActive()) {
-        if(IsHosting()) {
+    if (IsActive()) {
+        if (IsHosting()) {
             if (OnlineUtility::IsCommand(chat_message)) {
                 OnlineUtility::HandleCommand(online_session->local_player_id, chat_message);
                 AddLocalChatMessage(OnlineUtility::GetPlayerName() + ": " + chat_message);
@@ -980,7 +983,7 @@ void Online::BroadcastChatMessage(const string& chat_message) {
 }
 
 void Online::SendRawChatMessage(const string& raw_chat_entry) {
-    if(IsActive()) {
+    if (IsActive()) {
         Send<OnlineMessages::ChatEntryMessage>(raw_chat_entry);
         if (IsHosting()) {
             AddLocalChatMessage(raw_chat_entry);
@@ -1002,14 +1005,14 @@ vector<PlayerState> Online::GetPlayerStates() {
 }
 
 void Online::Send(const OnlineMessageRef& message_ref) {
-    if(IsActive()) {
+    if (IsActive()) {
         lock_guard<mutex> guard(online_session->outgoing_messages_lock);
         online_session->outgoing_messages.push_back({true, 0, message_ref});
     }
 }
 
 void Online::SendTo(NetConnectionID target, const OnlineMessageRef& message_ref) {
-    if(IsActive()) {
+    if (IsActive()) {
         lock_guard<mutex> guard(online_session->outgoing_messages_lock);
         online_session->outgoing_messages.push_back({false, target, message_ref});
     }
@@ -1035,7 +1038,7 @@ void Online::SendScriptParam(uint32_t id, const string& key, const ScriptParam& 
     }
 }
 
-void Online::SendScriptParamMap(uint32_t id, const ScriptParamMap& param){
+void Online::SendScriptParamMap(uint32_t id, const ScriptParamMap& param) {
     for (auto& it : param) {
         SendScriptParam(id, it.first, it.second);
     }
@@ -1053,7 +1056,7 @@ void Online::SetIfHostAllowsClientEditor(bool mode) {
     }
 }
 
-void Online::SetDefaultHotJoinCharacter(const string & path) {
+void Online::SetDefaultHotJoinCharacter(const string& path) {
     default_hot_join_characte_path = path;
 }
 
@@ -1075,8 +1078,8 @@ bool Online::AllClientsReady() {
 }
 
 ScriptParams* Online::GetScriptParamsFromID(ObjectID id) {
-    if(Engine::Instance()->GetSceneGraph() != nullptr) {
-        if(id == numeric_limits<uint32_t>::max())
+    if (Engine::Instance()->GetSceneGraph() != nullptr) {
+        if (id == numeric_limits<uint32_t>::max())
             return &Engine::Instance()->GetSceneGraph()->level->script_params();
 
         Object* o = Engine::Instance()->GetSceneGraph()->GetObjectFromID(id);
@@ -1087,9 +1090,9 @@ ScriptParams* Online::GetScriptParamsFromID(ObjectID id) {
 }
 
 void Online::UpdateMovementObjectFromID(uint32_t id) {
-    if(id != numeric_limits<uint32_t>::max()) {
-        Object * o = Engine::Instance()->GetSceneGraph()->GetObjectFromID(id);
-        if(o != nullptr && o->GetType() == EntityType::_movement_object) {
+    if (id != numeric_limits<uint32_t>::max()) {
+        Object* o = Engine::Instance()->GetSceneGraph()->GetObjectFromID(id);
+        if (o != nullptr && o->GetType() == EntityType::_movement_object) {
             ((MovementObject*)o)->UpdateScriptParams();
         }
     }
@@ -1106,21 +1109,21 @@ bool Online::IsAvatarCameraAttached() const {
 void Online::SendLevelMessage(const string& msg) {
     // we currently only want start_dialogue
     if (msg.find("reset") == string::npos)
-        return; // tutorial is very spammy
+        return;  // tutorial is very spammy
 
     Send<OnlineMessages::SendLevelMessage>(msg);
 }
 
-void Online::UpdateObjects(SceneGraph *scenegraph_) {
+void Online::UpdateObjects(SceneGraph* scenegraph_) {
     uint32_t wall_ticks = game_timer.GetWallTicks();
     uint32_t tick_delta = wall_ticks - last_update_wall_ticks;
     uint32_t quarter_tick_delta = wall_ticks - last_quarter_update_wall_ticks;
 
-    bool is_quarter_tick = quarter_tick_delta >= tick_period/4;
+    bool is_quarter_tick = quarter_tick_delta >= tick_period / 4;
     bool is_tick = tick_delta >= tick_period;
 
     if (IsHosting()) {
-        for(Object *o : scenegraph_->movement_objects_) {
+        for (Object* o : scenegraph_->movement_objects_) {
             MovementObject* mo = static_cast<MovementObject*>(o);
             RiggedObject* rigged_object = mo->rigged_object();
 
@@ -1144,7 +1147,7 @@ void Online::UpdateObjects(SceneGraph *scenegraph_) {
         }
 
         if (is_tick) {
-            for (Object *o : scenegraph_->objects_) {
+            for (Object* o : scenegraph_->objects_) {
                 switch (o->GetType()) {
                     case _env_object:
                         if (o->online_transform_dirty) {
@@ -1159,15 +1162,15 @@ void Online::UpdateObjects(SceneGraph *scenegraph_) {
                 o->online_transform_dirty = false;
             }
         }
-    } else if(IsClient()) {
+    } else if (IsClient()) {
         if (is_tick) {
             SendPlayerCameraState();
         }
-        //Send input information every frame, we want to make sure we get the latest.
+        // Send input information every frame, we want to make sure we get the latest.
         SendPlayerInputState();
     }
 
-    if(is_tick) {
+    if (is_tick) {
         last_update_wall_ticks += tick_delta;
     }
 
@@ -1185,13 +1188,13 @@ uint32_t Online::GetNumberOfFreeAvatars() const {
 }
 
 uint8_t Online::GetPlayerLimit() {
-    if(Engine::Instance()->GetSceneGraph() != nullptr && Engine::Instance()->GetSceneGraph()->level != nullptr) {
-        if(Engine::Instance()->GetSceneGraph()->level->script_params().HasParam("Player Limit")) {
+    if (Engine::Instance()->GetSceneGraph() != nullptr && Engine::Instance()->GetSceneGraph()->level != nullptr) {
+        if (Engine::Instance()->GetSceneGraph()->level->script_params().HasParam("Player Limit")) {
             return Engine::Instance()->GetSceneGraph()->level->script_params().ASGetInt("Player Limit");
         }
-        return 8; // Default to 8 players (arbitrary limit)
+        return 8;  // Default to 8 players (arbitrary limit)
     }
-    return 1; // No level, no players
+    return 1;  // No level, no players
 }
 
 bool Online::IsLobbyFull() {
@@ -1235,12 +1238,12 @@ ObjectID Online::GetFreeAvatarID() {
     return avatarID;
 }
 
-void Online::OnConnectionChange(NetFrameworkConnectionStatusChanged *data) {
+void Online::OnConnectionChange(NetFrameworkConnectionStatusChanged* data) {
     switch (data->conn_info.connection_state) {
         case NetFrameworkConnectionState::Connecting: {
             if (IsHosting()) {
                 bool accept_connection = true;
-                if(accept_connection) {
+                if (accept_connection) {
                     int accept_connection_result;
                     bool is_ok = net.AcceptConnection(data->conn_id, &accept_connection_result);
 
@@ -1255,19 +1258,18 @@ void Online::OnConnectionChange(NetFrameworkConnectionStatusChanged *data) {
                     net.CloseConnection(data->conn_id, ConnectionClosedReason::UNSPECIFIED);
                 }
             } else {
-                //We come here when we have an outward connection from the client.
+                // We come here when we have an outward connection from the client.
             }
             break;
         }
 
-        case NetFrameworkConnectionState::ClosedByPeer:
-        {
+        case NetFrameworkConnectionState::ClosedByPeer: {
             ConnectionClosedReason reason = data->conn_info.end_reason;
             CloseConnection(data->conn_id, reason);
             if (IsClient()) {
                 StopMultiplayer();
 
-                if(ConnectionClosedReasonUtil::IsUnusualReason(reason)) {
+                if (ConnectionClosedReasonUtil::IsUnusualReason(reason)) {
                     string error = ConnectionClosedReasonUtil::GetErrorMessage(reason);
                     Engine::Instance()->QueueErrorMessage("Connection Closed", error);
                 }
@@ -1275,11 +1277,10 @@ void Online::OnConnectionChange(NetFrameworkConnectionStatusChanged *data) {
             break;
         }
 
-        case NetFrameworkConnectionState::ProblemDetectedLocally:
-        {
+        case NetFrameworkConnectionState::ProblemDetectedLocally: {
             ConnectionClosedReason reason = data->conn_info.end_reason;
             if (IsClient()) {
-                if(ConnectionClosedReasonUtil::IsUnusualReason(reason)) {
+                if (ConnectionClosedReasonUtil::IsUnusualReason(reason)) {
                     string error = ConnectionClosedReasonUtil::GetErrorMessage(reason);
                     Engine::Instance()->QueueErrorMessage("Connection Lost", error);
                 }
@@ -1327,7 +1328,7 @@ void Online::ActivateGameOverlayInviteDialog() {
 #if ENABLE_STEAMWORKS
     // TODO this is steam specific code, it needs to be moved to SteamNetFramework
     // Preferably called "ActivateFriendInviteOverlay()" to match HasFriendInviteOverlay()
-    SteamworksMatchmaking *matchmaking = Steamworks::Instance()->GetMatchmaking();
+    SteamworksMatchmaking* matchmaking = Steamworks::Instance()->GetMatchmaking();
     if (matchmaking) {
         if (!p2p_sockets_active) {
             HSteamListenSocket listen = matchmaking->ActivateGameOverlayInviteDialog();
@@ -1339,23 +1340,23 @@ void Online::ActivateGameOverlayInviteDialog() {
     } else {
         LOGE << "Couldn't open invite overlay page" << endl;
     }
-#else 
+#else
     LOGW << "Tried opening a game invite overlay, but we haven't compiled in any support for one." << endl;
 #endif
 }
 
-void Online::CreateListenSocketIP(const string &local_address) {
+void Online::CreateListenSocketIP(const string& local_address) {
     NetListenSocketID listen_socket = net.CreateListenSocketIP(local_address);
     listen_sockets.insert(listen_socket);
 }
 
-void Online::ConnectByIPAddress(const string &address) {
+void Online::ConnectByIPAddress(const string& address) {
     if (!IsActive()) {
         StartMultiplayer(MultiplayerMode::Client);
 
         NetConnectionID conn_id;
 
-        if(net.ConnectByIPAddress(address, &conn_id) == false) {
+        if (net.ConnectByIPAddress(address, &conn_id) == false) {
             StopMultiplayer();
         }
     }
@@ -1366,7 +1367,7 @@ uint8_t Online::GetBindID(string binding_name) {
 }
 
 void Online::AssignBindID(string binding_name) {
-    if(online_session->binding_id_map_.find(binding_name) == online_session->binding_id_map_.end()) {
+    if (online_session->binding_id_map_.find(binding_name) == online_session->binding_id_map_.end()) {
         online_session->binding_id_map_[binding_name] = ++online_session->binding_id_map_counter_;
         online_session->binding_name_map_[online_session->binding_id_map_[binding_name]] = binding_name;
     } else {
@@ -1380,7 +1381,7 @@ void Online::NetworkDataThread() {
         CheckNewMessages();
         SendMessages();
 
-        if(IsHosting()) {
+        if (IsHosting()) {
             HandleConnectionsToBeClosed();
         }
 
@@ -1405,14 +1406,14 @@ void Online::SendMessageObjects() {
 
     online_session->outgoing_messages_lock.lock();
 
-    //First, send persistent packages, if we see there's a new client who isn't up to date.
-    if(host_started_level && IsHosting()) {
-        for(auto & peer : online_session->connected_peers) {
-            if(online_session->client_connection_manager.IsClientLoaded(peer.peer_id) && online_session->client_connection_manager.HasClientGottenPersistentQueue(peer.peer_id) == false) {
-                for(auto & persistent_outgoing_message : online_session->persistent_outgoing_messages)  {
+    // First, send persistent packages, if we see there's a new client who isn't up to date.
+    if (host_started_level && IsHosting()) {
+        for (auto& peer : online_session->connected_peers) {
+            if (online_session->client_connection_manager.IsClientLoaded(peer.peer_id) && online_session->client_connection_manager.HasClientGottenPersistentQueue(peer.peer_id) == false) {
+                for (auto& persistent_outgoing_message : online_session->persistent_outgoing_messages) {
                     OnlineMessageBase* omb = static_cast<OnlineMessageBase*>(message_handler.GetMessageData(persistent_outgoing_message));
 
-                    if(omb != nullptr) {
+                    if (omb != nullptr) {
                         PackageHeader package_header;
 
                         package_header.package_type = PackageHeader::Type::MESSAGE_OBJECT;
@@ -1434,12 +1435,12 @@ void Online::SendMessageObjects() {
         }
     }
 
-    //Send the standard message queues. Store away persistent messages for future client peers if we are host.
-    for(int i = 0; i < online_session->outgoing_messages.size(); i++) {
+    // Send the standard message queues. Store away persistent messages for future client peers if we are host.
+    for (int i = 0; i < online_session->outgoing_messages.size(); i++) {
         OnlineSession::OutgoingMessage& outgoing_message = online_session->outgoing_messages[i];
         OnlineMessageBase* omb = static_cast<OnlineMessageBase*>(message_handler.GetMessageData(outgoing_message.message));
 
-        if(omb != nullptr) {
+        if (omb != nullptr) {
             PackageHeader package_header;
 
             package_header.package_type = PackageHeader::Type::MESSAGE_OBJECT;
@@ -1451,23 +1452,23 @@ void Online::SendMessageObjects() {
 
             binn_free(l);
 
-            for(auto & peer : online_session->connected_peers) {
+            for (auto& peer : online_session->connected_peers) {
                 bool send_message = true;
 
-                if(outgoing_message.broadcast == false && outgoing_message.target != peer.conn_id) {
+                if (outgoing_message.broadcast == false && outgoing_message.target != peer.conn_id) {
                     send_message = false;
-                //Don't send packags to client peers who have recently connected, but hasn't loaded the level, or finished getting the persistent queue yet.
-                } else if(IsHosting() && omb->cat != OnlineMessageCategory::TRANSIENT && online_session->client_connection_manager.HasClientGottenPersistentQueue(peer.peer_id) == false) {
-                    send_message = false; 
+                    // Don't send packags to client peers who have recently connected, but hasn't loaded the level, or finished getting the persistent queue yet.
+                } else if (IsHosting() && omb->cat != OnlineMessageCategory::TRANSIENT && online_session->client_connection_manager.HasClientGottenPersistentQueue(peer.peer_id) == false) {
+                    send_message = false;
                 }
 
-                if(send_message) {
-                    SendMessageToConnection(peer.conn_id, compressed_serialization_buffer.data(), compressed_size, omb->reliable_delivery, i+1 == online_session->outgoing_messages.size());
+                if (send_message) {
+                    SendMessageToConnection(peer.conn_id, compressed_serialization_buffer.data(), compressed_size, omb->reliable_delivery, i + 1 == online_session->outgoing_messages.size());
                 }
             }
 
-            if(IsHosting()) {
-                if(omb->cat == OnlineMessageCategory::LEVEL_PERSISTENT) {
+            if (IsHosting()) {
+                if (omb->cat == OnlineMessageCategory::LEVEL_PERSISTENT) {
                     online_session->persistent_outgoing_messages.push_back(outgoing_message.message);
                 }
             }
@@ -1498,7 +1499,7 @@ void Online::SendMessageToConnection(NetConnectionID conn_id, char* buffer, uint
 void Online::SendStateMessages() {
     lock_guard<mutex> guard(online_session->connected_peers_lock);
     for (auto& conn : online_session->connected_peers) {
-        if(conn.should_send_state_messages) {
+        if (conn.should_send_state_messages) {
             {
                 lock_guard<mutex> guard(online_session->state_packages_lock);
                 for (auto& package : online_session->state_packages) {
@@ -1516,7 +1517,7 @@ void Online::CheckNewMessages() {
     // calls that could be waiting are not time sensitive.
     lock_guard<mutex> guard(online_session->connected_peers_lock);
 
-    //static SteamNetworkingMessage_t ** msg = (SteamNetworkingMessage_t **)malloc(sizeof(SteamNetworkingMessage_t*) * 1);
+    // static SteamNetworkingMessage_t ** msg = (SteamNetworkingMessage_t **)malloc(sizeof(SteamNetworkingMessage_t*) * 1);
     NetworkingMessage msg;
 
     for (auto& it : online_session->connected_peers) {
@@ -1540,7 +1541,6 @@ void Online::CheckNewMessages() {
                 LOGE << "Unrecognized package type: " << (int)package_header.package_type << endl;
             }
             msg.Release();
-
         }
     }
 }
@@ -1549,11 +1549,11 @@ binn* PackageHeader::Serialize() {
     binn* l = binn_list();
 
     binn_list_add_int8(l, (int8_t)package_type);
-    if(package_type == Type::MESSAGE_OBJECT) {
+    if (package_type == Type::MESSAGE_OBJECT) {
         binn_list_add_int8(l, (int8_t)message_handler.GetMessageType(message_ref));
         binn* serialized_object = message_handler.Serialize(message_ref);
-        if(serialized_object != nullptr) {
-            binn_list_add_object(l,serialized_object);
+        if (serialized_object != nullptr) {
+            binn_list_add_object(l, serialized_object);
         } else {
             LOGE << "Serialization of PackageHeader message resulted in a nullptr" << endl;
         }
@@ -1564,25 +1564,25 @@ binn* PackageHeader::Serialize() {
 }
 
 void PackageHeader::Deserialize(void* data) {
-    //Do a raw read, don't worry about copying the data first.
+    // Do a raw read, don't worry about copying the data first.
     binn* l = (binn*)data;
 
     int pos = 1;
 
     int8_t v_package_type;
-    if(binn_list_get_int8(l, pos++, &v_package_type) == false) {
+    if (binn_list_get_int8(l, pos++, &v_package_type) == false) {
         LOGE << "Failed to read package type from binn message" << endl;
     }
     this->package_type = (Type)v_package_type;
 
-    if(package_type == Type::MESSAGE_OBJECT) {
+    if (package_type == Type::MESSAGE_OBJECT) {
         int8_t message_type;
         binn_list_get_int8(l, pos++, &message_type);
 
         void* serialized_object;
         binn_list_get_object(l, pos++, &serialized_object);
 
-        if(serialized_object != nullptr) {
+        if (serialized_object != nullptr) {
             message_ref = message_handler.Deserialize((OnlineMessageType)message_type, (binn*)serialized_object);
         } else {
             LOGE << "Got a nullptr when trying to fetch a MESSAGE_OBJECT binn from a PackageHeader" << endl;

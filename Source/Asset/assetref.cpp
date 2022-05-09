@@ -24,9 +24,7 @@
 #include "assetref.h"
 
 AssetRefBase::AssetRefBase() {
-
 }
 
 AssetRefBase::~AssetRefBase() {
-
 }

@@ -24,9 +24,7 @@
 #include "assetloaderbase.h"
 
 AssetLoaderBase::AssetLoaderBase() {
-
 }
 
 AssetLoaderBase::~AssetLoaderBase() {
-
 }

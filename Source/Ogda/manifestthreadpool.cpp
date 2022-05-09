@@ -33,8 +33,7 @@
 #include <unistd.h>
 #endif
 
-struct ManifestResultJob
-{
+struct ManifestResultJob {
     const char* base_path;
     ManifestResult* item;
     int step;
@@ -42,80 +41,68 @@ struct ManifestResultJob
     volatile int performed;
 };
 
-static void* CalculateManifestResultHash( void* item )
-{
-    ManifestResultJob* ij = static_cast<ManifestResultJob*>(item); 
+static void* CalculateManifestResultHash(void* item) {
+    ManifestResultJob* ij = static_cast<ManifestResultJob*>(item);
     ij->performed = 0;
-    for( int i = 0; i < ij->count; i++ )
-    {
-        ij->item[i*ij->step].CalculateHash(ij->base_path);
+    for (int i = 0; i < ij->count; i++) {
+        ij->item[i * ij->step].CalculateHash(ij->base_path);
         ij->performed++;
     }
     return 0;
 }
 
-ManifestThreadPool::ManifestThreadPool( int thread_count ) : thread_count(thread_count)
-{
-    threads = static_cast<pthread_t*>(OG_MALLOC( sizeof(pthread_t) * thread_count ));
+ManifestThreadPool::ManifestThreadPool(int thread_count) : thread_count(thread_count) {
+    threads = static_cast<pthread_t*>(OG_MALLOC(sizeof(pthread_t) * thread_count));
 }
 
-ManifestThreadPool::~ManifestThreadPool()
-{
+ManifestThreadPool::~ManifestThreadPool() {
     OG_FREE(threads);
 }
 
-void ManifestThreadPool::RunHashCalculation(const std::string& base_path, std::vector<ManifestResult>& arr)
-{
-    ManifestResultJob* itemjobs = static_cast<ManifestResultJob*>(OG_MALLOC(sizeof(ManifestResultJob)*thread_count));
-    
-    int step = arr.size()/thread_count;
+void ManifestThreadPool::RunHashCalculation(const std::string& base_path, std::vector<ManifestResult>& arr) {
+    ManifestResultJob* itemjobs = static_cast<ManifestResultJob*>(OG_MALLOC(sizeof(ManifestResultJob) * thread_count));
 
-    for( int i = 0; i < thread_count; i++ )
-    {
+    int step = arr.size() / thread_count;
+
+    for (int i = 0; i < thread_count; i++) {
         itemjobs[i].item = &arr[i];
         itemjobs[i].step = thread_count;
         itemjobs[i].count = step;
         itemjobs[i].base_path = base_path.c_str();
 
-        int err = pthread_create( &threads[i], NULL, CalculateManifestResultHash, &itemjobs[i]);
+        int err = pthread_create(&threads[i], NULL, CalculateManifestResultHash, &itemjobs[i]);
 
-        if( err != 0 )
-        {
+        if (err != 0) {
             LOGE << "Thread create failed" << std::endl;
         }
     }
 
-    //Do the remaining items in our main thread.
-    for( int i = step*thread_count; i < arr.size(); i++ )
-    {
+    // Do the remaining items in our main thread.
+    for (int i = step * thread_count; i < arr.size(); i++) {
         arr[i].CalculateHash(base_path.c_str());
     }
 
     int count = 0;
-    while( count < arr.size() )
-    {
+    while (count < arr.size()) {
 #ifdef PLATFORM_LINUX
         sleep(1);
 #endif
         std::stringstream ss;
-        count = arr.size()-step*thread_count;
-        for( int i = 0; i < thread_count; i++ )
-        {
+        count = arr.size() - step * thread_count;
+        for (int i = 0; i < thread_count; i++) {
             count += itemjobs[i].performed;
             ss << ((itemjobs[i].performed == itemjobs[i].count) ? "d" : ".");
         }
-        SetPercent(ss.str().c_str(), (int)(100.0f*((float)count/(float)arr.size())));
+        SetPercent(ss.str().c_str(), (int)(100.0f * ((float)count / (float)arr.size())));
     }
 
-    for( int i = 0; i < thread_count; i++ )
-    {
-        void* retval; 
-        int err = pthread_join( threads[i], &retval );
+    for (int i = 0; i < thread_count; i++) {
+        void* retval;
+        int err = pthread_join(threads[i], &retval);
 
-        if( err != 0 )
-        {
+        if (err != 0) {
             LOGE << "Thread join failed" << std::endl;
         }
     }
-    OG_FREE( itemjobs );
+    OG_FREE(itemjobs);
 }

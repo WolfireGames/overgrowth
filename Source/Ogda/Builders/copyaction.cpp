@@ -29,19 +29,17 @@
 
 #include <string>
 
-ManifestResult CopyAction::Run(const JobHandler& jh, const Item& y)
-{
-    LOGD << "Running CopyAction of " << y << std::endl;    
+ManifestResult CopyAction::Run(const JobHandler& jh, const Item& y) {
+    LOGD << "Running CopyAction of " << y << std::endl;
     std::string from = y.GetAbsPath();
-    std::string to = AssemblePath( jh.output_folder, y.GetPath() );
+    std::string to = AssemblePath(jh.output_folder, y.GetPath());
 
-    CreateParentDirs( to );
-    int size = copyfile( from, to  );
+    CreateParentDirs(to);
+    int size = copyfile(from, to);
 
     LOGD << "Copy size " << size << std::endl;
 
-    if( size <= 0 )
-    {
+    if (size <= 0) {
         LOGE << "Unable to copy item " << y << std::endl;
     }
 

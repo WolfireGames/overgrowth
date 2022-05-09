@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
 //           Name: im_message.h
 //      Developer: Wolfire Games LLC
-//    Description: Internal helper class for communication in adhoc GUIs as 
-//                 part of the UI tools  
+//    Description: Internal helper class for communication in adhoc GUIs as
+//                 part of the UI tools
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,165 +26,146 @@
 
 #include <GUI/IMUI/im_support.h>
 
-class IMElement; // Forward declaration
+class IMElement;  // Forward declaration
 
 /*******************************************************************************************/
 /**
  * @brief A container for messages and its parameters
  *
  */
-struct IMMessage
-{
-	
+struct IMMessage {
     std::string name;
-	std::vector<std::string> stringParams;
-	std::vector<int> intParams;
-	std::vector<float> floatParams;
-    
-    int refCount; // for AS reference counting
+    std::vector<std::string> stringParams;
+    std::vector<int> intParams;
+    std::vector<float> floatParams;
 
-	/*******************************************************************************************/
+    int refCount;  // for AS reference counting
+
+    /*******************************************************************************************/
     /**
      * @brief  Constructor
-     * 
+     *
      */
-    IMMessage(std::string const& _name = "INVALID" ) :
-        refCount(1)
-    {
+    IMMessage(std::string const& _name = "INVALID") : refCount(1) {
         IMrefCountTracker.addRefCountObject("Message");
-        
-		name = _name;
-	}
 
-	/*******************************************************************************************/
+        name = _name;
+    }
+
+    /*******************************************************************************************/
     /**
      * @brief  Copy constructor
-     * 
+     *
      */
-    IMMessage( IMMessage const& other )  :
-        refCount(1)
-    {
+    IMMessage(IMMessage const& other) : refCount(1) {
         IMrefCountTracker.addRefCountObject("Message");
-        
+
         name = other.name;
         stringParams = other.stringParams;
         intParams = other.intParams;
         floatParams = other.floatParams;
     }
-    
-	// A few shortcuts for quickly filling in messages
-	//  given that the majority of messages will have 0 or 1 parameters
-    IMMessage(std::string const& _name, int param )  :
-        refCount(1)
-    {
-        IMrefCountTracker.addRefCountObject("Message");
-        
-		name = _name;
-		intParams.push_back( param );
-	}
 
-    IMMessage(std::string const& _name, float param )  :
-        refCount(1)
-    {
+    // A few shortcuts for quickly filling in messages
+    //  given that the majority of messages will have 0 or 1 parameters
+    IMMessage(std::string const& _name, int param) : refCount(1) {
         IMrefCountTracker.addRefCountObject("Message");
-        
-		name = _name;
-		floatParams.push_back( param );
-	}
 
-    IMMessage(std::string const& _name, std::string const& param )  :
-        refCount(1)
-    {
+        name = _name;
+        intParams.push_back(param);
+    }
+
+    IMMessage(std::string const& _name, float param) : refCount(1) {
         IMrefCountTracker.addRefCountObject("Message");
-        
-		name = _name;
-		stringParams.push_back( param );
-	}
-    
-    void AddRef()
-    {
+
+        name = _name;
+        floatParams.push_back(param);
+    }
+
+    IMMessage(std::string const& _name, std::string const& param) : refCount(1) {
+        IMrefCountTracker.addRefCountObject("Message");
+
+        name = _name;
+        stringParams.push_back(param);
+    }
+
+    void AddRef() {
         // Increase the reference counter
         refCount++;
     }
-    
-    void Release()
-    {
+
+    void Release() {
         // Decrease ref count and delete if it reaches 0
-        if( --refCount == 0 ) {
+        if (--refCount == 0) {
             delete this;
         }
     }
-    
-    static IMMessage* ASFactory( std::string const& name  ) {
+
+    static IMMessage* ASFactory(std::string const& name) {
         return new IMMessage(name);
     }
-    
-    static IMMessage* ASFactory_int( std::string const& name, int param  ) {
+
+    static IMMessage* ASFactory_int(std::string const& name, int param) {
         return new IMMessage(name, param);
     }
-    
-    static IMMessage* ASFactory_float( std::string const& name, float param  ) {
+
+    static IMMessage* ASFactory_float(std::string const& name, float param) {
         return new IMMessage(name, param);
     }
-    
-    static IMMessage* ASFactory_string( std::string const& name, std::string const& param  ) {
+
+    static IMMessage* ASFactory_string(std::string const& name, std::string const& param) {
         return new IMMessage(name, param);
     }
-    
+
     int numInts() {
-        return (int) intParams.size();
+        return (int)intParams.size();
     }
-    
+
     int numFloats() {
-        return (int) floatParams.size();
+        return (int)floatParams.size();
     }
-    
+
     int numStrings() {
-        return (int) stringParams.size();
+        return (int)stringParams.size();
     }
-    
-    void addInt( int param ) {
-        intParams.push_back( param );
+
+    void addInt(int param) {
+        intParams.push_back(param);
     }
-    
-    void addFloat( float param ) {
-        floatParams.push_back( param );
+
+    void addFloat(float param) {
+        floatParams.push_back(param);
     }
-    
-    void addString( std::string const& param ) {
-        stringParams.push_back( param );
+
+    void addString(std::string const& param) {
+        stringParams.push_back(param);
     }
-    
-    int getInt( int index ) {
-        if( index < (int)intParams.size() ) {
-            return intParams[ index ];
-        }
-        else {
+
+    int getInt(int index) {
+        if (index < (int)intParams.size()) {
+            return intParams[index];
+        } else {
             return 0;
         }
     }
-    
-    float getFloat( int index ) {
-        if( index < (int)floatParams.size() ) {
-            return floatParams[ index ];
-        }
-        else {
+
+    float getFloat(int index) {
+        if (index < (int)floatParams.size()) {
+            return floatParams[index];
+        } else {
             return 0.0;
         }
     }
-    
-    std::string getString( int index ) {
-        if( index < (int)stringParams.size() ) {
-            return stringParams[ index ];
-        }
-        else {
+
+    std::string getString(int index) {
+        if (index < (int)stringParams.size()) {
+            return stringParams[index];
+        } else {
             return "";
         }
     }
-    
+
     ~IMMessage() {
         IMrefCountTracker.removeRefCountObject("Message");
     }
 };
-
-

@@ -25,41 +25,36 @@
 
 #include <vector>
 
-class BuilderFactory
-{
-private:
-    class ActionFactoryBase
-    { 
-    public:
+class BuilderFactory {
+   private:
+    class ActionFactoryBase {
+       public:
         virtual ActionBase* NewInstance() = 0;
         virtual std::string GetActionName() = 0;
         virtual bool StoreResultInDatabase() = 0;
     };
 
-    template<class Action>
-    class ActionFactory : public ActionFactoryBase
-    {
-        ActionBase* NewInstance() override
-        {
+    template <class Action>
+    class ActionFactory : public ActionFactoryBase {
+        ActionBase* NewInstance() override {
             return new Action();
         }
 
-        std::string GetActionName() override
-        {
+        std::string GetActionName() override {
             return std::string(Action().GetName());
         }
 
-        bool StoreResultInDatabase() override
-        {
-            return Action().StoreResultInDatabase(); 
+        bool StoreResultInDatabase() override {
+            return Action().StoreResultInDatabase();
         }
     };
 
     std::vector<ActionFactoryBase*> actions;
-public:
+
+   public:
     BuilderFactory();
     ~BuilderFactory();
-    bool HasBuilder( const std::string& builder );
-    Builder CreateBuilder( const std::string& builder, const std::string& ending, const std::string& type_pattern_re );
-    bool StoreResultInDatabase( std::string builder );
+    bool HasBuilder(const std::string& builder);
+    Builder CreateBuilder(const std::string& builder, const std::string& ending, const std::string& type_pattern_re);
+    bool StoreResultInDatabase(std::string builder);
 };

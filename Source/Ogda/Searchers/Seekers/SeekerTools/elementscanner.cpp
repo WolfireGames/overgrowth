@@ -34,54 +34,38 @@
 #include <tinyxml.h>
 
 void ElementScanner::Do(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlNode *eRoot, 
-    const std::vector<elempair>& elems, 
+    std::vector<Item>& items,
+    const Item& item,
+    TiXmlNode* eRoot,
+    const std::vector<elempair>& elems,
     const std::vector<const char*>& elems_ignore,
     XMLSeekerBase* callback,
-    void* userdata
-    )
-{
-    if( eRoot )
-    {
+    void* userdata) {
+    if (eRoot) {
         TiXmlElement* eElem = eRoot->FirstChildElement();
 
-        while( eElem )
-        {
+        while (eElem) {
             const char* name = eElem->Value();
             const char* text = eElem->GetText();
-            if( name )
-            {
+            if (name) {
                 int id;
-                if( (id = FindStringInArray( elems, name )) >= 0 )
-                {
-                    if( strlen( elems[id].second ) > 0 )
-                    {
-                        if( text && strlen(text) > 0 )
-                        {
-                            items.push_back(Item(item.input_folder, text,elems[id].second,item.source));
-                        }
-                        else
-                        {
+                if ((id = FindStringInArray(elems, name)) >= 0) {
+                    if (strlen(elems[id].second) > 0) {
+                        if (text && strlen(text) > 0) {
+                            items.push_back(Item(item.input_folder, text, elems[id].second, item.source));
+                        } else {
                             LOGW << "String value in " << item << " for element " << elems[id].first << " is empty, row " << eElem->Row() << std::endl;
                         }
                     }
 
-                    if( callback )
-                        callback->HandleElementCallback(items,eRoot,eElem,item,userdata);
-                }
-                else if( (id = FindStringInArray( elems_ignore, name )) >= 0 )
-                {
+                    if (callback)
+                        callback->HandleElementCallback(items, eRoot, eElem, item, userdata);
+                } else if ((id = FindStringInArray(elems_ignore, name)) >= 0) {
                     LOGD << "Ignored " << elems_ignore[id] << " in " << item << " row " << eElem->Row() << std::endl;
-                }
-                else
-                {
+                } else {
                     LOGE << "Unahandled subvalue from " << item << " called " << name << " row " << eElem->Row() << std::endl;
                 }
-            }
-            else
-            {
+            } else {
                 LOGE << "Generic warning" << std::endl;
             }
 

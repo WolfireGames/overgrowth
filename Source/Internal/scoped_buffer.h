@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: scoped_buffer.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,15 +28,15 @@
 struct ScopedBuffer {
     void *ptr;
 
-    ScopedBuffer():ptr(NULL){}
-    ScopedBuffer( int size ) {
-        ptr = (void*)OG_MALLOC(size);   
-        if(!ptr){
+    ScopedBuffer() : ptr(NULL) {}
+    ScopedBuffer(int size) {
+        ptr = (void *)OG_MALLOC(size);
+        if (!ptr) {
             FatalError("Error", "Could not allocate memory");
         }
     }
 
-    ~ScopedBuffer(){
+    ~ScopedBuffer() {
         OG_FREE(ptr);
     }
 };

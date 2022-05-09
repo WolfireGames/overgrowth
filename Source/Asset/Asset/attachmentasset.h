@@ -34,8 +34,8 @@
 using std::string;
 
 class Attachment : public Asset {
-public:
-    Attachment( AssetManager* owner, uint32_t asset_id );
+   public:
+    Attachment(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return ATTACHMENT_ASSET; }
     static const char* GetTypeName() { return "ATTACHMENT_ASSET"; }
 
@@ -44,7 +44,7 @@ public:
     int ik_chain_bone;
     bool mirror_allowed;
 
-    int Load(const string &path, uint32_t load_flags);
+    int Load(const string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
 

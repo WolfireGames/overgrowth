@@ -58,7 +58,7 @@ void DisposeImGui();
 
 void UpdateImGui();
 void ProcessEventImGui(SDL_Event* event);
-void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph,Graphics* graphics);
+void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph, Graphics* graphics);
 void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManager* assetmanager, Engine* engine, bool cursor_visible);
 bool WantMouseImGui();
 bool WantKeyboardImGui();

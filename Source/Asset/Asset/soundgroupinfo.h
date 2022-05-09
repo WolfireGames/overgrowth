@@ -33,30 +33,31 @@ class SoundGroupInfo : public AssetInfo {
     float delay;
     float volume;
     float max_distance;
-    
-public:
-    SoundGroupInfo( AssetManager* owner, uint32_t asset_id );
 
-    int Load( const std::string &path, uint32_t load_flags );
+   public:
+    SoundGroupInfo(AssetManager* owner, uint32_t asset_id);
+
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
-    void Reload( );
+    void Reload();
     void ReportLoad() override;
 
-    void ReturnPaths(PathSet &path_set) override;
-    inline int GetNumVariants() const {return num_variants;}
-    inline float GetDelay() const {return delay;}
-    inline float GetVolume() const {return volume;}
-    inline float GetMaxDistance() const {return max_distance;}
-    std::string GetSoundPath( int choice ) const;
+    void ReturnPaths(PathSet& path_set) override;
+    inline int GetNumVariants() const { return num_variants; }
+    inline float GetDelay() const { return delay; }
+    inline float GetVolume() const { return volume; }
+    inline float GetMaxDistance() const { return max_distance; }
+    std::string GetSoundPath(int choice) const;
     static AssetType GetType() { return SOUND_GROUP_INFO_ASSET; }
     static const char* GetTypeName() { return "SOUND_GROUP_INFO_ASSET"; }
     static bool AssetWarning() { return true; }
 
     AssetLoaderBase* NewLoader() override;
-private:
-    bool ParseXML( const char* data );
+
+   private:
+    bool ParseXML(const char* data);
 };
 
 typedef AssetRef<SoundGroupInfo> SoundGroupInfoRef;

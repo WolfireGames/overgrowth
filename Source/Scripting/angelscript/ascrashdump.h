@@ -24,7 +24,7 @@
 
 class ASContext;
 
-void RegisterAngelscriptContext( const char* name, ASContext* ascontext );
-void DeregisterAngelscriptContext( ASContext* ascontext );
+void RegisterAngelscriptContext(const char* name, ASContext* ascontext);
+void DeregisterAngelscriptContext(ASContext* ascontext);
 
 void DumpAngelscriptStates();

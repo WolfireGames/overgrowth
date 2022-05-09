@@ -25,23 +25,21 @@
 #include <Internal/path.h>
 #include <XML/Parsers/levelassetspreloadparser.h>
 
-
 #include <vector>
 #include <map>
 #include <string>
 
-/* This class isn't a complete one, but it does do partial resolves 
- * It also supports retriving assets that should be pre-loaded, commonly used in all or some levels 
+/* This class isn't a complete one, but it does do partial resolves
+ * It also supports retriving assets that should be pre-loaded, commonly used in all or some levels
  */
 class AssetPreload {
-
-    std::map<std::string,std::string> id_asset_map;
+    std::map<std::string, std::string> id_asset_map;
 
     LevelAssetPreloadParser amp;
 
-public:
+   public:
     Path ResolveID(const char* id);
-    std::vector<LevelAssetPreloadParser::Asset> &GetPreloadFiles();
+    std::vector<LevelAssetPreloadParser::Asset>& GetPreloadFiles();
 
     static AssetPreload& Instance();
 

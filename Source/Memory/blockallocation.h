@@ -27,7 +27,7 @@
 #include <cstring>
 
 class BlockAllocation {
-public:
+   public:
     BlockAllocation(size_t _block_index, size_t _block_count, void* ptr);
     BlockAllocation();
 

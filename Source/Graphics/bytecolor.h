@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: bytecolor.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -37,7 +37,7 @@ struct ByteColor {
     const ByteColor &operator=(const ByteColor &other);
 };
 
-vec4 GetAverageColor( const char* abs_path );
+vec4 GetAverageColor(const char *abs_path);
 unsigned distance_squared(const ByteColor &a, const ByteColor &b);
 float hue_saturation_distance_squared(const ByteColor &a, const ByteColor &b);
 int WeightIndex(const TextureData &data, int i, int j);

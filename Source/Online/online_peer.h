@@ -43,7 +43,7 @@ struct Peer {
 
     map<OnlineFlags, bool> host_session_flags;
 
-    //Host side flag to mark that we need to do an initial sync with this peer.
+    // Host side flag to mark that we need to do an initial sync with this peer.
     bool should_send_state_messages = false;
     float current_ping_delta = 0.0f;
 };

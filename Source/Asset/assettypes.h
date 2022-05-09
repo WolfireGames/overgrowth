@@ -56,5 +56,5 @@ enum AssetType {
     ASSET_TYPE_FINAL
 };
 
-const char* GetAssetTypeString( AssetType assettype );
-AssetType GetAssetTypeValue( const char* assettype );
+const char* GetAssetTypeString(AssetType assettype);
+AssetType GetAssetTypeValue(const char* assettype);

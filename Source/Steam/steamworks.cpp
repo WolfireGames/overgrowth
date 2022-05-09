@@ -40,16 +40,15 @@
 
 const int Steamworks::poll_freq = 60 * 10;
 
-Steamworks::Steamworks() : 
-m_SteamGameOverlayActivated(this, &Steamworks::OnGameOverlayActivated),
-connected(false),
-ugc(NULL),
-friends(NULL),
-matchmaking(NULL),
-poll_counter(0),
-can_use_workshop(false),
-needs_to_accept_license(false) {
-    //Should be empty
+Steamworks::Steamworks() : m_SteamGameOverlayActivated(this, &Steamworks::OnGameOverlayActivated),
+                           connected(false),
+                           ugc(NULL),
+                           friends(NULL),
+                           matchmaking(NULL),
+                           poll_counter(0),
+                           can_use_workshop(false),
+                           needs_to_accept_license(false) {
+    // Should be empty
 }
 
 Steamworks* Steamworks::Instance() {
@@ -72,11 +71,11 @@ SteamworksMatchmaking* Steamworks::GetMatchmaking() {
 void Steamworks::Initialize() {
     bool steam_init_success = SteamAPI_Init();
     connected = false;
-    if(steam_init_success){
+    if (steam_init_success) {
         LOGI << "Successfully connected to Steam API." << std::endl;
-        if( SteamUGC() ) {
+        if (SteamUGC()) {
             connected = true;
-            ugc = new SteamworksUGC(); 
+            ugc = new SteamworksUGC();
             friends = new SteamworksFriends();
             matchmaking = new SteamworksMatchmaking();
         } else {
@@ -93,20 +92,20 @@ void Steamworks::Update(bool updateUGC) {
         PROFILER_ZONE(g_profiler_ctx, "RunCallbacks");
         SteamAPI_RunCallbacks();
     }
-    if(updateUGC) {
-        if( GetUGC() ) {
+    if (updateUGC) {
+        if (GetUGC()) {
             PROFILER_ZONE(g_profiler_ctx, "UGC->Update");
             GetUGC()->Update();
         }
 
-        if( friends ) {
+        if (friends) {
             PROFILER_ZONE(g_profiler_ctx, "Friends");
-            if( poll_counter <= 0 ) {
-                if( config["check_for_workshop_membership"].toBool() ) { 
+            if (poll_counter <= 0) {
+                if (config["check_for_workshop_membership"].toBool()) {
                     std::vector<CSteamID> ids = friends->GetClans();
                     can_use_workshop = false;
-                    for( unsigned i = 0; i < ids.size(); i++ ) {
-                        if( ids[i] == overgrowth_tester_group ) {
+                    for (unsigned i = 0; i < ids.size(); i++) {
+                        if (ids[i] == overgrowth_tester_group) {
                             can_use_workshop = true;
                         }
                     }
@@ -123,8 +122,8 @@ void Steamworks::Update(bool updateUGC) {
 }
 
 void Steamworks::Dispose() {
-    while(WaitingForResults()) {
-        Update(true);         
+    while (WaitingForResults()) {
+        Update(true);
     }
 
     if (matchmaking) {
@@ -140,11 +139,11 @@ void Steamworks::Dispose() {
     connected = false;
 }
 
-//This function indicates of any of the steamworks systems are waiting
-//for data to be returned from the underlying api. If this is the case,
-//disposing of the systems aren't safe;
+// This function indicates of any of the steamworks systems are waiting
+// for data to be returned from the underlying api. If this is the case,
+// disposing of the systems aren't safe;
 bool Steamworks::WaitingForResults() {
-    if( ugc ) {
+    if (ugc) {
         return ugc->WaitingForResults();
     } else {
         return false;
@@ -156,26 +155,26 @@ bool Steamworks::UserNeedsToAcceptWorkshopAgreement() {
 }
 
 bool Steamworks::UserCanAccessWorkshop() {
-    if( IsConnected() ) {
-        if( can_use_workshop ) {
+    if (IsConnected()) {
+        if (can_use_workshop) {
             return true;
         }
     }
     return false;
 }
 
-void Steamworks::OpenWebPageToMod(ModID &id) {
+void Steamworks::OpenWebPageToMod(ModID& id) {
     ModInstance* mod = ModLoading::Instance().GetMod(id);
-    if( mod ) {
+    if (mod) {
         SteamworksUGCItem* ugci = mod->GetUGCItem();
-        if( ugci )  {
-            if( friends ) {
+        if (ugci) {
+            if (friends) {
                 LOGI << "Opening workshop mod overlay page for " << id << std::endl;
 
                 std::stringstream ss;
                 ss << "steamcommunity.com/sharedfiles/filedetails/?id=" << ugci->steamworks_id << std::endl;
                 std::string url = ss.str();
-                friends->ActivateGameOverlayToWebPage( url.c_str() );
+                friends->ActivateGameOverlayToWebPage(url.c_str());
             } else {
                 LOGE << "Couldn't open mod page overlay, mod " << id << " no friends steamworks instance" << std::endl;
             }
@@ -187,15 +186,15 @@ void Steamworks::OpenWebPageToMod(ModID &id) {
     }
 }
 
-void Steamworks::OpenWebPageToModAuthor(ModID &id) {
+void Steamworks::OpenWebPageToModAuthor(ModID& id) {
     ModInstance* mod = ModLoading::Instance().GetMod(id);
 
-    if( mod ) {
+    if (mod) {
         SteamworksUGCItem* ugci = mod->GetUGCItem();
-        if( ugci )  {
-            if( friends ) {
+        if (ugci) {
+            if (friends) {
                 LOGI << "Opening workshop mod author overlay page for " << id << std::endl;
-                friends->ActivateGameOverlayToUser( "steamid", ugci->owner_id );
+                friends->ActivateGameOverlayToUser("steamid", ugci->owner_id);
             } else {
                 LOGE << "Couldn't open mod author page overlay, mod " << id << " no friends steamworks instance" << std::endl;
             }
@@ -209,18 +208,18 @@ void Steamworks::OpenWebPageToModAuthor(ModID &id) {
 
 void Steamworks::OpenWebPageToWorkshop() {
     const char* url = "steamcommunity.com/app/" OVERGROWTH_APP_ID_STR "/workshop/";
-    if( friends ) {
+    if (friends) {
         LOGI << "Opening workshop overlay" << std::endl;
-        friends->ActivateGameOverlayToWebPage( url );
+        friends->ActivateGameOverlayToWebPage(url);
     } else {
         LOGE << "Couldn't open workshop overlay page" << std::endl;
     }
 }
 
 void Steamworks::OpenWebPage(const char* url) {
-    if( friends ) {
+    if (friends) {
         LOGI << "Opening workshop overlay" << std::endl;
-        friends->ActivateGameOverlayToWebPage( url );
+        friends->ActivateGameOverlayToWebPage(url);
     } else {
         LOGE << "Couldn't open workshop overlay url:" << url << std::endl;
     }
@@ -230,8 +229,8 @@ bool Steamworks::IsConnected() {
     return connected;
 }
 
-void Steamworks::OnGameOverlayActivated( GameOverlayActivated_t *callback ) {
-    if( callback->m_bActive ) {
+void Steamworks::OnGameOverlayActivated(GameOverlayActivated_t* callback) {
+    if (callback->m_bActive) {
         LOGI << "Overlay activated" << std::endl;
         UIShowCursor(1);
     } else {

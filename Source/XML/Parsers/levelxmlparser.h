@@ -23,15 +23,12 @@
 #pragma once
 #include <XML/Parsers/xmlparserbase.h>
 
-//Note that this isn't used for level loading currently, only for extracting information from a levelxml file.
-//ofc this comment should be remove if this changes. The actual loading is in LevelLoader.cpp /Max
-class LevelXMLParser : public XMLParserBase
-{
-public:
-    struct Terrain
-    {
-        class DetailMap
-        {
+// Note that this isn't used for level loading currently, only for extracting information from a levelxml file.
+// ofc this comment should be remove if this changes. The actual loading is in LevelLoader.cpp /Max
+class LevelXMLParser : public XMLParserBase {
+   public:
+    struct Terrain {
+        class DetailMap {
             std::string colorpath;
             std::string normalpath;
             std::string materialpath;
@@ -41,16 +38,14 @@ public:
         std::string detailmap;
         std::string colormap;
         std::string weightmap;
-
     };
 
-    struct LoadingScreen
-    {
+    struct LoadingScreen {
         std::string image;
     };
 
-    uint32_t Load( const std::string& path ) override;
-    bool Save( const std::string& path ) override;
+    uint32_t Load(const std::string& path) override;
+    bool Save(const std::string& path) override;
     void Clear() override;
 
     std::string hash;

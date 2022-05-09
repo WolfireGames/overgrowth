@@ -37,10 +37,11 @@ class ReactionScriptGetter {
     std::vector<ItemRef> items;
 
     int GetMirrored();
-    void Load( std::string path );
+    void Load(std::string path);
     std::string GetAnimPath(float severity);
-public:
-    void AttachToScript( ASContext *as_context, const std::string& as_name );
-    void AttachExtraToScript( ASContext *as_context, const std::string& as_name );
-    void ItemsChanged( const std::vector<ItemRef> &_items );
+
+   public:
+    void AttachToScript(ASContext *as_context, const std::string &as_name);
+    void AttachExtraToScript(ASContext *as_context, const std::string &as_name);
+    void ItemsChanged(const std::vector<ItemRef> &_items);
 };

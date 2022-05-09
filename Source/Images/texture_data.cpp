@@ -42,9 +42,9 @@
 #include <cstring>
 #include <cmath>
 
-using std::string;
 using std::endl;
 using std::min;
+using std::string;
 // TODO: avoid "using namespace" if possible
 using namespace crnlib;
 
@@ -55,7 +55,7 @@ bool IsPow2(int v) {
 }
 
 bool TextureData::IsCube() const {
-	return is_cube;
+    return is_cube;
 }
 
 bool TextureData::IsCompressed() const {
@@ -74,72 +74,61 @@ unsigned int TextureData::GetWidth() const {
     return width;
 }
 
-
 unsigned int TextureData::GetHeight() const {
     return height;
 }
 
-
 unsigned int TextureData::GetMipWidth(unsigned int mip) const {
     const unsigned face = 0;
-    const unsigned index = face*mip_levels+mip;
-    if( index < mip_widths.size() ) {
+    const unsigned index = face * mip_levels + mip;
+    if (index < mip_widths.size()) {
         return mip_widths[index];
     } else {
         return 0;
     }
 }
 
-
 unsigned int TextureData::GetMipHeight(unsigned int mip) const {
     const unsigned face = 0;
-    const unsigned index = face*mip_levels+mip;
-    if( index < mip_heights.size() ) {
+    const unsigned index = face * mip_levels + mip;
+    if (index < mip_heights.size()) {
         return mip_heights[index];
     } else {
         return 0;
     }
 }
 
-
 unsigned int TextureData::GetNumFaces() const {
     return num_faces;
 }
-
 
 unsigned int TextureData::GetMipLevels() const {
     return mip_levels;
 }
 
-
 GLenum TextureData::GetGLBaseFormat() const {
     return gl_base_format;
 }
-
 
 GLenum TextureData::GetGLInternalFormat() const {
     return gl_internal_format;
 }
 
-
 GLenum TextureData::GetGLType() const {
     return gl_type;
 }
 
-
 unsigned int TextureData::GetMipDataSize(unsigned int face, unsigned int mip) const {
-    const unsigned index = face*mip_levels+mip;
-    if( index < mip_data_sizes.size() ) {
+    const unsigned index = face * mip_levels + mip;
+    if (index < mip_data_sizes.size()) {
         return mip_data_sizes[index];
     } else {
         return 0;
     }
 }
 
-
 const char *TextureData::GetMipData(unsigned int face, unsigned int mip) const {
-
-    if( is_loaded ) { 
+    if (is_loaded) {
         const mip_level *level = m_crnTex.get_level(face, mip);
 
         if (level->is_packed()) {
@@ -151,7 +140,7 @@ const char *TextureData::GetMipData(unsigned int face, unsigned int mip) const {
             assert(img != NULL);
             return reinterpret_cast<const char *>(img->get_pixels());
         }
-    } else { 
+    } else {
         LOGE << "Unable to get MipData from texturedata, data is unloaded " << source_path << endl;
         return NULL;
     }
@@ -171,40 +160,40 @@ bool TextureData::Load(const char *abs_path) {
 
     {
         PROFILER_ENTER(g_profiler_ctx, "TextureData::Load actual file loading");
-        FILE* pFile = my_fopen(abs_path, "rb");
-        if( pFile ) {
+        FILE *pFile = my_fopen(abs_path, "rb");
+        if (pFile) {
             // obtain file size:
-            fseek (pFile , 0 , SEEK_END);
-            int lSize = ftell (pFile);
-            rewind (pFile);
+            fseek(pFile, 0, SEEK_END);
+            int lSize = ftell(pFile);
+            rewind(pFile);
 
             // allocate memory to contain the whole file:
-            char* buffer = (char*) alloc.stack.Alloc(sizeof(char)*lSize);
+            char *buffer = (char *)alloc.stack.Alloc(sizeof(char) * lSize);
 
             const int kBufSize = 512;
             char error_msg[kBufSize];
-        #ifndef NO_ERR
+#ifndef NO_ERR
             if (buffer == NULL) {
                 FormatString(error_msg, kBufSize, "Could not allocate memory to checksum: %s.", abs_path);
                 FatalError("Error", error_msg);
             }
-        #endif
+#endif
 
             // copy the file into the buffer:
-            size_t result = fread (buffer,1,lSize,pFile);
-        #ifndef NO_ERR
+            size_t result = fread(buffer, 1, lSize, pFile);
+#ifndef NO_ERR
             if (result != (size_t)lSize) {
                 FormatString(error_msg, kBufSize, "Could not read data from file: %s.", abs_path);
                 FatalError("Error", error_msg);
             }
-        #endif
+#endif
 
             crnlib::buffer_stream buf_stream(buffer, lSize);
             buf_stream.set_name(abs_path);
             data_stream_serializer serializer(buf_stream);
 
             // terminate
-            fclose (pFile);
+            fclose(pFile);
             PROFILER_LEAVE(g_profiler_ctx);
 
             {
@@ -227,10 +216,10 @@ bool TextureData::Load(const char *abs_path) {
             return false;
         }
     }
-    
+
     // try to determine color space
     string src(abs_path);
-    for (char & i : src) {
+    for (char &i : src) {
         i = tolower(i);
     }
     if (src.rfind("_c.") != string::npos) {
@@ -244,33 +233,31 @@ bool TextureData::Load(const char *abs_path) {
     } else if (src.rfind("_norm.") != string::npos) {
         // linear
     } else {
-        //LOGW << "File " << abs_path << " does not specify color space" << endl;
+        // LOGW << "File " << abs_path << " does not specify color space" << endl;
     }
 
     // vvv commented out the non-flipping exception because it was messing up the spawner thumbnails -David
 
     // for whatever reason uncompressed non-pow2 textures must not be flipped
-    //if (m_crnTex.is_packed() || (IsPow2(m_crnTex.get_width()) && IsPow2(m_crnTex.get_height()))) {
+    // if (m_crnTex.is_packed() || (IsPow2(m_crnTex.get_width()) && IsPow2(m_crnTex.get_height()))) {
     // need to flip it, apparently crunch does something different than nvImage
     /*{
         PROFILER_ZONE(g_profiler_ctx, "TextureData::Load flip_y");
         m_crnTex.flip_y(true);
     }*/
     //}
-    
+
     if (!m_crnTex.is_packed()) {
         pixel_format format = m_crnTex.get_format();
         switch (format) {
-        case PIXEL_FMT_A8R8G8B8:
-            break;  // nothing to do
+            case PIXEL_FMT_A8R8G8B8:
+                break;  // nothing to do
 
-        default:
-            {
+            default: {
                 PROFILER_ZONE(g_profiler_ctx, "TextureData::Load m_crnTex.convert");
                 dxt_image::pack_params p;
                 m_crnTex.convert(PIXEL_FMT_A8R8G8B8, true, p);
-            }
-            break;
+            } break;
         }
     }
 
@@ -280,15 +267,15 @@ bool TextureData::Load(const char *abs_path) {
 }
 
 bool TextureData::EnsureInRAM() {
-    if( !is_loaded ) {
+    if (!is_loaded) {
         LOGW << "Reloading " << source_path << " into ram from disk, it's needed again" << endl;
-        return Load(source_path.c_str()); 
+        return Load(source_path.c_str());
     }
     return true;
 }
 
-void TextureData::GetUncompressedData(unsigned char* data) {
-    if( is_loaded ) {
+void TextureData::GetUncompressedData(unsigned char *data) {
+    if (is_loaded) {
         pixel_format format = m_crnTex.get_format();
         int imageBits = 32;
 
@@ -300,13 +287,13 @@ void TextureData::GetUncompressedData(unsigned char* data) {
         int imageDataSize = heightDataSize * bytesPerPixel;
 
         image_u8 image;
-        image_u8* pImg = m_crnTex.get_level_image(0, 0, image);
+        image_u8 *pImg = m_crnTex.get_level_image(0, 0, image);
 
         if (imageBits == 8) {
             for (int y = 0; y < imageHeight; y++) {
                 color_quad_u8 *bits = pImg->get_scanline(y);
                 for (int x = 0; x < imageWidth; x++) {
-                    int curr_index = x + y*imageWidth;
+                    int curr_index = x + y * imageWidth;
                     data[curr_index] = bits[x].a;
                 }
             }
@@ -314,7 +301,7 @@ void TextureData::GetUncompressedData(unsigned char* data) {
             for (int y = 0; y < imageHeight; y++) {
                 color_quad_u8 *bits = pImg->get_scanline(y);
                 for (int x = 0; x < imageWidth; x++) {
-                    int curr_index = x + y*imageWidth;
+                    int curr_index = x + y * imageWidth;
                     data[4 * curr_index] = bits[x].b;
                     data[4 * curr_index + 1] = bits[x].g;
                     data[4 * curr_index + 2] = bits[x].r;
@@ -325,7 +312,7 @@ void TextureData::GetUncompressedData(unsigned char* data) {
             for (int y = 0; y < imageHeight; y++) {
                 color_quad_u8 *bits = pImg->get_scanline(y);
                 for (int x = 0; x < imageWidth; x++) {
-                    int curr_index = x + y*imageWidth;
+                    int curr_index = x + y * imageWidth;
                     data[4 * curr_index] = bits[x].b;
                     data[4 * curr_index + 1] = bits[x].g;
                     data[4 * curr_index + 2] = bits[x].r;
@@ -357,15 +344,14 @@ void TextureData::GetUncompressedData(unsigned char* data) {
     }
 }
 
-void TextureData::SetColorSpace(ColorSpace color_space) 
-{ 
-    m_colorSpace = color_space; 
+void TextureData::SetColorSpace(ColorSpace color_space) {
+    m_colorSpace = color_space;
     ExtractMetaData();
 }
 
 bool TextureData::GenerateMipmaps() {
     bool result = false;
-    if( is_loaded ) { 
+    if (is_loaded) {
         mipmapped_texture::generate_mipmap_params mipParams;
         // TODO: set parameters
         result = m_crnTex.generate_mipmaps(mipParams, false);
@@ -380,8 +366,8 @@ bool TextureData::GenerateMipmaps() {
 
 bool TextureData::ConvertDXT(pixel_format format, ConversionQuality quality) {
     bool ret_val = false;
-    
-    if( is_loaded ) {
+
+    if (is_loaded) {
         dxt_image::pack_params packParams;
         if (quality == Nice) {
             packParams.m_quality = cCRNDXTQualityUber;
@@ -409,7 +395,7 @@ bool TextureData::ConvertDXT(pixel_format format, ConversionQuality quality) {
 
 bool TextureData::SaveDDS(const char *abs_path) {
     bool result = false;
-    if( is_loaded ) {
+    if (is_loaded) {
         result = m_crnTex.write_to_file(abs_path, texture_file_types::cFormatDDS);
         if (!result) {
             LOGE << m_crnTex.get_last_error().get_ptr() << endl;
@@ -422,7 +408,7 @@ bool TextureData::SaveDDS(const char *abs_path) {
 
 bool TextureData::SaveCRN(const char *abs_path, crn_format format, ConversionQuality quality) {
     bool result = false;
-    if( is_loaded ) {
+    if (is_loaded) {
         crn_comp_params params;
         params.m_format = format;
         if (quality == Nice) {
@@ -451,7 +437,7 @@ void TextureData::UnloadData() {
 void TextureData::ExtractMetaData() {
     is_packed = m_crnTex.is_packed();
     is_cube = (m_crnTex.get_num_faces() == 6);
-    
+
     width = m_crnTex.get_width();
     height = m_crnTex.get_height();
 
@@ -462,9 +448,9 @@ void TextureData::ExtractMetaData() {
     mip_heights.clear();
     mip_data_sizes.clear();
 
-    for( int k = 0; k < num_faces; k++ ) {
-        for( int i = 0; i < mip_levels; i++ ) {
-            const mip_level *level = m_crnTex.get_level(k,i);
+    for (int k = 0; k < num_faces; k++) {
+        for (int i = 0; i < mip_levels; i++) {
+            const mip_level *level = m_crnTex.get_level(k, i);
             mip_widths.push_back(level->get_width());
             mip_heights.push_back(level->get_height());
             if (level->is_packed()) {
@@ -479,7 +465,6 @@ void TextureData::ExtractMetaData() {
         }
     }
 
-
     switch (m_crnTex.get_format()) {
         case crnlib::PIXEL_FMT_DXT1:
         case crnlib::PIXEL_FMT_DXT1A:
@@ -487,7 +472,7 @@ void TextureData::ExtractMetaData() {
         case crnlib::PIXEL_FMT_DXT3:
         case crnlib::PIXEL_FMT_DXT4:
         case crnlib::PIXEL_FMT_DXT5:
-            //LOGE << "Unsupported pixel format in texture " << source_path << endl;
+            // LOGE << "Unsupported pixel format in texture " << source_path << endl;
             gl_base_format = GL_NONE;
             break;
 
@@ -559,7 +544,6 @@ void TextureData::ExtractMetaData() {
                 LOGE << "Unsupported pixel format in texture " << source_path << endl;
                 gl_internal_format = GL_NONE;
                 break;
-
         }
     } else {
         switch (m_crnTex.get_format()) {
@@ -615,7 +599,7 @@ void TextureData::ExtractMetaData() {
         case crnlib::PIXEL_FMT_DXT3:
         case crnlib::PIXEL_FMT_DXT4:
         case crnlib::PIXEL_FMT_DXT5:
-            //LOGE << "Unsupported pixel format in texture " << source_path << endl;
+            // LOGE << "Unsupported pixel format in texture " << source_path << endl;
             gl_type = GL_NONE;
             break;
 
@@ -644,4 +628,3 @@ void TextureData::ExtractMetaData() {
             break;
     }
 }
-

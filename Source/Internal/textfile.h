@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: textfile.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 // textfile.h: interface for reading and writing text files

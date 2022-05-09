@@ -24,30 +24,37 @@
 #pragma once
 
 namespace EditorTypes {
-    enum Tool { 
-        ADD_ONCE, 
-        TRANSLATE, 
-        SCALE, 
-        ROTATE, 
-        OMNI, 
-        NO_TOOL, 
-        CONNECT,
-        DISCONNECT 
-    };
+enum Tool {
+    ADD_ONCE,
+    TRANSLATE,
+    SCALE,
+    ROTATE,
+    OMNI,
+    NO_TOOL,
+    CONNECT,
+    DISCONNECT
+};
 
-    inline const char* GetToolString( Tool e )
-    {
-        switch( e )
-        {
-            case ADD_ONCE:      return "ADD_ONCE";
-            case TRANSLATE:     return "TRANSLATE";
-            case SCALE:         return "SCALE";
-            case ROTATE:        return "ROTATE";
-            case OMNI:          return "OMNI";
-            case NO_TOOL:       return "NO_TOOL";
-            case CONNECT:       return "CONNECT";
-            case DISCONNECT:    return "DISCONNECT";
-            default:            return "(unknown tool type)";
-        }
+inline const char* GetToolString(Tool e) {
+    switch (e) {
+        case ADD_ONCE:
+            return "ADD_ONCE";
+        case TRANSLATE:
+            return "TRANSLATE";
+        case SCALE:
+            return "SCALE";
+        case ROTATE:
+            return "ROTATE";
+        case OMNI:
+            return "OMNI";
+        case NO_TOOL:
+            return "NO_TOOL";
+        case CONNECT:
+            return "CONNECT";
+        case DISCONNECT:
+            return "DISCONNECT";
+        default:
+            return "(unknown tool type)";
     }
 }
+}  // namespace EditorTypes

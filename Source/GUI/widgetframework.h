@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: widgetframework.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -40,4 +40,4 @@ struct NativeLoadingText {
     void Clear();
 };
 
-void AddLoadingText(const std::string &text);
+void AddLoadingText(const std::string& text);

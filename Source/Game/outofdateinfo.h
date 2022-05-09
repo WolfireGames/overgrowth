@@ -21,13 +21,13 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 struct OutOfDateInfo {
     bool shadow;
     bool ao;
     bool nav_mesh;
     int nav_mesh_param_hash;
-    
+
     void Print();
 };

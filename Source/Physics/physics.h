@@ -26,23 +26,20 @@
 
 const int _collision_floor = -999;
 
-class Physics
-{
-    public:
-        vec3 gravity;
-        float wind;
+class Physics {
+   public:
+    vec3 gravity;
+    float wind;
 
-        vec3 GetWind(vec3 check_where, float curr_game_time, float change_rate);
+    vec3 GetWind(vec3 check_where, float curr_game_time, float change_rate);
 
-        Physics()
-            :gravity(0,-9.8f,0)
-        {}
+    Physics()
+        : gravity(0, -9.8f, 0) {}
 
-        static Physics* Instance()
-        {
-            static Physics instance;
-            return &instance;
-        }
+    static Physics* Instance() {
+        static Physics instance;
+        return &instance;
+    }
 
-        void Update();
+    void Update();
 };

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: lightvolume.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,16 +29,15 @@
 // Class Definition
 //-----------------------------------------------------------------------------
 
-class LightVolumeObject: public Object
-{
-public:
+class LightVolumeObject : public Object {
+   public:
     EntityType GetType() const override { return _light_volume_object; }
     bool Initialize() override;
 
     void Moved(Object::MoveType type) override;
     void Dispose() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
     LightVolumeObject();
     void Draw() override;
     ~LightVolumeObject() override;

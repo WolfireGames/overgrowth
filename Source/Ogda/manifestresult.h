@@ -29,25 +29,23 @@ class ActionBase;
 class CreatorBase;
 class JobHandler;
 
-class ManifestResult
-{
-private:
+class ManifestResult {
+   private:
     std::string current_dest_hash;
 
-public:
-    enum ManifestResultType
-    {
+   public:
+    enum ManifestResultType {
         GENERATED,
         BUILT,
         DATABASE
     } mr_type;
 
-    ManifestResult( const JobHandler& jh, const std::string& dest, bool success, const CreatorBase& creator, const std::string& type );
-    ManifestResult( const JobHandler& jh, const Item& item, const std::string& dest, bool success, const ActionBase& action, const std::string& type );
+    ManifestResult(const JobHandler& jh, const std::string& dest, bool success, const CreatorBase& creator, const std::string& type);
+    ManifestResult(const JobHandler& jh, const Item& item, const std::string& dest, bool success, const ActionBase& action, const std::string& type);
 
-    ManifestResult( const std::string& dest_hash, const std::vector<Item>& items, const std::string& dest, bool success, const std::string& builder, const std::string& builder_version, const ManifestResultType mr_type, const std::string& type );
-    ManifestResult( const std::string& dest_hash, Item& item, const std::string& dest, bool success, const std::string& name, const std::string& version, const ManifestResultType mr_type, const std::string& type );
-    ManifestResult( const std::string& dest_hash, const std::string& dest, bool success, const std::string& builder, const std::string& builder_version, const ManifestResultType mr_type, const std::string& type );
+    ManifestResult(const std::string& dest_hash, const std::vector<Item>& items, const std::string& dest, bool success, const std::string& builder, const std::string& builder_version, const ManifestResultType mr_type, const std::string& type);
+    ManifestResult(const std::string& dest_hash, Item& item, const std::string& dest, bool success, const std::string& name, const std::string& version, const ManifestResultType mr_type, const std::string& type);
+    ManifestResult(const std::string& dest_hash, const std::string& dest, bool success, const std::string& builder, const std::string& builder_version, const ManifestResultType mr_type, const std::string& type);
 
     void CalculateHash(const char* base_path);
     const std::string& GetCurrentDestHash(const std::string& base_path);
@@ -55,18 +53,18 @@ public:
     std::string dest;
     std::string dest_hash;
 
-    std::string name; //Either creator or action
-    std::string version; //Either creator or action
+    std::string name;     // Either creator or action
+    std::string version;  // Either creator or action
     std::string type;
 
-    //Only in built data does this come in as relevant.
-    //And even then, we don't have support for more than one source at this time.
+    // Only in built data does this come in as relevant.
+    // And even then, we don't have support for more than one source at this time.
     std::vector<Item> items;
 
     bool success;
     bool fresh_built;
 
-    friend std::ostream& operator<<(std::ostream& out, const ManifestResult& item); 
+    friend std::ostream& operator<<(std::ostream& out, const ManifestResult& item);
 };
 
-std::ostream& operator<<(std::ostream& out, const ManifestResult& item); 
+std::ostream& operator<<(std::ostream& out, const ManifestResult& item);

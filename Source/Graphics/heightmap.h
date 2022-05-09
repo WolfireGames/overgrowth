@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: heightmap.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,29 +29,28 @@
 #include <string>
 #include <vector>
 
-class HeightmapImage
-{
-public:
+class HeightmapImage {
+   public:
     enum HMScale {
         DOWNSAMPLED = true,
         ORIGINAL_RES = false
     };
-    
-    HeightmapImage():width_(0),depth_(0),checksum_(0){}
-    
+
+    HeightmapImage() : width_(0), depth_(0), checksum_(0) {}
+
     bool LoadData(const std::string& fileName, HMScale scaled);
 
     float GetHeight(int x, int z) const;
     float GetHeightXZ(float x, float z) const;
 
-    inline int32_t width() const {return width_;}
-    inline int32_t depth() const {return depth_;}
-    inline const std::string& path() const {return rel_path_;} 
-    inline uint16_t checksum() const {return checksum_;}
+    inline int32_t width() const { return width_; }
+    inline int32_t depth() const { return depth_; }
+    inline const std::string& path() const { return rel_path_; }
+    inline uint16_t checksum() const { return checksum_; }
 
     ModID modsource_;
-    
-private:
+
+   private:
     static const int kTerrainDimX = 1024;
     static const int kTerrainDimY = 1024;
     static const int kTerrainHeightScale = 32;

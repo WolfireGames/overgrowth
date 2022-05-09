@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: file_descriptor.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,19 +28,19 @@
 #include <stdint.h>
 
 class FileDescriptor {
-public:
+   public:
     // Read num_bytes bytes into memory at dst
     // Returns false on error
-    virtual bool ReadBytes(void* dst, int num_bytes)=0;
+    virtual bool ReadBytes(void* dst, int num_bytes) = 0;
     // Write num_bytes bytes into file from src
     // Returns false on error
-    virtual bool WriteBytes(const void* src, int num_bytes)=0;
+    virtual bool WriteBytes(const void* src, int num_bytes) = 0;
 
     virtual ~FileDescriptor() {}
 };
 
 class DiskFileDescriptor : public FileDescriptor {
-public:
+   public:
     // See FileDescriptor::ReadBytes
     bool ReadBytes(void* dst, int num_bytes) override;
     int ReadBytesPartial(void* dst, int num_bytes);
@@ -50,33 +50,35 @@ public:
     bool Open(const std::string& filename, const std::string& mode);
     bool Close();
     int GetSize();
-    DiskFileDescriptor():file_(NULL){}
+    DiskFileDescriptor() : file_(NULL) {}
     ~DiskFileDescriptor() override;
-private:
+
+   private:
     FILE* file_;
 };
 
 class MemReadFileDescriptor : public FileDescriptor {
-public:
+   public:
     // See FileDescriptor::ReadBytes
     bool ReadBytes(void* dst, int num_bytes) override;
     // Cannot write to this descriptor
-    bool WriteBytes(const void* src, int num_bytes) override{return false;}
+    bool WriteBytes(const void* src, int num_bytes) override { return false; }
     MemReadFileDescriptor(void* ptr = NULL)
-        :ptr_(ptr), index_(0) {}
-private:
-    void *ptr_;
+        : ptr_(ptr), index_(0) {}
+
+   private:
+    void* ptr_;
     int index_;
 };
 
 class MemWriteFileDescriptor : public FileDescriptor {
-public:
+   public:
     // Cannot read from this descriptor
-    bool ReadBytes(void* dst, int num_bytes) override{return false;}
+    bool ReadBytes(void* dst, int num_bytes) override { return false; }
     // See FileDescriptor::WriteBytes
     bool WriteBytes(const void* src, int num_bytes) override;
-    MemWriteFileDescriptor(std::vector<uint8_t> &vec):vec_(vec){}
-private:
-    std::vector<uint8_t> &vec_;
-};
+    MemWriteFileDescriptor(std::vector<uint8_t>& vec) : vec_(vec) {}
 
+   private:
+    std::vector<uint8_t>& vec_;
+};

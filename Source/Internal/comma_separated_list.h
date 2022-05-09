@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: comma_separated_list.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,32 +31,31 @@ struct CSLIterator {
     int start_, comma_pos_;
 
     CSLIterator(const std::string& str)
-        :start_(0), comma_pos_(0)
-    {
+        : start_(0), comma_pos_(0) {
         str_ = str;
     }
 
-    bool GetNext(std::string *str){
-        if(comma_pos_ == (int)str_.length()){
+    bool GetNext(std::string* str) {
+        if (comma_pos_ == (int)str_.length()) {
             return false;
         }
-        int end = (int) str_.length();
-        comma_pos_ = (int) str_.length();
-        for(int i=start_; i<end; ++i){
-            if(str_[i] == ','){
+        int end = (int)str_.length();
+        comma_pos_ = (int)str_.length();
+        for (int i = start_; i < end; ++i) {
+            if (str_[i] == ',') {
                 comma_pos_ = i;
                 break;
             }
         }
-        while(str_[start_] == ' '){
+        while (str_[start_] == ' ') {
             ++start_;
         }
         end = comma_pos_ - 1;
-        while(str_[end] == ' '){
+        while (str_[end] == ' ') {
             --end;
         }
-        if(str){
-            (*str) = str_.substr(start_, end-start_+1);
+        if (str) {
+            (*str) = str_.substr(start_, end - start_ + 1);
         }
         start_ = comma_pos_ + 1;
         return true;

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: placeholderobject.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,10 +29,12 @@
 #include <string>
 #include <vector>
 
-class PlaceholderObject: public Object {
-public:
+class PlaceholderObject : public Object {
+   public:
     enum PlaceholderObjectType {
-        kSpawn, kCamPreview, kPlayerConnect
+        kSpawn,
+        kCamPreview,
+        kPlayerConnect
     };
     PlaceholderObject();
     ~PlaceholderObject() override;
@@ -44,18 +46,18 @@ public:
     void SetBillboard(const std::string& path);
     bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
     void Draw() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
     void SetVisible(bool visible);
     bool connectable();
     uint64_t GetConnectToTypeFilterFlags();
     void SetConnectToTypeFilterFlags(uint64_t entity_type_flags);
-    bool ConnectTo( Object& other, bool checking_other = false ) override;
-    virtual bool Disconnect( Object& other, bool checking_other = false );
+    bool ConnectTo(Object& other, bool checking_other = false) override;
+    virtual bool Disconnect(Object& other, bool checking_other = false);
     void GetConnectionIDs(std::vector<int>* cons) override;
 
     int GetConnectID();
-    void NotifyDeleted( Object* o ) override;
+    void NotifyDeleted(Object* o) override;
     void Moved(Object::MoveType type) override;
     std::string editor_display_name;
     void GetDisplayName(char* buf, int buf_size) override;
@@ -63,7 +65,8 @@ public:
     ObjectSanityState GetSanity() override;
 
     bool unsaved_changes;
-private:
+
+   private:
     TextureAssetRef billboard_texture_ref_;
     PlaceholderObjectType special_type_;
     uint64_t connect_to_type_filter_flags_;
@@ -82,5 +85,5 @@ private:
     void DrawEditorLabel();
     void ClearEditorLabel();
 
-    void RemapReferences(std::map<int,int> id_map) override;
+    void RemapReferences(std::map<int, int> id_map) override;
 };

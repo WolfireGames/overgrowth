@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: glstate.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,13 +25,11 @@
 
 #include <opengl.h>
 
-GLState::GLState():
-    depth_test(false),
-    cull_face(false),
-    blend(false),
-    depth_write(false),
-    blend_src(GL_SRC_ALPHA),
-    blend_dst(GL_ONE_MINUS_SRC_ALPHA),
-    blend_alpha_dst(GL_ONE_MINUS_SRC_ALPHA),
-    blend_alpha_src(GL_ONE)
-{}
+GLState::GLState() : depth_test(false),
+                     cull_face(false),
+                     blend(false),
+                     depth_write(false),
+                     blend_src(GL_SRC_ALPHA),
+                     blend_dst(GL_ONE_MINUS_SRC_ALPHA),
+                     blend_alpha_dst(GL_ONE_MINUS_SRC_ALPHA),
+                     blend_alpha_src(GL_ONE) {}

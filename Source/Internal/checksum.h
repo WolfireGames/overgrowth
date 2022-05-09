@@ -25,4 +25,4 @@
 #include <string>
 
 unsigned short Checksum(const std::string& abs_path);
-unsigned long djb2_string_hash(const char *cstr);
+unsigned long djb2_string_hash(const char* cstr);

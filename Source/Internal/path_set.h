@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: path_set.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,5 +28,5 @@
 typedef std::set<std::string> PathSet;
 
 namespace PathSetUtil {
-    void GetCachedFiles(PathSet& path_set);
+void GetCachedFiles(PathSet& path_set);
 }

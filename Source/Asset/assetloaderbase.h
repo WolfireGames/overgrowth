@@ -29,19 +29,17 @@
 class AssetManager;
 class Asset;
 
-enum AssetLoaderStepType
-{
-    ASSET_LOADER_DISK_IO, //Perform job in IO thread
-    ASSET_LOADER_ASYNC_JOB, //Perform job in asynchronous work thread
-    ASSET_LOADER_SYNC_JOB //Perform job in main thread (like OpenGL calls)
+enum AssetLoaderStepType {
+    ASSET_LOADER_DISK_IO,    // Perform job in IO thread
+    ASSET_LOADER_ASYNC_JOB,  // Perform job in asynchronous work thread
+    ASSET_LOADER_SYNC_JOB    // Perform job in main thread (like OpenGL calls)
 };
 
 /*
  * An asset loader is responsible for loading, interpreting and potentially moving data for an asset.
  */
-class AssetLoaderBase
-{
-public:
+class AssetLoaderBase {
+   public:
     AssetLoaderBase();
     virtual ~AssetLoaderBase();
 
@@ -50,12 +48,12 @@ public:
     virtual const AssetLoaderStepType* GetAssetLoadSteps() const = 0;
     virtual const int GetAssetLoadStepCount() const = 0;
 
-    virtual int DoLoadStep( const int step_id ) = 0;
+    virtual int DoLoadStep(const int step_id) = 0;
 
     virtual const AssetLoaderStepType* GetAssetUnloadSteps() const = 0;
     virtual const unsigned GetAssetUnloadStepCount() const = 0;
 
-    virtual bool DoUnloadStep( const int step_id ) = 0;
+    virtual bool DoUnloadStep(const int step_id) = 0;
 
     virtual const char* GetTypeName() = 0;
     virtual const char* GetLoadErrorString() = 0;

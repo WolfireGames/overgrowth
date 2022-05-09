@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: loghandler.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -20,24 +20,23 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include <string>
 #include <Logging/logdata.h>
 
 /*!
-	Virutal object for indirection of output options. 
-	Parent for ConsoleHandler and FileHandler etc. 
+        Virutal object for indirection of output options.
+        Parent for ConsoleHandler and FileHandler etc.
 */
-class LogHandler
-{
-public:
-	LogHandler();
-	virtual ~LogHandler();
+class LogHandler {
+   public:
+    LogHandler();
+    virtual ~LogHandler();
 
-	/*! 
-		Overloaded by child object and will print message accordingly.
-	*/
-	virtual void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message ) = 0;
+    /*!
+            Overloaded by child object and will print message accordingly.
+    */
+    virtual void Log(LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message) = 0;
     virtual void Flush() = 0;
 };

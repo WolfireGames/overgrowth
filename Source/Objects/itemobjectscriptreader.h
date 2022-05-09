@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: itemobjectscriptreader.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -40,7 +40,7 @@ class BulletObject;
 class btTypedConstraint;
 
 class ItemObjectScriptReader {
-public:
+   public:
     ItemObject* obj;
     btTypedConstraint* constraint;
     mat4 velocity;
@@ -53,7 +53,7 @@ public:
     bool attachment_mirror;
     void* callback_ptr_;
     void (*invalidate_callback)(ItemObjectScriptReader*, void*);
-    void SetInvalidateCallback(void(*func)(ItemObjectScriptReader*, void*), void* callback_ptr);
+    void SetInvalidateCallback(void (*func)(ItemObjectScriptReader*, void*), void* callback_ptr);
     ItemObjectScriptReader();
     virtual ~ItemObjectScriptReader();
     void AttachToItemObject(ItemObject* _obj);
@@ -63,16 +63,16 @@ public:
     vec3 GetPhysicsPosition();
     void SetPhysicsTransform(mat4 transform);
     mat4 GetPhysicsTransform();
-    void SetPhysicsVel(const vec3 &linear_vel, const vec3 &angular_vel);
-    void GetPhysicsVel(vec3 &linear_vel, vec3 &angular_vel);
+    void SetPhysicsVel(const vec3& linear_vel, const vec3& angular_vel);
+    void GetPhysicsVel(vec3& linear_vel, vec3& angular_vel);
     void Detach();
     void ActivatePhysics();
-    void SetInterpInfo( int count, int period );
+    void SetInterpInfo(int count, int period);
     float GetRangeExtender();
     float GetRangeMultiplier();
     ItemObject* operator->() const {
         return obj;
     }
-    void AddConstraint( BulletObject* bullet_object );
-    void RemoveConstraint( );
+    void AddConstraint(BulletObject* bullet_object);
+    void RemoveConstraint();
 };

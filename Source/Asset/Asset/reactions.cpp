@@ -32,41 +32,40 @@
 
 #include <tinyxml.h>
 
-Reaction::Reaction( AssetManager* owner, uint32_t asset_id ) : AssetInfo( owner, asset_id ), sub_error(0) {
+Reaction::Reaction(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id), sub_error(0) {
 }
 
 void Reaction::Reload() {
-    Load(path_,0x0);
+    Load(path_, 0x0);
 }
 
 void Reaction::ReportLoad() {
-
 }
 
-int Reaction::Load( const std::string &path, uint32_t load_flags ) {
+int Reaction::Load(const std::string& path, uint32_t load_flags) {
     sub_error = 0;
     TiXmlDocument doc;
 
-    if( LoadXMLRetryable(doc, path, "Reaction") ) {
+    if (LoadXMLRetryable(doc, path, "Reaction")) {
         anim_paths.clear();
         mirrored = 0;
 
         TiXmlHandle h_doc(&doc);
         TiXmlElement* root = h_doc.FirstChildElement().ToElement();
         std::string label = root->Value();
-        if(label != "reaction"){
+        if (label != "reaction") {
             FatalError("Error", "Reaction xml has incorrect type: %s", label.c_str());
         }
         TiXmlElement* field = root->FirstChildElement();
-        for( ; field; field = field->NextSiblingElement()) {
+        for (; field; field = field->NextSiblingElement()) {
             std::string field_str(field->Value());
-            if(field_str == "reaction"){
+            if (field_str == "reaction") {
                 anim_paths.push_back(field->GetText());
-            } else if(field_str == "flags"){
+            } else if (field_str == "flags") {
                 const char* tf = field->Attribute("mirrored");
-                if(tf && strcmp(tf, "true")==0){
+                if (tf && strcmp(tf, "true") == 0) {
                     mirrored = 1;
-                } else if(tf && strcmp(tf, "maybe")==0){
+                } else if (tf && strcmp(tf, "maybe") == 0) {
                     mirrored = 2;
                 }
             }
@@ -74,37 +73,35 @@ int Reaction::Load( const std::string &path, uint32_t load_flags ) {
     } else {
         return kLoadErrorMissingFile;
     }
-    
+
     return kLoadOk;
 }
 
 const char* Reaction::GetLoadErrorString() {
-    switch(sub_error) { 
-        case 0: return "";
-        default: return "Undefined error";
+    switch (sub_error) {
+        case 0:
+            return "";
+        default:
+            return "Undefined error";
     }
 }
 
 void Reaction::Unload() {
-
 }
 
-const std::string &Reaction::GetAnimPath( float severity )
-{
-    float choose_val = severity * 0.999f * anim_paths.size(); 
+const std::string& Reaction::GetAnimPath(float severity) {
+    float choose_val = severity * 0.999f * anim_paths.size();
     int choice = (int)choose_val;
     return anim_paths[choice];
 }
 
-int Reaction::IsMirrored()
-{
+int Reaction::IsMirrored() {
     return mirrored;
 }
 
-void Reaction::ReturnPaths( PathSet &path_set )
-{
-    path_set.insert("reaction "+path_);
-    for(auto & anim_path : anim_paths){
+void Reaction::ReturnPaths(PathSet& path_set) {
+    path_set.insert("reaction " + path_);
+    for (auto& anim_path : anim_paths) {
         ReturnAnimationAssetRef(anim_path);
     }
 }

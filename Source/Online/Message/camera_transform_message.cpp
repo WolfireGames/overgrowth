@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: camera_transform_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,65 +27,68 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    CameraTransformMessage::CameraTransformMessage(vec3 position, vec3 flat_facing, vec3 facing, vec3 up, float x_rotation, float y_rotation) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        position(position), flat_facing(flat_facing), facing(facing), up(up), x_rotation(x_rotation), y_rotation(y_rotation)
-    {
-        reliable_delivery = false;
-    }
+CameraTransformMessage::CameraTransformMessage(vec3 position, vec3 flat_facing, vec3 facing, vec3 up, float x_rotation, float y_rotation) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                                                                            position(position),
+                                                                                                                                            flat_facing(flat_facing),
+                                                                                                                                            facing(facing),
+                                                                                                                                            up(up),
+                                                                                                                                            x_rotation(x_rotation),
+                                                                                                                                            y_rotation(y_rotation) {
+    reliable_delivery = false;
+}
 
-    binn* CameraTransformMessage::Serialize(void* object) {
-        CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
-        binn* l = binn_object();
+binn* CameraTransformMessage::Serialize(void* object) {
+    CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
+    binn* l = binn_object();
 
-        binn_object_set_vec3(l, "position", t->position);
-        binn_object_set_vec3(l, "flat_facing", t->flat_facing);
-        binn_object_set_vec3(l, "facing", t->facing);
-        binn_object_set_vec3(l, "up", t->up);
-        binn_object_set_float(l, "x_rotation", t->x_rotation);
-        binn_object_set_float(l, "y_rotation", t->y_rotation);
+    binn_object_set_vec3(l, "position", t->position);
+    binn_object_set_vec3(l, "flat_facing", t->flat_facing);
+    binn_object_set_vec3(l, "facing", t->facing);
+    binn_object_set_vec3(l, "up", t->up);
+    binn_object_set_float(l, "x_rotation", t->x_rotation);
+    binn_object_set_float(l, "y_rotation", t->y_rotation);
 
-        return l;
-    }
+    return l;
+}
 
-    void CameraTransformMessage::Deserialize(void* object, binn* l) {
-        CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
+void CameraTransformMessage::Deserialize(void* object, binn* l) {
+    CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
 
-        binn_object_get_vec3(l, "position", &t->position);
-        binn_object_get_vec3(l, "flat_facing", &t->flat_facing);
-        binn_object_get_vec3(l, "facing", &t->facing);
-        binn_object_get_vec3(l, "up", &t->up);
-        binn_object_get_float(l, "x_rotation", &t->x_rotation);
-        binn_object_get_float(l, "y_rotation", &t->y_rotation);
-    }
+    binn_object_get_vec3(l, "position", &t->position);
+    binn_object_get_vec3(l, "flat_facing", &t->flat_facing);
+    binn_object_get_vec3(l, "facing", &t->facing);
+    binn_object_get_vec3(l, "up", &t->up);
+    binn_object_get_float(l, "x_rotation", &t->x_rotation);
+    binn_object_get_float(l, "y_rotation", &t->y_rotation);
+}
 
-    void CameraTransformMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
+void CameraTransformMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
 
-        if (Online::Instance()->online_session->player_states.find(from) != Online::Instance()->online_session->player_states.end()) {
-            int camera_id = Online::Instance()->online_session->player_states[from].camera_id; // TODO this assumes peer_id == player_id
-            Camera* camera = ActiveCameras::Instance()->GetCamera(camera_id);
-            if (camera != nullptr) {
-                camera->SetPos(t->position);
-                camera->SetFlatFacing(t->flat_facing);
-                camera->SetFacing(t->facing);
-                camera->SetUp(t->up);
-                camera->SetXRotation(t->x_rotation);
-                camera->SetYRotation(t->y_rotation);
-            } else {
-                LOGW << "Got camera transform information for camera " << camera_id << " from client " << std::to_string(from) << " without a valid camera!" << std::endl;
-            }
+    if (Online::Instance()->online_session->player_states.find(from) != Online::Instance()->online_session->player_states.end()) {
+        int camera_id = Online::Instance()->online_session->player_states[from].camera_id;  // TODO this assumes peer_id == player_id
+        Camera* camera = ActiveCameras::Instance()->GetCamera(camera_id);
+        if (camera != nullptr) {
+            camera->SetPos(t->position);
+            camera->SetFlatFacing(t->flat_facing);
+            camera->SetFacing(t->facing);
+            camera->SetUp(t->up);
+            camera->SetXRotation(t->x_rotation);
+            camera->SetYRotation(t->y_rotation);
         } else {
-            LOGW << "Got camera transform information from a client we can no longer find, they might have disconnected!" << std::endl; // TODO should we even warn about this?
+            LOGW << "Got camera transform information for camera " << camera_id << " from client " << std::to_string(from) << " without a valid camera!" << std::endl;
         }
-    }
-
-    void* CameraTransformMessage::Construct(void *mem) {
-        return new(mem) CameraTransformMessage(vec3(), vec3(), vec3(), vec3(), 0, 0);
-    }
-
-    void CameraTransformMessage::Destroy(void* object) {
-        CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
-        t->~CameraTransformMessage();
+    } else {
+        LOGW << "Got camera transform information from a client we can no longer find, they might have disconnected!" << std::endl;  // TODO should we even warn about this?
     }
 }
+
+void* CameraTransformMessage::Construct(void* mem) {
+    return new (mem) CameraTransformMessage(vec3(), vec3(), vec3(), vec3(), 0, 0);
+}
+
+void CameraTransformMessage::Destroy(void* object) {
+    CameraTransformMessage* t = static_cast<CameraTransformMessage*>(object);
+    t->~CameraTransformMessage();
+}
+}  // namespace OnlineMessages

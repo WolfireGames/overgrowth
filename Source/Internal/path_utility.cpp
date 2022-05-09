@@ -28,23 +28,21 @@
 #include <direct.h>
 #endif
 
-std::string pathUtility::localPathToGlobal(const std::string &path)
-{
+std::string pathUtility::localPathToGlobal(const std::string &path) {
     return localPathToGlobal(path.c_str());
 }
 
-std::string pathUtility::localPathToGlobal(const char *path)
-{
+std::string pathUtility::localPathToGlobal(const char *path) {
 #ifdef _DEPLOY
-#ifdef WIN32    
-     char filepath[4096];
-    GetModuleFileName( NULL, filepath, 4096);
+#ifdef WIN32
+    char filepath[4096];
+    GetModuleFileName(NULL, filepath, 4096);
     std::string dirpath = filepath;
 
     dirpath = dirpath.substr(0, dirpath.rfind("\\"));
     dirpath += "\\";
     dirpath += path;
-    
+
     return dirpath;
 #endif
 #endif
@@ -52,12 +50,11 @@ std::string pathUtility::localPathToGlobal(const char *path)
     return std::string(path);
 }
 
-void pathUtility::changeWorkingDirToAppDir()
-{
+void pathUtility::changeWorkingDirToAppDir() {
 #ifdef _DEPLOY
-#ifdef WIN32    
-     char filepath[4096];
-    GetModuleFileName( NULL, filepath, 4096);
+#ifdef WIN32
+    char filepath[4096];
+    GetModuleFileName(NULL, filepath, 4096);
     std::string dirpath = filepath;
 
     _chdir(dirpath.substr(0, dirpath.rfind("\\")).c_str());

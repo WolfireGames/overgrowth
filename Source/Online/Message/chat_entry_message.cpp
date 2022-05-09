@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: chat_entry_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,52 +28,49 @@
 #include <Online/online_utility.h>
 
 namespace OnlineMessages {
-    ChatEntryMessage::ChatEntryMessage(const std::string & entry) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        entry(entry)
-    {
+ChatEntryMessage::ChatEntryMessage(const std::string& entry) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                               entry(entry) {
+}
 
-    }
+binn* ChatEntryMessage::Serialize(void* object) {
+    ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
+    binn* l = binn_object();
 
-    binn* ChatEntryMessage::Serialize(void* object) {
-        ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
-        binn* l = binn_object();
+    binn_object_set_std_string(l, "entry", t->entry);
 
-        binn_object_set_std_string(l, "entry", t->entry);
+    return l;
+}
 
-        return l;
-    }
+void ChatEntryMessage::Deserialize(void* object, binn* l) {
+    ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
 
-    void ChatEntryMessage::Deserialize(void* object, binn* l) {
-        ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
+    binn_object_get_std_string(l, "entry", &t->entry);
+}
 
-        binn_object_get_std_string(l, "entry", &t->entry);
-    }
+void ChatEntryMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
 
-    void ChatEntryMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
-
-        // Hosts will prefix name of sender and send it to everyone, clients will simply apply it here.
-        if (Online::Instance()->IsActive()) {
-            if (Online::Instance()->IsHosting()) {
-                if (OnlineUtility::IsCommand(t->entry)) {
-                    OnlineUtility::HandleCommand(from, t->entry); // TODO We assume that peer_id == player_id here
-                    Online::Instance()->Send<ChatEntryMessage>(Online::Instance()->online_session->player_states[from].playername + ": " + t->entry);
-                } else {
-                    Online::Instance()->SendRawChatMessage(Online::Instance()->online_session->player_states[from].playername + ": " + t->entry);
-                }
+    // Hosts will prefix name of sender and send it to everyone, clients will simply apply it here.
+    if (Online::Instance()->IsActive()) {
+        if (Online::Instance()->IsHosting()) {
+            if (OnlineUtility::IsCommand(t->entry)) {
+                OnlineUtility::HandleCommand(from, t->entry);  // TODO We assume that peer_id == player_id here
+                Online::Instance()->Send<ChatEntryMessage>(Online::Instance()->online_session->player_states[from].playername + ": " + t->entry);
             } else {
-                Online::Instance()->AddLocalChatMessage(t->entry);
+                Online::Instance()->SendRawChatMessage(Online::Instance()->online_session->player_states[from].playername + ": " + t->entry);
             }
+        } else {
+            Online::Instance()->AddLocalChatMessage(t->entry);
         }
     }
-
-    void* ChatEntryMessage::Construct(void *mem) {
-        return new(mem) ChatEntryMessage("");
-    }
-
-    void ChatEntryMessage::Destroy(void* object) {
-        ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
-        t->~ChatEntryMessage();
-    }
 }
+
+void* ChatEntryMessage::Construct(void* mem) {
+    return new (mem) ChatEntryMessage("");
+}
+
+void ChatEntryMessage::Destroy(void* object) {
+    ChatEntryMessage* t = static_cast<ChatEntryMessage*>(object);
+    t->~ChatEntryMessage();
+}
+}  // namespace OnlineMessages

@@ -29,13 +29,13 @@
 #include <Ogda/manifest.h>
 #include <Internal/referencecounter.h>
 
-class Generator
-{
-public:
-    Generator( CreatorBase* creation );
+class Generator {
+   public:
+    Generator(CreatorBase* creation);
     ManifestResult Run(const JobHandler& jh, const Manifest& manifest);
     std::string GetGeneratorName() const;
     std::string GetGeneratorVersion() const;
-private:
+
+   private:
     ReferenceCounter<CreatorBase> creator;
 };

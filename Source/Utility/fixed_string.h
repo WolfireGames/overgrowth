@@ -26,12 +26,11 @@
 
 #include <string>
 
-
-template<int d_size>
+template <int d_size>
 class fixed_string {
     char data[d_size];
 
-public:
+   public:
     fixed_string() {
         data[0] = '\0';
     }
@@ -56,24 +55,22 @@ public:
     }
 
     size_t max_size() {
-        return d_size-1;
+        return d_size - 1;
     }
 
     int set(const char* str) {
-        return strscpy(data,str,d_size);
+        return strscpy(data, str, d_size);
     }
 
     int set(const std::string& other) {
-        return strscpy(data,other.c_str(),d_size);
+        return strscpy(data, other.c_str(), d_size);
     }
 
-    operator const char*() const 
-    { 
-        return data; 
+    operator const char*() const {
+        return data;
     }
 
-    bool operator==( const std::string& rh ) const
-    {
-        return strmtch(data,rh.c_str());
+    bool operator==(const std::string& rh) const {
+        return strmtch(data, rh.c_str());
     }
 };

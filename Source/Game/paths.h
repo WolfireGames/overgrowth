@@ -31,7 +31,7 @@
 
 struct PathConnection {
     int point_ids[2];
-    PathConnection(int a, int b){
+    PathConnection(int a, int b) {
         point_ids[0] = a;
         point_ids[1] = b;
     }
@@ -40,11 +40,12 @@ struct PathConnection {
 class PathPointObject;
 
 class AIPaths {
-private:
+   private:
     typedef std::map<int, vec3> PointMap;
     PointMap points;
     std::vector<PathConnection> connections;
-public:
+
+   public:
     void Draw();
 
     int GetNearestPoint(const vec3 &pos);
@@ -55,19 +56,19 @@ public:
         static AIPaths paths;
         return &paths;
     }
-    void AddPoint( int id, const vec3 &pos );
-    void SetPoint( int id, const vec3 &pos );
-    void AddConnection( int a, int b );
-    void RemovePoint( int id );
-    void RemoveConnection( int a, int b );
+    void AddPoint(int id, const vec3 &pos);
+    void SetPoint(int id, const vec3 &pos);
+    void AddConnection(int a, int b);
+    void RemovePoint(int id);
+    void RemoveConnection(int a, int b);
 };
 
 class ASContext;
 class PathScriptReader {
-public:
+   public:
     int GetNearestPoint(vec3 pos);
     vec3 GetPointPosition(int point_id);
     int GetConnectedPoint(int point_id);
     int GetOtherConnectedPoint(int point_id, int other_id);
-    void AttachToScript( ASContext *as_context, const std::string& as_name );
+    void AttachToScript(ASContext *as_context, const std::string &as_name);
 };

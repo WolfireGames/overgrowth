@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: morph_target_update.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,21 +30,21 @@
 using std::array;
 
 namespace OnlineMessages {
-    class MorphTargetUpdate : public OnlineMessageBase {
-    public:
-        CommonObjectID object_id;
-        float disp_weight;
-        float mod_weight;
-        array<char,128> name;
+class MorphTargetUpdate : public OnlineMessageBase {
+   public:
+    CommonObjectID object_id;
+    float disp_weight;
+    float mod_weight;
+    array<char, 128> name;
 
-    public:
-        MorphTargetUpdate();
-        MorphTargetUpdate(ObjectID object_id, const MorphTargetStateStorage& morph_state);
+   public:
+    MorphTargetUpdate();
+    MorphTargetUpdate(ObjectID object_id, const MorphTargetStateStorage& morph_state);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

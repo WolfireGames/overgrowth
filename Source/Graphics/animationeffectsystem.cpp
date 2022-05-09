@@ -27,26 +27,22 @@
 
 #include <cstdio>
 
-AnimationEffectSystem::AnimationEffectSystem()
-{
+AnimationEffectSystem::AnimationEffectSystem() {
     mgr = new TheoraVideoManager();
 }
 
-AnimationEffectSystem::~AnimationEffectSystem()
-{
-    if( mgr )
+AnimationEffectSystem::~AnimationEffectSystem() {
+    if (mgr)
         delete mgr;
     mgr = NULL;
 }
 
-void AnimationEffectSystem::Update(float timestep)
-{
+void AnimationEffectSystem::Update(float timestep) {
     mgr->update(timestep);
 }
 
-void AnimationEffectSystem::Dispose()
-{
-    if( mgr )
+void AnimationEffectSystem::Dispose() {
+    if (mgr)
         delete mgr;
     mgr = NULL;
 }

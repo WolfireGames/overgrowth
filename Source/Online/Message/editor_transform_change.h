@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: editor_transform_change.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,21 +25,21 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class EditorTransformChange : public OnlineMessageBase {
-    private:
-        CommonObjectID id;
-        vec3 trans;
-        vec3 scale;
-        quaternion rot;
+class EditorTransformChange : public OnlineMessageBase {
+   private:
+    CommonObjectID id;
+    vec3 trans;
+    vec3 scale;
+    quaternion rot;
 
-    public:
-        EditorTransformChange(ObjectID id, const vec3& trans, const vec3& scale, const quaternion& rot);
+   public:
+    EditorTransformChange(ObjectID id, const vec3& trans, const vec3& scale, const quaternion& rot);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
 
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

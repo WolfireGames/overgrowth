@@ -32,7 +32,7 @@
 #include <vector>
 
 class FileHashAsset : public Asset {
-public:
+   public:
     FileHashAsset(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return FILE_HASH_ASSET; }
     static const char* GetTypeName() { return "FILE_HASH_ASSET"; }
@@ -41,7 +41,7 @@ public:
     MurmurHash hash;
 
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();

@@ -29,19 +29,18 @@
 
 #include <vector>
 
-class TextureDummy : public Asset
-{
-public:
-    TextureDummy( AssetManager* owner, uint32_t asset_id );
+class TextureDummy : public Asset {
+   public:
+    TextureDummy(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return TEXTURE_DUMMY_ASSET; }
     static const char* GetTypeName() { return "TEXTURE_DUMMY_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    int Load( const std::string &path, uint32_t load_flags ) { return kLoadOk; };
+    int Load(const std::string& path, uint32_t load_flags) { return kLoadOk; };
     const char* GetLoadErrorString() { return ""; }
     const char* GetLoadErrorStringExtended() { return ""; }
-    void Unload() {};
-    void ReportLoad() override{}
+    void Unload(){};
+    void ReportLoad() override {}
     AssetLoaderBase* NewLoader() override;
 };
 

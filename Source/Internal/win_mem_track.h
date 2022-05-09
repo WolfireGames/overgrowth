@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: win_mem_track.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,7 +23,7 @@
 #pragma once
 
 namespace WinMemTrack {
-    void Attach();
-    void PrintFrame();
-    void PrintTotal();
-}
+void Attach();
+void PrintFrame();
+void PrintTotal();
+}  // namespace WinMemTrack

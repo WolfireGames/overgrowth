@@ -2,7 +2,7 @@
 //           Name: rand.h
 //      Developer: Wolfire Games LLC
 //         Author: Max Danielsson
-//    Description: This is a threadsafe variant of pcg rand(), which doesn't 
+//    Description: This is a threadsafe variant of pcg rand(), which doesn't
 //                 require a local reseed variable.
 //        License: Read below
 //-----------------------------------------------------------------------------

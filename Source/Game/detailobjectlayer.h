@@ -29,7 +29,9 @@
 
 class TiXmlElement;
 
-enum CollisionType {_none, _static, _plant};
+enum CollisionType { _none,
+                     _static,
+                     _plant };
 
 struct DetailObjectLayer {
     DetailObjectLayer();
@@ -46,8 +48,8 @@ struct DetailObjectLayer {
     float overbright;
     float tint_weight;
     CollisionType collision_type;
-    bool operator==( const DetailObjectLayer& other ) const;
+    bool operator==(const DetailObjectLayer& other) const;
     void ReturnPaths(PathSet& path_set);
 };
 
-DetailObjectLayer ReadDetailObjectLayerXML( const TiXmlElement* detail_object_element);
+DetailObjectLayer ReadDetailObjectLayerXML(const TiXmlElement* detail_object_element);

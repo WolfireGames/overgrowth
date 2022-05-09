@@ -28,45 +28,45 @@
 
 struct TimedSlowMotionLayer {
     uint32_t end_time;
-	uint32_t start_time;
-	float target_time_scale;
+    uint32_t start_time;
+    float target_time_scale;
 };
 
 class Timer {
-public:
-	Timer();
+   public:
+    Timer();
 
-	float target_time_scale;
-	float time_scale;
-	float timestep;
-	float timestep_error;
-	float game_time;
+    float target_time_scale;
+    float time_scale;
+    float timestep;
+    float timestep_error;
+    float game_time;
     float wall_time;
     uint32_t wall_ticks;
     int updates_since_last_frame;
     int simulations_per_second;
     uint64_t frame_count;
 
-	void AddTimedSlowMotionLayer( float target_time_scale, float how_long, float delay = 0.0f );
+    void AddTimedSlowMotionLayer(float target_time_scale, float how_long, float delay = 0.0f);
     void UpdateWallTime();
-	void Update();
-	void SetStepFrequency(int sims);
-	int GetStepsNeeded();
-	void ReportFrameForFPSCount();
-	int GetFramesPerSecond();
-	float GetFrameTime();
-	float GetSlowestFrameTime();
-	float GetFastestFrameTime();
-	float GetInterpWeight();
-	float GetInterpWeightX(int num, int progress);
+    void Update();
+    void SetStepFrequency(int sims);
+    int GetStepsNeeded();
+    void ReportFrameForFPSCount();
+    int GetFramesPerSecond();
+    float GetFrameTime();
+    float GetSlowestFrameTime();
+    float GetFastestFrameTime();
+    float GetInterpWeight();
+    float GetInterpWeightX(int num, int progress);
     float GetRenderTime();
     float GetWallTime();
     uint32_t GetWallTicks();
-	float GetAverageFrameTime();
+    float GetAverageFrameTime();
 
-private:
+   private:
     uint32_t last_tick;
-	static const int NUM_AVERAGED_FRAMES = 30;
+    static const int NUM_AVERAGED_FRAMES = 30;
     uint64_t frame[NUM_AVERAGED_FRAMES];
     std::vector<TimedSlowMotionLayer> timed_slow_motion_layers;
 };

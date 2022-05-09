@@ -264,34 +264,34 @@ extern "C" {
 #endif /* not SINGLE */
 
 struct triangulateio {
-  tREAL *pointlist;                                               /* In / out */
-  tREAL *pointattributelist;                                      /* In / out */
-  int *pointmarkerlist;                                          /* In / out */
-  int numberofpoints;                                            /* In / out */
-  int numberofpointattributes;                                   /* In / out */
+    tREAL *pointlist;            /* In / out */
+    tREAL *pointattributelist;   /* In / out */
+    int *pointmarkerlist;        /* In / out */
+    int numberofpoints;          /* In / out */
+    int numberofpointattributes; /* In / out */
 
-  int *trianglelist;                                             /* In / out */
-  tREAL *triangleattributelist;                                   /* In / out */
-  tREAL *trianglearealist;                                         /* In only */
-  int *neighborlist;                                             /* Out only */
-  int numberoftriangles;                                         /* In / out */
-  int numberofcorners;                                           /* In / out */
-  int numberoftriangleattributes;                                /* In / out */
+    int *trianglelist;              /* In / out */
+    tREAL *triangleattributelist;   /* In / out */
+    tREAL *trianglearealist;        /* In only */
+    int *neighborlist;              /* Out only */
+    int numberoftriangles;          /* In / out */
+    int numberofcorners;            /* In / out */
+    int numberoftriangleattributes; /* In / out */
 
-  int *segmentlist;                                              /* In / out */
-  int *segmentmarkerlist;                                        /* In / out */
-  int numberofsegments;                                          /* In / out */
+    int *segmentlist;       /* In / out */
+    int *segmentmarkerlist; /* In / out */
+    int numberofsegments;   /* In / out */
 
-  tREAL *holelist;                        /* In / pointer to array copied out */
-  int numberofholes;                                      /* In / copied out */
+    tREAL *holelist;   /* In / pointer to array copied out */
+    int numberofholes; /* In / copied out */
 
-  tREAL *regionlist;                      /* In / pointer to array copied out */
-  int numberofregions;                                    /* In / copied out */
+    tREAL *regionlist;   /* In / pointer to array copied out */
+    int numberofregions; /* In / copied out */
 
-  int *edgelist;                                                 /* Out only */
-  int *edgemarkerlist;            /* Not used with Voronoi diagram; out only */
-  tREAL *normlist;                /* Used only with Voronoi diagram; out only */
-  int numberofedges;                                             /* Out only */
+    int *edgelist;       /* Out only */
+    int *edgemarkerlist; /* Not used with Voronoi diagram; out only */
+    tREAL *normlist;     /* Used only with Voronoi diagram; out only */
+    int numberofedges;   /* Out only */
 };
 
 #define ANSI_DECLARATORS
@@ -299,7 +299,7 @@ struct triangulateio {
 void triangulate(const char *triswitches, struct triangulateio *in,
                  struct triangulateio *out, struct triangulateio *vorout);
 void triOG_FREE(void *memptr);
-#else /* not ANSI_DECLARATORS */
+#else  /* not ANSI_DECLARATORS */
 void triangulate();
 void triOG_FREE();
 #endif /* not ANSI_DECLARATORS */

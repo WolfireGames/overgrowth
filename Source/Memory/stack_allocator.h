@@ -26,7 +26,7 @@
 #include <cstdlib>
 
 class StackAllocator {
-public:
+   public:
     void Init(void* mem, size_t size);
     void Dispose();
     void* Alloc(size_t size);
@@ -38,9 +38,9 @@ public:
     uint32_t GetCurrentAllocations();
     uint32_t GetAndResetAllocationCount();
 
-private:
+   private:
     uint32_t frame_allocation_count;
-    uint32_t current_allocation_count; 
+    uint32_t current_allocation_count;
     static const int kMaxBlocks = 100;
     uintptr_t stack_block_pts[kMaxBlocks];
     int stack_blocks;

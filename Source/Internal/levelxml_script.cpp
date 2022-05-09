@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: levelxml_script.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,28 +28,28 @@
 #include <Scripting/angelscript/ascontext.h>
 
 namespace {
-    struct LevelInfoReader {
-        LevelInfo li;
-        void Load(const std::string& rel_path){
-            char abs_path[kPathSize];
-            if(FindFilePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths|kModPaths) == -1){
-                FatalError("Error", "Could not find level info: %s", rel_path.c_str());
-            } else {
-                ParseLevelXML(abs_path, li);       
-            }
+struct LevelInfoReader {
+    LevelInfo li;
+    void Load(const std::string& rel_path) {
+        char abs_path[kPathSize];
+        if (FindFilePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths) == -1) {
+            FatalError("Error", "Could not find level info: %s", rel_path.c_str());
+        } else {
+            ParseLevelXML(abs_path, li);
         }
-        const std::string& visible_name(){return li.visible_name_;}
-        const std::string& visible_description(){return li.visible_description_;}
-    };
-    void LevelInfoReader_Constructor(void *memory) {
-        new(memory) LevelInfo();
     }
-    void LevelInfoReader_Destructor(void *memory) {
-        ((LevelInfoReader*)memory)->~LevelInfoReader();
-    }
-} // ANONYMOUS NAMESPACE
+    const std::string& visible_name() { return li.visible_name_; }
+    const std::string& visible_description() { return li.visible_description_; }
+};
+void LevelInfoReader_Constructor(void* memory) {
+    new (memory) LevelInfo();
+}
+void LevelInfoReader_Destructor(void* memory) {
+    ((LevelInfoReader*)memory)->~LevelInfoReader();
+}
+}  // ANONYMOUS NAMESPACE
 
-void AttachLevelXML( ASContext* as_context ) {
+void AttachLevelXML(ASContext* as_context) {
     as_context->RegisterObjectType("LevelInfoReader", sizeof(LevelInfo), asOBJ_VALUE | asOBJ_APP_CLASS);
     as_context->RegisterObjectBehaviour("LevelInfoReader", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(LevelInfoReader_Constructor), asCALL_CDECL_OBJLAST);
     as_context->RegisterObjectBehaviour("LevelInfoReader", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(LevelInfoReader_Destructor), asCALL_CDECL_OBJLAST);

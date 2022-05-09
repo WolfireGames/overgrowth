@@ -31,16 +31,17 @@
 #include <cassert>
 
 class LevelSetReader {
-private:
+   private:
     LevelSetRef lsr_;
     LevelSet::LevelPaths::const_iterator iter_;
     int ref_count_;
-public:
-    LevelSetReader(){
+
+   public:
+    LevelSetReader() {
         LOG_ASSERT(false);
     }
-    LevelSetReader(const std::string &path){
-        //lsr_ = LevelSets::Instance()->ReturnRef(path);
+    LevelSetReader(const std::string& path) {
+        // lsr_ = LevelSets::Instance()->ReturnRef(path);
         lsr_ = Engine::Instance()->GetAssetManager()->LoadSync<LevelSet>(path);
         iter_ = lsr_->level_paths().begin();
         ref_count_ = 1;
@@ -50,12 +51,12 @@ public:
     }
     void Release() {
         --ref_count_;
-        if(ref_count_ == 0){
+        if (ref_count_ == 0) {
             delete this;
         }
     }
-    bool Next(std::string& str){
-        if(iter_ == lsr_->level_paths().end()){
+    bool Next(std::string& str) {
+        if (iter_ == lsr_->level_paths().end()) {
             return false;
         }
         str = (*iter_);
@@ -64,20 +65,20 @@ public:
     }
 };
 
-LevelSetReader *LevelSetReader_DefaultFactory() {
+LevelSetReader* LevelSetReader_DefaultFactory() {
     return new LevelSetReader();
 }
 
-LevelSetReader *LevelSetReader_Factory(const std::string& path) {
+LevelSetReader* LevelSetReader_Factory(const std::string& path) {
     return new LevelSetReader(path);
 }
 
-void AttachLevelSet( ASContext* as_context ) {
+void AttachLevelSet(ASContext* as_context) {
     as_context->RegisterObjectType("LevelSetReader", 0, asOBJ_REF);
     as_context->RegisterObjectBehaviour("LevelSetReader", asBEHAVE_FACTORY, "LevelSetReader@ f(const string &in path)", asFUNCTION(LevelSetReader_Factory), asCALL_CDECL);
     as_context->RegisterObjectBehaviour("LevelSetReader", asBEHAVE_FACTORY, "LevelSetReader@ f()", asFUNCTION(LevelSetReader_DefaultFactory), asCALL_CDECL);
-    as_context->RegisterObjectBehaviour("LevelSetReader", asBEHAVE_ADDREF, "void f()", asMETHOD(LevelSetReader,AddRef), asCALL_THISCALL);
-    as_context->RegisterObjectBehaviour("LevelSetReader", asBEHAVE_RELEASE, "void f()", asMETHOD(LevelSetReader,Release), asCALL_THISCALL);    
+    as_context->RegisterObjectBehaviour("LevelSetReader", asBEHAVE_ADDREF, "void f()", asMETHOD(LevelSetReader, AddRef), asCALL_THISCALL);
+    as_context->RegisterObjectBehaviour("LevelSetReader", asBEHAVE_RELEASE, "void f()", asMETHOD(LevelSetReader, Release), asCALL_THISCALL);
     as_context->RegisterObjectMethod("LevelSetReader", "bool Next(string &out str)", asMETHOD(LevelSetReader, Next), asCALL_THISCALL);
     as_context->DocsCloseBrace();
 }

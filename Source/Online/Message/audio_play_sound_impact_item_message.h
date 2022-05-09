@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_impact_item_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,20 +25,20 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class AudioPlaySoundImpactItemMessage : public OnlineMessageBase {
-    private:
-        CommonObjectID id;
-        vec3 pos;
-        vec3 normal;
-        float impulse;
+class AudioPlaySoundImpactItemMessage : public OnlineMessageBase {
+   private:
+    CommonObjectID id;
+    vec3 pos;
+    vec3 normal;
+    float impulse;
 
-    public:
-        AudioPlaySoundImpactItemMessage(ObjectID id, vec3 pos, vec3 normal, float impulse);
+   public:
+    AudioPlaySoundImpactItemMessage(ObjectID id, vec3 pos, vec3 normal, float impulse);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

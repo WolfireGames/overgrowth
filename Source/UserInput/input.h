@@ -47,16 +47,16 @@ typedef std::map<std::string, std::string> StrMap;
 typedef std::map<std::string, StrMap> BindMap;  // Key binding map, e.g. bindings["gamepad"]["jump"] = "rightshoulder"
 
 class Input {
-public:
+   public:
     Input();
     void Initialize();
     void InitializeStringDescriptionMap();
-    void Dispose();       
+    void Dispose();
     // take a control element and fill it based on the values we have.
     void ProcessController(int controller_id, float timestep);
     void UpdateKeyboardFocus();
-    Keyboard &getKeyboard();
-    Mouse &getMouse();
+    Keyboard& getKeyboard();
+    Mouse& getMouse();
     bool GetGrabMouse();
     void SetGrabMouse(bool grab);
     void HandleEvent(const SDL_Event& event);
@@ -64,13 +64,13 @@ public:
     bool WasQuitRequested();
     void SetInvertXMouseLook(bool val);
     void SetInvertYMouseLook(bool val);
-    
-    PlayerInput* GetController( int id );
+
+    PlayerInput* GetController(int id);
     void ProcessControllers(float timestep);
-    void SetUpForXPlayers( unsigned num_players );
-    void SetFromConfig( const Config &config );
-    float mouse_sensitivity() {return mouse_sensitivity_;}
-    void SetMouseSensitivity(float val) {mouse_sensitivity_ = val;}
+    void SetUpForXPlayers(unsigned num_players);
+    void SetFromConfig(const Config& config);
+    float mouse_sensitivity() { return mouse_sensitivity_; }
+    void SetMouseSensitivity(float val) { mouse_sensitivity_ = val; }
     void UpdateGamepadLookSensitivity();
     void UpdateGamepadDeadzone();
     void ClearQuitRequested();
@@ -82,7 +82,7 @@ public:
     bool IsKeyDown(const char* name);
 
     bool IsControllerConnected();
-    
+
     bool live_updated;
     bool debug_keys;
 
@@ -92,7 +92,7 @@ public:
 
     bool ignore_mouse_frame;
     GameCursor* cursor;
-        
+
     static Input* Instance() {
         static Input instance;
         return &instance;
@@ -100,9 +100,9 @@ public:
 
     StrMap key_string_description_map;
     struct JoystickStruct {
-        JoystickStruct( );
-        SDL_Joystick *sdl_joystick;
-        SDL_Haptic *sdl_haptic;
+        JoystickStruct();
+        SDL_Joystick* sdl_joystick;
+        SDL_Haptic* sdl_haptic;
         std::vector<SDL_GameControllerButtonBind> gamepad_bind;
         Joystick joystick;
         int player_input;
@@ -110,29 +110,30 @@ public:
     typedef ReferenceCounter<JoystickStruct> RC_JoystickStruct;
     typedef std::map<int, RC_JoystickStruct> JoystickMap;
 
-    void UseRawInput( bool val );
-    
+    void UseRawInput(bool val);
+
     void StartTextInput();
     void StopTextInput();
 
-    std::string GetStringDescriptionForBinding( const std::string& type, const std::string& name );
+    std::string GetStringDescriptionForBinding(const std::string& type, const std::string& name);
 
     std::vector<std::string> GetAvailableBindingCategories();
     std::vector<std::string> GetAvailableBindings(const std::string& binding_category);
     std::set<std::string> GetAllAvailableBindings();
     std::string GetBindingValue(const std::string& binding_category, const std::string& binding);
-    void SetBindingValue( std::string binding_category, std::string binding, std::string value );
-    void SetKeyboardBindingValue( std::string binding_category, std::string binding, SDL_Scancode value );
-    void SetMouseBindingValue( std::string binding_category, std::string binding, uint32_t button );
-    void SetMouseBindingValue( std::string binding_category, std::string binding, std::string value );
-    void SetControllerBindingValue( std::string binding_category, std::string binding, ControllerInput::Input input);
+    void SetBindingValue(std::string binding_category, std::string binding, std::string value);
+    void SetKeyboardBindingValue(std::string binding_category, std::string binding, SDL_Scancode value);
+    void SetMouseBindingValue(std::string binding_category, std::string binding, uint32_t button);
+    void SetMouseBindingValue(std::string binding_category, std::string binding, std::string value);
+    void SetControllerBindingValue(std::string binding_category, std::string binding, ControllerInput::Input input);
 
     JoystickMap& GetOpenJoysticks();
 
     std::vector<Keyboard::KeyboardPress> GetKeyboardInputs();
     std::vector<Mouse::MousePress> GetMouseInputs();
     std::vector<Joystick::JoystickPress> GetJoystickInputs(int player_index);
-private:
+
+   private:
     unsigned num_players_;
     BindMap bindings_;
     std::vector<PlayerInput> player_inputs_;
@@ -153,8 +154,8 @@ private:
     bool use_raw_input;
     uint32_t joystick_sequence_id;
 
-    void HandleMouseButtonDown( int the_button, int clicks );
-    void HandleMouseButtonUp( int the_button );
+    void HandleMouseButtonDown(int the_button, int clicks);
+    void HandleMouseButtonUp(int the_button);
     void ProcessBindings();
     void OpenJoystick(int which);
     void CloseJoystick(int instance_id);

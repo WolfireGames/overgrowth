@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: sp_union_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,28 +25,28 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class SPUnionMessage : public OnlineMessageBase {
-    private:
-        CommonObjectID param_id;
-        std::string key_name;
+class SPUnionMessage : public OnlineMessageBase {
+   private:
+    CommonObjectID param_id;
+    std::string key_name;
 
-        ScriptParam::ScriptParamType type;
-        ScriptParamEditorType::Type editor_type;
+    ScriptParam::ScriptParamType type;
+    ScriptParamEditorType::Type editor_type;
 
-        union {
-            float value_float;
-            int32_t value_int;
-        };
-
-        std::string editor_details;
-
-    public:
-        SPUnionMessage(ObjectID param_id, const std::string& key_name, int32_t value, ScriptParam::ScriptParamType type, ScriptParamEditorType::Type editor_type, const std::string& editor_details);
-
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
+    union {
+        float value_float;
+        int32_t value_int;
     };
-}
+
+    std::string editor_details;
+
+   public:
+    SPUnionMessage(ObjectID param_id, const std::string& key_name, int32_t value, ScriptParam::ScriptParamType type, ScriptParamEditorType::Type editor_type, const std::string& editor_details);
+
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

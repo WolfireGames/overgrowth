@@ -23,49 +23,38 @@
 #include "builder.h"
 #include <Utility/strings.h>
 
-Builder::Builder( ActionBase* action, const std::string& path_ending_, const std::string& type_pattern_re )
-: action(action), path_ending(path_ending_)
-{
-    try
-    {
-        type_pattern->Compile(type_pattern_re.c_str());  
-    } 
-    catch( const TRexParseException& pe )
-    {
+Builder::Builder(ActionBase* action, const std::string& path_ending_, const std::string& type_pattern_re)
+    : action(action), path_ending(path_ending_) {
+    try {
+        type_pattern->Compile(type_pattern_re.c_str());
+    } catch (const TRexParseException& pe) {
         LOGE << "Failed to compile the type_pattern regex " << type_pattern_re << " reason: " << pe.desc << std::endl;
     }
 }
 
-bool Builder::IsMatch(const Item& t)
-{
-    if( endswith(t.GetPath().c_str(),path_ending.c_str()) && type_pattern->Match(t.type.c_str()) )
+bool Builder::IsMatch(const Item& t) {
+    if (endswith(t.GetPath().c_str(), path_ending.c_str()) && type_pattern->Match(t.type.c_str()))
         return true;
     else
         return false;
 }
 
-ManifestResult Builder::Run(const JobHandler& jh, const Item& t)
-{
+ManifestResult Builder::Run(const JobHandler& jh, const Item& t) {
     return action->Run(jh, t);
 }
 
-std::string Builder::GetBuilderName() const
-{
+std::string Builder::GetBuilderName() const {
     return std::string(action.GetConst().GetName());
 }
 
-std::string Builder::GetBuilderVersion() const
-{
+std::string Builder::GetBuilderVersion() const {
     return std::string(action.GetConst().GetVersion());
 }
 
-bool Builder::RunEvenOnIdenticalSource()
-{
+bool Builder::RunEvenOnIdenticalSource() {
     return action->RunEvenOnIdenticalSource();
 }
 
-bool Builder::StoreResultInDatabase()
-{
+bool Builder::StoreResultInDatabase() {
     return action->StoreResultInDatabase();
 }
-

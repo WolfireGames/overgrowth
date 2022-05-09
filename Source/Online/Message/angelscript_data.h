@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: angelscript_data.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,22 +30,21 @@
 using std::vector;
 
 namespace OnlineMessages {
-    class AngelscriptData : public OnlineMessageBase {
-    public:
-        uint32_t state;
-        vector<char> data;
-        bool is_persistent_sync;
+class AngelscriptData : public OnlineMessageBase {
+   public:
+    uint32_t state;
+    vector<char> data;
+    bool is_persistent_sync;
 
-    public:
+   public:
+    AngelscriptData();
+    AngelscriptData(uint32_t state, vector<char> data, bool is_persistent_sync);
 
-        AngelscriptData();
-        AngelscriptData(uint32_t state, vector<char> data, bool is_persistent_sync);
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

@@ -32,68 +32,67 @@
 
 #include <algorithm>
 
-void AnimationReader::ActivateEventsInRange(float start, float end, int active_id){
-    while(next_event < events.size() &&    
-          start <= events[next_event].time && 
-          events[next_event].time < end)
-    {
-        LOGD << "Active id: " <<  active_id << std::endl;
+void AnimationReader::ActivateEventsInRange(float start, float end, int active_id) {
+    while (next_event < events.size() &&
+           start <= events[next_event].time &&
+           events[next_event].time < end) {
+        LOGD << "Active id: " << active_id << std::endl;
         LOGD << "Activating event:" << events[next_event].anim_id << " " << events[next_event].event.event_string << std::endl;
-        
-        if((int)events[next_event].anim_id == active_id){
+
+        if ((int)events[next_event].anim_id == active_id) {
             active_events.push(events[next_event].event);
         }
         next_event++;
-        if(next_event < events.size()){
+        if (next_event < events.size()) {
             LOGD << "Next event: " << events[next_event].event.event_string << std::endl;
         }
     }
 
-    if(next_event == events.size() && !events.empty()){
+    if (next_event == events.size() && !events.empty()) {
         next_event = 0;
         LOGD << "Next event: " << events[next_event].event.event_string << std::endl;
     }
 }
 
-std::queue<AnimationEvent>& AnimationReader::GetActiveEvents(){
+std::queue<AnimationEvent> &AnimationReader::GetActiveEvents() {
     return active_events;
 }
- 
+
 float AnimationReader::GetSpeedNormalized(const BlendMap &blendmap) const {
     const AnimationAsset &anim_asset = (*anim);
     return anim_asset.GetFrequency(blendmap) * speed_mult;
 }
 
-bool AnimationReader::IncrementTime( const BlendMap &blendmap, float timestep ) {
-    if(!anim.valid()){
+bool AnimationReader::IncrementTime(const BlendMap &blendmap, float timestep) {
+    if (!anim.valid()) {
         FatalError("Error", "No animation bound to reader");
     }
 
     AnimationAsset &anim_asset = (*anim);
 
     float old_time = normalized_time;
-    
+
     // Increment time by clock time multiplied by animation frequency
     normalized_time += timestep * GetSpeedNormalized(blendmap);
-    
+
     int anim_id = 0;
     int active_id = (*anim).GetActiveID(blendmap, anim_id);
     ActivateEventsInRange(old_time, normalized_time, active_id);
 
     // Wrap looped time around if it is greater than 1
-    while(anim_asset.IsLooping() && normalized_time >= 1.0f){
-        if(!events.empty()){
-            LOGD << "Old times: " <<  old_time << " " << normalized_time << std::endl;
+    while (anim_asset.IsLooping() && normalized_time >= 1.0f) {
+        if (!events.empty()) {
+            LOGD << "Old times: " << old_time << " " << normalized_time << std::endl;
         }
         old_time -= 1.0f;
         normalized_time -= 1.0f;
-        if(!events.empty()){
+        if (!events.empty()) {
             LOGD << "Wrapped times: " << old_time << " " << normalized_time << std::endl;
         }
         ActivateEventsInRange(old_time, normalized_time, active_id);
-    } 
-    if(!anim_asset.IsLooping()){
-        if(old_time < 1.0f && normalized_time >= 1.0f){
+    }
+    if (!anim_asset.IsLooping()) {
+        if (old_time < 1.0f && normalized_time >= 1.0f) {
             return true;
         }
     }
@@ -101,10 +100,10 @@ bool AnimationReader::IncrementTime( const BlendMap &blendmap, float timestep ) 
     return false;
 }
 
-float AnimationReader::GetTimeUntilEvent(const std::string &event){
-    for(auto & i : events){
-        if(i.event.event_string == event){
-            if(i.time > normalized_time){
+float AnimationReader::GetTimeUntilEvent(const std::string &event) {
+    for (auto &i : events) {
+        if (i.event.event_string == event) {
+            if (i.time > normalized_time) {
                 return (*anim).AbsoluteTimeFromNormalized(i.time - normalized_time) / speed_mult * 0.001f;
             }
         }
@@ -112,16 +111,15 @@ float AnimationReader::GetTimeUntilEvent(const std::string &event){
     return -1.0f;
 }
 
-void AnimationReader::GetMatrices( AnimOutput &anim_output,
-                                   AnimInput &anim_input)
-{
+void AnimationReader::GetMatrices(AnimOutput &anim_output,
+                                  AnimInput &anim_input) {
     anim_input.mirrored = mirrored;
     (*anim).GetMatrices(normalized_time, anim_output, anim_input);
-	if(anim_output.old_path != "retargeted"){
-		Retarget(anim_input, anim_output, anim_output.old_path);
-	}
+    if (anim_output.old_path != "retargeted") {
+        Retarget(anim_input, anim_output, anim_output.old_path);
+    }
 
-    if(!skip_offset){
+    if (!skip_offset) {
         anim_output.delta_offset = anim_output.center_offset - last_offset;
     } else {
         skip_offset = false;
@@ -130,50 +128,48 @@ void AnimationReader::GetMatrices( AnimOutput &anim_output,
     last_offset = anim_output.center_offset;
     last_rotation = anim_output.rotation;
 
-    if(blend_anim.valid()){
+    if (blend_anim.valid()) {
         AnimOutput blend_anim_output;
-        (*blend_anim).GetMatrices(normalized_time,
-                                  blend_anim_output, 
-                                  anim_input);
-		if(blend_anim_output.old_path != "retargeted"){
-			Retarget(anim_input, blend_anim_output, blend_anim_output.old_path);
-		}
-        anim_output = add_mix(anim_output,blend_anim_output,1.0f);
+        (*blend_anim).GetMatrices(normalized_time, blend_anim_output, anim_input);
+        if (blend_anim_output.old_path != "retargeted") {
+            Retarget(anim_input, blend_anim_output, blend_anim_output.old_path);
+        }
+        anim_output = add_mix(anim_output, blend_anim_output, 1.0f);
     }
 
-    for(unsigned i=0; i<anim_output.weapon_matrices.size(); ++i){
+    for (unsigned i = 0; i < anim_output.weapon_matrices.size(); ++i) {
         int item_id = animated_item_ids[i];
-        if(item_id != -1){
-            WeapAnimInfo& weap_anim_info = anim_output.weap_anim_info_map[item_id];
+        if (item_id != -1) {
+            WeapAnimInfo &weap_anim_info = anim_output.weap_anim_info_map[item_id];
             weap_anim_info.bone_transform = anim_output.weapon_matrices[i];
             weap_anim_info.weight = anim_output.weapon_weights[i] * anim_output.weapon_weight_weights[i];
             weap_anim_info.relative_id = anim_output.weapon_relative_ids[i];
             weap_anim_info.relative_weight = anim_output.weapon_relative_weights[i];
         }
     }
-    
-    if(!super_mobile){
-        for(unsigned i=0; i<anim_output.matrices.size(); ++i){
-            if(anim_input.parents && anim_input.parents->at(i) != -1){
+
+    if (!super_mobile) {
+        for (unsigned i = 0; i < anim_output.matrices.size(); ++i) {
+            if (anim_input.parents && anim_input.parents->at(i) != -1) {
                 continue;
             }
             anim_output.matrices[i].origin[1] += anim_output.center_offset[1];
-            if(!mobile){
+            if (!mobile) {
                 anim_output.matrices[i].origin[0] += anim_output.center_offset[0];
                 anim_output.matrices[i].origin[2] += anim_output.center_offset[2];
             }
         }
-        for(int i=0, len=anim_output.ik_bones.size(); i<len; ++i){
+        for (int i = 0, len = anim_output.ik_bones.size(); i < len; ++i) {
             vec3 &origin = anim_output.ik_bones[i].transform.origin;
             origin[1] += anim_output.center_offset[1];
-            if(!mobile){
+            if (!mobile) {
                 origin[0] += anim_output.center_offset[0];
                 origin[2] += anim_output.center_offset[2];
             }
         }
         anim_output.center_offset[1] = 0.0f;
         anim_output.delta_offset[1] = 0.0f;
-        if(!mobile){
+        if (!mobile) {
             anim_output.center_offset[0] = 0.0f;
             anim_output.center_offset[2] = 0.0f;
             anim_output.delta_offset[0] = 0.0f;
@@ -190,24 +186,23 @@ void AnimationReader::SetTime(float time) {
     normalized_time = time;
     skip_offset = true;
 
-    while(next_event < events.size() &&    
-          events[next_event].time < time)
-    {
+    while (next_event < events.size() &&
+           events[next_event].time < time) {
         ++next_event;
     }
-    if(next_event == events.size() && !events.empty()){
+    if (next_event == events.size() && !events.empty()) {
         next_event = 0;
     }
 }
 
-void AnimationReader::AttachTo( const AnimationAssetRef &_ref ) {
+void AnimationReader::AttachTo(const AnimationAssetRef &_ref) {
     anim = _ref;
     normalized_time = 0.0f;
     last_offset = vec3(0.0f);
     last_rotation = 0.0f;
     skip_offset = false;
     callback_string.clear();
-    for(int & animated_item_id : animated_item_ids){
+    for (int &animated_item_id : animated_item_ids) {
         animated_item_id = -1;
     }
     const AnimationAsset &anim = (*_ref);
@@ -218,7 +213,7 @@ void AnimationReader::AttachTo( const AnimationAssetRef &_ref ) {
               NormalizedAnimationEventCompare());
 
     next_event = 0;
-    while((int)next_event < (int)events.size()-1 && events[next_event].time == 0.0f) {
+    while ((int)next_event < (int)events.size() - 1 && events[next_event].time == 0.0f) {
         next_event++;
     }
 }
@@ -227,7 +222,7 @@ bool AnimationReader::valid() {
     return anim.valid();
 }
 
-const AnimationReader& AnimationReader::operator=( const AnimationReader& other ) {
+const AnimationReader &AnimationReader::operator=(const AnimationReader &other) {
     anim = other.anim;
     blend_anim = other.blend_anim;
     normalized_time = other.normalized_time;
@@ -242,23 +237,22 @@ const AnimationReader& AnimationReader::operator=( const AnimationReader& other 
     skip_offset = other.skip_offset;
     speed_mult = other.speed_mult;
     callback_string = other.callback_string;
-    for(int i=0; i<_max_animated_items; ++i){
+    for (int i = 0; i < _max_animated_items; ++i) {
         animated_item_ids[i] = other.animated_item_ids[i];
     }
     return *this;
 }
 
-void AnimationReader::clear()
-{
+void AnimationReader::clear() {
     anim.clear();
 }
 
-float AnimationReader::GetAbsoluteTime(){
+float AnimationReader::GetAbsoluteTime() {
     return (*anim).AbsoluteTimeFromNormalized(normalized_time);
 }
 
-void AnimationReader::SetAbsoluteTime(float time){
-    Animation* anm = (Animation*)&(*anim);
+void AnimationReader::SetAbsoluteTime(float time) {
+    Animation *anm = (Animation *)&(*anim);
     SetTime(anm->NormalizedFromLocal(time));
 }
 
@@ -270,22 +264,20 @@ bool AnimationReader::GetMirrored() {
     return mirrored;
 }
 
-void AnimationReader::SetMobile( bool _mobile ) {
+void AnimationReader::SetMobile(bool _mobile) {
     mobile = _mobile;
 }
 
-AnimationReader::AnimationReader():
-    mobile(false),
-    super_mobile(false),
-    mirrored(false),
-    speed_mult(1.0f)
-{
-    for(int & animated_item_id : animated_item_ids){
+AnimationReader::AnimationReader() : mobile(false),
+                                     super_mobile(false),
+                                     mirrored(false),
+                                     speed_mult(1.0f) {
+    for (int &animated_item_id : animated_item_ids) {
         animated_item_id = -1;
     }
 }
 
-void AnimationReader::SetMirrored( bool _mirrored ) {
+void AnimationReader::SetMirrored(bool _mirrored) {
     mirrored = _mirrored;
 
     int anim_id = 0;
@@ -299,11 +291,11 @@ bool AnimationReader::Finished() {
     return normalized_time >= 1.0f;
 }
 
-const std::string & AnimationReader::GetPath() {
+const std::string &AnimationReader::GetPath() {
     return anim->path_;
 }
 
-void AnimationReader::SetSuperMobile( bool _super_mobile ) {
+void AnimationReader::SetSuperMobile(bool _super_mobile) {
     super_mobile = _super_mobile;
 }
 
@@ -311,45 +303,41 @@ bool AnimationReader::GetSuperMobile() {
     return super_mobile;
 }
 
-bool AnimationReader::SameAnim( const AnimationAssetRef &_anim ) {
+bool AnimationReader::SameAnim(const AnimationAssetRef &_anim) {
     return anim == _anim;
 }
 
-void AnimationReader::SetBlendAnim( AnimationAssetRef anim ) {
+void AnimationReader::SetBlendAnim(AnimationAssetRef anim) {
     LOGD << "Setting blend anim: " << anim->path_ << std::endl;
     blend_anim = anim;
 }
 
-void AnimationReader::ClearBlendAnim()
-{
+void AnimationReader::ClearBlendAnim() {
     blend_anim.clear();
 }
 
-void AnimationReader::SetLastRotation( float val )
-{
+void AnimationReader::SetLastRotation(float val) {
     last_rotation = val;
 }
 
-float AnimationReader::GetLastRotation()
-{
+float AnimationReader::GetLastRotation() {
     return last_rotation;
 }
 
-void AnimationReader::GetPrevEvents( const BlendMap &blendmap, float timestep ) {
+void AnimationReader::GetPrevEvents(const BlendMap &blendmap, float timestep) {
     AnimationAsset &anim_asset = (*anim);
     float old_time = normalized_time -
-        timestep *
-        anim_asset.GetFrequency(blendmap);
+                     timestep *
+                         anim_asset.GetFrequency(blendmap);
 
     int anim_id = 0;
     int active_id = (*anim).GetActiveID(blendmap, anim_id);
     ActivateEventsInRange(old_time, normalized_time, active_id);
 }
 
-float AnimationReader::GetAnimationEventTime( const std::string & event_name, const BlendMap &blend_map ) const
-{
-    for(const auto & event : events){
-        if(event.time > normalized_time && event.event.event_string == event_name){
+float AnimationReader::GetAnimationEventTime(const std::string &event_name, const BlendMap &blend_map) const {
+    for (const auto &event : events) {
+        if (event.time > normalized_time && event.event.event_string == event_name) {
             float time = event.time - normalized_time;
             const AnimationAsset &anim_asset = (*anim);
             time /= anim_asset.GetFrequency(blend_map);
@@ -359,22 +347,22 @@ float AnimationReader::GetAnimationEventTime( const std::string & event_name, co
     return 0.0f;
 }
 
-void AnimationReader::SetSpeedMult( float _speed_mult ) {
+void AnimationReader::SetSpeedMult(float _speed_mult) {
     speed_mult = _speed_mult;
 }
 
-void AnimationReader::SetCallbackString( const std::string& str ) {
+void AnimationReader::SetCallbackString(const std::string &str) {
     callback_string = str;
 }
 
-const std::string& AnimationReader::GetCallbackString() {
+const std::string &AnimationReader::GetCallbackString() {
     return callback_string;
 }
 
-int AnimationReader::GetAnimatedItemID( int i ) {
+int AnimationReader::GetAnimatedItemID(int i) {
     return animated_item_ids[i];
 }
 
-void AnimationReader::SetAnimatedItemID( int index, int id ) {
+void AnimationReader::SetAnimatedItemID(int index, int id) {
     animated_item_ids[index] = id;
 }

@@ -36,8 +36,8 @@
 #include <vector>
 
 class ParticleType : public Asset {
-public:
-    ParticleType( AssetManager* owner, uint32_t asset_id );
+   public:
+    ParticleType(AssetManager* owner, uint32_t asset_id);
 
     static AssetType GetType() { return PARTICLE_TYPE_ASSET; }
     static const char* GetTypeName() { return "PARTICLE_TYPE_ASSET"; }
@@ -75,12 +75,12 @@ public:
     std::string collision_event;
 
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void ReportLoad() override;
-    void Reload( );
+    void Reload();
 
     void clear();
 

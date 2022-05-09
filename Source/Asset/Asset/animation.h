@@ -33,21 +33,21 @@
 #include <map>
 #include <string>
 
-using std::vector;
 using std::map;
 using std::string;
+using std::vector;
 
 struct AnimationConfig {
-	bool kDisableIK;
-	bool kDisableModifiers;
-	bool kDisableSoftAnimation;
-	bool kDisableInterpolation;
-	bool kDisableAnimationLayers;
-	bool kDisableAnimationMix;
-	bool kDisableAnimationTransition;
-	bool kDisablePhysicsInterpolation;
-	bool kForceIdleAnim;
-	AnimationConfig();
+    bool kDisableIK;
+    bool kDisableModifiers;
+    bool kDisableSoftAnimation;
+    bool kDisableInterpolation;
+    bool kDisableAnimationLayers;
+    bool kDisableAnimationMix;
+    bool kDisableAnimationTransition;
+    bool kDisablePhysicsInterpolation;
+    bool kForceIdleAnim;
+    AnimationConfig();
 };
 
 class Skeleton;
@@ -69,10 +69,10 @@ struct NormalizedAnimationEvent {
 
 class NormalizedAnimationEventCompare {
    public:
-       bool operator()(const NormalizedAnimationEvent &a, 
-                       const NormalizedAnimationEvent &b) {
-            return a.time < b.time;
-        }
+    bool operator()(const NormalizedAnimationEvent& a,
+                    const NormalizedAnimationEvent& b) {
+        return a.time < b.time;
+    }
 };
 
 struct ShapeKey {
@@ -105,7 +105,7 @@ struct WeapAnimInfo {
     mat4 matrix;
 };
 
-WeapAnimInfo mix(const WeapAnimInfo &a, const WeapAnimInfo &b, float b_weight);
+WeapAnimInfo mix(const WeapAnimInfo& a, const WeapAnimInfo& b, float b_weight);
 
 struct Keyframe {
     // Per-bone info
@@ -133,29 +133,28 @@ const int _animation_version = 11;
 
 struct AnimInput {
     const BlendMap& blendmap;
-    const vector<int> *parents;
+    const vector<int>* parents;
     bool mirrored;
     string retarget_new;
-    AnimInput(const BlendMap &_blendmap, const vector<int> *_parents)
-        :blendmap(_blendmap),
-         parents(_parents),
-         mirrored(false)
-    {}
+    AnimInput(const BlendMap& _blendmap, const vector<int>* _parents)
+        : blendmap(_blendmap),
+          parents(_parents),
+          mirrored(false) {}
 };
 
 struct AnimOutput {
     // Get directly from animations
     vector<BoneTransform> weapon_matrices;
     vector<float> weapon_weight_weights;
-    vector<float> weapon_weights; // 
-    vector<float> weapon_relative_weights; // How much is this weapon relative to the bone, and how much absolute
-    vector<int> weapon_relative_ids; // What bone is this weapon relative to?
+    vector<float> weapon_weights;           //
+    vector<float> weapon_relative_weights;  // How much is this weapon relative to the bone, and how much absolute
+    vector<int> weapon_relative_ids;        // What bone is this weapon relative to?
     vector<BoneTransform> matrices;
     vector<float> physics_weights;
     vector<BlendedBonePath> ik_bones;
     vector<ShapeKeyBlend> shape_keys;
     vector<StatusKeyBlend> status_keys;
-	string old_path;
+    string old_path;
     vec3 center_offset;
     float rotation;
 
@@ -168,45 +167,44 @@ struct AnimOutput {
     // Added by animation reader
     vec3 delta_offset;
     float delta_rotation;
-    
-    AnimOutput()
-    {}
+
+    AnimOutput() {}
 };
 
-AnimOutput mix(const AnimOutput &a, const AnimOutput &b, float alpha);
-AnimOutput add_mix( const AnimOutput &a, const AnimOutput &b, float alpha );
-void MirrorBT(BoneTransform &bt, bool xy_flip);
+AnimOutput mix(const AnimOutput& a, const AnimOutput& b, float alpha);
+AnimOutput add_mix(const AnimOutput& a, const AnimOutput& b, float alpha);
+void MirrorBT(BoneTransform& bt, bool xy_flip);
 
-class AnimationAsset:public AssetInfo {
-public:
-    AnimationAsset( AssetManager* owner, uint32_t asset_id );
-    virtual void GetMatrices(float time, 
-                             AnimOutput &anim_output,
-                             const AnimInput &anim_input) const =0;
+class AnimationAsset : public AssetInfo {
+   public:
+    AnimationAsset(AssetManager* owner, uint32_t asset_id);
+    virtual void GetMatrices(float time,
+                             AnimOutput& anim_output,
+                             const AnimInput& anim_input) const = 0;
 
-    virtual float GetFrequency(const BlendMap& blendmap) const =0;
-    virtual float GetPeriod(const BlendMap& blendmap) const =0;
-    virtual float GetGroundSpeed(const BlendMap& blendmap) const =0;
-    virtual int GetActiveID(const BlendMap& blendmap, int &anim_id) const =0;
-    virtual vector<NormalizedAnimationEvent> GetEvents(int& anim_id, bool mirrored) const =0;
-    virtual bool IsLooping() const =0;
-    virtual float AbsoluteTimeFromNormalized(float normalized_time) const=0;
+    virtual float GetFrequency(const BlendMap& blendmap) const = 0;
+    virtual float GetPeriod(const BlendMap& blendmap) const = 0;
+    virtual float GetGroundSpeed(const BlendMap& blendmap) const = 0;
+    virtual int GetActiveID(const BlendMap& blendmap, int& anim_id) const = 0;
+    virtual vector<NormalizedAnimationEvent> GetEvents(int& anim_id, bool mirrored) const = 0;
+    virtual bool IsLooping() const = 0;
+    virtual float AbsoluteTimeFromNormalized(float normalized_time) const = 0;
 
     static AssetType GetType() { return ANIMATION_ASSET; }
     static const char* GetTypeName() { return "ANIMATION_ASSET"; }
     static bool AssetWarning() { return true; }
 };
 
-class Animation:public AnimationAsset {
-public:
-    Animation( AssetManager * owner, uint32_t asset_id );
+class Animation : public AnimationAsset {
+   public:
+    Animation(AssetManager* owner, uint32_t asset_id);
     ~Animation() override;
 
-    int GetActiveID( const BlendMap& blendmap, int &anim_id ) const override;
+    int GetActiveID(const BlendMap& blendmap, int& anim_id) const override;
     void clear();
-    void GetMatrices( float normalized_time, AnimOutput &anim_output, const AnimInput& anim_input) const override;
-    void WriteToFile( FILE * file );
-    int ReadFromFile( FILE * file );
+    void GetMatrices(float normalized_time, AnimOutput& anim_output, const AnimInput& anim_input) const override;
+    void WriteToFile(FILE* file);
+    int ReadFromFile(FILE* file);
 
     int sub_error;
     int Load(const string& path, uint32_t load_flags);
@@ -214,7 +212,6 @@ public:
     void Unload();
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
-
 
     float GetGroundSpeed(const BlendMap& blendmap) const override;
     float GetFrequency(const BlendMap& blendmap) const override;
@@ -227,19 +224,20 @@ public:
     void Reload();
     void ReportLoad() override;
     float AbsoluteTimeFromNormalized(float normalized_time) const override;
-    void ReturnPaths( PathSet& path_set ) override;
+    void ReturnPaths(PathSet& path_set) override;
 
     AssetLoaderBase* NewLoader() override;
-private:
-    int length; // in ms
+
+   private:
+    int length;  // in ms
     vector<Keyframe> keyframes;
     bool looping;
     ModID modsource_;
-    
+
     void CalcInvertBoneMats();
     void RecalcCaches();
-    //void SaveCache(unsigned short checksum);
-    //bool LoadCache(unsigned short checksum);
+    // void SaveCache(unsigned short checksum);
+    // bool LoadCache(unsigned short checksum);
     void Center();
 };
 
@@ -247,7 +245,7 @@ typedef AssetRef<Animation> AnimationRef;
 typedef AssetRef<AnimationAsset> AnimationAssetRef;
 
 float GetAnimationEventTime(const string& anim_path, const string& event_str);
-AnimationAssetRef ReturnAnimationAssetRef(const string &path);
-string extension(const string &path);
-string filename(const string &path);
-void Retarget(const AnimInput& anim_input, AnimOutput & anim_output, const string& old_path);
+AnimationAssetRef ReturnAnimationAssetRef(const string& path);
+string extension(const string& path);
+string filename(const string& path);
+void Retarget(const AnimInput& anim_input, AnimOutput& anim_output, const string& old_path);

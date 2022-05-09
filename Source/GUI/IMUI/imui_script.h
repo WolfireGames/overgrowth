@@ -26,4 +26,4 @@
 class ASContext;
 class IMUIContext;
 
-void AttachIMUI( ASContext *ctx );
+void AttachIMUI(ASContext *ctx);

@@ -23,7 +23,7 @@
 #pragma once
 
 #include <Compat/platform.h>
-#if defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600 
+#if defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600
 #include <intrin.h>
 #endif
 
@@ -31,10 +31,14 @@ inline uint64_t getCPUTSC() {
     // Use rdtsc instruction to get the tsc or Time Stamp Counter
 #if (defined(PLATFORM_LINUX) || defined(PLATFORM_MACOSX)) && (defined(__i386__) || defined(__x86_64__))
     uint32_t rax, rdx;
-    asm volatile ( "lfence" ::: "memory" ); //Fence memory load to everything is executed up to this point.
-    asm volatile ( "rdtsc\n" : "=a" (rax), "=d" (rdx) : : );
+    asm volatile("lfence" ::
+                     : "memory");  // Fence memory load to everything is executed up to this point.
+    asm volatile("rdtsc\n"
+                 : "=a"(rax), "=d"(rdx)
+                 :
+                 :);
     return ((uint64_t)rdx << 32) + rax;
-#elif defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600 
+#elif defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600
     unsigned __int64 i;
     _ReadBarrier();
     i = __rdtsc();

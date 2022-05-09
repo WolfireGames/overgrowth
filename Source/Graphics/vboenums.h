@@ -29,5 +29,5 @@ enum {
     kVBOStatic = 1 << 2,
     kVBODynamic = 1 << 3,
     kVBOStream = 1 << 4,
-	kVBOForceReBufferData = 1 << 5
+    kVBOForceReBufferData = 1 << 5
 };

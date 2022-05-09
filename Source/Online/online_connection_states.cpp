@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_connection_states.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -61,7 +61,6 @@ BaseState<PendingConnection>* StateVersionCheck::OnUpdate() {
     return this;
 }
 
-
 // ---------------- StateHandshake ----------------
 
 void StateHandshake::OnEnter() {
@@ -71,7 +70,7 @@ void StateHandshake::OnEnter() {
 
 BaseState<PendingConnection>* StateHandshake::OnUpdate() {
     if (actor->received_client_params) {
-        if(!OnlineUtility::IsValidPlayerName(actor->player_name)) {
+        if (!OnlineUtility::IsValidPlayerName(actor->player_name)) {
             actor->player_name = "InvalidName";
         }
 
@@ -89,7 +88,6 @@ BaseState<PendingConnection>* StateHandshake::OnUpdate() {
     return this;
 }
 
-
 // ---------------- StateSync ----------------
 
 void StateSync::OnEnter() {
@@ -106,11 +104,9 @@ BaseState<PendingConnection>* StateSync::OnUpdate() {
     return this;
 }
 
-
 // ---------------- StateWaiting ----------------
 
 void StateWaiting::OnEnter() {
-
 }
 
 BaseState<PendingConnection>* StateWaiting::OnUpdate() {
@@ -119,11 +115,10 @@ BaseState<PendingConnection>* StateWaiting::OnUpdate() {
     return this;
 }
 
-
 // ---------------- StateEstablished ----------------
 
 void StateEstablished::OnEnter() {
-    actor->player_id = Online::Instance()->GetPeerFromConnection(actor->net_connection_id)->peer_id; // TODO We assume that peer_id == player_id here
+    actor->player_id = Online::Instance()->GetPeerFromConnection(actor->net_connection_id)->peer_id;  // TODO We assume that peer_id == player_id here
     Online::Instance()->SendTo<OnlineMessages::PCSAssignPlayerID>(actor->net_connection_id, actor->player_id);
 
     // Create player state for the new player

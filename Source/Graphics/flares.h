@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: flares.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -44,7 +44,7 @@ const float _sharp_glare_threshold = 1.5f;
 const float _soft_glare_threshold = 2.5f;
 const float _no_glare_threshold = 4.0f;
 
-struct OccQuery{
+struct OccQuery {
     bool started;
     bool created;
     GLuint id;
@@ -69,8 +69,8 @@ struct Flare {
 
 class SceneGraph;
 
-class Flares{
-public:
+class Flares {
+   public:
     Flares();
     ~Flares();
 
@@ -79,8 +79,8 @@ public:
         kSharp
     };
 
-    SceneGraph *scenegraph;
-        
+    SceneGraph* scenegraph;
+
     Flare* MakeFlare(vec3 _position, float _brightness, bool _distant);
     void CleanupFlares();
     void Draw(FlareType flare_type);
@@ -90,7 +90,7 @@ public:
 
     void GetShaderNames(std::map<std::string, int>& preload_shaders);
 
-private:
+   private:
     VBOContainer vert_vbo;
     VBOContainer index_vbo;
     float animation;
@@ -107,8 +107,6 @@ private:
     void DrawFlare(int which);
     void OcclusionQuery(int which);
     void DrawOcclusion(int which);
-public:
 
-
+   public:
 };
-

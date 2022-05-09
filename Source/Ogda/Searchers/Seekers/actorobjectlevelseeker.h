@@ -26,14 +26,12 @@
 
 class TiXmlElement;
 
-class ActorObjectLevelSeeker : public LevelSeekerBase
-{
-public:
-    virtual void SearchGroup( std::vector<Item>& items, const Item& item, TiXmlElement* root );
-    std::vector<Item> SearchLevelRoot( const Item& item, TiXmlHandle& hRoot ) override;
+class ActorObjectLevelSeeker : public LevelSeekerBase {
+   public:
+    virtual void SearchGroup(std::vector<Item>& items, const Item& item, TiXmlElement* root);
+    std::vector<Item> SearchLevelRoot(const Item& item, TiXmlHandle& hRoot) override;
 
-    inline const char* GetName() override
-    {
+    inline const char* GetName() override {
         return "actor_object_level_seeker";
     }
 };

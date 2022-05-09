@@ -33,9 +33,8 @@
 
 class ASContext;
 
-class ASProfiler
-{
-public:
+class ASProfiler {
+   public:
     ASProfiler();
     ~ASProfiler();
 
@@ -58,7 +57,8 @@ public:
 
     static int GetMaxWindowSize() { return kMaxWindowSize; }
     static int GetMaxTimeHistorySize() { return kTimeHistorySize; }
-private:
+
+   private:
     const static int kMaxWindowSize = 60;
     const static int kTimeHistorySize = 10;
     struct ZoneTime {

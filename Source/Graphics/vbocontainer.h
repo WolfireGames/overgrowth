@@ -36,19 +36,21 @@ class VBOContainer {
     GLuint storage;
 
     GLuint size_;
-public:
+
+   public:
     bool is_valid;
     void Dispose();
     void Fill(char flags, GLuint size, void* data);
     void Bind() const;
     bool valid() const;
-    uintptr_t offset() const; 
-    unsigned size(); //returns size in bytes.
-    
+    uintptr_t offset() const;
+    unsigned size();  // returns size in bytes.
+
     VBOContainer();
     ~VBOContainer();
-private:
-    VBOContainer( const VBOContainer& other );
+
+   private:
+    VBOContainer(const VBOContainer& other);
     VBOContainer& operator=(const VBOContainer& other);
 };
 

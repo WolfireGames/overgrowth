@@ -27,22 +27,24 @@
 #include <Asset/assetinfobase.h>
 
 class LevelSet : public AssetInfo {
-public:
+   public:
     typedef std::list<std::string> LevelPaths;
-private:
+
+   private:
     LevelPaths level_paths_;
-public:
+
+   public:
     LevelSet(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return LEVEL_SET_ASSET; }
     static const char* GetTypeName() { return "LEVEL_SET_ASSET"; }
     static bool AssetWarning() { return true; }
 
-    LevelPaths& level_paths(){return level_paths_;}
-    
-    void ReturnPaths(PathSet &path_set) override;
+    LevelPaths& level_paths() { return level_paths_; }
+
+    void ReturnPaths(PathSet& path_set) override;
 
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
@@ -55,4 +57,3 @@ public:
 };
 
 typedef AssetRef<LevelSet> LevelSetRef;
-

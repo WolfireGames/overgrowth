@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: reflectioncaptureobject.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,16 +30,15 @@
 // Class Definition
 //-----------------------------------------------------------------------------
 
-class ReflectionCaptureObject: public Object
-{
-public:
+class ReflectionCaptureObject : public Object {
+   public:
     EntityType GetType() const override { return _reflection_capture_object; }
     bool Initialize() override;
 
     void Moved(Object::MoveType type) override;
     void Dispose() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
     ReflectionCaptureObject();
     void Draw() override;
     ~ReflectionCaptureObject() override;
@@ -49,7 +48,7 @@ public:
     TextureRef cube_map_ref;
     vec3 avg_color[6];
 
-private:
+   private:
     int shape;
     int parallax_shape;
 };

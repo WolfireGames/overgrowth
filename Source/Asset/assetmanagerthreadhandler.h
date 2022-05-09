@@ -32,7 +32,7 @@
 
 struct AssetLoaderThreadedInstance {
     AssetLoaderThreadedInstance();
-    AssetLoaderThreadedInstance( AssetLoaderBase* loader, uint32_t load_id, int step );
+    AssetLoaderThreadedInstance(AssetLoaderBase* loader, uint32_t load_id, int step);
 
     AssetLoaderBase* loader;
     uint32_t load_id;
@@ -41,7 +41,7 @@ struct AssetLoaderThreadedInstance {
 };
 
 class AssetManagerThreadedInstanceQueue {
-public:
+   public:
     AssetManagerThreadedInstanceQueue();
     ~AssetManagerThreadedInstanceQueue();
 
@@ -49,33 +49,32 @@ public:
     void Push(const AssetLoaderThreadedInstance& input);
     size_t Count();
 
-private:
-	std::mutex* accessmutex;
+   private:
+    std::mutex* accessmutex;
 
-    AssetLoaderThreadedInstance *queue;
+    AssetLoaderThreadedInstance* queue;
     size_t queue_count;
     size_t queue_size;
 };
 
-
 class AssetManagerThreadInstance {
-public:
+   public:
     bool* stop;
     AssetManagerThreadedInstanceQueue* queue_in;
     AssetManagerThreadedInstanceQueue* queue_out;
 
-    AssetManagerThreadInstance(AssetManagerThreadedInstanceQueue* queue_in, AssetManagerThreadedInstanceQueue* queue_out, bool* stop); 
+    AssetManagerThreadInstance(AssetManagerThreadedInstanceQueue* queue_in, AssetManagerThreadedInstanceQueue* queue_out, bool* stop);
 };
 
 class AssetManagerThreadHandler {
-public:
+   public:
     AssetManagerThreadedInstanceQueue queue_in;
     AssetManagerThreadedInstanceQueue queue_out;
 
-    AssetManagerThreadHandler(int thread_count);     
+    AssetManagerThreadHandler(int thread_count);
     ~AssetManagerThreadHandler();
-private:
 
+   private:
     std::vector<std::thread*> threads;
 
     bool stop;

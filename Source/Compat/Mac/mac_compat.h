@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: mac_compat.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,5 +25,5 @@
 #include <string>
 
 namespace MacCompat {
-    std::string GetAppPath();
+std::string GetAppPath();
 }

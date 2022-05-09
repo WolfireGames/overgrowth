@@ -35,59 +35,58 @@
 class ASContext;
 class ASCollisions;
 
-class CameraObject: public Object {
-    public:
-        bool controlled;
-        ASContext* as_context;
-        ASCollisions *as_collisions;
-        float speed;
-        float rotation, rotation2;
-        float target_rotation, target_rotation2;
-        bool frozen;
-        vec3 velocity;
-        float smooth_speed;
-        bool ignore_mouse_input;
-        
-        bool has_position_initialized;
+class CameraObject : public Object {
+   public:
+    bool controlled;
+    ASContext* as_context;
+    ASCollisions* as_collisions;
+    float speed;
+    float rotation, rotation2;
+    float target_rotation, target_rotation2;
+    bool frozen;
+    vec3 velocity;
+    float smooth_speed;
+    bool ignore_mouse_input;
 
-        struct {
-            ASFunctionHandle init;
-            ASFunctionHandle frame_selection;
-        } as_funcs;
+    bool has_position_initialized;
 
-        CameraObject() {
-            has_position_initialized = true;
-            frozen=false;
-            speed=5;
-            rotation=0;
-            rotation2=0;
-            target_rotation=0;
-            target_rotation2=0;
-            velocity = vec3(0.0f);
-            smooth_speed = 0;
-            ignore_mouse_input = false;
-            as_context = NULL;
-            as_collisions = NULL;
-            controlled = false;
-            permission_flags = 0;
-            exclude_from_undo = true;
-        }
+    struct {
+        ASFunctionHandle init;
+        ASFunctionHandle frame_selection;
+    } as_funcs;
 
-        ~CameraObject() override;
-        
-        EntityType GetType() const override {return _camera_type;}
-        
-        void saveStateToFile(FILE *);
-        void Update(float timestep) override;
-		void Reload() override;
-		void Draw() override;
-        void GetDisplayName(char* buf, int buf_size) override;
-        
-        virtual void IgnoreInput(bool val) {}
-        virtual void IgnoreMouseInput(bool val) {}
-        bool Initialize() override;
-        vec3 GetMouseRay();
+    CameraObject() {
+        has_position_initialized = true;
+        frozen = false;
+        speed = 5;
+        rotation = 0;
+        rotation2 = 0;
+        target_rotation = 0;
+        target_rotation2 = 0;
+        velocity = vec3(0.0f);
+        smooth_speed = 0;
+        ignore_mouse_input = false;
+        as_context = NULL;
+        as_collisions = NULL;
+        controlled = false;
+        permission_flags = 0;
+        exclude_from_undo = true;
+    }
 
-        void FrameSelection(bool v);
+    ~CameraObject() override;
 
+    EntityType GetType() const override { return _camera_type; }
+
+    void saveStateToFile(FILE*);
+    void Update(float timestep) override;
+    void Reload() override;
+    void Draw() override;
+    void GetDisplayName(char* buf, int buf_size) override;
+
+    virtual void IgnoreInput(bool val) {}
+    virtual void IgnoreMouseInput(bool val) {}
+    bool Initialize() override;
+    vec3 GetMouseRay();
+
+    void FrameSelection(bool v);
 };

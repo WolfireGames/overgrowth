@@ -26,49 +26,40 @@
 
 #include <Logging/logdata.h>
 
-std::vector<Item> AmbientSoundLevelSeeker::SearchLevelRoot( const Item& item, TiXmlHandle& hRoot )
-{
+std::vector<Item> AmbientSoundLevelSeeker::SearchLevelRoot(const Item& item, TiXmlHandle& hRoot) {
     std::vector<Item> items;
-    TiXmlElement *eElem = hRoot.FirstChildElement("AmbientSounds").FirstChildElement().Element();
+    TiXmlElement* eElem = hRoot.FirstChildElement("AmbientSounds").FirstChildElement().Element();
 
-    while( eElem )
-    {
+    while (eElem) {
         const char* path = eElem->Attribute("path");
-        if( path )
-        {
+        if (path) {
             {
                 std::stringstream ss;
                 ss << path << ".xml";
 
-                Item i( item.input_folder, ss.str(), "sound", item.source );
-                
-                if( i.FileAccess() )
-                {
+                Item i(item.input_folder, ss.str(), "sound", item.source);
+
+                if (i.FileAccess()) {
                     items.push_back(i);
                 }
             }
-            
+
             bool found_file = false;
             int counter = 1;
-            do
-            {
+            do {
                 std::stringstream ss;
                 ss << path << "_" << counter << ".wav";
 
-                Item i( item.input_folder, ss.str(), "sound", item.source );
-                
-                if( i.FileAccess() )
-                {
+                Item i(item.input_folder, ss.str(), "sound", item.source);
+
+                if (i.FileAccess()) {
                     found_file = true;
                     items.push_back(i);
-                }
-                else
-                {
+                } else {
                     found_file = false;
-                } 
+                }
                 counter++;
-            }
-            while( found_file );
+            } while (found_file);
         }
         eElem = eElem->NextSiblingElement();
     }

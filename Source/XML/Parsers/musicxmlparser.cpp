@@ -48,104 +48,99 @@ MusicXMLParser::Song::Song() {
     file_path[0] = '\0';
 }
 
-MusicXMLParser::MusicXMLParser()
-{
-
+MusicXMLParser::MusicXMLParser() {
 }
 
-uint32_t MusicXMLParser::Load( const std::string& path )
-{
+uint32_t MusicXMLParser::Load(const std::string& path) {
     Clear();
 
-    TiXmlDocument doc( path.c_str() );
+    TiXmlDocument doc(path.c_str());
     doc.LoadFile();
 
-    uint32_t error = kErrorNoError;;
+    uint32_t error = kErrorNoError;
+    ;
     int err;
 
-    if( !doc.Error() )
-    {
+    if (!doc.Error()) {
         TiXmlElement* pRoot = doc.RootElement();
 
-        if( pRoot )
-        {
+        if (pRoot) {
             TiXmlHandle hRoot(pRoot);
 
             TiXmlElement* eSong = hRoot.FirstChild("Song").Element();
 
-            while( eSong )
-            {
+            while (eSong) {
                 Song song;
 
                 err = strscpy(song.name, eSong->Attribute("name"), NAME_MAX_LENGTH);
-                if( err == SOURCE_TOO_LONG ) {
-                    error |=  kErrorSongNameTooLong;
-                } else if( err == SOURCE_IS_NULL ) {
+                if (err == SOURCE_TOO_LONG) {
+                    error |= kErrorSongNameTooLong;
+                } else if (err == SOURCE_IS_NULL) {
                     error |= kErrorSongNameMissing;
                 }
 
                 err = strscpy(song.type, eSong->Attribute("type"), NAME_MAX_LENGTH);
-                if( err == SOURCE_TOO_LONG ) {
-                    error |=  kErrorSongTypeTooLong;
-                } else if( err == SOURCE_IS_NULL ) {
+                if (err == SOURCE_TOO_LONG) {
+                    error |= kErrorSongTypeTooLong;
+                } else if (err == SOURCE_IS_NULL) {
                     error |= kErrorSongTypeMissing;
                 }
 
-                if( strmtch( song.type, "single" ) ) {
-                    err = strscpy( song.file_path, eSong->Attribute("file_path"), PATH_MAX_LENGTH );
-                    if( err == SOURCE_TOO_LONG ) {
+                if (strmtch(song.type, "single")) {
+                    err = strscpy(song.file_path, eSong->Attribute("file_path"), PATH_MAX_LENGTH);
+                    if (err == SOURCE_TOO_LONG) {
                         error |= kErrorSongFilePathTooLong;
-                    } else if( err == SOURCE_IS_NULL ) {
+                    } else if (err == SOURCE_IS_NULL) {
                         error |= kErrorSongFilePathMissing;
                     }
-                } else if( strmtch( song.type, "segmented" ) ) {
-                    err = strscpy( song.start_segment, eSong->Attribute("start_segment"), NAME_MAX_LENGTH );
-                    if( err == SOURCE_TOO_LONG ) {
+                } else if (strmtch(song.type, "segmented")) {
+                    err = strscpy(song.start_segment, eSong->Attribute("start_segment"), NAME_MAX_LENGTH);
+                    if (err == SOURCE_TOO_LONG) {
                         error |= kErrorSongStartSegmentTooLong;
-                    } else if( err == SOURCE_IS_NULL ) {
+                    } else if (err == SOURCE_IS_NULL) {
                         error |= kErrorSongStartSegmentMissing;
                     }
 
-                    TiXmlElement *eSegment = eSong->FirstChildElement("Segment");
+                    TiXmlElement* eSegment = eSong->FirstChildElement("Segment");
 
-                    while( eSegment ) {
+                    while (eSegment) {
                         Segment segment;
 
                         err = strscpy(segment.name, eSegment->Attribute("name"), NAME_MAX_LENGTH);
-                        if( err == SOURCE_TOO_LONG ) {
+                        if (err == SOURCE_TOO_LONG) {
                             error |= kErrorSongSegmentNameTooLong;
-                        } else if( err == SOURCE_IS_NULL ) {
+                        } else if (err == SOURCE_IS_NULL) {
                             error |= kErrorSongStartSegmentMissing;
                         }
-                        
+
                         err = strscpy(segment.path, eSegment->Attribute("path"), PATH_MAX_LENGTH);
-                        if( err == SOURCE_TOO_LONG ) {
+                        if (err == SOURCE_TOO_LONG) {
                             error |= kErrorSongSegmentPathTooLong;
-                        } else if( err == SOURCE_IS_NULL ) {
+                        } else if (err == SOURCE_IS_NULL) {
                             error |= kErrorSongSegmentPathMissing;
                         }
 
-                        if( std::find(song.segments.begin(),song.segments.end(),segment) == song.segments.end() ) {
+                        if (std::find(song.segments.begin(), song.segments.end(), segment) == song.segments.end()) {
                             song.segments.push_back(segment);
                         } else {
-                            LOGE << "Segment " << segment  << " already has a copy in the song, skipping." << std::endl;
+                            LOGE << "Segment " << segment << " already has a copy in the song, skipping." << std::endl;
                         }
 
                         eSegment = eSegment->NextSiblingElement("Segment");
                     }
 
-                    if( song.segments.size() == 0 ) {
+                    if (song.segments.size() == 0) {
                         error |= kErrorSongSegmentMissing;
                     }
 
-                } else if( strmtch( song.type, "layered") ) {
+                } else if (strmtch(song.type, "layered")) {
                     TiXmlElement* eSongRef = eSong->FirstChildElement("SongRef");
-                    while( eSongRef ) {
+                    while (eSongRef) {
                         SongRef sr;
-                        err = strscpy( sr.name, eSongRef->Attribute("name"), NAME_MAX_LENGTH );
-                        if( err == SOURCE_TOO_LONG ) {
+                        err = strscpy(sr.name, eSongRef->Attribute("name"), NAME_MAX_LENGTH);
+                        if (err == SOURCE_TOO_LONG) {
                             error |= kErrorSongSongRefNameTooLong;
-                        } else if( err == SOURCE_IS_NULL ) {
+                        } else if (err == SOURCE_IS_NULL) {
                             error |= kErrorSongSongRefNameMissing;
                         }
                         song.songrefs.push_back(sr);
@@ -156,54 +151,43 @@ uint32_t MusicXMLParser::Load( const std::string& path )
                     error |= kErrorSongTypeInvalid;
                 }
 
-
-                if( std::find(music.songs.begin(), music.songs.end(), song) == music.songs.end() )
-                {
+                if (std::find(music.songs.begin(), music.songs.end(), song) == music.songs.end()) {
                     music.songs.push_back(song);
-                }
-                else
-                {
+                } else {
                     LOGE << "Song " << song << " already has matching instance in the song list structure, skipping." << std::endl;
                 }
 
                 eSong = eSong->NextSiblingElement("Song");
             }
 
-            if( music.songs.size() == 0 ) {
-                error |= kErrorSongMissing; 
+            if (music.songs.size() == 0) {
+                error |= kErrorSongMissing;
             }
         } else {
             error |= kErrorSongMissing;
         }
-    }
-    else
-    {
+    } else {
         error |= kErrorDocumentParseError;
-        LOGE << "Unable to parse xml document:" << path << " "<< doc.ErrorDesc() << std::endl;
+        LOGE << "Unable to parse xml document:" << path << " " << doc.ErrorDesc() << std::endl;
     }
 
     return error;
 }
 
-bool MusicXMLParser::Save( const std::string &path )
-{
+bool MusicXMLParser::Save(const std::string& path) {
     LOGE << "No saving routine implemented for MusixXMLParser" << std::endl;
     return false;
 }
 
-void MusicXMLParser::Clear()
-{
+void MusicXMLParser::Clear() {
     music = Music();
 }
 
-MusicXMLParser::Segment MusicXMLParser::Song::GetStartSegment() const
-{
+MusicXMLParser::Segment MusicXMLParser::Song::GetStartSegment() const {
     std::vector<MusicXMLParser::Segment>::const_iterator segit;
 
-    for( segit = segments.begin(); segit != segments.end(); segit++ )
-    {
-        if( strmtch(segit->name, start_segment ) )
-        {
+    for (segit = segments.begin(); segit != segments.end(); segit++) {
+        if (strmtch(segit->name, start_segment)) {
             return *segit;
         }
     }

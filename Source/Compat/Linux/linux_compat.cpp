@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: linux_compat.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -34,22 +34,19 @@
 #include <fcntl.h>
 
 #if defined(PLATFORM_64)
-int os_copyfile( const char *source, const char *dest )
-{
-    int input, output;    
-    if ((input = open(source, O_RDONLY)) == -1)
-    {
+int os_copyfile(const char *source, const char *dest) {
+    int input, output;
+    if ((input = open(source, O_RDONLY)) == -1) {
         return -2;
-    }    
+    }
 
-    if ((output = open(dest, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP )) == -1)
-    {
+    if ((output = open(dest, O_RDWR | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP)) == -1) {
         close(input);
         return -3;
     }
 
-    //Here we use kernel-space copying for performance reasons
-    //sendfile will work with non-socket output (i.e. regular file) on Linux 2.6.33+
+    // Here we use kernel-space copying for performance reasons
+    // sendfile will work with non-socket output (i.e. regular file) on Linux 2.6.33+
     off_t bytesCopied = 0;
     struct stat fileinfo = {0};
     fstat(input, &fileinfo);
@@ -61,8 +58,7 @@ int os_copyfile( const char *source, const char *dest )
     return result;
 }
 #else
-int os_copyfile( const char *source, const char *dest )
-{
+int os_copyfile(const char *source, const char *dest) {
     return -1;
 }
 #endif

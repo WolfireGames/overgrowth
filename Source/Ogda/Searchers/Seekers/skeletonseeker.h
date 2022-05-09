@@ -27,13 +27,11 @@
 class TiXmlDocument;
 class JobHandler;
 
-class SkeletonSeeker : public XMLSeekerBase
-{
-public:
-    std::vector<Item> SearchXML( const Item & item, TiXmlDocument& doc ) override;
+class SkeletonSeeker : public XMLSeekerBase {
+   public:
+    std::vector<Item> SearchXML(const Item& item, TiXmlDocument& doc) override;
 
-    inline const char* GetName() override
-    {
+    inline const char* GetName() override {
         return "skeleton_seeker";
     }
 };

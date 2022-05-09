@@ -26,13 +26,11 @@
 
 class JobHandler;
 
-class PreConvertedDDSSeeker : public SeekerBase
-{
-public:
-    std::vector<Item> Search( const Item& item ) override;
+class PreConvertedDDSSeeker : public SeekerBase {
+   public:
+    std::vector<Item> Search(const Item& item) override;
 
-    inline const char* GetName() override
-    {
+    inline const char* GetName() override {
         return "pre_converted_dds_shadow";
     }
 };

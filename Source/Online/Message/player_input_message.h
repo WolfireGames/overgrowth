@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: player_input_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,20 +25,20 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class PlayerInputMessage : public OnlineMessageBase {
-    public:
-        float depth;
-        uint16_t depth_count;
-        uint16_t count;
-        uint8_t id;
+class PlayerInputMessage : public OnlineMessageBase {
+   public:
+    float depth;
+    uint16_t depth_count;
+    uint16_t count;
+    uint8_t id;
 
-    public:
-        PlayerInputMessage(float depth, uint16_t depth_count, uint16_t count, uint8_t id);
+   public:
+    PlayerInputMessage(float depth, uint16_t depth_count, uint16_t count, uint8_t id);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

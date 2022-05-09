@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: memwrite.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,6 +25,6 @@
 #include <vector>
 #include <cstdlib>
 
-void memwrite(const void* source, size_t size, size_t count, std::vector<char> &target);
-void memread(void* source, size_t size, size_t count, const std::vector<char> &target, int &index);
-void memread(void* source, size_t size, size_t count, const std::vector<char> &target);
+void memwrite(const void *source, size_t size, size_t count, std::vector<char> &target);
+void memread(void *source, size_t size, size_t count, const std::vector<char> &target, int &index);
+void memread(void *source, size_t size, size_t count, const std::vector<char> &target);

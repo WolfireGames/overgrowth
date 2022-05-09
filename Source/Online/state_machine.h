@@ -24,33 +24,33 @@
 
 template <class T>
 class BaseState {
-protected:
+   protected:
     T* actor;
 
-public:
+   public:
     void SetActor(T* actor) {
         this->actor = actor;
     }
 
-    virtual void OnEnter() {};
+    virtual void OnEnter(){};
     virtual BaseState<T>* OnUpdate() = 0;
-    virtual void OnExit() {};
+    virtual void OnExit(){};
 
     virtual ~BaseState() {}
 };
 
 template <class T>
 class StateMachine {
-private:
+   private:
     BaseState<T>* current_state = nullptr;
     BaseState<T>* start_state = nullptr;
 
-public:
+   public:
     T actor;
 
-private:
+   private:
     void SwitchToState(BaseState<T>* new_state) {
-        if(current_state != new_state) {
+        if (current_state != new_state) {
             ExitState();
 
             current_state = new_state;
@@ -69,12 +69,12 @@ private:
         }
     }
 
-public:
+   public:
     void Update() {
         if (current_state != nullptr) {
             BaseState<T>* new_state = current_state->OnUpdate();
 
-            if(current_state != new_state) {
+            if (current_state != new_state) {
                 SwitchToState(new_state);
             }
         } else {
@@ -87,7 +87,6 @@ public:
     }
 
     StateMachine() {
-
     }
 
     StateMachine(BaseState<T>* initial_state, T actor) : actor(actor) {

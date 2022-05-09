@@ -20,19 +20,17 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include "seekerbase.h"
 
 class TiXmlDocument;
 class JobHandler;
 
-class VoidSeeker : public SeekerBase
-{
-public:
-    std::vector<Item> Search( const Item& item ) override;
-    inline const char* GetName() override
-    {
+class VoidSeeker : public SeekerBase {
+   public:
+    std::vector<Item> Search(const Item& item) override;
+    inline const char* GetName() override {
         return "void";
     }
 };

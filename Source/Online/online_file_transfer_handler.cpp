@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_file_transfer_handler.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -70,14 +70,14 @@ void OnlineFileTransferHandler::SendCampaignFiles(HSteamNetConnection peer, cons
 void OnlineFileTransferHandler::SendFile(HSteamNetConnection peer, const char * path, FileTransfer::Type filetype) {
     if (FileExists(path, kAnyPath)) {
         Path level_path = FindFilePath(path, kAnyPath);
-        
+
         std::vector<unsigned char> dat = readFile(level_path.GetFullPath());
         std::vector<FileTransfer*> payLoads = SplitFile(path, dat, filetype);
 
         for (auto& it : payLoads) {
             //Online::Instance()->QueueFilesForTranfser(it, peer);
         }
-           
+
         LOGI << "Sending file: " << path << " size: " << dat.size() * sizeof(unsigned char) << " we are sending the file in: " << payLoads.size() << " messages." << std::endl;
     } else {
         LOGI << "Sending file: " << path << " failed. Could not resolve path " << std::endl;
@@ -186,7 +186,7 @@ std::vector<FileTransfer*> OnlineFileTransferHandler::SplitFile(std::string path
     payLoads.push_back(file);
     for (uint32_t i = 1; i < number_of_messages; i++) {
         allocatedBytesForMessage = 0;
-        FileTransfer * file = new FileTransfer(); 
+        FileTransfer * file = new FileTransfer();
         allocatedBytesForMessage = (totalTransferSizeInBytes - totalAllocatedBytes) > maxBytesPerMessage
             ? maxBytesPerMessage : totalTransferSizeInBytes - totalAllocatedBytes;
 

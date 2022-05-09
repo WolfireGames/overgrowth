@@ -27,24 +27,25 @@
 #include <Internal/common.h>
 
 void EditorCameraObject::IgnoreInput(bool val) {
-    //ignore_input = val;
+    // ignore_input = val;
     frozen = val;
 #ifdef _DEBUG
-    if (val) LOGI << "Ignoring camera input." << std::endl;
-    else LOGI << "No longer ignoring camera input." << std::endl;
+    if (val)
+        LOGI << "Ignoring camera input." << std::endl;
+    else
+        LOGI << "No longer ignoring camera input." << std::endl;
 #endif
 }
 
 void EditorCameraObject::IgnoreMouseInput(bool val) {
-    //ignore_input = val;
+    // ignore_input = val;
     ignore_mouse_input = val;
 }
 
 void EditorCameraObject::GetDisplayName(char* buf, int buf_size) {
-    if( GetName().empty() ) {
+    if (GetName().empty()) {
         FormatString(buf, buf_size, "%d, Editor Camera", GetID());
     } else {
         FormatString(buf, buf_size, "%s, Editor Camera", GetName().c_str());
     }
 }
-

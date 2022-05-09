@@ -35,116 +35,94 @@
 using std::endl;
 using std::vector;
 
-BlockAllocator::BlockAllocator() : base_mem(NULL), block_count(0), blocksize(0), allocations(NULL), allocations_placements(0), no_log(false)
-{
-
+BlockAllocator::BlockAllocator() : base_mem(NULL), block_count(0), blocksize(0), allocations(NULL), allocations_placements(0), no_log(false) {
 }
 
-void BlockAllocator::Init( void* mem, size_t _blocks, size_t _blocksize ) 
-{
-    base_mem = mem; 
-    block_count = _blocks; 
-    blocksize = _blocksize; 
+void BlockAllocator::Init(void* mem, size_t _blocks, size_t _blocksize) {
+    base_mem = mem;
+    block_count = _blocks;
+    blocksize = _blocksize;
 
-    allocations_placements.ResizeAndReset( block_count );
+    allocations_placements.ResizeAndReset(block_count);
     allocations = new BlockAllocation[_blocks];
 }
 
-BlockAllocator::~BlockAllocator()
-{
+BlockAllocator::~BlockAllocator() {
     base_mem = NULL;
     delete[] allocations;
     allocations = NULL;
 }
 
-void* BlockAllocator::Alloc(size_t size)
-{
-    //AssertMainThread();
-    size_t slots = size/blocksize+(size%blocksize?1:0);
+void* BlockAllocator::Alloc(size_t size) {
+    // AssertMainThread();
+    size_t slots = size / blocksize + (size % blocksize ? 1 : 0);
     int start_pos = allocations_placements.GetFirstFreeSlot(slots);
-    
-    if( start_pos >= 0 )
-    {
-        allocations_placements.SetBits(start_pos,slots);
-        void* ptr = ((char*)base_mem) + (size_t)(blocksize*start_pos);
-        for( size_t i = 0; i < block_count; i++ )
-        {
-            if( allocations[i].IsValid() == false )
-            {
-                allocations[i] = BlockAllocation(start_pos,slots,ptr);
+
+    if (start_pos >= 0) {
+        allocations_placements.SetBits(start_pos, slots);
+        void* ptr = ((char*)base_mem) + (size_t)(blocksize * start_pos);
+        for (size_t i = 0; i < block_count; i++) {
+            if (allocations[i].IsValid() == false) {
+                allocations[i] = BlockAllocation(start_pos, slots, ptr);
                 return ptr;
             }
         }
 
-        if(!no_log){
+        if (!no_log) {
             LOGW << "Out of block allocator memory, returning NULL." << endl;
         }
         return NULL;
-    }
-    else
-    {
-        if(!no_log){
+    } else {
+        if (!no_log) {
             LOGW << "Out of block allocator memory slots (" << start_pos << "), falling back to normal heap." << endl;
         }
 
-        void * ptr = OG_MALLOC( size ); 
-        if( ptr != NULL )
-        {
+        void* ptr = OG_MALLOC(size);
+        if (ptr != NULL) {
             backup.push_back(ptr);
             return ptr;
-        }
-        else
-        {
-            if(!no_log){
+        } else {
+            if (!no_log) {
                 LOGE << "Unable to allocate with OG_MALLOC()" << endl;
             }
         }
-        
+
         return NULL;
     }
 }
 
-bool BlockAllocator::CanAlloc(size_t size)
-{
-    //AssertMainThread();
-    size_t slots = size/blocksize+(size%blocksize?1:0);
+bool BlockAllocator::CanAlloc(size_t size) {
+    // AssertMainThread();
+    size_t slots = size / blocksize + (size % blocksize ? 1 : 0);
     int start_pos = allocations_placements.GetFirstFreeSlot(slots);
-    
-    if( start_pos >= 0 )
-    {
+
+    if (start_pos >= 0) {
         return true;
-    }
-    else
-    {
+    } else {
         return false;
     }
 }
 
-void BlockAllocator::Free(void* ptr)
-{
-    //AssertMainThread();
-    for( size_t i = 0; i < block_count; i++ )
-    {
-        if( allocations[i].ptr == ptr )
-        {
+void BlockAllocator::Free(void* ptr) {
+    // AssertMainThread();
+    for (size_t i = 0; i < block_count; i++) {
+        if (allocations[i].ptr == ptr) {
             allocations_placements.FreeBits(allocations[i].block_index, allocations[i].block_count);
             allocations[i] = BlockAllocation();
             return;
-        } 
+        }
     }
 
     vector<void*>::iterator backupit;
-    for( backupit = backup.begin(); backupit != backup.end(); backupit++ )
-    {
-        if( *backupit == ptr )
-        {
-            OG_FREE( ptr );
+    for (backupit = backup.begin(); backupit != backup.end(); backupit++) {
+        if (*backupit == ptr) {
+            OG_FREE(ptr);
             backup.erase(backupit);
             return;
-        } 
+        }
     }
 
-    if(!no_log){
+    if (!no_log) {
         LOGF << "Could not find an allocation for " << ptr << " unable to free." << endl;
     }
 }

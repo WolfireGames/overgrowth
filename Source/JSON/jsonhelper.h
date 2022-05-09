@@ -3,7 +3,7 @@
 //      Developer: Wolfire Games LLC
 //         Author: Micah J Best
 //           Date: 2015-10-09.
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -33,21 +33,16 @@
  * Wrap up the common JSON loading/creation - mostly for Angelscript interface
  **/
 class SimpleJSONWrapper {
-    
     Json::Value root;
-    
-public:
-    
+
+   public:
     /*******************************************************************************************/
     /**
      * @brief  Constructor
      *
      */
-    SimpleJSONWrapper() :
-        root( Json::objectValue )
-    {}
-    
-    
+    SimpleJSONWrapper() : root(Json::objectValue) {}
+
     /*******************************************************************************************/
     /**
      * @brief  Gets the root of the object
@@ -55,8 +50,8 @@ public:
      * @returns a reference to the root object
      *
      */
-    Json::Value& getRoot() {return root; }
-    
+    Json::Value& getRoot() { return root; }
+
     /*******************************************************************************************/
     /**
      * @brief  Parses a string containing JSON
@@ -64,7 +59,7 @@ public:
      * @returns true if parse ok, false otherwise
      *
      */
-    bool parseString( std::string& sourceString );
+    bool parseString(std::string& sourceString);
 
     /*******************************************************************************************/
     /**
@@ -73,8 +68,8 @@ public:
      * @returns true if parse ok, false otherwise
      *
      */
-    bool parseFile( std::string& sourceFile );
-    
+    bool parseFile(std::string& sourceFile);
+
     /*******************************************************************************************/
     /**
      * @brief  Parses a istream file containing json
@@ -82,8 +77,8 @@ public:
      * @returns true if parse ok, false otherwise
      *
      */
-    bool parseIstream( std::istream& is, std::string& errs );
-    
+    bool parseIstream(std::istream& is, std::string& errs);
+
     /*******************************************************************************************/
     /**
      * @brief  Outputs this JSON object to a string
@@ -91,8 +86,5 @@ public:
      * @param humanFriendly If true, do some formatting else just output a more machine friendly version
      *
      */
-    std::string writeString( bool humanFriendly = false );
-    
-    
-    
+    std::string writeString(bool humanFriendly = false);
 };

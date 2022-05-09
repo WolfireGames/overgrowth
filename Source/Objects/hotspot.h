@@ -2,7 +2,7 @@
 //           Name: hotspot.h
 //      Developer: Wolfire Games LLC
 //         Author: Phillip Isola
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -43,51 +43,51 @@ class ItemObject;
 class HotspotEditor;
 
 class Hotspot : public Object {
-public:
+   public:
     Hotspot();
     ~Hotspot() override;
 
     bool Initialize() override;
-    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
+    void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
     void Update(float timestep) override;
     void PreDrawFrame(float curr_game_time) override;
     void Draw() override;
     void Dispose() override;
     void GetDisplayName(char* buf, int buf_size) override;
     void DrawImGuiEditor() override;
-    void GetDesc(EntityDescription &desc) const override;
+    void GetDesc(EntityDescription& desc) const override;
     void NotifyDeleted(Object* o) override;
     EntityType GetType() const override { return _hotspot_object; }
 
     std::unique_ptr<ASCollisions> as_collisions;
 
-	void Reset() override;
-	void SetEnabled(bool val) override;
+    void Reset() override;
+    void SetEnabled(bool val) override;
 
-    int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal) override;
+    int lineCheck(const vec3& start, const vec3& end, vec3* point, vec3* normal) override;
 
     inline const std::string& GetScriptFile() const { return m_script_file; }
     inline void SetScriptFile(const std::string& script_file) { m_script_file = script_file; }
 
     void SetBillboardColorMap(const std::string& color_map);
-	void Reload() override;
-	void Moved(Object::MoveType type) override;
-    void HandleEvent( const std::string &event, MovementObject* mo );
-    void HandleEventItem( const std::string &event, ItemObject* obj );
-    void SetScriptParams( const ScriptParamMap& spm ) override;
+    void Reload() override;
+    void Moved(Object::MoveType type) override;
+    void HandleEvent(const std::string& event, MovementObject* mo);
+    void HandleEventItem(const std::string& event, ItemObject* obj);
+    void SetScriptParams(const ScriptParamMap& spm) override;
     void UpdateScriptParams() override;
     std::string GetTypeString();
-    bool ASHasVar( const std::string &name );
-    int ASGetIntVar( const std::string &name );
-    int ASGetArrayIntVar( const std::string &name, int index );
-    float ASGetFloatVar( const std::string &name );
-    bool ASGetBoolVar( const std::string &name );
-    void ASSetIntVar( const std::string &name, int value );
-    void ASSetArrayIntVar( const std::string &name, int index, int value );
-    void ASSetFloatVar( const std::string &name, float value );
-    void ASSetBoolVar( const std::string &name, bool value );
-	bool SetFromDesc( const EntityDescription& desc ) override;
-	void UpdateCollisionShape();
+    bool ASHasVar(const std::string& name);
+    int ASGetIntVar(const std::string& name);
+    int ASGetArrayIntVar(const std::string& name, int index);
+    float ASGetFloatVar(const std::string& name);
+    bool ASGetBoolVar(const std::string& name);
+    void ASSetIntVar(const std::string& name, int value);
+    void ASSetArrayIntVar(const std::string& name, int index, int value);
+    void ASSetFloatVar(const std::string& name, float value);
+    void ASSetBoolVar(const std::string& name, bool value);
+    bool SetFromDesc(const EntityDescription& desc) override;
+    void UpdateCollisionShape();
 
     bool AcceptConnectionsFromImplemented();
 
@@ -111,8 +111,9 @@ public:
     float QueryFloatFunction(const std::string& function);
     std::string QueryStringFunction(const std::string& function);
 
-	bool abstract_collision;
-private:
+    bool abstract_collision;
+
+   private:
     struct {
         ASFunctionHandle init;
         ASFunctionHandle set_parameters;
@@ -141,8 +142,8 @@ private:
         ASFunctionHandle object_inspector_read_only;
     } as_funcs;
     HUDImages hud_images;
-    ASContext *as_context;
-    BulletObject *collision_object;
+    ASContext* as_context;
+    BulletObject* collision_object;
 
     std::string m_script_file;
     TextureAssetRef billboard_texture_ref_;

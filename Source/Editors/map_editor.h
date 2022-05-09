@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: map_editor.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -46,14 +46,14 @@ extern bool draw_group_and_prefab_boxes;
 extern bool always_draw_hotspot_connections;
 
 namespace PHOENIX_KEY_CONSTANTS {
-    #ifdef PLATFORM_MACOSX
-        const int command_key = Keyboard::GUI;
-        const int command_SDLK_key = SDLK_GUI;
-    #else
-        const int command_key = Keyboard::CTRL;
-        const int command_SDLK_key = SDLK_CTRL;
-    #endif
-}
+#ifdef PLATFORM_MACOSX
+const int command_key = Keyboard::GUI;
+const int command_SDLK_key = SDLK_GUI;
+#else
+const int command_key = Keyboard::CTRL;
+const int command_SDLK_key = SDLK_CTRL;
+#endif
+}  // namespace PHOENIX_KEY_CONSTANTS
 
 class SceneGraph;
 class EnvObject;
@@ -70,14 +70,15 @@ class TiXmlNode;
 class TerrainObject;
 
 class TypeEnable {
-public:
+   public:
     TypeEnable(const char* config_postfix);
     bool IsTypeEnabled(EntityType type) const;
     void SetTypeEnabled(EntityType type, bool enabled);
     void SetAll(bool enabled);
     void SetFromConfig();
     void WriteToConfig();
-private:
+
+   private:
     typedef std::map<EntityType, bool> TypeEnabledMap;
     TypeEnabledMap type_enabled_;
     bool unknown_types_enabled_;
@@ -101,19 +102,26 @@ enum ToolMode {
     ROTATE_CIRCLE
 };
 
-inline const char* GetToolModeString( ToolMode m )
-{
-    switch( m)
-    {
-        case SCALE_WHOLE:               return "SCALE_WHOLE";
-        case SCALE_PLANE:               return "SCALE_PLANE";
-        case SCALE_NORMAL:              return "SCALE_NORMAL";
-        case TRANSLATE_CAMERA_PLANE:    return "TRANSLATE_CAMERA_PLANE";
-        case TRANSLATE_FACE_PLANE:      return "TRANSLATE_FACE_PLANE";
-        case TRANSLATE_FACE_NORMAL:     return "TRANSLATE_FACE_NORMAL";
-        case ROTATE_SPHERE:             return "ROTATE_SPHERE";
-        case ROTATE_CIRCLE:             return "ROTATE_CIRCLE";
-        default:                        return "(unknown tool mode string value)";
+inline const char* GetToolModeString(ToolMode m) {
+    switch (m) {
+        case SCALE_WHOLE:
+            return "SCALE_WHOLE";
+        case SCALE_PLANE:
+            return "SCALE_PLANE";
+        case SCALE_NORMAL:
+            return "SCALE_NORMAL";
+        case TRANSLATE_CAMERA_PLANE:
+            return "TRANSLATE_CAMERA_PLANE";
+        case TRANSLATE_FACE_PLANE:
+            return "TRANSLATE_FACE_PLANE";
+        case TRANSLATE_FACE_NORMAL:
+            return "TRANSLATE_FACE_NORMAL";
+        case ROTATE_SPHERE:
+            return "ROTATE_SPHERE";
+        case ROTATE_CIRCLE:
+            return "ROTATE_CIRCLE";
+        default:
+            return "(unknown tool mode string value)";
     }
 }
 
@@ -148,7 +156,7 @@ struct ControlEditorInfo {
 
 // The MapEditor class contains all of the editors.
 class MapEditor {
-public:
+   public:
     MapEditor();
     ~MapEditor();
 
@@ -163,26 +171,25 @@ public:
     State state_;
     GUI* gui;
 
-
     void Initialize(SceneGraph* s);
     void UpdateEnabledObjects();
 
     void Draw();
     void Update(GameCursor* cursor);
 
-    void ShowEditorMessage( int type, const std::string& message );
+    void ShowEditorMessage(int type, const std::string& message);
 
     void Undo();
     void Redo();
     void CopySelected();
-    void Paste( const LineSegment& mouseray );
+    void Paste(const LineSegment& mouseray);
     void DeleteSelected();
     void DeleteID(int val);
     void CutSelected();
     void SavePrefab(bool do_resave);
     void SaveSelected();
     void GroupSelected();
-    bool ContainsPrefabsRecursively( std::vector<Object*> objects );
+    bool ContainsPrefabsRecursively(std::vector<Object*> objects);
     int PrefabSelected();
     void UngroupSelected();
     bool IsSomethingSelected();
@@ -197,59 +204,59 @@ public:
 
     bool CanUndo();
     bool CanRedo();
-    void SetViewNavMesh( bool enabled );
+    void SetViewNavMesh(bool enabled);
     void SetViewCollisionNavMesh(bool enabled);
     bool IsViewingNavMesh();
     bool IsViewingCollisionNavMesh();
     void ToggleImposter();
     void SetImposter(bool set);
-    void CPSetColor(const vec3 &color);
-    static Object* AddEntityFromDesc( SceneGraph *scenegraph, const EntityDescription& desc, bool level_loading );
+    void CPSetColor(const vec3& color);
+    static Object* AddEntityFromDesc(SceneGraph* scenegraph, const EntityDescription& desc, bool level_loading);
     void ApplyScriptParams(const ScriptParamMap& spm, int id);
-    void ApplyPalette( const OGPalette &palette, int edited_id );
+    void ApplyPalette(const OGPalette& palette, int edited_id);
     OGPalette* GetPalette(int id);
-    void ReceiveMessage( const std::string &msg );
-    void SetUpSky(const SkyInfo &si);
+    void ReceiveMessage(const std::string& msg);
+    void SetUpSky(const SkyInfo& si);
     void RemoveObject(Object* o, SceneGraph* scenegraph, bool removed_by_socket = false);
 
     bool WasLastSaveOnCurrentUndoChunk();
     void SetLastSaveOnCurrentUndoChunk();
     void SaveLevel(LevelLoader::SaveLevelType type);
 
-    int CreateObject( const std::string& path);
-    int DuplicateObject( const Object* obj );
-    int ReplaceObjects( const std::vector<Object*>& objects, const std::string& replacement_path );
-    bool IsTypeEnabled( EntityType type );
-    void SetTypeEnabled( EntityType type, bool enabled );
-    bool IsTypeVisible ( EntityType type );
-    void SetTypeVisible( EntityType type, bool enabled );
+    int CreateObject(const std::string& path);
+    int DuplicateObject(const Object* obj);
+    int ReplaceObjects(const std::vector<Object*>& objects, const std::string& replacement_path);
+    bool IsTypeEnabled(EntityType type);
+    void SetTypeEnabled(EntityType type, bool enabled);
+    bool IsTypeVisible(EntityType type);
+    void SetTypeVisible(EntityType type, bool enabled);
     Object* GetSelectedCameraObject();
-    static void DeselectAll(SceneGraph *scenegraph);
+    static void DeselectAll(SceneGraph* scenegraph);
     void ClearUndoHistory();
-    void LoadDialogueFile(const std::string &path);
+    void LoadDialogueFile(const std::string& path);
     void UpdateGPUSkinning();
     void CarveAgainstTerrain();
     void ExecuteSaveLevelChanges();
-	void AddLightProbes();
-	void BakeLightProbes(int pass);
+    void AddLightProbes();
+    void BakeLightProbes(int pass);
     int LoadEntitiesFromFile(const std::string& filename);
-    void ReturnSelected(std::vector<Object*> *selected_objects);
+    void ReturnSelected(std::vector<Object*>* selected_objects);
     void RibbonItemClicked(const std::string& item, bool param);
     void SelectAll();
-    const StateHistory& state_history() {return state_history_;}
+    const StateHistory& state_history() { return state_history_; }
 
     void ReloadAllPrefabs();
     void ReloadPrefabs(const Path& path);
-    bool ReloadPrefab(Object *obj, SceneGraph* scenegraph);
+    bool ReloadPrefab(Object* obj, SceneGraph* scenegraph);
 
     SceneGraph* GetSceneGraph() { return scenegraph_; }
 
-    Object* control_obj; // editor for curr object controlling the transformations
+    Object* control_obj;  // editor for curr object controlling the transformations
     ControlEditorInfo control_editor_info;
     EditorTypes::Tool active_tool_;
     SkyEditor* sky_editor_;
 
-    vec4 GetColorHistoryIndex(int index) {return color_history_[index];}
+    vec4 GetColorHistoryIndex(int index) { return color_history_[index]; }
 
     static const int kColorHistoryLen = 20;
     void AddColorToHistory(vec4 color);
@@ -264,14 +271,15 @@ public:
 
     const TerrainInfo* GetPreviewTerrainInfo() const;
     bool GetTerrainPreviewMode() const { return terrain_preview_mode; }
-	bool CreateObjectFromHost(const std::string& path, const vec3& pos, CommonObjectID host_id);
-private:
-    void UpdateTransformTool(SceneGraph *scenegraph, EditorTypes::Tool type, const LineSegment &mouseray, const Collision& c, GameCursor* cursor);
+    bool CreateObjectFromHost(const std::string& path, const vec3& pos, CommonObjectID host_id);
+
+   private:
+    void UpdateTransformTool(SceneGraph* scenegraph, EditorTypes::Tool type, const LineSegment& mouseray, const Collision& c, GameCursor* cursor);
     TypeEnable type_enable_;
     TypeEnable type_visible_;
     vec4 color_history_candidate_;
 
-    bool gameplay_objects_enabled_; // The setting is called "gameplay objects" in-game, but the enum value is actually hotspots...
+    bool gameplay_objects_enabled_;  // The setting is called "gameplay objects" in-game, but the enum value is actually hotspots...
 
     StateHistory state_history_;
     EntityDescriptionList add_desc_list_;
@@ -288,21 +296,21 @@ private:
     int color_history_countdown_;
     vec4 color_history_[kColorHistoryLen];
 
-    void UpdateCursor( const LineSegment& mouseray, GameCursor* cursor );
+    void UpdateCursor(const LineSegment& mouseray, GameCursor* cursor);
     // internal helper functions
     void DeleteEditors();
 
-    void SetTool( EditorTypes::Tool tool );
+    void SetTool(EditorTypes::Tool tool);
 
     // Control and tool handlers
-    void HandleShortcuts( const LineSegment& mouseray );
-    void UpdateTools( const LineSegment& mouseray, GameCursor* cursor );
+    void HandleShortcuts(const LineSegment& mouseray);
+    void UpdateTools(const LineSegment& mouseray, GameCursor* cursor);
     bool CheckForSelections();
-    bool CheckForSelections( const LineSegment& mouseray );
+    bool CheckForSelections(const LineSegment& mouseray);
     IMUIContext imui_context;
 
     void BringAllToCurrentState(int old_state);
-	bool HandleScrollSelect(const vec3 &start, const vec3 &end);
+    bool HandleScrollSelect(const vec3& start, const vec3& end);
     int save_countdown_;
 
     SceneGraph* scenegraph_;
@@ -313,10 +321,10 @@ private:
     BoxSelector box_selector_;
     EditorTypes::Tool omni_tool_tool_;
 
-    std::vector<Object*> selected; // This is only a member to avoid per-frame memory allocs
+    std::vector<Object*> selected;  // This is only a member to avoid per-frame memory allocs
     std::vector<Object*> box_objects;
 
-    //Value indicating what point in the undo stack we last saved.
+    // Value indicating what point in the undo stack we last saved.
     unsigned last_saved_chunk_global_id;
 
     void EnterTerrainPreviewMode();

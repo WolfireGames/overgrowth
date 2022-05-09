@@ -33,9 +33,8 @@
 // Class Definition
 //-----------------------------------------------------------------------------
 
-class AmbientSoundObject: public Object
-{
-public:
+class AmbientSoundObject : public Object {
+   public:
     EntityType GetType() const override { return _ambient_sound_object; }
     AmbientSoundObject();
     ~AmbientSoundObject() override;
@@ -47,12 +46,12 @@ public:
     void Copied();
 
     void Moved(Object::MoveType type) override;
-    const std::string & GetPath();
+    const std::string& GetPath();
     bool InCameraRange();
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
 
-private:
+   private:
     float delay;
     AmbientSoundRef as_ref;
     int sound_handle;

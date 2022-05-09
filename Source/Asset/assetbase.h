@@ -32,16 +32,16 @@
 #include <typeinfo>
 #include <string>
 
-template<class T>
+template <class T>
 class AssetRef;
 
 class AssetManager;
 
 class Asset {
-private:
+   private:
     friend class AssetManager;
 
-public:
+   public:
     int32_t asset_id;
     std::string path_;
     AssetManager* owner;
@@ -55,19 +55,19 @@ public:
 
     void IncrementRefCount();
     void DecrementRefCount();
-    
-    //virtual static AssetType GetType() = 0;
-    //static AssetType GetAssetType() = 0 ;
+
+    // virtual static AssetType GetType() = 0;
+    // static AssetType GetAssetType() = 0 ;
     virtual AssetLoaderBase* NewLoader() = 0;
 };
 
 ///*
 // * An asset is an object which is read from disk or other data source and can be used within the game, like textures or models. This is what a datatype would implement.
 // */
-//class NAssetBase
+// class NAssetBase
 //{
-//     
-//private:
+//
+// private:
 //    friend class NAssetManager;
 //
 //    /*
@@ -79,7 +79,7 @@ public:
 //
 //    NAssetBase(NAssetManager* source, uint32_t asset_id, AssetType asset_type);
 //    virtual ~NAssetBase();
-//    
+//
 //    inline AssetType GetAssetType() {return asset_type;};
 //    /* Returns a reference to the class which handles the loading and unloading of this particular asset */
 //    /* Needs to be implemented on every variant of an asset, non virtual */

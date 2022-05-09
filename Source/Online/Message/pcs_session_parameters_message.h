@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_session_parameters_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,17 +25,17 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class PCSSessionParametersMessage : public OnlineMessageBase {
-    private:
-        std::map<std::string, uint8_t> bind_id_map;
+class PCSSessionParametersMessage : public OnlineMessageBase {
+   private:
+    std::map<std::string, uint8_t> bind_id_map;
 
-    public:
-        PCSSessionParametersMessage(std::map<std::string, uint8_t> bind_id_map);
+   public:
+    PCSSessionParametersMessage(std::map<std::string, uint8_t> bind_id_map);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

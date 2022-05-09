@@ -23,8 +23,8 @@
 #pragma once
 #include <opengl.h>
 
-/* 
- * Simple utility file for working with opengl, 
+/*
+ * Simple utility file for working with opengl,
  * mainly containing functions for translating enums to strings
  */
-const char* GLStringInternalFormat( const GLenum internal_format );
+const char* GLStringInternalFormat(const GLenum internal_format);

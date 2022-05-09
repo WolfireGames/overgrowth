@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: lightprobeobject.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,20 +28,20 @@
 // Class Definition
 //-----------------------------------------------------------------------------
 
-class LightProbeObject: public Object
-{
-public:
+class LightProbeObject : public Object {
+   public:
     EntityType GetType() const override { return _light_probe_object; }
     bool Initialize() override;
 
-    void SetScriptParams( const ScriptParamMap& spm ) override;
+    void SetScriptParams(const ScriptParamMap& spm) override;
     void Moved(Object::MoveType type) override;
     void Dispose() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
     LightProbeObject();
     ~LightProbeObject() override;
-private:
+
+   private:
     int probe_id_;
-    float *stored_coefficients;
+    float* stored_coefficients;
 };

@@ -34,45 +34,42 @@
 
 #include <algorithm>
 
-
-static const char* LEVEL_PATH = "levelpath";
+static const char *LEVEL_PATH = "levelpath";
 
 #if ENABLE_STEAMWORKS
 const char *SteamworksMatchmaking::StatusToString(ESteamNetworkingConnectionState state) {
     switch (state) {
-    case k_ESteamNetworkingConnectionState_None:
-        return "None";
-        break;
+        case k_ESteamNetworkingConnectionState_None:
+            return "None";
+            break;
 
-    case k_ESteamNetworkingConnectionState_Connecting:
-        return "Connecting";
-        break;
+        case k_ESteamNetworkingConnectionState_Connecting:
+            return "Connecting";
+            break;
 
-    case k_ESteamNetworkingConnectionState_FindingRoute:
-        return "FindingRoute";
-        break;
+        case k_ESteamNetworkingConnectionState_FindingRoute:
+            return "FindingRoute";
+            break;
 
-    case k_ESteamNetworkingConnectionState_Connected:
-        return "Connected";
-        break;
+        case k_ESteamNetworkingConnectionState_Connected:
+            return "Connected";
+            break;
 
-    case k_ESteamNetworkingConnectionState_ClosedByPeer:
-        return "ClosedByPeer";
-        break;
+        case k_ESteamNetworkingConnectionState_ClosedByPeer:
+            return "ClosedByPeer";
+            break;
 
-    case k_ESteamNetworkingConnectionState_ProblemDetectedLocally:
-        return "ProblemDetectedLocally";
-        break;
+        case k_ESteamNetworkingConnectionState_ProblemDetectedLocally:
+            return "ProblemDetectedLocally";
+            break;
 
-    default:
-        return "impossible internal state";
-        break;
-
+        default:
+            return "impossible internal state";
+            break;
     }
 
     return "unknown";
 }
-
 
 SteamworksMatchmaking::SteamworksMatchmaking() {
     // initializing relay access on startup helps to start multiplayer faster
@@ -85,7 +82,6 @@ SteamworksMatchmaking::SteamworksMatchmaking() {
     SteamNetworkingUtils()->InitRelayNetworkAccess();
 #endif  // 0
 }
-
 
 SteamworksMatchmaking::~SteamworksMatchmaking() {
     // if we free these it can cause crashes on exit on linux
@@ -104,7 +100,6 @@ SteamworksMatchmaking::~SteamworksMatchmaking() {
     }
 }
 
-
 HSteamListenSocket SteamworksMatchmaking::ActivateGameOverlayInviteDialog() {
     LOGI << "SteamworksMatchmaking::ActivateGameOverlayInviteDialog()" << std::endl;
 
@@ -114,30 +109,27 @@ HSteamListenSocket SteamworksMatchmaking::ActivateGameOverlayInviteDialog() {
     assert(isns);
 
     HSteamListenSocket listen = isns->CreateListenSocketP2P(0, 0, nullptr);
- 
+
     return listen;
 }
 
-void SteamworksMatchmaking::OpenInviteDialog()
-{
-	if (lobbies.begin() != lobbies.end()) {
-		if (SteamMatchmaking != nullptr) {
-			ISteamFriends * friends = SteamFriends();
-			if (friends) {
-				friends->ActivateGameOverlayInviteDialog(*lobbies.begin());
-			}
-		 }
-	}
-
+void SteamworksMatchmaking::OpenInviteDialog() {
+    if (lobbies.begin() != lobbies.end()) {
+        if (SteamMatchmaking != nullptr) {
+            ISteamFriends *friends = SteamFriends();
+            if (friends) {
+                friends->ActivateGameOverlayInviteDialog(*lobbies.begin());
+            }
+        }
+    }
 }
-
 
 void SteamworksMatchmaking::JoinLobby(const std::string &lobbyIDStr) {
     LOGI << "SteamworksMatchmaking::JoinLobby " << lobbyIDStr << std::endl;
 
-    char *end   = NULL;
+    char *end = NULL;
     // We presume uint64 to be the same as the unsigned long returned by strtoul
-    uint64 l    = strtoul(lobbyIDStr.c_str(), &end, 10);
+    uint64 l = strtoul(lobbyIDStr.c_str(), &end, 10);
 
     CSteamID lobbyID(l);
 
@@ -145,7 +137,6 @@ void SteamworksMatchmaking::JoinLobby(const std::string &lobbyIDStr) {
 
     SteamMatchmaking()->JoinLobby(lobbyID);
 }
-
 
 void SteamworksMatchmaking::LeaveLobby(CSteamID lobbyID) {
     SteamMatchmaking()->LeaveLobby(lobbyID);
@@ -155,9 +146,8 @@ void SteamworksMatchmaking::LeaveLobby(CSteamID lobbyID) {
     }
 }
 
-
 void SteamworksMatchmaking::OnLobbyEnter(LobbyEnter_t *data) {
-    Online* online = Online::Instance();
+    Online *online = Online::Instance();
 
     assert(data);
 
@@ -174,7 +164,7 @@ void SteamworksMatchmaking::OnLobbyEnter(LobbyEnter_t *data) {
         SteamFriends()->ActivateGameOverlayInviteDialog(data->m_ulSteamIDLobby);
     } else {
         // we are client
-        // get lobby metadata 
+        // get lobby metadata
 
         // Start multiplayer with host
         CSteamID lobbyHost = SteamMatchmaking()->GetLobbyOwner(data->m_ulSteamIDLobby);
@@ -189,8 +179,7 @@ void SteamworksMatchmaking::OnLobbyEnter(LobbyEnter_t *data) {
         int ret = isns->GetDetailedConnectionStatus(connection, &temp[0], temp.size());
         if (ret >= 0) {
             LOGI << "connection status: " << &temp[0] << std::endl;
-        }
-        else {
+        } else {
             LOGE << "GetDetailedConnectionStatus failed" << std::endl;
         }
         steamPendingConnections.insert(connection);
@@ -198,22 +187,20 @@ void SteamworksMatchmaking::OnLobbyEnter(LobbyEnter_t *data) {
         // Leave lobby - maybe not?
         LeaveLobby(data->m_ulSteamIDLobby);
 
-		if (!online->IsActive())
-			online->StartMultiplayer(MultiplayerMode::Client);
+        if (!online->IsActive())
+            online->StartMultiplayer(MultiplayerMode::Client);
     }
 }
-
 
 void SteamworksMatchmaking::OnLobbyDataUpdate(LobbyDataUpdate_t *data) {
     assert(data);
 
     LOGI << "OnLobbyDataUpdate " << data->m_ulSteamIDLobby << std::endl;
 
-	if (data->m_bSuccess) {
-		LOGI << "Transition was a success" << std::endl;
-	}
- }
-
+    if (data->m_bSuccess) {
+        LOGI << "Transition was a success" << std::endl;
+    }
+}
 
 void SteamworksMatchmaking::OnLobbyJoinRequested(GameLobbyJoinRequested_t *data) {
     assert(data);
@@ -223,9 +210,8 @@ void SteamworksMatchmaking::OnLobbyJoinRequested(GameLobbyJoinRequested_t *data)
     SteamMatchmaking()->JoinLobby(data->m_steamIDLobby);
 }
 
-
 void SteamworksMatchmaking::OnLobbyChatUpdate(LobbyChatUpdate_t *data) {
-    Online* online = Online::Instance();
+    Online *online = Online::Instance();
     assert(data);
 
     LOGI << "OnLobbyChatUpdate " << data->m_ulSteamIDLobby << std::endl;
@@ -235,7 +221,7 @@ void SteamworksMatchmaking::OnLobbyChatUpdate(LobbyChatUpdate_t *data) {
             // Friend accepted invite
             // Leave lobby
             // For single player mode host should maybe stay in lobby and only clients leave as they enter game
-            //LeaveLobby(data->m_ulSteamIDLobby);
+            // LeaveLobby(data->m_ulSteamIDLobby);
             // Steam doesn't offer way to close overlay from app, user needs to do that
         }
     } else {
@@ -243,29 +229,24 @@ void SteamworksMatchmaking::OnLobbyChatUpdate(LobbyChatUpdate_t *data) {
     }
 }
 
-
 void SteamworksMatchmaking::OnConnectionChange(SteamNetConnectionStatusChangedCallback_t *data) {
-
-	ISteamNetworkingSockets *isns = SteamNetworkingSockets();
+    ISteamNetworkingSockets *isns = SteamNetworkingSockets();
 
     assert(data);
-    LOGI << "SteamworksMatchmaking::OnConnectionChange " << data->m_hConn << " old:" << StatusToString(data->m_eOldState) <<  "  new: " << StatusToString(data->m_info.m_eState) << std::endl;
+    LOGI << "SteamworksMatchmaking::OnConnectionChange " << data->m_hConn << " old:" << StatusToString(data->m_eOldState) << "  new: " << StatusToString(data->m_info.m_eState) << std::endl;
 
+    /*/
+    switch (data->m_info.m_eState) {
+            case k_ESteamNetworkingConnectionState_Connecting: {
+                    //EResult result = isns->AcceptConnection(data->m_hConn);
+                    break;
+            }
 
+            default: {
 
-	/*/
-	switch (data->m_info.m_eState) {
-		case k_ESteamNetworkingConnectionState_Connecting: {
-			//EResult result = isns->AcceptConnection(data->m_hConn);
-			break;
-		}
-
-		default: {
-
-		}
-	}
-	*/
-
+            }
+    }
+    */
 
     auto it = steamPendingConnections.find(data->m_hConn);
     if (it != steamPendingConnections.end()) {
@@ -274,7 +255,6 @@ void SteamworksMatchmaking::OnConnectionChange(SteamNetConnectionStatusChangedCa
         steamPendingConnections.erase(it);
     }
 }
-
 
 std::string SteamworksMatchmaking::GetSteamNickname(const CSteamID &friendID) {
     std::string name = "<unknown>";

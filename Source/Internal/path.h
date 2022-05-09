@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: path.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,16 +28,15 @@
 
 enum PathFlags {
     kNoPath = 0,
-    kDataPaths = 1<<0,
-    kWriteDir = 1<<1,
-    kModPaths = 1<<2,
-    kAbsPath = 1<<3,
-    kModWriteDirs = 1<<4,
+    kDataPaths = 1 << 0,
+    kWriteDir = 1 << 1,
+    kModPaths = 1 << 2,
+    kAbsPath = 1 << 3,
+    kModWriteDirs = 1 << 4,
     kAnyPath = kDataPaths | kWriteDir | kModPaths | kAbsPath | kModWriteDirs
 };
 
-struct Path
-{
+struct Path {
     Path();
 
     std::string GetAbsPathStr() const;
@@ -46,23 +45,23 @@ struct Path
     std::string GetOriginalPathStr() const;
     const char* GetOriginalPath() const;
     ModID GetModsource() const;
-    bool isValid() const; 
+    bool isValid() const;
 
-    //What mod, if any, this file comes from.
-    //This is valid only if source has the mod flag set.
+    // What mod, if any, this file comes from.
+    // This is valid only if source has the mod flag set.
     ModID mod_source;
 
-    //The original path request value
+    // The original path request value
     char original[kPathSize];
-    //The found path
+    // The found path
     char resolved[kPathSize];
-    //Where the file was found
+    // Where the file was found
     PathFlags source;
-    //Is file valid
+    // Is file valid
     bool valid;
 
     bool operator==(const Path& rhs) const;
     bool operator<(const Path& rhs) const;
 };
 
-std::ostream& operator<<( std::ostream& out, const Path& path );
+std::ostream& operator<<(std::ostream& out, const Path& path);

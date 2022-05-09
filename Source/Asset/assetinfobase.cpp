@@ -23,6 +23,5 @@
 //-----------------------------------------------------------------------------
 #include "assetinfobase.h"
 
-AssetInfo::AssetInfo( AssetManager* owner, uint32_t asset_id ) : Asset( owner, asset_id ) {
-    
+AssetInfo::AssetInfo(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id) {
 }

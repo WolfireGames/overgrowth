@@ -28,17 +28,16 @@
 
 #include <iostream>
 
-class AtlasNodeTree
-{
-public:
-    class AtlasNode
-    {
-    private:
+class AtlasNodeTree {
+   public:
+    class AtlasNode {
+       private:
         bool allocated;
         bool suballocated;
         AtlasNode* subnodes[4];
         AtlasNode* parent;
-    public:
+
+       public:
         ivec2 pos;
         ivec2 dim;
 
@@ -46,12 +45,12 @@ public:
 
         vec2 uv_start;
         vec2 uv_end;
-    
+
         AtlasNode();
         AtlasNode(ivec2 _pos, ivec2 _dim, ivec2 _top_dim, AtlasNode* mem, int memcount, AtlasNode* parent, AtlasNode* self);
-        
+
         /*
-            Lift suballocation flag from this node and upwards 
+            Lift suballocation flag from this node and upwards
         */
         void LiftSubAllocation();
 
@@ -66,23 +65,23 @@ public:
         bool IsUsed();
 
         friend class AtlasNodeTree;
-        friend std::ostream& operator<<(std::ostream& os, const AtlasNodeTree::AtlasNode &v );
+        friend std::ostream& operator<<(std::ostream& os, const AtlasNodeTree::AtlasNode& v);
     };
 
-public:
-    class AtlasNodeRef
-    {
-    public:
+   public:
+    class AtlasNodeRef {
+       public:
         AtlasNodeRef();
-        AtlasNodeRef(int treeid, AtlasNode * node);
+        AtlasNodeRef(int treeid, AtlasNode* node);
 
         bool valid();
 
         int treeid;
-        AtlasNode * node;
+        AtlasNode* node;
     };
-public:
-    AtlasNodeTree( ivec2 _dim, unsigned smallest_size );
+
+   public:
+    AtlasNodeTree(ivec2 _dim, unsigned smallest_size);
     ~AtlasNodeTree();
 
     /*
@@ -93,29 +92,26 @@ public:
     void FreeNode(const AtlasNodeRef& ref);
     void Clear();
 
-    inline int GetNodeCount(){return nodecount;}
-    inline AtlasNode* GetNodeRoot(){return data;}
+    inline int GetNodeCount() { return nodecount; }
+    inline AtlasNode* GetNodeRoot() { return data; }
 
-private:
+   private:
     int nodecount;
     AtlasNode* data;
     int treeid;
     /*
         Disable dangerous functions
     */
-    AtlasNodeTree( AtlasNodeTree &rhs );
-    AtlasNodeTree& operator=( AtlasNodeTree &rhs);
-
+    AtlasNodeTree(AtlasNodeTree& rhs);
+    AtlasNodeTree& operator=(AtlasNodeTree& rhs);
 };
 
-inline std::ostream& operator<<(std::ostream& os, const AtlasNodeTree::AtlasNode &v )
-{
-    if( v.parent != NULL )
+inline std::ostream& operator<<(std::ostream& os, const AtlasNodeTree::AtlasNode& v) {
+    if (v.parent != NULL)
         os << "p:" << v.parent->id;
     else
         os << "p:no parent";
 
     os << " a:" << v.allocated << " sv:" << v.suballocated << " id:" << v.id << " " << v.pos << " " << v.dim;
     return os;
-
 }

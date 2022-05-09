@@ -36,16 +36,15 @@ struct RamHandlerLogRow {
     uint32_t row;
 };
 /*!
-	Potential child to LogHandler, logging output to an array for later rendering.
+        Potential child to LogHandler, logging output to an array for later rendering.
 */
-class RamHandler : public LogHandler
-{
-private:
+class RamHandler : public LogHandler {
+   private:
     static const unsigned ROW_INSTANCE_SIZE = 256;
     RamHandlerLogRow row_instances[ROW_INSTANCE_SIZE];
     unsigned row_instance_pos;
     unsigned row_instance_count;
-    
+
     void* data;
     BlockAllocator mem;
     bool is_locked;
@@ -53,18 +52,18 @@ private:
     std::mutex log_mutex_;
 
     void DeleteMessage(uint32_t index);
-public:
-	RamHandler();
 
-	~RamHandler() override;
+   public:
+    RamHandler();
 
-	/*! \param message will be printed to std::cout */
-	void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message ) override;
+    ~RamHandler() override;
+
+    /*! \param message will be printed to std::cout */
+    void Log(LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message) override;
     void Flush() override;
 
     void Lock();
     void Unlock();
-    RamHandlerLogRow GetLog( unsigned index );
+    RamHandlerLogRow GetLog(unsigned index);
     unsigned GetCount();
 };
-

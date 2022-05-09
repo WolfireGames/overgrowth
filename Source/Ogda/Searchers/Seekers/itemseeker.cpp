@@ -29,44 +29,39 @@
 #include <Utility/strings.h>
 #include <Logging/logdata.h>
 
-enum
-{
+enum {
     ROOT = 1,
     ITEM,
     ATTACHMENT
 };
 
-std::vector<Item> ItemSeeker::SearchXML( const Item & item, TiXmlDocument& doc )
-{
+std::vector<Item> ItemSeeker::SearchXML(const Item& item, TiXmlDocument& doc) {
     std::vector<Item> items;
 
     std::vector<elempair> elems;
-    elems.push_back( elempair( "item", "" ) );
-    elems.push_back( elempair( "attachment", "" ) );
-    
+    elems.push_back(elempair("item", ""));
+    elems.push_back(elempair("attachment", ""));
+
     std::vector<const char*> elems_ignore;
-    
-    ElementScanner::Do( items, item, &doc, elems, elems_ignore, this, (void*)ROOT );
+
+    ElementScanner::Do(items, item, &doc, elems, elems_ignore, this, (void*)ROOT);
 
     return items;
 }
 
-void ItemSeeker::HandleElementCallback( std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata )
-{
-    if( userdata == (void*)ROOT )
-    {
-        if( strmtch(eElem->Value(), "item") )
-        {
+void ItemSeeker::HandleElementCallback(std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata) {
+    if (userdata == (void*)ROOT) {
+        if (strmtch(eElem->Value(), "item")) {
             std::vector<elempair> elems;
-            elems.push_back( elempair( "appearance", "" ) );
-            elems.push_back( elempair( "grip", "" ) );
-            elems.push_back( elempair( "anim_blend", "" ) );
-            elems.push_back( elempair( "attack_override", "" ) );
-            elems.push_back( elempair( "anim_override", "" ) );
-            elems.push_back( elempair( "reaction_override", "" ) );
-            elems.push_back( elempair( "sheathe",""));
-            elems.push_back( elempair( "attachments",""));
-            
+            elems.push_back(elempair("appearance", ""));
+            elems.push_back(elempair("grip", ""));
+            elems.push_back(elempair("anim_blend", ""));
+            elems.push_back(elempair("attack_override", ""));
+            elems.push_back(elempair("anim_override", ""));
+            elems.push_back(elempair("reaction_override", ""));
+            elems.push_back(elempair("sheathe", ""));
+            elems.push_back(elempair("attachments", ""));
+
             std::vector<const char*> elems_ignore;
             elems_ignore.push_back("type");
             elems_ignore.push_back("points");
@@ -75,57 +70,42 @@ void ItemSeeker::HandleElementCallback( std::vector<Item>& items, TiXmlNode* eRo
             elems_ignore.push_back("label");
             elems_ignore.push_back("range");
             elems_ignore.push_back("anim_override_flags");
-            
-            ElementScanner::Do( items, item, eElem, elems, elems_ignore, this, (void*)ITEM );
-        }
-        else if( strmtch(eElem->Value(), "attachment") )
-        {
+
+            ElementScanner::Do(items, item, eElem, elems, elems_ignore, this, (void*)ITEM);
+        } else if (strmtch(eElem->Value(), "attachment")) {
             std::vector<elempair> elems;
-            elems.push_back( elempair( "anim", "animation" ) );
-            
+            elems.push_back(elempair("anim", "animation"));
+
             std::vector<const char*> elems_ignore;
-            elems_ignore.push_back( "attach" );
-            elems_ignore.push_back( "mirror" );
-            
-            ElementScanner::Do( items, item, eElem, elems, elems_ignore, this, (void*)ATTACHMENT );
+            elems_ignore.push_back("attach");
+            elems_ignore.push_back("mirror");
+
+            ElementScanner::Do(items, item, eElem, elems, elems_ignore, this, (void*)ATTACHMENT);
+        } else {
+            LOGE << "Unknown item sub" << eElem->Value() << " " << item << std::endl;
         }
-        else
-        {
-            LOGE << "Unknown item sub"  << eElem->Value() <<  " " << item << std::endl;
-        }
-    }
-    else if( userdata == (void*)ITEM )
-    {
+    } else if (userdata == (void*)ITEM) {
         std::vector<attribpair> elems;
         std::vector<const char*> elems_ignore;
 
-        if( strmtch(eElem->Value(), "appearance") )
-        {
+        if (strmtch(eElem->Value(), "appearance")) {
             elems.push_back(attribpair("obj_path", "object"));
-        }
-        else if( strmtch( eElem->Value(), "grip" ) )
-        {
+        } else if (strmtch(eElem->Value(), "grip")) {
             elems.push_back(attribpair("anim", "animation"));
             elems.push_back(attribpair("anim_base", "animation"));
-            
+
             elems_ignore.push_back("ik_attach");
             elems_ignore.push_back("hands");
-        }
-        else if( strmtch( eElem->Value(), "anim_blend" ) )
-        {
+        } else if (strmtch(eElem->Value(), "anim_blend")) {
             elems.push_back(attribpair("idle", "animation"));
             elems.push_back(attribpair("movement", "animation"));
-        }
-        else if( strmtch( eElem->Value(), "attack_override" ) )
-        {
+        } else if (strmtch(eElem->Value(), "attack_override")) {
             elems.push_back(attribpair("stationary", "attack"));
             elems.push_back(attribpair("moving", "attack"));
             elems.push_back(attribpair("moving_close", "attack"));
             elems.push_back(attribpair("stationary_close", "attack"));
             elems.push_back(attribpair("low", "attack"));
-        }
-        else if( strmtch( eElem->Value(), "anim_override" ) )
-        {
+        } else if (strmtch(eElem->Value(), "anim_override")) {
             elems.push_back(attribpair("idle", "animation"));
             elems.push_back(attribpair("movement", "animation"));
             elems.push_back(attribpair("medleftblock", "animation"));
@@ -135,62 +115,42 @@ void ItemSeeker::HandleElementCallback( std::vector<Item>& items, TiXmlNode* eRo
             elems.push_back(attribpair("lowleftblock", "animation"));
             elems.push_back(attribpair("lowrightblock", "animation"));
             elems.push_back(attribpair("blockflinch", "animation"));
-        }
-        else if( strmtch( eElem->Value(), "reaction_override" ) )
-        {
+        } else if (strmtch(eElem->Value(), "reaction_override")) {
             std::vector<elempair> e;
-            e.push_back( elempair( "reaction", "" ) );
-            
+            e.push_back(elempair("reaction", ""));
+
             std::vector<const char*> ei;
-            
-            ElementScanner::Do( items, item, eElem, e, ei, this, (void*)ITEM );
-        }
-        else if( strmtch( eElem->Value(), "reaction" ) )
-        {
+
+            ElementScanner::Do(items, item, eElem, e, ei, this, (void*)ITEM);
+        } else if (strmtch(eElem->Value(), "reaction")) {
             elems.push_back(attribpair("old", "attack"));
             elems.push_back(attribpair("new", "attack"));
-        }
-        else if( strmtch( eElem->Value(), "sheathe" ) )
-        {
+        } else if (strmtch(eElem->Value(), "sheathe")) {
             elems.push_back(attribpair("anim", "animation"));
             elems.push_back(attribpair("anim_base", "animation"));
             elems.push_back(attribpair("contains", "item"));
 
-            elems_ignore.push_back("ik_attach"); 
-        } 
-        else if( strmtch( eElem->Value(), "attachments" ) )
-        {
+            elems_ignore.push_back("ik_attach");
+        } else if (strmtch(eElem->Value(), "attachments")) {
             std::vector<elempair> e;
-            e.push_back( elempair( "attachment", "item" ) );
-            
+            e.push_back(elempair("attachment", "item"));
+
             std::vector<const char*> ei;
-            
-            ElementScanner::Do( items, item, eElem, e, ei, this, (void*)0 );
-        }
-        else
-        {
-            LOGE << "Unknown item sub"  << eElem->Value() <<  " " << item << std::endl;
+
+            ElementScanner::Do(items, item, eElem, e, ei, this, (void*)0);
+        } else {
+            LOGE << "Unknown item sub" << eElem->Value() << " " << item << std::endl;
         }
 
-        AttributeScanner::Do( items, item, eElem, elems, elems_ignore);
-    }
-    else if( userdata == (void*)ATTACHMENT )
-    {
-        if( strmtch(eElem->Value(), "anim") )
-        {
-            //Ignore
+        AttributeScanner::Do(items, item, eElem, elems, elems_ignore);
+    } else if (userdata == (void*)ATTACHMENT) {
+        if (strmtch(eElem->Value(), "anim")) {
+            // Ignore
+        } else {
+            LOGE << "Unknown item sub" << eElem->Value() << " " << item << std::endl;
         }
-        else
-        {
-            LOGE << "Unknown item sub"  << eElem->Value() <<  " " << item << std::endl;
-        }
-    }
-    else if( userdata == (void*)0 )
-    {
-
-    }
-    else
-    {
-        XMLSeekerBase::HandleElementCallback( items, eRoot, eElem, item, userdata );
+    } else if (userdata == (void*)0) {
+    } else {
+        XMLSeekerBase::HandleElementCallback(items, eRoot, eElem, item, userdata);
     }
 }

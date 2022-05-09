@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: os_dialogs_linux.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,17 +26,15 @@
 
 #include <SDL.h>
 
-
-ErrorResponse OSDisplayError(const char* title, const char* contents, ErrorType type)
-{
+ErrorResponse OSDisplayError(const char* title, const char* contents, ErrorType type) {
     bool old_mouse = Input::Instance()->GetGrabMouse();
     Input::Instance()->SetGrabMouse(false);
     UIShowCursor(1);
-    
+
     SDL_MessageBoxButtonData buttons[] = {
-        { 0, 0, "OK"},
-        { 0, 1, "Cancel"},
-        { 0, 2, "Retry"},
+        {0, 0, "OK"},
+        {0, 1, "Cancel"},
+        {0, 2, "Retry"},
     };
 
     int numButtons = 0;
@@ -49,19 +47,19 @@ ErrorResponse OSDisplayError(const char* title, const char* contents, ErrorType 
         case _ok:
             ++numButtons;
             break;
-        default: 
-            LOGW << "Unhandled display error button type" << std::endl; 
+        default:
+            LOGW << "Unhandled display error button type" << std::endl;
             break;
     }
 
     std::string limited_contents = std::string(contents);
 
     int newline_count = 0;
-    for(int i = 0; i < limited_contents.size(); i++) {
-        if(limited_contents[i] == '\n') {
+    for (int i = 0; i < limited_contents.size(); i++) {
+        if (limited_contents[i] == '\n') {
             newline_count++;
-            if(newline_count == 20) {
-                limited_contents = limited_contents.substr(0,i) + "\n[Contents Cut]"; 
+            if (newline_count == 20) {
+                limited_contents = limited_contents.substr(0, i) + "\n[Contents Cut]";
             }
         }
     }
@@ -73,12 +71,11 @@ ErrorResponse OSDisplayError(const char* title, const char* contents, ErrorType 
         limited_contents.c_str(),
         numButtons,
         buttons,
-        NULL
-    };
+        NULL};
 
     int choice = -1;
     if (SDL_ShowMessageBox(&messageBox, &choice) < 0) {
-        LOGE << "Failed to show message dialog: " <<  SDL_GetError() << std::endl;
+        LOGE << "Failed to show message dialog: " << SDL_GetError() << std::endl;
     }
 
     ErrorResponse ret = _continue;

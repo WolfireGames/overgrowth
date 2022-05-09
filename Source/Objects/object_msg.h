@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: object_msg.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,19 +23,19 @@
 #pragma once
 
 namespace OBJECT_MSG {
-    enum Type {
-        LIGHTING_CHANGED,
-        TOGGLE_IMPOSTER,
-        RESET,
-        RELOAD,
-        SET_COLOR,
-        SET_OVERBRIGHT,
-        FINALIZE_LOADED_CONNECTIONS,
-        DRAW,
-        SCRIPT,
-        QUEUE_SCRIPT,
-        UPDATE_GPU_SKINNING,
-        UPDATE,
-        INFREQUENT_UPDATE
-    };
+enum Type {
+    LIGHTING_CHANGED,
+    TOGGLE_IMPOSTER,
+    RESET,
+    RELOAD,
+    SET_COLOR,
+    SET_OVERBRIGHT,
+    FINALIZE_LOADED_CONNECTIONS,
+    DRAW,
+    SCRIPT,
+    QUEUE_SCRIPT,
+    UPDATE_GPU_SKINNING,
+    UPDATE,
+    INFREQUENT_UPDATE
+};
 }

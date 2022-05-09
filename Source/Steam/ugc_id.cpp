@@ -23,25 +23,24 @@
 #include "ugc_id.h"
 
 UGCID::UGCID() : id(-1) {
-
 }
 
-UGCID::UGCID( int _id ) : id(_id) {
+UGCID::UGCID(int _id) : id(_id) {
 }
 
 bool UGCID::Valid() {
     return id != -1;
 }
 
-bool UGCID::operator==( const UGCID& other ) const {
-    return this->id == other.id; 
+bool UGCID::operator==(const UGCID& other) const {
+    return this->id == other.id;
 }
 
-bool UGCID::operator!=( const UGCID& other ) const {
+bool UGCID::operator!=(const UGCID& other) const {
     return this->id != other.id;
 }
 
-std::ostream& operator<<(std::ostream& os, const UGCID &mi ) {
+std::ostream& operator<<(std::ostream& os, const UGCID& mi) {
     os << mi.id;
     return os;
 }

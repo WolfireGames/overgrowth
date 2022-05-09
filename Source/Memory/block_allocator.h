@@ -32,7 +32,7 @@
 #include <vector>
 
 class BlockAllocator {
-public:
+   public:
     BlockAllocator();
     ~BlockAllocator();
 
@@ -43,15 +43,15 @@ public:
 
     bool no_log;
 
-private:
-    DISALLOW_COPY_AND_ASSIGN(BlockAllocator); 
-    void *base_mem;
-    
+   private:
+    DISALLOW_COPY_AND_ASSIGN(BlockAllocator);
+    void* base_mem;
+
     size_t block_count;
     size_t blocksize;
 
-    std::vector<void*> backup; //Normal malloc allocations that are either too big or don't fit to ensure continued execution.
+    std::vector<void*> backup;  // Normal malloc allocations that are either too big or don't fit to ensure continued execution.
 
-    BlockAllocation* allocations; 
+    BlockAllocation* allocations;
     Bitarray allocations_placements;
 };

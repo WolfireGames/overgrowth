@@ -28,9 +28,9 @@
 #include <vector>
 
 class AssetManifestParser : public XMLParserBase {
-public:
+   public:
     class Asset {
-    public:
+       public:
         Asset();
 
         static const size_t ID_LENGTH = 32;
@@ -42,7 +42,7 @@ public:
     };
 
     std::vector<Asset> assets;
-    uint32_t Load( const std::string& path ) override;
-    bool Save( const std::string& path ) override;
+    uint32_t Load(const std::string& path) override;
+    bool Save(const std::string& path) override;
     void Clear() override;
 };

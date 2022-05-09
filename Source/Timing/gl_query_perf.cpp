@@ -32,32 +32,31 @@
 #include <opengl.h>
 #include <string>
 
-
 extern GLTimerQueryPerf* glTimingQuery;
 
 void GLTimerQueryPerf::Init() {
-	if( GLAD_GL_ARB_timer_query ) {
+    if (GLAD_GL_ARB_timer_query) {
         perf_available = true;
 
         query_ids_used = 0;
         query_count = 0;
         frame_counter = 0;
 
-        memset( queries, 0x0, sizeof(PerfQuery)*MAX_QUERY_COUNT );
+        memset(queries, 0x0, sizeof(PerfQuery) * MAX_QUERY_COUNT);
 
-        glGenQueries(MAX_QUERY_COUNT, query_ids );
+        glGenQueries(MAX_QUERY_COUNT, query_ids);
         CHECK_GL_ERROR();
 
-		std::string path = std::string(GetWritePath(CoreGameModID).c_str()) + "/gl_query_perf.perf.dat";
-		my_ofstream_open( csv_output, path.c_str() );
+        std::string path = std::string(GetWritePath(CoreGameModID).c_str()) + "/gl_query_perf.perf.dat";
+        my_ofstream_open(csv_output, path.c_str());
 
         begun_perf = false;
     }
 }
 
-void GLTimerQueryPerf::Finalize(){
-	if( perf_available ) {
-        glDeleteQueries(MAX_QUERY_COUNT,query_ids);
+void GLTimerQueryPerf::Finalize() {
+    if (perf_available) {
+        glDeleteQueries(MAX_QUERY_COUNT, query_ids);
         CHECK_GL_ERROR();
         csv_output.close();
 
@@ -68,19 +67,18 @@ void GLTimerQueryPerf::Finalize(){
 
         std::set<const char*>::iterator nm_it;
 
-        for( nm_it = file_names.begin();
+        for (nm_it = file_names.begin();
              nm_it != file_names.end();
-             nm_it++ ) {
+             nm_it++) {
             f << (uint64_t)(*nm_it) << "," << *nm_it << std::endl;
-        } 
+        }
         f.close();
     }
 }
 
-void GLTimerQueryPerf::PerfGPUBegin(const char* file, const int line){
-	if( perf_available ) {
-        if( queries[query_count].query_id == 0 )
-        { 
+void GLTimerQueryPerf::PerfGPUBegin(const char* file, const int line) {
+    if (perf_available) {
+        if (queries[query_count].query_id == 0) {
             GLuint query_id = query_ids[query_ids_used];
             LOG_ASSERT(begun_perf == false);
             glBeginQuery(GL_TIME_ELAPSED, query_id);
@@ -90,27 +88,24 @@ void GLTimerQueryPerf::PerfGPUBegin(const char* file, const int line){
             queries[query_count].line = line;
             queries[query_count].file = file;
             queries[query_count].frame = frame_counter;
-        
+
             query_ids_used++;
             query_count++;
             begun_perf = true;
 
-            if( query_ids_used >= MAX_QUERY_COUNT )
-            {
+            if (query_ids_used >= MAX_QUERY_COUNT) {
                 query_ids_used = 0;
                 query_count = 0;
             }
-        }
-        else
-        {
+        } else {
             LOGW << "Ran out of queries" << std::endl;
         }
     }
 }
 
-void GLTimerQueryPerf::PerfGPUEnd( ){
-	if( perf_available ) {
-        if( begun_perf ) {
+void GLTimerQueryPerf::PerfGPUEnd() {
+    if (perf_available) {
+        if (begun_perf) {
             glEndQuery(GL_TIME_ELAPSED);
             CHECK_GL_ERROR();
             begun_perf = false;
@@ -118,8 +113,8 @@ void GLTimerQueryPerf::PerfGPUEnd( ){
     }
 }
 
-void GLTimerQueryPerf::PostFrameSwap(){
-	if( perf_available ) {
+void GLTimerQueryPerf::PostFrameSwap() {
+    if (perf_available) {
         GLint available = 0;
 
         /*
@@ -131,19 +126,19 @@ void GLTimerQueryPerf::PostFrameSwap(){
         static int i = 0;
         do {
             PerfQuery& query = queries[i];
-            
-            if( query.query_id != 0 ) {
+
+            if (query.query_id != 0) {
                 glGetQueryObjectiv(query.query_id, GL_QUERY_RESULT_AVAILABLE, &available);
             } else {
                 available = false;
             }
 
-            if( available ) {
+            if (available) {
                 uint64_t result;
-                glGetQueryObjectui64v( query.query_id, GL_QUERY_RESULT, &result );
+                glGetQueryObjectui64v(query.query_id, GL_QUERY_RESULT, &result);
                 CHECK_GL_ERROR();
 
-                //LOGI << "Query " << i << " " << query.file << ":" << query.line << " " << result << std::endl;
+                // LOGI << "Query " << i << " " << query.file << ":" << query.line << " " << result << std::endl;
 
                 file_names.insert(query.file);
                 csv_output << query.frame << "," << 0 << "," << (uint64_t)query.file << "," << query.line << "," << result << std::endl;
@@ -151,11 +146,11 @@ void GLTimerQueryPerf::PostFrameSwap(){
                 query.query_id = 0;
 
                 i++;
-                if( i >= MAX_QUERY_COUNT ) {
+                if (i >= MAX_QUERY_COUNT) {
                     i = 0;
                 }
             }
-        } while(available);
+        } while (available);
         frame_counter++;
     }
 }

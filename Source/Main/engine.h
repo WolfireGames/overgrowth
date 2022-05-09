@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: engine.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -35,7 +35,6 @@
 
 #include <Sound/sound.h>
 #include <Sound/threaded_sound_wrapper.h>
-
 
 #include <Game/avatar_control_manager.h>
 #include <Game/savefile.h>
@@ -75,10 +74,10 @@ enum EngineStateType {
     kEngineLevelState,
     kEngineEditorLevelState,
     kEngineScriptableUIState,
-    kEngineCampaignState //Mid stat stack injection to indicate what campaign we are currently in.
+    kEngineCampaignState  // Mid stat stack injection to indicate what campaign we are currently in.
 };
 
-const char* CStrEngineStateType( const EngineStateType& state );
+const char* CStrEngineStateType(const EngineStateType& state);
 
 void SaveCollisionNormals(const SceneGraph* scenegraph);
 void LoadCollisionNormals(SceneGraph* scenegraph);
@@ -86,20 +85,19 @@ void LoadCollisionNormals(SceneGraph* scenegraph);
 void PushGPUProfileRange(const char* cstr);
 void PopGPUProfileRange();
 
-class EngineState
-{
-public:
+class EngineState {
+   public:
     EngineState();
     EngineState(std::string id, EngineStateType _type);
     EngineState(std::string id, EngineStateType _type, Path _path);
     EngineState(std::string id, ScriptableCampaign* campaign, Path _path);
 
     EngineStateType type;
-    
+
     bool pop_past;
     std::string id;
     Path path;
-    ReferenceCounter<ScriptableCampaign> campaign;   
+    ReferenceCounter<ScriptableCampaign> campaign;
 };
 
 enum EngineStateActionType {
@@ -114,207 +112,210 @@ enum ForcedSplitScreenMode {
     kForcedModeSplit
 };
 
-class EngineStateAction
-{
-public:
+class EngineStateAction {
+   public:
     bool allow_game_exit;
     EngineState state;
     EngineStateActionType type;
 };
 
-std::ostream& operator<<( std::ostream& out, const EngineState& in );
+std::ostream& operator<<(std::ostream& out, const EngineState& in);
 
 class Engine : public ModLoadingCallback {
-    public:
-        enum DrawingViewport { kViewport, kScreen };
-        enum PostEffectsType { kStraight, kFinal };
+   public:
+    enum DrawingViewport { kViewport,
+                           kScreen };
+    enum PostEffectsType { kStraight,
+                           kFinal };
 
-        void Initialize();
-        void GetShaderNames(std::map<std::string, int>& preload_shaders);
-        void Update();
-        void Draw();
-        void Dispose();
+    void Initialize();
+    void GetShaderNames(std::map<std::string, int>& preload_shaders);
+    void Update();
+    void Draw();
+    void Dispose();
 
-        static Engine* Instance();
-         
-        ThreadedSound* GetSound();
-        AssetManager* GetAssetManager();
-        AnimationEffectSystem* GetAnimationEffectSystem();
-        LipSyncSystem* GetLipSyncSystem();
-        ASNetwork* GetASNetwork();
-        SceneGraph* GetSceneGraph();
-    
-        bool IsStateQueued();
-        void QueueState(const EngineState& state);
-        void QueueState( const EngineStateAction& action ) ;
+    static Engine* Instance();
 
-        void QueueErrorMessage(const std::string& title, const std::string& message);
+    ThreadedSound* GetSound();
+    AssetManager* GetAssetManager();
+    AnimationEffectSystem* GetAnimationEffectSystem();
+    LipSyncSystem* GetLipSyncSystem();
+    ASNetwork* GetASNetwork();
+    SceneGraph* GetSceneGraph();
 
-        void AddLevelPathToRecentLevels(const Path& level_path);  // TODO: Expose some Save state to queue instead?
+    bool IsStateQueued();
+    void QueueState(const EngineState& state);
+    void QueueState(const EngineStateAction& action);
 
-	void GetAvatarIds(std::vector<ObjectID> &avatars);
+    void QueueErrorMessage(const std::string& title, const std::string& message);
 
-        /**
-        * @brief function called when the "back" button is pushed, 
-        * commonly escape on keyboard or b on controller. 
-        * Depending on the current state this might be ignored
-        * or propagated into the current state's script.
-        */
-        void PopQueueStateStack( bool allow_game_exit );
-private:
-        void LoadLevel(Path queued_level);
-        void PreloadAssets(const Path &level_path);
-        void LoadLevelData(const Path &level_path);
+    void AddLevelPathToRecentLevels(const Path& level_path);  // TODO: Expose some Save state to queue instead?
 
-        bool back_to_menu; // Used after cache generation to queue up the state
-        std::vector<Path> cache_generation_paths;
-        void QueueLevelCacheGeneration(const Path& path);
+    void GetAvatarIds(std::vector<ObjectID>& avatars);
 
-        ForcedSplitScreenMode forced_split_screen_mode;
-public:
+    /**
+     * @brief function called when the "back" button is pushed,
+     * commonly escape on keyboard or b on controller.
+     * Depending on the current state this might be ignored
+     * or propagated into the current state's script.
+     */
+    void PopQueueStateStack(bool allow_game_exit);
 
-        void GenerateLevelCache(ModInstance* mod_instance);
+   private:
+    void LoadLevel(Path queued_level);
+    void PreloadAssets(const Path& level_path);
+    void LoadLevelData(const Path& level_path);
 
-        void HandleRabbotToggleControls();
+    bool back_to_menu;  // Used after cache generation to queue up the state
+    std::vector<Path> cache_generation_paths;
+    void QueueLevelCacheGeneration(const Path& path);
 
-        void ClearArenaSession();
-        
-        void ClearLoadedLevel();
-        static void StaticScriptableUICallback(void* instance, const std::string &level);
-        void ScriptableUICallback(const std::string &level);
-		static void NewLevel();
+    ForcedSplitScreenMode forced_split_screen_mode;
 
-        void SetForcedSplitScreenMode(ForcedSplitScreenMode mode) { forced_split_screen_mode = mode; }
-        bool GetSplitScreen() const;
+   public:
+    void GenerateLevelCache(ModInstance* mod_instance);
 
-        bool quitting_;
-		bool paused;
-        bool user_paused;
-		bool menu_paused;
-        bool slow_motion;
-        bool check_save_level_changes_dialog_is_showing;
-        bool check_save_level_changes_dialog_quit_if_not_cancelled;
-        bool check_save_level_changes_dialog_is_finished;
-        bool check_save_level_changes_last_result;
-        int current_menu_player;
-        std::string current_spawner_thumbnail;
-        TextureAssetRef spawner_thumbnail;
+    void HandleRabbotToggleControls();
 
-		TextureAssetRef loading_screen_logo;
-		TextureAssetRef loading_screen_og_logo;
+    void ClearArenaSession();
 
-		TextureAssetRef loading_screen_og_logo_casual;
-		TextureAssetRef loading_screen_og_logo_hardcore;
-		TextureAssetRef loading_screen_og_logo_expert;
+    void ClearLoadedLevel();
+    static void StaticScriptableUICallback(void* instance, const std::string& level);
+    void ScriptableUICallback(const std::string& level);
+    static void NewLevel();
 
-		bool level_has_screenshot;
-		TextureAssetRef level_screenshot;
-		uint32_t first_level_drawn;
+    void SetForcedSplitScreenMode(ForcedSplitScreenMode mode) { forced_split_screen_mode = mode; }
+    bool GetSplitScreen() const;
 
-        SaveFile save_file_;
-        GUI gui;
-        EngineState current_engine_state_;
+    bool quitting_;
+    bool paused;
+    bool user_paused;
+    bool menu_paused;
+    bool slow_motion;
+    bool check_save_level_changes_dialog_is_showing;
+    bool check_save_level_changes_dialog_quit_if_not_cancelled;
+    bool check_save_level_changes_dialog_is_finished;
+    bool check_save_level_changes_last_result;
+    int current_menu_player;
+    std::string current_spawner_thumbnail;
+    TextureAssetRef spawner_thumbnail;
 
-        std::map<std::string, std::string> interlevel_data;
+    TextureAssetRef loading_screen_logo;
+    TextureAssetRef loading_screen_og_logo;
 
-        vec2 active_screen_start;
-        vec2 active_screen_end;
+    TextureAssetRef loading_screen_og_logo_casual;
+    TextureAssetRef loading_screen_og_logo_hardcore;
+    TextureAssetRef loading_screen_og_logo_expert;
 
-        Path GetLatestMenuPath();
-        Path GetLatestLevelPath();
+    bool level_has_screenshot;
+    TextureAssetRef level_screenshot;
+    uint32_t first_level_drawn;
 
-        ScriptableCampaign* GetCurrentCampaign();
-		std::string GetCurrentLevelID();
-		char load_screen_tip[kPathSize];
-		bool waiting_for_input_;
+    SaveFile save_file_;
+    GUI gui;
+    EngineState current_engine_state_;
 
-        std::deque<EngineState> state_history;
+    std::map<std::string, std::string> interlevel_data;
 
-        void CommitPause();
+    vec2 active_screen_start;
+    vec2 active_screen_end;
 
-		uint64_t draw_frame;
+    Path GetLatestMenuPath();
+    Path GetLatestLevelPath();
 
-		bool loading_in_progress_;
-    private:
-        Path latest_level_path_;
-        Path latest_menu_path_;
+    ScriptableCampaign* GetCurrentCampaign();
+    std::string GetCurrentLevelID();
+    char load_screen_tip[kPathSize];
+    bool waiting_for_input_;
 
-        void QueueLevelToLoad(const Path& level);
+    std::deque<EngineState> state_history;
 
-        static Engine* instance_;
+    void CommitPause();
 
-        std::deque<EngineStateAction> queued_engine_state_;
-        std::deque<std::tuple<std::string, std::string>> popup_pueue;
+    uint64_t draw_frame;
+
+    bool loading_in_progress_;
+
+   private:
+    Path latest_level_path_;
+    Path latest_menu_path_;
+
+    void QueueLevelToLoad(const Path& level);
+
+    static Engine* instance_;
+
+    std::deque<EngineStateAction> queued_engine_state_;
+    std::deque<std::tuple<std::string, std::string>> popup_pueue;
 #ifdef WIN32
-		HANDLE data_change_notification;
-		HANDLE write_change_notification;
+    HANDLE data_change_notification;
+    HANDLE write_change_notification;
 #endif
-        GameCursor cursor;
-        ThreadedSound sound;
-        AssetManager asset_manager;
-        AnimationEffectSystem particle_types;
-        LipSyncSystem lip_sync_system;
-        ASNetwork as_network;
-        FontRenderer font_renderer;
+    GameCursor cursor;
+    ThreadedSound sound;
+    AssetManager asset_manager;
+    AnimationEffectSystem particle_types;
+    LipSyncSystem lip_sync_system;
+    ASNetwork as_network;
+    FontRenderer font_renderer;
 
-		int started_loading_time;
-		int last_loading_input_time;
-        int level_updated_;
-        SceneGraph *scenegraph_;
-        static const int kFPSLabelMaxLen = 64;
-        char fps_label_str[kFPSLabelMaxLen];
-        char frame_time_label_str[kFPSLabelMaxLen];
+    int started_loading_time;
+    int last_loading_input_time;
+    int level_updated_;
+    SceneGraph* scenegraph_;
+    static const int kFPSLabelMaxLen = 64;
+    char fps_label_str[kFPSLabelMaxLen];
+    char frame_time_label_str[kFPSLabelMaxLen];
 
-        // Used for loading thread to tell main thread if it is done
-        std::mutex loading_mutex_;     
-		float finished_loading_time;
+    // Used for loading thread to tell main thread if it is done
+    std::mutex loading_mutex_;
+    float finished_loading_time;
 
-        ScriptableUI *scriptable_menu_;
+    ScriptableUI* scriptable_menu_;
 
-        Path queued_level_;
-        bool level_loaded_;
+    Path queued_level_;
+    bool level_loaded_;
 
-        // These are just members to avoid mallocs
-	public:
-        static const int kMaxAvatars = 64;
-        int num_avatars;
-		int num_npc_avatars;
-        int avatar_ids[kMaxAvatars];
-		int npc_avatar_ids[kMaxAvatars];
+    // These are just members to avoid mallocs
+   public:
+    static const int kMaxAvatars = 64;
+    int num_avatars;
+    int num_npc_avatars;
+    int avatar_ids[kMaxAvatars];
+    int npc_avatar_ids[kMaxAvatars];
 
-    private:
+   private:
+    // Countdown value used to delay massively frequent resizing requests.
+    int resize_event_frame_counter;
+    ivec2 resize_value;
 
-        //Countdown value used to delay massively frequent resizing requests.
-        int resize_event_frame_counter;
-        ivec2 resize_value;
+    float current_global_scale_mult;
 
-        float current_global_scale_mult;
+    uint64_t frame_counter;
 
-        uint64_t frame_counter;
+    bool printed_rendering_error_message;
 
-        bool printed_rendering_error_message;
+    AvatarControlManager avatar_control_manager;
 
-        AvatarControlManager avatar_control_manager;
+   public:
+    void DrawScene(DrawingViewport drawing_viewport, PostEffectsType post_effects_type, SceneGraph::SceneDrawType scene_draw_type);
 
-    public:
-        void DrawScene(DrawingViewport drawing_viewport, PostEffectsType post_effects_type, SceneGraph::SceneDrawType scene_draw_type);        
-    private:
+   private:
+    void SetViewportForCamera(int which_cam, int num_screens, Graphics::ScreenType screen_type);
 
-        void SetViewportForCamera(int which_cam, int num_screens, Graphics::ScreenType screen_type);
+    void LoadScreenLoop(bool loading_in_progress);
+    void DrawLoadScreen(bool loading_in_progress);
 
-        void LoadScreenLoop(bool loading_in_progress);
-        void DrawLoadScreen(bool loading_in_progress);
+    void LoadConfigFile();
 
-        void LoadConfigFile();
+    void UpdateControls(float timestep, bool loading_screen);
 
-        void UpdateControls(float timestep, bool loading_screen);
+    void DrawCubeMap(TextureRef cube_map, const vec3& pos, GLuint cube_map_fbo, SceneGraph::SceneDrawType scene_draw_type);
 
-        void DrawCubeMap(TextureRef cube_map, const vec3 &pos, GLuint cube_map_fbo, SceneGraph::SceneDrawType scene_draw_type);
+    void ModActivationChange(const ModInstance* mod) override;
 
-        void ModActivationChange( const ModInstance* mod ) override;
-public:
-        void InjectWindowResizeEvent(ivec2 size);
-        void SetGameSpeed(float val, bool hard);
+   public:
+    void InjectWindowResizeEvent(ivec2 size);
+    void SetGameSpeed(float val, bool hard);
 
-        bool RequestedInterruptLoading();
+    bool RequestedInterruptLoading();
 };

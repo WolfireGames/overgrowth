@@ -33,13 +33,14 @@ class AnimationRetargeter {
     int64_t date_modified;
     std::map<std::string, bool> anim_no_retarget;
     std::map<std::string, std::string> anim_skeleton;
-public:
+
+   public:
     static AnimationRetargeter *Instance() {
         static AnimationRetargeter anim_retargeter;
         return &anim_retargeter;
     }
 
-    void Load(const char* path);
+    void Load(const char *path);
     void Reload();
     const std::string &GetSkeletonFile(const std::string &anim);
     bool GetNoRetarget(const std::string &anim);
