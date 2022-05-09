@@ -753,10 +753,10 @@ ENDIF()
 
 include(SourceUtils)
 
-ADD_LIBRARY( OgLogging STATIC)
-target_add_grouped_source(OgLogging Logging)
+ADD_LIBRARY( OvergrowthLogging STATIC)
+target_add_grouped_source(OvergrowthLogging Logging)
 
-ADD_LIBRARY( OgCompat STATIC
+ADD_LIBRARY( OvergrowthCompat STATIC
     ${SRCDIR}/Compat/compat.h
     ${SRCDIR}/Compat/fileio.cpp
     ${SRCDIR}/Compat/fileio.h 
@@ -764,7 +764,7 @@ ADD_LIBRARY( OgCompat STATIC
 )
 
 IF(UNIX)
-    TARGET_SOURCES(OgCompat PRIVATE
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
         ${SRCDIR}/Compat/UNIX/unix_filepath.cpp
         ${SRCDIR}/Compat/UNIX/unix_compat.cpp
         ${SRCDIR}/Compat/UNIX/unix_compat.h
@@ -772,26 +772,26 @@ IF(UNIX)
 ENDIF()
 
 IF(LINUX)
-    TARGET_SOURCES(OgCompat PRIVATE
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
         ${SRCDIR}/Compat/Linux/linux_compat.cpp
         ${SRCDIR}/Compat/Linux/linux_compat.h
     )
 ENDIF()
 
 IF(APPLE)
-    TARGET_SOURCES(OgCompat PRIVATE
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
         ${SRCDIR}/Compat/Mac/mac_compat.mm
         ${SRCDIR}/Compat/Mac/mac_compat.h
     )
 
-    TARGET_LINK_LIBRARIES(OgCompat PRIVATE
+    TARGET_LINK_LIBRARIES(OvergrowthCompat PRIVATE
         ${COCOA_FRAMEWORK}
         ${CORE_FOUNDATION_FRAMEWORK}
     )
 ENDIF()
 
 IF(WIN32)
-    TARGET_SOURCES(OgCompat PRIVATE
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
         ${SRCDIR}/Compat/Win/win_compat.cpp 
         ${SRCDIR}/Compat/Win/win_compat.h
         ${SRCDIR}/Compat/Win/win_filepath.cpp
@@ -878,8 +878,8 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
     ADD_EXECUTABLE(Ogda ${SRCDIR}/Version/git_version.cpp ${OGDA_SRCS} )
 
     TARGET_LINK_LIBRARIES(Ogda
-        OgCompat
-        OgLogging
+        OvergrowthCompat
+        OvergrowthLogging
         tinyxml
         trex
         murmurhash3
@@ -1131,8 +1131,8 @@ IF(BUILD_OVERGROWTH)
     )
 
     TARGET_LINK_LIBRARIES(OvergrowthWorker
-        OgCompat
-        OgLogging
+        OvergrowthCompat
+        OvergrowthLogging
         freeimage
         tinyxml
         trex
@@ -1355,8 +1355,8 @@ IF(BUILD_OVERGROWTH)
     ENDIF()
 
     TARGET_LINK_LIBRARIES(Overgrowth
-        OgCompat
-        OgLogging
+        OvergrowthCompat
+        OvergrowthLogging
         BulletDynamics
         BulletCollision
         BulletWorldImporter
