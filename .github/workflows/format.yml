@@ -9,8 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run clang-format style check for OverGrowth Source
-      uses: jidicula/clang-format-action@v4.5.0
+      uses: jidicula/clang-format-action@v4.6.2
       with:
         clang-format-version: '13'
         check-path: 'Source'
-        exclude-regex: '(.hpp|snprintf.c|triangle.c)'
+        exclude-regex: '(hpp|snprintf.c|triangle.c)'
