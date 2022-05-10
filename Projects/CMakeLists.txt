@@ -879,7 +879,6 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
         tinyxml
         trex
         murmurhash3
-        freeimage
         pthread
         crnlib
         glad
@@ -1129,7 +1128,6 @@ IF(BUILD_OVERGROWTH)
     TARGET_LINK_LIBRARIES(OvergrowthWorker
         OvergrowthCompat
         OvergrowthLogging
-        freeimage
         tinyxml
         trex
         glad
