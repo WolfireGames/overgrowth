@@ -28,8 +28,8 @@ jobs:
               'pkgconfig(gl)' 'pkgconfig(glu)'
               'pkgconfig(sdl2)' 'pkgconfig(SDL2_net)'
               'pkgconfig(gtk+-2.0)' 'pkgconfig(ogg)' 'pkgconfig(vorbis)'
-              freeimage-devel 'pkgconfig(openal)' 'pkgconfig(libjpeg)'
-              'pkgconfig(theora)' 'pkgconfig(bzip2)' 'pkgconfig(freetype2)'
+              'pkgconfig(openal)' 'pkgconfig(libjpeg)'
+              'pkgconfig(bzip2)' 'pkgconfig(freetype2)'
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones speed things up

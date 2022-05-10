@@ -31,7 +31,6 @@
 #include <Graphics/vboringcontainer.h>
 
 #include <Asset/assets.h>
-#include <Asset/Asset/animationeffect.h>
 #include <Asset/Asset/particletype.h>
 
 #include <Scripting/angelscript/ascontext.h>

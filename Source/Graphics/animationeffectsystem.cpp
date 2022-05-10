@@ -23,26 +23,16 @@
 //-----------------------------------------------------------------------------
 #include "animationeffectsystem.h"
 
-#include <TheoraPlayer/TheoraVideoManager.h>
-
 #include <cstdio>
 
 AnimationEffectSystem::AnimationEffectSystem() {
-    mgr = new TheoraVideoManager();
 }
 
 AnimationEffectSystem::~AnimationEffectSystem() {
-    if (mgr)
-        delete mgr;
-    mgr = NULL;
 }
 
 void AnimationEffectSystem::Update(float timestep) {
-    mgr->update(timestep);
 }
 
 void AnimationEffectSystem::Dispose() {
-    if (mgr)
-        delete mgr;
-    mgr = NULL;
 }

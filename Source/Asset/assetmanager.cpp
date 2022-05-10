@@ -26,7 +26,6 @@
 #include <Asset/Asset/actorfile.h>
 #include <Asset/Asset/ambientsounds.h>
 #include <Asset/Asset/animation.h>
-#include <Asset/Asset/animationeffect.h>
 #include <Asset/Asset/attachmentasset.h>
 #include <Asset/Asset/attacks.h>
 #include <Asset/Asset/averagecolorasset.h>
@@ -245,9 +244,10 @@ void AssetManager::LoadSync(AssetType type, const std::string& str, uint32_t loa
         case VOICE_FILE_ASSET:
             LoadSync<VoiceFile>(str, load_flags, hold_load_mask);
             break;
-        case ANIMATION_EFFECT_ASSET:
-            LoadSync<AnimationEffect>(str, load_flags, hold_load_mask);
-            break;
+        // TODO: readd and implement properly
+        // case ANIMATION_EFFECT_ASSET:
+        //     LoadSync<AnimationEffect>(str, load_flags, hold_load_mask);
+        //     break;
         case SOUND_GROUP_INFO_ASSET:
             LoadSync<SoundGroupInfo>(str, load_flags, hold_load_mask);
             break;
