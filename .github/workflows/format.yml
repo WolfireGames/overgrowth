@@ -13,4 +13,4 @@ jobs:
       with:
         clang-format-version: '13'
         check-path: 'Source'
-        exclude-regex: '*.hpp'
+        exclude-regex: '(.hpp|snprintf.c|triangle.c)'
