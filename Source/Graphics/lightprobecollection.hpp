@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: lightprobecollection.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -37,7 +37,7 @@ struct LightProbe {
     vec3 pos;
     bool negative;
     vec3 ambient_cube_color[6];
-    vec3 ambient_cube_color_buf[6]; // Used for calculating second bounce
+    vec3 ambient_cube_color_buf[6];  // Used for calculating second bounce
 };
 
 struct TetMesh {
@@ -50,23 +50,23 @@ struct TetMesh {
 
 struct LightProbeUpdateEntry {
     int id;
-    int pass; // 0 for first bounce, 1 for second bounce
+    int pass;  // 0 for first bounce, 1 for second bounce
 };
 
 struct GridLookup {
     static const int kMaxGridCells = 1000000;
     vec3 bounds[2];
     int subdivisions[3];
-    std::vector<unsigned> cell_tet; // What tetrahedron is closest to the center of each cell
+    std::vector<unsigned> cell_tet;  // What tetrahedron is closest to the center of each cell
 };
 
 class BulletWorld;
 
 class LightProbeCollection {
-public:
+   public:
     LightProbeCollection();
     ~LightProbeCollection();
-    int AddProbe(const vec3& pos, bool negative, const float *coeff = NULL);
+    int AddProbe(const vec3& pos, bool negative, const float* coeff = NULL);
     bool MoveProbe(int id, const vec3& pos);
     bool SetNegative(int id, bool negative);
     bool DeleteProbe(int id);
@@ -76,7 +76,7 @@ public:
     int ShaderNumLightProbes();
     int ShaderNumTetrahedra();
     LightProbe* GetNextProbeToProcess();
-    // Returns id of tetrahedron containing position, 
+    // Returns id of tetrahedron containing position,
     // and fills interpolated ambient cube color
     int GetTetrahedron(const vec3& position, vec3 ambient_cube_color[], int best_guess);
     GLuint cube_map_fbo;
@@ -98,7 +98,8 @@ public:
     bool probe_lighting_enabled;
     bool light_volume_enabled;
     int probe_model_id;
-private:
+
+   private:
     bool tet_mesh_needs_update;
     int next_id;
     void UpdateTetMesh(BulletWorld& bw);

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: ddsformat.hpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,4 +23,10 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-enum DDSFormat {_DXT1, _DXT1A, _DXT3, _DXT5, _DXT5YCoCg, _RGBA, _RGB};
+enum DDSFormat { _DXT1,
+                 _DXT1A,
+                 _DXT3,
+                 _DXT5,
+                 _DXT5YCoCg,
+                 _RGBA,
+                 _RGB };
