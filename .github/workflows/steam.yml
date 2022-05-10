@@ -1,0 +1,27 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:    
+  steamrt:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        steamrt:
+          - 'registry.gitlab.steamos.cloud/steamrt/scout/sdk'
+          - 'registry.gitlab.steamos.cloud/steamrt/scout/sdk/i386'
+        sdkver:
+          - 'latest'
+          - 'beta'
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Shallow clones speed things up
+      - name: "Build inside SteamRT container"
+        run: >
+          ID=$(docker run -d -v ${{ github.workspace }}:/og -i ${{ matrix.steamrt }}:${{ matrix.sdkver }}) &&
+          docker exec -w /og/ -i $ID sh -c
+          "cmake -S Projects -B Build -DCMAKE_BUILD_TYPE=Release -DSLIM_TIMING=No -DDBUILD_SERVER=On && cmake --build ./Build -- -j4"
