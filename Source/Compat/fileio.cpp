@@ -25,10 +25,6 @@
 #include <Internal/filesystem.h>
 #include <Internal/casecorrectpath.h>
 
-#ifndef NO_ERR
-#include <Internal/error.h>
-#endif
-
 #ifdef _WIN32
 #define NOMINMAX
 #include <windows.h>

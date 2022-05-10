@@ -116,13 +116,10 @@ IF(APPLE)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     #-------
 
-
     SET(ENABLE_RAD_TELEMETRY OFF)
 ENDIF()
 
-IF(ENABLE_RAD_TELEMETRY)
-
-ELSE()
+IF(NOT ENABLE_RAD_TELEMETRY)
 	ADD_DEFINITIONS(-DNTELEMETRY)
 ENDIF()
 
@@ -136,6 +133,10 @@ ENDIF()
 
 IF(OPEN_CONSOLE)
     ADD_DEFINITIONS(-DOPEN_WIN32_CONSOLE=1)
+ENDIF()
+
+IF(BREAKPAD)
+    ADD_DEFINITIONS(-DBREAKPAD=1)
 ENDIF()
 
 MESSAGE( STATUS "Type: ${CMAKE_BUILD_TYPE}" )
@@ -202,11 +203,6 @@ IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     SET(LINUX TRUE)
 ENDIF()
 
-IF(BREAKPAD)
-    ADD_DEFINITIONS(-DBREAKPAD=1)
-ENDIF()
-
-
 if(LINUX)
     OPTION(FORCE32 "Force a 32build on a 64bit host" OFF)
     SET(OS_OUT "Linux")
@@ -262,14 +258,8 @@ IF(LINUX)
     FIND_PACKAGE(OpenAL REQUIRED)
 ENDIF()
 
-#Build static libraries only for FFTW
+#Build static libraries only for subprojects
 SET(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-#Enable floating point for FFTW
-SET(ENABLE_FLOAT ON CACHE BOOL "" FORCE)
-#Enable SSE2 for FFTW
-SET(ENABLE_SSE2 ON CACHE BOOL "" FORCE)
-#Disable bench tests for FFTW
-SET(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
@@ -559,14 +549,14 @@ IF(APPLE)
 
     FIND_LIBRARY(SDL_FRAMEWORK SDL2 PATHS ${LIBDIR}/SDL2-2.0.20 NO_DEFAULT_PATH)
     FIND_LIBRARY(SDL2NET_FRAMEWORK SDL2_net PATHS ${LIBDIR}/SDL2_net-2.0.1 NO_DEFAULT_PATH)
-    FIND_PATH(SDL2_INCLUDE_DIR NAMES SDL.h PATHS ${SDL_FRAMEWORK}/Headers
-    NO_DEFAULT_PATH
-)
+    FIND_PATH(SDL2_INCLUDE_DIR NAMES SDL.h PATHS ${SDL_FRAMEWORK}/Headers NO_DEFAULT_PATH)
     FIND_LIBRARY(OPENAL_FRAMEWORK OpenAL)
     FIND_LIBRARY(CARBON_FRAMEWORK Carbon)
     FIND_LIBRARY(AU_FRAMEWORK AudioUnit)
     FIND_LIBRARY(FORCE_FEEDBACK_FRAMEWORK ForceFeedback)
     FIND_LIBRARY(CORE_AUDIO_FRAMEWORK CoreAudio)
+    FIND_LIBRARY(COCOA_FRAMEWORK Cocoa)
+    FIND_LIBRARY(CORE_FOUNDATION_FRAMEWORK CoreFoundation)
     FIND_LIBRARY(OPENGL_FRAMEWORK OpenGL)
     FIND_LIBRARY(IOKIT_FRAMEWORK IOKit)
     FIND_LIBRARY(APPKIT_FRAMEWORK AppKit)
@@ -580,7 +570,7 @@ IF(APPLE)
         ${IOKIT_FRAMEWORK}
         ${APPKIT_FRAMEWORK}
         ${SDL_FRAMEWORK}
-	${SDL2NET_FRAMEWORK}
+        ${SDL2NET_FRAMEWORK}
     )
 ENDIF()
 
@@ -763,10 +753,50 @@ ENDIF()
 
 include(SourceUtils)
 
-ADD_LIBRARY( logging STATIC
-    ${LOGGING_SRCS}
+ADD_LIBRARY( OvergrowthLogging STATIC)
+target_add_grouped_source(OvergrowthLogging Logging)
+
+ADD_LIBRARY( OvergrowthCompat STATIC
+    ${SRCDIR}/Compat/compat.h
+    ${SRCDIR}/Compat/fileio.cpp
+    ${SRCDIR}/Compat/fileio.h 
+    ${SRCDIR}/Compat/filepath.h  
 )
-target_add_grouped_source(logging Logging)
+
+IF(UNIX)
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
+        ${SRCDIR}/Compat/UNIX/unix_filepath.cpp
+        ${SRCDIR}/Compat/UNIX/unix_compat.cpp
+        ${SRCDIR}/Compat/UNIX/unix_compat.h
+    )
+ENDIF()
+
+IF(LINUX)
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
+        ${SRCDIR}/Compat/Linux/linux_compat.cpp
+        ${SRCDIR}/Compat/Linux/linux_compat.h
+    )
+ENDIF()
+
+IF(APPLE)
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
+        ${SRCDIR}/Compat/Mac/mac_compat.mm
+        ${SRCDIR}/Compat/Mac/mac_compat.h
+    )
+
+    TARGET_LINK_LIBRARIES(OvergrowthCompat PRIVATE
+        ${COCOA_FRAMEWORK}
+        ${CORE_FOUNDATION_FRAMEWORK}
+    )
+ENDIF()
+
+IF(WIN32)
+    TARGET_SOURCES(OvergrowthCompat PRIVATE
+        ${SRCDIR}/Compat/Win/win_compat.cpp 
+        ${SRCDIR}/Compat/Win/win_compat.h
+        ${SRCDIR}/Compat/Win/win_filepath.cpp
+    )
+ENDIF()
 
 IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
     FILE(GLOB OGDA_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
@@ -831,79 +861,33 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
         ${SRCDIR}/JSON/*.h
         ${SRCDIR}/Memory/*.cpp
         ${SRCDIR}/Memory/*.h
-
-        ${SRCDIR}/Compat/fileio.cpp
-        ${SRCDIR}/Compat/fileio.h
     )
 
-    IF(UNIX)
-        LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/UNIX/unix_compat.cpp
-            ${SRCDIR}/Compat/UNIX/unix_compat.h
-        )
-    ENDIF()
-
-    IF(LINUX)
-        LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/Linux/linux_compat.cpp
-            ${SRCDIR}/Compat/Linux/linux_compat.h
-        )
-    ENDIF()
-        
-
-    IF(APPLE)
-        LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/Mac/mac_compat.mm
-            ${SRCDIR}/Compat/Mac/mac_compat.h
-        )
-    ENDIF()
-
     IF(WIN32)
-	LIST(APPEND OGDA_SRCS
-            ${SRCDIR}/Compat/Win/win_compat.cpp 
-	    ${SRCDIR}/Compat/Win/win_compat.h
-	)
-		
-	IF(MSVC_VERSION LESS 1911)
-	    LIST(APPEND OGDA_SRCS ${SRCDIR}/Internal/snprintf.c)
-	ENDIF()
+        IF(MSVC_VERSION LESS 1911)
+            LIST(APPEND OGDA_SRCS ${SRCDIR}/Internal/snprintf.c)
+        ENDIF()
 
-	IF(ENABLE_RAD_TELEMETRY)
-	    LIST(APPEND OGDA_SRCS
-	        ${PLIBDIR}/Telemetry2SDKWin32_20P3/src/gpu/gpu_opengl.cpp
-	    )
-	ENDIF()
+        IF(ENABLE_RAD_TELEMETRY)
+            LIST(APPEND OGDA_SRCS
+                ${PLIBDIR}/Telemetry2SDKWin32_20P3/src/gpu/gpu_opengl.cpp
+            )
+        ENDIF()
     ENDIF()
 
     ADD_EXECUTABLE(Ogda ${SRCDIR}/Version/git_version.cpp ${OGDA_SRCS} )
 
     TARGET_LINK_LIBRARIES(Ogda
+        OvergrowthCompat
+        OvergrowthLogging
         tinyxml
         trex
         murmurhash3
-        logging
         freeimage
         pthread
         crnlib
         glad
     )
-
-    IF(WIN32)
-        TARGET_LINK_LIBRARIES(Ogda
-        )
-    ENDIF()
-
-    IF(APPLE)
-        TARGET_LINK_LIBRARIES(Ogda
-        )
-    ENDIF()
-
-    IF(LINUX)
-        TARGET_LINK_LIBRARIES(Ogda
-	    #nvcore nvmath nvimage squish posh
-            dl #needed by nvcore
-        )
-    ENDIF()
 
     SET_TARGET_PROPERTIES(Ogda PROPERTIES
         COMPILE_DEFINITIONS OGDA=1
@@ -913,7 +897,7 @@ ENDIF()
 
 ADD_DEFINITIONS(-DUNIT_TESTS)
 
-FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
+SET(OVERGROWTH_INTERNAL_SRCS
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_StereoProjection.cpp
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_CAPI_Util.cpp
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_CAPIShim.c
@@ -926,14 +910,11 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/error.cpp
     ${SRCDIR}/Internal/hardware_specs.cpp
     ${SRCDIR}/Internal/memwrite.cpp
-    ${SRCDIR}/Internal/pathUtility.cpp
     ${SRCDIR}/Internal/stopwatch.cpp
     ${SRCDIR}/Internal/textfile.cpp
     ${SRCDIR}/Internal/timer.cpp
     ${SRCDIR}/Internal/treestructure.cpp
-    ${SRCDIR}/Internal/log.cpp
     ${SRCDIR}/Internal/cachefile.cpp
-    ${SRCDIR}/Internal/debugtext.cpp
     ${SRCDIR}/Internal/varstring.cpp
     ${SRCDIR}/Internal/levelxml.cpp
     ${SRCDIR}/Internal/levelxml_script.cpp
@@ -946,31 +927,24 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/config.h
     ${SRCDIR}/Internal/crashreport.h
     ${SRCDIR}/Internal/datemodified.h
-    ${SRCDIR}/Internal/debugtext.h
     ${SRCDIR}/Internal/dialogues.h
-    ${SRCDIR}/Internal/disallow_copy_and_assign.h
     ${SRCDIR}/Internal/error.h
     ${SRCDIR}/Internal/file_descriptor.h
     ${SRCDIR}/Internal/hardware_specs.h
     ${SRCDIR}/Internal/integer.h
     ${SRCDIR}/Internal/levelxml.h
     ${SRCDIR}/Internal/levelxml_script.h
-    ${SRCDIR}/Internal/log.h
     ${SRCDIR}/Internal/memwrite.h
     ${SRCDIR}/Internal/message.h
     ${SRCDIR}/Internal/path_set.h
-    ${SRCDIR}/Internal/pathUtility.h
     ${SRCDIR}/Internal/returnpathutil.h
     ${SRCDIR}/Internal/scoped_buffer.h
     ${SRCDIR}/Internal/SIMD.h
-    ${SRCDIR}/Internal/stlaux.h
     ${SRCDIR}/Internal/stopwatch.h
     ${SRCDIR}/Internal/textfile.h
     ${SRCDIR}/Internal/timer.h
     ${SRCDIR}/Internal/treestructure.h
-    ${SRCDIR}/Internal/utf8.h
     ${SRCDIR}/Internal/varstring.h
-    ${SRCDIR}/Internal/writedir.h
     ${SRCDIR}/Internal/cachefile.h
     ${SRCDIR}/Internal/callstack.h
     ${SRCDIR}/Internal/casecorrectpath.h
@@ -978,10 +952,6 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/collisiondetection.h
     ${SRCDIR}/Internal/win_mem_track.h
     ${SRCDIR}/Internal/win_mem_track.cpp
-    ${SRCDIR}/Internal/stack_allocator.h
-    ${SRCDIR}/Internal/stack_allocator.cpp
-    ${SRCDIR}/Internal/block_allocator.cpp
-    ${SRCDIR}/Internal/block_allocator.h
     ${SRCDIR}/Internal/common.h
     ${SRCDIR}/Internal/common.cpp
     ${SRCDIR}/Internal/profiler.h
@@ -992,12 +962,6 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/modloading.h
     ${SRCDIR}/Internal/modid.cpp
     ${SRCDIR}/Internal/modid.h
-    ${SRCDIR}/Internal/engineeventcallbacks.cpp
-    ${SRCDIR}/Internal/engineeventcallbacks.h
-    ${SRCDIR}/Internal/engineeventconfiglistener.cpp
-    ${SRCDIR}/Internal/engineeventconfiglistener.h
-    ${SRCDIR}/Internal/allocation.cpp
-    ${SRCDIR}/Internal/allocation.h
     ${SRCDIR}/Internal/detect_settings.cpp
     ${SRCDIR}/Internal/detect_settings.h
     ${SRCDIR}/Internal/spawneritem.cpp
@@ -1009,33 +973,19 @@ FILE(GLOB OVERGROWTH_INTERNAL_SRCS RELATIVE ${CMAKE_SOURCE_DIR}
     ${SRCDIR}/Internal/locale.cpp
     ${SRCDIR}/Internal/locale.h
 
-    ${SRCDIR}/Compat/compat.h
-    ${SRCDIR}/Compat/filepath.h
     ${SRCDIR}/Compat/hardware_info.h
     ${SRCDIR}/Compat/time.cpp
     ${SRCDIR}/Compat/time.h
     ${SRCDIR}/Compat/os_dialogs.h
-    ${SRCDIR}/Compat/fileio.cpp
-    ${SRCDIR}/Compat/fileio.h
     ${SRCDIR}/Compat/platformsetup.cpp
     ${SRCDIR}/Compat/platformsetup.h
     ${SRCDIR}/Compat/processpool.cpp
     ${SRCDIR}/Compat/processpool.h
 )
 
-IF(UNIX)
-    LIST(APPEND OVERGROWTH_INTERNAL_SRCS 
-        ${SRCDIR}/Compat/UNIX/unix_filepath.cpp
-        ${SRCDIR}/Compat/UNIX/unix_compat.cpp
-        ${SRCDIR}/Compat/UNIX/unix_compat.h
-    )
-ENDIF()
-
 IF(LINUX)
     LIST(APPEND OVERGROWTH_INTERNAL_SRCS 
         ${SRCDIR}/Compat/Linux/os_dialogs_linux.cpp
-        ${SRCDIR}/Compat/Linux/linux_compat.cpp
-        ${SRCDIR}/Compat/Linux/linux_compat.h
         ${SRCDIR}/Compat/Linux/linux_hardware_info.cpp
     )
 ENDIF()
@@ -1046,8 +996,6 @@ IF(APPLE)
         ${SRCDIR}/Compat/Mac/os_dialogs_mac.mm
         ${SRCDIR}/Compat/Mac/os_file_dialogs_mac.mm
         ${SRCDIR}/Compat/Mac/os_file_dialogs_mac.h
-        ${SRCDIR}/Compat/Mac/mac_compat.mm
-        ${SRCDIR}/Compat/Mac/mac_compat.h
         ${SRCDIR}/Compat/Mac/mac_hardware_info.cpp
     )
 ENDIF()
@@ -1055,9 +1003,6 @@ ENDIF()
 IF(WIN32)
 	LIST(APPEND OVERGROWTH_INTERNAL_SRCS 
             ${SRCDIR}/Compat/Win/os_dialogs_win.cpp
-            ${SRCDIR}/Compat/Win/win_filepath.cpp
-            ${SRCDIR}/Compat/Win/win_compat.cpp 
-            ${SRCDIR}/Compat/Win/win_compat.h
             ${SRCDIR}/Compat/Win/win_hardware_info.cpp
 	)
 
@@ -1159,10 +1104,6 @@ SET(OVERGROWTHWORKER_SRCS
     ${SRCDIR}/Internal/modid.cpp
     ${SRCDIR}/Graphics/converttexture.cpp
     ${SRCDIR}/Internal/casecorrectpath.cpp
-    ${SRCDIR}/Logging/consolehandler.cpp
-    ${SRCDIR}/Logging/filehandler.cpp
-    ${SRCDIR}/Logging/logdata.cpp
-    ${SRCDIR}/Logging/loghandler.cpp
     ${SRCDIR}/Utility/strings.cpp
     ${SRCDIR}/Memory/allocation.cpp
     ${SRCDIR}/Memory/blockallocation.cpp
@@ -1171,40 +1112,17 @@ SET(OVERGROWTHWORKER_SRCS
     ${SRCDIR}/Memory/bitarray.cpp
     ${SRCDIR}/Threading/thread_sanity.cpp
     ${SRCDIR}/Compat/filepath.h
-    ${SRCDIR}/Compat/fileio.cpp
-    ${SRCDIR}/Compat/fileio.h
     ${SRCDIR}/Compat/processpool.cpp
     ${SRCDIR}/Compat/processpool.h
 )
 
-IF(UNIX)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/UNIX/unix_compat.cpp)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/UNIX/unix_compat.h)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/UNIX/unix_filepath.cpp)
-ENDIF()
-
-IF(APPLE)
-    LIST(APPEND OVERGROWTHWORKER_SRCS
-        ${SRCDIR}/Compat/Mac/mac_compat.mm
-        ${SRCDIR}/Compat/Mac/mac_compat.h
-    )
-ENDIF()
-
-IF(LINUX)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Linux/linux_compat.cpp)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Linux/linux_compat.h)
-ENDIF()
-
 IF(WIN32)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Win/win_compat.cpp)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Win/win_compat.h)
-    LIST(APPEND OVERGROWTHWORKER_SRCS ${SRCDIR}/Compat/Win/win_filepath.cpp)
     SET(WIN_RESOURCE_FILE icon.rc)
 ENDIF()
 
 IF(BUILD_OVERGROWTH)
     
-    ADD_EXECUTABLE(OvergrowthWorker ${OVERGROWTHWORKER_SRCS}  ${WIN_RESOURCE_FILE})
+    ADD_EXECUTABLE(OvergrowthWorker ${OVERGROWTHWORKER_SRCS} ${WIN_RESOURCE_FILE})
     SET_TARGET_PROPERTIES(OvergrowthWorker PROPERTIES
         OUTPUT_NAME ${OVERGROWTH_WORKER_OUTPUT_NAME}
         COMPILE_FLAGS ${SSE_FLAGS}
@@ -1213,10 +1131,11 @@ IF(BUILD_OVERGROWTH)
     )
 
     TARGET_LINK_LIBRARIES(OvergrowthWorker
+        OvergrowthCompat
+        OvergrowthLogging
         freeimage
         tinyxml
         trex
-        logging
         glad
         crnlib
     )
@@ -1230,17 +1149,6 @@ IF(BUILD_OVERGROWTH)
 
         TARGET_LINK_LIBRARIES(OvergrowthWorker
             dbghelp
-        )
-    ENDIF()
-
-    IF(APPLE)
-        #TARGET_LINK_LIBRARIES(OvergrowthWorker)
-    ENDIF()
-
-    IF(LINUX)
-        TARGET_LINK_LIBRARIES(OvergrowthWorker
-	        #nvcore nvmath nvimage squish posh
-            dl #needed by nvcore
         )
     ENDIF()
 
@@ -1437,7 +1345,6 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET HACD                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET LinearMath              PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET crnlib                  PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
-    SET_PROPERTY(TARGET logging                 PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET OvergrowthWorker        PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
 
     IF(APPLE)
@@ -1448,6 +1355,8 @@ IF(BUILD_OVERGROWTH)
     ENDIF()
 
     TARGET_LINK_LIBRARIES(Overgrowth
+        OvergrowthCompat
+        OvergrowthLogging
         BulletDynamics
         BulletCollision
         BulletWorldImporter
@@ -1464,7 +1373,6 @@ IF(BUILD_OVERGROWTH)
         imgui
         tinyxml
         trex
-        logging
         Recast
         DetourCrowd
         DetourTileCache
