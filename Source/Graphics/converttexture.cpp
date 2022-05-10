@@ -32,7 +32,7 @@
 #include <Compat/fileio.h>
 #include <Compat/compat.h>
 
-#include <Images/freeimage_wrapper.h>
+#include <Images/stbimage_wrapper.h>
 #include <Logging/logdata.h>
 
 #include <cstring>

@@ -27,7 +27,7 @@
 #include <Ogda/jobhandler.h>
 #include <Internal/filesystem.h>
 #include <Graphics/converttexture.h>
-#include <Images/freeimage_wrapper.h>
+#include <Images/stbimage_wrapper.h>
 #include <Internal/common.h>
 #include <Internal/filesystem.h>
 #include <Internal/datemodified.h>

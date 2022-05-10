@@ -87,22 +87,6 @@ ImageSampler::byte4 ImageSampler::GetPixel(int x, int y) const {
     return pixels_[x * height_ + y];
 }
 
-void ImageSampler::LoadDataFromFIBitmap(FIBITMAP* image) {
-    width_ = getWidth(image);
-    height_ = getHeight(image);
-    pixels_.resize(width_ * height_);
-    for (int i = 0; i < width_; ++i) {
-        for (int j = 0; j < height_; ++j) {
-            FIquad val;
-            getPixelColor(image, i, j, &val);
-            pixels_[i * height_ + j][0] = val.rgbRed;
-            pixels_[i * height_ + j][1] = val.rgbGreen;
-            pixels_[i * height_ + j][2] = val.rgbBlue;
-            pixels_[i * height_ + j][3] = val.rgbReserved;
-        }
-    }
-}
-
 int ImageSampler::Load(const std::string& path, uint32_t load_flags) {
     std::string load_path;
     ModID cache_modsource;
@@ -128,14 +112,20 @@ int ImageSampler::Load(const std::string& path, uint32_t load_flags) {
             FatalError("Error", "Could not find image sampler file \"%s\"", path_.c_str());
         }
         */
-        FIBITMAP* fibitmap = GenericLoader(abs_path);
 
-        if (!fibitmap) {
+        int n = 0;
+        // Tell stb_image that we want 4 components (RGBA)
+        stbi_uc* data = stbi_load(abs_path, &width_, &width_, &n, 4);
+
+        if (data == nullptr || n != 4) {
             return kLoadErrorGeneralFileError;
         }
 
-        LoadDataFromFIBitmap(fibitmap);
-        UnloadBitmap(fibitmap);
+        pixels_.resize(width_ * height_);
+        std::memcpy(pixels_.data(), data, width_ * height_ * 4);
+
+        stbi_image_free(data);
+
         char write_path[kPathSize];
         FormatString(write_path, kPathSize, "%s%s%s", GetWritePath(modsource).c_str(), path.c_str(), suffix);
         modsource_ = modsource;

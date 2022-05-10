@@ -25,7 +25,7 @@
 #include "image_export.hpp"
 
 #include <Images/image_export.hpp>
-#include <Images/freeimage_wrapper.h>
+#include <Images/stbimage_wrapper.h>
 
 #include <Internal/error.h>
 #include <Internal/filesystem.h>
@@ -37,7 +37,6 @@
 #include <Memory/allocation.h>
 #include <Logging/logdata.h>
 
-#include <FreeImage.h>
 #include <crnlib.h>
 
 #include <vector>
@@ -114,43 +113,34 @@ void ImageExport::ScaleImageUp(const unsigned char *data,
 void ImageExport::SavePNG(const char *file_path, unsigned char *data, unsigned long width, unsigned long height, unsigned short levels) {
     std::vector<unsigned char> scaled_data;
     ImageExport::ScaleImageUp(data, levels, &width, &height, &scaled_data);
-    FREE_IMAGE_FORMAT format = FIF_PNG;
-    FIBITMAP *image = FreeImage_ConvertFromRawBits(&scaled_data[0], width, height, 4 * width, 32, 0xC0, 0x38, 0x7);
     CreateParentDirs(file_path);
 #ifdef _WIN32
     createfile(file_path);
     std::string short_path(file_path);
     ShortenWindowsPath(short_path);
-    if (!FreeImage_Save(format, image, short_path.c_str())) {
+    if (!stbi_write_png(short_path.c_str(), width, height, 3, scaled_data.data(), width * 4)) {
         DisplayError("Error", "Problem exporting .png file");
     }
 #else
-    if (!FreeImage_Save(format, image, file_path)) {
+    if (!stbi_write_png(file_path, width, height, 3, scaled_data.data(), width * 4)) {
         DisplayError("Error", "Problem exporting .png file");
     }
 #endif
-    FreeImage_Unload(image);
 }
 
 void ImageExport::SavePNGTransparent(const char *file_path, unsigned char *data, unsigned long width, unsigned long height, unsigned short levels) {
     std::vector<unsigned char> scaled_data;
     ImageExport::ScaleImageUp(data, levels, &width, &height, &scaled_data);
-    FREE_IMAGE_FORMAT format = FIF_PNG;
-    FIBITMAP *image = FreeImage_ConvertFromRawBits(&scaled_data[0], width, height, 4 * width, 32, 0xC0, 0x38, 0x7);
-    LOGI << "BPP: " << (int)FreeImage_GetBPP(image) << std::endl;
-    LOGI << "IsTransparent: " << (int)FreeImage_IsTransparent(image) << std::endl;
-    FreeImage_SetTransparent(image, true);
-    LOGI << "IsTransparent: " << (int)FreeImage_IsTransparent(image) << std::endl;
 
-    int bytespp = FreeImage_GetLine(image) / FreeImage_GetWidth(image);
-    for (unsigned y = 0; y < FreeImage_GetHeight(image); y++) {
-        BYTE *bits = FreeImage_GetScanLine(image, y);
-        for (unsigned x = 0; x < FreeImage_GetWidth(image); x++) {
+    int bytespp = 4;
+    for (unsigned y = 0; y < height; y++) {
+        unsigned char *bits = scaled_data.data() + y * width * 4;
+        for (unsigned x = 0; x < width; x++) {
             // Set pixel color to green with a transparency of 128
-            bits[FI_RGBA_RED] = min(255, (int)((bits[FI_RGBA_RED] / 255.0f / (scaled_data[y * width * 4 + x * 4 + 3] / 255.0f)) * 255));
-            bits[FI_RGBA_GREEN] = min(255, (int)((bits[FI_RGBA_GREEN] / 255.0f / (scaled_data[y * width * 4 + x * 4 + 3] / 255.0f)) * 255));
-            bits[FI_RGBA_BLUE] = min(255, (int)((bits[FI_RGBA_BLUE] / 255.0f / (scaled_data[y * width * 4 + x * 4 + 3] / 255.0f)) * 255));
-            bits[FI_RGBA_ALPHA] = scaled_data[y * width * 4 + x * 4 + 3];
+            bits[0] = min(255, (int)((bits[0] / 255.0f / (scaled_data[y * width * 4 + x * 4 + 3] / 255.0f)) * 255));
+            bits[1] = min(255, (int)((bits[1] / 255.0f / (scaled_data[y * width * 4 + x * 4 + 3] / 255.0f)) * 255));
+            bits[2] = min(255, (int)((bits[2] / 255.0f / (scaled_data[y * width * 4 + x * 4 + 3] / 255.0f)) * 255));
+            bits[3] = scaled_data[y * width * 4 + x * 4 + 3];
             // jump to next pixel
             bits += bytespp;
         }
@@ -161,34 +151,30 @@ void ImageExport::SavePNGTransparent(const char *file_path, unsigned char *data,
     createfile(file_path);
     std::string short_path(file_path);
     ShortenWindowsPath(short_path);
-    if (!FreeImage_Save(format, image, short_path.c_str())) {
+    if (!stbi_write_png(short_path.c_str(), width, height, 4, scaled_data.data(), width * 4)) {
         DisplayError("Error", "Problem exporting .png file");
     }
 #else
-    if (!FreeImage_Save(format, image, file_path)) {
+    if (!stbi_write_png(file_path, width, height, 4, scaled_data.data(), width * 4)) {
         DisplayError("Error", "Problem exporting .png file");
     }
 #endif
-    FreeImage_Unload(image);
 }
 
 void ImageExport::SaveJPEG(const char *abs_path, unsigned char *data, unsigned long width, unsigned long height) {
-    FREE_IMAGE_FORMAT format = FIF_JPEG;
-    FIBITMAP *image = FreeImage_ConvertFromRawBits(data, width, height, 3 * width, 24, 0xC0, 0x38, 0x7);
     CreateParentDirs(abs_path);
 #ifdef _WIN32
     createfile(abs_path);
     std::string short_path(abs_path);
     ShortenWindowsPath(short_path);
-    if (!FreeImage_Save(format, image, short_path.c_str(), JPEG_QUALITYSUPERB)) {
+    if (!stbi_write_jpg(short_path.c_str(), width, height, 3, data, 85)) {
         DisplayError("Error", "Problem exporting .jpeg file");
     }
 #else
-    if (!FreeImage_Save(format, image, abs_path, JPEG_QUALITYSUPERB)) {
+    if (!stbi_write_jpg(abs_path, width, height, 3, data, 85)) {
         DisplayError("Error", "Problem exporting .jpeg file");
     }
 #endif
-    FreeImage_Unload(image);
 }
 
 void ImageExport::SavePNGofGrayscaleFloats(const char *file_path, std::vector<float> &data, unsigned long width, unsigned long height) {

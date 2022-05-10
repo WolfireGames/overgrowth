@@ -135,7 +135,6 @@
 #include <Sound/sound.h>
 #include <Main/debuglevelload.h>
 
-#include <FreeImage.h>
 #include <SDL.h>
 
 #include <algorithm>
@@ -5877,20 +5876,6 @@ void Engine::GenerateLevelCache(ModInstance* mod_instance) {
     }
 }
 
-/**
-FreeImage error handler
-@param fif Format / Plugin responsible for the error
-@param message Error message
-*/
-void FreeImageErrorHandler(FREE_IMAGE_FORMAT fif, const char* message) {
-    printf("\n*** ");
-    if (fif != FIF_UNKNOWN) {
-        printf("%s Format\n", FreeImage_GetFormatFromFIF(fif));
-    }
-    printf(message);
-    printf(" ***\n");
-}
-
 void Engine::Initialize() {
     current_menu_player = -1;
     waiting_for_input_ = false;
@@ -5960,7 +5945,6 @@ void Engine::Initialize() {
     Steamworks::Instance()->Initialize();
 #endif
     // multiplayer.Initialize();
-    FreeImage_SetOutputMessage(FreeImageErrorHandler);
 
     if (Engine::instance_ != NULL) {
         LOGF << "Engine only supports one instance at any time, if this need changes, refactoring will be needed for all situations that refer to Engine::Instance()" << std::endl;

@@ -89,7 +89,7 @@ bool GetDateModifiedString(const char *file_name, char *buffer, int buffer_size)
     char timebuf[26];
 
     // Get data associated with "crt_stat.c":
-    const char* path = file_name;
+    const char *path = file_name;
     result = stat(path, &buf);
 
     // Check if statistics are valid:
@@ -162,7 +162,7 @@ int64_t GetDateModifiedInt64(const char *abs_path) {
     int result;
 
     // Get data associated with "crt_stat.c":
-    const char* path = abs_path;
+    const char *path = abs_path;
     result = stat(path, &buf);
 
     // Check if statistics are valid:
