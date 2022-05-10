@@ -36,19 +36,19 @@ class SoundGroup : public Asset {
     int history_index;
     int history_size;
 
-public:
-    SoundGroup( AssetManager* owner, uint32_t asset_id );
+   public:
+    SoundGroup(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return SOUND_GROUP_ASSET; }
     static const char* GetTypeName() { return "SOUND_GROUP_ASSET"; }
     static bool AssetWarning() { return true; }
 
     int sub_error;
-    int Load( const std::string &path, uint32_t load_flags );
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void ReportLoad() override {}
-    void Reload( );
+    void Reload();
     std::string GetPath() const;
     int GetNumVariants() const;
     float GetVolume() const;

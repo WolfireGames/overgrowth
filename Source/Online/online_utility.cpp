@@ -47,11 +47,11 @@ bool OnlineUtility::IsValidPlayerName(const std::string& name) {
 
 std::string OnlineUtility::GetDefaultPlayerName() {
 #if ENABLE_STEAMWORKS
-    if(SteamFriends() != nullptr) {
-        const char * name_ptr = SteamFriends()->GetPersonaName();
-        if(name_ptr != nullptr) {
+    if (SteamFriends() != nullptr) {
+        const char* name_ptr = SteamFriends()->GetPersonaName();
+        if (name_ptr != nullptr) {
             std::string default_name(name_ptr);
-            if(IsValidPlayerName(default_name)) {
+            if (IsValidPlayerName(default_name)) {
                 return default_name;
             }
         }
@@ -70,14 +70,14 @@ std::string OnlineUtility::GetActiveModsString() {
     bool active_mods = false;
     stringstream modlist;
     vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for(auto & mod : mods) {
-        if(mod->IsActive() && !mod->IsCore()) {
-            if(active_mods) {
+    for (auto& mod : mods) {
+        if (mod->IsActive() && !mod->IsCore()) {
+            if (active_mods) {
                 modlist << ", ";
             }
             active_mods = true;
 
-            if(mod->SupportsOnline()) {
+            if (mod->SupportsOnline()) {
                 modlist << mod->id;
             } else {
                 modlist << "[" << mod->id << "]";
@@ -101,9 +101,9 @@ std::string OnlineUtility::GetActiveIncompatibleModsString() {
     bool active_mods = false;
     stringstream modlist;
     vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for(auto & mod : mods) {
-        if(mod->IsActive() && !mod->IsCore() && !mod->SupportsOnline()) {
-            if(active_mods) {
+    for (auto& mod : mods) {
+        if (mod->IsActive() && !mod->IsCore() && !mod->SupportsOnline()) {
+            if (active_mods) {
                 modlist << ", ";
             }
             active_mods = true;
@@ -114,19 +114,16 @@ std::string OnlineUtility::GetActiveIncompatibleModsString() {
     return modlist.str();
 }
 
-void OnlineUtility::HandleCommand(PlayerID playerID, const std::string& message)
-{
+void OnlineUtility::HandleCommand(PlayerID playerID, const std::string& message) {
     auto command = OnlineUtility::CommandFromString(message);
-    //TODO send command to angelscript
+    // TODO send command to angelscript
 }
 
-bool OnlineUtility::IsCommand(const std::string& message)
-{
+bool OnlineUtility::IsCommand(const std::string& message) {
     return message.size() > 1 && message.front() == '/';
 }
 
-std::vector<std::string> OnlineUtility::CommandFromString(const std::string& message)
-{
+std::vector<std::string> OnlineUtility::CommandFromString(const std::string& message) {
     std::string command_str = message.substr(1);
     std::vector<std::string> command;
 

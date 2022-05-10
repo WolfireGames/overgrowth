@@ -23,7 +23,6 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-
 #include <Asset/assetbase.h>
 #include <Asset/assetinfobase.h>
 #include <Asset/Asset/texture.h>
@@ -38,7 +37,7 @@
 class AssetManager;
 
 class ObjectFile : public AssetInfo {
-public:
+   public:
     std::string model_name;
     std::string color_map;
     std::string normal_map;
@@ -46,7 +45,7 @@ public:
     std::string shader_name;
     std::string wind_map;
     std::string sharpness_map;
-	std::string label;
+    std::string label;
     std::string material_path;
     std::string weight_map;
     std::string palette_map_path;
@@ -74,9 +73,9 @@ public:
     TextureAssetRef translucency_map_texture;
 
     ObjectFile(AssetManager* owner, uint32_t asset_id);
-    
+
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();

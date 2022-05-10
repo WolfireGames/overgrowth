@@ -33,8 +33,8 @@
  * your project.
  */
 
-/* 
- * NOTE: This source has been slightly modified by Wolfire dev team to function with our version of c++ 
+/*
+ * NOTE: This source has been slightly modified by Wolfire dev team to function with our version of c++
  * //Max Danielsson
  */
 
@@ -47,16 +47,17 @@
 extern "C" {
 #endif
 
-struct pcg_state_setseq_64 {    // Internals are *Private*.
-    uint64_t state;             // RNG state.  All values are possible.
-    uint64_t inc;               // Controls which RNG sequence (stream) is
-                                // selected. Must *always* be odd.
+struct pcg_state_setseq_64 {  // Internals are *Private*.
+    uint64_t state;           // RNG state.  All values are possible.
+    uint64_t inc;             // Controls which RNG sequence (stream) is
+                              // selected. Must *always* be odd.
 };
 typedef struct pcg_state_setseq_64 pcg32_random_t;
 
 // If you *must* statically initialize it, here's one.
 
-#define PCG32_INITIALIZER   { 0x853c49e6748fea9bULL, 0xda3e39cb94b95bdbULL }
+#define PCG32_INITIALIZER \
+    { 0x853c49e6748fea9bULL, 0xda3e39cb94b95bdbULL }
 
 // pcg32_srandom(initstate, initseq)
 // pcg32_srandom_r(rng, initstate, initseq):
@@ -85,4 +86,4 @@ uint32_t pcg32_boundedrand_r(pcg32_random_t* rng, uint32_t bound);
 }
 #endif
 
-#endif // PCG_BASIC_H_INCLUDED
+#endif  // PCG_BASIC_H_INCLUDED

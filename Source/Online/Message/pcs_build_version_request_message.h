@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_build_version_request_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,16 +25,15 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class PCSBuildVersionRequestMessage : public OnlineMessageBase {
-    private:
+class PCSBuildVersionRequestMessage : public OnlineMessageBase {
+   private:
+   public:
+    PCSBuildVersionRequestMessage();
 
-    public:
-        PCSBuildVersionRequestMessage();
-
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

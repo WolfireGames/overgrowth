@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: send_level_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,47 +26,44 @@
 #include <Game/level.h>
 
 namespace OnlineMessages {
-    SendLevelMessage::SendLevelMessage(string msg) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        msg(msg)
-    {
+SendLevelMessage::SendLevelMessage(string msg) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                 msg(msg) {
+}
 
-    }
+binn* SendLevelMessage::Serialize(void* object) {
+    binn* l = binn_object();
 
-    binn* SendLevelMessage::Serialize(void* object) {
-        binn* l = binn_object();
+    SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
 
-        SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
+    binn_object_set_std_string(l, "msg", lm->msg);
 
-        binn_object_set_std_string(l, "msg", lm->msg);
+    return l;
+}
 
-        return l;
-    }
+void SendLevelMessage::Deserialize(void* object, binn* l) {
+    SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
 
-    void SendLevelMessage::Deserialize(void* object, binn* l) {
-        SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
+    binn_object_get_std_string(l, "msg", &lm->msg);
+}
 
-        binn_object_get_std_string(l, "msg", &lm->msg);
-    }
+void SendLevelMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
 
-    void SendLevelMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
+    SceneGraph* sg = Engine::Instance()->GetSceneGraph();
 
-        SceneGraph* sg = Engine::Instance()->GetSceneGraph();
-
-        if(sg != nullptr) {
-            sg->level->Message(lm->msg);
-        } else {
-            LOGW << "Received level message: \"" << lm->msg << "\" but SceneGraph is nullptr" << std::endl;
-        }
-    }
-
-    void* SendLevelMessage::Construct(void* mem) {
-        return new(mem) SendLevelMessage("");
-    }
-
-    void SendLevelMessage::Destroy(void* object) {
-        SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
-        lm->~SendLevelMessage();
+    if (sg != nullptr) {
+        sg->level->Message(lm->msg);
+    } else {
+        LOGW << "Received level message: \"" << lm->msg << "\" but SceneGraph is nullptr" << std::endl;
     }
 }
+
+void* SendLevelMessage::Construct(void* mem) {
+    return new (mem) SendLevelMessage("");
+}
+
+void SendLevelMessage::Destroy(void* object) {
+    SendLevelMessage* lm = static_cast<SendLevelMessage*>(object);
+    lm->~SendLevelMessage();
+}
+}  // namespace OnlineMessages

@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
 //           Name: im_spacer.cpp
 //      Developer: Wolfire Games LLC
-//    Description: Blank space element class for creating adhoc GUIs as part 
-//                 of the UI tools. You probably don't want to create these 
+//    Description: Blank space element class for creating adhoc GUIs as part
+//                 of the UI tools. You probably don't want to create these
 //                 yourself, instead use the method in Divider
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -30,19 +30,17 @@
  * @brief  Constructor - static divider
  *
  */
-IMSpacer::IMSpacer( DividerOrientation _orientation, float size ) {
-    
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
+IMSpacer::IMSpacer(DividerOrientation _orientation, float size) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
     orientation = _orientation;
-    
-    if( orientation == DOVertical ) {
-        setSize( vec2(UNDEFINEDSIZE, size) );
+
+    if (orientation == DOVertical) {
+        setSize(vec2(UNDEFINEDSIZE, size));
+    } else {
+        setSize(vec2(size, UNDEFINEDSIZE));
     }
-    else {
-        setSize( vec2(size, UNDEFINEDSIZE ) );
-    }
-    
+
     isStatic = true;
 }
 
@@ -51,25 +49,23 @@ IMSpacer::IMSpacer( DividerOrientation _orientation, float size ) {
  * @brief  Constructor - expanding divider
  *
  */
-IMSpacer::IMSpacer( DividerOrientation _orientation ) {
-    
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
+IMSpacer::IMSpacer(DividerOrientation _orientation) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
     // Start with 0 size, we'll
-    if( orientation == DOVertical ) {
-        setSize( vec2(UNDEFINEDSIZE, 0.0f) );
+    if (orientation == DOVertical) {
+        setSize(vec2(UNDEFINEDSIZE, 0.0f));
+    } else {
+        setSize(vec2(0.0f, UNDEFINEDSIZE));
     }
-    else {
-        setSize( vec2(0.0f, UNDEFINEDSIZE) );
-    }
-    
+
     orientation = _orientation;
-    
+
     isStatic = false;
 }
 
 IMSpacer::IMSpacer() {
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
 }
 
 /*******************************************************************************************/
@@ -89,9 +85,5 @@ std::string IMSpacer::getElementTypeName() {
  *
  */
 IMSpacer::~IMSpacer() {
-    IMrefCountTracker.removeRefCountObject( getElementTypeName() );
+    IMrefCountTracker.removeRefCountObject(getElementTypeName());
 }
-
-
-
-

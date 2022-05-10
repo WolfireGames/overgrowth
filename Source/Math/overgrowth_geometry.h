@@ -32,7 +32,7 @@ struct LineSegment {
 };
 
 class Box {
-public:    
+   public:
     static const int NUM_FACES = 6;
     static const int NUM_POINTS = 8;
     vec3 center;
@@ -40,7 +40,7 @@ public:
 
     int lineCheck(const vec3& start, const vec3& end, vec3* point, vec3* normal);
     int GetNearestPointIndex(const vec3& point, float& dist) const;
-    int GetHitFaceIndex(const vec3& normal, const vec3& poin) const;    // returns -1 if none hit
+    int GetHitFaceIndex(const vec3& normal, const vec3& poin) const;  // returns -1 if none hit
     bool IsInFace(const vec3& point, int which_face, float proportion_offset) const;
     vec3 GetPoint(int index) const;
     static vec3 GetPlaneNormal(int index);
@@ -49,7 +49,7 @@ public:
     vec3 GetPlanePoint(int index) const;
     bool operator==(const Box& other);
 
-private:
+   private:
     float lineCheckFace(const vec3& start, const vec3& end, vec3* point, vec3* normal, int which_face);
 };
 

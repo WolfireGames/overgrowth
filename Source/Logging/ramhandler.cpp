@@ -39,57 +39,56 @@ RamHandler::~RamHandler() {
 }
 
 void RamHandler::DeleteMessage(uint32_t index) {
-    if( row_instances[index].data != NULL ) {
+    if (row_instances[index].data != NULL) {
         mem.Free(row_instances[index].data);
         row_instances[index].data = NULL;
         row_instance_count--;
     }
 }
 
-void RamHandler::Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message ) {
-	log_mutex_.lock();
+void RamHandler::Log(LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message) {
+    log_mutex_.lock();
 
     unsigned next_index = (row_instance_pos + 1) % ROW_INSTANCE_SIZE;
     unsigned delete_index_offset = 0;
 
     DeleteMessage(next_index);
 
-    size_t msg_size = strlen(message)+1;
-    void* new_mem = NULL; 
+    size_t msg_size = strlen(message) + 1;
+    void* new_mem = NULL;
 
-    while(new_mem == NULL) {
+    while (new_mem == NULL) {
         new_mem = mem.Alloc(msg_size);
 
-        if(new_mem) {
-            memcpy(new_mem,message,msg_size);
-            row_instances[next_index].data = (uint8_t*)new_mem;  
+        if (new_mem) {
+            memcpy(new_mem, message, msg_size);
+            row_instances[next_index].data = (uint8_t*)new_mem;
             row_instances[next_index].type = type;
-            strscpy((char*)row_instances[next_index].prefix,cat,PREFIX_LENGTH);
-            strscpy((char*)row_instances[next_index].filename,filename,FILENAME_LENGTH);
+            strscpy((char*)row_instances[next_index].prefix, cat, PREFIX_LENGTH);
+            strscpy((char*)row_instances[next_index].filename, filename, FILENAME_LENGTH);
             row_instances[next_index].row = row;
 
             row_instance_count++;
             row_instance_pos = next_index;
-        } else if(row_instance_count > 0){
+        } else if (row_instance_count > 0) {
             delete_index_offset++;
             DeleteMessage((next_index + delete_index_offset) % ROW_INSTANCE_SIZE);
         } else {
             std::cerr << "Unable to allocate memory for log-line" << std::endl;
-			break;
+            break;
         }
-    } 
+    }
 
-	log_mutex_.unlock();
+    log_mutex_.unlock();
 }
 
 void RamHandler::Flush() {
-
 }
 
 void RamHandler::Lock() {
     assert(is_locked == false);
     is_locked = true;
-    log_mutex_.lock(); 
+    log_mutex_.lock();
 }
 
 void RamHandler::Unlock() {
@@ -98,12 +97,12 @@ void RamHandler::Unlock() {
     log_mutex_.unlock();
 }
 
-RamHandlerLogRow RamHandler::GetLog( unsigned index ) {
+RamHandlerLogRow RamHandler::GetLog(unsigned index) {
     assert(is_locked);
     return row_instances[(row_instance_pos - row_instance_count + 1 + index) % ROW_INSTANCE_SIZE];
 }
 
 unsigned RamHandler::GetCount() {
     assert(is_locked);
-    return row_instance_count; 
+    return row_instance_count;
 }

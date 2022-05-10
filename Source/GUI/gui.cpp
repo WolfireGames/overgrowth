@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: gui.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,11 +25,11 @@
 
 #include <Internal/timer.h>
 #include <Threading/sdl_wrapper.h>
- 
+
 extern Timer game_timer;
 
 void GUI::AddDebugText(const std::string &key, const std::string &text, float lifetime) {
-    GUI::DebugTextEntry* debug_text_entry = &(debug_text[key]);
+    GUI::DebugTextEntry *debug_text_entry = &(debug_text[key]);
     debug_text_entry->text = text;
-    debug_text_entry->delete_time = SDL_TS_GetTicks() + (uint32_t)(1000*lifetime);
+    debug_text_entry->delete_time = SDL_TS_GetTicks() + (uint32_t)(1000 * lifetime);
 }

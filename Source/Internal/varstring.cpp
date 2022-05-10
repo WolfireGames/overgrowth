@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: varstring.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,10 +26,10 @@
 
 #include <stdio.h>
 
-std::string FloatString(float val, int num_chars){
+std::string FloatString(float val, int num_chars) {
     char buf[255];
     std::string return_string;
-    if(val >= 0.0f){ 
+    if (val >= 0.0f) {
         return_string += " ";
     }
     FormatString(buf, 255, "%f", val);

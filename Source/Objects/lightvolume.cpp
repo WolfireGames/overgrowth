@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: lightvolume.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -46,9 +46,7 @@ void LightVolumeObject::Dispose() {
     Object::Dispose();
 }
 
-LightVolumeObject::LightVolumeObject():
-    dirty(true)
-{
+LightVolumeObject::LightVolumeObject() : dirty(true) {
     box_.dims = vec3(2.0f);
 }
 
@@ -58,10 +56,10 @@ void LightVolumeObject::Draw() {
 LightVolumeObject::~LightVolumeObject() {
 }
 
-void LightVolumeObject::GetDesc(EntityDescription &desc) const {
+void LightVolumeObject::GetDesc(EntityDescription& desc) const {
     Object::GetDesc(desc);
 }
 
-bool LightVolumeObject::SetFromDesc( const EntityDescription& desc ) {
+bool LightVolumeObject::SetFromDesc(const EntityDescription& desc) {
     return Object::SetFromDesc(desc);
 }

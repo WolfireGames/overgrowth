@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: platformsetup.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,19 +25,19 @@
 #include <Compat/compat.h>
 
 #if !PLATFORM_UNIX
-	#define _WIN32 1
+#define _WIN32 1
 #endif
 
-//Disable console
+// Disable console
 #ifdef _WIN32
-	#pragma comment( linker, "/subsystem:\"windows\" \
-							  /entry:\"mainCRTStartup\"" )
+#pragma comment(linker, \
+                "/subsystem:\"windows\" \
+							  /entry:\"mainCRTStartup\"")
 #endif
 
 #if PLATFORM_UNIX
-	#include "FreeImage.h"
-#endif 
-
+#include "FreeImage.h"
+#endif
 
 void SetUpEnvironment(char* program_path, const char* overloaded_write_dir, const char* overloaded_working_dir);
 void DisposeEnvironment();

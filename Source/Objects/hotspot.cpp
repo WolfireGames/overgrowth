@@ -2,7 +2,7 @@
 //           Name: hotspot.cpp
 //      Developer: Wolfire Games LLC
 //         Author: Phillip Isola
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -59,52 +59,50 @@ extern bool show_script;
 extern bool g_debug_runtime_disable_hotspot_draw;
 extern bool g_debug_runtime_disable_hotspot_pre_draw_frame;
 
-Hotspot::Hotspot():
-    as_context(NULL),
-    collision_object(NULL),
-	abstract_collision(true)
-{    
+Hotspot::Hotspot() : as_context(NULL),
+                     collision_object(NULL),
+                     abstract_collision(true) {
     collidable = false;
     box_.dims = vec3(4.0f);
 }
 
 Hotspot::~Hotspot() {
-    if(as_context){
+    if (as_context) {
         delete as_context;
         as_context = NULL;
     }
-    if(collision_object){
-        scenegraph_->abstract_bullet_world_->RemoveObject(&collision_object);    
+    if (collision_object) {
+        scenegraph_->abstract_bullet_world_->RemoveObject(&collision_object);
         collision_object = NULL;
     }
 }
 
 void Hotspot::UpdateCollisionShape() {
-    if(collision_object){
-        scenegraph_->abstract_bullet_world_->RemoveObject(&collision_object);    
+    if (collision_object) {
+        scenegraph_->abstract_bullet_world_->RemoveObject(&collision_object);
         collision_object = NULL;
     }
-	if(abstract_collision){
-		vec3 scale = GetScale();
-		scale[0] = fabs(scale[0]);
-		scale[1] = fabs(scale[1]);
-		scale[2] = fabs(scale[2]);
-		collision_object = scenegraph_->abstract_bullet_world_->CreateBox(
-			vec3(0.0f), scale * 4.0f, BW_STATIC);
-		//mat4 mat = m_transform.blGetMatrix();
-		//mat4 no_scale_mat = mat.GetRotationPart();
-		//no_scale_mat.SetTranslationPart(GetCenter());
-		//col_sphere->SetTransform(no_scale_mat);
-		collision_object->SetTransform(GetTranslation(), Mat4FromQuaternion(GetRotation()), vec3(1.0f));//GetScale());
-		collision_object->body->setInterpolationWorldTransform(collision_object->body->getWorldTransform());
-		collision_object->body->setCollisionFlags(collision_object->body->getCollisionFlags() |
-			btCollisionObject::CF_NO_CONTACT_RESPONSE);
-		collision_object->SetVisibility(true);
-		collision_object->FixDiscontinuity();
-		collision_object->Sleep();
-		scenegraph_->abstract_bullet_world_->dynamics_world_->updateSingleAabb(collision_object->body);
-		collision_object->owner_object = this;
-	}
+    if (abstract_collision) {
+        vec3 scale = GetScale();
+        scale[0] = fabs(scale[0]);
+        scale[1] = fabs(scale[1]);
+        scale[2] = fabs(scale[2]);
+        collision_object = scenegraph_->abstract_bullet_world_->CreateBox(
+            vec3(0.0f), scale * 4.0f, BW_STATIC);
+        // mat4 mat = m_transform.blGetMatrix();
+        // mat4 no_scale_mat = mat.GetRotationPart();
+        // no_scale_mat.SetTranslationPart(GetCenter());
+        // col_sphere->SetTransform(no_scale_mat);
+        collision_object->SetTransform(GetTranslation(), Mat4FromQuaternion(GetRotation()), vec3(1.0f));  // GetScale());
+        collision_object->body->setInterpolationWorldTransform(collision_object->body->getWorldTransform());
+        collision_object->body->setCollisionFlags(collision_object->body->getCollisionFlags() |
+                                                  btCollisionObject::CF_NO_CONTACT_RESPONSE);
+        collision_object->SetVisibility(true);
+        collision_object->FixDiscontinuity();
+        collision_object->Sleep();
+        scenegraph_->abstract_bullet_world_->dynamics_world_->updateSingleAabb(collision_object->body);
+        collision_object->owner_object = this;
+    }
 }
 
 void Hotspot::Dispose() {
@@ -112,7 +110,7 @@ void Hotspot::Dispose() {
 }
 
 void Hotspot::GetDisplayName(char* buf, int buf_size) {
-    if( GetName().empty() ) {
+    if (GetName().empty()) {
         FormatString(buf, buf_size, "%d: Hotspot: %s", GetID(), obj_file.c_str());
     } else {
         FormatString(buf, buf_size, "%s: Hotspot: %s", GetName().c_str(), obj_file.c_str());
@@ -131,8 +129,8 @@ void Hotspot::DrawImGuiEditor() {
 bool Hotspot::Initialize() {
     UpdateCollisionShape();
 
-    std::string script_file_path = script_dir_path+m_script_file;
-    if(!m_script_file.empty() && FileExists(script_file_path.c_str(), kDataPaths|kModPaths)){
+    std::string script_file_path = script_dir_path + m_script_file;
+    if (!m_script_file.empty() && FileExists(script_file_path.c_str(), kDataPaths | kModPaths)) {
         ASData as_data;
         as_data.scenegraph = scenegraph_;
         as_data.gui = scenegraph_->map_editor->gui;
@@ -155,38 +153,38 @@ bool Hotspot::Initialize() {
         AttachOnline(as_context);
         hud_images.AttachToContext(as_context);
 
-		as_collisions.reset(new ASCollisions(scenegraph_));
-		as_collisions->AttachToContext(as_context);
+        as_collisions.reset(new ASCollisions(scenegraph_));
+        as_collisions->AttachToContext(as_context);
 
         ScriptParams::RegisterScriptType(as_context);
         sp.RegisterScriptInstance(as_context);
 
         as_context->RegisterGlobalProperty("Hotspot hotspot", this);
 
-        as_funcs.init                           = as_context->RegisterExpectedFunction("void Init()", false);
-        as_funcs.set_parameters                 = as_context->RegisterExpectedFunction("void SetParameters()", false);
-        as_funcs.receive_message                = as_context->RegisterExpectedFunction("void ReceiveMessage(string)", false);
-        as_funcs.update                         = as_context->RegisterExpectedFunction("void Update()", false);
-        as_funcs.pre_draw                       = as_context->RegisterExpectedFunction("void PreDraw(float curr_game_time)", false);
-        as_funcs.draw                           = as_context->RegisterExpectedFunction("void Draw()", false);
-        as_funcs.draw_editor                    = as_context->RegisterExpectedFunction("void DrawEditor()", false);
-        as_funcs.reset                          = as_context->RegisterExpectedFunction("void Reset()", false);
-        as_funcs.set_enabled                    = as_context->RegisterExpectedFunction("void SetEnabled(bool val)", false);
-        as_funcs.handle_event                   = as_context->RegisterExpectedFunction("void HandleEvent(string event, MovementObject @mo)", false);
-        as_funcs.handle_event_item              = as_context->RegisterExpectedFunction("void HandleEventItem(string event, ItemObject @obj)", false);
-        as_funcs.get_type_string                = as_context->RegisterExpectedFunction("string GetTypeString()", false);
-        as_funcs.dispose                        = as_context->RegisterExpectedFunction("void Dispose()", false);
-        as_funcs.pre_script_reload              = as_context->RegisterExpectedFunction("void PreScriptReload()", false);
-        as_funcs.post_script_reload             = as_context->RegisterExpectedFunction("void PostScriptReload()", false);
-        as_funcs.connect_to                     = as_context->RegisterExpectedFunction("bool ConnectTo(Object @other)", false);
-        as_funcs.disconnect                     = as_context->RegisterExpectedFunction("bool Disconnect(Object @other)", false);
-        as_funcs.connected_from                 = as_context->RegisterExpectedFunction("void ConnectedFrom(Object @other)", false);
-        as_funcs.disconnected_from              = as_context->RegisterExpectedFunction("void DisconnectedFrom(Object @other)", false);
-        as_funcs.accept_connections_from        = as_context->RegisterExpectedFunction("bool AcceptConnectionsFrom(ConnectionType type)", false);
-        as_funcs.accept_connections_from_obj    = as_context->RegisterExpectedFunction("bool AcceptConnectionsFrom(Object @other)", false);
-        as_funcs.accept_connections_to_obj      = as_context->RegisterExpectedFunction("bool AcceptConnectionsTo(Object @other)", false);
-        as_funcs.launch_custom_gui              = as_context->RegisterExpectedFunction("void LaunchCustomGUI()", false);
-        as_funcs.object_inspector_read_only     = as_context->RegisterExpectedFunction("bool ObjectInspectorReadOnly()", false);
+        as_funcs.init = as_context->RegisterExpectedFunction("void Init()", false);
+        as_funcs.set_parameters = as_context->RegisterExpectedFunction("void SetParameters()", false);
+        as_funcs.receive_message = as_context->RegisterExpectedFunction("void ReceiveMessage(string)", false);
+        as_funcs.update = as_context->RegisterExpectedFunction("void Update()", false);
+        as_funcs.pre_draw = as_context->RegisterExpectedFunction("void PreDraw(float curr_game_time)", false);
+        as_funcs.draw = as_context->RegisterExpectedFunction("void Draw()", false);
+        as_funcs.draw_editor = as_context->RegisterExpectedFunction("void DrawEditor()", false);
+        as_funcs.reset = as_context->RegisterExpectedFunction("void Reset()", false);
+        as_funcs.set_enabled = as_context->RegisterExpectedFunction("void SetEnabled(bool val)", false);
+        as_funcs.handle_event = as_context->RegisterExpectedFunction("void HandleEvent(string event, MovementObject @mo)", false);
+        as_funcs.handle_event_item = as_context->RegisterExpectedFunction("void HandleEventItem(string event, ItemObject @obj)", false);
+        as_funcs.get_type_string = as_context->RegisterExpectedFunction("string GetTypeString()", false);
+        as_funcs.dispose = as_context->RegisterExpectedFunction("void Dispose()", false);
+        as_funcs.pre_script_reload = as_context->RegisterExpectedFunction("void PreScriptReload()", false);
+        as_funcs.post_script_reload = as_context->RegisterExpectedFunction("void PostScriptReload()", false);
+        as_funcs.connect_to = as_context->RegisterExpectedFunction("bool ConnectTo(Object @other)", false);
+        as_funcs.disconnect = as_context->RegisterExpectedFunction("bool Disconnect(Object @other)", false);
+        as_funcs.connected_from = as_context->RegisterExpectedFunction("void ConnectedFrom(Object @other)", false);
+        as_funcs.disconnected_from = as_context->RegisterExpectedFunction("void DisconnectedFrom(Object @other)", false);
+        as_funcs.accept_connections_from = as_context->RegisterExpectedFunction("bool AcceptConnectionsFrom(ConnectionType type)", false);
+        as_funcs.accept_connections_from_obj = as_context->RegisterExpectedFunction("bool AcceptConnectionsFrom(Object @other)", false);
+        as_funcs.accept_connections_to_obj = as_context->RegisterExpectedFunction("bool AcceptConnectionsTo(Object @other)", false);
+        as_funcs.launch_custom_gui = as_context->RegisterExpectedFunction("void LaunchCustomGUI()", false);
+        as_funcs.object_inspector_read_only = as_context->RegisterExpectedFunction("bool ObjectInspectorReadOnly()", false);
 
         PROFILER_ENTER(g_profiler_ctx, "Exporting docs");
         char path[kPathSize];
@@ -205,32 +203,35 @@ bool Hotspot::Initialize() {
     }
 }
 
-void Hotspot::ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) {
-    switch(type){
-    case OBJECT_MSG::SCRIPT: {
-        const std::string &str = *va_arg(args, std::string*);
-        ASArglist args;
-        args.AddObject((void*)&str);
-        as_context->CallScriptFunction(as_funcs.receive_message, &args);
-        break;}
-    case OBJECT_MSG::QUEUE_SCRIPT: {
-        const std::string &str = *va_arg(args, std::string*);
-        message_queue.push(str);
-        break;}
-    case OBJECT_MSG::RESET:{
-        Reset();
-        std::string str = "reset";
-        ReceiveObjectMessage(OBJECT_MSG::SCRIPT, &str);
-        break;}
-    default: 
-        Object::ReceiveObjectMessageVAList(type, args);
-        break;
+void Hotspot::ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) {
+    switch (type) {
+        case OBJECT_MSG::SCRIPT: {
+            const std::string& str = *va_arg(args, std::string*);
+            ASArglist args;
+            args.AddObject((void*)&str);
+            as_context->CallScriptFunction(as_funcs.receive_message, &args);
+            break;
+        }
+        case OBJECT_MSG::QUEUE_SCRIPT: {
+            const std::string& str = *va_arg(args, std::string*);
+            message_queue.push(str);
+            break;
+        }
+        case OBJECT_MSG::RESET: {
+            Reset();
+            std::string str = "reset";
+            ReceiveObjectMessage(OBJECT_MSG::SCRIPT, &str);
+            break;
+        }
+        default:
+            Object::ReceiveObjectMessageVAList(type, args);
+            break;
     }
 }
 
 void Hotspot::Update(float timestep) {
-    if(as_context){
-        while(message_queue.empty() == false) {
+    if (as_context) {
+        while (message_queue.empty() == false) {
             ASArglist args;
             const std::string str = message_queue.front();
             args.AddObject((void*)&str);
@@ -256,62 +257,61 @@ void Hotspot::Draw() {
     if (g_debug_runtime_disable_hotspot_draw) {
         return;
     }
-    
+
     as_context->CallScriptFunction(as_funcs.draw);
-	if(scenegraph_->map_editor->state_ != MapEditor::kInGame){
-		as_context->CallScriptFunction(as_funcs.draw_editor);
-	}
-	if(!Graphics::Instance()->media_mode() && billboard_texture_ref_.valid()){
-		DrawBillboard(billboard_texture_ref_->GetTextureRef(), GetTranslation() + GetScale() * vec3(0.0f,0.5f,0.0f), 2.0f, vec4(1.0f), kStraight);
-	}
-	hud_images.Draw();
+    if (scenegraph_->map_editor->state_ != MapEditor::kInGame) {
+        as_context->CallScriptFunction(as_funcs.draw_editor);
+    }
+    if (!Graphics::Instance()->media_mode() && billboard_texture_ref_.valid()) {
+        DrawBillboard(billboard_texture_ref_->GetTextureRef(), GetTranslation() + GetScale() * vec3(0.0f, 0.5f, 0.0f), 2.0f, vec4(1.0f), kStraight);
+    }
+    hud_images.Draw();
 }
 
 void Hotspot::Reset() {
-    if(as_context){
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.reset);
     }
 }
 
-void Hotspot::SetEnabled(bool val)
-{
-	Object::SetEnabled(val);
-	PROFILER_ZONE(g_profiler_ctx, "Hotspot::SetEnabled");
-	ASArglist args;
-	args.Add(val);
-	as_context->CallScriptFunction(as_funcs.set_enabled, &args);
+void Hotspot::SetEnabled(bool val) {
+    Object::SetEnabled(val);
+    PROFILER_ZONE(g_profiler_ctx, "Hotspot::SetEnabled");
+    ASArglist args;
+    args.Add(val);
+    as_context->CallScriptFunction(as_funcs.set_enabled, &args);
 }
 
-int Hotspot::lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal) {
-    return LineCheckEditorCube(start,end,point,normal);
+int Hotspot::lineCheck(const vec3& start, const vec3& end, vec3* point, vec3* normal) {
+    return LineCheckEditorCube(start, end, point, normal);
 }
 
 void Hotspot::Moved(Object::MoveType type) {
     Object::Moved(type);
-    if(collision_object){
+    if (collision_object) {
         UpdateCollisionShape();
     }
 }
 
-void Hotspot::GetDesc(EntityDescription &desc) const {
+void Hotspot::GetDesc(EntityDescription& desc) const {
     Object::GetDesc(desc);
     desc.AddString(EDF_FILE_PATH, obj_file);
     desc.AddIntVec(EDF_CONNECTIONS, connected_to);
     desc.AddIntVec(EDF_CONNECTIONS_FROM, connected_from);
 }
 
-//Just handle everything in hotspots
+// Just handle everything in hotspots
 
 void Hotspot::NotifyDeleted(Object* o) {
     std::vector<int>::iterator iter = std::find(connected_to.begin(), connected_to.end(), o->GetID());
-    if(iter != connected_to.end()) {
+    if (iter != connected_to.end()) {
         Disconnect(*scenegraph_->GetObjectFromID(*iter));
     }
     Object::NotifyDeleted(o);
 }
 
-void Hotspot::HandleEvent( const std::string &event, MovementObject* mo ) {
-    if(!as_context){
+void Hotspot::HandleEvent(const std::string& event, MovementObject* mo) {
+    if (!as_context) {
         return;
     }
     ASArglist args;
@@ -320,8 +320,8 @@ void Hotspot::HandleEvent( const std::string &event, MovementObject* mo ) {
     as_context->CallScriptFunction(as_funcs.handle_event, &args);
 }
 
-void Hotspot::HandleEventItem( const std::string &event, ItemObject* obj ) {
-    if(!as_context){
+void Hotspot::HandleEventItem(const std::string& event, ItemObject* obj) {
+    if (!as_context) {
         return;
     }
     ASArglist args;
@@ -330,95 +330,98 @@ void Hotspot::HandleEventItem( const std::string &event, ItemObject* obj ) {
     as_context->CallScriptFunction(as_funcs.handle_event_item, &args);
 }
 
-void Hotspot::SetScriptParams( const ScriptParamMap& spm ) {
+void Hotspot::SetScriptParams(const ScriptParamMap& spm) {
     Object::SetScriptParams(spm);
 }
 
 void Hotspot::UpdateScriptParams() {
-    if(as_context){
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.set_parameters);
     }
 }
 
 std::string Hotspot::GetTypeString() {
-    if(!as_context){
+    if (!as_context) {
         return "unknown - no script";
     }
     ASArglist args;
     ASArg ret_val;
     ret_val.type = _as_object;
     bool success = as_context->CallScriptFunction(as_funcs.get_type_string, &args, &ret_val);
-    if(success){
+    if (success) {
         return *((std::string*)ret_val.data);
     } else {
         return "unknown - hotspot has no 'GetTypeString()' function";
     }
 }
 
-bool Hotspot::ASHasVar( const std::string &name ) {
+bool Hotspot::ASHasVar(const std::string& name) {
     return as_context->GetVarPtr(name.c_str()) != NULL;
 }
 
-int Hotspot::ASGetIntVar( const std::string &name ) {
+int Hotspot::ASGetIntVar(const std::string& name) {
     return *((int*)as_context->GetVarPtr(name.c_str()));
 }
 
-int Hotspot::ASGetArrayIntVar( const std::string &name, int index ) {
+int Hotspot::ASGetArrayIntVar(const std::string& name, int index) {
     return *((int*)as_context->GetArrayVarPtr(name, index));
 }
 
-float Hotspot::ASGetFloatVar( const std::string &name ) {
+float Hotspot::ASGetFloatVar(const std::string& name) {
     return *((float*)as_context->GetVarPtr(name.c_str()));
 }
 
-bool Hotspot::ASGetBoolVar( const std::string &name ) {
+bool Hotspot::ASGetBoolVar(const std::string& name) {
     return *((bool*)as_context->GetVarPtr(name.c_str()));
 }
 
-void Hotspot::ASSetIntVar( const std::string &name, int value ) {
+void Hotspot::ASSetIntVar(const std::string& name, int value) {
     *(int*)as_context->GetVarPtr(name.c_str()) = value;
 }
 
-void Hotspot::ASSetArrayIntVar( const std::string &name, int index, int value ) {
+void Hotspot::ASSetArrayIntVar(const std::string& name, int index, int value) {
     *(int*)as_context->GetArrayVarPtr(name, index) = value;
 }
 
-void Hotspot::ASSetFloatVar( const std::string &name, float value ) {
+void Hotspot::ASSetFloatVar(const std::string& name, float value) {
     *(float*)as_context->GetVarPtr(name.c_str()) = value;
 }
 
-void Hotspot::ASSetBoolVar( const std::string &name, bool value ) {
+void Hotspot::ASSetBoolVar(const std::string& name, bool value) {
     *(bool*)as_context->GetVarPtr(name.c_str()) = value;
 }
 
-bool Hotspot::SetFromDesc( const EntityDescription& desc ) {
+bool Hotspot::SetFromDesc(const EntityDescription& desc) {
     bool ret = Object::SetFromDesc(desc);
-    if( ret ) {
-        for(const auto & field : desc.fields){
-            switch(field.type){
-            case EDF_FILE_PATH: {
-                std::string type_file;
-                field.ReadString(&type_file);
-                if(obj_file != type_file){
-                    obj_file = type_file;
-                    //HotspotFileRef hfr = HotspotFiles::Instance()->ReturnRef(type_file);
-                    HotspotFileRef hfr = Engine::Instance()->GetAssetManager()->LoadSync<HotspotFile>(type_file);
-                    if( hfr.valid() ) {
-                        if(hfr->billboard_color_map != "Data/UI/spawner/thumbs/Hotspot/empty.png"){
-                            SetBillboardColorMap(hfr->billboard_color_map);
+    if (ret) {
+        for (const auto& field : desc.fields) {
+            switch (field.type) {
+                case EDF_FILE_PATH: {
+                    std::string type_file;
+                    field.ReadString(&type_file);
+                    if (obj_file != type_file) {
+                        obj_file = type_file;
+                        // HotspotFileRef hfr = HotspotFiles::Instance()->ReturnRef(type_file);
+                        HotspotFileRef hfr = Engine::Instance()->GetAssetManager()->LoadSync<HotspotFile>(type_file);
+                        if (hfr.valid()) {
+                            if (hfr->billboard_color_map != "Data/UI/spawner/thumbs/Hotspot/empty.png") {
+                                SetBillboardColorMap(hfr->billboard_color_map);
+                            }
+                            SetScriptFile(hfr->script);
+                        } else {
+                            ret = false;
                         }
-                        SetScriptFile(hfr->script);
-                    } else {
-                        ret = false;
                     }
+                    break;
                 }
-                break;}
-            case EDF_CONNECTIONS: {
-                field.ReadIntVec(&unfinalized_connected_to);
-                break;}
-            case EDF_CONNECTIONS_FROM: {
-                field.ReadIntVec(&unfinalized_connected_from);
-                break;}
+                case EDF_CONNECTIONS: {
+                    field.ReadIntVec(&unfinalized_connected_to);
+                    break;
+                }
+                case EDF_CONNECTIONS_FROM: {
+                    field.ReadIntVec(&unfinalized_connected_from);
+                    break;
+                }
             }
         }
     }
@@ -427,74 +430,74 @@ bool Hotspot::SetFromDesc( const EntityDescription& desc ) {
 
 void Hotspot::SetBillboardColorMap(const std::string& color_map) {
     billboard_texture_ref_ = Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>(color_map, PX_SRGB, 0x0);
-    if( billboard_texture_ref_.valid() == false ) {
+    if (billboard_texture_ref_.valid() == false) {
         LOGE << "Failed to load Hotspot Billboard texture: " << color_map << " for " << this << std::endl;
     }
 }
 
 static vec3 GetWind(vec3 check_where, float curr_game_time, float change_rate) {
-	vec3 wind_vel;
-	check_where[0] += curr_game_time*0.7f*change_rate;
-	check_where[1] += curr_game_time*0.3f*change_rate;
-	check_where[2] += curr_game_time*0.5f*change_rate;
-	wind_vel[0] = sin(check_where[0])+cos(check_where[1]*1.3f)+sin(check_where[2]*3.0f);
-	wind_vel[1] = sin(check_where[0]*1.2f)+cos(check_where[1]*1.8f)+sin(check_where[2]*0.8f);
-	wind_vel[2] = sin(check_where[0]*1.6f)+cos(check_where[1]*0.5f)+sin(check_where[2]*1.2f);
+    vec3 wind_vel;
+    check_where[0] += curr_game_time * 0.7f * change_rate;
+    check_where[1] += curr_game_time * 0.3f * change_rate;
+    check_where[2] += curr_game_time * 0.5f * change_rate;
+    wind_vel[0] = sin(check_where[0]) + cos(check_where[1] * 1.3f) + sin(check_where[2] * 3.0f);
+    wind_vel[1] = sin(check_where[0] * 1.2f) + cos(check_where[1] * 1.8f) + sin(check_where[2] * 0.8f);
+    wind_vel[2] = sin(check_where[0] * 1.6f) + cos(check_where[1] * 0.5f) + sin(check_where[2] * 1.2f);
 
-	return wind_vel;
+    return wind_vel;
 }
- 
+
 void Hotspot::Reload() {
-	if(as_context){
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.pre_script_reload);
-		as_context->Reload();    
+        as_context->Reload();
         as_context->CallScriptFunction(as_funcs.post_script_reload);
-	}
+    }
 }
 
 static void CFireRibbonUpdate(asIScriptObject* obj, float delta_time, float curr_game_time, const vec3& fire_pos) {
-	CScriptArray& particles = *(CScriptArray*)obj->GetAddressOfProperty(0);
-	vec3& rel_pos = *(vec3*)obj->GetAddressOfProperty(1);
-	vec3& pos = *(vec3*)obj->GetAddressOfProperty(2);
-	float& base_rand = *(float*)obj->GetAddressOfProperty(3);
-	float& spawn_new_particle_delay = *(float*)obj->GetAddressOfProperty(4); 
+    CScriptArray& particles = *(CScriptArray*)obj->GetAddressOfProperty(0);
+    vec3& rel_pos = *(vec3*)obj->GetAddressOfProperty(1);
+    vec3& pos = *(vec3*)obj->GetAddressOfProperty(2);
+    float& base_rand = *(float*)obj->GetAddressOfProperty(3);
+    float& spawn_new_particle_delay = *(float*)obj->GetAddressOfProperty(4);
 
     spawn_new_particle_delay -= delta_time;
-	if(spawn_new_particle_delay <= 0.0f){
-		particles.Resize(particles.GetSize() + 1);
-		asIScriptObject* particle = (asIScriptObject*)particles.At(particles.GetSize()-1);
-		*(vec3*)particle->GetAddressOfProperty(0) = pos;
-		*(vec3*)particle->GetAddressOfProperty(1) = vec3(0.0, 0.0, 0.0);
-		*(float*)particle->GetAddressOfProperty(2) = RangedRandomFloat(0.5,1.5);
-		*(float*)particle->GetAddressOfProperty(3) = curr_game_time;
+    if (spawn_new_particle_delay <= 0.0f) {
+        particles.Resize(particles.GetSize() + 1);
+        asIScriptObject* particle = (asIScriptObject*)particles.At(particles.GetSize() - 1);
+        *(vec3*)particle->GetAddressOfProperty(0) = pos;
+        *(vec3*)particle->GetAddressOfProperty(1) = vec3(0.0, 0.0, 0.0);
+        *(float*)particle->GetAddressOfProperty(2) = RangedRandomFloat(0.5, 1.5);
+        *(float*)particle->GetAddressOfProperty(3) = curr_game_time;
 
-        while(spawn_new_particle_delay <= 0.0f){
+        while (spawn_new_particle_delay <= 0.0f) {
             spawn_new_particle_delay += 0.1f;
         }
     }
 
     int max_particles = 5;
-    if((int)particles.GetSize() > max_particles) {
-		for(int i=0; i<max_particles; ++i){
-			asIScriptObject* dst_particle = (asIScriptObject*)particles.At(i);
-			asIScriptObject* src_particle = (asIScriptObject*)particles.At(particles.GetSize()-max_particles+i);
-			dst_particle->CopyFrom(src_particle);
+    if ((int)particles.GetSize() > max_particles) {
+        for (int i = 0; i < max_particles; ++i) {
+            asIScriptObject* dst_particle = (asIScriptObject*)particles.At(i);
+            asIScriptObject* src_particle = (asIScriptObject*)particles.At(particles.GetSize() - max_particles + i);
+            dst_particle->CopyFrom(src_particle);
         }
         particles.Resize(max_particles);
     }
-	for(int i=0, len=(int)particles.GetSize(); i<len; ++i){
-		asIScriptObject* particle = (asIScriptObject*)particles.At(i);
-		vec3& particle_pos = *(vec3*)particle->GetAddressOfProperty(0);
-		vec3& particle_vel = *(vec3*)particle->GetAddressOfProperty(1);
-		float& particle_heat = *(float*)particle->GetAddressOfProperty(2);
-		particle_vel *= pow(0.2f, delta_time);
-		particle_pos += particle_vel * delta_time;
-		particle_vel += GetWind(particle_pos * 5.0f, curr_game_time, 10.0f) * delta_time * 1.0f;
-		particle_vel += GetWind(particle_pos * 30.0f, curr_game_time, 10.0f) * delta_time * 2.0f;
+    for (int i = 0, len = (int)particles.GetSize(); i < len; ++i) {
+        asIScriptObject* particle = (asIScriptObject*)particles.At(i);
+        vec3& particle_pos = *(vec3*)particle->GetAddressOfProperty(0);
+        vec3& particle_vel = *(vec3*)particle->GetAddressOfProperty(1);
+        float& particle_heat = *(float*)particle->GetAddressOfProperty(2);
+        particle_vel *= pow(0.2f, delta_time);
+        particle_pos += particle_vel * delta_time;
+        particle_vel += GetWind(particle_pos * 5.0f, curr_game_time, 10.0f) * delta_time * 1.0f;
+        particle_vel += GetWind(particle_pos * 30.0f, curr_game_time, 10.0f) * delta_time * 2.0f;
         vec3 rel = particle_pos - fire_pos;
         rel[1] = 0.0;
-        particle_heat -= delta_time * (2.0f + min(1.0f, powf(dot(rel,rel), 2.0)*64.0f)) * 2.0f;
-        if(dot(rel,rel) > 1.0){
+        particle_heat -= delta_time * (2.0f + min(1.0f, powf(dot(rel, rel), 2.0) * 64.0f)) * 2.0f;
+        if (dot(rel, rel) > 1.0) {
             rel = normalize(rel);
         }
 
@@ -503,49 +506,48 @@ static void CFireRibbonUpdate(asIScriptObject* obj, float delta_time, float curr
     }
 }
 
-
 void CFireRibbonPreDraw(asIScriptObject* obj, float curr_game_time) {
-	CScriptArray& particles = *(CScriptArray*)obj->GetAddressOfProperty(0);
-	float& base_rand = *(float*)obj->GetAddressOfProperty(3);
+    CScriptArray& particles = *(CScriptArray*)obj->GetAddressOfProperty(0);
+    float& base_rand = *(float*)obj->GetAddressOfProperty(3);
 
-	DebugDraw* debug_draw = DebugDraw::Instance();
-	int ribbon_id = debug_draw->AddRibbon(_delete_on_draw);
-	DebugDrawElement* element = DebugDraw::Instance()->GetElement(ribbon_id);
-	DebugDrawRibbon* ribbon = (DebugDrawRibbon*) element;
-	const float flame_width = 0.12f;
-	for(int i=0, len=particles.GetSize(); i<len; ++i){
-		asIScriptObject* particle = (asIScriptObject*)particles.At(i);
-		vec3& particle_pos = *(vec3*)particle->GetAddressOfProperty(0);
-		vec3& particle_vel = *(vec3*)particle->GetAddressOfProperty(1);
-		float& particle_heat = *(float*)particle->GetAddressOfProperty(2);
-		float& particle_spawn_time = *(float*)particle->GetAddressOfProperty(3);
-		ribbon->AddPoint(particle_pos, vec4(particle_heat, particle_spawn_time + base_rand, curr_game_time + base_rand, 0.0), flame_width);
-	}
+    DebugDraw* debug_draw = DebugDraw::Instance();
+    int ribbon_id = debug_draw->AddRibbon(_delete_on_draw);
+    DebugDrawElement* element = DebugDraw::Instance()->GetElement(ribbon_id);
+    DebugDrawRibbon* ribbon = (DebugDrawRibbon*)element;
+    const float flame_width = 0.12f;
+    for (int i = 0, len = particles.GetSize(); i < len; ++i) {
+        asIScriptObject* particle = (asIScriptObject*)particles.At(i);
+        vec3& particle_pos = *(vec3*)particle->GetAddressOfProperty(0);
+        vec3& particle_vel = *(vec3*)particle->GetAddressOfProperty(1);
+        float& particle_heat = *(float*)particle->GetAddressOfProperty(2);
+        float& particle_spawn_time = *(float*)particle->GetAddressOfProperty(3);
+        ribbon->AddPoint(particle_pos, vec4(particle_heat, particle_spawn_time + base_rand, curr_game_time + base_rand, 0.0), flame_width);
+    }
 }
 
 static void ASSetCollisionEnabled(Hotspot* hotspot, bool val) {
-	if(val != hotspot->abstract_collision){
-		hotspot->abstract_collision = val;
-		hotspot->UpdateCollisionShape();
-	}
+    if (val != hotspot->abstract_collision) {
+        hotspot->abstract_collision = val;
+        hotspot->UpdateCollisionShape();
+    }
 }
 
 bool Hotspot::AcceptConnectionsFromImplemented() {
-    if(!as_context)
+    if (!as_context)
         return false;
     return as_context->HasFunction(as_funcs.accept_connections_from_obj) || as_context->HasFunction(as_funcs.accept_connections_from);
 }
 
 bool Hotspot::AcceptConnectionsFrom(Object::ConnectionType type, Object& other) {
     bool return_value = false;
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
 
         ASArg ret_val;
         ret_val.type = _as_bool;
         ret_val.data = &return_value;
         args.AddObject(&other);
-        if(!as_context->CallScriptFunction(as_funcs.accept_connections_from_obj, &args, &ret_val)) {
+        if (!as_context->CallScriptFunction(as_funcs.accept_connections_from_obj, &args, &ret_val)) {
             args.clear();
             args.Add((int)type);
             as_context->CallScriptFunction(as_funcs.accept_connections_from, &args, &ret_val);
@@ -557,7 +559,7 @@ bool Hotspot::AcceptConnectionsFrom(Object::ConnectionType type, Object& other) 
 
 bool Hotspot::AcceptConnectionsTo(Object& other) {
     bool return_value = false;
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
 
         ASArg ret_val;
@@ -570,12 +572,12 @@ bool Hotspot::AcceptConnectionsTo(Object& other) {
     return return_value;
 }
 
-bool Hotspot::ConnectTo(Object& other, bool checking_other/*= false*/) {
-    if(std::find(connected_to.begin(), connected_to.end(), other.GetID()) != connected_to.end())
+bool Hotspot::ConnectTo(Object& other, bool checking_other /*= false*/) {
+    if (std::find(connected_to.begin(), connected_to.end(), other.GetID()) != connected_to.end())
         return false;
 
     bool return_value = false;
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         args.AddObject(&other);
 
@@ -586,7 +588,7 @@ bool Hotspot::ConnectTo(Object& other, bool checking_other/*= false*/) {
         as_context->CallScriptFunction(as_funcs.connect_to, &args, &ret_val);
     }
 
-    if(return_value) {
+    if (return_value) {
         connected_to.push_back(other.GetID());
         other.ConnectedFrom(*this);
     }
@@ -594,12 +596,12 @@ bool Hotspot::ConnectTo(Object& other, bool checking_other/*= false*/) {
     return return_value;
 }
 
-bool Hotspot::Disconnect(Object& other, bool checking_other/* = false*/) {
-    if(std::find(connected_to.begin(), connected_to.end(), other.GetID()) == connected_to.end())
+bool Hotspot::Disconnect(Object& other, bool checking_other /* = false*/) {
+    if (std::find(connected_to.begin(), connected_to.end(), other.GetID()) == connected_to.end())
         return false;
 
     bool return_value = false;
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         args.AddObject(&other);
 
@@ -610,7 +612,7 @@ bool Hotspot::Disconnect(Object& other, bool checking_other/* = false*/) {
         as_context->CallScriptFunction(as_funcs.disconnect, &args, &ret_val);
     }
 
-    if(return_value) {
+    if (return_value) {
         connected_to.erase(std::remove(connected_to.begin(), connected_to.end(), other.GetID()), connected_to.end());
         other.DisconnectedFrom(*this);
     }
@@ -619,7 +621,7 @@ bool Hotspot::Disconnect(Object& other, bool checking_other/* = false*/) {
 }
 
 void Hotspot::ConnectedFrom(Object& other) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         args.AddObject(&other);
         as_context->CallScriptFunction(as_funcs.connected_from, &args);
@@ -628,7 +630,7 @@ void Hotspot::ConnectedFrom(Object& other) {
 }
 
 void Hotspot::DisconnectedFrom(Object& other) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         args.AddObject(&other);
         as_context->CallScriptFunction(as_funcs.disconnected_from, &args);
@@ -642,7 +644,7 @@ CScriptArray* Hotspot::ASGetConnectedObjects() {
     CScriptArray* array = CScriptArray::Create(arrayType);
 
     array->Reserve(connected_to.size());
-    for(int & i : connected_to) {
+    for (int& i : connected_to) {
         array->InsertLast(&i);
     }
     return array;
@@ -653,14 +655,14 @@ bool Hotspot::HasCustomGUI() {
 }
 
 void Hotspot::LaunchCustomGUI() {
-    if(as_context) {
+    if (as_context) {
         as_context->CallScriptFunction(as_funcs.launch_custom_gui);
     }
 }
 
 bool Hotspot::ObjectInspectorReadOnly() {
     bool return_value = false;
-    if(as_context) {
+    if (as_context) {
         ASArg ret_val;
         ret_val.type = _as_bool;
         ret_val.data = &return_value;
@@ -672,7 +674,7 @@ bool Hotspot::ObjectInspectorReadOnly() {
 bool Hotspot::HasFunction(const std::string& function_definition) {
     bool result = false;
 
-    if(as_context) {
+    if (as_context) {
         result = as_context->HasFunction(function_definition);
     }
 
@@ -680,7 +682,7 @@ bool Hotspot::HasFunction(const std::string& function_definition) {
 }
 
 int Hotspot::QueryIntFunction(const std::string& function) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         int val;
         ASArg return_val;
@@ -694,7 +696,7 @@ int Hotspot::QueryIntFunction(const std::string& function) {
 }
 
 bool Hotspot::QueryBoolFunction(const std::string& function) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         bool val;
         ASArg return_val;
@@ -708,7 +710,7 @@ bool Hotspot::QueryBoolFunction(const std::string& function) {
 }
 
 float Hotspot::QueryFloatFunction(const std::string& function) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         float val;
         ASArg return_val;
@@ -722,7 +724,7 @@ float Hotspot::QueryFloatFunction(const std::string& function) {
 }
 
 std::string Hotspot::QueryStringFunction(const std::string& function) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         std::string val;
         ASArg return_val;
@@ -735,80 +737,80 @@ std::string Hotspot::QueryStringFunction(const std::string& function) {
 }
 
 static bool ConnectTo(Hotspot* obj, Object* other) {
-    if(!other)
+    if (!other)
         return false;
     return obj->ConnectTo(*other);
 }
 static bool Disconnect(Hotspot* obj, Object* other) {
-    if(!other)
+    if (!other)
         return false;
     return obj->Disconnect(*other);
 }
 
 void DefineHotspotTypePublic(ASContext* as_context) {
-	as_context->RegisterObjectType("Hotspot", 0, asOBJ_REF | asOBJ_NOCOUNT);
-	as_context->GetEngine()->RegisterInterface("C_ACCEL");
+    as_context->RegisterObjectType("Hotspot", 0, asOBJ_REF | asOBJ_NOCOUNT);
+    as_context->GetEngine()->RegisterInterface("C_ACCEL");
     as_context->RegisterObjectMethod("Hotspot",
-            "int GetID()",
-            asMETHOD(Hotspot, GetID), asCALL_THISCALL);
+                                     "int GetID()",
+                                     asMETHOD(Hotspot, GetID), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "string GetTypeString()",
-            asMETHOD(Hotspot, GetTypeString), asCALL_THISCALL);
+                                     "string GetTypeString()",
+                                     asMETHOD(Hotspot, GetTypeString), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "bool HasVar(string& in name)",
-            asMETHOD(Hotspot, ASHasVar), asCALL_THISCALL);
+                                     "bool HasVar(string& in name)",
+                                     asMETHOD(Hotspot, ASHasVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "bool GetBoolVar(string& in name)",
-            asMETHOD(Hotspot, ASGetBoolVar), asCALL_THISCALL);
+                                     "bool GetBoolVar(string& in name)",
+                                     asMETHOD(Hotspot, ASGetBoolVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "int GetIntVar(string& in name)",
-            asMETHOD(Hotspot, ASGetIntVar), asCALL_THISCALL);
+                                     "int GetIntVar(string& in name)",
+                                     asMETHOD(Hotspot, ASGetIntVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "int GetArrayIntVar(const string &in name, int index)",
-            asMETHOD(Hotspot, ASGetArrayIntVar), asCALL_THISCALL);
+                                     "int GetArrayIntVar(const string &in name, int index)",
+                                     asMETHOD(Hotspot, ASGetArrayIntVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "float GetFloatVar(string& in name)",
-			asMETHOD(Hotspot, ASGetFloatVar), asCALL_THISCALL);
+                                     "float GetFloatVar(string& in name)",
+                                     asMETHOD(Hotspot, ASGetFloatVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "void SetIntVar(string& in name, int value)",
-            asMETHOD(Hotspot, ASSetIntVar), asCALL_THISCALL);
+                                     "void SetIntVar(string& in name, int value)",
+                                     asMETHOD(Hotspot, ASSetIntVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "void SetArrayIntVar(const string &in name, int index, int value)",
-            asMETHOD(Hotspot, ASSetArrayIntVar), asCALL_THISCALL);
+                                     "void SetArrayIntVar(const string &in name, int index, int value)",
+                                     asMETHOD(Hotspot, ASSetArrayIntVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "void SetFloatVar(string& in name, float value)",
-			asMETHOD(Hotspot, ASSetFloatVar), asCALL_THISCALL);
+                                     "void SetFloatVar(string& in name, float value)",
+                                     asMETHOD(Hotspot, ASSetFloatVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "void SetBoolVar(string& in name, bool value)",
-            asMETHOD(Hotspot, ASSetBoolVar), asCALL_THISCALL);
+                                     "void SetBoolVar(string& in name, bool value)",
+                                     asMETHOD(Hotspot, ASSetBoolVar), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "array<int> @GetConnectedObjects()",
-			asMETHOD(Hotspot, ASGetConnectedObjects), asCALL_THISCALL);
+                                     "array<int> @GetConnectedObjects()",
+                                     asMETHOD(Hotspot, ASGetConnectedObjects), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "bool HasFunction(const string &in function_definition)",
-            asMETHOD(Hotspot, HasFunction), asCALL_THISCALL);
+                                     "bool HasFunction(const string &in function_definition)",
+                                     asMETHOD(Hotspot, HasFunction), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "int QueryIntFunction(const string &in function)",
-			asMETHOD(Hotspot, QueryIntFunction), asCALL_THISCALL);
+                                     "int QueryIntFunction(const string &in function)",
+                                     asMETHOD(Hotspot, QueryIntFunction), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "bool QueryBoolFunction(const string &in function)",
-			asMETHOD(Hotspot, QueryBoolFunction), asCALL_THISCALL);
+                                     "bool QueryBoolFunction(const string &in function)",
+                                     asMETHOD(Hotspot, QueryBoolFunction), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "float QueryFloatFunction(const string &in function)",
-			asMETHOD(Hotspot, QueryFloatFunction), asCALL_THISCALL);
+                                     "float QueryFloatFunction(const string &in function)",
+                                     asMETHOD(Hotspot, QueryFloatFunction), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "string QueryStringFunction(const string &in function)",
-			asMETHOD(Hotspot, QueryStringFunction), asCALL_THISCALL);
+                                     "string QueryStringFunction(const string &in function)",
+                                     asMETHOD(Hotspot, QueryStringFunction), asCALL_THISCALL);
     as_context->RegisterObjectMethod("Hotspot",
-            "void SetCollisionEnabled(bool)",
-			asFUNCTION(ASSetCollisionEnabled), asCALL_CDECL_OBJFIRST);
+                                     "void SetCollisionEnabled(bool)",
+                                     asFUNCTION(ASSetCollisionEnabled), asCALL_CDECL_OBJFIRST);
     // Inherited from Object
     as_context->RegisterObjectMethod("Hotspot", "bool ConnectTo(Object@)", asFUNCTION(ConnectTo), asCALL_CDECL_OBJFIRST);
     as_context->RegisterObjectMethod("Hotspot", "bool Disconnect(Object@)", asFUNCTION(Disconnect), asCALL_CDECL_OBJFIRST);
 
-	as_context->RegisterGlobalFunction("void CFireRibbonUpdate(C_ACCEL @, float delta_time, float curr_game_time, vec3 &in pos)",
-		asFUNCTION(CFireRibbonUpdate), asCALL_CDECL);
-	as_context->RegisterGlobalFunction("void CFireRibbonPreDraw(C_ACCEL @, float curr_game_time)",
-		asFUNCTION(CFireRibbonPreDraw), asCALL_CDECL);
+    as_context->RegisterGlobalFunction("void CFireRibbonUpdate(C_ACCEL @, float delta_time, float curr_game_time, vec3 &in pos)",
+                                       asFUNCTION(CFireRibbonUpdate), asCALL_CDECL);
+    as_context->RegisterGlobalFunction("void CFireRibbonPreDraw(C_ACCEL @, float curr_game_time)",
+                                       asFUNCTION(CFireRibbonPreDraw), asCALL_CDECL);
     as_context->DocsCloseBrace();
 }

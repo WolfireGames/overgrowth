@@ -30,13 +30,13 @@ class TiXmlElement;
 struct NavMeshParameters {
     NavMeshParameters();
 
-	bool generate;
+    bool generate;
     float m_cellSize;
-	float m_cellHeight;
-	float m_agentHeight;
-	float m_agentRadius;
-	float m_agentMaxClimb;
-	float m_agentMaxSlope;
+    float m_cellHeight;
+    float m_agentHeight;
+    float m_agentRadius;
+    float m_agentMaxClimb;
+    float m_agentMaxSlope;
 };
 
 void WriteNavMeshParametersToXML(const NavMeshParameters& nmp, TiXmlElement* elem);

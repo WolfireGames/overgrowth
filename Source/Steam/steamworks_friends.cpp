@@ -25,34 +25,31 @@
 
 #if ENABLE_STEAMWORKS
 SteamworksFriends::SteamworksFriends() {
-
 }
 
 SteamworksFriends::~SteamworksFriends() {
-
 }
 
-void SteamworksFriends::ActivateGameOverlay( const char *pchDialog ) {
+void SteamworksFriends::ActivateGameOverlay(const char *pchDialog) {
     SteamFriends()->ActivateGameOverlay(pchDialog);
 }
 
-void SteamworksFriends::ActivateGameOverlayToUser( const char *pchDialog, CSteamID steamID ) { 
+void SteamworksFriends::ActivateGameOverlayToUser(const char *pchDialog, CSteamID steamID) {
     SteamFriends()->ActivateGameOverlayToUser(pchDialog, steamID);
 }
 
-void SteamworksFriends::ActivateGameOverlayToWebPage( const char *pchURL ) {
+void SteamworksFriends::ActivateGameOverlayToWebPage(const char *pchURL) {
     SteamFriends()->ActivateGameOverlayToWebPage(pchURL);
 }
 
 std::vector<CSteamID> SteamworksFriends::GetClans() {
     std::vector<CSteamID> ret;
-    for( int i = 0; i < SteamFriends()->GetClanCount(); i++ ) {
+    for (int i = 0; i < SteamFriends()->GetClanCount(); i++) {
         CSteamID clanid = SteamFriends()->GetClanByIndex(i);
         ret.push_back(clanid);
     }
     return ret;
 }
-
 
 std::string SteamworksFriends::GetPersonaName() {
     return SteamFriends()->GetPersonaName();

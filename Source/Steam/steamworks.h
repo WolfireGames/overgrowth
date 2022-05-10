@@ -32,7 +32,7 @@
 class SteamworksUGCItem;
 
 class Steamworks {
-private:
+   private:
     bool connected;
     bool can_use_workshop;
     bool needs_to_accept_license;
@@ -40,18 +40,18 @@ private:
     int poll_counter;
     const static int poll_freq;
 
-    
     friend class SteamworksUGCItem;
     SteamworksUGC* ugc;
     SteamworksFriends* friends;
     SteamworksMatchmaking* matchmaking;
 
     STEAM_CALLBACK(Steamworks, OnGameOverlayActivated, GameOverlayActivated_t, m_SteamGameOverlayActivated);
-public:
+
+   public:
     static Steamworks* Instance();
 
     Steamworks();
-    
+
     SteamworksFriends* GetFriends();
     SteamworksUGC* GetUGC();
     SteamworksMatchmaking* GetMatchmaking();
@@ -65,8 +65,8 @@ public:
     bool UserNeedsToAcceptWorkshopAgreement();
     bool UserCanAccessWorkshop();
 
-    void OpenWebPageToMod(ModID &id);
-    void OpenWebPageToModAuthor(ModID &id);
+    void OpenWebPageToMod(ModID& id);
+    void OpenWebPageToModAuthor(ModID& id);
     void OpenWebPageToWorkshop();
     void OpenWebPage(const char* url);
 

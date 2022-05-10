@@ -21,19 +21,19 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
-const int kLoadOk                           = 0; //Load succesful
-const int kLoadErrorNoFile                  = 1; //No file specified
-const int kLoadErrorMissingFile             = 2; //File given does not exist on disk
-const int kLoadErrorCouldNotOpen            = 3; //fopen() failed
-const int kLoadErrorCouldNotRead            = 4; //fread() failed
-const int kLoadErrorCorruptFile             = 5; //Internal hash mismatch
-const int kLoadErrorCouldNotOpenXML         = 6; //XML document could not be parsed/loaded
-const int kLoadErrorGeneralFileError        = 7; // Error with loading data from file, unspecific
-const int kLoadErrorIncompleteXML           = 8; //Missing expected values in file
-const int kLoadErrorIncompatibleFileVersion = 9; //File version mismatch from expectation or capability
-const int kLoadErrorMissingSubFile          = 10;//File referenced to by the main file isn't accessible
-const int kLoadErrorInvalidFileEnding       = 11;//Loader demands that the file has a specific file-ending in the path
+const int kLoadOk = 0;                            // Load succesful
+const int kLoadErrorNoFile = 1;                   // No file specified
+const int kLoadErrorMissingFile = 2;              // File given does not exist on disk
+const int kLoadErrorCouldNotOpen = 3;             // fopen() failed
+const int kLoadErrorCouldNotRead = 4;             // fread() failed
+const int kLoadErrorCorruptFile = 5;              // Internal hash mismatch
+const int kLoadErrorCouldNotOpenXML = 6;          // XML document could not be parsed/loaded
+const int kLoadErrorGeneralFileError = 7;         // Error with loading data from file, unspecific
+const int kLoadErrorIncompleteXML = 8;            // Missing expected values in file
+const int kLoadErrorIncompatibleFileVersion = 9;  // File version mismatch from expectation or capability
+const int kLoadErrorMissingSubFile = 10;          // File referenced to by the main file isn't accessible
+const int kLoadErrorInvalidFileEnding = 11;       // Loader demands that the file has a specific file-ending in the path
 
 const char* GetLoadErrorString(int& v);

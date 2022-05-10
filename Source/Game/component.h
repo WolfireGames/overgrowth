@@ -33,13 +33,13 @@ class TiXmlElement;
 namespace Phoenix {
 
 class Component {
-public:
+   public:
     enum ComponentType {
         COLOR_TINT
     };
-    ComponentType type() {return type_;}
-    virtual void SetFromDescription(const EntityDescription& desc)=0;
-    virtual void SaveToXML(TiXmlElement* el)=0;
+    ComponentType type() { return type_; }
+    virtual void SetFromDescription(const EntityDescription& desc) = 0;
+    virtual void SaveToXML(TiXmlElement* el) = 0;
     virtual void ReceiveObjectMessage(OBJECT_MSG::Type msg_type, ...) {
         va_list args;
         va_start(args, msg_type);
@@ -48,8 +48,9 @@ public:
     }
     virtual void ReceiveObjectMessageVAList(OBJECT_MSG::Type msg_type, va_list args) = 0;
     virtual ~Component() {}
-private:
+
+   private:
     ComponentType type_;
 };
 
-}
+}  // namespace Phoenix

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: palette.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,7 +28,11 @@
 #include <string>
 #include <vector>
 
-enum PaletteChannel{_pm_red, _pm_green, _pm_blue, _pm_alpha, _pm_other};
+enum PaletteChannel { _pm_red,
+                      _pm_green,
+                      _pm_blue,
+                      _pm_alpha,
+                      _pm_other };
 
 const int max_palette_elements = 5;
 
@@ -41,7 +45,7 @@ struct LabeledColor {
 typedef std::vector<LabeledColor> OGPalette;
 
 class TiXmlElement;
-void ReadPaletteFromXML( OGPalette &palette, const TiXmlElement* palette_el );
-void WritePaletteToXML( const OGPalette & palette, TiXmlElement* palette_el );
-void ReadPaletteFromRAM( OGPalette &palette, const std::vector<char> &data );
-void WritePaletteToRAM( const OGPalette& palette, std::vector<char> &data );
+void ReadPaletteFromXML(OGPalette &palette, const TiXmlElement *palette_el);
+void WritePaletteToXML(const OGPalette &palette, TiXmlElement *palette_el);
+void ReadPaletteFromRAM(OGPalette &palette, const std::vector<char> &data);
+void WritePaletteToRAM(const OGPalette &palette, std::vector<char> &data);

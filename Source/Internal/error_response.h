@@ -23,7 +23,12 @@
 #pragma once
 
 /// Return type to report whether 'retry' or 'continue' was clicked
-enum ErrorResponse {_retry, _continue, _er_exit};
+enum ErrorResponse { _retry,
+                     _continue,
+                     _er_exit };
 
 /// Used as a parameter to choose which buttons an error box should have
-enum ErrorType {_ok_cancel_retry, _ok_cancel, _ok, _ok_no_log};
+enum ErrorType { _ok_cancel_retry,
+                 _ok_cancel,
+                 _ok,
+                 _ok_no_log };

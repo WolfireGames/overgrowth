@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: ping.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,42 +25,39 @@
 #include <Online/online.h>
 
 namespace OnlineMessages {
-    Ping::Ping(uint32_t ping_id) :
-        OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
-        ping_id(ping_id)
-    {
+Ping::Ping(uint32_t ping_id) : OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
+                               ping_id(ping_id) {
+}
 
-    }
+binn* Ping::Serialize(void* object) {
+    Ping* p = static_cast<Ping*>(object);
+    binn* l = binn_object();
 
-    binn* Ping::Serialize(void* object) {
-        Ping *p = static_cast<Ping*>(object);
-        binn* l = binn_object();
+    binn_object_set_uint32(l, "id", p->ping_id);
 
-        binn_object_set_uint32(l, "id", p->ping_id);
+    return l;
+}
 
-        return l;
-    }
+void Ping::Deserialize(void* object, binn* l) {
+    Ping* p = static_cast<Ping*>(object);
 
-    void Ping::Deserialize(void* object, binn* l) {
-        Ping *p = static_cast<Ping*>(object);
+    binn_object_get_uint32(l, "id", &p->ping_id);
+}
 
-        binn_object_get_uint32(l, "id", &p->ping_id);
-    }
-
-    void Ping::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        Ping *p = static_cast<Ping*>(object);
-        Peer* peer = Online::Instance()->GetPeerFromID(from);
-        if(peer != nullptr) {
-            Online::Instance()->SendTo<OnlineMessages::Pong>(peer->conn_id, p->ping_id);
-        }
-    }
-
-    void* Ping::Construct(void* mem) {
-        return new(mem) Ping(std::numeric_limits<uint32_t>::max());
-    }
-
-    void Ping::Destroy(void* object) {
-        Ping *p = static_cast<Ping*>(object);
-        p->~Ping();
+void Ping::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    Ping* p = static_cast<Ping*>(object);
+    Peer* peer = Online::Instance()->GetPeerFromID(from);
+    if (peer != nullptr) {
+        Online::Instance()->SendTo<OnlineMessages::Pong>(peer->conn_id, p->ping_id);
     }
 }
+
+void* Ping::Construct(void* mem) {
+    return new (mem) Ping(std::numeric_limits<uint32_t>::max());
+}
+
+void Ping::Destroy(void* object) {
+    Ping* p = static_cast<Ping*>(object);
+    p->~Ping();
+}
+}  // namespace OnlineMessages

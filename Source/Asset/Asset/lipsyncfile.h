@@ -32,7 +32,6 @@
 #include <string>
 #include <map>
 
-
 struct KeyWeight {
     int id;
     float weight;
@@ -44,8 +43,8 @@ struct LipSyncKey {
 };
 
 class LipSyncFile : public Asset {
-public:
-    LipSyncFile(AssetManager* owner, uint32_t asset_id);    
+   public:
+    LipSyncFile(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return LIP_SYNC_FILE_ASSET; }
     static const char* GetTypeName() { return "LIP_SYNC_FILE_ASSET"; }
     static bool AssetWarning() { return true; }
@@ -54,12 +53,12 @@ public:
     float time_bound[2];
 
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
-    void GetWeights(float time, int &marker, std::vector<KeyWeight> &weights );
+    void GetWeights(float time, int& marker, std::vector<KeyWeight>& weights);
 
     AssetLoaderBase* NewLoader() override;
 };
@@ -75,11 +74,12 @@ class LipSyncFileReader {
     std::vector<KeyWeight> vis_weights;
     std::map<int, std::string> id2morph;
     std::map<std::string, float> morph_weights;
-public:
+
+   public:
     void Update(float timestep);
     bool valid();
     void AttachTo(LipSyncFileRef& _ls_ref);
     void UpdateWeights();
-    void SetVisemeMorphs( const std::map<std::string, std::string> &vis2morph );
+    void SetVisemeMorphs(const std::map<std::string, std::string>& vis2morph);
     std::map<std::string, float>& GetMorphWeights();
 };

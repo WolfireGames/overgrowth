@@ -24,25 +24,21 @@
 #include "Internal/filesystem.h"
 #include "Logging/logdata.h"
 
-std::vector<Item> ObjHullSeeker::Search(const Item& item )
-{
+std::vector<Item> ObjHullSeeker::Search(const Item& item) {
     std::vector<Item> items;
     std::string full_path;
 
     full_path = item.GetAbsPath();
-    full_path = full_path.substr(0,full_path.length()-4) + "HULL.obj";
-    if( CheckFileAccess(full_path.c_str()) )
-    {
-        items.push_back(Item( item.input_folder, item.GetPath().substr(0,item.path.length()-4) + "HULL.obj", "model_hull", item.source ));
+    full_path = full_path.substr(0, full_path.length() - 4) + "HULL.obj";
+    if (CheckFileAccess(full_path.c_str())) {
+        items.push_back(Item(item.input_folder, item.GetPath().substr(0, item.path.length() - 4) + "HULL.obj", "model_hull", item.source));
     }
 
     full_path = item.GetAbsPath();
-    full_path = full_path.substr(0,full_path.length()-4) + "hull.obj";
-    if( CheckFileAccess(full_path.c_str()) )
-    {
-        items.push_back(Item( item.input_folder, item.GetPath().substr(0,item.path.length()-4) + "hull.obj", "model_hull", item.source ));
+    full_path = full_path.substr(0, full_path.length() - 4) + "hull.obj";
+    if (CheckFileAccess(full_path.c_str())) {
+        items.push_back(Item(item.input_folder, item.GetPath().substr(0, item.path.length() - 4) + "hull.obj", "model_hull", item.source));
     }
 
     return items;
 }
-

@@ -30,25 +30,25 @@ class JobHandler;
 class Builder;
 class Item;
 
-class Manifest
-{
+class Manifest {
     int thread;
     std::vector<ManifestResult> results;
     std::set<uint64_t> hash_set;
-public:
+
+   public:
     Manifest(int thread);
     bool Load(const std::string& manifest);
     bool Save(const std::string& manifest);
-    void AddResult( const ManifestResult& results );
+    void AddResult(const ManifestResult& results);
     bool HasError();
 
     std::vector<std::string> GetDestinationFiles();
 
-    bool IsUpToDate( JobHandler& jh, const Item& item, const Builder& builder );
-    ManifestResult GetPreviouslyBuiltResult( const Item& item, const Builder& builder);
+    bool IsUpToDate(JobHandler& jh, const Item& item, const Builder& builder);
+    ManifestResult GetPreviouslyBuiltResult(const Item& item, const Builder& builder);
 
-    void PrecalculateCurrentDestinationHashes( const std::string& dest_path );
+    void PrecalculateCurrentDestinationHashes(const std::string& dest_path);
 
-    std::vector<ManifestResult>::const_iterator ResultsBegin() const; 
-    std::vector<ManifestResult>::const_iterator ResultsEnd() const; 
+    std::vector<ManifestResult>::const_iterator ResultsBegin() const;
+    std::vector<ManifestResult>::const_iterator ResultsEnd() const;
 };

@@ -38,9 +38,9 @@ class SaveFile;
 class ASContext;
 
 class ScriptableCampaign {
-private:
+   private:
     std::string campaign_id;
-	ASContext *as_context;
+    ASContext *as_context;
 
     struct {
         ASFunctionHandle init;
@@ -55,8 +55,7 @@ private:
         ASFunctionHandle set_window_dimensions;
     } as_funcs;
 
-public:
-
+   public:
     ScriptableCampaign();
     ~ScriptableCampaign();
 
@@ -64,7 +63,7 @@ public:
     void Dispose();
 
     void Update();
-    
+
     void EnterCampaign();
     void LeaveCampaign();
     void EnterLevel();

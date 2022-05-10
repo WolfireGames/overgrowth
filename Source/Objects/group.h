@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: group.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,13 +29,13 @@
 #include <Objects/object.h>
 
 class Group : public Object {
-public:
-	struct Child {
-		Object* direct_ptr;
-		vec3 rel_translation;
-		quaternion rel_rotation;
-		vec3 rel_scale;
-	};
+   public:
+    struct Child {
+        Object* direct_ptr;
+        vec3 rel_translation;
+        quaternion rel_rotation;
+        vec3 rel_scale;
+    };
     std::vector<Child> children;
     bool child_transforms_need_update;
     bool child_moved;
@@ -43,33 +43,33 @@ public:
     Group();
     bool Initialize() override;
     ~Group() override;
-    int lineCheck(const vec3 &start, const vec3 &end, vec3 *point, vec3 *normal=0) override;
+    int lineCheck(const vec3& start, const vec3& end, vec3* point, vec3* normal = 0) override;
     EntityType GetType() const override { return _group; }
-    bool SetFromDesc( const EntityDescription &desc ) override;
+    bool SetFromDesc(const EntityDescription& desc) override;
     void PreDrawCamera(float curr_game_time) override;
     void PreDrawFrame(float curr_game_time) override;
     void Moved(Object::MoveType type) override;
-    void GetDesc(EntityDescription &desc) const override;
+    void GetDesc(EntityDescription& desc) const override;
     void ChildMoved(Object::MoveType type) override;
-    void ChildLost(Object *obj) override;
+    void ChildLost(Object* obj) override;
     void UpdateParentHierarchy() override;
     void PropagateTransformsDown(bool deep) override;
     void GetDisplayName(char* buf, int buf_size) override;
     void SetEnabled(bool val) override;
-	virtual void InitShape();
-	virtual void InitRelMats();
-	void FinalizeLoadedConnections() override;
+    virtual void InitShape();
+    virtual void InitRelMats();
+    void FinalizeLoadedConnections() override;
     void GetChildren(std::vector<Object*>* ret_children) override;
     void GetBottomUpCompleteChildren(std::vector<Object*>* ret_children) override;
     void GetTopDownCompleteChildren(std::vector<Object*>* ret_children) override;
     virtual void HandleTransformationOccured();
     void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
-    void Update(float timestep) override{}
-    void RemapReferences(std::map<int,int> id_map) override;
-	void SetTranslationRotationFast(const vec3& trans, const quaternion& rotation) override;
-	void PropagateTransformsDownFast(bool deep);
+    void Update(float timestep) override {}
+    void RemapReferences(std::map<int, int> id_map) override;
+    void SetTranslationRotationFast(const vec3& trans, const quaternion& rotation) override;
+    void PropagateTransformsDownFast(bool deep);
 
-    bool IsGroupDerived() const override {return true;}
+    bool IsGroupDerived() const override { return true; }
 
     ObjectSanityState GetSanity() override;
 };

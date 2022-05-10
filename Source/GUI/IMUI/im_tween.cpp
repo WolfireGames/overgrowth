@@ -1,13 +1,13 @@
 //-----------------------------------------------------------------------------
 //           Name: im_tween.cpp
 //      Developer: Wolfire Games LLC
-//    Description: A collection of tweening functions 
+//    Description: A collection of tweening functions
 //        License: Read below
 //-----------------------------------------------------------------------------
 /*******
- *  
+ *
  * Based on tween.lua by Enrique García Cota (https://github.com/kikito/tween.lua)
- * 
+ *
  * Original license (for this file):
  *
  *  MIT LICENSE
@@ -74,173 +74,139 @@ InBounceTween inBounceTween_inst;
 InOutBounceTween inOutBounceTween_inst;
 OutInBounceTween outInBounceTween_inst;
 
-IMTween* getTweenInstance( IMTweenType tweenType ) {
-    switch(tweenType) {
-		case linearTween: { 
-			return (IMTween*) &linearTween_inst;
-		}
-		break;
+IMTween* getTweenInstance(IMTweenType tweenType) {
+    switch (tweenType) {
+        case linearTween: {
+            return (IMTween*)&linearTween_inst;
+        } break;
 
-		case inQuadTween: { 
-			return (IMTween*) &inQuadTween_inst;
-		}
-		break;
+        case inQuadTween: {
+            return (IMTween*)&inQuadTween_inst;
+        } break;
 
-		case outQuadTween: { 
-			return (IMTween*) &outQuadTween_inst;
-		}
-		break;
+        case outQuadTween: {
+            return (IMTween*)&outQuadTween_inst;
+        } break;
 
-		case inOutQuadTween: { 
-			return (IMTween*) &inOutQuadTween_inst;
-		}
-		break;
+        case inOutQuadTween: {
+            return (IMTween*)&inOutQuadTween_inst;
+        } break;
 
-		case outInQuadTween: { 
-			return (IMTween*) &outInQuadTween_inst;
-		}
-		break;
+        case outInQuadTween: {
+            return (IMTween*)&outInQuadTween_inst;
+        } break;
 
-		case inCubicTween: { 
-			return (IMTween*) &inCubicTween_inst;
-		}
-		break;
+        case inCubicTween: {
+            return (IMTween*)&inCubicTween_inst;
+        } break;
 
-		case outCubicTween: { 
-			return (IMTween*) &outCubicTween_inst;
-		}
-		break;
+        case outCubicTween: {
+            return (IMTween*)&outCubicTween_inst;
+        } break;
 
-		case inOutCubicTween: { 
-			return (IMTween*) &inOutCubicTween_inst;
-		}
-		break;
+        case inOutCubicTween: {
+            return (IMTween*)&inOutCubicTween_inst;
+        } break;
 
-		case outInCubicTween: { 
-			return (IMTween*) &outInCubicTween_inst;
-		}
-		break;
+        case outInCubicTween: {
+            return (IMTween*)&outInCubicTween_inst;
+        } break;
 
-		case inQuartTween: { 
-			return (IMTween*) &inQuartTween_inst;
-		}
-		break;
+        case inQuartTween: {
+            return (IMTween*)&inQuartTween_inst;
+        } break;
 
-		case outQuartTween: { 
-			return (IMTween*) &outQuartTween_inst;
-		}
-		break;
+        case outQuartTween: {
+            return (IMTween*)&outQuartTween_inst;
+        } break;
 
-		case inOutQuartTween: { 
-			return (IMTween*) &inOutQuartTween_inst;
-		}
-		break;
+        case inOutQuartTween: {
+            return (IMTween*)&inOutQuartTween_inst;
+        } break;
 
-		case outInQuartTween: { 
-			return (IMTween*) &outInQuartTween_inst;
-		}
-		break;
+        case outInQuartTween: {
+            return (IMTween*)&outInQuartTween_inst;
+        } break;
 
-		case inQuintTween: { 
-			return (IMTween*) &inQuintTween_inst;
-		}
-		break;
+        case inQuintTween: {
+            return (IMTween*)&inQuintTween_inst;
+        } break;
 
-		case outQuintTween: { 
-			return (IMTween*) &outQuintTween_inst;
-		}
-		break;
+        case outQuintTween: {
+            return (IMTween*)&outQuintTween_inst;
+        } break;
 
-		case inOutQuintTween: { 
-			return (IMTween*) &inOutQuintTween_inst;
-		}
-		break;
+        case inOutQuintTween: {
+            return (IMTween*)&inOutQuintTween_inst;
+        } break;
 
-		case outInQuintTween: { 
-			return (IMTween*) &outInQuintTween_inst;
-		}
-		break;
+        case outInQuintTween: {
+            return (IMTween*)&outInQuintTween_inst;
+        } break;
 
-		case inSineTween: { 
-			return (IMTween*) &inSineTween_inst;
-		}
-		break;
+        case inSineTween: {
+            return (IMTween*)&inSineTween_inst;
+        } break;
 
-		case outSineTween: { 
-			return (IMTween*) &outSineTween_inst;
-		}
-		break;
+        case outSineTween: {
+            return (IMTween*)&outSineTween_inst;
+        } break;
 
-		case inOutSineTween: { 
-			return (IMTween*) &inOutSineTween_inst;
-		}
-		break;
+        case inOutSineTween: {
+            return (IMTween*)&inOutSineTween_inst;
+        } break;
 
-		case outInSineTween: { 
-			return (IMTween*) &outInSineTween_inst;
-		}
-		break;
+        case outInSineTween: {
+            return (IMTween*)&outInSineTween_inst;
+        } break;
 
-		case inExpoTween: { 
-			return (IMTween*) &inExpoTween_inst;
-		}
-		break;
+        case inExpoTween: {
+            return (IMTween*)&inExpoTween_inst;
+        } break;
 
-		case outExpoTween: { 
-			return (IMTween*) &outExpoTween_inst;
-		}
-		break;
+        case outExpoTween: {
+            return (IMTween*)&outExpoTween_inst;
+        } break;
 
-		case inOutExpoTween: { 
-			return (IMTween*) &inOutExpoTween_inst;
-		}
-		break;
+        case inOutExpoTween: {
+            return (IMTween*)&inOutExpoTween_inst;
+        } break;
 
-		case outInExpoTween: { 
-			return (IMTween*) &outInExpoTween_inst;
-		}
-		break;
+        case outInExpoTween: {
+            return (IMTween*)&outInExpoTween_inst;
+        } break;
 
-		case inCircTween: { 
-			return (IMTween*) &inCircTween_inst;
-		}
-		break;
+        case inCircTween: {
+            return (IMTween*)&inCircTween_inst;
+        } break;
 
-		case outCircTween: { 
-			return (IMTween*) &outCircTween_inst;
-		}
-		break;
+        case outCircTween: {
+            return (IMTween*)&outCircTween_inst;
+        } break;
 
-		case inOutCircTween: { 
-			return (IMTween*) &inOutCircTween_inst;
-		}
-		break;
+        case inOutCircTween: {
+            return (IMTween*)&inOutCircTween_inst;
+        } break;
 
-		case outInCircTween: { 
-			return (IMTween*) &outInCircTween_inst;
-		}
-		break;
+        case outInCircTween: {
+            return (IMTween*)&outInCircTween_inst;
+        } break;
 
-		case outBounceTween: { 
-			return (IMTween*) &outBounceTween_inst;
-		}
-		break;
+        case outBounceTween: {
+            return (IMTween*)&outBounceTween_inst;
+        } break;
 
-		case inBounceTween: { 
-			return (IMTween*) &inBounceTween_inst;
-		}
-		break;
+        case inBounceTween: {
+            return (IMTween*)&inBounceTween_inst;
+        } break;
 
-		case inOutBounceTween: { 
-			return (IMTween*) &inOutBounceTween_inst;
-		}
-		break;
+        case inOutBounceTween: {
+            return (IMTween*)&inOutBounceTween_inst;
+        } break;
 
-		case outInBounceTween: { 
-			return (IMTween*) &outInBounceTween_inst;
-		}
-		break;
-
-	}
+        case outInBounceTween: {
+            return (IMTween*)&outInBounceTween_inst;
+        } break;
+    }
     return NULL;
 }

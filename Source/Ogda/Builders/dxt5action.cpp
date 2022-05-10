@@ -32,14 +32,13 @@
 #include <Internal/filesystem.h>
 #include <Internal/datemodified.h>
 
-ManifestResult DXT5Action::Run(const JobHandler& jh, const Item& item)
-{
+ManifestResult DXT5Action::Run(const JobHandler& jh, const Item& item) {
     std::string full_source_path = item.GetAbsPath();
     std::string partial_dest_path = item.GetPath() + "_converted.dds";
-    std::string full_dest_path = AssemblePath( jh.output_folder, partial_dest_path );
-    std::string temp_path = AssemblePath( jh.output_folder, partial_dest_path + ".tmp" );
+    std::string full_dest_path = AssemblePath(jh.output_folder, partial_dest_path);
+    std::string temp_path = AssemblePath(jh.output_folder, partial_dest_path + ".tmp");
 
-    bool suc = ConvertImage( full_source_path, full_dest_path, temp_path, TextureData::Nice );
+    bool suc = ConvertImage(full_source_path, full_dest_path, temp_path, TextureData::Nice);
 
     return ManifestResult(jh, item, partial_dest_path, suc, *this, "dxt5");
 }

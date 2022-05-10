@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: movementobject.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -70,20 +70,18 @@ struct VoiceQueue {
     std::string path;
     float delay;
     float pitch;
-    VoiceQueue(const std::string &_path, float _delay, float _pitch):
-        path(_path),
-        delay(_delay),
-        pitch(_pitch)
-    {}
+    VoiceQueue(const std::string& _path, float _delay, float _pitch) : path(_path),
+                                                                       delay(_delay),
+                                                                       pitch(_pitch) {}
 };
 
 class AttackHistory {
-public:
-    void Add(const std::string &str);
-    float Check(const std::string &str);
+   public:
+    void Add(const std::string& str);
+    float Check(const std::string& str);
     void Clear();
 
-private:
+   private:
     struct AttackHistoryEntry {
         AttackScriptGetter attack_script_getter;
         float time;
@@ -95,11 +93,11 @@ private:
     OuterTransitionMap transitions;
 };
 
-class MovementObject: public Object {
-public: 
+class MovementObject : public Object {
+   public:
     float mp_time = 0.0;
     float tickRate = 0.0;
-    bool angle_script_ready; 
+    bool angle_script_ready;
     const static int _awake;
     const static int _unconscious;
     const static int _dead;
@@ -134,7 +132,7 @@ public:
     OGPalette palette;
     int connected_pathpoint_id;
     std::vector<ItemConnection> item_connection_vec;
-    std::map<int,int> connection_finalization_remap;
+    std::map<int, int> connection_finalization_remap;
     bool do_connection_finalization_remap;
     std::list<ItemObjectScriptReader> item_connections;
     int update_script_counter;
@@ -148,7 +146,7 @@ public:
     std::string object_pc_script_path;
 
     std::string nametag_string;
-	vec3 nametag_last_position;
+    vec3 nametag_last_position;
 
     std::unique_ptr<ASCollisions> as_collisions;
 
@@ -162,7 +160,7 @@ public:
     vec3 position;
     vec3 velocity;
 
-	double delta = 0.0;
+    double delta = 0.0;
     bool needs_predraw_update;
     float reset_time;
 
@@ -177,7 +175,7 @@ public:
     ~MovementObject() override;
 
     bool Initialize() override;
-	bool InitializeMultiplayer();
+    bool InitializeMultiplayer();
     void GetShaderNames(std::map<std::string, int>& shaders) override;
 
     void Update(float timestep) override;
@@ -186,38 +184,38 @@ public:
     virtual void HandleTransformationOccured();
     void PreDrawFrame(float curr_game_time) override;
 
-	void Reload() override;
-	void ActualPreDraw(float curr_game_time);
+    void Reload() override;
+    void ActualPreDraw(float curr_game_time);
     void NotifyDeleted(Object* other) override;
     bool ConnectTo(Object& other, bool checking_other = false) override;
     bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
     bool Disconnect(Object& other, bool from_socket = false, bool checking_other = false) override;
     void FinalizeLoadedConnections() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc(const EntityDescription &desc) override;
-    void ChangeControlScript(const std::string &script_path);
-    void CollideWith( MovementObject* other );
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
+    void ChangeControlScript(const std::string& script_path);
+    void CollideWith(MovementObject* other);
     void ASSetScriptUpdatePeriod(int val);
     bool HasFunction(const std::string& function_definition);
     int QueryIntFunction(std::string func);
-    void SetScriptParams( const ScriptParamMap& spm ) override;
-    void ApplyPalette( const OGPalette& palette, bool from_socket = false );
-    OGPalette *GetPalette() override;
-    void HitByItem( int id, const vec3 &point, const std::string &material, int type );
+    void SetScriptParams(const ScriptParamMap& spm) override;
+    void ApplyPalette(const OGPalette& palette, bool from_socket = false);
+    OGPalette* GetPalette() override;
+    void HitByItem(int id, const vec3& point, const std::string& material, int type);
     void Execute(std::string);
-    float ASGetFloatVar( std::string name );
-    bool ASGetBoolVar( std::string name );
-    bool ASHasVar( std::string name );
-    int ASGetIntVar( std::string name );
-    int ASGetArrayIntVar( std::string name, int index );
-    void ASSetIntVar( std::string name, int value );
-    void ASSetArrayIntVar( std::string name, int index, int value );
-    void ASSetFloatVar( std::string name, float value );
-    void ASSetBoolVar( std::string name, bool value );
-    void Dispose( ) override;
+    float ASGetFloatVar(std::string name);
+    bool ASGetBoolVar(std::string name);
+    bool ASHasVar(std::string name);
+    int ASGetIntVar(std::string name);
+    int ASGetArrayIntVar(std::string name, int index);
+    void ASSetIntVar(std::string name, int value);
+    void ASSetArrayIntVar(std::string name, int index, int value);
+    void ASSetFloatVar(std::string name, float value);
+    void ASSetBoolVar(std::string name, bool value);
+    void Dispose() override;
     bool ASOnSameTeam(MovementObject* other);
-    void AttachItemToSlot( int which, AttachmentType type, bool mirrored );
-    void AttachItemToSlotEditor( int which, AttachmentType type, bool mirrored, const AttachmentRef& attachment_ref, bool from_socket = false );
+    void AttachItemToSlot(int which, AttachmentType type, bool mirrored);
+    void AttachItemToSlotEditor(int which, AttachmentType type, bool mirrored, const AttachmentRef& attachment_ref, bool from_socket = false);
     void RemovePhysicsShapes();
     void ReceiveMessage(std::string msg);
     void UpdateScriptParams() override;
@@ -225,40 +223,41 @@ public:
     void GetDisplayName(char* buf, int buf_size) override;
     RiggedObject* rigged_object();
 
-    void RemapReferences(std::map<int,int> id_map) override;
+    void RemapReferences(std::map<int, int> id_map) override;
 
     void GetConnectionIDs(std::vector<int>* cons) override;
 
     void UpdatePaused();
     int AboutToBeHitByItem(int id);
 
-	int InputFromAngelScript();
+    int InputFromAngelScript();
 
     const std::string& GetCurrentControlScript() const { return current_control_script_path; }
     const std::string& GetActorScript() const { return actor_script_path; }
     const std::string& GetNPCObjectScript() const { return object_npc_script_path; }
     const std::string& GetPCObjectScript() const { return object_pc_script_path; }
-	vec3 facing;
-	vec3 GetFacing();
-	float GetTempHealth();
-	void addAngelScriptUpdate(uint32_t state, std::vector<uint32_t> data);
-	std::vector<std::pair<uint32_t, std::vector<uint32_t>>> angelscript_update;
-	void SetCharAnimation(const std::string &path, float fade_speed = _default_fade_speed, char flags = 0);
-	void SetAnimAndCharAnim(std::string path, float fade_speed, char flags, std::string anim_path);
-	std::string GetTeamString();
+    vec3 facing;
+    vec3 GetFacing();
+    float GetTempHealth();
+    void addAngelScriptUpdate(uint32_t state, std::vector<uint32_t> data);
+    std::vector<std::pair<uint32_t, std::vector<uint32_t>>> angelscript_update;
+    void SetCharAnimation(const std::string& path, float fade_speed = _default_fade_speed, char flags = 0);
+    void SetAnimAndCharAnim(std::string path, float fade_speed, char flags, std::string anim_path);
+    std::string GetTeamString();
     void StartPoseAnimation(std::string path);
-private:
+
+   private:
     std::unique_ptr<RiggedObject> rigged_object_;
     std::string current_control_script_path;
     std::string actor_script_path;
     BulletObject* char_sphere;
     AttackHistory attack_history;
 
-	uint64_t last_timestamp = 0;
+    uint64_t last_timestamp = 0;
 
     struct {
         ASFunctionHandle init;
-		ASFunctionHandle init_multiplayer;
+        ASFunctionHandle init_multiplayer;
         ASFunctionHandle is_multiplayer_supported;
         ASFunctionHandle set_parameters;
         ASFunctionHandle handle_editor_attachment;
@@ -272,7 +271,7 @@ private:
         ASFunctionHandle pre_draw_frame;
         ASFunctionHandle pre_draw_camera;
         ASFunctionHandle update;
-		ASFunctionHandle update_multiplayer;
+        ASFunctionHandle update_multiplayer;
         ASFunctionHandle force_applied;
         ASFunctionHandle get_temp_health;
         ASFunctionHandle was_hit;
@@ -285,24 +284,24 @@ private:
         ASFunctionHandle receive_message;
         ASFunctionHandle update_paused;
         ASFunctionHandle about_to_be_hit_by_item;
-		ASFunctionHandle InputToEngine;
-		ASFunctionHandle apply_host_input;
-		ASFunctionHandle apply_host_camera_flat_facing;
-		ASFunctionHandle set_damage_time_from_socket;
-		ASFunctionHandle set_damage_blood_time_from_socket;
+        ASFunctionHandle InputToEngine;
+        ASFunctionHandle apply_host_input;
+        ASFunctionHandle apply_host_camera_flat_facing;
+        ASFunctionHandle set_damage_time_from_socket;
+        ASFunctionHandle set_damage_blood_time_from_socket;
         ASFunctionHandle reset_waypoint_target;
         ASFunctionHandle dispose;
         ASFunctionHandle pre_draw_camera_no_cull;
-		ASFunctionHandle register_mp_callbacks;
-		ASFunctionHandle start_pose;
+        ASFunctionHandle register_mp_callbacks;
+        ASFunctionHandle start_pose;
     } as_funcs;
 
     const char* shader;
 
     void ReInitializeASFunctions();
 
-	void RegisterMPCallbacks() const;
-    void Collided( const vec3& pos, float impulse, const CollideInfo &collide_info, BulletObject* object ) override;
+    void RegisterMPCallbacks() const;
+    void Collided(const vec3& pos, float impulse, const CollideInfo& collide_info, BulletObject* object) override;
     void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type) override;
     void PreDrawCamera(float curr_game_time) override;
     void GoLimp();
@@ -314,7 +313,7 @@ private:
     void SetAnimation(std::string path);
     void SetAnimation(std::string path, float fade_speed, char flags);
     void SwapAnimation(std::string path);
-    void HandleMaterialEvent(std::string the_event, vec3 event_pos, float gain=1.0f);
+    void HandleMaterialEvent(std::string the_event, vec3 event_pos, float gain = 1.0f);
 
     vec4 GetAvgRotationVec4();
     int ASWasHit(std::string type, std::string attack_path, vec3 dir, vec3 pos, int attacker_id, float attack_damage_mult, float attack_knockback_mult);
@@ -323,27 +322,27 @@ private:
     void MaterialParticleAtBone(std::string type, std::string bone_name);
     void CreateRiggedObject();
     void RecreateRiggedObject(std::string _char_path);
-    void ASDetachItem( int which );
+    void ASDetachItem(int which);
     void HandleMaterialEventDefault(std::string the_event, vec3 event_pos);
     void ForceSoundGroupVoice(std::string path, float delay);
     int GetWaypointTarget();
-    void Reset() override; 
+    void Reset() override;
     void SetRotationFromEditorTransform();
     void ASSetCharAnimation(std::string path, float fade_speed, char flags);
     void ASSetCharAnimation(std::string path, float fade_speed);
     void ASSetCharAnimation(std::string path);
     void StopVoice();
-    void InvalidatedItem(ItemObjectScriptReader *invalidated);
-    static void InvalidatedItemCallback(ItemObjectScriptReader *invalidated, void* this_ptr);
+    void InvalidatedItem(ItemObjectScriptReader* invalidated);
+    static void InvalidatedItemCallback(ItemObjectScriptReader* invalidated, void* this_ptr);
     void ASDetachAllItems();
-    bool OnTeam(const std::string &other_team);
+    bool OnTeam(const std::string& other_team);
     void SetEnabled(bool val) override;
-    void AttachItemToSlotAttachmentRef( int which, AttachmentType type, bool mirrored, const AttachmentRef* ref, bool from_socket = false );
-    void AddToAttackHistory(const std::string &str);
-    float CheckAttackHistory( const std::string &str);
+    void AttachItemToSlotAttachmentRef(int which, AttachmentType type, bool mirrored, const AttachmentRef* ref, bool from_socket = false);
+    void AddToAttackHistory(const std::string& str);
+    float CheckAttackHistory(const std::string& str);
     void ClearAttackHistory();
-    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
-    void OverrideCharAnim(const std::string &label, const std::string &new_path);
+    void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
+    void OverrideCharAnim(const std::string& label, const std::string& new_path);
     void UpdateWeapons();
     void Moved(Object::MoveType type) override;
     void ChildLost(Object* obj) override;
@@ -353,9 +352,9 @@ private:
     void RegenerateNametag();
     void DrawNametag();
 
-public:
+   public:
     void PlaySoundGroupVoice(std::string path, float delay);
 };
 
-mat4 RotationFromVectors(const vec3 &front, const vec3 &right, const vec3 &up);
+mat4 RotationFromVectors(const vec3& front, const vec3& right, const vec3& up);
 void DefineMovementObjectTypePublic(ASContext* as_context);

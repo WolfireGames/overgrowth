@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: gui.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,7 +30,7 @@
 #include <string>
 
 class GUI {
-public:
+   public:
     struct DebugTextEntry {
         std::string text;
         uint32_t delete_time;

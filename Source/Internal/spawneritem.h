@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: spawneritem.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,7 +25,7 @@
 #include <string>
 
 struct SpawnerItem {
-    SpawnerItem( std::string mod_source_title, std::string display_name, std::string path, std::string thumbnail );
+    SpawnerItem(std::string mod_source_title, std::string display_name, std::string path, std::string thumbnail);
     SpawnerItem();
     std::string mod_source_title;
     std::string display_name;
@@ -33,4 +33,4 @@ struct SpawnerItem {
     std::string thumbnail_path;
 };
 
-bool operator==( const SpawnerItem& a, const SpawnerItem& b );
+bool operator==(const SpawnerItem& a, const SpawnerItem& b);

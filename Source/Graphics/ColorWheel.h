@@ -3,7 +3,7 @@
 //      Developer: Wolfire Games LLC
 //         Author: Phillip Isola
 //    Description: Radial parameterization of color; color theory functions.
-//                   Hue parameterized by angle in degrees. Saturation and value 
+//                   Hue parameterized by angle in degrees. Saturation and value
 //                   parameterized by range [0,1].
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -30,7 +30,7 @@
 
 vec4 HSVtoRGB(float h, float s, float v);
 void RGBtoHSV(const vec4& rgb, float& h, float& s, float& v);
-vec3 RGBtoHSV(const vec3 &rgb);
+vec3 RGBtoHSV(const vec3& rgb);
 vec4 GetComplementRGB(const vec4& rgb);
 vec4 RotateHueRGB(const vec4& rgb, float angle);
 void GetComplementHSV(float& h, float& s, float& v);

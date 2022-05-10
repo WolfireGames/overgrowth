@@ -24,7 +24,5 @@
 
 #include "readerbase.h"
 
-class LevelReader: public ReaderBase
-{
-    
+class LevelReader : public ReaderBase {
 };

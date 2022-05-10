@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pathpointobject.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -32,28 +32,26 @@
 // Class Definition
 //-----------------------------------------------------------------------------
 
-class PathPointObject: public Object
-{
-public:
+class PathPointObject : public Object {
+   public:
     EntityType GetType() const override { return _path_point_object; }
     std::vector<int> connection_ids;
 
     PathPointObject();
-    
+
     bool ConnectTo(Object& other, bool checking_other = false) override;
     bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
-    virtual bool Disconnect( Object& other, bool checking_other = false );
+    virtual bool Disconnect(Object& other, bool checking_other = false);
     void GetConnectionIDs(std::vector<int>* cons) override;
 
     int GetModelID();
-    void NotifyDeleted( Object* o) override;
-    void GetDesc(EntityDescription &desc) const override;
+    void NotifyDeleted(Object* o) override;
+    void GetDesc(EntityDescription& desc) const override;
 
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    bool SetFromDesc(const EntityDescription& desc) override;
     static void RegisterToScript(ASContext* as_context);
     void Draw() override;
     bool Initialize() override;
 
-    void RemapReferences(std::map<int,int> id_map) override;
-
+    void RemapReferences(std::map<int, int> id_map) override;
 };

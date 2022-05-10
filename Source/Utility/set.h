@@ -23,10 +23,10 @@
 #pragma once
 
 template <typename T>
-void append( std::set<T>& dest, const std::set<T>& source ) {
+void append(std::set<T>& dest, const std::set<T>& source) {
     typename std::set<T>::iterator it = source.begin();
 
-    for( ; it != source.end(); it++ ) {
+    for (; it != source.end(); it++) {
         dest.insert(*it);
     }
 }

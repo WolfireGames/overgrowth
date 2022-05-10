@@ -46,11 +46,11 @@ void DynamicLightObject::Draw() {
         return;
     }
 
-    if(!Graphics::Instance()->media_mode() && light_id_ != -1 && scenegraph_ && scenegraph_->map_editor->state_ != MapEditor::kInGame){
+    if (!Graphics::Instance()->media_mode() && light_id_ != -1 && scenegraph_ && scenegraph_->map_editor->state_ != MapEditor::kInGame) {
         const DynamicLight *light = scenegraph_->dynamic_light_collection.GetLightFromID(light_id_);
-        if(light){
+        if (light) {
             mat4 transform;
-            if(selected_){
+            if (selected_) {
                 transform.SetScale(vec3(RadiusFromScale(scale_)));
                 transform.SetTranslationPart(translation_);
                 DebugDraw::Instance()->AddWireMesh(HardcodedPaths::paths[HardcodedPaths::kPointLight], transform, vec4(light->color, 0.025f), _delete_on_draw);
@@ -70,10 +70,10 @@ bool DynamicLightObject::Initialize() {
 
 void DynamicLightObject::Moved(Object::MoveType type) {
     Object::Moved(type);
-    if(scenegraph_ && light_id_ != -1){
+    if (scenegraph_ && light_id_ != -1) {
         DynamicLight *light = scenegraph_->dynamic_light_collection.GetLightFromID(light_id_);
         LOG_ASSERT(light != NULL);
-        if(light){
+        if (light) {
             light->radius = RadiusFromScale(scale_);
             light->pos = translation_;
         }
@@ -82,7 +82,7 @@ void DynamicLightObject::Moved(Object::MoveType type) {
 
 void DynamicLightObject::Dispose() {
     Object::Dispose();
-    if(scenegraph_ && light_id_ != -1){
+    if (scenegraph_ && light_id_ != -1) {
         bool success = scenegraph_->dynamic_light_collection.DeleteLight(light_id_);
         LOG_ASSERT(success);
         light_id_ = -1;
@@ -112,18 +112,20 @@ void DynamicLightObject::GetDesc(EntityDescription &desc) const {
     desc.AddFloat(EDF_OVERBRIGHT, overbright);
 }
 
-bool DynamicLightObject::SetFromDesc( const EntityDescription& desc ) {
+bool DynamicLightObject::SetFromDesc(const EntityDescription &desc) {
     LOG_ASSERT(light_id_ == -1);
     bool ret = Object::SetFromDesc(desc);
-    if(ret) {
-        for(const auto & field : desc.fields){
-            switch(field.type){
-            case EDF_COLOR: {
-                memread(color.entries, sizeof(float), 3, field.data);
-                break;}
-            case EDF_OVERBRIGHT: {
-                memread(&overbright, sizeof(float), 1, field.data);
-                break;}
+    if (ret) {
+        for (const auto &field : desc.fields) {
+            switch (field.type) {
+                case EDF_COLOR: {
+                    memread(color.entries, sizeof(float), 3, field.data);
+                    break;
+                }
+                case EDF_OVERBRIGHT: {
+                    memread(&overbright, sizeof(float), 1, field.data);
+                    break;
+                }
             }
         }
     }
@@ -144,39 +146,39 @@ float DynamicLightObject::GetOverbright() const {
     return overbright;
 }
 
-void DynamicLightObject::ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) {
+void DynamicLightObject::ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) {
     DynamicLight *light;
-    switch(type){
-    case OBJECT_MSG::SET_COLOR: 
-		if(light_id_ != -1){
-			color = *va_arg(args, vec3*);
-			light = scenegraph_->dynamic_light_collection.GetLightFromID(light_id_);
-			if(light){ 
-				light->color = color * (1.0f + overbright * 0.3f);
-			}
-		}
-		break;
-	case OBJECT_MSG::SET_OVERBRIGHT: 
-		if(light_id_ != -1){
-			overbright = *va_arg(args, float*);
-			light = scenegraph_->dynamic_light_collection.GetLightFromID(light_id_);
-			if(light){
-				light->color = color * (1.0f + overbright * 0.3f);
-			}
-		}
-        break; 
-    default: 
-        Object::ReceiveObjectMessageVAList(type, args);
-        break;
+    switch (type) {
+        case OBJECT_MSG::SET_COLOR:
+            if (light_id_ != -1) {
+                color = *va_arg(args, vec3 *);
+                light = scenegraph_->dynamic_light_collection.GetLightFromID(light_id_);
+                if (light) {
+                    light->color = color * (1.0f + overbright * 0.3f);
+                }
+            }
+            break;
+        case OBJECT_MSG::SET_OVERBRIGHT:
+            if (light_id_ != -1) {
+                overbright = *va_arg(args, float *);
+                light = scenegraph_->dynamic_light_collection.GetLightFromID(light_id_);
+                if (light) {
+                    light->color = color * (1.0f + overbright * 0.3f);
+                }
+            }
+            break;
+        default:
+            Object::ReceiveObjectMessageVAList(type, args);
+            break;
     }
 }
 
 void DynamicLightObject::SetEnabled(bool val) {
-	if(!enabled_ && val){
-		light_id_ = scenegraph_->dynamic_light_collection.AddLight(GetTranslation(), color * (1.0f + overbright * 0.3f), RadiusFromScale(scale_));
-	} else if(enabled_ && !val){
-		scenegraph_->dynamic_light_collection.DeleteLight(light_id_);
-		light_id_ = -1;
-	}	
-	Object::SetEnabled(val);
+    if (!enabled_ && val) {
+        light_id_ = scenegraph_->dynamic_light_collection.AddLight(GetTranslation(), color * (1.0f + overbright * 0.3f), RadiusFromScale(scale_));
+    } else if (enabled_ && !val) {
+        scenegraph_->dynamic_light_collection.DeleteLight(light_id_);
+        light_id_ = -1;
+    }
+    Object::SetEnabled(val);
 }

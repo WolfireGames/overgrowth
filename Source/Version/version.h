@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: version.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,12 +25,12 @@
 
 #include <string>
 
-const char * GetBuildIDString();
+const char* GetBuildIDString();
 const int GetBuildID();
-const char * GetPlatform();
-const char * GetArch();
-const char * GetBuildVersion();
-const char * GetBuildTimestamp();
+const char* GetPlatform();
+const char* GetArch();
+const char* GetBuildVersion();
+const char* GetBuildTimestamp();
 
 std::string GetShortBuildTag();
 std::string GetVersionMajor();

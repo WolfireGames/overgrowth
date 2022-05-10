@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: returnpathutil.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,6 +25,6 @@
 #include <Asset/assets.h>
 
 namespace ReturnPathUtil {
-    std::string GetTypeFromFilePath(const std::string &file_path);
-    void ReturnPathsFromPath( const std::string &path, PathSet &path_set );
-}
+std::string GetTypeFromFilePath(const std::string &file_path);
+void ReturnPathsFromPath(const std::string &path, PathSet &path_set);
+}  // namespace ReturnPathUtil

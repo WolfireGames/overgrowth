@@ -30,102 +30,80 @@
 
 using std::endl;
 
-Bitarray::Bitarray(size_t _size) : size(_size), arr(NULL)
-{
+Bitarray::Bitarray(size_t _size) : size(_size), arr(NULL) {
     ResizeAndReset(size);
 }
 
-Bitarray::~Bitarray()
-{
-    if( arr != NULL )
-    {
+Bitarray::~Bitarray() {
+    if (arr != NULL) {
         OG_FREE(arr);
         arr = NULL;
     }
 }
 
-void Bitarray::ResizeAndReset(size_t _size)
-{
-    if( arr )
-    {
+void Bitarray::ResizeAndReset(size_t _size) {
+    if (arr) {
         OG_FREE(arr);
     }
 
     size = _size;
 
-    if( size > 0 )
-    {
-        size_t arr_size = size/64+(size%64?1:0);
-        arr = (uint64_t*)OG_MALLOC( sizeof(uint64_t) * arr_size);
-        FreeBits(0,size);
-        if( arr == NULL )
-        {
+    if (size > 0) {
+        size_t arr_size = size / 64 + (size % 64 ? 1 : 0);
+        arr = (uint64_t*)OG_MALLOC(sizeof(uint64_t) * arr_size);
+        FreeBits(0, size);
+        if (arr == NULL) {
             LOGF << "Unable to allocate memory for Bitarray" << endl;
         }
-    }
-    else
-    {
+    } else {
         arr = NULL;
     }
 }
 
-bool Bitarray::GetBit(size_t index)
-{
-    size_t p = index/64;
-    size_t i = index%64;
+bool Bitarray::GetBit(size_t index) {
+    size_t p = index / 64;
+    size_t i = index % 64;
 
     return (arr[p] & (1UL << i));
 }
 
-void Bitarray::SetBit( size_t index )
-{
-    size_t p = index/64;
-    size_t i = index%64;
+void Bitarray::SetBit(size_t index) {
+    size_t p = index / 64;
+    size_t i = index % 64;
 
     arr[p] |= (1UL << i);
 }
 
-void Bitarray::FreeBit( size_t index )
-{
-    size_t p = index/64;
-    size_t i = index%64;
+void Bitarray::FreeBit(size_t index) {
+    size_t p = index / 64;
+    size_t i = index % 64;
 
     arr[p] &= ~(1UL << i);
 }
 
-void Bitarray::SetBits( size_t index, size_t count )
-{
-    for( size_t off = 0; off < count; off++ )
-    {
-        SetBit(index+off);
+void Bitarray::SetBits(size_t index, size_t count) {
+    for (size_t off = 0; off < count; off++) {
+        SetBit(index + off);
     }
 }
 
-void Bitarray::FreeBits( size_t index, size_t count )
-{
-    for( size_t off = 0; off < count; off++ )
-    {
-        FreeBit(index+off);
+void Bitarray::FreeBits(size_t index, size_t count) {
+    for (size_t off = 0; off < count; off++) {
+        FreeBit(index + off);
     }
 }
 
-int Bitarray::GetFirstFreeSlot(size_t req_size)
-{
+int Bitarray::GetFirstFreeSlot(size_t req_size) {
     size_t countdown = req_size;
-    for( size_t i = 0; i < size; i++ )
-    {
-        if( GetBit(i) == false )
-        {
+    for (size_t i = 0; i < size; i++) {
+        if (GetBit(i) == false) {
             countdown--;
-        }
-        else
-        {
+        } else {
             countdown = req_size;
         }
 
-        if( countdown == 0 )
-        {
-            return i-(req_size-1);
+        if (countdown == 0) {
+            return i - (req_size - 1);
         }
     }
 

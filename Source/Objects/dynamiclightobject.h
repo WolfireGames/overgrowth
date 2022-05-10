@@ -28,25 +28,24 @@
 // Class Definition
 //-----------------------------------------------------------------------------
 
-class DynamicLightObject: public Object
-{
-public:
+class DynamicLightObject : public Object {
+   public:
     EntityType GetType() const override { return _dynamic_light_object; }
     void Draw() override;
     bool Initialize() override;
 
     void Moved(Object::MoveType type) override;
     void Dispose() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
     vec3 GetTint() const;
-    float GetOverbright() const; 
-	DynamicLightObject();
-	~DynamicLightObject() override;
-    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
-	void SetEnabled(bool val) override;
+    float GetOverbright() const;
+    DynamicLightObject();
+    ~DynamicLightObject() override;
+    void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
+    void SetEnabled(bool val) override;
 
-private:
+   private:
     int light_id_;
 
     vec3 color;

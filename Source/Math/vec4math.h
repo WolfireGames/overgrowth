@@ -26,97 +26,97 @@
 #include <Math/vec3.h>
 #include <Math/vec3math.h>
 
-inline vec4 operator+(const vec4& vec, const vec4 & param) {
+inline vec4 operator+(const vec4 &vec, const vec4 &param) {
     return vec4(vec.entries[0] + param.entries[0],
                 vec.entries[1] + param.entries[1],
                 vec.entries[2] + param.entries[2],
                 vec.entries[3]);
 }
 
-inline vec4 operator-(const vec4& vec, const vec4 & param) {
+inline vec4 operator-(const vec4 &vec, const vec4 &param) {
     return vec4(vec.entries[0] - param.entries[0],
                 vec.entries[1] - param.entries[1],
                 vec.entries[2] - param.entries[2],
                 vec.entries[3]);
 }
 
-inline vec4 operator*(const vec4& vec, float param) {
+inline vec4 operator*(const vec4 &vec, float param) {
     return vec4(vec.entries[0] * param,
                 vec.entries[1] * param,
                 vec.entries[2] * param,
                 vec.entries[3]);
 }
-inline vec4 operator/(const vec4& vec, float param) {
+inline vec4 operator/(const vec4 &vec, float param) {
     return vec4(vec.entries[0] / param,
                 vec.entries[1] / param,
                 vec.entries[2] / param,
                 vec.entries[3]);
 }
 
-inline void operator+=(vec4& vec, const vec4 & param) {
+inline void operator+=(vec4 &vec, const vec4 &param) {
     vec.entries[0] += param.entries[0];
     vec.entries[1] += param.entries[1];
     vec.entries[2] += param.entries[2];
 }
 
-inline void operator-=(vec4& vec, const vec4 & param) {
+inline void operator-=(vec4 &vec, const vec4 &param) {
     vec.entries[0] -= param.entries[0];
     vec.entries[1] -= param.entries[1];
     vec.entries[2] -= param.entries[2];
 }
 
-inline void operator*=(vec4& vec, float param) {
+inline void operator*=(vec4 &vec, float param) {
     vec.entries[0] *= param;
     vec.entries[1] *= param;
     vec.entries[2] *= param;
 }
 
-inline void operator*=(vec4& vec, const vec4 & param) {
+inline void operator*=(vec4 &vec, const vec4 &param) {
     vec.entries[0] *= param.entries[0];
     vec.entries[1] *= param.entries[1];
     vec.entries[2] *= param.entries[2];
 }
 
-inline void operator/=(vec4& vec, float param) {
+inline void operator/=(vec4 &vec, float param) {
     vec.entries[0] /= param;
     vec.entries[1] /= param;
     vec.entries[2] /= param;
 }
 
-inline bool operator==(const vec4& vec, const vec4 &param) {
+inline bool operator==(const vec4 &vec, const vec4 &param) {
     return (vec.entries[0] == param.entries[0] &&
             vec.entries[1] == param.entries[1] &&
             vec.entries[2] == param.entries[2] &&
             vec.entries[3] == param.entries[3]);
 }
 
-inline bool operator!=(const vec4& vec, const vec4 &param) {
-    return(vec.entries[0] != param.entries[0] ||
-           vec.entries[1] != param.entries[1] ||
-           vec.entries[2] != param.entries[2] ||
-           vec.entries[3] != param.entries[3]);
+inline bool operator!=(const vec4 &vec, const vec4 &param) {
+    return (vec.entries[0] != param.entries[0] ||
+            vec.entries[1] != param.entries[1] ||
+            vec.entries[2] != param.entries[2] ||
+            vec.entries[3] != param.entries[3]);
 }
 
 float length(const vec4 &vec);
 
 inline float length_squared(const vec4 &vec) {
-    return vec[0]*vec[0] + vec[1]*vec[1] + vec[2]*vec[2];
+    return vec[0] * vec[0] + vec[1] * vec[1] + vec[2] * vec[2];
 }
 
 inline float dot(const vec4 &vec_a, const vec4 &vec_b) {
-    return vec_a[0]*vec_b[0] + vec_a[1]*vec_b[1] + vec_a[2]*vec_b[2];
+    return vec_a[0] * vec_b[0] + vec_a[1] * vec_b[1] + vec_a[2] * vec_b[2];
 }
 
 inline float distance(const vec4 &vec_a, const vec4 &vec_b) {
-    return length(vec_a-vec_b);
+    return length(vec_a - vec_b);
 }
 
 inline float distance_squared(const vec4 &vec_a, const vec4 &vec_b) {
-    return length_squared(vec_a-vec_b);
+    return length_squared(vec_a - vec_b);
 }
 
 inline vec4 normalize(const vec4 &vec) {
-    return vec4(normalize(vec.xyz()),vec[3]);
+    return vec4(normalize(vec.xyz()), vec[3]);
 }
 
 inline vec4 cross(const vec4 &vec_a, const vec4 &vec_b) {
@@ -128,7 +128,7 @@ inline vec4 cross(const vec4 &vec_a, const vec4 &vec_b) {
 }
 
 inline vec4 reflect(const vec4 &vec, const vec4 &normal) {
-    return vec - normal*(2.0f*dot(vec, normal));
+    return vec - normal * (2.0f * dot(vec, normal));
 }
 
 inline vec4 operator-(const vec4 &vec) {
@@ -136,9 +136,9 @@ inline vec4 operator-(const vec4 &vec) {
 }
 
 inline vec4 operator*(float param, const vec4 &vec_b) {
-    return vec_b*param;
+    return vec_b * param;
 }
 
 inline vec4 lerp(vec4 v0, vec4 v1, float t) {
-    return (1-t)*v0 + t*v1;
+    return (1 - t) * v0 + t * v1;
 }

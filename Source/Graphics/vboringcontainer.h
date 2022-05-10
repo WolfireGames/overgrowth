@@ -31,7 +31,7 @@
 #include <opengl.h>
 
 #ifndef V_MIBIBYTE
-#define V_MIBIBYTE 1024*1024
+#define V_MIBIBYTE 1024 * 1024
 #endif
 
 #ifndef V_KIBIBYTE
@@ -46,12 +46,12 @@ class VBORingContainer {
 
     GLuint current_offset;
     GLuint next_offset;
-    //Used space (requested by last loaded buffer) plus alignment padding
+    // Used space (requested by last loaded buffer) plus alignment padding
     GLuint allocated_size;
-    //Amount of space requested to use for last filled buffer
+    // Amount of space requested to use for last filled buffer
     GLuint used_size;
-    
-    //Total size of entire ring buffer
+
+    // Total size of entire ring buffer
     GLuint storage_size;
     GLuint storage_size_hint;
 
@@ -59,37 +59,37 @@ class VBORingContainer {
     GLenum hint;
 
     int storage_multiplier;
-public:
+
+   public:
     void Dispose();
-    void SetHint( GLuint storage_size, char flags, bool ignore_multiplier = false );
+    void SetHint(GLuint storage_size, char flags, bool ignore_multiplier = false);
     void Fill(GLuint size, void* data);
     void Bind() const;
     bool valid() const;
-    unsigned size(); //returns size in bytes.
+    unsigned size();  // returns size in bytes.
     uintptr_t offset() const;
-    
-    VBORingContainer( GLuint storage_size, char flags, bool ignore_multiplier = false );
+
+    VBORingContainer(GLuint storage_size, char flags, bool ignore_multiplier = false);
     ~VBORingContainer();
-private:
-    VBORingContainer( const VBORingContainer& other );
+
+   private:
+    VBORingContainer(const VBORingContainer& other);
     VBORingContainer& operator=(const VBORingContainer& other);
 };
 
 typedef ReferenceCounter<VBORingContainer> RC_VBORingContainer;
 
 class UniformRingBuffer {
-public:
+   public:
     int size;
     int gl_id;
     int offset;
     int next_offset;
 
-    UniformRingBuffer():
-        gl_id(-1),
-        size(0),
-        offset(0),
-        next_offset(0)
-    {}
+    UniformRingBuffer() : gl_id(-1),
+                          size(0),
+                          offset(0),
+                          next_offset(0) {}
 
     void Create(int desired_size);
     void Fill(int data_size, void* data);

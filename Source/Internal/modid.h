@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: modid.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,18 +26,17 @@
 
 #include <ostream>
 
-
-//Some strict limitations on datatypes to simplify handling and storage assumptions.
+// Some strict limitations on datatypes to simplify handling and storage assumptions.
 static const size_t MOD_PATH_MAX_LENGTH = 256 + 1;
 static const size_t MOD_ID_MAX_LENGTH = 64 + 1;
-static const size_t MOD_NAME_MAX_LENGTH = 128 + 1; //Number borrowed from steam ugc
+static const size_t MOD_NAME_MAX_LENGTH = 128 + 1;  // Number borrowed from steam ugc
 static const size_t MOD_VERSION_MAX_LENGTH = 32 + 1;
 static const size_t MOD_AUTHOR_MAX_LENGTH = 128 + 1;
 static const size_t MOD_CATEGORY_MAX_LENGTH = 64 + 1;
 
-static const size_t MOD_DESCRIPTION_MAX_LENGTH = 8000; //Number borrowed from steam ugc
+static const size_t MOD_DESCRIPTION_MAX_LENGTH = 8000;  // Number borrowed from steam ugc
 static const size_t MOD_THUMBNAIL_MAX_LENGTH = 128 + 1;
-static const size_t MOD_TAGS_MAX_LENGTH = 1024 + 1; //Number borrowed from steam ugc
+static const size_t MOD_TAGS_MAX_LENGTH = 1024 + 1;  // Number borrowed from steam ugc
 
 static const size_t MOD_ATTRIBUTE_ID_MAX_LENGTH = 32 + 1;
 static const size_t MOD_ATTRIBUTE_VALUE_MAX_LENGTH = 256 + 1;
@@ -47,9 +46,9 @@ static const size_t MOD_MENU_ITEM_CATEGORY_MAX_LENGTH = 32 + 1;
 static const size_t MOD_MENU_ITEM_PATH_MAX_LENGTH = 256 + 1;
 static const size_t MOD_MENU_ITEM_THUMBNAIL_MAX_LENGTH = 256 + 1;
 
-static const size_t MOD_LEVEL_PARAMETER_NAME_MAX_LENGTH = 32+1;
-static const size_t MOD_LEVEL_PARAMETER_TYPE_MAX_LENGTH = 16+1;
-static const size_t MOD_LEVEL_PARAMETER_VALUE_MAX_LENGTH = 128+1;
+static const size_t MOD_LEVEL_PARAMETER_NAME_MAX_LENGTH = 32 + 1;
+static const size_t MOD_LEVEL_PARAMETER_TYPE_MAX_LENGTH = 16 + 1;
+static const size_t MOD_LEVEL_PARAMETER_VALUE_MAX_LENGTH = 128 + 1;
 
 static const size_t MOD_LEVEL_ID_MAX_LENGTH = 32 + 1;
 static const size_t MOD_LEVEL_TITLE_MAX_LENGTH = 64 + 1;
@@ -83,8 +82,8 @@ struct ModID {
     int id;
 
     bool Valid() const;
-    bool operator==( const ModID& modid ) const;
-    bool operator!=( const ModID& modid ) const;
+    bool operator==(const ModID& modid) const;
+    bool operator!=(const ModID& modid) const;
 };
 
 extern const ModID CoreGameModID;
@@ -93,7 +92,7 @@ struct ModValidity {
     ModValidity();
     ModValidity(uint16_t bit);
     ModValidity(uint64_t upper, uint64_t lower);
-    
+
     ModValidity Intersection(const ModValidity& other) const;
     ModValidity Union(const ModValidity& other) const;
     ModValidity& Append(const ModValidity& other);
@@ -109,11 +108,11 @@ struct ModValidity {
     ModValidity& operator|=(const ModValidity& rhs);
     bool operator!=(const ModValidity& rhs) const;
 
-private:
+   private:
     uint64_t upper;
     uint64_t lower;
-    friend std::ostream& operator<<(std::ostream& os, const ModValidity &mi );
+    friend std::ostream& operator<<(std::ostream& os, const ModValidity& mi);
 };
 
-std::ostream& operator<<(std::ostream& os, const ModID &mi );
-std::ostream& operator<<(std::ostream& os, const ModValidity &mi );
+std::ostream& operator<<(std::ostream& os, const ModID& mi);
+std::ostream& operator<<(std::ostream& os, const ModValidity& mi);

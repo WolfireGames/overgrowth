@@ -32,16 +32,14 @@ class XMLSeekerBase;
 
 typedef std::pair<const char*, const char*> elempair;
 
-class ElementScanner
-{
-public:
-static void Do(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlNode *eRoot, 
-    const std::vector<elempair>& elems, 
-    const std::vector<const char*>& elems_ignore,
-    XMLSeekerBase* callback,
-    void* userdata
-    );
+class ElementScanner {
+   public:
+    static void Do(
+        std::vector<Item>& items,
+        const Item& item,
+        TiXmlNode* eRoot,
+        const std::vector<elempair>& elems,
+        const std::vector<const char*>& elems_ignore,
+        XMLSeekerBase* callback,
+        void* userdata);
 };

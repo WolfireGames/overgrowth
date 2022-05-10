@@ -22,66 +22,56 @@
 //-----------------------------------------------------------------------------
 #include "ambient_sound.h"
 
-ambientSound::ambientSound(float volume) : m_volume(volume), m_pitch(1.0)
-{
+ambientSound::ambientSound(float volume) : m_volume(volume), m_pitch(1.0) {
 }
 
 /// Set to false to allow the emitter to time out (useful only on non-looping sounds)
-bool ambientSound::KeepPlaying()
-{
+bool ambientSound::KeepPlaying() {
     return true;
 }
 
 /// if true is returned, this will be a relative-to-listener sound
-bool ambientSound::GetPosition(vec3 &p)
-{
+bool ambientSound::GetPosition(vec3 &p) {
     return true;
 }
 
-const vec3 ambientSound::GetPosition()
-{
+const vec3 ambientSound::GetPosition() {
     return vec3(0.0f);
 }
 
-void ambientSound::GetDirection(vec3 &p)
-{
-    p.x() = 0.0f; p.y() = 0.0f; p.y() = 0.0f;
+void ambientSound::GetDirection(vec3 &p) {
+    p.x() = 0.0f;
+    p.y() = 0.0f;
+    p.y() = 0.0f;
 }
 
-const vec3 &ambientSound::GetVelocity()
-{
+const vec3 &ambientSound::GetVelocity() {
     return m_velocity;
 }
 
 /// allows you to change the global alAudio pitch multiplier for this sound
-float ambientSound::GetPitchMultiplier() 
-{
+float ambientSound::GetPitchMultiplier() {
     return m_pitch;
 }
 
 /// allows you to change the global alAudio gain multiplier for this sound
-float ambientSound::GetVolume()
-{
+float ambientSound::GetVolume() {
     return m_volume;
 }
 
 /// Indicate the priority of this effect to make room for newer/higher priority effects
-unsigned char ambientSound::GetPriority()
-{
+unsigned char ambientSound::GetPriority() {
     return _sound_priority_max;
 }
 
-void ambientSound::SetVolume(float volume)
-{
+void ambientSound::SetVolume(float volume) {
     m_volume = volume;
 }
 
-void ambientSound::SetPitch(float pitch)
-{
+void ambientSound::SetPitch(float pitch) {
     m_pitch = pitch;
 }
 
-const vec3 ambientSound::GetOcclusionPosition()
-{
+const vec3 ambientSound::GetOcclusionPosition() {
     return vec3(0.0f);
 }

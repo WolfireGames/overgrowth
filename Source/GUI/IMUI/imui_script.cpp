@@ -41,74 +41,69 @@
 #include <Scripting/angelscript/ascontext.h>
 #include <Scripting/angelscript/add_on/scriptarray/scriptarray.h>
 
-static void IMUIContextDefaultConstructor(void *self) {
-    new(self) IMUIContext();
+static void IMUIContextDefaultConstructor(void* self) {
+    new (self) IMUIContext();
 }
 
-static void IMUIContextCopyConstructor(IMUIImage *self, const IMUIContext& other ) {
-    new(self) IMUIContext( other );
+static void IMUIContextCopyConstructor(IMUIImage* self, const IMUIContext& other) {
+    new (self) IMUIContext(other);
 }
 
-static const IMUIImage& IMUIContextAssign(IMUIImage *self, const IMUIImage& other) {
+static const IMUIImage& IMUIContextAssign(IMUIImage* self, const IMUIImage& other) {
     return (*self) = other;
 }
 
-static void IMUIContextDestructor(IMUIContext *self ) {
+static void IMUIContextDestructor(IMUIContext* self) {
     self->~IMUIContext();
 }
 
-
-static void IMUIImageDefaultConstructor(IMUIImage *self) {
-    new(self) IMUIImage();
+static void IMUIImageDefaultConstructor(IMUIImage* self) {
+    new (self) IMUIImage();
 }
 
-static void IMUIImageFileNameConstructor(IMUIImage *self, std::string filename) {
-    new(self) IMUIImage( filename );
+static void IMUIImageFileNameConstructor(IMUIImage* self, std::string filename) {
+    new (self) IMUIImage(filename);
 }
 
-static void IMUIImageCopyConstructor(IMUIImage *self, const IMUIImage& other ) {
-    new(self) IMUIImage( other );
+static void IMUIImageCopyConstructor(IMUIImage* self, const IMUIImage& other) {
+    new (self) IMUIImage(other);
 }
 
-static const IMUIImage& IMUIImageAssign(IMUIImage *self, const IMUIImage& other) {
+static const IMUIImage& IMUIImageAssign(IMUIImage* self, const IMUIImage& other) {
     return (*self) = other;
 }
 
-static void IMUIImageDestructor(IMUIImage *self ) {
+static void IMUIImageDestructor(IMUIImage* self) {
     self->~IMUIImage();
 }
 
-static void IMUITextDefaultConstructor(IMUIText *self) {
-    new(self) IMUIText();
+static void IMUITextDefaultConstructor(IMUIText* self) {
+    new (self) IMUIText();
 }
 
-static void IMUITextCopyConstructor(IMUIText *self, const IMUIText& other ) {
-    new(self) IMUIText( other );
+static void IMUITextCopyConstructor(IMUIText* self, const IMUIText& other) {
+    new (self) IMUIText(other);
 }
 
-static const IMUIText& IMUITextAssign(IMUIText *self, const IMUIText& other) {
+static const IMUIText& IMUITextAssign(IMUIText* self, const IMUIText& other) {
     return (*self) = other;
 }
 
-static void IMUITextDestructor(IMUIText *self ) {
+static void IMUITextDestructor(IMUIText* self) {
     self->~IMUIText();
 }
-
 
 float ASUNDEFINEDSIZE = UNDEFINEDSIZE;
 int ASUNDEFINEDSIZEI = UNDEFINEDSIZEI;
 
-
 // Example opCast behaviour
-template<class A, class B>
-B* refCast(A* a)
-{
+template <class A, class B>
+B* refCast(A* a) {
     // If the handle already is a null handle, then just return the null handle
-    if( !a ) return 0;
+    if (!a) return 0;
     // Now try to dynamically cast the pointer to the wanted type
     B* b = dynamic_cast<B*>(a);
-    if( b != 0 )
-    {
+    if (b != 0) {
         // Since the cast was made, we need to increase the ref counter for the returned handle
         b->AddRef();
     }
@@ -117,16 +112,16 @@ B* refCast(A* a)
 }
 
 static CScriptArray* AS_GetFloatingContents(IMContainer* element) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<IMElement@>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<IMElement@>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<IMElement*> vals = element->getFloatingContents();
 
     array->Reserve(vals.size());
 
-    for(auto & val : vals) {
+    for (auto& val : vals) {
         array->InsertLast((void*)&val);
     }
 
@@ -134,15 +129,15 @@ static CScriptArray* AS_GetFloatingContents(IMContainer* element) {
 }
 
 static CScriptArray* AS_GetContainers(IMDivider* element) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<IMContainer@>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<IMContainer@>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     unsigned int count = element->getContainerCount();
     array->Reserve(count);
 
-    for( unsigned i = 0; i < count; i++ ) {
+    for (unsigned i = 0; i < count; i++) {
         IMContainer* container = element->getContainerAt(i);
         container->Release();
         array->InsertLast((void*)&container);
@@ -151,15 +146,14 @@ static CScriptArray* AS_GetContainers(IMDivider* element) {
     return array;
 }
 
-template<class T>
-void registerASIMElement( ASContext *ctx, std::string const& className ) {
-
-    ctx->RegisterObjectType(className.c_str(), 0, asOBJ_REF );
+template <class T>
+void registerASIMElement(ASContext* ctx, std::string const& className) {
+    ctx->RegisterObjectType(className.c_str(), 0, asOBJ_REF);
 
     ctx->RegisterObjectProperty(className.c_str(), "CItem controllerItem", asOFFSET(T, controllerItem));
 
-    ctx->RegisterObjectBehaviour(className.c_str(), asBEHAVE_ADDREF, "void f()", asMETHOD(T,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour(className.c_str(), asBEHAVE_RELEASE, "void f()", asMETHOD(T,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour(className.c_str(), asBEHAVE_ADDREF, "void f()", asMETHOD(T, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour(className.c_str(), asBEHAVE_RELEASE, "void f()", asMETHOD(T, Release), asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(className.c_str(), "string getElementTypeName()", asMETHOD(T, getElementTypeName), asCALL_THISCALL);
     ctx->RegisterObjectMethod(className.c_str(), "void setColor( vec4 _color )", asMETHOD(T, setColor), asCALL_THISCALL);
@@ -205,7 +199,7 @@ void registerASIMElement( ASContext *ctx, std::string const& className ) {
     ctx->RegisterObjectMethod(className.c_str(), "void renderAbove( IMElement@ element )", asMETHOD(T, renderAbove), asCALL_THISCALL);
     ctx->RegisterObjectMethod(className.c_str(), "void renderBelow( IMElement@ element )", asMETHOD(T, renderBelow), asCALL_THISCALL);
     ctx->RegisterObjectMethod(className.c_str(), "void setVisible( bool _show )", asMETHOD(T, setVisible), asCALL_THISCALL);
-	ctx->RegisterObjectMethod(className.c_str(), "void setClip( bool _clip )", asMETHOD(T, setClip), asCALL_THISCALL);
+    ctx->RegisterObjectMethod(className.c_str(), "void setClip( bool _clip )", asMETHOD(T, setClip), asCALL_THISCALL);
     ctx->RegisterObjectMethod(className.c_str(), "vec2 getScreenPosition()", asMETHOD(T, getScreenPosition), asCALL_THISCALL);
     ctx->RegisterObjectMethod(className.c_str(), "void addUpdateBehavior( IMUpdateBehavior@ behavior, const string &in behaviorName )", asMETHOD(T, addUpdateBehavior), asCALL_THISCALL);
     ctx->RegisterObjectMethod(className.c_str(), "bool removeUpdateBehavior( const string &in behaviorName )", asMETHOD(T, removeUpdateBehavior), asCALL_THISCALL);
@@ -255,53 +249,52 @@ void registerASIMElement( ASContext *ctx, std::string const& className ) {
     std::string opCastStr = className + "@ opCast()";
 
     // Expose the inheritance
-    ctx->RegisterObjectMethod("IMElement", opCastStr.c_str(), asFUNCTION((refCast<IMElement,T>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod(className.c_str(), "IMElement@ opImplCast()", asFUNCTION((refCast<T,IMElement>)), asCALL_CDECL_OBJLAST);
-
+    ctx->RegisterObjectMethod("IMElement", opCastStr.c_str(), asFUNCTION((refCast<IMElement, T>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod(className.c_str(), "IMElement@ opImplCast()", asFUNCTION((refCast<T, IMElement>)), asCALL_CDECL_OBJLAST);
 }
 
 static int context_instance_id_counter = 1;
-static std::map<int,IMUIContext*> context_instance;
+static std::map<int, IMUIContext*> context_instance;
 
 extern "C" {
 
-    static int AS_CreateIMUIContext() {
-        int id = context_instance_id_counter++;
-        IMUIContext* instance = new IMUIContext();
-        context_instance[id] = instance;
-        return id;
-    }
+static int AS_CreateIMUIContext() {
+    int id = context_instance_id_counter++;
+    IMUIContext* instance = new IMUIContext();
+    context_instance[id] = instance;
+    return id;
+}
 
-    static IMUIContext* AS_GetIMUIContext(int id) {
-        std::map<int,IMUIContext*>::iterator it = context_instance.find(id);
-        if( it != context_instance.end() ) {
-            return it->second;
-        } else {
-            return NULL;
-        }
-    }
-
-    static void AS_DisposeIMUIContext(int id) {
-        std::map<int,IMUIContext*>::iterator it = context_instance.find(id);
-        if( it != context_instance.end() ) {
-            delete it->second;
-            context_instance.erase(it);
-        }
-    }
-    static void AS_Context_queueImage( IMUIContext* t, IMUIImage* img ) {
-        t->queueImage(*img);
-    }
-
-    static void AS_Context_queueText( IMUIContext* t, IMUIText* txt ) {
-        t->queueText(*txt);
-    }
-
-    static IMGUI* AS_CreateIMGUI() {
-        return new IMGUI();
+static IMUIContext* AS_GetIMUIContext(int id) {
+    std::map<int, IMUIContext*>::iterator it = context_instance.find(id);
+    if (it != context_instance.end()) {
+        return it->second;
+    } else {
+        return NULL;
     }
 }
 
-void AttachIMUI( ASContext *ctx ) {
+static void AS_DisposeIMUIContext(int id) {
+    std::map<int, IMUIContext*>::iterator it = context_instance.find(id);
+    if (it != context_instance.end()) {
+        delete it->second;
+        context_instance.erase(it);
+    }
+}
+static void AS_Context_queueImage(IMUIContext* t, IMUIImage* img) {
+    t->queueImage(*img);
+}
+
+static void AS_Context_queueText(IMUIContext* t, IMUIText* txt) {
+    t->queueText(*txt);
+}
+
+static IMGUI* AS_CreateIMGUI() {
+    return new IMGUI();
+}
+}
+
+void AttachIMUI(ASContext* ctx) {
     ctx->RegisterEnum("UIState");
     ctx->RegisterEnumValue("UIState", "kNothing", IMUIContext::kNothing);
     ctx->RegisterEnumValue("UIState", "kHot", IMUIContext::kHot);
@@ -314,13 +307,13 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterEnumValue("UIMouseState", "kMouseStillDown", IMUIContext::kMouseStillDown);
 
     ctx->RegisterEnum("TextFlags");
-    ctx->RegisterEnumValue("TextFlags", "kTextShadow", TextAtlasRenderer::kTextShadow );
+    ctx->RegisterEnumValue("TextFlags", "kTextShadow", TextAtlasRenderer::kTextShadow);
 
     /**
      * IMUIImage
      **/
 
-    ctx->RegisterObjectType("IMUIImage", sizeof(IMUIImage), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
+    ctx->RegisterObjectType("IMUIImage", sizeof(IMUIImage), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
 
     // from IMUIRenderable
 
@@ -333,15 +326,15 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMUIImage", "void disableClipping()", asMETHOD(IMUIImage, disableClipping), asCALL_THISCALL);
 
     // from IMUIImage
-    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(IMUIImageDefaultConstructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(IMUIImageDefaultConstructor), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_CONSTRUCT, "void f( string filename )", asFUNCTION(IMUIImageFileNameConstructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_CONSTRUCT, "void f( string filename )", asFUNCTION(IMUIImageFileNameConstructor), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_CONSTRUCT, "void f( const IMUIImage &in other )", asFUNCTION(IMUIImageCopyConstructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_CONSTRUCT, "void f( const IMUIImage &in other )", asFUNCTION(IMUIImageCopyConstructor), asCALL_CDECL_OBJFIRST);
 
     ctx->RegisterObjectMethod("IMUIImage", "IMUIImage& opAssign(const IMUIImage &in other)", asFUNCTION(IMUIImageAssign), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(IMUIImageDestructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("IMUIImage", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(IMUIImageDestructor), asCALL_CDECL_OBJFIRST);
 
     ctx->RegisterObjectMethod("IMUIImage", "bool loadImage( string filename )", asMETHOD(IMUIImage, loadImage), asCALL_THISCALL);
 
@@ -359,7 +352,7 @@ void AttachIMUI( ASContext *ctx ) {
      * IMUIText
      **/
 
-    ctx->RegisterObjectType("IMUIText", sizeof(IMUIText), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
+    ctx->RegisterObjectType("IMUIText", sizeof(IMUIText), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
 
     // from IMUIRenderable
 
@@ -372,13 +365,13 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMUIText", "void disableClipping()", asMETHOD(IMUIText, disableClipping), asCALL_THISCALL);
 
     // from IMUIText
-    ctx->RegisterObjectBehaviour("IMUIText", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(IMUITextDefaultConstructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("IMUIText", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(IMUITextDefaultConstructor), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("IMUIText", asBEHAVE_CONSTRUCT, "void f( const IMUIText &in other )", asFUNCTION(IMUITextCopyConstructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("IMUIText", asBEHAVE_CONSTRUCT, "void f( const IMUIText &in other )", asFUNCTION(IMUITextCopyConstructor), asCALL_CDECL_OBJFIRST);
 
     ctx->RegisterObjectMethod("IMUIText", "IMUIText& opAssign(const IMUIText &in other)", asFUNCTION(IMUITextAssign), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("IMUIText", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(IMUITextDestructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("IMUIText", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(IMUITextDestructor), asCALL_CDECL_OBJFIRST);
 
     ctx->RegisterObjectMethod("IMUIText", "vec2 getDimensions() const", asMETHOD(IMUIText, getDimensions), asCALL_THISCALL);
 
@@ -392,26 +385,23 @@ void AttachIMUI( ASContext *ctx ) {
      * IMUIContext
      **/
 
-    //ctx->RegisterObjectType("IMUIContext", sizeof(IMUIContext), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
-    ctx->RegisterObjectType("IMUIContext", 0, asOBJ_REF | asOBJ_NOCOUNT );
+    // ctx->RegisterObjectType("IMUIContext", sizeof(IMUIContext), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
+    ctx->RegisterObjectType("IMUIContext", 0, asOBJ_REF | asOBJ_NOCOUNT);
 
     ctx->RegisterGlobalFunction(
         "int CreateIMUIContext()",
         asFUNCTION(AS_CreateIMUIContext),
-        asCALL_CDECL
-    );
+        asCALL_CDECL);
 
     ctx->RegisterGlobalFunction(
         "IMUIContext@ GetIMUIContext(int id)",
         asFUNCTION(AS_GetIMUIContext),
-        asCALL_CDECL
-    );
+        asCALL_CDECL);
 
     ctx->RegisterGlobalFunction(
         "void DisposeIMUIContext(int id)",
         asFUNCTION(AS_DisposeIMUIContext),
-        asCALL_CDECL
-    );
+        asCALL_CDECL);
 
     ctx->RegisterObjectMethod(
         "IMUIContext",
@@ -432,46 +422,46 @@ void AttachIMUI( ASContext *ctx ) {
         asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
-          "IMUIContext",
-          "vec2 getMousePosition()",
-          asMETHOD(IMUIContext, getMousePosition),
-          asCALL_THISCALL);
+        "IMUIContext",
+        "vec2 getMousePosition()",
+        asMETHOD(IMUIContext, getMousePosition),
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
-          "IMUIContext",
-          "UIMouseState getLeftMouseState()",
-          asMETHOD(IMUIContext, getLeftMouseState),
-          asCALL_THISCALL);
+        "IMUIContext",
+        "UIMouseState getLeftMouseState()",
+        asMETHOD(IMUIContext, getLeftMouseState),
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
-          "IMUIContext",
-          "void queueImage( IMUIImage &in newImage  )",
-          asMETHOD(IMUIContext, queueImage),
-          asCALL_THISCALL);
+        "IMUIContext",
+        "void queueImage( IMUIImage &in newImage  )",
+        asMETHOD(IMUIContext, queueImage),
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
-          "IMUIContext",
-          "void queueText( IMUIText &in newText )",
-          asMETHOD(IMUIContext, queueText),
-          asCALL_THISCALL);
+        "IMUIContext",
+        "void queueText( IMUIText &in newText )",
+        asMETHOD(IMUIContext, queueText),
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
-          "IMUIContext",
-          "IMUIText makeText( string &in fontName, int size, int fontFlags, int renderFlags = 0 )",
-          asMETHOD(IMUIContext, makeText),
-          asCALL_THISCALL);
+        "IMUIContext",
+        "IMUIText makeText( string &in fontName, int size, int fontFlags, int renderFlags = 0 )",
+        asMETHOD(IMUIContext, makeText),
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
-          "IMUIContext",
-          "void render()",
-          asMETHOD(IMUIContext, render),
-          asCALL_THISCALL);
+        "IMUIContext",
+        "void render()",
+        asMETHOD(IMUIContext, render),
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
-          "IMUIContext",
-          "void clearTextAtlases()",
-          asMETHOD(IMUIContext, clearTextAtlases),
-          asCALL_THISCALL);
+        "IMUIContext",
+        "void clearTextAtlases()",
+        asMETHOD(IMUIContext, clearTextAtlases),
+        asCALL_THISCALL);
 
     /*******
      *
@@ -486,7 +476,7 @@ void AttachIMUI( ASContext *ctx ) {
      */
 
     ctx->RegisterGlobalProperty("const float UNDEFINEDSIZE", &ASUNDEFINEDSIZE);
-	ctx->RegisterGlobalProperty("const int UNDEFINEDSIZEI", &ASUNDEFINEDSIZEI);
+    ctx->RegisterGlobalProperty("const int UNDEFINEDSIZEI", &ASUNDEFINEDSIZEI);
 
     ctx->RegisterEnum("DividerOrientation");
     ctx->RegisterEnumValue("DividerOrientation", "DOVertical", DOVertical);
@@ -510,15 +500,14 @@ void AttachIMUI( ASContext *ctx ) {
      *
      */
 
-    ctx->RegisterObjectType("IMMessage", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMessage", 0, asOBJ_REF);
 
-    ctx->RegisterObjectBehaviour("IMMessage", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMessage,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMessage", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMessage,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMessage", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMessage, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMessage", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMessage, Release), asCALL_THISCALL);
 
     ctx->RegisterObjectProperty("IMMessage",
                                 "string name",
                                 asOFFSET(IMMessage, name));
-
 
     ctx->RegisterObjectBehaviour("IMMessage", asBEHAVE_FACTORY, "IMMessage@ f( const string &in name)", asFUNCTION(IMMessage::ASFactory), asCALL_CDECL);
 
@@ -534,7 +523,6 @@ void AttachIMUI( ASContext *ctx ) {
 
     ctx->RegisterObjectMethod("IMMessage", "int numStrings()", asMETHOD(IMMessage, numStrings), asCALL_THISCALL);
 
-
     ctx->RegisterObjectMethod("IMMessage", "void addInt( int param )", asMETHOD(IMMessage, addInt), asCALL_THISCALL);
 
     ctx->RegisterObjectMethod("IMMessage", "void addFloat( float param )", asMETHOD(IMMessage, addFloat), asCALL_THISCALL);
@@ -547,16 +535,15 @@ void AttachIMUI( ASContext *ctx ) {
 
     ctx->RegisterObjectMethod("IMMessage", "string getString( int index ) ", asMETHOD(IMMessage, getString), asCALL_THISCALL);
 
-
     /*******
      *
      * Controller items "CItem"
      *
      */
-    ctx->RegisterObjectType("CItem", 0, asOBJ_REF );
+    ctx->RegisterObjectType("CItem", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("CItem", asBEHAVE_FACTORY, "CItem@ f()", asFUNCTION(ControllerItem::ASFactory), asCALL_CDECL);
-    ctx->RegisterObjectBehaviour("CItem", asBEHAVE_ADDREF, "void f()", asMETHOD(ControllerItem,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("CItem", asBEHAVE_RELEASE, "void f()", asMETHOD(ControllerItem,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("CItem", asBEHAVE_ADDREF, "void f()", asMETHOD(ControllerItem, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("CItem", asBEHAVE_RELEASE, "void f()", asMETHOD(ControllerItem, Release), asCALL_THISCALL);
 
     ctx->RegisterObjectProperty("CItem", "bool execute_on_select", asOFFSET(ControllerItem, execute_on_select));
     ctx->RegisterObjectProperty("CItem", "bool skip_show_border", asOFFSET(ControllerItem, skip_show_border));
@@ -580,13 +567,13 @@ void AttachIMUI( ASContext *ctx ) {
      *
      */
 
-//    struct GUIState
-//    {
-//        vec2 mousePosition;
-//        IMUIContext::ButtonState leftMouseState;
-//    };
+    //    struct GUIState
+    //    {
+    //        vec2 mousePosition;
+    //        IMUIContext::ButtonState leftMouseState;
+    //    };
 
-    ctx->RegisterObjectType("GUIState", 0, asOBJ_REF | asOBJ_NOCOUNT );
+    ctx->RegisterObjectType("GUIState", 0, asOBJ_REF | asOBJ_NOCOUNT);
     ctx->RegisterObjectProperty("GUIState",
                                 "vec2 mousePosition",
                                 asOFFSET(GUIState, mousePosition));
@@ -602,17 +589,17 @@ void AttachIMUI( ASContext *ctx ) {
 
     ctx->RegisterGlobalFunction("vec4 HexColor(const string &in hex)", asFUNCTION(HexColor), asCALL_CDECL);
 
-    ctx->RegisterObjectType("FontSetup", sizeof(FontSetup), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
+    ctx->RegisterObjectType("FontSetup", sizeof(FontSetup), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
 
-    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(FontSetup_ASconstructor_default),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(FontSetup_ASconstructor_default), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_CONSTRUCT, "void f( const string &in _name, int32 _size, vec4 _color, bool _shadowed = false )", asFUNCTION(FontSetup_ASconstructor_params),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_CONSTRUCT, "void f( const string &in _name, int32 _size, vec4 _color, bool _shadowed = false )", asFUNCTION(FontSetup_ASconstructor_params), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_CONSTRUCT, "void f( const FontSetup &in other )", asFUNCTION(FontSetup_AScopy),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_CONSTRUCT, "void f( const FontSetup &in other )", asFUNCTION(FontSetup_AScopy), asCALL_CDECL_OBJFIRST);
 
     ctx->RegisterObjectMethod("FontSetup", "FontSetup& opAssign(const FontSetup &in other)", asFUNCTION(FontSetup_ASassign), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(FontSetup_ASdestructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("FontSetup", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(FontSetup_ASdestructor), asCALL_CDECL_OBJFIRST);
 
     ctx->RegisterObjectProperty("FontSetup",
                                 "string fontName",
@@ -639,15 +626,15 @@ void AttachIMUI( ASContext *ctx ) {
      * SizePolicy
      *
      */
-    ctx->RegisterObjectType("SizePolicy", sizeof(SizePolicy), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
+    ctx->RegisterObjectType("SizePolicy", sizeof(SizePolicy), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
 
-    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(SizePolicy_ASfactory_noparams),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(SizePolicy_ASfactory_noparams), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_CONSTRUCT, "void f( float _defaultSize )", asFUNCTION(SizePolicy_ASfactory_params),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_CONSTRUCT, "void f( float _defaultSize )", asFUNCTION(SizePolicy_ASfactory_params), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(SizePolicy_ASdestructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(SizePolicy_ASdestructor), asCALL_CDECL_OBJFIRST);
 
-    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_CONSTRUCT, "void f( const SizePolicy &in other )", asFUNCTION(SizePolicy_ASCopyConstructor),  asCALL_CDECL_OBJFIRST );
+    ctx->RegisterObjectBehaviour("SizePolicy", asBEHAVE_CONSTRUCT, "void f( const SizePolicy &in other )", asFUNCTION(SizePolicy_ASCopyConstructor), asCALL_CDECL_OBJFIRST);
 
     ctx->RegisterObjectMethod("SizePolicy", "IMUIText& opAssign(const SizePolicy &in other)", asFUNCTION(SizePolicy_ASAssign), asCALL_CDECL_OBJFIRST);
 
@@ -704,21 +691,20 @@ void AttachIMUI( ASContext *ctx ) {
      * Behavior base clases
      **/
 
-    ctx->RegisterObjectType("IMUpdateBehavior", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMUpdateBehavior", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMUpdateBehavior", asBEHAVE_FACTORY, "IMUpdateBehavior@ f()", asFUNCTION(IMUpdateBehavior::ASFactory), asCALL_CDECL);
-    ctx->RegisterObjectBehaviour("IMUpdateBehavior", asBEHAVE_ADDREF, "void f()", asMETHOD(IMUpdateBehavior,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMUpdateBehavior", asBEHAVE_RELEASE, "void f()", asMETHOD(IMUpdateBehavior,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMUpdateBehavior", asBEHAVE_ADDREF, "void f()", asMETHOD(IMUpdateBehavior, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMUpdateBehavior", asBEHAVE_RELEASE, "void f()", asMETHOD(IMUpdateBehavior, Release), asCALL_THISCALL);
 
-
-    ctx->RegisterObjectType("IMMouseOverBehavior", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverBehavior", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverBehavior", asBEHAVE_FACTORY, "IMMouseOverBehavior@ f()", asFUNCTION(IMMouseOverBehavior::ASFactory), asCALL_CDECL);
-    ctx->RegisterObjectBehaviour("IMMouseOverBehavior", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverBehavior,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverBehavior", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverBehavior,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverBehavior", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverBehavior, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverBehavior", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverBehavior, Release), asCALL_THISCALL);
 
-    ctx->RegisterObjectType("IMMouseClickBehavior", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseClickBehavior", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseClickBehavior", asBEHAVE_FACTORY, "IMMouseClickBehavior@ f()", asFUNCTION(IMMouseClickBehavior::ASFactory), asCALL_CDECL);
-    ctx->RegisterObjectBehaviour("IMMouseClickBehavior", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseClickBehavior,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseClickBehavior", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseClickBehavior,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseClickBehavior", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseClickBehavior, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseClickBehavior", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseClickBehavior, Release), asCALL_THISCALL);
 
     /**
      * Behaviors clases
@@ -726,169 +712,145 @@ void AttachIMUI( ASContext *ctx ) {
 
     //// IMUpdateBehavior
 
-    ctx->RegisterObjectType("IMFadeIn", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMFadeIn", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMFadeIn", asBEHAVE_FACTORY, "IMFadeIn@ f(uint64 time, IMTweenType _tweener)", asFUNCTION(IMFadeIn::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMFadeIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior,IMFadeIn>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMFadeIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMFadeIn,IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMFadeIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior, IMFadeIn>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMFadeIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMFadeIn, IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMFadeIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFadeIn,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMFadeIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFadeIn,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMFadeIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFadeIn, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMFadeIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFadeIn, Release), asCALL_THISCALL);
 
-
-    ctx->RegisterObjectType("IMMoveIn", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMoveIn", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMoveIn", asBEHAVE_FACTORY, "IMMoveIn@ f(uint64 time, vec2 offset, IMTweenType _tweener)", asFUNCTION(IMMoveIn::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMMoveIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior,IMMoveIn>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMoveIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMMoveIn,IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMMoveIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior, IMMoveIn>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMoveIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMMoveIn, IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMoveIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMoveIn,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMoveIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMoveIn,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMoveIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMoveIn, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMoveIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMoveIn, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMChangeTextFadeOutIn", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMChangeTextFadeOutIn", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMChangeTextFadeOutIn", asBEHAVE_FACTORY, "IMChangeTextFadeOutIn@ f(uint64 time, const string &in _targetText, IMTweenType _tweenerOut, IMTweenType _tweenerIn)", asFUNCTION(IMChangeTextFadeOutIn::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMChangeTextFadeOutIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior,IMChangeTextFadeOutIn>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMChangeTextFadeOutIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMChangeTextFadeOutIn,IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMChangeTextFadeOutIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior, IMChangeTextFadeOutIn>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMChangeTextFadeOutIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMChangeTextFadeOutIn, IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMChangeTextFadeOutIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMChangeTextFadeOutIn,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMChangeTextFadeOutIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMChangeTextFadeOutIn,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMChangeTextFadeOutIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMChangeTextFadeOutIn, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMChangeTextFadeOutIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMChangeTextFadeOutIn, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMChangeImageFadeOutIn", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMChangeImageFadeOutIn", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMChangeImageFadeOutIn", asBEHAVE_FACTORY, "IMChangeImageFadeOutIn@ f(uint64 time, const string &in _targetImage, IMTweenType _tweenerOut, IMTweenType _tweenerIn)", asFUNCTION(IMChangeImageFadeOutIn::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMChangeImageFadeOutIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior,IMChangeImageFadeOutIn>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMChangeImageFadeOutIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMChangeImageFadeOutIn,IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMChangeImageFadeOutIn@ opCast()", asFUNCTION((refCast<IMUpdateBehavior, IMChangeImageFadeOutIn>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMChangeImageFadeOutIn", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMChangeImageFadeOutIn, IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMChangeImageFadeOutIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMChangeImageFadeOutIn,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMChangeImageFadeOutIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMChangeImageFadeOutIn,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMChangeImageFadeOutIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMChangeImageFadeOutIn, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMChangeImageFadeOutIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMChangeImageFadeOutIn, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMPulseAlpha", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMPulseAlpha", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMPulseAlpha", asBEHAVE_FACTORY, "IMPulseAlpha@ f(float lower, float upper, float _speed)", asFUNCTION(IMPulseAlpha::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMPulseAlpha@ opCast()", asFUNCTION((refCast<IMUpdateBehavior,IMPulseAlpha>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMPulseAlpha", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMPulseAlpha,IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMPulseAlpha@ opCast()", asFUNCTION((refCast<IMUpdateBehavior, IMPulseAlpha>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMPulseAlpha", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMPulseAlpha, IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMPulseAlpha", asBEHAVE_ADDREF, "void f()", asMETHOD(IMPulseAlpha,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMPulseAlpha", asBEHAVE_RELEASE, "void f()", asMETHOD(IMPulseAlpha,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMPulseAlpha", asBEHAVE_ADDREF, "void f()", asMETHOD(IMPulseAlpha, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMPulseAlpha", asBEHAVE_RELEASE, "void f()", asMETHOD(IMPulseAlpha, Release), asCALL_THISCALL);
 
-
-    ctx->RegisterObjectType("IMPulseBorderAlpha", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMPulseBorderAlpha", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMPulseBorderAlpha", asBEHAVE_FACTORY, "IMPulseBorderAlpha@ f(float lower, float upper, float _speed)", asFUNCTION(IMPulseBorderAlpha::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMPulseBorderAlpha@ opCast()", asFUNCTION((refCast<IMUpdateBehavior,IMPulseBorderAlpha>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMPulseBorderAlpha", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMPulseBorderAlpha,IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMUpdateBehavior", "IMPulseBorderAlpha@ opCast()", asFUNCTION((refCast<IMUpdateBehavior, IMPulseBorderAlpha>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMPulseBorderAlpha", "IMUpdateBehavior@ opImplCast()", asFUNCTION((refCast<IMPulseBorderAlpha, IMUpdateBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMPulseBorderAlpha", asBEHAVE_ADDREF, "void f()", asMETHOD(IMPulseAlpha,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMPulseBorderAlpha", asBEHAVE_RELEASE, "void f()", asMETHOD(IMPulseAlpha,Release), asCALL_THISCALL);
-
-
+    ctx->RegisterObjectBehaviour("IMPulseBorderAlpha", asBEHAVE_ADDREF, "void f()", asMETHOD(IMPulseAlpha, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMPulseBorderAlpha", asBEHAVE_RELEASE, "void f()", asMETHOD(IMPulseAlpha, Release), asCALL_THISCALL);
 
     //// IMMouseOverBehavior
-	ctx->RegisterObjectType("IMMouseOverScale", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverScale", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverScale", asBEHAVE_FACTORY, "IMMouseOverScale@ f(uint64 time, float offset, IMTweenType _tweener)", asFUNCTION(IMMouseOverScale::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverScale@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverScale>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverScale", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverScale,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverScale@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverScale>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverScale", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverScale, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverScale", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverScale,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverScale", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverScale,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverScale", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverScale, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverScale", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverScale, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMMouseOverMove", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverMove", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverMove", asBEHAVE_FACTORY, "IMMouseOverMove@ f(uint64 time, vec2 offset, IMTweenType _tweener)", asFUNCTION(IMMouseOverMove::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverMove@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverMove>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverMove", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverMove,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverMove@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverMove>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverMove", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverMove, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverMove", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverMove,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverMove", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverMove,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverMove", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverMove, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverMove", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverMove, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMMouseOverShowBorder", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverShowBorder", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverShowBorder", asBEHAVE_FACTORY, "IMMouseOverShowBorder@ f()", asFUNCTION(IMMouseOverShowBorder::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverShowBorder@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverShowBorder>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverShowBorder", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverShowBorder,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverShowBorder@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverShowBorder>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverShowBorder", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverShowBorder, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverShowBorder", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverShowBorder,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverShowBorder", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverShowBorder,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverShowBorder", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverShowBorder, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverShowBorder", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverShowBorder, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMMouseOverPulseColor", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverPulseColor", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverPulseColor", asBEHAVE_FACTORY, "IMMouseOverPulseColor@ f(vec4 first, vec4 second, float _speed)", asFUNCTION(IMMouseOverPulseColor::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverPulseColor@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverPulseColor>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverPulseColor", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverPulseColor,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverPulseColor@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverPulseColor>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverPulseColor", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverPulseColor, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverPulseColor", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverPulseColor,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverPulseColor", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverPulseColor,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverPulseColor", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverPulseColor, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverPulseColor", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverPulseColor, Release), asCALL_THISCALL);
 
-
-    ctx->RegisterObjectType("IMMouseOverPulseBorder", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverPulseBorder", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverPulseBorder", asBEHAVE_FACTORY, "IMMouseOverPulseBorder@ f(vec4 first, vec4 second, float _speed)", asFUNCTION(IMMouseOverPulseBorder::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverPulseBorder@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverPulseBorder>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverPulseBorder", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverPulseBorder,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverPulseBorder@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverPulseBorder>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverPulseBorder", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverPulseBorder, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorder", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverPulseBorder,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorder", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverPulseBorder,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorder", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverPulseBorder, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorder", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverPulseBorder, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMMouseOverPulseBorderAlpha", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverPulseBorderAlpha", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverPulseBorderAlpha", asBEHAVE_FACTORY, "IMMouseOverPulseBorderAlpha@ f(vec4 first, vec4 second, float _speed)", asFUNCTION(IMMouseOverPulseBorderAlpha::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverPulseBorderAlpha@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverPulseBorderAlpha>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverPulseBorderAlpha", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverPulseBorderAlpha,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverPulseBorderAlpha@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverPulseBorderAlpha>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverPulseBorderAlpha", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverPulseBorderAlpha, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorderAlpha", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverPulseBorderAlpha,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorderAlpha", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverPulseBorderAlpha,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorderAlpha", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverPulseBorderAlpha, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverPulseBorderAlpha", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverPulseBorderAlpha, Release), asCALL_THISCALL);
 
-
-
-    ctx->RegisterObjectType("IMFixedMessageOnMouseOver", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMFixedMessageOnMouseOver", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMFixedMessageOnMouseOver", asBEHAVE_FACTORY, "IMFixedMessageOnMouseOver@ f(IMMessage@ _enterMessage, IMMessage@ _overMessage, IMMessage@ _leaveMessage)", asFUNCTION(IMFixedMessageOnMouseOver::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMFixedMessageOnMouseOver@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverShowBorder>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMFixedMessageOnMouseOver", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMFixedMessageOnMouseOver,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMFixedMessageOnMouseOver@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverShowBorder>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMFixedMessageOnMouseOver", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMFixedMessageOnMouseOver, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMFixedMessageOnMouseOver", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFixedMessageOnMouseOver,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMFixedMessageOnMouseOver", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFixedMessageOnMouseOver,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMFixedMessageOnMouseOver", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFixedMessageOnMouseOver, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMFixedMessageOnMouseOver", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFixedMessageOnMouseOver, Release), asCALL_THISCALL);
 
-
-    ctx->RegisterObjectType("IMMouseOverFadeIn", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMMouseOverFadeIn", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverFadeIn", asBEHAVE_FACTORY, "IMMouseOverFadeIn@ f(uint64 time, IMTweenType _tweener, float targetAlpha = 1.0f)", asFUNCTION(IMMouseOverFadeIn::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverFadeIn@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverFadeIn>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverFadeIn", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverFadeIn,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverFadeIn@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverFadeIn>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverFadeIn", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverFadeIn, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverFadeIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverFadeIn,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverFadeIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverFadeIn,Release), asCALL_THISCALL);
-
+    ctx->RegisterObjectBehaviour("IMMouseOverFadeIn", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverFadeIn, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverFadeIn", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverFadeIn, Release), asCALL_THISCALL);
 
     ctx->RegisterObjectType("IMMouseOverSound", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMMouseOverSound", asBEHAVE_FACTORY, "IMMouseOverSound@ f(const string &in audioFile)", asFUNCTION(IMMouseOverSound::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverSound@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior,IMMouseOverSound>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMMouseOverSound", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverSound,IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverBehavior", "IMMouseOverSound@ opCast()", asFUNCTION((refCast<IMMouseOverBehavior, IMMouseOverSound>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseOverSound", "IMMouseOverBehavior@ opImplCast()", asFUNCTION((refCast<IMMouseOverSound, IMMouseOverBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMMouseOverSound", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverSound,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMMouseOverSound", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverSound,Release), asCALL_THISCALL);
-
+    ctx->RegisterObjectBehaviour("IMMouseOverSound", asBEHAVE_ADDREF, "void f()", asMETHOD(IMMouseOverSound, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMMouseOverSound", asBEHAVE_RELEASE, "void f()", asMETHOD(IMMouseOverSound, Release), asCALL_THISCALL);
 
     //// IMMouseClickBehavior
 
-    ctx->RegisterObjectType("IMFixedMessageOnClick", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMFixedMessageOnClick", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMFixedMessageOnClick", asBEHAVE_FACTORY, "IMFixedMessageOnClick@ f(IMMessage@ _enterMessage, IMMessage@ _overMessage, IMMessage@ _leaveMessage)", asFUNCTION(IMFixedMessageOnClick::ASFactory), asCALL_CDECL);
 
     ctx->RegisterObjectBehaviour("IMFixedMessageOnClick", asBEHAVE_FACTORY, "IMFixedMessageOnClick@ f(const string &in messageName)", asFUNCTION(IMFixedMessageOnClick::ASFactory), asCALL_CDECL);
@@ -901,33 +863,31 @@ void AttachIMUI( ASContext *ctx ) {
 
     ctx->RegisterObjectBehaviour("IMFixedMessageOnClick", asBEHAVE_FACTORY, "IMFixedMessageOnClick@ f(IMMessage@ message)", asFUNCTION(IMFixedMessageOnClick::ASFactoryMessage), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseClickBehavior", "IMFixedMessageOnClick@ opCast()", asFUNCTION((refCast<IMMouseClickBehavior,IMFixedMessageOnClick>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMFixedMessageOnClick", "IMMouseClickBehavior@ opImplCast()", asFUNCTION((refCast<IMFixedMessageOnClick,IMMouseClickBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseClickBehavior", "IMFixedMessageOnClick@ opCast()", asFUNCTION((refCast<IMMouseClickBehavior, IMFixedMessageOnClick>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMFixedMessageOnClick", "IMMouseClickBehavior@ opImplCast()", asFUNCTION((refCast<IMFixedMessageOnClick, IMMouseClickBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMFixedMessageOnClick", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFixedMessageOnClick,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMFixedMessageOnClick", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFixedMessageOnClick,Release), asCALL_THISCALL);
-
+    ctx->RegisterObjectBehaviour("IMFixedMessageOnClick", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFixedMessageOnClick, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMFixedMessageOnClick", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFixedMessageOnClick, Release), asCALL_THISCALL);
 
     ctx->RegisterObjectType("IMSoundOnClick", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMSoundOnClick", asBEHAVE_FACTORY, "IMSoundOnClick@ f(const string &in audioFile)", asFUNCTION(IMSoundOnClick::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseClickBehavior", "IMSoundOnClick@ opCast()", asFUNCTION((refCast<IMMouseClickBehavior,IMSoundOnClick>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMSoundOnClick", "IMMouseClickBehavior@ opImplCast()", asFUNCTION((refCast<IMSoundOnClick,IMMouseClickBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseClickBehavior", "IMSoundOnClick@ opCast()", asFUNCTION((refCast<IMMouseClickBehavior, IMSoundOnClick>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMSoundOnClick", "IMMouseClickBehavior@ opImplCast()", asFUNCTION((refCast<IMSoundOnClick, IMMouseClickBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMSoundOnClick", asBEHAVE_ADDREF, "void f()", asMETHOD(IMSoundOnClick,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMSoundOnClick", asBEHAVE_RELEASE, "void f()", asMETHOD(IMSoundOnClick,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMSoundOnClick", asBEHAVE_ADDREF, "void f()", asMETHOD(IMSoundOnClick, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMSoundOnClick", asBEHAVE_RELEASE, "void f()", asMETHOD(IMSoundOnClick, Release), asCALL_THISCALL);
 
     ctx->RegisterFuncdef("void OnClickCallback()");
 
     ctx->RegisterObjectType("IMFuncOnClick", 0, asOBJ_REF);
     ctx->RegisterObjectBehaviour("IMFuncOnClick", asBEHAVE_FACTORY, "IMFuncOnClick@ f(OnClickCallback@ func)", asFUNCTION(IMFuncOnClick::ASFactory), asCALL_CDECL);
 
-    ctx->RegisterObjectMethod("IMMouseClickBehavior", "IMFuncOnClick@ opCast()", asFUNCTION((refCast<IMMouseClickBehavior,IMFuncOnClick>)), asCALL_CDECL_OBJLAST);
-    ctx->RegisterObjectMethod("IMFuncOnClick", "IMMouseClickBehavior@ opImplCast()", asFUNCTION((refCast<IMFuncOnClick,IMMouseClickBehavior>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMMouseClickBehavior", "IMFuncOnClick@ opCast()", asFUNCTION((refCast<IMMouseClickBehavior, IMFuncOnClick>)), asCALL_CDECL_OBJLAST);
+    ctx->RegisterObjectMethod("IMFuncOnClick", "IMMouseClickBehavior@ opImplCast()", asFUNCTION((refCast<IMFuncOnClick, IMMouseClickBehavior>)), asCALL_CDECL_OBJLAST);
 
-    ctx->RegisterObjectBehaviour("IMFuncOnClick", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFuncOnClick,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMFuncOnClick", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFuncOnClick,Release), asCALL_THISCALL);
-
+    ctx->RegisterObjectBehaviour("IMFuncOnClick", asBEHAVE_ADDREF, "void f()", asMETHOD(IMFuncOnClick, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMFuncOnClick", asBEHAVE_RELEASE, "void f()", asMETHOD(IMFuncOnClick, Release), asCALL_THISCALL);
 
     /*******
      *
@@ -935,16 +895,15 @@ void AttachIMUI( ASContext *ctx ) {
      *
      */
 
-    registerASIMElement<IMElement>( ctx, "IMElement" );
+    registerASIMElement<IMElement>(ctx, "IMElement");
 
-
-    registerASIMElement<IMSpacer>( ctx, "IMSpacer" );
+    registerASIMElement<IMSpacer>(ctx, "IMSpacer");
 
     ctx->RegisterObjectBehaviour("IMSpacer", asBEHAVE_FACTORY, "IMSpacer@ f( DividerOrientation _orientation, float size)", asFUNCTION(IMSpacer::ASFactory_static), asCALL_CDECL);
 
     ctx->RegisterObjectBehaviour("IMSpacer", asBEHAVE_FACTORY, "IMSpacer@ f(DividerOrientation _orientation )", asFUNCTION(IMSpacer::ASFactory_dynamic), asCALL_CDECL);
 
-    registerASIMElement<IMContainer>( ctx, "IMContainer" );
+    registerASIMElement<IMContainer>(ctx, "IMContainer");
 
     ctx->RegisterObjectBehaviour("IMContainer", asBEHAVE_FACTORY, "IMContainer@ f(const string &in name, SizePolicy sizeX = SizePolicy(), SizePolicy sizeY  = SizePolicy())", asFUNCTION(IMContainer::ASFactory_named), asCALL_CDECL);
 
@@ -963,7 +922,7 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMContainer", "IMElement@ getContents( )", asMETHOD(IMContainer, getContents), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMContainer", "array<IMElement@>@ getFloatingContents( )", asFUNCTION(AS_GetFloatingContents), asCALL_CDECL_OBJFIRST);
 
-    registerASIMElement<IMDivider>( ctx, "IMDivider" );
+    registerASIMElement<IMDivider>(ctx, "IMDivider");
 
     ctx->RegisterObjectBehaviour("IMDivider", asBEHAVE_FACTORY, "IMDivider@ f(const string &in name, DividerOrientation _orientation = DOVertical)", asFUNCTION(IMDivider::ASFactory_named), asCALL_CDECL);
 
@@ -980,7 +939,7 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMDivider", "IMContainer@ append( IMElement@ newElement, float containerSize = UNDEFINEDSIZE )", asMETHOD(IMDivider, append), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMDivider", "DividerOrientation getOrientation()", asMETHOD(IMDivider, getOrientation), asCALL_THISCALL);
 
-    registerASIMElement<IMDivider>( ctx, "IMTextSelectionList" );
+    registerASIMElement<IMDivider>(ctx, "IMTextSelectionList");
 
     ctx->RegisterObjectBehaviour("IMTextSelectionList", asBEHAVE_FACTORY, "IMTextSelectionList@ f(const string &in _name, FontSetup _fontSetup, float _betweenSpace, IMMouseOverBehavior@ _mouseOver = null )", asFUNCTION(IMTextSelectionList::ASFactory), asCALL_CDECL);
 
@@ -991,7 +950,7 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMTextSelectionList", "void addEntry( const string &in name, const string &in text, const string &in message )", asMETHOD(IMTextSelectionList, addEntry), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMTextSelectionList", "void addEntry( const string &in name, const string &in text, const string &in message, const string &in param )", asMETHOD(IMTextSelectionList, addEntryParam), asCALL_THISCALL);
 
-    registerASIMElement<IMImage>( ctx, "IMImage" );
+    registerASIMElement<IMImage>(ctx, "IMImage");
 
     ctx->RegisterObjectBehaviour("IMImage", asBEHAVE_FACTORY, "IMImage@ f(const string &in name, DividerOrientation _orientation = DOVertical)", asFUNCTION(IMImage::ASFactory), asCALL_CDECL);
 
@@ -1004,14 +963,13 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMImage", "float getRotation()", asMETHOD(IMImage, getRotation), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMImage", "void setImageOffset( vec2 offset, vec2 size )", asMETHOD(IMImage, setImageOffset), asCALL_THISCALL);
 
-    registerASIMElement<IMText>( ctx, "IMText" );
+    registerASIMElement<IMText>(ctx, "IMText");
 
     ctx->RegisterObjectBehaviour("IMText", asBEHAVE_FACTORY, "IMText@ f(const string &in name)", asFUNCTION(IMText::ASFactory_named), asCALL_CDECL);
 
     ctx->RegisterObjectBehaviour("IMText", asBEHAVE_FACTORY, "IMText@ f(const string &in _text, const string &in _fontName, int _fontSize, vec4 _color = vec4(1.0f))", asFUNCTION(IMText::ASFactory_unnamed), asCALL_CDECL);
 
     ctx->RegisterObjectBehaviour("IMText", asBEHAVE_FACTORY, "IMText@ f(const string &in _text, FontSetup _fontSetup)", asFUNCTION(IMText::ASFactory_fontsetup), asCALL_CDECL);
-
 
     ctx->RegisterObjectMethod("IMText", "void setFont( FontSetup _fontSetup )", asMETHOD(IMText, setFont), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMText", "void setFontByName( const string &in _fontName, int _fontSize )", asMETHOD(IMText, setFontByName), asCALL_THISCALL);
@@ -1046,15 +1004,14 @@ void AttachIMUI( ASContext *ctx ) {
                                 "float GUItoScreenYScale",
                                 asOFFSET(ScreenMetrics, GUItoScreenYScale));
 
-    ctx->RegisterObjectMethod("ScreenMetrics","vec2 getMetrics()",asMETHOD(ScreenMetrics, getMetrics), asCALL_THISCALL);
-    ctx->RegisterObjectMethod("ScreenMetrics","bool checkMetrics( vec2 &in metrics )",asMETHOD(ScreenMetrics, checkMetrics), asCALL_THISCALL);
-    ctx->RegisterObjectMethod("ScreenMetrics","void computeFactors()",asMETHOD(ScreenMetrics, computeFactors), asCALL_THISCALL);
-    ctx->RegisterObjectMethod("ScreenMetrics","vec2 GUIToScreen( const vec2 pos )",asMETHOD(ScreenMetrics, GUIToScreen), asCALL_THISCALL);
-    ctx->RegisterObjectMethod("ScreenMetrics","float getScreenWidth()",asMETHOD(ScreenMetrics, getScreenWidth), asCALL_THISCALL);
-    ctx->RegisterObjectMethod("ScreenMetrics","float getScreenHeight()",asMETHOD(ScreenMetrics, getScreenHeight), asCALL_THISCALL);
+    ctx->RegisterObjectMethod("ScreenMetrics", "vec2 getMetrics()", asMETHOD(ScreenMetrics, getMetrics), asCALL_THISCALL);
+    ctx->RegisterObjectMethod("ScreenMetrics", "bool checkMetrics( vec2 &in metrics )", asMETHOD(ScreenMetrics, checkMetrics), asCALL_THISCALL);
+    ctx->RegisterObjectMethod("ScreenMetrics", "void computeFactors()", asMETHOD(ScreenMetrics, computeFactors), asCALL_THISCALL);
+    ctx->RegisterObjectMethod("ScreenMetrics", "vec2 GUIToScreen( const vec2 pos )", asMETHOD(ScreenMetrics, GUIToScreen), asCALL_THISCALL);
+    ctx->RegisterObjectMethod("ScreenMetrics", "float getScreenWidth()", asMETHOD(ScreenMetrics, getScreenWidth), asCALL_THISCALL);
+    ctx->RegisterObjectMethod("ScreenMetrics", "float getScreenHeight()", asMETHOD(ScreenMetrics, getScreenHeight), asCALL_THISCALL);
 
     ctx->RegisterGlobalProperty("ScreenMetrics screenMetrics", &screenMetrics);
-
 
     /*******************************************************************************************/
     /**
@@ -1062,7 +1019,7 @@ void AttachIMUI( ASContext *ctx ) {
      *
      */
 
-    ctx->RegisterObjectType("IMGUI", 0, asOBJ_REF );
+    ctx->RegisterObjectType("IMGUI", 0, asOBJ_REF);
 
     /* We don't want implicitly created IMGUI instances, because it will result in unexpected behaviour for users.
     ctx->RegisterObjectBehaviour("IMGUI",
@@ -1072,9 +1029,8 @@ void AttachIMUI( ASContext *ctx ) {
                                  asCALL_CDECL);
     */
 
-
-    ctx->RegisterObjectBehaviour("IMGUI", asBEHAVE_ADDREF, "void f()", asMETHOD(IMGUI,AddRef), asCALL_THISCALL);
-    ctx->RegisterObjectBehaviour("IMGUI", asBEHAVE_RELEASE, "void f()", asMETHOD(IMGUI,Release), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMGUI", asBEHAVE_ADDREF, "void f()", asMETHOD(IMGUI, AddRef), asCALL_THISCALL);
+    ctx->RegisterObjectBehaviour("IMGUI", asBEHAVE_RELEASE, "void f()", asMETHOD(IMGUI, Release), asCALL_THISCALL);
 
     ctx->RegisterObjectProperty("IMGUI",
                                 "GUIState guistate",
@@ -1089,7 +1045,7 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMGUI", "void setFooterPanels( float first = 0, float second = 0, float third = 0 )", asMETHOD(IMGUI, setFooterPanels), asCALL_THISCALL);
 
     ctx->RegisterObjectMethod("IMGUI", "void setup()", asMETHOD(IMGUI, setup), asCALL_THISCALL);
-//    ctx->RegisterObjectMethod("IMGUI", "void derivePanelOffsets()", asMETHOD(IMGUI, derivePanelOffsets), asCALL_THISCALL);
+    //    ctx->RegisterObjectMethod("IMGUI", "void derivePanelOffsets()", asMETHOD(IMGUI, derivePanelOffsets), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMGUI", "void clear()", asMETHOD(IMGUI, clear), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMGUI", "void setGuides( bool setting )", asMETHOD(IMGUI, setGuides), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMGUI", "void reportError( const string &in newError )", asMETHOD(IMGUI, reportError), asCALL_THISCALL);
@@ -1112,8 +1068,7 @@ void AttachIMUI( ASContext *ctx ) {
     ctx->RegisterObjectMethod("IMGUI", "string getUniqueName( const string &in type = \"Unkowntype\")", asMETHOD(IMGUI, getUniqueName), asCALL_THISCALL);
     ctx->RegisterObjectMethod("IMGUI", "void drawBox( vec2 boxPos, vec2 boxSize, vec4 boxColor, int zOrder, bool shouldClip = false, vec2 currentClipPos = vec2(UNDEFINEDSIZE, UNDEFINEDSIZE), vec2 currentClipSize = vec2(UNDEFINEDSIZE, UNDEFINEDSIZE) )", asMETHOD(IMGUI, drawBox), asCALL_THISCALL);
 
-
-    ctx->RegisterGlobalFunction("IMGUI@ CreateIMGUI()", asFUNCTION(AS_CreateIMGUI), asCALL_CDECL );
+    ctx->RegisterGlobalFunction("IMGUI@ CreateIMGUI()", asFUNCTION(AS_CreateIMGUI), asCALL_CDECL);
 
     ctx->DocsCloseBrace();
 }

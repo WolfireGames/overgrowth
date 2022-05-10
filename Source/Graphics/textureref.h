@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: textureref.h
 //      Developer: Wolfire Games LLC
-//    Description: TextureRef is used for generated textures. TextureAssetRef 
+//    Description: TextureRef is used for generated textures. TextureAssetRef
 //                 for data-related loaded textures.
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -27,7 +27,7 @@
 #include <Asset/Asset/texturedummy.h>
 
 class TextureRef {
-public:
+   public:
     int id;
     void clear();
 
@@ -36,11 +36,10 @@ public:
     TextureRef();
     TextureRef(int id);
     TextureRef(int id, TextureDummyRef td);
-    TextureRef(const TextureRef &id);
+    TextureRef(const TextureRef& id);
     ~TextureRef();
 
     const TextureRef& operator=(const TextureRef& other);
     bool operator!=(const TextureRef& other) const;
     bool operator<(const TextureRef& other) const;
-
 };

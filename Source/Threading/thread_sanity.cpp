@@ -27,21 +27,18 @@
 #include <thread>
 #include <cassert>
 
-using std::thread;
 using std::endl;
+using std::thread;
 
 static thread::id main_thread_id;
 
-//Record which thread is the main one so that we can assert that we are in the main thread going forward.
-void RegisterMainThreadID()
-{
+// Record which thread is the main one so that we can assert that we are in the main thread going forward.
+void RegisterMainThreadID() {
     main_thread_id = std::this_thread::get_id();
 }
 
-bool AssertMainThread()
-{
-    if( main_thread_id != std::this_thread::get_id() )
-    {
+bool AssertMainThread() {
+    if (main_thread_id != std::this_thread::get_id()) {
         LOGE << "It appears a thread has entered a code block that is limited only to the main thread" << endl;
         assert(false);
         return false;
@@ -49,8 +46,6 @@ bool AssertMainThread()
     return true;
 }
 
-
-bool IsMainThread()
-{
+bool IsMainThread() {
     return main_thread_id == std::this_thread::get_id();
 }

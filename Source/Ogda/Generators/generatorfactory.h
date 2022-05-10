@@ -26,34 +26,30 @@
 
 #include <vector>
 
-class GeneratorFactory
-{
-private:
-    class CreatorFactoryBase
-    { 
-    public:
+class GeneratorFactory {
+   private:
+    class CreatorFactoryBase {
+       public:
         virtual CreatorBase* NewInstance() = 0;
         virtual std::string GetCreatorName() = 0;
     };
 
-    template<class Creator>
-    class CreatorFactory : public CreatorFactoryBase
-    {
-        CreatorBase* NewInstance() override
-        {
+    template <class Creator>
+    class CreatorFactory : public CreatorFactoryBase {
+        CreatorBase* NewInstance() override {
             return new Creator();
         }
 
-        std::string GetCreatorName() override
-        {
+        std::string GetCreatorName() override {
             return std::string(Creator().GetName());
         }
     };
 
     std::vector<CreatorFactoryBase*> creators;
-public:
+
+   public:
     GeneratorFactory();
     ~GeneratorFactory();
-    bool HasGenerator( const std::string& generator );
-    Generator CreateGenerator( const std::string& generator );
+    bool HasGenerator(const std::string& generator);
+    Generator CreateGenerator(const std::string& generator);
 };

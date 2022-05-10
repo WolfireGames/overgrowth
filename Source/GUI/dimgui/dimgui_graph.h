@@ -25,7 +25,7 @@
 
 #include <imgui.h>
 
-template<unsigned int d_elems>
+template <unsigned int d_elems>
 class ImGUIGraph {
     int offset;
     int last_min_adj;
@@ -33,12 +33,12 @@ class ImGUIGraph {
     float minV, maxV;
     std::array<float, d_elems> elements;
 
-public:
+   public:
     ImGUIGraph() {
         offset = 0;
         minV = 0.0f;
         maxV = 1.0f;
-        for(int i = 0; i < elements.size(); i++) {
+        for (int i = 0; i < elements.size(); i++) {
             elements[i] = 0.0f;
         }
     }
@@ -46,28 +46,28 @@ public:
     void Push(float value) {
         elements[offset] = value;
 
-        if(value > maxV) {
+        if (value > maxV) {
             maxV = value;
             last_max_adj = 0;
-        } 
+        }
 
-        if(value < minV) {
+        if (value < minV) {
             minV = value;
             last_min_adj = 0;
         }
 
-        //Only shrink if the gap between the scales is more than 1.0f
-        if(abs(maxV - minV) > 0.5f) {
-            if(last_min_adj > d_elems) {
+        // Only shrink if the gap between the scales is more than 1.0f
+        if (abs(maxV - minV) > 0.5f) {
+            if (last_min_adj > d_elems) {
                 minV = mix(minV, maxV, 0.99f);
             }
-            if(last_max_adj > d_elems) {
+            if (last_max_adj > d_elems) {
                 maxV = mix(maxV, minV, 0.99f);
             }
         }
 
         offset++;
-        if(offset >= d_elems) {
+        if (offset >= d_elems) {
             offset = 0;
         }
     }

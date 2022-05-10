@@ -26,18 +26,16 @@
 #endif
 
 template <typename T>
-class ReferenceCounter
-{
-private:
+class ReferenceCounter {
+   private:
     int* ref_counter;
-    T* data; 
-public:
-    ReferenceCounter():
-    ref_counter(new int(1)),
-    data(new T())
-    {
+    T* data;
+
+   public:
+    ReferenceCounter() : ref_counter(new int(1)),
+                         data(new T()) {
     }
-    
+
     /*
     ReferenceCounter(const T& _data):
     ref_counter(new int(1)),
@@ -45,19 +43,16 @@ public:
     {
     }
     */
-    
-    ReferenceCounter( T* _data ):
-    ref_counter(new int(1)),
-    data(_data)
-    {
+
+    ReferenceCounter(T* _data) : ref_counter(new int(1)),
+                                 data(_data) {
     }
 
     void Set(T* _data) {
         *ref_counter -= 1;
-        if( *ref_counter == 0)
-        {
+        if (*ref_counter == 0) {
             delete ref_counter;
-            if( data ) {
+            if (data) {
                 delete data;
             }
             data = NULL;
@@ -68,26 +63,22 @@ public:
         ref_counter = new int(1);
     }
 
-    ReferenceCounter( const ReferenceCounter<T>& other )
-    {
+    ReferenceCounter(const ReferenceCounter<T>& other) {
         data = other.data;
         ref_counter = other.ref_counter;
 
         *ref_counter += 1;
     }
 
-    ReferenceCounter& operator=(const ReferenceCounter<T>& other)
-    {
-		if (&other == this)
-		{
-			return *this;
-		}
+    ReferenceCounter& operator=(const ReferenceCounter<T>& other) {
+        if (&other == this) {
+            return *this;
+        }
 
         *ref_counter -= 1;
-        if( *ref_counter == 0)
-        {
+        if (*ref_counter == 0) {
             delete ref_counter;
-            if( data ) {
+            if (data) {
                 delete data;
             }
             data = NULL;
@@ -102,16 +93,13 @@ public:
         return *this;
     }
 
-    T* operator->()
-    {
+    T* operator->() {
         return data;
     }
 
-    ~ReferenceCounter()
-    {
+    ~ReferenceCounter() {
         *ref_counter -= 1;
-        if( *ref_counter == 0)
-        {
+        if (*ref_counter == 0) {
             delete ref_counter;
             delete data;
             data = NULL;
@@ -119,8 +107,7 @@ public:
         }
     }
 
-    const T& GetConst() const
-    {
+    const T& GetConst() const {
         return *data;
     }
 
@@ -128,12 +115,12 @@ public:
         return data;
     }
 
-    template<typename H>
+    template <typename H>
     H* GetPtr() {
         return static_cast<H*>(data);
     }
 
-    template<typename H>
+    template <typename H>
     const H* GetConstPtr() const {
         return static_cast<H*>(data);
     }

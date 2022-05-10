@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: unix_compat.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -41,16 +41,28 @@
 #define PATH_MAX 2048
 #endif
 
-extern "C" { void nonExistantFunctionToAlertYouToStubbedCode(void); }
+extern "C" {
+void nonExistantFunctionToAlertYouToStubbedCode(void);
+}
 //#define STUBBED(txt) nonExistantFunctionToAlertYouToStubbedCode()
-#define STUBBED(txt) { static bool virgin = true; if (virgin) { virgin = false; fprintf(stderr, "STUBBED: %s at %s:%d\n", txt, __FILE__, __LINE__); } }
-#define MessageBox(hwnd, title, text, buttons) { STUBBED("MSGBOX"); fprintf(stderr, "MSGBOX: %s...%s (%s)\n", title, text, #buttons); }
-#define _open(x,y) open(x,y, S_IREAD | S_IWRITE)
+#define STUBBED(txt)                                                            \
+    {                                                                           \
+        static bool virgin = true;                                              \
+        if (virgin) {                                                           \
+            virgin = false;                                                     \
+            fprintf(stderr, "STUBBED: %s at %s:%d\n", txt, __FILE__, __LINE__); \
+        }                                                                       \
+    }
+#define MessageBox(hwnd, title, text, buttons)                            \
+    {                                                                     \
+        STUBBED("MSGBOX");                                                \
+        fprintf(stderr, "MSGBOX: %s...%s (%s)\n", title, text, #buttons); \
+    }
+#define _open(x, y) open(x, y, S_IREAD | S_IWRITE)
 #define _O_RDONLY O_RDONLY
-#define _lseek(x,y,z) lseek(x,y,z)
+#define _lseek(x, y, z) lseek(x, y, z)
 #define _close(x) close(x)
 
 #define _ASSERT(x) assert(x)
 
 // end of unix_compat.h ...
-

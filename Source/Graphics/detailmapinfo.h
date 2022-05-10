@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: detailmapinfo.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,13 +31,13 @@ struct DetailMapInfo {
     std::string colorpath;
     std::string normalpath;
     std::string materialpath;
-    
+
     inline bool operator==(const DetailMapInfo& other) const {
         return colorpath == other.colorpath &&
                normalpath == other.normalpath &&
                materialpath == other.materialpath;
     }
-    
+
     void Print();
-    void ReturnPaths(PathSet &path_set);
+    void ReturnPaths(PathSet& path_set);
 };

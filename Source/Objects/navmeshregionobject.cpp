@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: navmeshregionobject.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -37,28 +37,27 @@
 #include <Main/scenegraph.h>
 #include <Objects/envobject.h>
 
-NavmeshRegionObject::NavmeshRegionObject()
-{
+NavmeshRegionObject::NavmeshRegionObject() {
     permission_flags = CAN_TRANSLATE | CAN_SCALE | CAN_SELECT | CAN_COPY | CAN_DELETE;
     box_.dims = vec3(1.0f);
-    box_color = vec4(0.1f,0.1f,1.0f,1.0f);
+    box_color = vec4(0.1f, 0.1f, 1.0f, 1.0f);
 }
 
 NavmeshRegionObject::~NavmeshRegionObject() {
 }
 
 void NavmeshRegionObject::Draw() {
-    //Check if we should be drawn.
-    if(scenegraph_->map_editor->state_ == MapEditor::kInGame || Graphics::Instance()->media_mode() || ActiveCameras::Instance()->Get()->GetFlags() == Camera::kPreviewCamera){
+    // Check if we should be drawn.
+    if (scenegraph_->map_editor->state_ == MapEditor::kInGame || Graphics::Instance()->media_mode() || ActiveCameras::Instance()->Get()->GetFlags() == Camera::kPreviewCamera) {
         return;
     }
 }
 
-void NavmeshRegionObject::GetDesc(EntityDescription &desc) const {
+void NavmeshRegionObject::GetDesc(EntityDescription& desc) const {
     Object::GetDesc(desc);
 }
 
-bool NavmeshRegionObject::SetFromDesc( const EntityDescription& desc ) {
+bool NavmeshRegionObject::SetFromDesc(const EntityDescription& desc) {
     return Object::SetFromDesc(desc);
 }
 
@@ -66,12 +65,10 @@ bool NavmeshRegionObject::Initialize() {
     return true;
 }
 
-vec3 NavmeshRegionObject::GetMinBounds()
-{
-    return (GetTransform() * vec4(-0.5,-0.5,-0.5,1.0f)).xyz();
+vec3 NavmeshRegionObject::GetMinBounds() {
+    return (GetTransform() * vec4(-0.5, -0.5, -0.5, 1.0f)).xyz();
 }
 
-vec3 NavmeshRegionObject::GetMaxBounds()
-{
-    return (GetTransform() *  vec4(0.5,0.5,0.5,1.0f) ).xyz();
+vec3 NavmeshRegionObject::GetMaxBounds() {
+    return (GetTransform() * vec4(0.5, 0.5, 0.5, 1.0f)).xyz();
 }

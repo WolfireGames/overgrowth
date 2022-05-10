@@ -34,50 +34,34 @@
 #include <tinyxml.h>
 
 void ParameterScanner::Do(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlNode *eRoot, 
-    const std::vector<parampair>& params, 
-    const std::vector<const char*>& params_ignore
-    )
-{
-    if( eRoot )
-    {
+    std::vector<Item>& items,
+    const Item& item,
+    TiXmlNode* eRoot,
+    const std::vector<parampair>& params,
+    const std::vector<const char*>& params_ignore) {
+    if (eRoot) {
         TiXmlElement* eElem = eRoot->FirstChildElement();
 
-        while( eElem )
-        {
+        while (eElem) {
             const char* name = eElem->Attribute("name");
             const char* text = eElem->Attribute("val");
 
-            if( name )
-            {
+            if (name) {
                 int id;
-                if( (id = FindStringInArray( params, name )) >= 0 )
-                {
-                    if( strlen( params[id].second ) > 0 )
-                    {
-                        if( text && strlen(text) > 0 )
-                        {
-                            items.push_back(Item(item.input_folder,text,params[id].second,item.source));
-                        }
-                        else
-                        {
+                if ((id = FindStringInArray(params, name)) >= 0) {
+                    if (strlen(params[id].second) > 0) {
+                        if (text && strlen(text) > 0) {
+                            items.push_back(Item(item.input_folder, text, params[id].second, item.source));
+                        } else {
                             LOGW << "String value in " << item << " for element " << params[id].first << " is empty, row " << eElem->Row() << std::endl;
                         }
                     }
-                }
-                else if( (id = FindStringInArray( params_ignore, name )) >= 0 )
-                {
+                } else if ((id = FindStringInArray(params_ignore, name)) >= 0) {
                     LOGD << "Ignored " << params_ignore[id] << " in " << item << " row " << eElem->Row() << std::endl;
-                }
-                else
-                {
+                } else {
                     LOGE << "Unahandled subvalue from " << item << " called " << name << " row " << eElem->Row() << std::endl;
                 }
-            }
-            else
-            {
+            } else {
                 LOGE << "Generic warning" << std::endl;
             }
 

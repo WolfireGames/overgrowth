@@ -24,62 +24,50 @@
 
 #include <Sound/soundlogging.h>
 
-alAudioBuffer::alAudioBuffer( )
-: buf( INVALID_BUF )
-{
+alAudioBuffer::alAudioBuffer()
+    : buf(INVALID_BUF) {
 }
 
-void alAudioBuffer::Allocate()
-{
+void alAudioBuffer::Allocate() {
     ALenum e = alGetError();
-    if( e != AL_NO_ERROR ) {
+    if (e != AL_NO_ERROR) {
         LOGW << "Entering alAudioBuffer with error: " << e << " " << alGetString(e) << std::endl;
     }
 
     alGenBuffers(1, &buf);
 
-    if( !IsValid() )
-    {
+    if (!IsValid()) {
         e = alGetError();
         LOGW << "Unable to generate audio buffer: " << e << " " << alGetString(e) << std::endl;
         buf = INVALID_BUF;
     }
 }
 
-alAudioBuffer::~alAudioBuffer()
-{
-    if( IsValid() )
-    {
+alAudioBuffer::~alAudioBuffer() {
+    if (IsValid()) {
         alDeleteBuffers(1, &buf);
         buf = INVALID_BUF;
     }
 }
 
-void alAudioBuffer::BufferData(ALenum format, const ALvoid *data, ALsizei size, ALsizei freq)
-{
-    if( !IsValid() )
-    {
+void alAudioBuffer::BufferData(ALenum format, const ALvoid *data, ALsizei size, ALsizei freq) {
+    if (!IsValid()) {
         Allocate();
     }
 
-    if( IsValid() )
-    {
-        alBufferData(buf, format, data, size, freq ); 
+    if (IsValid()) {
+        alBufferData(buf, format, data, size, freq);
 
         ALenum err = alGetError();
 
-        if( err != AL_NO_ERROR )
-        {
-            LOGE << alErrString(err)  << std::endl;
+        if (err != AL_NO_ERROR) {
+            LOGE << alErrString(err) << std::endl;
         }
-    }
-    else
-    {
+    } else {
         LOGE << "Can't buffer, buffer is invalid after attempted (re)allocation" << std::endl;
     }
 }
 
-bool alAudioBuffer::IsValid()
-{
+bool alAudioBuffer::IsValid() {
     return buf != INVALID_BUF && alIsBuffer(buf);
 }

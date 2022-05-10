@@ -20,20 +20,18 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include "seekerbase.h"
 
 class JobHandler;
 
-namespace Json
-{
-    class  Value;
+namespace Json {
+class Value;
 }
 
-class JSONSeekerBase : public SeekerBase
-{
-public:
+class JSONSeekerBase : public SeekerBase {
+   public:
     std::vector<Item> Search(const Item& item) override;
-    virtual std::vector<Item> SearchJSON(const Item & item, Json::Value& root ) = 0;
+    virtual std::vector<Item> SearchJSON(const Item& item, Json::Value& root) = 0;
 };

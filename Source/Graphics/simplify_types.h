@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: simplify_types.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,37 +26,37 @@
 #include <vector>
 #include <list>
 
-using std::vector;
 using std::list;
+using std::vector;
 
 namespace WOLFIRE_SIMPLIFY {
-    struct SimplifyModel {
-        vector<float> vertices;
-        vector<float> tex_coords;
-        vector<int> vert_indices;
-        vector<int> tex_indices;
-        vector<int> old_vert_id;
-        vector<int> old_tex_id;
-    };
+struct SimplifyModel {
+    vector<float> vertices;
+    vector<float> tex_coords;
+    vector<int> vert_indices;
+    vector<int> tex_indices;
+    vector<int> old_vert_id;
+    vector<int> old_tex_id;
+};
 
-    struct MorphModel {
-        SimplifyModel model;
-        vector<float> vert_target;
-        vector<float> tex_target;
-    };
+struct MorphModel {
+    SimplifyModel model;
+    vector<float> vert_target;
+    vector<float> tex_target;
+};
 
-    struct SimplifyModelInput {
-        vector<float> vertices;
-        vector<float> tex_coords;
-        vector<int> old_vert_id;
-        vector<int> old_tex_id;
-    };
+struct SimplifyModelInput {
+    vector<float> vertices;
+    vector<float> tex_coords;
+    vector<int> old_vert_id;
+    vector<int> old_tex_id;
+};
 
-    struct ParentRecord {
-        int id;
-        float weight;
-    };
+struct ParentRecord {
+    int id;
+    float weight;
+};
 
-    typedef list<ParentRecord> ParentRecordList;
-    typedef vector<ParentRecordList> ParentRecordListVec;
-}
+typedef list<ParentRecord> ParentRecordList;
+typedef vector<ParentRecordList> ParentRecordListVec;
+}  // namespace WOLFIRE_SIMPLIFY

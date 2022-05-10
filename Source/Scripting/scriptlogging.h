@@ -26,30 +26,30 @@
 
 #if LOG_LEVEL > 0
 #undef LOGF
-#define LOGF LogSystem::LogData( LogSystem::fatal,	    "as",__FILE__,__LINE__)
+#define LOGF LogSystem::LogData(LogSystem::fatal, "as", __FILE__, __LINE__)
 #endif
 
 #if LOG_LEVEL > 1
 #undef LOGE
-#define LOGE LogSystem::LogData( LogSystem::error,	    "as",__FILE__,__LINE__)
+#define LOGE LogSystem::LogData(LogSystem::error, "as", __FILE__, __LINE__)
 #endif
 
 #if LOG_LEVEL > 2
 #undef LOGW
-#define LOGW LogSystem::LogData( LogSystem::warning,	"as",__FILE__,__LINE__)
+#define LOGW LogSystem::LogData(LogSystem::warning, "as", __FILE__, __LINE__)
 #endif
 
 #if LOG_LEVEL > 3
 #undef LOGI
-#define LOGI LogSystem::LogData( LogSystem::info,	    "as",__FILE__,__LINE__)
+#define LOGI LogSystem::LogData(LogSystem::info, "as", __FILE__, __LINE__)
 #endif
 
 #if LOG_LEVEL > 4
 #undef LOGD
-#define LOGD LogSystem::LogData( LogSystem::debug,	    "as",__FILE__,__LINE__)
+#define LOGD LogSystem::LogData(LogSystem::debug, "as", __FILE__, __LINE__)
 #endif
 
 #if LOG_LEVEL > 5
 #undef LOGS
-#define LOGS LogSystem::LogData( LogSystem::spam,	    "as",__FILE__,__LINE__)
+#define LOGS LogSystem::LogData(LogSystem::spam, "as", __FILE__, __LINE__)
 #endif

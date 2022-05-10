@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: altmain.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,5 +22,5 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-int TestMain( int argc, char* argv[], const char* overloaded_write_dir, const char* overloaded_working_dir );
-int DDSConvertMain( int argc, char* argv[], const char* overloaded_write_dir,const char* overloaded_working_dir );
+int TestMain(int argc, char* argv[], const char* overloaded_write_dir, const char* overloaded_working_dir);
+int DDSConvertMain(int argc, char* argv[], const char* overloaded_write_dir, const char* overloaded_working_dir);

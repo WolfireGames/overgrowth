@@ -2,7 +2,7 @@
 //           Name: rand.cpp
 //      Developer: Wolfire Games LLC
 //         Author: Max Danielsson
-//    Description: This is a threadsafe variant of pcg rand(), which doesn't 
+//    Description: This is a threadsafe variant of pcg rand(), which doesn't
 //                 require a local reseed variable.
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -34,15 +34,13 @@ static std::mutex mutex;
 static unsigned int reseed;
 static pcg32_random_t seedr;
 
-void rand_ts_seed(unsigned int seed)
-{
+void rand_ts_seed(unsigned int seed) {
     mutex.lock();
-    pcg32_srandom_r(&seedr,seed,seed);
+    pcg32_srandom_r(&seedr, seed, seed);
     mutex.unlock();
 }
 
-uint32_t rand_ts()
-{
+uint32_t rand_ts() {
     uint32_t v;
     mutex.lock();
     v = pcg32_random_r(&seedr);

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: spawneritem.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,17 +22,14 @@
 //-----------------------------------------------------------------------------
 #include "spawneritem.h"
 
-SpawnerItem::SpawnerItem( std::string _mod_source_title, std::string _display_name, std::string _path, std::string _thumbnail ) : 
-    mod_source_title(_mod_source_title),
-    display_name(_display_name),
-    path(_path),
-    thumbnail_path(_thumbnail)
-{
-
+SpawnerItem::SpawnerItem(std::string _mod_source_title, std::string _display_name, std::string _path, std::string _thumbnail) : mod_source_title(_mod_source_title),
+                                                                                                                                display_name(_display_name),
+                                                                                                                                path(_path),
+                                                                                                                                thumbnail_path(_thumbnail) {
 }
 
-SpawnerItem::SpawnerItem() { }
+SpawnerItem::SpawnerItem() {}
 
-bool operator==( const SpawnerItem& a, const SpawnerItem& b ) {
+bool operator==(const SpawnerItem& a, const SpawnerItem& b) {
     return a.display_name == b.display_name && a.path == b.path && a.thumbnail_path == b.thumbnail_path;
 }

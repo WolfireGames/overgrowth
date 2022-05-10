@@ -24,20 +24,19 @@
 #include "Internal/filesystem.h"
 #include "Logging/logdata.h"
 
-std::vector<Item> ObjColSeeker::Search(const Item& item ) {
+std::vector<Item> ObjColSeeker::Search(const Item& item) {
     std::vector<Item> items;
     const std::string full_path = item.GetAbsPath();
 
-    std::string col_full_path = full_path.substr(0,full_path.length()-4) + "_COL.obj";
-    if( CheckFileAccess(col_full_path.c_str()) ) {
-        items.push_back(Item(item.input_folder, item.GetPath().substr(0,item.path.length()-4) + "_COL.obj", "model_collision", item.source ));
+    std::string col_full_path = full_path.substr(0, full_path.length() - 4) + "_COL.obj";
+    if (CheckFileAccess(col_full_path.c_str())) {
+        items.push_back(Item(item.input_folder, item.GetPath().substr(0, item.path.length() - 4) + "_COL.obj", "model_collision", item.source));
     } else {
-        col_full_path = full_path.substr(0,full_path.length()-4) + "_col.obj";
-        if( CheckFileAccess(col_full_path.c_str()) )
-        {
-            items.push_back(Item( item.input_folder, item.GetPath().substr(0,item.path.length()-4) + "_col.obj", "model_collision", item.source ));
+        col_full_path = full_path.substr(0, full_path.length() - 4) + "_col.obj";
+        if (CheckFileAccess(col_full_path.c_str())) {
+            items.push_back(Item(item.input_folder, item.GetPath().substr(0, item.path.length() - 4) + "_col.obj", "model_collision", item.source));
         }
     }
-    
+
     return items;
 }

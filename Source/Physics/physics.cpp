@@ -26,22 +26,21 @@
 #include <cmath>
 
 //-----------------------------------------------------------------------------
-//Functions
+// Functions
 //-----------------------------------------------------------------------------
 
-//Draw a particle
-void Physics::Update()
-{
+// Draw a particle
+void Physics::Update() {
 }
 
 vec3 Physics::GetWind(vec3 check_where, float curr_game_time, float change_rate) {
     vec3 wind_vel;
-    check_where[0] += curr_game_time*0.7f*change_rate;
-    check_where[1] += curr_game_time*0.3f*change_rate;
-    check_where[2] += curr_game_time*0.5f*change_rate;
-    wind_vel[0] = sinf(check_where[0])+cosf(check_where[1]*1.3f)+sinf(check_where[2]*3.0f);
-    wind_vel[1] = sinf(check_where[0]*1.2f)+cosf(check_where[1]*1.8f)+sinf(check_where[2]*0.8f);
-    wind_vel[2] = sinf(check_where[0]*1.6f)+cosf(check_where[1]*0.5f)+sinf(check_where[2]*1.2f);
+    check_where[0] += curr_game_time * 0.7f * change_rate;
+    check_where[1] += curr_game_time * 0.3f * change_rate;
+    check_where[2] += curr_game_time * 0.5f * change_rate;
+    wind_vel[0] = sinf(check_where[0]) + cosf(check_where[1] * 1.3f) + sinf(check_where[2] * 3.0f);
+    wind_vel[1] = sinf(check_where[0] * 1.2f) + cosf(check_where[1] * 1.8f) + sinf(check_where[2] * 0.8f);
+    wind_vel[2] = sinf(check_where[0] * 1.6f) + cosf(check_where[1] * 0.5f) + sinf(check_where[2] * 1.2f);
 
     return wind_vel;
 }

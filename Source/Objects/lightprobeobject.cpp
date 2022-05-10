@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: lightprobeobject.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -40,9 +40,9 @@ bool LightProbeObject::Initialize() {
     return true;
 }
 
-void LightProbeObject::SetScriptParams( const ScriptParamMap& spm ) {
+void LightProbeObject::SetScriptParams(const ScriptParamMap& spm) {
     Object::SetScriptParams(spm);
-    if(scenegraph_){
+    if (scenegraph_) {
         bool negative = (GetScriptParams()->ASGetInt("Negative") == 1);
         bool success = scenegraph_->light_probe_collection.SetNegative(probe_id_, negative);
         LOG_ASSERT(success);
@@ -51,7 +51,7 @@ void LightProbeObject::SetScriptParams( const ScriptParamMap& spm ) {
 
 void LightProbeObject::Moved(Object::MoveType type) {
     Object::Moved(type);
-    if(scenegraph_){
+    if (scenegraph_) {
         bool success = scenegraph_->light_probe_collection.MoveProbe(probe_id_, GetTranslation());
         LOG_ASSERT(success);
     }
@@ -59,7 +59,7 @@ void LightProbeObject::Moved(Object::MoveType type) {
 
 void LightProbeObject::Dispose() {
     Object::Dispose();
-    if(scenegraph_){
+    if (scenegraph_) {
         bool success = scenegraph_->light_probe_collection.DeleteProbe(probe_id_);
         LOG_ASSERT(success);
         probe_id_ = -1;
@@ -76,7 +76,7 @@ LightProbeObject::~LightProbeObject() {
     LOG_ASSERT(probe_id_ == -1);
 }
 
-void LightProbeObject::GetDesc(EntityDescription &desc) const {
+void LightProbeObject::GetDesc(EntityDescription& desc) const {
     LOG_ASSERT(probe_id_ != -1);
     LOG_ASSERT(scenegraph_);
     Object::GetDesc(desc);
@@ -88,27 +88,29 @@ void LightProbeObject::GetDesc(EntityDescription &desc) const {
     desc.AddData(EDF_GI_COEFFICIENTS, data);
 }
 
-bool LightProbeObject::SetFromDesc( const EntityDescription& desc ) {
+bool LightProbeObject::SetFromDesc(const EntityDescription& desc) {
     LOG_ASSERT(probe_id_ == -1);
     LOG_ASSERT(!stored_coefficients);
     bool ret = Object::SetFromDesc(desc);
-    if( ret ) {
-        for(const auto & field : desc.fields){
-            switch(field.type){
-            case EDF_NEGATIVE_LIGHT_PROBE: {
-                int negative_int;
-                field.ReadInt(&negative_int);
-                sp.ASAddIntCheckbox("Negative", false);
-                sp.ASSetInt("Negative", negative_int);
-                break;}
+    if (ret) {
+        for (const auto& field : desc.fields) {
+            switch (field.type) {
+                case EDF_NEGATIVE_LIGHT_PROBE: {
+                    int negative_int;
+                    field.ReadInt(&negative_int);
+                    sp.ASAddIntCheckbox("Negative", false);
+                    sp.ASSetInt("Negative", negative_int);
+                    break;
+                }
 
-            case EDF_GI_COEFFICIENTS: {
-                LOG_ASSERT(!stored_coefficients);
-                stored_coefficients = new float[kLightProbeNumCoeffs];
-                memcpy(stored_coefficients, &field.data[0], kLightProbeNumCoeffs * sizeof(float));
-                break;}
+                case EDF_GI_COEFFICIENTS: {
+                    LOG_ASSERT(!stored_coefficients);
+                    stored_coefficients = new float[kLightProbeNumCoeffs];
+                    memcpy(stored_coefficients, &field.data[0], kLightProbeNumCoeffs * sizeof(float));
+                    break;
+                }
             }
-        }    
+        }
     }
 
     return ret;

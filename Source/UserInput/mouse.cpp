@@ -31,16 +31,14 @@
 #include <iostream>
 
 Mouse::Mouse()
-    : button_input_buffer_sequence_counter(0)
-    , button_input_buffer_count(0)
-{
-    for(int i=0; i<2; ++i){
+    : button_input_buffer_sequence_counter(0), button_input_buffer_count(0) {
+    for (int i = 0; i < 2; ++i) {
         pos_[i] = 0;
         delta_[i] = 0;
     }
     wheel_delta_x_ = 0;
     wheel_delta_y_ = 0;
-    for(int i=0; i<NUM_BUTTONS; i++) {
+    for (int i = 0; i < NUM_BUTTONS; i++) {
         double_click_timer_[i] = SDL_TS_GetTicks();
         mouse_click_count_[i] = 0;
         mouse_double_click_[i] = false;
@@ -51,10 +49,10 @@ Mouse::Mouse()
 void Mouse::Update() {
     wheel_delta_x_ = 0;
     wheel_delta_y_ = 0;
-    for(int & i : delta_){
+    for (int& i : delta_) {
         i = 0;
     }
-    for (int i = 0; i < NUM_BUTTONS; ++i)     {
+    for (int i = 0; i < NUM_BUTTONS; ++i) {
         mouse_double_click_[i] = false;
         if (mouse_down_[i] == CLICKED) {
             mouse_down_[i] = HELD;
@@ -67,15 +65,15 @@ void Mouse::MouseWheelEvent(int x_amount, int y_amount) {
     wheel_delta_y_ += y_amount;
 }
 
-void Mouse::MouseDownEvent( int sdl_button_index ) {
+void Mouse::MouseDownEvent(int sdl_button_index) {
     AddKeyCodeBufferItem(sdl_button_index);
     const int _double_click_threshold_ticks = 300;
-    int array_button_index = sdl_button_index-1;
+    int array_button_index = sdl_button_index - 1;
 
-    if( array_button_index < NUM_BUTTONS ) {
+    if (array_button_index < NUM_BUTTONS) {
         mouse_down_[array_button_index]++;
         // handle double clicks
-        if(mouse_down_[array_button_index] == CLICKED)    {
+        if (mouse_down_[array_button_index] == CLICKED) {
             int double_click_time = SDL_TS_GetTicks() - double_click_timer_[array_button_index];
             if (double_click_time > _double_click_threshold_ticks) {
                 mouse_click_count_[array_button_index] = 1;
@@ -94,19 +92,19 @@ void Mouse::MouseDownEvent( int sdl_button_index ) {
     }
 }
 
-void Mouse::MouseUpEvent( int sdl_button_index ) {
+void Mouse::MouseUpEvent(int sdl_button_index) {
     int array_button_index = sdl_button_index - 1;
 
-    if( array_button_index < NUM_BUTTONS ) {
-        mouse_down_[array_button_index]=0;
+    if (array_button_index < NUM_BUTTONS) {
+        mouse_down_[array_button_index] = 0;
         mouse_double_click_[array_button_index] = false;
     }
 }
 
-void Mouse::AddKeyCodeBufferItem( int sdl_button_index ) {
-    if( button_input_buffer_count >= button_input_buffer_size ) {
-        for( unsigned i = 1; i < button_input_buffer_count; i++ ) {
-            button_input_buffer[i-1] = button_input_buffer[i];
+void Mouse::AddKeyCodeBufferItem(int sdl_button_index) {
+    if (button_input_buffer_count >= button_input_buffer_size) {
+        for (unsigned i = 1; i < button_input_buffer_count; i++) {
+            button_input_buffer[i - 1] = button_input_buffer[i];
         }
         button_input_buffer_count--;
     }
@@ -119,7 +117,7 @@ void Mouse::AddKeyCodeBufferItem( int sdl_button_index ) {
 std::vector<Mouse::MousePress> Mouse::GetMouseInputs() {
     std::vector<Mouse::MousePress> presses;
     presses.resize(button_input_buffer_count);
-    for( unsigned i = 0; i < button_input_buffer_count; i++ ) {
+    for (unsigned i = 0; i < button_input_buffer_count; i++) {
         presses[i] = button_input_buffer[i];
     }
     return presses;

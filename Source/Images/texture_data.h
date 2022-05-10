@@ -34,29 +34,27 @@
 class StackAllocator;
 
 class TextureData {
-public:
+   public:
     enum ColorSpace {
-        Linear
-        , sRGB
+        Linear,
+        sRGB
     };
 
     enum ConversionQuality {
-        Nice
-        , Fast
+        Nice,
+        Fast
     };
 
-    TextureData() :
-        m_colorSpace(Linear),
-        is_loaded(false),
-        height(0),
-        width(0),
-        num_faces(0),
-        mip_levels(0),
-        gl_base_format(GL_NONE),
-        gl_internal_format(GL_NONE),
-        gl_type(GL_NONE)
-         {}
-    
+    TextureData() : m_colorSpace(Linear),
+                    is_loaded(false),
+                    height(0),
+                    width(0),
+                    num_faces(0),
+                    mip_levels(0),
+                    gl_base_format(GL_NONE),
+                    gl_internal_format(GL_NONE),
+                    gl_type(GL_NONE) {}
+
     bool IsCube() const;
     bool IsCompressed() const;
     bool HasMipmaps() const;
@@ -66,29 +64,29 @@ public:
     unsigned int GetMipHeight(unsigned int mip) const;
     unsigned int GetNumFaces() const;
     unsigned int GetMipLevels() const;
-    GLenum GetGLBaseFormat() const;     // for glTexImage2D, may only be called on uncompressed textures
+    GLenum GetGLBaseFormat() const;  // for glTexImage2D, may only be called on uncompressed textures
     GLenum GetGLInternalFormat() const;
-    GLenum GetGLType() const;           // for glTexImage2D, may only be called on uncompressed textures
+    GLenum GetGLType() const;  // for glTexImage2D, may only be called on uncompressed textures
     ColorSpace GetColorSpace() const { return m_colorSpace; }
     unsigned int GetMipDataSize(unsigned int face, unsigned int mip) const;
     const char* GetMipData(unsigned int face, unsigned int mip) const;
     void GetUncompressedData(unsigned char* data);
     void SetColorSpace(ColorSpace color_space);
 
-    bool Load(const char *abs_path);
+    bool Load(const char* abs_path);
     bool EnsureInRAM();
 
     bool GenerateMipmaps();
     bool ConvertDXT(crnlib::pixel_format format, ConversionQuality quality);
-    bool SaveDDS(const char *abs_path);
-    bool SaveCRN(const char *abs_path, crn_format format, ConversionQuality quality);
+    bool SaveDDS(const char* abs_path);
+    bool SaveCRN(const char* abs_path, crn_format format, ConversionQuality quality);
 
     bool IsInRAM();
     void UnloadData();
 
     inline std::string GetPath() { return source_path; }
 
-private:
+   private:
     std::string source_path;
 
     void ExtractMetaData();
@@ -97,7 +95,7 @@ private:
     bool is_cube;
     bool is_packed;
     unsigned int width, height;
-    std::vector<int> mip_widths; 
+    std::vector<int> mip_widths;
     std::vector<int> mip_heights;
     std::vector<int> mip_data_sizes;
     int num_faces, mip_levels;
@@ -108,8 +106,7 @@ private:
     ColorSpace m_colorSpace;
 };
 
-inline std::ostream& operator<<(std::ostream& out, const TextureData& td )
-{
+inline std::ostream& operator<<(std::ostream& out, const TextureData& td) {
     unsigned int totalBytes = td.GetWidth() * td.GetHeight() * 32 / 8;
     out << "TextureData(w:" << td.GetWidth() << ",h:" << td.GetHeight() << ",size:" << totalBytes << ")";
     return out;

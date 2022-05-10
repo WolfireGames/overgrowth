@@ -28,49 +28,189 @@
 
 #if FATAL_LOG_ASSERTS
 
-#define LOG_ASSERT_MSG(value,message) if(!(value)){LOGF << "Failed assert \"" #value "\""  << " Message: " <<  message << std::endl;} assert(value)
+#define LOG_ASSERT_MSG(value, message)                \
+    if (!(value)) {                                   \
+        LOGF << "Failed assert \"" #value "\""        \
+             << " Message: " << message << std::endl; \
+    }                                                 \
+    assert(value)
 
-#define LOG_ASSERT(value) if(!(value)){LOGF << "Failed assert \"" #value "\"" << std::endl;} assert(value)
-#define LOG_ASSERT2(value, actual) if(!(value)){LOGF << "Failed assert \"" #value "\"" << ". Actual " #actual << actual << std::endl;} assert(value)
+#define LOG_ASSERT(value)                                    \
+    if (!(value)) {                                          \
+        LOGF << "Failed assert \"" #value "\"" << std::endl; \
+    }                                                        \
+    assert(value)
+#define LOG_ASSERT2(value, actual)                          \
+    if (!(value)) {                                         \
+        LOGF << "Failed assert \"" #value "\""              \
+             << ". Actual " #actual << actual << std::endl; \
+    }                                                       \
+    assert(value)
 
-#define LOG_ASSERT_EQ(v1,v2) if(!(v1==v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " == " << #v2 << "(value:" << v2 << ")\"" << std::endl;} assert(v1==v2)
+#define LOG_ASSERT_EQ(v1, v2)                                           \
+    if (!(v1 == v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"         \
+             << " == " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }                                                                   \
+    assert(v1 == v2)
 
-#define LOG_ASSERT_LT(v1,v2) if(!(v1<v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " < " << #v2 << "(value:" << v2 << ")\"" << std::endl;} assert(v1<v2)
-#define LOG_ASSERT_GT(v1,v2) if(!(v1>v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " > " << #v2 << "(value:" << v2 << ")\"" << std::endl;} assert(v1>v2)
+#define LOG_ASSERT_LT(v1, v2)                                          \
+    if (!(v1 < v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"        \
+             << " < " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }                                                                  \
+    assert(v1 < v2)
+#define LOG_ASSERT_GT(v1, v2)                                          \
+    if (!(v1 > v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"        \
+             << " > " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }                                                                  \
+    assert(v1 > v2)
 
-#define LOG_ASSERT_LTEQ(v1,v2) if(!(v1<=v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " <= " << #v2 << "(value:" << v2 << ")\"" << std::endl;} assert(v1<=v2)
-#define LOG_ASSERT_GTEQ(v1,v2) if(!(v1>=v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " >= " << #v2 << "(value:" << v2 << ")\"" << std::endl;} assert(v1>=v2)
+#define LOG_ASSERT_LTEQ(v1, v2)                                         \
+    if (!(v1 <= v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"         \
+             << " <= " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }                                                                   \
+    assert(v1 <= v2)
+#define LOG_ASSERT_GTEQ(v1, v2)                                         \
+    if (!(v1 >= v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"         \
+             << " >= " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }                                                                   \
+    assert(v1 >= v2)
 
 #elif SINGLE_SHOT_ASSERTS
 
-#define LOG_ASSERT_MSG(value,message) if(!(value)){static bool print = true; if(print){LOGF << "Failed assert \"" #value "\""  << " Message: " <<  message << " Will mute repeating errors." << std::endl; print = false;}}
+#define LOG_ASSERT_MSG(value, message)                                                      \
+    if (!(value)) {                                                                         \
+        static bool print = true;                                                           \
+        if (print) {                                                                        \
+            LOGF << "Failed assert \"" #value "\""                                          \
+                 << " Message: " << message << " Will mute repeating errors." << std::endl; \
+            print = false;                                                                  \
+        }                                                                                   \
+    }
 
-#define LOG_ASSERT(value) if(!(value)){static bool print = true; if(print){LOGF << "Failed assert \"" #value "\" Will mute repeating errors." << std::endl; print = false;}}
-#define LOG_ASSERT2(value, actual) if(!(value)){static bool print = true; if(print){LOGF << "Failed assert \"" #value "\"" << ". Actual " #actual << actual << " Will mute repeating errors." << std::endl; print = false;}}
+#define LOG_ASSERT(value)                                                                    \
+    if (!(value)) {                                                                          \
+        static bool print = true;                                                            \
+        if (print) {                                                                         \
+            LOGF << "Failed assert \"" #value "\" Will mute repeating errors." << std::endl; \
+            print = false;                                                                   \
+        }                                                                                    \
+    }
+#define LOG_ASSERT2(value, actual)                                                                \
+    if (!(value)) {                                                                               \
+        static bool print = true;                                                                 \
+        if (print) {                                                                              \
+            LOGF << "Failed assert \"" #value "\""                                                \
+                 << ". Actual " #actual << actual << " Will mute repeating errors." << std::endl; \
+            print = false;                                                                        \
+        }                                                                                         \
+    }
 
-#define LOG_ASSERT_EQ(v1,v2) if(!(v1==v2)){static bool print = true; if(print){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " == " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; print = false;}} 
+#define LOG_ASSERT_EQ(v1, v2)                                                                           \
+    if (!(v1 == v2)) {                                                                                  \
+        static bool print = true;                                                                       \
+        if (print) {                                                                                    \
+            LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"                                     \
+                 << " == " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; \
+            print = false;                                                                              \
+        }                                                                                               \
+    }
 
-#define LOG_ASSERT_LT(v1,v2) if(!(v1<v2)){static bool print = true; if(print){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " < " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; print = false;}}
-#define LOG_ASSERT_GT(v1,v2) if(!(v1>v2)){static bool print = true; if(print){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " > " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; print = false;}}
+#define LOG_ASSERT_LT(v1, v2)                                                                          \
+    if (!(v1 < v2)) {                                                                                  \
+        static bool print = true;                                                                      \
+        if (print) {                                                                                   \
+            LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"                                    \
+                 << " < " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; \
+            print = false;                                                                             \
+        }                                                                                              \
+    }
+#define LOG_ASSERT_GT(v1, v2)                                                                          \
+    if (!(v1 > v2)) {                                                                                  \
+        static bool print = true;                                                                      \
+        if (print) {                                                                                   \
+            LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"                                    \
+                 << " > " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; \
+            print = false;                                                                             \
+        }                                                                                              \
+    }
 
-#define LOG_ASSERT_LTEQ(v1,v2) if(!(v1<=v2)){static bool print = true; if(print){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " <= " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; print = false;}}
-#define LOG_ASSERT_GTEQ(v1,v2) if(!(v1>=v2)){static bool print = true; if(print){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " >= " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; print = false;}}
+#define LOG_ASSERT_LTEQ(v1, v2)                                                                         \
+    if (!(v1 <= v2)) {                                                                                  \
+        static bool print = true;                                                                       \
+        if (print) {                                                                                    \
+            LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"                                     \
+                 << " <= " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; \
+            print = false;                                                                              \
+        }                                                                                               \
+    }
+#define LOG_ASSERT_GTEQ(v1, v2)                                                                         \
+    if (!(v1 >= v2)) {                                                                                  \
+        static bool print = true;                                                                       \
+        if (print) {                                                                                    \
+            LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"                                     \
+                 << " >= " << #v2 << "(value:" << v2 << ")\" Will mute repeating errors." << std::endl; \
+            print = false;                                                                              \
+        }                                                                                               \
+    }
 
 #else
 
-#define LOG_ASSERT_MSG(value,message) if(!(value)){LOGF << "Failed assert \"" #value "\""  << " Message: " <<  message << std::endl;}
+#define LOG_ASSERT_MSG(value, message)                \
+    if (!(value)) {                                   \
+        LOGF << "Failed assert \"" #value "\""        \
+             << " Message: " << message << std::endl; \
+    }
 
-#define LOG_ASSERT(value) if(!(value)){LOGF << "Failed assert \"" #value "\"" << std::endl;}
-#define LOG_ASSERT2(value, actual) if(!(value)){LOGF << "Failed assert \"" #value "\"" << ". Actual " #actual << actual << std::endl;}
+#define LOG_ASSERT(value)                                    \
+    if (!(value)) {                                          \
+        LOGF << "Failed assert \"" #value "\"" << std::endl; \
+    }
+#define LOG_ASSERT2(value, actual)                          \
+    if (!(value)) {                                         \
+        LOGF << "Failed assert \"" #value "\""              \
+             << ". Actual " #actual << actual << std::endl; \
+    }
 
-#define LOG_ASSERT_EQ(v1,v2) if(!(v1==v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " == " << #v2 << "(value:" << v2 << ")\"" << std::endl;} 
+#define LOG_ASSERT_EQ(v1, v2)                                           \
+    if (!(v1 == v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"         \
+             << " == " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }
 
-#define LOG_ASSERT_LT(v1,v2) if(!(v1<v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " < " << #v2 << "(value:" << v2 << ")\"" << std::endl;}
-#define LOG_ASSERT_GT(v1,v2) if(!(v1>v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " > " << #v2 << "(value:" << v2 << ")\"" << std::endl;}
+#define LOG_ASSERT_LT(v1, v2)                                          \
+    if (!(v1 < v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"        \
+             << " < " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }
+#define LOG_ASSERT_GT(v1, v2)                                          \
+    if (!(v1 > v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"        \
+             << " > " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }
 
-#define LOG_ASSERT_LTEQ(v1,v2) if(!(v1<=v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " <= " << #v2 << "(value:" << v2 << ")\"" << std::endl;}
-#define LOG_ASSERT_GTEQ(v1,v2) if(!(v1>=v2)){LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")" << " >= " << #v2 << "(value:" << v2 << ")\"" << std::endl;}
+#define LOG_ASSERT_LTEQ(v1, v2)                                         \
+    if (!(v1 <= v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"         \
+             << " <= " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }
+#define LOG_ASSERT_GTEQ(v1, v2)                                         \
+    if (!(v1 >= v2)) {                                                  \
+        LOGF << "Failed assert: \"" #v1 "(value: " << v1 << ")"         \
+             << " >= " << #v2 << "(value:" << v2 << ")\"" << std::endl; \
+    }
 
 #endif
 
-#define LOG_ASSERT_ONCE(value) if(!(value)){static bool print = true; if(print){LOGF << "Failed assert \"" #value "\" Will mute repeating errors." << std::endl; print = false;}}
+#define LOG_ASSERT_ONCE(value)                                                               \
+    if (!(value)) {                                                                          \
+        static bool print = true;                                                            \
+        if (print) {                                                                         \
+            LOGF << "Failed assert \"" #value "\" Will mute repeating errors." << std::endl; \
+            print = false;                                                                   \
+        }                                                                                    \
+    }

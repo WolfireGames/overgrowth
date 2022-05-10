@@ -29,12 +29,11 @@
 class JobHandler;
 class Item;
 
-class ActionBase
-{
-    public:
-        virtual ManifestResult Run(const JobHandler& jh, const Item& y) = 0;
-        virtual const char* GetName() const = 0;
-        virtual const char* GetVersion() const  = 0;
-        virtual bool RunEvenOnIdenticalSource() const = 0;
-        virtual bool StoreResultInDatabase() const = 0;
+class ActionBase {
+   public:
+    virtual ManifestResult Run(const JobHandler& jh, const Item& y) = 0;
+    virtual const char* GetName() const = 0;
+    virtual const char* GetVersion() const = 0;
+    virtual bool RunEvenOnIdenticalSource() const = 0;
+    virtual bool StoreResultInDatabase() const = 0;
 };

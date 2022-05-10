@@ -37,25 +37,25 @@ class EnvObject;
 class DecalEditor;
 
 class DecalObject : public Object {
-public:
+   public:
     EntityType GetType() const override { return _decal_object; }
     DecalObject();
     bool Initialize() override;
     void Dispose() override;
     void GetDisplayName(char* buf, int buf_size) override;
     void Draw() override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
-    void GetDesc(EntityDescription &desc) const override;
-    void Load( const std::string& type_file );
-    void ReceiveObjectMessageVAList( OBJECT_MSG::Type type, va_list args ) override;
+    bool SetFromDesc(const EntityDescription& desc) override;
+    void GetDesc(EntityDescription& desc) const override;
+    void Load(const std::string& type_file);
+    void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
 
     void PreDrawFrame(float curr_game_time) override;
     ColorTintComponent color_tint_component_;
     float spawn_time_;
-    
+
     RC_DecalTexture texture;
     DecalFileRef decal_file_ref;
-protected:
 
-    static std::map<std::string,RC_DecalTexture> textureCache;
+   protected:
+    static std::map<std::string, RC_DecalTexture> textureCache;
 };

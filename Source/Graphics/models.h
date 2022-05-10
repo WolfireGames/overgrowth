@@ -38,44 +38,42 @@ struct ModelData {
 };
 
 class Models {
-    private:
-        int next_id;
-        typedef std::list<ModelData> ModelList;
-        ModelList models;
-        typedef std::map<std::string, int> NameMap;
-        NameMap name_map;
-        typedef std::map<int, ModelData*> IDMap;
-        IDMap id_map;
-        
-        typedef std::pair<std::string, int> MorphIndex;
-        typedef std::map<MorphIndex, int> MorphMap;
-        MorphMap morph_map_;
+   private:
+    int next_id;
+    typedef std::list<ModelData> ModelList;
+    ModelList models;
+    typedef std::map<std::string, int> NameMap;
+    NameMap name_map;
+    typedef std::map<int, ModelData*> IDMap;
+    IDMap id_map;
 
-    public:
-            int AddModel();
-            int getModelGroups(int which);
-            void drawModelGroup(int which, int group);
-            void drawModel(int which);
-            void drawModelAltTexCoords(int which);
-            float Radius(int which);
-            int loadModel(const std::string& name, char flags = 0, const std::string& store_name = "");
-            int loadFlippedModel(const std::string& name, char flags = 0);
-            int CopyModel(int model_id);
-            void Dispose();
-            Model& GetModel(int id);
-            ModelData& GetModelData( int id );
+    typedef std::pair<std::string, int> MorphIndex;
+    typedef std::map<MorphIndex, int> MorphMap;
+    MorphMap morph_map_;
 
-            Models()
-            {}
+   public:
+    int AddModel();
+    int getModelGroups(int which);
+    void drawModelGroup(int which, int group);
+    void drawModel(int which);
+    void drawModelAltTexCoords(int which);
+    float Radius(int which);
+    int loadModel(const std::string& name, char flags = 0, const std::string& store_name = "");
+    int loadFlippedModel(const std::string& name, char flags = 0);
+    int CopyModel(int model_id);
+    void Dispose();
+    Model& GetModel(int id);
+    ModelData& GetModelData(int id);
 
-            static Models* Instance()
-            {
-                static Models instance;
-                return &instance;
-            }
-            int LoadModelAsMorph( const std::string& path, int model_id, const std::string &base_model_name );
-            void DeleteModel(int id);
-            int NumModels();
+    Models() {}
+
+    static Models* Instance() {
+        static Models instance;
+        return &instance;
+    }
+    int LoadModelAsMorph(const std::string& path, int model_id, const std::string& base_model_name);
+    void DeleteModel(int id);
+    int NumModels();
 };
 
 void SimplifyModel(std::string name, Model& model, int edge_target);

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: envobjecttype.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,4 +23,3 @@
 #pragma once
 
 #include <Graphics/textureref.h>
-

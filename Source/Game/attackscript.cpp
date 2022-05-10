@@ -32,25 +32,24 @@
 #include <stack>
 #include <sstream>
 
-extern std::stack<ASContext*> active_context_stack;
+extern std::stack<ASContext *> active_context_stack;
 
 static const std::string attack_getter_empty_path = "";
 static const std::string attack_getter_empty_material_event = "";
 
-bool AttackScriptGetter::Load( std::string _path ) {
-    if(_path.empty()){
+bool AttackScriptGetter::Load(std::string _path) {
+    if (_path.empty()) {
         return false;
     }
     path_ = _path;
-    if(_path[_path.size()-2] == ' ' &&
-       _path[_path.size()-1] == 'm') 
-    {
-       mirror_ = true;
-       _path.resize(_path.size()-2);
+    if (_path[_path.size() - 2] == ' ' &&
+        _path[_path.size() - 1] == 'm') {
+        mirror_ = true;
+        _path.resize(_path.size() - 2);
     } else {
         mirror_ = false;
     }
-    //Attacks::Instance()->ReturnRef(_path);
+    // Attacks::Instance()->ReturnRef(_path);
     attack_ref_ = Engine::Instance()->GetAssetManager()->LoadSync<Attack>(_path);
     return true;
 }
@@ -100,8 +99,8 @@ std::string AttackScriptGetter::GetMaterialEvent() {
 }
 
 std::string AttackScriptGetter::GetReactionPath() {
-    if(attack_ref_.valid()) {
-        if(attack_ref_->direction == _front || !mirror_) {
+    if (attack_ref_.valid()) {
+        if (attack_ref_->direction == _front || !mirror_) {
             return attack_ref_->reaction;
         } else {
             return attack_ref_->reaction + " m";
@@ -112,11 +111,11 @@ std::string AttackScriptGetter::GetReactionPath() {
 }
 
 vec3 AttackScriptGetter::GetImpactDir() {
-    if(attack_ref_.valid()) {
-        if(!mirror_){
+    if (attack_ref_.valid()) {
+        if (!mirror_) {
             return attack_ref_->impact_dir;
         } else {
-            return attack_ref_->impact_dir*vec3(-1.0f,1.0f,1.0f);
+            return attack_ref_->impact_dir * vec3(-1.0f, 1.0f, 1.0f);
         }
     } else {
         return vec3();
@@ -147,18 +146,18 @@ AttackScriptGetter *AttackScriptGetter_Factory() {
     return new AttackScriptGetter();
 }
 
-static void ASLoad(AttackScriptGetter *asg, const std::string &path){
-    if(!asg->Load(path)){
+static void ASLoad(AttackScriptGetter *asg, const std::string &path) {
+    if (!asg->Load(path)) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         FatalError("Error", "Attempting to load attack with empty path\n Called from:\n%s", callstack.c_str());
     }
 }
 
-void AttachAttackScriptGetter( ASContext *as_context ) {
+void AttachAttackScriptGetter(ASContext *as_context) {
     as_context->RegisterObjectType("AttackScriptGetter", 0, asOBJ_REF, "Used to query information from an attack xml file");
     as_context->RegisterObjectBehaviour("AttackScriptGetter", asBEHAVE_FACTORY, "AttackScriptGetter@ f()", asFUNCTION(AttackScriptGetter_Factory), asCALL_CDECL);
-    as_context->RegisterObjectBehaviour("AttackScriptGetter", asBEHAVE_ADDREF, "void AttackScriptGetter()", asMETHOD(AttackScriptGetter,AddRef), asCALL_THISCALL);
-    as_context->RegisterObjectBehaviour("AttackScriptGetter", asBEHAVE_RELEASE, "void AttackScriptGetter()", asMETHOD(AttackScriptGetter,ReleaseRef), asCALL_THISCALL);
+    as_context->RegisterObjectBehaviour("AttackScriptGetter", asBEHAVE_ADDREF, "void AttackScriptGetter()", asMETHOD(AttackScriptGetter, AddRef), asCALL_THISCALL);
+    as_context->RegisterObjectBehaviour("AttackScriptGetter", asBEHAVE_RELEASE, "void AttackScriptGetter()", asMETHOD(AttackScriptGetter, ReleaseRef), asCALL_THISCALL);
     as_context->RegisterObjectMethod("AttackScriptGetter", "void Load(const string &in path)", asFUNCTION(ASLoad), asCALL_CDECL_OBJFIRST, "Load an attack xml file into the attack script getter (e.g. \"Data/Attacks/knifeslash.xml\")");
     as_context->RegisterObjectMethod("AttackScriptGetter", "string GetPath()", asMETHOD(AttackScriptGetter, GetPath), asCALL_THISCALL);
     as_context->RegisterObjectMethod("AttackScriptGetter", "string GetSpecial()", asMETHOD(AttackScriptGetter, GetSpecial), asCALL_THISCALL);
@@ -200,12 +199,12 @@ void AttachAttackScriptGetter( ASContext *as_context ) {
     static const int const_front = _front;
     static const int const_left = _left;
 
-    as_context->RegisterGlobalProperty("const int _high",   (void*)&const_high);
-    as_context->RegisterGlobalProperty("const int _medium", (void*)&const_medium);
-    as_context->RegisterGlobalProperty("const int _low",    (void*)&const_low);
-    as_context->RegisterGlobalProperty("const int _right",  (void*)&const_right);
-    as_context->RegisterGlobalProperty("const int _front",  (void*)&const_front);
-    as_context->RegisterGlobalProperty("const int _left",   (void*)&const_left);
+    as_context->RegisterGlobalProperty("const int _high", (void *)&const_high);
+    as_context->RegisterGlobalProperty("const int _medium", (void *)&const_medium);
+    as_context->RegisterGlobalProperty("const int _low", (void *)&const_low);
+    as_context->RegisterGlobalProperty("const int _right", (void *)&const_right);
+    as_context->RegisterGlobalProperty("const int _front", (void *)&const_front);
+    as_context->RegisterGlobalProperty("const int _left", (void *)&const_left);
 }
 
 int AttackScriptGetter::GetMirrored() {
@@ -217,10 +216,10 @@ int AttackScriptGetter::GetMobile() {
 }
 
 int AttackScriptGetter::IsThrow() {
-    if(!attack_ref_.valid()){
+    if (!attack_ref_.valid()) {
         return 0;
     }
-    return (int)(!(attack_ref_->throw_anim_path.empty() && 
+    return (int)(!(attack_ref_->throw_anim_path.empty() &&
                    attack_ref_->thrown_anim_path.empty()));
 }
 
@@ -264,9 +263,7 @@ std::string AttackScriptGetter::GetThrownCounterAnimPath() {
     return attack_ref_.valid() ? attack_ref_->thrown_counter_anim_path : attack_getter_empty_path;
 }
 
-AttackScriptGetter::AttackScriptGetter():
-    ref_count(1)
-{}
+AttackScriptGetter::AttackScriptGetter() : ref_count(1) {}
 
 void AttackScriptGetter::AddRef() {
     ++ref_count;
@@ -274,7 +271,7 @@ void AttackScriptGetter::AddRef() {
 
 void AttackScriptGetter::ReleaseRef() {
     --ref_count;
-    if(ref_count == 0){
+    if (ref_count == 0) {
         delete this;
     }
 }

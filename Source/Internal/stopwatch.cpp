@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: stopwatch.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,10 +28,9 @@
 
 #include <SDL.h>
 
-void BusyWaitMilliseconds( uint32_t how_many )
-{    
+void BusyWaitMilliseconds(uint32_t how_many) {
     Stopwatch watch;
-    while(watch.ReportMilliseconds()<how_many){
+    while (watch.ReportMilliseconds() < how_many) {
     }
 }
 
@@ -65,7 +64,7 @@ void PrecisionStopwatch::Start() {
 
 void PrecisionStopwatch::Stop(std::string text) {
     uint64_t time_elapsed = StopAndReportNanoseconds();
-    LOGI << time_elapsed << " " <<  text << std::endl;
+    LOGI << time_elapsed << " " << text << std::endl;
 }
 
 uint64_t PrecisionStopwatch::StopAndReportNanoseconds() {

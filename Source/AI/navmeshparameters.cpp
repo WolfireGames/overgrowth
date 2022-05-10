@@ -31,58 +31,56 @@
 
 using std::string;
 
-NavMeshParameters::NavMeshParameters() :
-generate(true),
-m_cellSize(0.3f),
-m_cellHeight(0.2f),
-m_agentHeight(1.7f),
-m_agentRadius(0.4f),
-m_agentMaxClimb(1.5f),
-m_agentMaxSlope(60.0f) {
-
+NavMeshParameters::NavMeshParameters() : generate(true),
+                                         m_cellSize(0.3f),
+                                         m_cellHeight(0.2f),
+                                         m_agentHeight(1.7f),
+                                         m_agentRadius(0.4f),
+                                         m_agentMaxClimb(1.5f),
+                                         m_agentMaxSlope(60.0f) {
 }
 
 void WriteNavMeshParametersToXML(const NavMeshParameters& nmp, TiXmlElement* elem) {
     LOG_ASSERT(elem);
-    //Make sure our assumptions about how many elements there are stays true for future changes.
-    // Padding makes the struct 7*4 bytes big rather than 6*4 + 1
-    LOG_ASSERT(sizeof(float)*7 == sizeof(NavMeshParameters));
+    // Make sure our assumptions about how many elements there are stays true for future changes.
+    //  Padding makes the struct 7*4 bytes big rather than 6*4 + 1
+    LOG_ASSERT(sizeof(float) * 7 == sizeof(NavMeshParameters));
 
-    elem->SetAttribute("generate",              nmp.generate ? "true" : "false");
-    elem->SetDoubleAttribute("cell_size",       nmp.m_cellSize);
-    elem->SetDoubleAttribute("cell_height",     nmp.m_cellHeight); 
-    elem->SetDoubleAttribute("agent_height",    nmp.m_agentHeight); 
-    elem->SetDoubleAttribute("agent_radius",    nmp.m_agentRadius); 
-    elem->SetDoubleAttribute("agent_max_climb", nmp.m_agentMaxClimb); 
-    elem->SetDoubleAttribute("agent_max_slope", nmp.m_agentMaxSlope); 
+    elem->SetAttribute("generate", nmp.generate ? "true" : "false");
+    elem->SetDoubleAttribute("cell_size", nmp.m_cellSize);
+    elem->SetDoubleAttribute("cell_height", nmp.m_cellHeight);
+    elem->SetDoubleAttribute("agent_height", nmp.m_agentHeight);
+    elem->SetDoubleAttribute("agent_radius", nmp.m_agentRadius);
+    elem->SetDoubleAttribute("agent_max_climb", nmp.m_agentMaxClimb);
+    elem->SetDoubleAttribute("agent_max_slope", nmp.m_agentMaxSlope);
 }
 
 void ReadNavMeshParametersFromXML(NavMeshParameters& nmp, const TiXmlElement* elem) {
     LOG_ASSERT(elem);
-    //Make sure our assumptions about how many elements there are stays true for future changes.
-    // Padding makes the struct 7*4 bytes big rather than 6*4 + 1
-    LOG_ASSERT(sizeof(float)*7 == sizeof(NavMeshParameters));
+    // Make sure our assumptions about how many elements there are stays true for future changes.
+    //  Padding makes the struct 7*4 bytes big rather than 6*4 + 1
+    LOG_ASSERT(sizeof(float) * 7 == sizeof(NavMeshParameters));
 
     string generate_value;
-    elem->QueryStringAttribute("generate",       &generate_value);
-    if(generate_value == "false") {
+    elem->QueryStringAttribute("generate", &generate_value);
+    if (generate_value == "false") {
         nmp.generate = false;
     } else {
         nmp.generate = true;
     }
-    elem->QueryFloatAttribute("cell_size",       &nmp.m_cellSize);
-    elem->QueryFloatAttribute("cell_height",     &nmp.m_cellHeight); 
-    elem->QueryFloatAttribute("agent_height",    &nmp.m_agentHeight); 
-    elem->QueryFloatAttribute("agent_radius",    &nmp.m_agentRadius); 
-    elem->QueryFloatAttribute("agent_max_climb", &nmp.m_agentMaxClimb); 
-    elem->QueryFloatAttribute("agent_max_slope", &nmp.m_agentMaxSlope); 
+    elem->QueryFloatAttribute("cell_size", &nmp.m_cellSize);
+    elem->QueryFloatAttribute("cell_height", &nmp.m_cellHeight);
+    elem->QueryFloatAttribute("agent_height", &nmp.m_agentHeight);
+    elem->QueryFloatAttribute("agent_radius", &nmp.m_agentRadius);
+    elem->QueryFloatAttribute("agent_max_climb", &nmp.m_agentMaxClimb);
+    elem->QueryFloatAttribute("agent_max_slope", &nmp.m_agentMaxSlope);
 }
 
-//adler32 hash
+// adler32 hash
 uint32_t HashNavMeshParameters(NavMeshParameters& nmp) {
-    LOG_ASSERT(sizeof(float)==sizeof(uint8_t)*4);
+    LOG_ASSERT(sizeof(float) == sizeof(uint8_t) * 4);
     // Padding makes the struct 7*4 bytes big rather than 6*4 + 1
-    LOG_ASSERT(sizeof(float)*7 == sizeof(NavMeshParameters));
+    LOG_ASSERT(sizeof(float) * 7 == sizeof(NavMeshParameters));
 
     // "generate" intentionally not included to not force navmesh regen
 
@@ -142,7 +140,6 @@ uint32_t HashNavMeshParameters(NavMeshParameters& nmp) {
     s2 = (s2 + s1) % 65521;
     s1 = (s1 + ((uint8_t*)&nmp.m_agentMaxSlope)[3]) % 65521;
     s2 = (s2 + s1) % 65521;
- 
+
     return (s2 << 16) | s1;
 }
-

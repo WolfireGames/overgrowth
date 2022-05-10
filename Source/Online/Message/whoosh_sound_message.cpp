@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: whoosh_sound_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,44 +25,41 @@
 #include <Main/engine.h>
 
 namespace OnlineMessages {
-    WhooshSoundMessage::WhooshSoundMessage(float whoosh_amount, float whoosh_pitch) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT)
-    {
-        this->whoosh_amount = whoosh_amount;
-        this->whoosh_pitch = whoosh_pitch;
-    }
-
-    void WhooshSoundMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
-
-        Engine::Instance()->GetSound()->setAirWhoosh(wsm->whoosh_amount, wsm->whoosh_pitch);
-    }
-
-
-    binn* WhooshSoundMessage::Serialize(void *object) {
-        WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
-
-        binn* l = binn_object();
-
-        binn_object_set_float(l, "amount", wsm->whoosh_amount);
-        binn_object_set_float(l, "pitch", wsm->whoosh_pitch);
-
-        return l;
-    }
-
-    void WhooshSoundMessage::Deserialize(void* object, binn* l) {
-        WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
-
-        binn_object_get_float(l, "amount", &wsm->whoosh_amount);
-        binn_object_get_float(l, "pitch", &wsm->whoosh_pitch);
-    }
-
-    void* WhooshSoundMessage::Construct(void* mem) {
-        return new (mem) WhooshSoundMessage(0,0);
-    }
-
-    void WhooshSoundMessage::Destroy(void *object) {
-        WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
-        wsm->~WhooshSoundMessage();
-    }
+WhooshSoundMessage::WhooshSoundMessage(float whoosh_amount, float whoosh_pitch) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT) {
+    this->whoosh_amount = whoosh_amount;
+    this->whoosh_pitch = whoosh_pitch;
 }
+
+void WhooshSoundMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
+
+    Engine::Instance()->GetSound()->setAirWhoosh(wsm->whoosh_amount, wsm->whoosh_pitch);
+}
+
+binn* WhooshSoundMessage::Serialize(void* object) {
+    WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
+
+    binn* l = binn_object();
+
+    binn_object_set_float(l, "amount", wsm->whoosh_amount);
+    binn_object_set_float(l, "pitch", wsm->whoosh_pitch);
+
+    return l;
+}
+
+void WhooshSoundMessage::Deserialize(void* object, binn* l) {
+    WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
+
+    binn_object_get_float(l, "amount", &wsm->whoosh_amount);
+    binn_object_get_float(l, "pitch", &wsm->whoosh_pitch);
+}
+
+void* WhooshSoundMessage::Construct(void* mem) {
+    return new (mem) WhooshSoundMessage(0, 0);
+}
+
+void WhooshSoundMessage::Destroy(void* object) {
+    WhooshSoundMessage* wsm = static_cast<WhooshSoundMessage*>(object);
+    wsm->~WhooshSoundMessage();
+}
+}  // namespace OnlineMessages

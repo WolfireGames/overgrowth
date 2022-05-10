@@ -30,23 +30,18 @@
 #include <tinyxml.h>
 #include <XML/xml_helper.h>
 
-std::vector<Item> XMLSeekerBase::Search( const Item& item )
-{
+std::vector<Item> XMLSeekerBase::Search(const Item& item) {
     std::string full_path = item.GetAbsPath();
     TiXmlDocument doc(full_path.c_str());
     doc.LoadFile();
 
-    if( !doc.Error() )
-    {
-        return this->SearchXML(item,doc);
-    }
-    else
-    {
+    if (!doc.Error()) {
+        return this->SearchXML(item, doc);
+    } else {
         return std::vector<Item>();
     }
 }
 
-void XMLSeekerBase::HandleElementCallback(std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata  )
-{
+void XMLSeekerBase::HandleElementCallback(std::vector<Item>& items, TiXmlNode* eRoot, TiXmlElement* eElem, const Item& item, void* userdata) {
     LOGE << "Unimplemented HandleElementCallback for " << GetName() << " on " << item << std::endl;
 }

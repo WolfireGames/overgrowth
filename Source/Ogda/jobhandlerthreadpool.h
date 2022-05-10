@@ -27,13 +27,13 @@
 #include <vector>
 #include "item.h"
 
-class JobHandlerThreadPool
-{
-private:
+class JobHandlerThreadPool {
+   private:
     pthread_t* threads;
     int thread_count;
-public:
-    JobHandlerThreadPool(int thread_count); 
+
+   public:
+    JobHandlerThreadPool(int thread_count);
     ~JobHandlerThreadPool();
 
     void RunHashCalculation(std::vector<Item>& arr);

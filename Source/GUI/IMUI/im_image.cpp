@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
 //           Name: im_image.cpp
 //      Developer: Wolfire Games LLC
-//    Description: Image element class for creating adhoc GUIs as part of 
-//                 the UI tools  
+//    Description: Image element class for creating adhoc GUIs as part of
+//                 the UI tools
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,20 +27,18 @@
 #include <GUI/IMUI/imgui.h>
 #include <Math/vec2math.h>
 
-
 /*******************************************************************************************/
 /**
  * @brief  Constructor
  *
  */
-IMImage::IMImage() :
-    rotation( 0.0 ),
-    skip_aspect_fitting(false),
-    center(false)
+IMImage::IMImage() : rotation(0.0),
+                     skip_aspect_fitting(false),
+                     center(false)
 
 {
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    setColor( vec4( 1.0, 1.0, 1.0, 1.0 ) );
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+    setColor(vec4(1.0, 1.0, 1.0, 1.0));
 }
 
 /*******************************************************************************************/
@@ -48,10 +46,9 @@ IMImage::IMImage() :
  * @brief  Copy constructor
  *
  */
-IMImage::IMImage( IMImage const& other ) {
-    
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
+IMImage::IMImage(IMImage const& other) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
     imageFileName = other.imageFileName;
     originalImageSize = other.originalImageSize;
     rotation = other.rotation;
@@ -68,16 +65,14 @@ IMImage::IMImage( IMImage const& other ) {
  * @param imageName Filename for the image
  *
  */
-IMImage::IMImage(std::string const& imageName) :
-    IMElement( imageName ),
-    rotation( 0.0 ),
-    skip_aspect_fitting(false),
-    center(false)
-{
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
-    setImageFile( imageName );
-    setColor( vec4( 1.0, 1.0, 1.0, 1.0 ) );
+IMImage::IMImage(std::string const& imageName) : IMElement(imageName),
+                                                 rotation(0.0),
+                                                 skip_aspect_fitting(false),
+                                                 center(false) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
+    setImageFile(imageName);
+    setColor(vec4(1.0, 1.0, 1.0, 1.0));
 }
 
 /*******************************************************************************************/
@@ -87,20 +82,18 @@ IMImage::IMImage(std::string const& imageName) :
  * @param imageName Path for the image
  *
  */
-IMImage::IMImage(std::string const& imageName, bool abs_path) :
-    IMElement( imageName ),
-    rotation( 0.0 ),
-    skip_aspect_fitting(false),
-    center(false)
-{
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
-    if( abs_path ) {
+IMImage::IMImage(std::string const& imageName, bool abs_path) : IMElement(imageName),
+                                                                rotation(0.0),
+                                                                skip_aspect_fitting(false),
+                                                                center(false) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
+    if (abs_path) {
         setImageFileAbs(imageName);
     } else {
         setImageFile(imageName);
     }
-    setColor( vec4( 1.0, 1.0, 1.0, 1.0 ) );
+    setColor(vec4(1.0, 1.0, 1.0, 1.0));
 }
 
 /*******************************************************************************************/
@@ -119,7 +112,7 @@ void IMImage::setSkipAspectFitting(bool val) {
 }
 
 void IMImage::setCenter(bool val) {
-    center = val; 
+    center = val;
 }
 
 /*******************************************************************************************/
@@ -129,46 +122,40 @@ void IMImage::setCenter(bool val) {
  * @param _fileName
  *
  */
-void IMImage::setImageFile( std::string const& _fileName ) {
-    
-    if( _fileName == "" )
-    {
+void IMImage::setImageFile(std::string const& _fileName) {
+    if (_fileName == "") {
         return;
     }
-    
+
     imageFileName = "Data/" + _fileName;
-    if( !imuiImage.loadImage( imageFileName ) ) {
-        IMDisplayError("Error", std::string("Unable to locate image " + imageFileName) );
+    if (!imuiImage.loadImage(imageFileName)) {
+        IMDisplayError("Error", std::string("Unable to locate image " + imageFileName));
         return;
     }
-    
-    //Get the size
-    originalImageSize = vec2( int( imuiImage.getTextureWidth() ),
-                              int( imuiImage.getTextureHeight() ) );
-    
-    setSize( originalImageSize );
-    
+
+    // Get the size
+    originalImageSize = vec2(int(imuiImage.getTextureWidth()),
+                             int(imuiImage.getTextureHeight()));
+
+    setSize(originalImageSize);
 }
 
-void IMImage::setImageFileAbs( std::string const& _fileName ) {
-    
-    if( _fileName == "" )
-    {
+void IMImage::setImageFileAbs(std::string const& _fileName) {
+    if (_fileName == "") {
         return;
     }
-    
+
     imageFileName = _fileName;
-    if( !imuiImage.loadImage( imageFileName ) ) {
-        IMDisplayError("Error", std::string("Unable to locate image " + imageFileName) );
+    if (!imuiImage.loadImage(imageFileName)) {
+        IMDisplayError("Error", std::string("Unable to locate image " + imageFileName));
         return;
     }
-    
-    //Get the size
-    originalImageSize = vec2( int( imuiImage.getTextureWidth() ),
-                              int( imuiImage.getTextureHeight() ) );
-    
-    setSize( originalImageSize );
-    
+
+    // Get the size
+    originalImageSize = vec2(int(imuiImage.getTextureWidth()),
+                             int(imuiImage.getTextureHeight()));
+
+    setSize(originalImageSize);
 }
 
 /*******************************************************************************************/
@@ -178,9 +165,9 @@ void IMImage::setImageFileAbs( std::string const& _fileName ) {
  * @param newSize new x size
  *
  */
-void IMImage::scaleToSizeX( float newSize ) {
-    float newYSize = (originalImageSize.y()/originalImageSize.x()) * newSize;
-    setSize( vec2(newSize, newYSize) );
+void IMImage::scaleToSizeX(float newSize) {
+    float newYSize = (originalImageSize.y() / originalImageSize.x()) * newSize;
+    setSize(vec2(newSize, newYSize));
 }
 
 /*******************************************************************************************/
@@ -190,9 +177,9 @@ void IMImage::scaleToSizeX( float newSize ) {
  * @param newSize new y size
  *
  */
-void IMImage::scaleToSizeY( float newSize ) {
-    float newXSize = (originalImageSize.x()/originalImageSize.y()) * newSize;
-    setSize( vec2(newXSize, newSize) );
+void IMImage::scaleToSizeY(float newSize) {
+    float newXSize = (originalImageSize.x() / originalImageSize.y()) * newSize;
+    setSize(vec2(newXSize, newSize));
 }
 
 /*******************************************************************************************/
@@ -204,72 +191,65 @@ void IMImage::scaleToSizeY( float newSize ) {
  * @param clipSize size of clipping region
  *
  */
-void IMImage::render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize ) {
-    
+void IMImage::render(vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize) {
     Graphics* graphics = Graphics::Instance();
 
     // Make sure we have an an image and we're supposed draw it
-    if( imageFileName != "" && show ) {
-        
-        vec2 GUIRenderPos = vec2(0,0);
+    if (imageFileName != "" && show) {
+        vec2 GUIRenderPos = vec2(0, 0);
 
         imuiImage.skip_aspect_fitting = skip_aspect_fitting;
 
-        if( center ) {
+        if (center) {
             float diff_x = (float)graphics->window_dims[0] - getSizeX();
             float diff_y = (float)graphics->window_dims[1] - getSizeY();
-            GUIRenderPos = vec2(diff_x/2.0f,diff_y/2.0f);
+            GUIRenderPos = vec2(diff_x / 2.0f, diff_y / 2.0f);
         } else {
             GUIRenderPos = drawOffset + drawDisplacement;
         }
-        
-        if( skip_aspect_fitting ) {
-            imuiImage.setRenderSize( vec2( getSizeX(), getSizeY() ) );
 
-            imuiImage.setPosition( vec3( GUIRenderPos.x(), GUIRenderPos.y(), (float)getZOrdering() ) );
+        if (skip_aspect_fitting) {
+            imuiImage.setRenderSize(vec2(getSizeX(), getSizeY()));
+
+            imuiImage.setPosition(vec3(GUIRenderPos.x(), GUIRenderPos.y(), (float)getZOrdering()));
         } else {
-            vec2 screenRenderPos = screenMetrics.GUIToScreen( GUIRenderPos );
-            
-            imuiImage.setRenderSize( vec2( (float(getSizeX())*screenMetrics.GUItoScreenXScale),
-                                          (float(getSizeY())*screenMetrics.GUItoScreenYScale) ) );
-            
-            imuiImage.setPosition( vec3( screenRenderPos.x(), screenRenderPos.y(), (float)getZOrdering() ) );
+            vec2 screenRenderPos = screenMetrics.GUIToScreen(GUIRenderPos);
+
+            imuiImage.setRenderSize(vec2((float(getSizeX()) * screenMetrics.GUItoScreenXScale),
+                                         (float(getSizeY()) * screenMetrics.GUItoScreenYScale)));
+
+            imuiImage.setPosition(vec3(screenRenderPos.x(), screenRenderPos.y(), (float)getZOrdering()));
         }
-        
-        if( isColorEffected ) {
-            imuiImage.setColor( effectColor );
+
+        if (isColorEffected) {
+            imuiImage.setColor(effectColor);
+        } else {
+            imuiImage.setColor(color);
         }
-        else {
-            imuiImage.setColor( color );
+
+        imuiImage.setRotation(rotation);
+
+        if (textureSize.x() != 0 && textureSize.y() != 0) {
+            imuiImage.setRenderOffset(vec2(textureOffset.x(), textureOffset.y()),
+                                      vec2(textureSize.x(), textureSize.y()));
         }
-        
-        imuiImage.setRotation( rotation );
-        
-        if( textureSize.x() != 0 && textureSize.y() != 0 ) {
-            imuiImage.setRenderOffset( vec2( textureOffset.x(), textureOffset.y() ),
-                                      vec2( textureSize.x(), textureSize.y() ) );
-        }
-        
+
         // Add clipping (if we need it)
-        if( shouldClip && currentClipSize.x() != UNDEFINEDSIZE && currentClipSize.y() != UNDEFINEDSIZE ) {
-            
-            vec2 adjustedClipPos = screenMetrics.GUIToScreen( currentClipPos );
-            imuiImage.setClipping( vec2(adjustedClipPos.x(),
-                                        adjustedClipPos.y()),
+        if (shouldClip && currentClipSize.x() != UNDEFINEDSIZE && currentClipSize.y() != UNDEFINEDSIZE) {
+            vec2 adjustedClipPos = screenMetrics.GUIToScreen(currentClipPos);
+            imuiImage.setClipping(vec2(adjustedClipPos.x(),
+                                       adjustedClipPos.y()),
                                   vec2(currentClipSize.x() * screenMetrics.GUItoScreenXScale,
-                                       currentClipSize.y() * screenMetrics.GUItoScreenYScale) );
+                                       currentClipSize.y() * screenMetrics.GUItoScreenYScale));
         }
-        
-        if( owner != NULL ) {
-            owner->IMGUI_IMUIContext->queueImage( imuiImage );
+
+        if (owner != NULL) {
+            owner->IMGUI_IMUIContext->queueImage(imuiImage);
         }
-        
     }
-    
+
     // Call the superclass to make sure any element specific rendering is done
-    IMElement::render( drawOffset, currentClipPos, currentClipSize );
-    
-    
+    IMElement::render(drawOffset, currentClipPos, currentClipSize);
 }
 
 /*******************************************************************************************/
@@ -281,8 +261,8 @@ void IMImage::render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize
  * @param guistate The state of the GUI at this update
  *
  */
-void IMImage::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
-    IMElement::update( delta, drawOffset, guistate );
+void IMImage::update(uint64_t delta, vec2 drawOffset, GUIState& guistate) {
+    IMElement::update(delta, drawOffset, guistate);
 }
 
 /*******************************************************************************************/
@@ -292,9 +272,9 @@ void IMImage::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
  * @param Rotation (in degrees)
  *
  */
-void IMImage::setRotation( float _rotation ) {
+void IMImage::setRotation(float _rotation) {
     rotation = _rotation;
-    imuiImage.setRotation( rotation );
+    imuiImage.setRotation(rotation);
 }
 
 /*******************************************************************************************/
@@ -318,7 +298,7 @@ float IMImage::getRotation() {
  * @param size size of the rectangle to use for the rendering
  *
  */
-void IMImage::setImageOffset( vec2 offset, vec2 size ) {
+void IMImage::setImageOffset(vec2 offset, vec2 size) {
     textureOffset = offset;
     textureSize = size;
 }
@@ -329,10 +309,7 @@ void IMImage::setImageOffset( vec2 offset, vec2 size ) {
  *
  */
 void IMImage::clense() {
-    
     IMElement::clense();
-    
-    
 }
 
 /*******************************************************************************************/
@@ -341,5 +318,5 @@ void IMImage::clense() {
  *
  */
 IMImage::~IMImage() {
-    IMrefCountTracker.removeRefCountObject( getElementTypeName() );
+    IMrefCountTracker.removeRefCountObject(getElementTypeName());
 }

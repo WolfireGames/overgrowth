@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: angelscript_data.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -24,65 +24,63 @@
 #include <Online/online.h>
 
 namespace OnlineMessages {
-    AngelscriptData::AngelscriptData() :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        state(0), data(), is_persistent_sync(false)
-    {
+AngelscriptData::AngelscriptData() : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                     state(0),
+                                     data(),
+                                     is_persistent_sync(false) {
+}
 
-    }
+AngelscriptData::AngelscriptData(uint32_t state, vector<char> data, bool is_persistent_sync) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                               state(state),
+                                                                                               data(data),
+                                                                                               is_persistent_sync(is_persistent_sync) {
+}
 
-    AngelscriptData::AngelscriptData(uint32_t state, vector<char> data, bool is_persistent_sync) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        state(state), data(data), is_persistent_sync(is_persistent_sync)
-    {
+binn* AngelscriptData::Serialize(void* object) {
+    AngelscriptData* ad = static_cast<AngelscriptData*>(object);
+    binn* l = binn_object();
 
-    }
+    binn_object_set_uint32(l, "s", ad->state);
+    binn_object_set_blob(l, "b", ad->data.data(), ad->data.size());
+    binn_object_set_bool(l, "sync", ad->is_persistent_sync);
 
-    binn* AngelscriptData::Serialize(void* object) {
-        AngelscriptData* ad = static_cast<AngelscriptData*>(object);
-        binn* l = binn_object();
+    return l;
+}
 
-        binn_object_set_uint32(l, "s", ad->state);
-        binn_object_set_blob(l, "b", ad->data.data(), ad->data.size());
-        binn_object_set_bool(l, "sync", ad->is_persistent_sync);
+void AngelscriptData::Deserialize(void* object, binn* l) {
+    AngelscriptData* ad = static_cast<AngelscriptData*>(object);
+    binn_object_get_uint32(l, "s", &ad->state);
+    void* data_ptr;
+    int data_size;
+    binn_object_get_blob(l, "b", &data_ptr, &data_size);
+    ad->data.resize(data_size);
+    memcpy(ad->data.data(), data_ptr, data_size);
+    BOOL is_persistent_sync_binn;
+    binn_object_get_bool(l, "sync", &is_persistent_sync_binn);
+    ad->is_persistent_sync = is_persistent_sync_binn;
+}
 
-        return l;
-    }
+void AngelscriptData::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    AngelscriptData* ad = static_cast<AngelscriptData*>(object);
 
-    void AngelscriptData::Deserialize(void* object, binn* l) {
-        AngelscriptData* ad = static_cast<AngelscriptData*>(object);
-        binn_object_get_uint32(l, "s", &ad->state);
-        void* data_ptr;
-        int data_size;
-        binn_object_get_blob(l, "b", &data_ptr, &data_size);
-        ad->data.resize(data_size);
-        memcpy(ad->data.data(), data_ptr, data_size);
-        BOOL is_persistent_sync_binn;
-        binn_object_get_bool(l, "sync", &is_persistent_sync_binn);
-        ad->is_persistent_sync = is_persistent_sync_binn;
-    }
+    AngelScriptUpdate asu;
 
-    void AngelscriptData::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        AngelscriptData* ad = static_cast<AngelscriptData*>(object);
+    asu.data = ad->data;
+    asu.state = ad->state;
 
-        AngelScriptUpdate asu;
-
-        asu.data = ad->data;
-        asu.state = ad->state;
-
-        if(ad->is_persistent_sync) {
-            Online::Instance()->online_session->peer_queued_sync_updates.push(asu);
-        } else {
-            Online::Instance()->online_session->peer_queued_level_updates.push(asu);
-        }
-    }
-
-    void* AngelscriptData::Construct(void* mem) {
-        return new(mem) AngelscriptData();
-    }
-
-    void AngelscriptData::Destroy(void* object) {
-        AngelscriptData* ad = static_cast<AngelscriptData*>(object);
-        ad->~AngelscriptData();
+    if (ad->is_persistent_sync) {
+        Online::Instance()->online_session->peer_queued_sync_updates.push(asu);
+    } else {
+        Online::Instance()->online_session->peer_queued_level_updates.push(asu);
     }
 }
+
+void* AngelscriptData::Construct(void* mem) {
+    return new (mem) AngelscriptData();
+}
+
+void AngelscriptData::Destroy(void* object) {
+    AngelscriptData* ad = static_cast<AngelscriptData*>(object);
+    ad->~AngelscriptData();
+}
+}  // namespace OnlineMessages

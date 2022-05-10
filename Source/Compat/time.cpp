@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: time.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,7 +27,7 @@ uint64_t GetPrecisionTime() {
     return SDL_GetPerformanceCounter();
 }
 
-uint64_t ToNanoseconds(uint64_t time){
+uint64_t ToNanoseconds(uint64_t time) {
     uint64_t ticksPerSecond = SDL_GetPerformanceFrequency();
 
     // Multiply with 1e9 to get nanoseconds

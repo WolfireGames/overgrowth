@@ -23,12 +23,12 @@
 #pragma once
 
 class Timestamps {
-private:
+   private:
     float* timestamps;
     int timestamp_size;
     int timestamp_count;
 
-public:
+   public:
     Timestamps();
     ~Timestamps();
 
@@ -42,7 +42,7 @@ public:
 };
 
 class TimeInterpolator {
-public:
+   public:
     Timestamps timestamps;
 
     float virtual_host_walltime = 0.f;
@@ -54,7 +54,7 @@ public:
 
     float full_interpolation = 0.f;
     float host_walltime_offset_shift_acc = 0.f;
-	float host_walltime_offset_shift_vel = 0.f;
+    float host_walltime_offset_shift_vel = 0.f;
 
     static float offset_shift_coefficient_factor;
     static int target_window_size;

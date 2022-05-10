@@ -43,8 +43,9 @@ class SceneGraph;
 class AnimationEffectSystem;
 
 class Particle {
-public:
-    enum DrawType {DEPTH, COLOR};
+   public:
+    enum DrawType { DEPTH,
+                    COLOR };
     vec3 position;
     vec3 old_position;
     vec3 interp_position;
@@ -66,42 +67,43 @@ public:
     float initial_size;
     float initial_opacity;
     ParticleTypeRef particle_type;
-    typedef std::list<Particle*> ParticleList;
+    typedef std::list<Particle *> ParticleList;
     ParticleList connected;
     ParticleList connected_from;
     vec3 last_connected_pos;
     bool has_last_connected;
     bool collided;
 
-    void Draw(SceneGraph *scenegraph, DrawType draw_type, const mat4& proj_view_matrix);
+    void Draw(SceneGraph *scenegraph, DrawType draw_type, const mat4 &proj_view_matrix);
     void Update(SceneGraph *scenegraph, float timestep, float curr_game_time);
 };
 
 class ParticleSystem {
-public:
-    AnimationEffectSystem* particle_types;
-    ParticleSystem(const ASData& as_data);
+   public:
+    AnimationEffectSystem *particle_types;
+    ParticleSystem(const ASData &as_data);
     ~ParticleSystem();
     void deleteParticle(unsigned int which);
- 	unsigned MakeParticle( SceneGraph *scenegraph, const std::string &path, const vec3 &pos, const vec3 &vel, const vec3 &tint);
+    unsigned MakeParticle(SceneGraph *scenegraph, const std::string &path, const vec3 &pos, const vec3 &vel, const vec3 &tint);
     void Dispose();
     void Draw(SceneGraph *scenegraph);
     void Update(SceneGraph *scenegraph, float timestep, float curr_game_time);
     unsigned CreateID();
-    void ConnectParticles( unsigned a, unsigned b );
-	void TintParticle( unsigned id, const vec3& color );
+    void ConnectParticles(unsigned a, unsigned b);
+    void TintParticle(unsigned id, const vec3 &color);
 
-	ASContext script_context_;
-private:
+    ASContext script_context_;
+
+   private:
     struct {
         ASFunctionHandle update;
     } as_funcs;
 
     unsigned last_id_created;
-    typedef std::vector<Particle*> ParticleVector;
+    typedef std::vector<Particle *> ParticleVector;
     ParticleVector particles;
-    typedef std::map<unsigned, Particle*> ParticleMap;
+    typedef std::map<unsigned, Particle *> ParticleMap;
     ParticleMap particle_map;
 };
 
-void DrawGPUParticleField(SceneGraph *scenegraph, const char* type);
+void DrawGPUParticleField(SceneGraph *scenegraph, const char *type);

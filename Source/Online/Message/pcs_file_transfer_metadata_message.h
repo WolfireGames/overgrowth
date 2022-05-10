@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_file_transfer_metadata_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,18 +25,18 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class PCSFileTransferMetadataMessage : public OnlineMessageBase {
-    private:
-        std::string map_name;
-        std::string campaign_id;
+class PCSFileTransferMetadataMessage : public OnlineMessageBase {
+   private:
+    std::string map_name;
+    std::string campaign_id;
 
-    public:
-        PCSFileTransferMetadataMessage(const std::string& map_name, const std::string& campaign_id);
+   public:
+    PCSFileTransferMetadataMessage(const std::string& map_name, const std::string& campaign_id);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

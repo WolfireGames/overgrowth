@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: angelscript_object_data.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,64 +26,62 @@
 #include <Main/engine.h>
 
 namespace OnlineMessages {
-    AngelscriptObjectData::AngelscriptObjectData() :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        object_id(-1), state(0), data()
-    {
+AngelscriptObjectData::AngelscriptObjectData() : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                 object_id(-1),
+                                                 state(0),
+                                                 data() {
+}
 
-    }
+AngelscriptObjectData::AngelscriptObjectData(ObjectID object_id, uint32_t state, vector<uint32_t> data) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                                          state(state),
+                                                                                                          data(data) {
+    this->object_id = Online::Instance()->GetOriginalID(object_id);
+}
 
-    AngelscriptObjectData::AngelscriptObjectData(ObjectID object_id, uint32_t state, vector<uint32_t> data) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        state(state), data(data)
-    {
-        this->object_id = Online::Instance()->GetOriginalID(object_id);
-    }
+binn* AngelscriptObjectData::Serialize(void* object) {
+    AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
+    binn* l = binn_object();
 
-    binn* AngelscriptObjectData::Serialize(void* object) {
-        AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
-        binn* l = binn_object();
+    binn_object_set_int32(l, "id", ad->object_id);
+    binn_object_set_uint32(l, "s", ad->state);
+    binn_object_set_blob(l, "b", ad->data.data(), ad->data.size() * sizeof(uint32_t));
 
-        binn_object_set_int32(l, "id", ad->object_id);
-        binn_object_set_uint32(l, "s", ad->state);
-        binn_object_set_blob(l, "b", ad->data.data(), ad->data.size() * sizeof(uint32_t));
+    return l;
+}
 
-        return l;
-    }
+void AngelscriptObjectData::Deserialize(void* object, binn* l) {
+    AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
 
-    void AngelscriptObjectData::Deserialize(void* object, binn* l) {
-        AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
+    binn_object_get_int32(l, "id", &ad->object_id);
+    binn_object_get_uint32(l, "s", &ad->state);
+    void* data_ptr;
+    int data_size;
+    binn_object_get_blob(l, "b", &data_ptr, &data_size);
+    ad->data.resize(data_size / sizeof(uint32_t));
+    memcpy(ad->data.data(), data_ptr, data_size);
+}
 
-        binn_object_get_int32(l, "id", &ad->object_id);
-        binn_object_get_uint32(l, "s", &ad->state);
-        void* data_ptr;
-        int data_size;
-        binn_object_get_blob(l, "b", &data_ptr, &data_size);
-        ad->data.resize(data_size/sizeof(uint32_t));
-        memcpy(ad->data.data(), data_ptr, data_size);
-    }
+void AngelscriptObjectData::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
+    ObjectID object_id = Online::Instance()->GetObjectID(ad->object_id);
 
-    void AngelscriptObjectData::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
-        ObjectID object_id = Online::Instance()->GetObjectID(ad->object_id);
+    SceneGraph* sg = Engine::Instance()->GetSceneGraph();
 
-        SceneGraph* sg = Engine::Instance()->GetSceneGraph();
+    if (sg != nullptr) {
+        MovementObject* mo = static_cast<MovementObject*>(sg->GetObjectFromID(object_id));
 
-        if(sg != nullptr) {
-            MovementObject* mo = static_cast<MovementObject*>(sg->GetObjectFromID(object_id));
-
-            if(mo != nullptr) {
-                mo->addAngelScriptUpdate(ad->state, ad->data);
-            }
+        if (mo != nullptr) {
+            mo->addAngelScriptUpdate(ad->state, ad->data);
         }
     }
-
-    void* AngelscriptObjectData::Construct(void* mem) {
-        return new(mem) AngelscriptObjectData();
-    }
-
-    void AngelscriptObjectData::Destroy(void* object) {
-        AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
-        ad->~AngelscriptObjectData();
-    }
 }
+
+void* AngelscriptObjectData::Construct(void* mem) {
+    return new (mem) AngelscriptObjectData();
+}
+
+void AngelscriptObjectData::Destroy(void* object) {
+    AngelscriptObjectData* ad = static_cast<AngelscriptObjectData*>(object);
+    ad->~AngelscriptObjectData();
+}
+}  // namespace OnlineMessages

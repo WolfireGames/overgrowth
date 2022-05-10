@@ -22,7 +22,5 @@
 //-----------------------------------------------------------------------------
 #include "base_loader.h"
 
-baseLoader::~baseLoader()
-{
-
+baseLoader::~baseLoader() {
 }

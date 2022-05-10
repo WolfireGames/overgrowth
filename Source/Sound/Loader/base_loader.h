@@ -25,12 +25,11 @@
 #include <Internal/referencecounter.h>
 #include <Internal/integer.h>
 
-class baseLoader
-{
-public:
+class baseLoader {
+   public:
     virtual ~baseLoader();
 
-    //If two channels, PCM data is interleaved left then right.
+    // If two channels, PCM data is interleaved left then right.
     virtual int stream_buffer_int16(char *buffer, int size) = 0;
     virtual unsigned long get_sample_count() = 0;
     virtual unsigned long get_channels() = 0;
@@ -39,7 +38,7 @@ public:
     virtual bool is_at_end() = 0;
 
     virtual int64_t get_pcm_pos() = 0;
-    virtual void    set_pcm_pos( int64_t pos ) = 0;
+    virtual void set_pcm_pos(int64_t pos) = 0;
 };
 
 typedef ReferenceCounter<baseLoader> rc_baseLoader;

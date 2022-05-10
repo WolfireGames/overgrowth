@@ -26,4 +26,4 @@
 class ASContext;
 class SaveFile;
 
-void AttachSaveFile( ASContext *ctx, SaveFile* save_file );
+void AttachSaveFile(ASContext* ctx, SaveFile* save_file);

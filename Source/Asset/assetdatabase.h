@@ -25,7 +25,5 @@
 /*
  * This is the data referenced to by an NAsset
  */
-class NAssetDataBase
-{
-
+class NAssetDataBase {
 };

@@ -26,16 +26,14 @@
 #include <set>
 #include <vector>
 
-
 #include "item.h"
 #include <Ogda/Builders/builder.h>
 #include <Ogda/Searchers/searcher.h>
 #include <Ogda/Generators/generator.h>
 
-class JobHandler
-{
-    std::map<std::string,int> typeSearcherCount;
-    std::map<std::string,int> typeBuilderCount;
+class JobHandler {
+    std::map<std::string, int> typeSearcherCount;
+    std::map<std::string, int> typeBuilderCount;
 
     std::vector<Item> items;
     std::vector<Item> searchedItems;
@@ -47,8 +45,9 @@ class JobHandler
 
     int threads;
 
-    void RunRecursiveSearchOn( const Item& item );
-public:
+    void RunRecursiveSearchOn(const Item& item);
+
+   public:
     std::vector<std::string> input_folders;
     std::string output_folder, manifest_dest, manifest_source, databasedir;
     bool perform_removes;
@@ -61,5 +60,5 @@ public:
     std::vector<Item>::const_iterator ItemsBegin() const;
     std::vector<Item>::const_iterator ItemsEnd() const;
 
-    bool HasItemWithPath( const std::string& path );
+    bool HasItemWithPath(const std::string& path);
 };

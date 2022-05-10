@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: remove_object.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,19 +25,19 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class RemoveObject : public OnlineMessageBase {
-    private:
-        CommonObjectID id;
-        EntityType type;
+class RemoveObject : public OnlineMessageBase {
+   private:
+    CommonObjectID id;
+    EntityType type;
 
-    public:
-        RemoveObject(ObjectID id, EntityType type);
+   public:
+    RemoveObject(ObjectID id, EntityType type);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
 
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

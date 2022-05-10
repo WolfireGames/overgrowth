@@ -25,105 +25,98 @@
 
 #include <iostream>
 
-using std::cout;
 using std::cerr;
+using std::cout;
 using std::flush;
 
-ConsoleHandler::ConsoleHandler()
-{
+ConsoleHandler::ConsoleHandler() {
 }
 
-ConsoleHandler::~ConsoleHandler()
-{
+ConsoleHandler::~ConsoleHandler() {
 }
 
-void ConsoleHandler::Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message )
+void ConsoleHandler::Log(LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message) {
+    /*
+#ifdef _WIN32
+
+switch( m_type )
 {
+case LogSystem::LogType::debug :
+system( "Color 0A" );
+break;
 
-	/*
-   #ifdef _WIN32
+case LogSystem::LogType::error :
+system( "Color 04" );
+break;
 
-   switch( m_type )
-   {
-   case LogSystem::LogType::debug :
-   system( "Color 0A" );
-   break;
+case LogSystem::LogType::fatal :
+system( "Color 0C" );
+break;
 
-   case LogSystem::LogType::error :
-   system( "Color 04" );
-   break;
+case LogSystem::LogType::warning :
+system( "Color 0E" );
+break;
 
-   case LogSystem::LogType::fatal :
-   system( "Color 0C" );
-   break;
+}
+// c fatal
+// a debug
+// e warning
 
-   case LogSystem::LogType::warning :
-   system( "Color 0E" );
-   break;
-
-   }
-   // c fatal
-   // a debug
-   // e warning
-
-   #endif
-   */
+#endif
+*/
 
 #if defined(PLATFORM_LINUX)
 
-#define KNRM  "\x1B[0m"
-#define KRED  "\x1B[31m"
-#define KGRN  "\x1B[32m"
-#define KYEL  "\x1B[33m"
-#define KBLU  "\x1B[34m"
-#define KMAG  "\x1B[35m"
-#define KCYN  "\x1B[36m"
-#define KWHT  "\x1B[37m"
-	switch( type )
-	{
-	case LogSystem::spam :
-        cout << KNRM;
-		break;
+#define KNRM "\x1B[0m"
+#define KRED "\x1B[31m"
+#define KGRN "\x1B[32m"
+#define KYEL "\x1B[33m"
+#define KBLU "\x1B[34m"
+#define KMAG "\x1B[35m"
+#define KCYN "\x1B[36m"
+#define KWHT "\x1B[37m"
+    switch (type) {
+        case LogSystem::spam:
+            cout << KNRM;
+            break;
 
-	case LogSystem::debug :
-		break;
+        case LogSystem::debug:
+            break;
 
-	case LogSystem::error :
-		cout << KRED;
-		break;
+        case LogSystem::error:
+            cout << KRED;
+            break;
 
-	case LogSystem::fatal :
-		cout << KRED;
-		break;
+        case LogSystem::fatal:
+            cout << KRED;
+            break;
 
-	case LogSystem::warning :
-		cout << KYEL;
-		break;
+        case LogSystem::warning:
+            cout << KYEL;
+            break;
 
-	case LogSystem::info :
-		cout << KGRN;
-		break;
-	}
+        case LogSystem::info:
+            cout << KGRN;
+            break;
+    }
 
     cout << message_prefix;
-	cout << message;
+    cout << message;
 
     cout << KNRM;
 #elif defined(PLATFORM_UNIX)
     cout << message_prefix;
-	cout << message;
+    cout << message;
 #else
-    //We restrict output on windows because slow console.
-	if (type != LogSystem::debug && type != LogSystem::spam )
-	{
-		//Using fprint here because std::err and std::out doesn't function.
-		fprintf( stderr, "%s", message_prefix );
-		fprintf( stderr, "%s", message );
-	}
+    // We restrict output on windows because slow console.
+    if (type != LogSystem::debug && type != LogSystem::spam) {
+        // Using fprint here because std::err and std::out doesn't function.
+        fprintf(stderr, "%s", message_prefix);
+        fprintf(stderr, "%s", message);
+    }
 #endif
 }
 
-void ConsoleHandler::Flush()
-{
+void ConsoleHandler::Flush() {
     flush(cerr);
 }

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_client_connection_manager.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,18 +29,18 @@
 #include <unordered_map>
 
 namespace OnlineMessages {
-    class PCSBuildVersionMessage;
-    class PCSLoadingCompletedMessage;
-    class PCSClientParametersMessage;
-}
+class PCSBuildVersionMessage;
+class PCSLoadingCompletedMessage;
+class PCSClientParametersMessage;
+}  // namespace OnlineMessages
 
 class ClientConnectionManager {
-private:
+   private:
     std::unordered_map<PeerID, StateMachine<PendingConnection>> connection_states;
 
     bool HasConnection(const PeerID peer_id) const;
 
-public:
+   public:
     bool IsEveryClientLoaded() const;
     bool IsClientLoaded(const PeerID peer_id) const;
     bool HasClientGottenPersistentQueue(const PeerID peer_id) const;

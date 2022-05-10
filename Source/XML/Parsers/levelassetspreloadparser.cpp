@@ -30,14 +30,14 @@
 
 #include <tinyxml.h>
 
-uint32_t LevelAssetPreloadParser::Load( const std::string& path ) {
-    TiXmlDocument doc( path.c_str() );
+uint32_t LevelAssetPreloadParser::Load(const std::string& path) {
+    TiXmlDocument doc(path.c_str());
     doc.LoadFile();
-    if(!doc.Error()) {
+    if (!doc.Error()) {
         TiXmlElement* pRoot = doc.RootElement();
-        if(pRoot) { 
+        if (pRoot) {
             TiXmlElement* e = pRoot->FirstChildElement("Asset");
-            while(e) {
+            while (e) {
                 Asset a;
 
                 a.path = nullAsEmpty(e->Attribute("path"));
@@ -45,13 +45,13 @@ uint32_t LevelAssetPreloadParser::Load( const std::string& path ) {
                 a.asset_type = GetAssetTypeValue(nullAsEmpty(e->Attribute("asset_type")));
 
                 int all_levels = saysTrue(e->Attribute("all_levels"));
-                if( all_levels == SAYS_TRUE ) {
+                if (all_levels == SAYS_TRUE) {
                     a.all_levels = true;
-                } else if( all_levels == SAYS_FALSE ) {
+                } else if (all_levels == SAYS_FALSE) {
                     a.all_levels = false;
-                } else if( all_levels == SAYS_TRUE_NO_MATCH ) {
+                } else if (all_levels == SAYS_TRUE_NO_MATCH) {
                     LOGW << "Unexpected string in all_levels attribute" << std::endl;
-                } else if( all_levels == SAYS_TRUE_NULL_INPUT ) {
+                } else if (all_levels == SAYS_TRUE_NULL_INPUT) {
                     a.all_levels = false;
                 }
 
@@ -66,16 +66,14 @@ uint32_t LevelAssetPreloadParser::Load( const std::string& path ) {
     return 0;
 }
 
-bool LevelAssetPreloadParser::Save( const std::string& path ) {
+bool LevelAssetPreloadParser::Save(const std::string& path) {
     return false;
 }
 
 void LevelAssetPreloadParser::Clear() {
-    assets.clear();    
+    assets.clear();
 }
 
-LevelAssetPreloadParser::Asset::Asset() :
-load_flags(0x0)
-{
+LevelAssetPreloadParser::Asset::Asset() : load_flags(0x0) {
     asset_type = UNKNOWN;
 }

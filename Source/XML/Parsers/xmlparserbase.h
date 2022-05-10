@@ -27,8 +27,8 @@
 #include <string>
 
 class XMLParserBase {
-public:
-    virtual uint32_t Load( const std::string& path ) = 0;
-    virtual bool Save( const std::string& path ) = 0;
+   public:
+    virtual uint32_t Load(const std::string& path) = 0;
+    virtual bool Save(const std::string& path) = 0;
     virtual void Clear() = 0;
 };

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: sp_string_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,64 +27,65 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    SPStringMessage::SPStringMessage(ObjectID param_id, const std::string& key_name, const std::string& value, ScriptParamEditorType::Type editor_type, const std::string& editor_details) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
-        key_name(key_name), value(value), editor_type(editor_type), editor_details(editor_details)
-    {
-        this->param_id = Online::Instance()->GetOriginalID(param_id);
-    }
+SPStringMessage::SPStringMessage(ObjectID param_id, const std::string& key_name, const std::string& value, ScriptParamEditorType::Type editor_type, const std::string& editor_details) : OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
+                                                                                                                                                                                         key_name(key_name),
+                                                                                                                                                                                         value(value),
+                                                                                                                                                                                         editor_type(editor_type),
+                                                                                                                                                                                         editor_details(editor_details) {
+    this->param_id = Online::Instance()->GetOriginalID(param_id);
+}
 
-    binn* SPStringMessage::Serialize(void* object) {
-        SPStringMessage* t = static_cast<SPStringMessage*>(object);
-        binn* l = binn_object();
+binn* SPStringMessage::Serialize(void* object) {
+    SPStringMessage* t = static_cast<SPStringMessage*>(object);
+    binn* l = binn_object();
 
-        binn_object_set_int32(l, "param_id", t->param_id);
-        binn_object_set_std_string(l, "key_name", t->key_name);
-        binn_object_set_std_string(l, "value", t->value);
-        binn_object_set_uint8(l, "editor_type", t->editor_type);
-        binn_object_set_std_string(l, "editor_details", t->editor_details);
+    binn_object_set_int32(l, "param_id", t->param_id);
+    binn_object_set_std_string(l, "key_name", t->key_name);
+    binn_object_set_std_string(l, "value", t->value);
+    binn_object_set_uint8(l, "editor_type", t->editor_type);
+    binn_object_set_std_string(l, "editor_details", t->editor_details);
 
-        return l;
-    }
+    return l;
+}
 
-    void SPStringMessage::Deserialize(void* object, binn* l) {
-        SPStringMessage* t = static_cast<SPStringMessage*>(object);
+void SPStringMessage::Deserialize(void* object, binn* l) {
+    SPStringMessage* t = static_cast<SPStringMessage*>(object);
 
-        binn_object_get_int32(l, "param_id", &t->param_id);
-        binn_object_get_std_string(l, "key_name", &t->key_name);
-        binn_object_get_std_string(l, "value", &t->value);
+    binn_object_get_int32(l, "param_id", &t->param_id);
+    binn_object_get_std_string(l, "key_name", &t->key_name);
+    binn_object_get_std_string(l, "value", &t->value);
 
-        uint8_t editor_type;
-        binn_object_get_uint8(l, "editor_type", &editor_type);
-        t->editor_type = (ScriptParamEditorType::Type)editor_type;
+    uint8_t editor_type;
+    binn_object_get_uint8(l, "editor_type", &editor_type);
+    t->editor_type = (ScriptParamEditorType::Type)editor_type;
 
-        binn_object_get_std_string(l, "editor_details", &t->editor_details);
-    }
+    binn_object_get_std_string(l, "editor_details", &t->editor_details);
+}
 
-    void SPStringMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        SPStringMessage* t = static_cast<SPStringMessage*>(object);
-        ObjectID object_id = Online::Instance()->GetObjectID(t->param_id);
+void SPStringMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    SPStringMessage* t = static_cast<SPStringMessage*>(object);
+    ObjectID object_id = Online::Instance()->GetObjectID(t->param_id);
 
-        ScriptParam param;
-        param.SetString(t->value);
-        param.editor().SetType(t->editor_type);
-        param.editor().SetDetails(t->editor_details);
+    ScriptParam param;
+    param.SetString(t->value);
+    param.editor().SetType(t->editor_type);
+    param.editor().SetDetails(t->editor_details);
 
-        ScriptParams* params = Online::Instance()->GetScriptParamsFromID(object_id);
-        if(params != nullptr) {
-            params->InsertScriptParam(t->key_name, param);
-            Online::Instance()->UpdateMovementObjectFromID(object_id);
-        } else {
-            LOGW << "Unable to apply script param update for param_id: " << object_id << " (" << t->param_id << ")" << endl;
-        }
-    }
-
-    void* SPStringMessage::Construct(void *mem) {
-        return new(mem) SPStringMessage(0, "", "", ScriptParamEditorType::Type::UNDEFINED, "");
-    }
-
-    void SPStringMessage::Destroy(void* object) {
-        SPStringMessage* t = static_cast<SPStringMessage*>(object);
-        t->~SPStringMessage();
+    ScriptParams* params = Online::Instance()->GetScriptParamsFromID(object_id);
+    if (params != nullptr) {
+        params->InsertScriptParam(t->key_name, param);
+        Online::Instance()->UpdateMovementObjectFromID(object_id);
+    } else {
+        LOGW << "Unable to apply script param update for param_id: " << object_id << " (" << t->param_id << ")" << endl;
     }
 }
+
+void* SPStringMessage::Construct(void* mem) {
+    return new (mem) SPStringMessage(0, "", "", ScriptParamEditorType::Type::UNDEFINED, "");
+}
+
+void SPStringMessage::Destroy(void* object) {
+    SPStringMessage* t = static_cast<SPStringMessage*>(object);
+    t->~SPStringMessage();
+}
+}  // namespace OnlineMessages

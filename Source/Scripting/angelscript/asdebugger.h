@@ -30,19 +30,22 @@
 
 class ASContext;
 
-class ASDebugger : public CDebugger
-{
-private:
-	// LEAVE was named OUT, but on windows OUT is #defined
-    enum BreakAction { CONTINUE, OVER, INTO, LEAVE, NONE };
+class ASDebugger : public CDebugger {
+   private:
+    // LEAVE was named OUT, but on windows OUT is #defined
+    enum BreakAction { CONTINUE,
+                       OVER,
+                       INTO,
+                       LEAVE,
+                       NONE };
 
-    struct Variable
-    {
+    struct Variable {
         const char* name;
         int type_id;
         void* ptr;
     };
-public:
+
+   public:
     ASDebugger();
     ~ASDebugger() override;
 
@@ -69,7 +72,8 @@ public:
     static void AddGlobalBreakpoint(const char* file, int line);
     static void RemoveGlobalBreakpoint(const char* file, int line);
     static const std::vector<std::pair<std::string, int> >& GetGlobalBreakpoints();
-private:
+
+   private:
     typedef std::map<std::string, std::vector<int> >::iterator Breakpoint_iter;
     std::map<std::string, std::vector<int> > breakpoints;
 

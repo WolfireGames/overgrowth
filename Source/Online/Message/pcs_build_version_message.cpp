@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_build_version_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,42 +25,39 @@
 #include <Online/online.h>
 
 namespace OnlineMessages {
-    PCSBuildVersionMessage::PCSBuildVersionMessage(const int32_t build_id) :
-        OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
-        build_id(build_id)
-    {
+PCSBuildVersionMessage::PCSBuildVersionMessage(const int32_t build_id) : OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
+                                                                         build_id(build_id) {
+}
 
-    }
+binn* PCSBuildVersionMessage::Serialize(void* object) {
+    PCSBuildVersionMessage* t = static_cast<PCSBuildVersionMessage*>(object);
+    binn* l = binn_object();
 
-    binn* PCSBuildVersionMessage::Serialize(void* object) {
-        PCSBuildVersionMessage* t = static_cast<PCSBuildVersionMessage*>(object);
-        binn* l = binn_object();
+    binn_object_set_int32(l, "build_id", t->build_id);
 
-        binn_object_set_int32(l, "build_id", t->build_id);
+    return l;
+}
 
-        return l;
-    }
+void PCSBuildVersionMessage::Deserialize(void* object, binn* l) {
+    PCSBuildVersionMessage* t = static_cast<PCSBuildVersionMessage*>(object);
 
-    void PCSBuildVersionMessage::Deserialize(void* object, binn* l) {
-        PCSBuildVersionMessage* t = static_cast<PCSBuildVersionMessage*>(object);
+    binn_object_get_int32(l, "build_id", &t->build_id);
+}
 
-        binn_object_get_int32(l, "build_id", &t->build_id);
-    }
+void PCSBuildVersionMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    PCSBuildVersionMessage* t = static_cast<PCSBuildVersionMessage*>(object);
 
-    void PCSBuildVersionMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        PCSBuildVersionMessage* t = static_cast<PCSBuildVersionMessage*>(object);
-
-        if (Online::Instance()->IsHosting()) {
-            Online::Instance()->online_session->client_connection_manager.ApplyPackage(from, t);
-        }
-    }
-
-    void* PCSBuildVersionMessage::Construct(void* mem) {
-        return new (mem) PCSBuildVersionMessage(-1);
-    }
-
-    void PCSBuildVersionMessage::Destroy(void* object) {
-        PCSBuildVersionMessage* bvr = static_cast<PCSBuildVersionMessage*>(object);
-        bvr->~PCSBuildVersionMessage();
+    if (Online::Instance()->IsHosting()) {
+        Online::Instance()->online_session->client_connection_manager.ApplyPackage(from, t);
     }
 }
+
+void* PCSBuildVersionMessage::Construct(void* mem) {
+    return new (mem) PCSBuildVersionMessage(-1);
+}
+
+void PCSBuildVersionMessage::Destroy(void* object) {
+    PCSBuildVersionMessage* bvr = static_cast<PCSBuildVersionMessage*>(object);
+    bvr->~PCSBuildVersionMessage();
+}
+}  // namespace OnlineMessages

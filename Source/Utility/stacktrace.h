@@ -37,22 +37,20 @@
 #include <ctime>
 #include <cstdlib>
 #include <cstdio>
-inline std::string GenerateStacktrace()
-{
+inline std::string GenerateStacktrace() {
     void *array[20];
     size_t size;
 
     // get void*'s for all entries on the stack
     size = backtrace(array, 20);
 
-    char ** backtrace = backtrace_symbols(array, size);
+    char **backtrace = backtrace_symbols(array, size);
 
     std::stringstream ss;
-    for( size_t i = 0; i < size; i++ )
-    {
-        ss << backtrace[i] << std::endl; 
+    for (size_t i = 0; i < size; i++) {
+        ss << backtrace[i] << std::endl;
     }
-    
+
     OG_FREE(backtrace);
 
     return ss.str();
@@ -65,8 +63,7 @@ inline std::string GenerateStacktrace()
 #include <sstream>
 #include <algorithm>
 
-inline std::string GenerateStacktrace()
-{
+inline std::string GenerateStacktrace() {
     const int maxCallers = 62;
 
     void* callerStack[maxCallers];
@@ -81,26 +78,22 @@ inline std::string GenerateStacktrace()
 
     const static unsigned short MAX_CALLERS_SHOWN = 24;
     frames = std::min(frames, MAX_CALLERS_SHOWN);
-    for (int i = 0; i < frames; ++i)
-    {
+    for (int i = 0; i < frames; ++i) {
         DWORD whyMicrosoft;
-        if (SymGetLineFromAddr64(handle, (DWORD64)callerStack[i], &whyMicrosoft, &line))
-        {
+        if (SymGetLineFromAddr64(handle, (DWORD64)callerStack[i], &whyMicrosoft, &line)) {
             std::string filename(line.FileName);
             filename = filename.substr(filename.find_last_of("/\\") + 1);
             filename = filename.substr(0, filename.find_last_of('.'));
 
             ss << line.FileName << "(" << line.LineNumber << ")" << std::endl;
-        }
-        else
+        } else
             ss << "Couldn't get line numbers. Possibly an external lib " << std::endl;
     }
 
     return ss.str();
 }
 #else
-inline std::string GenerateStacktrace()
-{
+inline std::string GenerateStacktrace() {
     return std::string("No stacktrace available on this platform");
 }
 #endif

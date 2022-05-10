@@ -2,7 +2,7 @@
 //           Name: sdl_wrapper.h
 //      Developer: Wolfire Games LLC
 //         Author: Max Danielsson
-//    Description: This is a threadsafe wrapper around functions in SDL known 
+//    Description: This is a threadsafe wrapper around functions in SDL known
 //                 to be used from mutiple threads.
 //        License: Read below
 //-----------------------------------------------------------------------------

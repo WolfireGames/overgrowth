@@ -29,82 +29,61 @@
 #include <Utility/strings.h>
 #include <Logging/logdata.h>
 
-std::vector<Item> SyncedAnimationGroupSeeker::SearchXML(const Item & item, TiXmlDocument& doc )
-{
-    const char* elems[] = 
-    {
-    };
+std::vector<Item> SyncedAnimationGroupSeeker::SearchXML(const Item& item, TiXmlDocument& doc) {
+    const char* elems[] =
+        {};
 
     const char* elems_type[] =
-    {
-    };
+        {};
 
     assert(ARRLEN(elems_type) == ARRLEN(elems));
 
-    const char* ignored[] = 
-    {
-        "CoordLabel",
-        "Overshoot",
-        "InAir"
-    };
+    const char* ignored[] =
+        {
+            "CoordLabel",
+            "Overshoot",
+            "InAir"};
 
     std::vector<Item> items;
 
     TiXmlHandle hRoot(&doc);
-    
-    TiXmlElement *eElem = hRoot.FirstChildElement("SyncedAnimationGroup").FirstChildElement().Element();
 
-    if( !eElem )
-    {
+    TiXmlElement* eElem = hRoot.FirstChildElement("SyncedAnimationGroup").FirstChildElement().Element();
+
+    if (!eElem) {
         LOGE << "Can't find anything in file listed " << item << std::endl;
     }
 
-    while( eElem )
-    {
+    while (eElem) {
         const char* name = eElem->Value();
         const char* text = eElem->GetText();
-        if( name )
-        {
+        if (name) {
             int id;
-            if( (id = FindStringInArray( elems, ARRLEN(elems), name )) >= 0 )
-            {
-                if( text && strlen(text) > 0 )
-                {
-                    items.push_back(Item(item.input_folder,text,elems_type[id],item.source));
-                }
-                else
-                {
+            if ((id = FindStringInArray(elems, ARRLEN(elems), name)) >= 0) {
+                if (text && strlen(text) > 0) {
+                    items.push_back(Item(item.input_folder, text, elems_type[id], item.source));
+                } else {
                     LOGW << "String value in " << item << " for element " << elems[id] << " is empty" << std::endl;
                 }
-            }
-            else if( (id = FindStringInArray( ignored, ARRLEN(ignored), name )) >= 0 )
-            {
+            } else if ((id = FindStringInArray(ignored, ARRLEN(ignored), name)) >= 0) {
                 LOGD << "Ignored " << ignored[id] << " in " << item << std::endl;
-            }
-            else if( strmtch( "Animations", name ) )
-            {
-                TiXmlElement *eDetailObject = eElem->FirstChildElement();
+            } else if (strmtch("Animations", name)) {
+                TiXmlElement* eDetailObject = eElem->FirstChildElement();
 
-                while( eDetailObject )
-                {
+                while (eDetailObject) {
                     {
                         const char* path = eDetailObject->Attribute("path");
-                        if( path )
-                        {
+                        if (path) {
                             items.push_back(Item(item.input_folder, path, "animation", item.source));
                         }
                     }
 
                     eDetailObject = eDetailObject->NextSiblingElement();
                 }
-            }
-            else
-            {
+            } else {
                 LOGE << "Unahandled subvalue in SyncedAnimationGroup from " << item << " called " << name << std::endl;
             }
-        }
-        else
-        {
+        } else {
             LOGE << "Generic warning" << std::endl;
         }
 
@@ -112,5 +91,4 @@ std::vector<Item> SyncedAnimationGroupSeeker::SearchXML(const Item & item, TiXml
     }
 
     return items;
-
 }

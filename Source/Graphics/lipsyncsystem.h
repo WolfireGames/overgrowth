@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: lipsyncsystem.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,9 +27,8 @@
 #include <string>
 #include <map>
 
-class LipSyncSystem 
-{
-public:
+class LipSyncSystem {
+   public:
     LipSyncSystem();
 
     std::vector<std::map<std::string, int> > phn2vis;

@@ -2,7 +2,7 @@
 //           Name: editor_utilities.h
 //      Developer: Wolfire Games LLC
 //         Author: Phillip Isola
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,26 +28,26 @@
 #include <Math/vec3.h>
 
 class EditorEventTrigger {
-public:
+   public:
     EditorEventTrigger(int delay_time = 0);
-    
+
     void Start();
     void Stop();
     bool IsActive();
     void ForceATrigger();
     bool Check();
-    
+
     inline int GetDelay() const { return m_delay_time; }
     inline void SetDelay(int delay_time) { m_delay_time = delay_time; }
 
-private:
-    int m_last_triggered_time;    // in milliseconds
-    int m_delay_time;            // 
-    bool m_force_a_trigger, m_active;    // triggers can only be forced if the trigger is active
+   private:
+    int m_last_triggered_time;         // in milliseconds
+    int m_delay_time;                  //
+    bool m_force_a_trigger, m_active;  // triggers can only be forced if the trigger is active
 };
 
-inline int GetSign(float n) { return n<0?-1:1; }
+inline int GetSign(float n) { return n < 0 ? -1 : 1; }
 
-vec3 Interpolate(const vec3& v1, const vec3& v2, float amount);    // returns a vec3 that is amount percent v1 and 1-amount percent v2
+vec3 Interpolate(const vec3& v1, const vec3& v2, float amount);  // returns a vec3 that is amount percent v1 and 1-amount percent v2
 
 float ConvertToFirstCycle(float n, float cycle_size);

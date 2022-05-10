@@ -29,40 +29,35 @@
 #include <Utility/strings.h>
 #include <Logging/logdata.h>
 
-std::vector<Item> SkeletonSeeker::SearchXML( const Item & item, TiXmlDocument& doc )
-{
+std::vector<Item> SkeletonSeeker::SearchXML(const Item& item, TiXmlDocument& doc) {
     std::vector<Item> items;
 
     TiXmlHandle hRoot(&doc);
 
     const char* roots[] =
-    {
-        "rig"
-    };
-    
-    TiXmlElement *eRoot = hRoot.FirstChildElement().Element();
-    
-    if( !eRoot )
-    {
+        {
+            "rig"};
+
+    TiXmlElement* eRoot = hRoot.FirstChildElement().Element();
+
+    if (!eRoot) {
         LOGE << "Can't find anything in file listed " << item << std::endl;
     }
 
-    while( eRoot )
-    {
-        if( FindStringInArray( roots, ARRLEN(roots), eRoot->Value() ) < 0 )
-        {
+    while (eRoot) {
+        if (FindStringInArray(roots, ARRLEN(roots), eRoot->Value()) < 0) {
             LOGE << "Unknown root " << eRoot->Value() << std::endl;
         }
 
         std::vector<attribpair> attribs;
-        attribs.push_back(attribpair("bone_path",  "skeleton"));
+        attribs.push_back(attribpair("bone_path", "skeleton"));
         attribs.push_back(attribpair("model_path", "model"));
-        attribs.push_back(attribpair("mass_path",  "skeleton"));
+        attribs.push_back(attribpair("mass_path", "skeleton"));
 
         std::vector<const char*> attribs_ignore;
 
-        AttributeScanner::Do( items, item, eRoot, attribs, attribs_ignore );
-                
+        AttributeScanner::Do(items, item, eRoot, attribs, attribs_ignore);
+
         eRoot = eRoot->NextSiblingElement();
     }
     return items;

@@ -30,66 +30,61 @@
 
 #include <sstream>
 
-SoundPlayInfo::SoundPlayInfo(): position(0.0f), 
-    occlusion_position(0.0f), 
-    pitch(1.0f),
-    volume(1.0f),
-    volume_mult(1.0f),
-    max_gain(1.0f),
-    max_distance(30.0f),
-    looping(false),
-    flags(0),
-    priority(_default_priority),
-    created_by_id(-1),
-    play_past_tick(0)
-{
+SoundPlayInfo::SoundPlayInfo() : position(0.0f),
+                                 occlusion_position(0.0f),
+                                 pitch(1.0f),
+                                 volume(1.0f),
+                                 volume_mult(1.0f),
+                                 max_gain(1.0f),
+                                 max_distance(30.0f),
+                                 looping(false),
+                                 flags(0),
+                                 priority(_default_priority),
+                                 created_by_id(-1),
+                                 play_past_tick(0) {
 }
 
-SoundGroupPlayInfo::SoundGroupPlayInfo( const SoundGroup& sg, const vec3 &_pos ) : 
-    position(_pos),
-    occlusion_position(_pos),
-    gain(1.0f),
-    max_gain(1.0f),
-    volume_mult(1.0f),
-    pitch_shift(1.0f),
-    path(sg.GetPath()),
-    created_by_id(-1),
-    flags(0),
-    priority(_sound_priority_low),
-    num_variants(sg.GetNumVariants()),
-    volume(sg.GetVolume()),
-    max_distance(sg.GetMaxDistance()),
-    play_past_tick()
-{
+SoundGroupPlayInfo::SoundGroupPlayInfo(const SoundGroup& sg, const vec3& _pos) : position(_pos),
+                                                                                 occlusion_position(_pos),
+                                                                                 gain(1.0f),
+                                                                                 max_gain(1.0f),
+                                                                                 volume_mult(1.0f),
+                                                                                 pitch_shift(1.0f),
+                                                                                 path(sg.GetPath()),
+                                                                                 created_by_id(-1),
+                                                                                 flags(0),
+                                                                                 priority(_sound_priority_low),
+                                                                                 num_variants(sg.GetNumVariants()),
+                                                                                 volume(sg.GetVolume()),
+                                                                                 max_distance(sg.GetMaxDistance()),
+                                                                                 play_past_tick() {
     SetNumVariants(num_variants);
     play_past_tick = SDL_TS_GetTicks() + 1000 * (unsigned int)sg.GetDelay();
-    sound_base_path = path.substr(0,path.size()-4);
+    sound_base_path = path.substr(0, path.size() - 4);
 }
 
-std::string SoundGroupPlayInfo::GetARandomOrderedSoundPath( pcg32_random_t* reseed ) 
-{
+std::string SoundGroupPlayInfo::GetARandomOrderedSoundPath(pcg32_random_t* reseed) {
     const char* fstring = "%s_%d.wav";
     char target_s[kPathSize];
 
     int i = 0;
-    if( num_variants > 0 ) {
+    if (num_variants > 0) {
         i = pcg32_random_r(reseed) % num_variants;
 
-        if( previous_sound_id == i ) {
+        if (previous_sound_id == i) {
             i = (i + 1) % num_variants;
         }
     }
 
     previous_sound_id = i;
 
-    FormatString(target_s, kPathSize, fstring, sound_base_path.c_str(), i+1);
+    FormatString(target_s, kPathSize, fstring, sound_base_path.c_str(), i + 1);
 
     return std::string(target_s);
 }
 
-void SoundGroupPlayInfo::SetNumVariants(int _num_variants) 
-{ 
-    num_variants = _num_variants; 
+void SoundGroupPlayInfo::SetNumVariants(int _num_variants) {
+    num_variants = _num_variants;
 }
 
 const std::string& SoundGroupPlayInfo::GetPath() const {

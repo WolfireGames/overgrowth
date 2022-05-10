@@ -33,8 +33,7 @@
 
 using std::string;
 
-Attachment::Attachment( AssetManager* owner, uint32_t asset_id ) : Asset( owner, asset_id ) {
-
+Attachment::Attachment(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id) {
 }
 
 void Attachment::clear() {
@@ -44,30 +43,30 @@ void Attachment::clear() {
     mirror_allowed = false;
 }
 
-int Attachment::Load( const string &path, uint32_t load_flags ) {
+int Attachment::Load(const string& path, uint32_t load_flags) {
     TiXmlDocument doc;
-    if( LoadXMLRetryable(doc, path, "Attachment") ) {
+    if (LoadXMLRetryable(doc, path, "Attachment")) {
         clear();
 
         TiXmlHandle h_doc(&doc);
         TiXmlHandle h_root = h_doc.FirstChildElement();
         TiXmlElement* field = h_root.ToElement()->FirstChildElement();
-        for( ; field; field = field->NextSiblingElement()) {
+        for (; field; field = field->NextSiblingElement()) {
             string field_str(field->Value());
-            if(field_str == "anim"){
+            if (field_str == "anim") {
                 anim = field->GetText();
-            } else if(field_str == "attach"){
+            } else if (field_str == "attach") {
                 const char* tf;
                 tf = field->Attribute("ik_chain");
-                if(tf){
+                if (tf) {
                     ik_chain_label = tf;
                 }
                 field->QueryIntAttribute("bone", &ik_chain_bone);
-            } else if(field_str == "mirror"){
+            } else if (field_str == "mirror") {
                 const char* tf;
                 tf = field->Attribute("allow");
-                if(tf && strcmp(tf, "true") == 0){
-                    mirror_allowed = true;                
+                if (tf && strcmp(tf, "true") == 0) {
+                    mirror_allowed = true;
                 }
             }
         }
@@ -82,7 +81,6 @@ const char* Attachment::GetLoadErrorString() {
 }
 
 void Attachment::Unload() {
-
 }
 
 void Attachment::Reload() {
@@ -90,7 +88,6 @@ void Attachment::Reload() {
 }
 
 void Attachment::ReportLoad() {
-
 }
 
 AssetLoaderBase* Attachment::NewLoader() {

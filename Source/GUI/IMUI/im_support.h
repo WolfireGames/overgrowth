@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: im_support.h
 //      Developer: Wolfire Games LLC
-//    Description: A set of support function and defines for putting together 
+//    Description: A set of support function and defines for putting together
 //                 `ad hoc'/overlay GUIs
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -36,37 +36,35 @@
 #include <string>
 #include <map>
 
-
 // All coordinates are specified in terms of a space 2560 x 1440
 // (at the moment -- this assumes 16:9 ratio -- other ratios are a TODO)
 // when rendering to the screen the projection is done automatically
-// coordinates start at the top left of the screen 
+// coordinates start at the top left of the screen
 
 extern const float UNDEFINEDSIZE;
 extern const int UNDEFINEDSIZEI;
 
 /*******************************************************************************************/
 /**
- * @brief  Helper class to derive and contain the scaling factors and offsets between GUI space 
+ * @brief  Helper class to derive and contain the scaling factors and offsets between GUI space
  *         and screen space
- * 
+ *
  */
 struct ScreenMetrics {
-
     vec2 mainSize;
     vec2 fourThree;
     vec2 GUISpace;
 
-    vec2 renderOffset; // for extreme resolutions where we have to adjust
+    vec2 renderOffset;  // for extreme resolutions where we have to adjust
 
-    float GUItoScreenXScale; // Scaling factor between screen width and GUI space width
-    float GUItoScreenYScale; // Scaling factor between screen height and GUI space height
-    vec2 screenSize; // what physical screen resolution are these values based on
+    float GUItoScreenXScale;  // Scaling factor between screen width and GUI space width
+    float GUItoScreenYScale;  // Scaling factor between screen height and GUI space height
+    vec2 screenSize;          // what physical screen resolution are these values based on
 
     /*******************************************************************************************/
     /**
      * @brief  Constructor, for constructing
-     * 
+     *
      */
     ScreenMetrics();
 
@@ -78,33 +76,32 @@ struct ScreenMetrics {
      *
      */
     vec2 getMetrics();
-    
+
     /*******************************************************************************************/
     /**
      * @brief  Checks to see if the resolution has changed
-     * 
+     *
      * @param metrics 2d vector to compare against
      *
      * @returns true if the resolution has changed, false otherwise
      *
      */
-    bool checkMetrics( vec2& metrics );
-    
+    bool checkMetrics(vec2& metrics);
+
     /*******************************************************************************************/
     /**
      * @brief  Computer various values this class is responsible for
-     * 
+     *
      */
     void computeFactors();
 
-    vec2 GUIToScreen( const vec2 pos );
-    
+    vec2 GUIToScreen(const vec2 pos);
+
     float getScreenWidth();
     float getScreenHeight();
-    
 };
 
-extern ScreenMetrics screenMetrics; // Dimension and translation information for the screen
+extern ScreenMetrics screenMetrics;  // Dimension and translation information for the screen
 
 /*******************************************************************************************/
 /**
@@ -112,8 +109,8 @@ extern ScreenMetrics screenMetrics; // Dimension and translation information for
  *
  */
 enum DividerOrientation {
-    DOVertical,  // self explanatory 
-    DOHorizontal // also self explanatory 
+    DOVertical,   // self explanatory
+    DOHorizontal  // also self explanatory
 };
 
 // When the boundary of an element is bigger than itself, how should it align itself
@@ -127,34 +124,28 @@ enum ContainerAlignment {
 
 vec4 HexColor(std::string const& hex);
 
-
 // Wrap the internal error function
-void IMDisplayError( std::string const& errorTitle, std::string const& errorMessage );
-void IMDisplayError( std::string const& errorMessage );
+void IMDisplayError(std::string const& errorTitle, std::string const& errorMessage);
+void IMDisplayError(std::string const& errorMessage);
 
 // For sanity checking the reference counting for the GUI subsystem
 class IMReferenceCountTracker {
-
     int totalRefCountObjs;
     std::map<std::string, int> typeCounts;
-    
-public:
-    
-    IMReferenceCountTracker() :
-        totalRefCountObjs(0)
-    {
+
+   public:
+    IMReferenceCountTracker() : totalRefCountObjs(0) {
     }
-    
+
     // Register a new ref counted object
-    void addRefCountObject( std::string const& className );
+    void addRefCountObject(std::string const& className);
     // Register the destruction of a ref counted object
-    void removeRefCountObject( std::string const& className );
-    
+    void removeRefCountObject(std::string const& className);
+
     // Display a message if there are still live objects
     void logSanityCheck();
-    
+
     virtual ~IMReferenceCountTracker();
-    
 };
 
 extern IMReferenceCountTracker IMrefCountTracker;

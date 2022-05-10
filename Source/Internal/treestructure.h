@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: treestructure.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,12 +25,12 @@
 #include <vector>
 
 namespace TreeStructure {
-    void GetBalancedTree(std::vector<int> &temp_parent);
-    int GetTotalNumChildren(int parent, const std::vector<int> &parents);
-    int GetDepth(int which, const std::vector<int> &parents);
-    int GetNumChildren(int parent, const std::vector<int> &parents);
-    std::vector<int> GetChildren(int parent, const std::vector<int> &parents);
-    int GetNumConnections(int parent, const std::vector<int> &parents);
-    std::vector<int> FindTreePath( int a, int b, const std::vector<int> &parents );
-    std::vector<int> GetChildrenRecursive( int parent, const std::vector<int> &parents );
-}
+void GetBalancedTree(std::vector<int> &temp_parent);
+int GetTotalNumChildren(int parent, const std::vector<int> &parents);
+int GetDepth(int which, const std::vector<int> &parents);
+int GetNumChildren(int parent, const std::vector<int> &parents);
+std::vector<int> GetChildren(int parent, const std::vector<int> &parents);
+int GetNumConnections(int parent, const std::vector<int> &parents);
+std::vector<int> FindTreePath(int a, int b, const std::vector<int> &parents);
+std::vector<int> GetChildrenRecursive(int parent, const std::vector<int> &parents);
+}  // namespace TreeStructure

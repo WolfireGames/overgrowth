@@ -31,67 +31,65 @@
 #include <Logging/logdata.h>
 #include <Internal/filesystem.h>
 
-ManifestResult VersionXMLCreator::Run(const JobHandler& jh, const Manifest& manifest)
-{
+ManifestResult VersionXMLCreator::Run(const JobHandler& jh, const Manifest& manifest) {
     std::string destination("version.xml");
 
     TiXmlDocument doc;
-    //TiXmlDeclaration * decl = new TiXmlDeclaration( "2.0", "", "" );
-    TiXmlElement * root = new TiXmlElement( "release" );
+    // TiXmlDeclaration * decl = new TiXmlDeclaration( "2.0", "", "" );
+    TiXmlElement* root = new TiXmlElement("release");
 
     {
-    std::stringstream ss;
+        std::stringstream ss;
 
-    ss << 100000 + GetBuildID();
-    TiXmlElement* eVersion = new TiXmlElement( "version" );
-    eVersion->LinkEndChild( new TiXmlText( ss.str().c_str() ) );
-    root->LinkEndChild(eVersion);
+        ss << 100000 + GetBuildID();
+        TiXmlElement* eVersion = new TiXmlElement("version");
+        eVersion->LinkEndChild(new TiXmlText(ss.str().c_str()));
+        root->LinkEndChild(eVersion);
     }
 
     {
-    TiXmlElement* eName = new TiXmlElement( "name" );
-    eName->LinkEndChild( new TiXmlText( GetBuildVersion() ) );
-    root->LinkEndChild(eName);
+        TiXmlElement* eName = new TiXmlElement("name");
+        eName->LinkEndChild(new TiXmlText(GetBuildVersion()));
+        root->LinkEndChild(eName);
     }
 
     {
-    TiXmlElement* eShortname = new TiXmlElement( "shortname" );
-    eShortname->LinkEndChild( new TiXmlText( GetBuildVersion() ) );
-    root->LinkEndChild(eShortname);
-    }
-    
-    {
-    TiXmlElement* eDate = new TiXmlElement( "date" );
-    eDate->LinkEndChild( new TiXmlText( GetBuildTimestamp() ) );
-    root->LinkEndChild(eDate);
+        TiXmlElement* eShortname = new TiXmlElement("shortname");
+        eShortname->LinkEndChild(new TiXmlText(GetBuildVersion()));
+        root->LinkEndChild(eShortname);
     }
 
     {
-    TiXmlElement* eRev = new TiXmlElement( "rev" );
-    eRev->LinkEndChild( new TiXmlText( "9999" ) );
-    root->LinkEndChild(eRev);
+        TiXmlElement* eDate = new TiXmlElement("date");
+        eDate->LinkEndChild(new TiXmlText(GetBuildTimestamp()));
+        root->LinkEndChild(eDate);
     }
 
     {
-    TiXmlElement* eSvnrev = new TiXmlElement( "svnrev" );
-    eSvnrev->LinkEndChild( new TiXmlText( "9999" ) );
-    root->LinkEndChild(eSvnrev);
+        TiXmlElement* eRev = new TiXmlElement("rev");
+        eRev->LinkEndChild(new TiXmlText("9999"));
+        root->LinkEndChild(eRev);
     }
 
     {
-    std::stringstream ss;
-    ss << GetBuildID();
-    std::string sss = ss.str();
-    TiXmlElement* e = new TiXmlElement( "build" );
-    e->LinkEndChild( new TiXmlText( sss.c_str() ) );
-    root->LinkEndChild(e);
+        TiXmlElement* eSvnrev = new TiXmlElement("svnrev");
+        eSvnrev->LinkEndChild(new TiXmlText("9999"));
+        root->LinkEndChild(eSvnrev);
     }
 
-    //doc.LinkEndChild( decl );
-    doc.LinkEndChild( root );
-    std::string full_name = AssemblePath( jh.output_folder, destination );
-    doc.SaveFile( full_name.c_str() );
+    {
+        std::stringstream ss;
+        ss << GetBuildID();
+        std::string sss = ss.str();
+        TiXmlElement* e = new TiXmlElement("build");
+        e->LinkEndChild(new TiXmlText(sss.c_str()));
+        root->LinkEndChild(e);
+    }
+
+    // doc.LinkEndChild( decl );
+    doc.LinkEndChild(root);
+    std::string full_name = AssemblePath(jh.output_folder, destination);
+    doc.SaveFile(full_name.c_str());
 
     return ManifestResult(jh, destination, !doc.Error(), *this, "version");
 }
-

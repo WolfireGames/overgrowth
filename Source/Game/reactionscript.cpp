@@ -26,22 +26,21 @@
 #include <Scripting/angelscript/ascontext.h>
 #include <Main/engine.h>
 
-void ReactionScriptGetter::Load( std::string _path ) {
+void ReactionScriptGetter::Load(std::string _path) {
     path = _path;
-    if(_path[_path.size()-2] == ' ' &&
-       _path[_path.size()-1] == 'm') 
-    {
-       mirror = true;
-       path.resize(path.size()-2);
+    if (_path[_path.size() - 2] == ' ' &&
+        _path[_path.size() - 1] == 'm') {
+        mirror = true;
+        path.resize(path.size() - 2);
     } else {
         mirror = false;
     }
-    for(auto & item : items){
-        if(item->HasReactionOverride(path)){
+    for (auto &item : items) {
+        if (item->HasReactionOverride(path)) {
             path = item->GetReactionOverride(path);
         }
     }
-    //reaction_ref = Reactions::Instance()->ReturnRef(path);
+    // reaction_ref = Reactions::Instance()->ReturnRef(path);
     reaction_ref = Engine::Instance()->GetAssetManager()->LoadSync<Reaction>(path);
 }
 
@@ -49,11 +48,11 @@ std::string ReactionScriptGetter::GetAnimPath(float severity) {
     return reaction_ref->GetAnimPath(severity);
 }
 
-void ReactionScriptGetter::ItemsChanged( const std::vector<ItemRef> &_items ) {
+void ReactionScriptGetter::ItemsChanged(const std::vector<ItemRef> &_items) {
     items = _items;
 }
 
-void ReactionScriptGetter::AttachToScript( ASContext *as_context, const std::string& as_name ) {
+void ReactionScriptGetter::AttachToScript(ASContext *as_context, const std::string &as_name) {
     as_context->RegisterObjectType("ReactionScriptGetter", 0, asOBJ_REF | asOBJ_NOHANDLE);
     as_context->RegisterObjectMethod("ReactionScriptGetter",
                                      "void Load(string path)",
@@ -66,19 +65,19 @@ void ReactionScriptGetter::AttachToScript( ASContext *as_context, const std::str
                                      asMETHOD(ReactionScriptGetter, GetMirrored), asCALL_THISCALL);
     as_context->DocsCloseBrace();
 
-    as_context->RegisterGlobalProperty(("ReactionScriptGetter "+as_name).c_str(), this);
+    as_context->RegisterGlobalProperty(("ReactionScriptGetter " + as_name).c_str(), this);
 }
 
-void ReactionScriptGetter::AttachExtraToScript( ASContext *as_context, const std::string& as_name ) {
-    as_context->RegisterGlobalProperty(("ReactionScriptGetter "+as_name).c_str(), this);
+void ReactionScriptGetter::AttachExtraToScript(ASContext *as_context, const std::string &as_name) {
+    as_context->RegisterGlobalProperty(("ReactionScriptGetter " + as_name).c_str(), this);
 }
 
 int ReactionScriptGetter::GetMirrored() {
-    if(reaction_ref->IsMirrored() == 2){
+    if (reaction_ref->IsMirrored() == 2) {
         return 2;
     } else {
         bool mirrored = mirror;
-        if(reaction_ref->IsMirrored()){
+        if (reaction_ref->IsMirrored()) {
             mirrored = !mirrored;
         }
         return (int)(mirrored);

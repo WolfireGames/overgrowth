@@ -31,24 +31,22 @@
 #include <Internal/filesystem.h>
 #include <Ogda/jobhandler.h>
 
-ManifestResult LevelListCreator::Run(const JobHandler& jh, const Manifest& manifest)
-{
+ManifestResult LevelListCreator::Run(const JobHandler& jh, const Manifest& manifest) {
     std::string destination("level_list");
 
-    std::string full_path = AssemblePath( jh.output_folder, destination );
+    std::string full_path = AssemblePath(jh.output_folder, destination);
 
-    std::ofstream f( full_path.c_str(), std::ios::out | std::ios::binary );
+    std::ofstream f(full_path.c_str(), std::ios::out | std::ios::binary);
 
     LOGI << "Writing level_list: " << full_path << std::endl;
 
     std::vector<ManifestResult>::const_iterator itr = manifest.ResultsBegin();
-    
-    for( ;itr != manifest.ResultsEnd(); itr++ )
-    {
-        if( itr->type == "level" )
+
+    for (; itr != manifest.ResultsEnd(); itr++) {
+        if (itr->type == "level")
             f << itr->dest << std::endl;
     }
-    
+
     f.close();
 
     return ManifestResult(jh, destination, true, *this, "level_list");

@@ -32,28 +32,26 @@
 
 #include <tinyxml.h>
 
-VoiceFile::VoiceFile(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner,asset_id) {
-
+VoiceFile::VoiceFile(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id) {
 }
 
 void VoiceFile::Reload() {
-    Load(path_,0x0);
+    Load(path_, 0x0);
 }
 
 void VoiceFile::ReportLoad() {
-
 }
 
-int VoiceFile::Load( const std::string &path, uint32_t load_flags ) {
+int VoiceFile::Load(const std::string& path, uint32_t load_flags) {
     TiXmlDocument doc;
-    if( LoadXML(doc, path, "Voice") ) {
-        if( doc.Error() == false ) { 
+    if (LoadXML(doc, path, "Voice")) {
+        if (doc.Error() == false) {
             voice_paths.clear();
             TiXmlHandle h_doc(&doc);
             TiXmlHandle h_root = h_doc.FirstChildElement();
-            if( h_root.ToElement() ) {
+            if (h_root.ToElement()) {
                 TiXmlElement* field = h_root.ToElement()->FirstChildElement();
-                for( ; field; field = field->NextSiblingElement()) {
+                for (; field; field = field->NextSiblingElement()) {
                     std::string field_str(field->Value());
                     voice_paths[field_str] = field->Attribute("path");
                 }
@@ -77,25 +75,22 @@ const char* VoiceFile::GetLoadErrorString() {
 }
 
 void VoiceFile::Unload() {
-
 }
 
-const std::string & VoiceFile::GetVoicePath( const std::string voice ) {
+const std::string& VoiceFile::GetVoicePath(const std::string voice) {
     std::map<std::string, std::string>::iterator iter;
     iter = voice_paths.find(voice);
-    if(iter != voice_paths.end()){
+    if (iter != voice_paths.end()) {
         return iter->second;
     } else {
         return null_string;
     }
 }
 
-void VoiceFile::ReturnPaths( PathSet &path_set )
-{
-    path_set.insert("voice "+path_);
-    for(auto & voice_path : voice_paths)
-    {
-        //SoundGroupInfoCollection::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
+void VoiceFile::ReturnPaths(PathSet& path_set) {
+    path_set.insert("voice " + path_);
+    for (auto& voice_path : voice_paths) {
+        // SoundGroupInfoCollection::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
         Engine::Instance()->GetAssetManager()->LoadSync<SoundGroupInfo>(voice_path.second)->ReturnPaths(path_set);
     }
 }

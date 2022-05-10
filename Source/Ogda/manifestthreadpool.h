@@ -27,13 +27,13 @@
 #include <vector>
 #include "manifestresult.h"
 
-class ManifestThreadPool
-{
-private:
+class ManifestThreadPool {
+   private:
     pthread_t* threads;
     int thread_count;
-public:
-    ManifestThreadPool(int thread_count); 
+
+   public:
+    ManifestThreadPool(int thread_count);
     ~ManifestThreadPool();
 
     void RunHashCalculation(const std::string& base_path, std::vector<ManifestResult>& arr);

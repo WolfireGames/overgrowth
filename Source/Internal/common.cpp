@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: common.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -32,8 +32,8 @@ void FormatString(char* buf, int buf_size, const char* fmt, ...) {
     va_end(args);
 }
 
-//From http://www.cse.yorku.ca/~oz/hash.html
-//djb2 hash function
+// From http://www.cse.yorku.ca/~oz/hash.html
+// djb2 hash function
 int djb2_hash(unsigned char* str) {
     uint32_t hash_val = 5381;
     int c;
@@ -43,24 +43,24 @@ int djb2_hash(unsigned char* str) {
     return *((int*)&hash_val);
 }
 
-//From http://www.cse.yorku.ca/~oz/hash.html
-//djb2 hash function
+// From http://www.cse.yorku.ca/~oz/hash.html
+// djb2 hash function
 int djb2_hash_len(unsigned char* str, int len) {
     uint32_t hash_val = 5381;
-    for(int i=0; i<len; ++i) {
+    for (int i = 0; i < len; ++i) {
         hash_val = ((hash_val << 5) + hash_val) + *str++; /* hash * 33 + c */
     }
     return *((int*)&hash_val);
 }
 
 float MoveTowards(float val, float target, float amount) {
-    float diff = val-target;
-    if(diff < 0.0f){
+    float diff = val - target;
+    if (diff < 0.0f) {
         diff = -diff;
     }
-    if(diff < amount) {
+    if (diff < amount) {
         return target;
-    } else if(val > target) {
+    } else if (val > target) {
         return val - amount;
     } else {
         return val + amount;

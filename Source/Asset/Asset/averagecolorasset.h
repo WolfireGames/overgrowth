@@ -36,31 +36,31 @@
 using std::string;
 
 class AverageColor : public Asset {
-    public:
-        AverageColor(AssetManager* owner, uint32_t asset_id);
-        static AssetType GetType() { return AVERAGE_COLOR_ASSET; }
-        static const char* GetTypeName() { return "AVERAGE_COLOR_ASSET"; }
-        static bool AssetWarning() { return true; }
+   public:
+    AverageColor(AssetManager* owner, uint32_t asset_id);
+    static AssetType GetType() { return AVERAGE_COLOR_ASSET; }
+    static const char* GetTypeName() { return "AVERAGE_COLOR_ASSET"; }
+    static bool AssetWarning() { return true; }
 
-        int Load( const string &path, uint32_t load_flags );
-        const char* GetLoadErrorString();
-        const char* GetLoadErrorStringExtended() { return ""; }
-        void Unload();
-        void Reload();
-        void ReportLoad() override;
+    int Load(const string& path, uint32_t load_flags);
+    const char* GetLoadErrorString();
+    const char* GetLoadErrorStringExtended() { return ""; }
+    void Unload();
+    void Reload();
+    void ReportLoad() override;
 
-        inline const vec4& color() const {return color_;}
+    inline const vec4& color() const { return color_; }
 
-        AssetLoaderBase* NewLoader() override;
+    AssetLoaderBase* NewLoader() override;
 
-        ModID modsource_;
-    private:
-        static const int kAverageColorCacheVersion = 2;
-        bool ReadCacheFile(const string& path, uint16_t checksum);
-        void WriteCacheFile(const string& path, uint16_t checksum);        
+    ModID modsource_;
 
-    
-        vec4 color_;
+   private:
+    static const int kAverageColorCacheVersion = 2;
+    bool ReadCacheFile(const string& path, uint16_t checksum);
+    void WriteCacheFile(const string& path, uint16_t checksum);
+
+    vec4 color_;
 };
 
 typedef AssetRef<AverageColor> AverageColorRef;

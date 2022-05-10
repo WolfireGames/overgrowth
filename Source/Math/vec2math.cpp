@@ -28,7 +28,6 @@ float length(const vec2 &vec) {
     return sqrtf(length_squared(vec));
 }
 
-
 vec2 components_min2(const vec2 &a, const vec2 &b) {
     vec2 result;
 
@@ -38,7 +37,6 @@ vec2 components_min2(const vec2 &a, const vec2 &b) {
     return result;
 }
 
-
 vec2 components_max2(const vec2 &a, const vec2 &b) {
     vec2 result;
 
@@ -47,5 +45,3 @@ vec2 components_max2(const vec2 &a, const vec2 &b) {
 
     return result;
 }
-
-

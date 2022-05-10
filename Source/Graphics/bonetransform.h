@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: bonetransform.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,26 +31,26 @@ struct BoneTransform {
     quaternion rotation;
     vec3 origin;
 
-    BoneTransform(const mat4 &other);
+    BoneTransform(const mat4& other);
     BoneTransform();
 
-    const BoneTransform& operator=(const mat4 &other);
+    const BoneTransform& operator=(const mat4& other);
     mat4 GetMat4() const;
     void LoadIdentity();
 };
 
 BoneTransform invert(const BoneTransform& transform);
-BoneTransform operator*( const BoneTransform& a, 
-                               const BoneTransform& b );
-vec3 operator*( const BoneTransform& a, 
-                     const vec3& b );
-bool operator==( const BoneTransform& a, 
-                       const BoneTransform& b );
-BoneTransform operator*( const quaternion& a, const BoneTransform& b );
-BoneTransform mix(const BoneTransform &a,
-                  const BoneTransform &b,
+BoneTransform operator*(const BoneTransform& a,
+                        const BoneTransform& b);
+vec3 operator*(const BoneTransform& a,
+               const vec3& b);
+bool operator==(const BoneTransform& a,
+                const BoneTransform& b);
+BoneTransform operator*(const quaternion& a, const BoneTransform& b);
+BoneTransform mix(const BoneTransform& a,
+                  const BoneTransform& b,
                   float alpha);
 
-BoneTransform ApplyParentRotations(const std::vector<BoneTransform> &matrices, 
-                                   int id, 
-                                   const std::vector<int> &parents);
+BoneTransform ApplyParentRotations(const std::vector<BoneTransform>& matrices,
+                                   int id,
+                                   const std::vector<int>& parents);

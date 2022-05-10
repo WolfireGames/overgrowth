@@ -112,7 +112,7 @@
  */
 #pragma once
 
-//These needs to be included even when slim timing is disabled, because they contain zeroed macros.
+// These needs to be included even when slim timing is disabled, because they contain zeroed macros.
 #include <Timing/gl_query_perf.h>
 #include <Timing/intel_gl_perf.h>
 #include <Timing/timestamp.h>
@@ -128,7 +128,7 @@
 #include <Graphics/text.h>
 #include <Graphics/vboringcontainer.h>
 
-#if defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600 
+#if defined(PLATFORM_WINDOWS) && _MSC_VER >= 1600
 #include <intrin.h>
 #endif
 
@@ -143,20 +143,19 @@ enum SlimTimingEvents {
     STUpdate,
     STDraw,
     STDrawSwap,
-    STLastEvent // Leave this last or Bad Things will happen
+    STLastEvent  // Leave this last or Bad Things will happen
 };
 
 const std::string EVENT_NAMES[STLastEvent] = {
     "Update",
     "Draw",
-    "DrawSwap"
-};
+    "DrawSwap"};
 
 #ifdef SLIM_TIMING
 #define ST_MAX_EVENTS 16384
-#else 
+#else
 #define ST_MAX_EVENTS 256
-#endif //SLIM_TIMING
+#endif  // SLIM_TIMING
 
 // How man frames should we skip to avoid throwing our averages off with setup/warming
 #define WARMUP_FRAMES 10
@@ -168,126 +167,118 @@ const std::string EVENT_NAMES[STLastEvent] = {
 #define ST_EVENT_END_CODE 1
 
 class EventRecorder {
-    
     // Internal structure for timing events
     struct Event {
-        uint64_t tsc;       // Cycle count at the time of this event
-        uint16_t eventType; // Start, end, etc
-        uint16_t event_id;  // Which event is being recorded?
-        uint32_t thread_id; // For future use -- and to pad out the structure for better reading
+        uint64_t tsc;        // Cycle count at the time of this event
+        uint16_t eventType;  // Start, end, etc
+        uint16_t event_id;   // Which event is being recorded?
+        uint32_t thread_id;  // For future use -- and to pad out the structure for better reading
     };
-    
+
     // Holding the derived values
     struct FrameTotals {
-        uint64_t eventTimes[STLastEvent];   // Total for each event
-        uint64_t frameTimeCycles;           // Total cycles used in this frame
-        uint32_t frameTimeMS;               // Elapsed frame time in ms
+        uint64_t eventTimes[STLastEvent];  // Total for each event
+        uint64_t frameTimeCycles;          // Total cycles used in this frame
+        uint32_t frameTimeMS;              // Elapsed frame time in ms
     };
-    
+
     struct NormalizedFrameTotals {
-        float eventTimes[ STLastEvent ];
+        float eventTimes[STLastEvent];
     };
-    
-    int nextIndex;  // Where to write the next event?
-    Event events[ ST_MAX_EVENTS ];  //  Storage for all events
-    
-    uint64_t frameStartCycle;   // When did we start this frame (cycles)
-    uint32_t frameStartTick;    // When did we start this frame (ms)?
-    
-    FrameTotals timingHistory[HISTORY_FRAMES]; // Aggregate time for all events
+
+    int nextIndex;                // Where to write the next event?
+    Event events[ST_MAX_EVENTS];  //  Storage for all events
+
+    uint64_t frameStartCycle;  // When did we start this frame (cycles)
+    uint32_t frameStartTick;   // When did we start this frame (ms)?
+
+    FrameTotals timingHistory[HISTORY_FRAMES];  // Aggregate time for all events
     NormalizedFrameTotals normalizedFrames[HISTORY_FRAMES];
-    
-    bool writeFile;             // Are we writing to a file?
-    std::string outputFileName; // What file are we writing to/if any?
-    FILE * fp;                  // File handle for the above
-    int frameCount;             // Which frame are we processing
-    
+
+    bool writeFile;              // Are we writing to a file?
+    std::string outputFileName;  // What file are we writing to/if any?
+    FILE* fp;                    // File handle for the above
+    int frameCount;              // Which frame are we processing
+
     struct VisualizerEvent {
         uint16_t eventID;
         vec3 color;
-        
+
         VisualizerEvent() {}
-        
-        VisualizerEvent( uint16_t _eventID, vec3 _color ) :
-            eventID( _eventID ),
-            color( _color )
-        {}
+
+        VisualizerEvent(uint16_t _eventID, vec3 _color) : eventID(_eventID),
+                                                          color(_color) {}
     };
-    
-    bool showVisualization; // Should we be displaying the visualizationx
-    
-    GLfloat* visData;   // OpenGL vertex data for the visualization
-    GLuint* visIndices; // OpenGL index data for the visualization
-    
-    VBORingContainer data_vbo;  //VBOs for the above
+
+    bool showVisualization;  // Should we be displaying the visualizationx
+
+    GLfloat* visData;    // OpenGL vertex data for the visualization
+    GLuint* visIndices;  // OpenGL index data for the visualization
+
+    VBORingContainer data_vbo;  // VBOs for the above
     VBORingContainer index_vbo;
 
-    int visDataSize;    // Sizes of the above (in bytes)
+    int visDataSize;  // Sizes of the above (in bytes)
     int visIndexSize;
-    
-    float visBaseMS;    // How many miliseconds does the 'main' area of the visualization represent
-    float visHighMS;    // How many miliseconds does should the 'high' area of the visualization represent
-    
-    std::string baseMSLabel; // Label for the base level maker
-    std::string highMSLabel; // Label for the high marker
-    
-    
-    std::vector< std::vector<VisualizerEvent> > visualizerEvents; // What events are being visualized
-    
-    GLState gl_state;   // State for the visualization
-    
+
+    float visBaseMS;  // How many miliseconds does the 'main' area of the visualization represent
+    float visHighMS;  // How many miliseconds does should the 'high' area of the visualization represent
+
+    std::string baseMSLabel;  // Label for the base level maker
+    std::string highMSLabel;  // Label for the high marker
+
+    std::vector<std::vector<VisualizerEvent> > visualizerEvents;  // What events are being visualized
+
+    GLState gl_state;  // State for the visualization
+
     /*******************************************************************************************/
     /**
      * @brief  Clear all current records
      *
      */
     void resetData();
-    
+
     /*******************************************************************************************/
     /**
      * @brief  Get the number of history frames available
      *
      */
     int getAvailableHistorySize();
-    
-    
+
     /*******************************************************************************************/
     /**
      * @brief  Internal — fill in the coordinates for a box
      *
      */
-    void buildBoxAt( vec2 const& UL, vec2 const& LR, vec4 const& color, int boxNumber );
-    
-public:
-    
+    void buildBoxAt(vec2 const& UL, vec2 const& LR, vec4 const& color, int boxNumber);
+
+   public:
     EventRecorder();
-    
-    void init( std::string filePath );
-        
-    
-    inline void startEvent( int const& event_id ) {
-        events[ nextIndex ].tsc = GetTimestamp();
-        events[ nextIndex ].eventType = ST_EVENT_START_CODE;
-        events[ nextIndex ].event_id = event_id;
-        events[ nextIndex ].thread_id = 0;
+
+    void init(std::string filePath);
+
+    inline void startEvent(int const& event_id) {
+        events[nextIndex].tsc = GetTimestamp();
+        events[nextIndex].eventType = ST_EVENT_START_CODE;
+        events[nextIndex].event_id = event_id;
+        events[nextIndex].thread_id = 0;
         nextIndex++;
     }
-    
-    inline void endEvent( int const& event_id ) {
-        events[ nextIndex ].tsc = GetTimestamp();
-        events[ nextIndex ].eventType = ST_EVENT_END_CODE;
-        events[ nextIndex ].event_id = event_id;
-        events[ nextIndex ].thread_id = 0;
+
+    inline void endEvent(int const& event_id) {
+        events[nextIndex].tsc = GetTimestamp();
+        events[nextIndex].eventType = ST_EVENT_END_CODE;
+        events[nextIndex].event_id = event_id;
+        events[nextIndex].thread_id = 0;
         nextIndex++;
     }
-    
+
     void startFrame();
-    
+
     void endFrame();
-    
+
     void finalize();
-    
-    
+
     /*******************************************************************************************/
     /**
      * @brief  Determine the scale of the presentation by giving a ms value to the ‘main box’ and an optional hight marker
@@ -297,8 +288,8 @@ public:
      * @param highMS how many ms does the 'high' part of the visualization represent? (optional)
      *
      */
-    void setVisualizationScale( float baseMS, float highMS = -1.0 );
-    
+    void setVisualizationScale(float baseMS, float highMS = -1.0);
+
     /*******************************************************************************************/
     /**
      * @brief  Adds a new timing event to the visualziation (add multiple events to stack)
@@ -316,12 +307,12 @@ public:
      * @param color5 color for the first event (optional)
      *
      */
-    void addNewVisualization( uint16_t event1, vec3 color1,
-                              int32_t event2 = -1, vec3 color2 = vec3(0.0),
-                              int32_t event3 = -1, vec3 color3 = vec3(0.0),
-                              int32_t event4 = -1, vec3 color4 = vec3(0.0),
-                              int32_t event5 = -1, vec3 color5 = vec3(0.0) );
-    
+    void addNewVisualization(uint16_t event1, vec3 color1,
+                             int32_t event2 = -1, vec3 color2 = vec3(0.0),
+                             int32_t event3 = -1, vec3 color3 = vec3(0.0),
+                             int32_t event4 = -1, vec3 color4 = vec3(0.0),
+                             int32_t event5 = -1, vec3 color5 = vec3(0.0));
+
     /*******************************************************************************************/
     /**
      * @brief  Allocate memory, etc for the visualization
@@ -338,10 +329,10 @@ public:
      * @param text_atlas Text atlas to use for displaying text
      *
      */
-    void drawVisualization( TextAtlasRenderer& text_atlas_renderer,
-                            FontRenderer& font_renderer,
-                            TextAtlas& text_atlas );
-    
+    void drawVisualization(TextAtlasRenderer& text_atlas_renderer,
+                           FontRenderer& font_renderer,
+                           TextAtlas& text_atlas);
+
     /*******************************************************************************************/
     /**
      * @brief  Display (or not) the visualization
@@ -349,17 +340,17 @@ public:
      * @param show Should we show the visualization or not?
      *
      */
-    void displayVisualization( bool show );
-    
+    void displayVisualization(bool show);
+
     /*******************************************************************************************/
     /**
      * @brief  Toggles displaying the visualization
      *
      */
     void toggleVisualization() {
-        displayVisualization( !showVisualization );
+        displayVisualization(!showVisualization);
     }
-    
+
     /*******************************************************************************************/
     /**
      * @brief  Get rid of the current visualization parameters, you'll have to reset it up if you
@@ -367,111 +358,108 @@ public:
      *
      */
     void clearVisualization();
-    
-
 };
 
 extern EventRecorder* slimTimingEvents;
 
 #ifdef SLIM_TIMING
 
-
-#define STIMING_INIT( FILEPATH ) \
-slimTimingEvents->init( FILEPATH )
+#define STIMING_INIT(FILEPATH) \
+    slimTimingEvents->init(FILEPATH)
 
 #else
 
 // Don't write out a file if only doing coarse timing
-#define STIMING_INIT( FILEPATH ) \
-slimTimingEvents->init( "" )
+#define STIMING_INIT(FILEPATH) \
+    slimTimingEvents->init("")
 
-#endif //SLIM_TIMING
+#endif  // SLIM_TIMING
 
-#define STIMING_ADDVISUALIZATION(...)\
-slimTimingEvents->addNewVisualization(__VA_ARGS__)
+#define STIMING_ADDVISUALIZATION(...) \
+    slimTimingEvents->addNewVisualization(__VA_ARGS__)
 
-#define STIMING_SETVISUALIZATIONSCALE(... )\
-slimTimingEvents->setVisualizationScale(__VA_ARGS__)
+#define STIMING_SETVISUALIZATIONSCALE(...) \
+    slimTimingEvents->setVisualizationScale(__VA_ARGS__)
 
 #define STIMING_INITVISUALIZATION() \
-slimTimingEvents->initVisualization()
+    slimTimingEvents->initVisualization()
 
 #define STIMING_STARTFRAME() \
-slimTimingEvents->startFrame()
+    slimTimingEvents->startFrame()
 
-#define STIMING_START_COARSE( EVENT ) \
-slimTimingEvents->startEvent( EVENT )
+#define STIMING_START_COARSE(EVENT) \
+    slimTimingEvents->startEvent(EVENT)
 
-#define STIMING_END_COARSE( EVENT ) \
-slimTimingEvents->endEvent( EVENT )
+#define STIMING_END_COARSE(EVENT) \
+    slimTimingEvents->endEvent(EVENT)
 
 #ifdef SLIM_TIMING
 
-#define STIMING_START( EVENT ) \
-slimTimingEvents->startEvent( EVENT )
+#define STIMING_START(EVENT) \
+    slimTimingEvents->startEvent(EVENT)
 
-#define STIMING_END( EVENT ) \
-slimTimingEvents->endEvent( EVENT )
+#define STIMING_END(EVENT) \
+    slimTimingEvents->endEvent(EVENT)
 
 #else
 
 // Don't take the timing of events not marked 'coarse' unless asked
-#define STIMING_START( EVENT )
+#define STIMING_START(EVENT)
 
-#define STIMING_END( EVENT )
+#define STIMING_END(EVENT)
 
-#endif //SLIM_TIMING
+#endif  // SLIM_TIMING
 
 #define STIMING_ENDFRAME() \
-slimTimingEvents->endFrame()
+    slimTimingEvents->endFrame()
 
 #define STIMING_FINALIZE() \
-slimTimingEvents->finalize()
+    slimTimingEvents->finalize()
 
 #else
 
 // To prevent an error on Windows, just disable everything if not defined
 
-#define STIMING_INIT( FILEPATH ) 
+#define STIMING_INIT(FILEPATH)
 
 #define STIMING_ADDVISUALIZATION(...)
 
-#define STIMING_SETVISUALIZATIONSCALE(... )
+#define STIMING_SETVISUALIZATIONSCALE(...)
 
 #define STIMING_INITVISUALIZATION()
 
 #define STIMING_STARTFRAME()
 
-#define STIMING_START_COARSE( EVENT )
+#define STIMING_START_COARSE(EVENT)
 
-#define STIMING_END_COARSE( EVENT )
+#define STIMING_END_COARSE(EVENT)
 
-#define STIMING_START( EVENT )
+#define STIMING_START(EVENT)
 
-#define STIMING_END( EVENT )
+#define STIMING_END(EVENT)
 
 #define STIMING_ENDFRAME()
 
 #define STIMING_FINALIZE()
 
-#endif //SLIM_TIMING
+#endif  // SLIM_TIMING
 
-#define GL_PERF_INIT( ) \
-INTEL_GL_PERF_INIT(); \
-GL_TIMER_QUERY_INIT()
+#define GL_PERF_INIT()    \
+    INTEL_GL_PERF_INIT(); \
+    GL_TIMER_QUERY_INIT()
 
-#define GL_PERF_START( ) \
-INTEL_GL_PERF_START(); \
-GL_TIMER_QUERY_START()
+#define GL_PERF_START()    \
+    INTEL_GL_PERF_START(); \
+    GL_TIMER_QUERY_START()
 
-#define GL_PERF_END( ) \
-INTEL_GL_PERF_END(); \
-GL_TIMER_QUERY_END()
+#define GL_PERF_END()    \
+    INTEL_GL_PERF_END(); \
+    GL_TIMER_QUERY_END()
 
-#define GL_SWAP() \
-INTEL_GL_PERF_SWAP(); \
-GL_TIMER_QUERY_SWAP()
+#define GL_SWAP()         \
+    INTEL_GL_PERF_SWAP(); \
+    GL_TIMER_QUERY_SWAP()
 
-#define GL_PERF_FINALIZE() \
-INTEL_GL_PERF_FINALIZE(); \
-GL_TIMER_QUERY_FINALIZE()
+#define GL_PERF_FINALIZE()    \
+    INTEL_GL_PERF_FINALIZE(); \
+    GL_TIMER_QUERY_FINALIZE()

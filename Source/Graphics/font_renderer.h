@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: font_renderer.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -33,26 +33,30 @@
 struct FontRendererImpl;
 
 class FontRenderer {
-public:
-    enum FontInfo {INFO_ASCENDER, INFO_DESCENDER, INFO_HEIGHT};
-    enum RCB_Flags{RCB_METRIC = 1, RCB_RENDER = 2};
+   public:
+    enum FontInfo { INFO_ASCENDER,
+                    INFO_DESCENDER,
+                    INFO_HEIGHT };
+    enum RCB_Flags { RCB_METRIC = 1,
+                     RCB_RENDER = 2 };
     void PreLoadFont(const std::string& file_path);
     int GetFontFaceID(const std::string& file_path, int pixel_height);
     int GetFontInfo(int font_face_id, FontInfo font_info);
-    void SetTransform(int face_id, FT_Matrix *matrix, FT_Vector *vector);
+    void SetTransform(int face_id, FT_Matrix* matrix, FT_Vector* vector);
     FT_GlyphSlot RenderCharacterBitmap(int face_id, uint32_t character, RCB_Flags flags);
-    
+
     static FontRenderer* Instance(FontRenderer* ptr = NULL) {
         static FontRenderer* font_renderer = NULL;
-        if(ptr){
+        if (ptr) {
             font_renderer = ptr;
         }
         return font_renderer;
     }
-    void GetKerning(int face_id, char character_a, char character_b, FT_Vector *vec);
+    void GetKerning(int face_id, char character_a, char character_b, FT_Vector* vec);
     FontRenderer();
     FontRenderer(const FontRenderer& other);
     ~FontRenderer();
-private:
-    FontRendererImpl *impl_;
+
+   private:
+    FontRendererImpl* impl_;
 };

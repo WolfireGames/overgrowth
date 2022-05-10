@@ -27,11 +27,11 @@
 #include <Utility/strings.h>
 #include <Memory/allocation.h>
 
-template<int d_size>
+template <int d_size>
 class fixed_heap_string {
     char* data;
 
-public:
+   public:
     fixed_heap_string() {
         data = static_cast<char*>(OG_MALLOC(d_size));
         data[0] = '\0';
@@ -41,7 +41,7 @@ public:
         data = static_cast<char*>(OG_MALLOC(d_size));
         set(v);
     }
-    
+
     fixed_heap_string(const fixed_heap_string<d_size>* rhs) {
         data = static_cast<char*>(OG_MALLOC(d_size));
         set(rhs->c_str());
@@ -73,25 +73,23 @@ public:
     }
 
     size_t max_size() {
-        return d_size-1;
+        return d_size - 1;
     }
 
     int set(const char* str) {
-        return strscpy(data,str,d_size);
+        return strscpy(data, str, d_size);
     }
 
     int set(const std::string& other) {
-        return strscpy(data,other.c_str(),d_size);
+        return strscpy(data, other.c_str(), d_size);
     }
 
-    operator const char*() const 
-    { 
-        return data; 
+    operator const char*() const {
+        return data;
     }
 
-    bool operator==( const std::string& rh ) const
-    {
-        return strmtch(data,rh.c_str());
+    bool operator==(const std::string& rh) const {
+        return strmtch(data, rh.c_str());
     }
 
     fixed_heap_string<d_size>& operator=(const fixed_heap_string<d_size>* rhs) {

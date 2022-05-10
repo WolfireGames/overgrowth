@@ -50,70 +50,61 @@
 #include "Seekers/objhullseeker.h"
 #include "Seekers/levelnormseeker.h"
 
-SearcherFactory::SearcherFactory()
-{
-    seekers.push_back( new SeekerFactory<VoidSeeker>() );
-    seekers.push_back( new SeekerFactory<ActorObjectLevelSeeker>() );
-    seekers.push_back( new SeekerFactory<TerrainLevelSeeker>() );
-    seekers.push_back( new SeekerFactory<DecalSeeker>() );
-    seekers.push_back( new SeekerFactory<SkyLevelSeeker>() );
-    seekers.push_back( new SeekerFactory<AmbientSoundLevelSeeker>() );
-    seekers.push_back( new SeekerFactory<HotspotSeeker>() );
-    seekers.push_back( new SeekerFactory<ObjectSeeker>() );
-    seekers.push_back( new SeekerFactory<SyncedAnimationGroupSeeker>() );
-    seekers.push_back( new SeekerFactory<AttackSeeker>() );
-    seekers.push_back( new SeekerFactory<CharacterSeeker>() );
-    seekers.push_back( new SeekerFactory<ActorSeeker>() );
-    seekers.push_back( new SeekerFactory<SkeletonSeeker>() );
-    seekers.push_back( new SeekerFactory<AnimationRetargetSeeker>() );
-    seekers.push_back( new SeekerFactory<ItemSeeker>() );
-    seekers.push_back( new SeekerFactory<MaterialSeeker>() );
-    seekers.push_back( new SeekerFactory<ParticleSeeker>() );
-    seekers.push_back( new SeekerFactory<PrefabSeeker>() );
-    seekers.push_back( new SeekerFactory<SpawnerListSeeker>() );
-    seekers.push_back( new SeekerFactory<PreConvertedDDSSeeker>() );
-    seekers.push_back( new SeekerFactory<ObjColSeeker>() );
-    seekers.push_back( new SeekerFactory<ObjHullSeeker>() );
-    seekers.push_back( new SeekerFactory<LevelNormSeeker>() );
+SearcherFactory::SearcherFactory() {
+    seekers.push_back(new SeekerFactory<VoidSeeker>());
+    seekers.push_back(new SeekerFactory<ActorObjectLevelSeeker>());
+    seekers.push_back(new SeekerFactory<TerrainLevelSeeker>());
+    seekers.push_back(new SeekerFactory<DecalSeeker>());
+    seekers.push_back(new SeekerFactory<SkyLevelSeeker>());
+    seekers.push_back(new SeekerFactory<AmbientSoundLevelSeeker>());
+    seekers.push_back(new SeekerFactory<HotspotSeeker>());
+    seekers.push_back(new SeekerFactory<ObjectSeeker>());
+    seekers.push_back(new SeekerFactory<SyncedAnimationGroupSeeker>());
+    seekers.push_back(new SeekerFactory<AttackSeeker>());
+    seekers.push_back(new SeekerFactory<CharacterSeeker>());
+    seekers.push_back(new SeekerFactory<ActorSeeker>());
+    seekers.push_back(new SeekerFactory<SkeletonSeeker>());
+    seekers.push_back(new SeekerFactory<AnimationRetargetSeeker>());
+    seekers.push_back(new SeekerFactory<ItemSeeker>());
+    seekers.push_back(new SeekerFactory<MaterialSeeker>());
+    seekers.push_back(new SeekerFactory<ParticleSeeker>());
+    seekers.push_back(new SeekerFactory<PrefabSeeker>());
+    seekers.push_back(new SeekerFactory<SpawnerListSeeker>());
+    seekers.push_back(new SeekerFactory<PreConvertedDDSSeeker>());
+    seekers.push_back(new SeekerFactory<ObjColSeeker>());
+    seekers.push_back(new SeekerFactory<ObjHullSeeker>());
+    seekers.push_back(new SeekerFactory<LevelNormSeeker>());
 }
 
-SearcherFactory::~SearcherFactory()
-{
+SearcherFactory::~SearcherFactory() {
     std::vector<SeekerFactoryBase*>::iterator factoryit;
 
-    for( factoryit = seekers.begin(); factoryit != seekers.end(); factoryit++ )
-    {
+    for (factoryit = seekers.begin(); factoryit != seekers.end(); factoryit++) {
         delete *factoryit;
     }
 
     seekers.clear();
 }
 
-bool SearcherFactory::HasSearcher( const std::string& searcher )
-{
+bool SearcherFactory::HasSearcher(const std::string& searcher) {
     std::vector<SeekerFactoryBase*>::iterator factoryit;
-    for( factoryit = seekers.begin(); factoryit != seekers.end(); factoryit++ )
-    {
-        if( (*factoryit)->GetSeekerName() == searcher )
-        {
+    for (factoryit = seekers.begin(); factoryit != seekers.end(); factoryit++) {
+        if ((*factoryit)->GetSeekerName() == searcher) {
             return true;
         }
     }
     return false;
 }
 
-Searcher SearcherFactory::CreateSearcher( const std::string& searcher, const std::string& path_ending, const std::string& type_pattern_re )
-{
+Searcher SearcherFactory::CreateSearcher(const std::string& searcher, const std::string& path_ending, const std::string& type_pattern_re) {
     std::vector<SeekerFactoryBase*>::iterator factoryit;
-    for( factoryit = seekers.begin(); factoryit != seekers.end(); factoryit++ )
-    {
-        if( (*factoryit)->GetSeekerName() == searcher )
-        {
+    for (factoryit = seekers.begin(); factoryit != seekers.end(); factoryit++) {
+        if ((*factoryit)->GetSeekerName() == searcher) {
             return Searcher((*factoryit)->NewInstance(), path_ending, type_pattern_re);
         }
     }
 
     LOGE << "Unable to find searcher matching name " << searcher << std::endl;
 
-    return Searcher( new VoidSeeker(), path_ending, type_pattern_re );
+    return Searcher(new VoidSeeker(), path_ending, type_pattern_re);
 }

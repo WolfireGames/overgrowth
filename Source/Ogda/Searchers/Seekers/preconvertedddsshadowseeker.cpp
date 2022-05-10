@@ -24,16 +24,14 @@
 
 #include <Internal/filesystem.h>
 
-std::vector<Item> PreConvertedDDSSeeker::Search( const Item& item )
-{
+std::vector<Item> PreConvertedDDSSeeker::Search(const Item& item) {
     std::vector<Item> items;
     std::string abs_path = item.GetAbsPath() + "_converted.dds";
 
-    if(CheckFileAccess(abs_path.c_str()))
-    {
-        Item nitem = Item( item.input_folder, item.GetPath() + "_converted.dds", item.type, item.source );
+    if (CheckFileAccess(abs_path.c_str())) {
+        Item nitem = Item(item.input_folder, item.GetPath() + "_converted.dds", item.type, item.source);
         nitem.SetOvershadows(item);
-        items.push_back( nitem );
+        items.push_back(nitem);
     }
 
     return items;

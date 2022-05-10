@@ -41,38 +41,35 @@
 
 namespace std {
 
-
-    template <> struct hash<CSteamID> {
-        size_t operator()(const CSteamID &id) const {
-            return hash<uint64_t>()(id.ConvertToUint64());
-        }
-    };
-
+template <>
+struct hash<CSteamID> {
+    size_t operator()(const CSteamID &id) const {
+        return hash<uint64_t>()(id.ConvertToUint64());
+    }
+};
 
 }  // namespace std
 
-
 class SteamworksMatchmaking {
-private:
+   private:
     friend class Steamworks;
     SteamworksMatchmaking();
 
-    std::unordered_set<CSteamID>             lobbies; // we are we assuming multiple??
-    std::unordered_set<HSteamNetConnection>  steamPendingConnections;
+    std::unordered_set<CSteamID> lobbies;  // we are we assuming multiple??
+    std::unordered_set<HSteamNetConnection> steamPendingConnections;
 
-
-public:
+   public:
     ~SteamworksMatchmaking();
 
     // activate game overlay to the invite dialog
     // invitations sent from this dialog will be for the provided lobby
 
-	// This function has a ton of side effects and requires refactor
-	// it basically inits an entire mp state.
+    // This function has a ton of side effects and requires refactor
+    // it basically inits an entire mp state.
     HSteamListenSocket ActivateGameOverlayInviteDialog();
 
-	//
-	void OpenInviteDialog();
+    //
+    void OpenInviteDialog();
 
     // for command-line jobby loining
     void JoinLobby(const std::string &lobbyIDStr);
@@ -83,14 +80,12 @@ public:
     // get Steam friend name
     std::string GetSteamNickname(const CSteamID &friendID);
 
-	static const char *StatusToString(ESteamNetworkingConnectionState state);
+    static const char *StatusToString(ESteamNetworkingConnectionState state);
 
-
-    STEAM_CALLBACK(SteamworksMatchmaking, OnLobbyEnter,         LobbyEnter_t);
-    STEAM_CALLBACK(SteamworksMatchmaking, OnLobbyDataUpdate,    LobbyDataUpdate_t);
+    STEAM_CALLBACK(SteamworksMatchmaking, OnLobbyEnter, LobbyEnter_t);
+    STEAM_CALLBACK(SteamworksMatchmaking, OnLobbyDataUpdate, LobbyDataUpdate_t);
     STEAM_CALLBACK(SteamworksMatchmaking, OnLobbyJoinRequested, GameLobbyJoinRequested_t);
-    STEAM_CALLBACK(SteamworksMatchmaking, OnLobbyChatUpdate,    LobbyChatUpdate_t);
-    STEAM_CALLBACK(SteamworksMatchmaking, OnConnectionChange,   SteamNetConnectionStatusChangedCallback_t);
-
+    STEAM_CALLBACK(SteamworksMatchmaking, OnLobbyChatUpdate, LobbyChatUpdate_t);
+    STEAM_CALLBACK(SteamworksMatchmaking, OnConnectionChange, SteamNetConnectionStatusChangedCallback_t);
 };
 #endif

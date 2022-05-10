@@ -33,10 +33,10 @@
 #include <string>
 #include <vector>
 
-using std::string;
 using std::map;
-using std::vector;
 using std::set;
+using std::string;
+using std::vector;
 
 struct MorphInfo {
     string label;
@@ -69,10 +69,10 @@ class Character : public AssetInfo {
     float default_scale;
     float model_scale;
 
-public:
-    Character( AssetManager* asset, uint32_t asset_id );
+   public:
+    Character(AssetManager *asset, uint32_t asset_id);
     static AssetType GetType() { return CHARACTER_ASSET; }
-    static const char* GetTypeName() { return "CHARACTER_ASSET"; }
+    static const char *GetTypeName() { return "CHARACTER_ASSET"; }
     static bool AssetWarning() { return true; }
 
     bool IsOnTeam(const string &_team);
@@ -90,20 +90,20 @@ public:
     const string &GetAttackPath(const string &action);
     const map<string, string> &GetVisemeMorphs();
     int Load(const string &path, uint32_t load_flags);
-    const char* GetLoadErrorString();
-    const char* GetLoadErrorStringExtended() { return ""; }
+    const char *GetLoadErrorString();
+    const char *GetLoadErrorStringExtended() { return ""; }
     void Unload();
     void Reload();
     void ReportLoad() override;
-    const string& GetSoundMod();
-    const vector<MorphInfo>& GetMorphs();
+    const string &GetSoundMod();
+    const vector<MorphInfo> &GetMorphs();
     float GetHearing();
     void ReturnPaths(PathSet &path_set) override;
-    const string & GetChannel( int which ) const;
-    const string & GetTag( const string &action );
-    bool GetMorphMeta(const string& label, vec3 & start, vec3 & end);
+    const string &GetChannel(int which) const;
+    const string &GetTag(const string &action);
+    bool GetMorphMeta(const string &label, vec3 &start, vec3 &end);
 
-    AssetLoaderBase* NewLoader() override;
+    AssetLoaderBase *NewLoader() override;
 };
 
 typedef AssetRef<Character> CharacterRef;

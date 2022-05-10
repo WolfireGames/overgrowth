@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_group_relative_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,46 +26,43 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    AudioPlaySoundGroupRelativeMessage::AudioPlaySoundGroupRelativeMessage(const std::string & path) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        path(path)
-    {
-
-    }
-
-    binn* AudioPlaySoundGroupRelativeMessage::Serialize(void* object) {
-        AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
-        binn* l = binn_object();
-
-        binn_object_set_std_string(l, "path", t->path);
-
-        return l;
-    }
-
-    void AudioPlaySoundGroupRelativeMessage::Deserialize(void* object, binn* l) {
-        AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
-
-        binn_object_get_std_string(l, "path", &t->path);
-    }
-
-    void AudioPlaySoundGroupRelativeMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
-
-        SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(t->path);
-        SoundGroupPlayInfo sgpi(SoundGroupPlayInfo(*sgr, vec3(0.0f)));
-        sgpi.flags = sgpi.flags | SoundFlags::kRelative;
-
-        int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
-
-        Engine::Instance()->GetSound()->PlayGroup(handle, sgpi);
-    }
-
-    void* AudioPlaySoundGroupRelativeMessage::Construct(void *mem) {
-        return new(mem) AudioPlaySoundGroupRelativeMessage("");
-    }
-
-    void AudioPlaySoundGroupRelativeMessage::Destroy(void* object) {
-        AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
-        t->~AudioPlaySoundGroupRelativeMessage();
-    }
+AudioPlaySoundGroupRelativeMessage::AudioPlaySoundGroupRelativeMessage(const std::string& path) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                                  path(path) {
 }
+
+binn* AudioPlaySoundGroupRelativeMessage::Serialize(void* object) {
+    AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
+    binn* l = binn_object();
+
+    binn_object_set_std_string(l, "path", t->path);
+
+    return l;
+}
+
+void AudioPlaySoundGroupRelativeMessage::Deserialize(void* object, binn* l) {
+    AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
+
+    binn_object_get_std_string(l, "path", &t->path);
+}
+
+void AudioPlaySoundGroupRelativeMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
+
+    SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(t->path);
+    SoundGroupPlayInfo sgpi(SoundGroupPlayInfo(*sgr, vec3(0.0f)));
+    sgpi.flags = sgpi.flags | SoundFlags::kRelative;
+
+    int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
+
+    Engine::Instance()->GetSound()->PlayGroup(handle, sgpi);
+}
+
+void* AudioPlaySoundGroupRelativeMessage::Construct(void* mem) {
+    return new (mem) AudioPlaySoundGroupRelativeMessage("");
+}
+
+void AudioPlaySoundGroupRelativeMessage::Destroy(void* object) {
+    AudioPlaySoundGroupRelativeMessage* t = static_cast<AudioPlaySoundGroupRelativeMessage*>(object);
+    t->~AudioPlaySoundGroupRelativeMessage();
+}
+}  // namespace OnlineMessages

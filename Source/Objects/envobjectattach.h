@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: envobjectattach.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -37,11 +37,11 @@ struct BoneConnect {
 };
 
 struct AttachedEnvObject {
-    bool bone_connection_dirty; // Used to refresh rel_mats if obj is moved in editor
+    bool bone_connection_dirty;  // Used to refresh rel_mats if obj is moved in editor
     Object* direct_ptr;
-    int legacy_obj_id; // used for opening levels made before A208.2
+    int legacy_obj_id;  // used for opening levels made before A208.2
     BoneConnect bone_connects[kMaxBoneConnects];
 };
 
-void Serialize(const std::vector<AttachedEnvObject>& aeo, std::vector<char> &data);
-void Deserialize(const std::vector<char> &data, std::vector<AttachedEnvObject>& aeo);
+void Serialize(const std::vector<AttachedEnvObject>& aeo, std::vector<char>& data);
+void Deserialize(const std::vector<char>& data, std::vector<AttachedEnvObject>& aeo);

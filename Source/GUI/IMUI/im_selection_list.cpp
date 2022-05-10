@@ -29,18 +29,15 @@
  *
  *
  */
-IMTextSelectionList::IMTextSelectionList( std::string const& name,
-                                          FontSetup _font,
-                                          float _betweenSpace,
-                                          IMMouseOverBehavior* _mouseOver ) :
-    IMDivider( name ),
-    itemBehavior(NULL),
-    itemXAlignment(CACenter),
-    itemYAlignment(CACenter)
-{
-    
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
+IMTextSelectionList::IMTextSelectionList(std::string const& name,
+                                         FontSetup _font,
+                                         float _betweenSpace,
+                                         IMMouseOverBehavior* _mouseOver) : IMDivider(name),
+                                                                            itemBehavior(NULL),
+                                                                            itemXAlignment(CACenter),
+                                                                            itemYAlignment(CACenter) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
     // let our superclass set us up
     font = _font;
     betweenSpace = _betweenSpace;
@@ -55,13 +52,10 @@ IMTextSelectionList::IMTextSelectionList( std::string const& name,
  * @param yAlignment vertical alignment
  *
  */
-void IMTextSelectionList::setAlignment( ContainerAlignment xAlignment, ContainerAlignment yAlignment ) {
-    
+void IMTextSelectionList::setAlignment(ContainerAlignment xAlignment, ContainerAlignment yAlignment) {
     itemXAlignment = xAlignment;
     itemYAlignment = yAlignment;
-        
 }
-
 
 /*******************************************************************************************/
 /**
@@ -70,13 +64,13 @@ void IMTextSelectionList::setAlignment( ContainerAlignment xAlignment, Container
  * @param behavior Handle to behavior in question
  *
  */
-void IMTextSelectionList::setItemUpdateBehaviour( IMUpdateBehavior* behavior ) {
-    if( itemBehavior != NULL ) {
+void IMTextSelectionList::setItemUpdateBehaviour(IMUpdateBehavior* behavior) {
+    if (itemBehavior != NULL) {
         itemBehavior->Release();
     }
 
     itemBehavior = behavior->clone();
-    
+
     // release the reference we were given
     behavior->Release();
 }
@@ -90,61 +84,55 @@ void IMTextSelectionList::setItemUpdateBehaviour( IMUpdateBehavior* behavior ) {
  * @param name Text to send as a message when this item is selected
  *
  */
-void IMTextSelectionList::addEntry( std::string const& name, std::string const& text, std::string const& message ) {
+void IMTextSelectionList::addEntry(std::string const& name, std::string const& text, std::string const& message) {
     std::string empty = "";
     addEntryParam(name, text, message, empty);
 }
 
-void IMTextSelectionList::addEntryParam( std::string const& name, std::string const& text, std::string const& message, std::string const& param ) {
+void IMTextSelectionList::addEntryParam(std::string const& name, std::string const& text, std::string const& message, std::string const& param) {
     // build the new object
-    IMText* newText = new IMText( text, font );
-    newText->setName( name );
+    IMText* newText = new IMText(text, font);
+    newText->setName(name);
     IMMouseClickBehavior* clickBehavior = NULL;
-    if( param == "" ) { 
+    if (param == "") {
         clickBehavior = new IMFixedMessageOnClick(message);
     } else {
         clickBehavior = new IMFixedMessageOnClick(message, param);
     }
-    
+
     clickBehavior->AddRef();
-    newText->addLeftMouseClickBehavior( clickBehavior );
+    newText->addLeftMouseClickBehavior(clickBehavior);
     clickBehavior->Release();
-    
-    if( mouseOver != NULL ) {
+
+    if (mouseOver != NULL) {
         // make a new copy of the mouseover behaviour
         IMMouseOverBehavior* newBehavior = mouseOver->clone();
-        
+
         newBehavior->AddRef();
         newText->addMouseOverBehavior(newBehavior, "");
         newBehavior->Release();
     }
-    
-    if( itemBehavior != NULL ) {
-        
+
+    if (itemBehavior != NULL) {
         IMUpdateBehavior* newBehavior = itemBehavior->clone();
         newBehavior->AddRef();
         newText->addUpdateBehavior(newBehavior, "");
         newBehavior->Release();
-        
     }
 
     // if we have been given space and we have at least on element, add the space
-    if( (betweenSpace > 0) && (getContainerCount() > 0) ) {
-        IMSpacer* newSpacer = appendSpacer( betweenSpace );
+    if ((betweenSpace > 0) && (getContainerCount() > 0)) {
+        IMSpacer* newSpacer = appendSpacer(betweenSpace);
         newSpacer->Release();
     }
-    
+
     // .. and add it to the list
-    IMContainer* newContainer = append( newText );
+    IMContainer* newContainer = append(newText);
     newContainer->Release();
-    
-    
+
     // finally, remove the reference as we're done with it (and append will have addrefed it)
-    //newText->Release();
-    
+    // newText->Release();
 }
-
-
 
 /*******************************************************************************************/
 /**
@@ -152,14 +140,13 @@ void IMTextSelectionList::addEntryParam( std::string const& name, std::string co
  *
  */
 IMTextSelectionList::~IMTextSelectionList() {
-    
-    IMrefCountTracker.removeRefCountObject( getElementTypeName() );
-    
-    if( mouseOver != NULL ) {
+    IMrefCountTracker.removeRefCountObject(getElementTypeName());
+
+    if (mouseOver != NULL) {
         mouseOver->Release();
     }
-    
-    if( itemBehavior != NULL ) {
+
+    if (itemBehavior != NULL) {
         itemBehavior->Release();
     }
 }

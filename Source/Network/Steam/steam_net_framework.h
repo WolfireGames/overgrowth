@@ -43,14 +43,14 @@ typedef uint8_t NetListenSocketID;
 class Online;
 
 class NetworkingMessage {
-private:
+   private:
     friend class SteamNetFramework;
 
-    SteamNetworkingMessage_t *msg;
+    SteamNetworkingMessage_t* msg;
 
     NetworkingMessage(SteamNetworkingMessage_t* msg);
-public: 
 
+   public:
     NetworkingMessage();
     const void* GetData() const;
     uint64_t GetSize() const;
@@ -74,18 +74,16 @@ class SteamNetFramework {
     map<NetListenSocketID, HSteamListenSocket> listen_socket_map;
     map<HSteamListenSocket, NetListenSocketID> listen_socket_map_reverse;
 
-
-	ISteamNetworkingSockets* isns; 
-	ISteamNetworkingUtils* utils;
+    ISteamNetworkingSockets* isns;
+    ISteamNetworkingUtils* utils;
 
     Online* online;
 
-private:
-
+   private:
     NetConnectionID GetFreeConnectionID();
     NetListenSocketID GetFreeListenSocketID();
 
-public:
+   public:
     SteamNetFramework(Online* online_callback);
 
     void Initialize();
@@ -96,7 +94,7 @@ public:
 
     bool ConnectByIPAddress(const string& address, NetConnectionID* id);
 
-    NetListenSocketID CreateListenSocketIP(const string &local_address);
+    NetListenSocketID CreateListenSocketIP(const string& local_address);
     void CloseListenSocket(NetListenSocketID listen_socket_id);
 
     void GetConnectionStatus(NetConnectionID conn_id, ConnectionStatus* status) const;
@@ -106,11 +104,11 @@ public:
     STEAM_CALLBACK(SteamNetFramework, OnConnectionChange, SteamNetConnectionStatusChangedCallback_t);
 
     int ReceiveMessageOnConnection(NetConnectionID conn_id, NetworkingMessage* msg);
-    
+
     bool AcceptConnection(NetConnectionID conn_id, int* result);
 
     string GetResultString(int result);
 
-    void SendMessageToConnection(NetConnectionID conn_id, char* buffer, uint32_t bytes, bool reliable, bool flush);  
+    void SendMessageToConnection(NetConnectionID conn_id, char* buffer, uint32_t bytes, bool reliable, bool flush);
 };
 #endif

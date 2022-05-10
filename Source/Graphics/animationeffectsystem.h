@@ -25,11 +25,10 @@
 
 class TheoraVideoManager;
 
-class AnimationEffectSystem
-{
-public:
+class AnimationEffectSystem {
+   public:
     TheoraVideoManager* mgr;
-    
+
     AnimationEffectSystem();
     ~AnimationEffectSystem();
     void Dispose();

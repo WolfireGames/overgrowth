@@ -34,19 +34,19 @@
 #include <vector>
 
 class DecalFile : public AssetInfo {
-public:
+   public:
     std::string color_map;
     std::string normal_map;
     std::string shader_name;
     int special_type;
 
-    DecalFile( AssetManager* owner, uint32_t asset_id );
+    DecalFile(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return DECAL_FILE_ASSET; }
     static const char* GetTypeName() { return "DECAL_FILE_ASSET"; }
     static bool AssetWarning() { return true; }
 
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();

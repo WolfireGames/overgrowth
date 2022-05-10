@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: win_hardware_info.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,30 +29,30 @@
 
 #include <string>
 
-unsigned GetWindowsNvidiaDriverInfo(){
+unsigned GetWindowsNvidiaDriverInfo() {
     NvAPI_Status status = NvAPI_Initialize();
     NvAPI_ShortString msg;
     if (status != NVAPI_OK) {
-        NvAPI_GetErrorMessage (status, msg);
+        NvAPI_GetErrorMessage(status, msg);
         LOGE << "Cannot initialize NvAPI: " << msg << std::endl;
         return 0;
     }
 
     NvDisplayHandle hDisp;
-    status = NvAPI_EnumNvidiaDisplayHandle (0, &hDisp);
+    status = NvAPI_EnumNvidiaDisplayHandle(0, &hDisp);
     if (status != NVAPI_OK) {
-        NvAPI_GetErrorMessage (status, msg);
-        LOGE << "Cannot initialize NvAPI: " <<  msg << std::endl;
+        NvAPI_GetErrorMessage(status, msg);
+        LOGE << "Cannot initialize NvAPI: " << msg << std::endl;
         return 0;
     }
 
     NV_DISPLAY_DRIVER_VERSION ver;
-    memset (&ver, 0, sizeof (NV_DISPLAY_DRIVER_VERSION));
+    memset(&ver, 0, sizeof(NV_DISPLAY_DRIVER_VERSION));
     ver.version = NV_DISPLAY_DRIVER_VERSION_VER;
-    status = NvAPI_GetDisplayDriverVersion (hDisp, &ver);
+    status = NvAPI_GetDisplayDriverVersion(hDisp, &ver);
     if (status != NVAPI_OK) {
-        NvAPI_GetErrorMessage (status, msg);
-        LOGE << "Cannot initialize NvAPI: " <<  msg << std::endl;
+        NvAPI_GetErrorMessage(status, msg);
+        LOGE << "Cannot initialize NvAPI: " << msg << std::endl;
         return 0;
     }
 
@@ -60,18 +60,18 @@ unsigned GetWindowsNvidiaDriverInfo(){
 }
 
 unsigned GetDriverVersion(GLVendor vendor) {
-    if(vendor == _nvidia){
+    if (vendor == _nvidia) {
         return GetWindowsNvidiaDriverInfo();
-    } else if(vendor == _ati){
-        //ATI driver versions are the end of the GL_VERSION string, e.g.:
-        //2.1.8577 (8577 is the driver version)
+    } else if (vendor == _ati) {
+        // ATI driver versions are the end of the GL_VERSION string, e.g.:
+        // 2.1.8577 (8577 is the driver version)
         std::string driver_string = (const char*)glGetString(GL_VERSION);
 
-        //Remove everything before the final dot
+        // Remove everything before the final dot
         unsigned final_dot_index = driver_string.rfind('.');
-        driver_string = driver_string.substr(final_dot_index+1);
+        driver_string = driver_string.substr(final_dot_index + 1);
 
-        //What remains is the driver string. Return as unsigned int
+        // What remains is the driver string. Return as unsigned int
         return atoi(driver_string.c_str());
     } else {
         return 0;

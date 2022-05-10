@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: zip_util.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -37,18 +37,18 @@ class ExpandedZipFile {
     ExpandedZipEntry *entries;
     unsigned num_entries;
 
-public:
+   public:
     ExpandedZipFile();
     ~ExpandedZipFile();
     void Dispose();
     void ResizeEntries(unsigned num_entries);
     void ResizeFilenameBuffer(unsigned num_chars);
     void ResizeDataBuffer(unsigned num_bytes);
-    void SetFilename(unsigned offset, const char* data, unsigned size);
-    void SetData(unsigned offset, const char* data, unsigned size);
+    void SetFilename(unsigned offset, const char *data, unsigned size);
+    void SetData(unsigned offset, const char *data, unsigned size);
     void SetEntry(unsigned which, unsigned file_name_offset, unsigned data_offset, unsigned size);
-    void GetEntry( unsigned which, const char* &filename, const char* &data, unsigned &size );
-    unsigned GetNumEntries(){ return num_entries; }
+    void GetEntry(unsigned which, const char *&filename, const char *&data, unsigned &size);
+    unsigned GetNumEntries() { return num_entries; }
 };
 
 void Zip(const std::string &src_file_path, const std::string &zip_file_path, const std::string &in_zip_file_path, OverwriteType overwrite);

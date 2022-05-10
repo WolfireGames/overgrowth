@@ -28,60 +28,48 @@
 #include "dxt5action.h"
 #include "crunchaction.h"
 
-BuilderFactory::BuilderFactory()
-{
-    actions.push_back( new ActionFactory<CopyAction>() );
-    actions.push_back( new ActionFactory<DXT5Action>() );
-    actions.push_back( new ActionFactory<CrunchAction>() );
-    actions.push_back( new ActionFactory<VoidAction>() );
+BuilderFactory::BuilderFactory() {
+    actions.push_back(new ActionFactory<CopyAction>());
+    actions.push_back(new ActionFactory<DXT5Action>());
+    actions.push_back(new ActionFactory<CrunchAction>());
+    actions.push_back(new ActionFactory<VoidAction>());
 }
 
-BuilderFactory::~BuilderFactory()
-{
+BuilderFactory::~BuilderFactory() {
     std::vector<ActionFactoryBase*>::iterator factoryit;
 
-    for( factoryit = actions.begin(); factoryit != actions.end(); factoryit++ )
-    {
+    for (factoryit = actions.begin(); factoryit != actions.end(); factoryit++) {
         delete *factoryit;
     }
 
     actions.clear();
 }
 
-bool BuilderFactory::HasBuilder( const std::string& builder )
-{
+bool BuilderFactory::HasBuilder(const std::string& builder) {
     std::vector<ActionFactoryBase*>::iterator factoryit;
-    for( factoryit = actions.begin(); factoryit != actions.end(); factoryit++ )
-    {
-        if( (*factoryit)->GetActionName() == builder )
-        {
+    for (factoryit = actions.begin(); factoryit != actions.end(); factoryit++) {
+        if ((*factoryit)->GetActionName() == builder) {
             return true;
         }
     }
     return false;
 }
 
-Builder BuilderFactory::CreateBuilder( const std::string& builder, const std::string& ending, const std::string& type_pattern_re )
-{
+Builder BuilderFactory::CreateBuilder(const std::string& builder, const std::string& ending, const std::string& type_pattern_re) {
     std::vector<ActionFactoryBase*>::iterator factoryit;
-    for( factoryit = actions.begin(); factoryit != actions.end(); factoryit++ )
-    {
-        if( (*factoryit)->GetActionName() == builder )
-        {
+    for (factoryit = actions.begin(); factoryit != actions.end(); factoryit++) {
+        if ((*factoryit)->GetActionName() == builder) {
             return Builder((*factoryit)->NewInstance(), ending, type_pattern_re);
         }
     }
     LOGE << "Unable to find builder matching name " << builder << std::endl;
-    return Builder( new VoidAction(), ending, type_pattern_re );
+    return Builder(new VoidAction(), ending, type_pattern_re);
 }
 
-bool BuilderFactory::StoreResultInDatabase( std::string builder ) 
-{
+bool BuilderFactory::StoreResultInDatabase(std::string builder) {
     std::vector<ActionFactoryBase*>::iterator factoryit;
-    for( factoryit = actions.begin(); factoryit != actions.end(); factoryit++ )
-    {
-        if( (*factoryit)->GetActionName() == builder )
-        {
+    for (factoryit = actions.begin(); factoryit != actions.end(); factoryit++) {
+        if ((*factoryit)->GetActionName() == builder) {
             return (*factoryit)->StoreResultInDatabase();
         }
     }

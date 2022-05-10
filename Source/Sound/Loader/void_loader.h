@@ -24,9 +24,8 @@
 
 #include "base_loader.h"
 
-class voidLoader : public baseLoader
-{
-public:
+class voidLoader : public baseLoader {
+   public:
     voidLoader();
     ~voidLoader() override;
 
@@ -38,5 +37,5 @@ public:
     bool is_at_end() override;
 
     int64_t get_pcm_pos() override;
-    void    set_pcm_pos( int64_t pos ) override;
+    void set_pcm_pos(int64_t pos) override;
 };

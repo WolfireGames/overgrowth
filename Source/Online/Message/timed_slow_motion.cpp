@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: timed_slow_motion.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,44 +28,43 @@
 extern Timer game_timer;
 
 namespace OnlineMessages {
-    TimedSlowMotion::TimedSlowMotion(float target_time_scale, float how_long, float delay) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        target_time_scale(target_time_scale), how_long(how_long), delay(delay)
-    {
-
-    }
-
-    binn* TimedSlowMotion::Serialize(void* object) {
-        TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
-        binn* l = binn_object();
-
-        binn_object_set_float(l, "tts", tsm->target_time_scale);
-        binn_object_set_float(l, "hl", tsm->how_long);
-        binn_object_set_float(l, "d", tsm->delay);
-
-        return l;
-    }
-
-    void TimedSlowMotion::Deserialize(void* object, binn* l) {
-        TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
-
-        binn_object_get_float(l, "tts", &tsm->target_time_scale);
-        binn_object_get_float(l, "hl", &tsm->how_long);
-        binn_object_get_float(l, "d", &tsm->delay);
-    }
-
-    void TimedSlowMotion::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
-
-        game_timer.AddTimedSlowMotionLayer(tsm->target_time_scale, tsm->how_long, tsm->delay);
-    }
-
-    void* TimedSlowMotion::Construct(void* mem) {
-        return new (mem)  TimedSlowMotion(.0f, .0f, .0f);
-    }
-
-    void TimedSlowMotion::Destroy(void* object) {
-        TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
-        tsm->~TimedSlowMotion();
-    }
+TimedSlowMotion::TimedSlowMotion(float target_time_scale, float how_long, float delay) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                         target_time_scale(target_time_scale),
+                                                                                         how_long(how_long),
+                                                                                         delay(delay) {
 }
+
+binn* TimedSlowMotion::Serialize(void* object) {
+    TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
+    binn* l = binn_object();
+
+    binn_object_set_float(l, "tts", tsm->target_time_scale);
+    binn_object_set_float(l, "hl", tsm->how_long);
+    binn_object_set_float(l, "d", tsm->delay);
+
+    return l;
+}
+
+void TimedSlowMotion::Deserialize(void* object, binn* l) {
+    TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
+
+    binn_object_get_float(l, "tts", &tsm->target_time_scale);
+    binn_object_get_float(l, "hl", &tsm->how_long);
+    binn_object_get_float(l, "d", &tsm->delay);
+}
+
+void TimedSlowMotion::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
+
+    game_timer.AddTimedSlowMotionLayer(tsm->target_time_scale, tsm->how_long, tsm->delay);
+}
+
+void* TimedSlowMotion::Construct(void* mem) {
+    return new (mem) TimedSlowMotion(.0f, .0f, .0f);
+}
+
+void TimedSlowMotion::Destroy(void* object) {
+    TimedSlowMotion* tsm = static_cast<TimedSlowMotion*>(object);
+    tsm->~TimedSlowMotion();
+}
+}  // namespace OnlineMessages

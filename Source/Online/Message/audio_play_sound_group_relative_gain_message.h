@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_sound_group_relative_gain_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,18 +25,18 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class AudioPlaySoundGroupRelativeGainMessage : public OnlineMessageBase {
-    private:
-        std::string path;
-        float gain;
+class AudioPlaySoundGroupRelativeGainMessage : public OnlineMessageBase {
+   private:
+    std::string path;
+    float gain;
 
-    public:
-        AudioPlaySoundGroupRelativeGainMessage(const std::string& path, float gain);
+   public:
+    AudioPlaySoundGroupRelativeGainMessage(const std::string& path, float gain);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

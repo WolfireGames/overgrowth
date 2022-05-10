@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: test_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,43 +31,40 @@ using std::endl;
 using std::string;
 
 namespace OnlineMessages {
-    TestMessage::TestMessage(string message) :
-        OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
-        message(message)
-    {
-
-    }
-
-    binn* TestMessage::Serialize(void* object) {
-        TestMessage* test_message = static_cast<TestMessage*>(object);
-
-        binn* l = binn_object();
-
-        binn_object_set_str(l, "message", test_message->message.c_str());
-
-        return l;
-    }
-
-    void TestMessage::Deserialize(void* object, binn* l) {
-        TestMessage* test_message = static_cast<TestMessage*>(object);
-
-        char* message;
-        binn_object_get_str(l, "message", &message);
-
-        test_message->message = string(message);
-    }
-
-    void TestMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        TestMessage* test_message = static_cast<TestMessage*>(object);
-        LOGW << "TestMessage Received and being Executed: " << test_message->message << endl;
-    }
-
-    void* TestMessage::Construct(void* mem) {
-        return new(mem) TestMessage("");
-    }
-
-    void TestMessage::Destroy(void* object) {
-        TestMessage* test_message = static_cast<TestMessage*>(object);
-        test_message->~TestMessage();
-    }
+TestMessage::TestMessage(string message) : OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
+                                           message(message) {
 }
+
+binn* TestMessage::Serialize(void* object) {
+    TestMessage* test_message = static_cast<TestMessage*>(object);
+
+    binn* l = binn_object();
+
+    binn_object_set_str(l, "message", test_message->message.c_str());
+
+    return l;
+}
+
+void TestMessage::Deserialize(void* object, binn* l) {
+    TestMessage* test_message = static_cast<TestMessage*>(object);
+
+    char* message;
+    binn_object_get_str(l, "message", &message);
+
+    test_message->message = string(message);
+}
+
+void TestMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    TestMessage* test_message = static_cast<TestMessage*>(object);
+    LOGW << "TestMessage Received and being Executed: " << test_message->message << endl;
+}
+
+void* TestMessage::Construct(void* mem) {
+    return new (mem) TestMessage("");
+}
+
+void TestMessage::Destroy(void* object) {
+    TestMessage* test_message = static_cast<TestMessage*>(object);
+    test_message->~TestMessage();
+}
+}  // namespace OnlineMessages

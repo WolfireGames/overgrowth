@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_datastructures.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -47,7 +47,8 @@ typedef int32_t CommonObjectID;
 
 class OnlineMessageRef {
     OnlineMessageID message_id;
-public:
+
+   public:
     OnlineMessageRef();
     OnlineMessageRef(const OnlineMessageID message_id);
     OnlineMessageRef(const OnlineMessageRef& rhs);
@@ -75,10 +76,10 @@ struct PlayerState {
     std::string playername = "UNKNOWN";
     ObjectID object_id = 1;
     uint16_t ping = 0;
-    int32_t controller_id = -1; // Incoming inputs are copied into this controller.
+    int32_t controller_id = -1;  // Incoming inputs are copied into this controller.
 
     // Invalid on clients
-    int32_t camera_id = -1; // Virtual camera id, used for character logic, some data may be syned to/from this camera from the client.
+    int32_t camera_id = -1;  // Virtual camera id, used for character logic, some data may be syned to/from this camera from the client.
 };
 
 struct MorphTargetStateStorage {
@@ -103,7 +104,7 @@ struct NetworkBone {
 struct RiggedObjectFrame {
     float host_walltime;
     uint8_t bone_count;
-    array<NetworkBone,64> bones;
+    array<NetworkBone, 64> bones;
 
     binn* Serialize();
     void Deserialize(binn* l);

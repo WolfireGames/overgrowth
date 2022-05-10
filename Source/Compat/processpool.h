@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: processpool.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,98 +29,98 @@
 #include <queue>
 #include <map>
 
-using std::string;
 using std::map;
-using std::vector;
 using std::queue;
+using std::string;
+using std::vector;
 
 #ifdef _WIN32
 #define NOMINMAX
 #include <windows.h>
 class OSProcess {
-    public:
-        OSProcess(const string &worker_path);
-        ~OSProcess();
-        
-        string WaitForChildMessage();
-        void SendMessageToChild(const string &msg);
-    private:
-    
-        HANDLE read_pipe_;
-        HANDLE write_pipe_;
-        PROCESS_INFORMATION process_info_;
-    
-        DISALLOW_COPY_AND_ASSIGN(OSProcess);
+   public:
+    OSProcess(const string& worker_path);
+    ~OSProcess();
+
+    string WaitForChildMessage();
+    void SendMessageToChild(const string& msg);
+
+   private:
+    HANDLE read_pipe_;
+    HANDLE write_pipe_;
+    PROCESS_INFORMATION process_info_;
+
+    DISALLOW_COPY_AND_ASSIGN(OSProcess);
 };
-#else 
+#else
 #include <pthread.h>
 #include <unistd.h>
 class OSProcess {
-public:
-    OSProcess(const string &worker_path);
+   public:
+    OSProcess(const string& worker_path);
     ~OSProcess();
-    
+
     string WaitForChildMessage();
-    void SendMessageToChild(const string &msg);
-private:
+    void SendMessageToChild(const string& msg);
+
+   private:
     int read_pipe_;
     int write_pipe_;
     int process_info_;
-    
+
     DISALLOW_COPY_AND_ASSIGN(OSProcess);
 };
-#endif //_WIN32
+#endif  //_WIN32
 
 class ProcessPool;
 class ProcessHandle {
-public:
+   public:
     void Process(const string& task);
-    inline bool idle(){return idle_;}
+    inline bool idle() { return idle_; }
     void ProcessInBackground();
-    
-    ProcessHandle(const string &worker_path, ProcessPool* parent_process_pool);
-   
-private:
+
+    ProcessHandle(const string& worker_path, ProcessPool* parent_process_pool);
+
+   private:
     bool idle_;
     OSProcess os_process_;
     ProcessPool* parent_process_pool_;
-    
+
     bool ProcessMessageFromChild(const string& msg);
     DISALLOW_COPY_AND_ASSIGN(ProcessHandle);
 };
 
-
 class ProcessPool {
-public:
+   public:
     // Change number of process handlers
     void Resize(int _size);
-    
+
     typedef int (*JobFunctionPtr)(int argc, const char* argv[]);
     typedef map<string, ProcessPool::JobFunctionPtr> JobMap;
-    enum Error{SUCCESS = 0,
-               NO_IDLE_PROCESS = -1,
-               NO_TASK_IN_QUEUE = -2};
-    static bool AmIAWorkerProcess( int argc, char* argv[] );
-    static int WorkerProcessMain(const JobMap &job_map);
+    enum Error { SUCCESS = 0,
+                 NO_IDLE_PROCESS = -1,
+                 NO_TASK_IN_QUEUE = -2 };
+    static bool AmIAWorkerProcess(int argc, char* argv[]);
+    static int WorkerProcessMain(const JobMap& job_map);
 
     void NotifyTaskComplete();
     void Schedule(const string& task);
     void WaitForTasksToComplete();
     void ClearQueuedTasks();
     int NumProcesses();
-    
-    ProcessPool(const string &worker_path, int size=0);
+
+    ProcessPool(const string& worker_path, int size = 0);
     ~ProcessPool();
-private:
-    
+
+   private:
     // Attempts to start processing the first task in the queue in the first
-    // idle process. Can return SUCCESS, NO_IDLE_PROCESS or NO_TASK_IN_QUEUE. 
+    // idle process. Can return SUCCESS, NO_IDLE_PROCESS or NO_TASK_IN_QUEUE.
     ProcessPool::Error ProcessFirstTaskInQueue();
-    
+
     // Returns index of the first idle process in pool, or -1 if there
     // are no idle processes
     int GetIdleProcessIndex();
-    
+
     string worker_path_;
     vector<ProcessHandle*> processes_;
     queue<string> tasks_;
@@ -133,6 +133,6 @@ private:
     pthread_cond_t idle_event_cond_;
     bool idle_event_bool_;
 #endif
-    
+
     DISALLOW_COPY_AND_ASSIGN(ProcessPool);
 };

@@ -25,17 +25,15 @@
 #include <Logging/loghandler.h>
 
 /*!
-	Potential child to LogHandler and will print messages to std::cout
+        Potential child to LogHandler and will print messages to std::cout
 */
-class ConsoleHandler : public LogHandler
-{
-public:
-	ConsoleHandler();
+class ConsoleHandler : public LogHandler {
+   public:
+    ConsoleHandler();
 
-	~ConsoleHandler() override;
+    ~ConsoleHandler() override;
 
-	/*! \param message will be printed to std::cout */
-	void Log( LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message ) override;
+    /*! \param message will be printed to std::cout */
+    void Log(LogSystem::LogType type, int row, const char* filename, const char* cat, const char* message_prefix, const char* message) override;
     void Flush() override;
 };
-

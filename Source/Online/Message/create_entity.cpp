@@ -32,48 +32,47 @@
 #include <Editors/map_editor.h>
 
 namespace OnlineMessages {
-    CreateEntity::CreateEntity(const string& path, const vec3& pos, ObjectID entity_object_id) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
-        path(path), pos(pos), entity_object_id(entity_object_id)
-    {
+CreateEntity::CreateEntity(const string& path, const vec3& pos, ObjectID entity_object_id) : OnlineMessageBase(OnlineMessageCategory::LEVEL_PERSISTENT),
+                                                                                             path(path),
+                                                                                             pos(pos),
+                                                                                             entity_object_id(entity_object_id) {
+}
 
-    }
+binn* CreateEntity::Serialize(void* object) {
+    CreateEntity* ce = static_cast<CreateEntity*>(object);
+    binn* l = binn_object();
 
-    binn* CreateEntity::Serialize(void* object) {
-        CreateEntity* ce = static_cast<CreateEntity*>(object);
-        binn* l = binn_object();
+    binn_object_set_std_string(l, "path", ce->path);
+    binn_object_set_vec3(l, "pos", ce->pos);
+    binn_object_set_int32(l, "id", ce->entity_object_id);
 
-        binn_object_set_std_string(l, "path", ce->path);
-        binn_object_set_vec3(l, "pos", ce->pos);
-        binn_object_set_int32(l, "id", ce->entity_object_id);
+    return l;
+}
 
-        return l;
-    }
+void CreateEntity::Deserialize(void* object, binn* l) {
+    CreateEntity* ce = static_cast<CreateEntity*>(object);
 
-    void CreateEntity::Deserialize(void* object, binn* l) {
-        CreateEntity* ce = static_cast<CreateEntity*>(object);
+    binn_object_get_std_string(l, "path", &ce->path);
+    binn_object_get_vec3(l, "pos", &ce->pos);
+    binn_object_get_int32(l, "id", &ce->entity_object_id);
+}
 
-        binn_object_get_std_string(l, "path", &ce->path);
-        binn_object_get_vec3(l, "pos", &ce->pos);
-        binn_object_get_int32(l, "id", &ce->entity_object_id);
-    }
+void CreateEntity::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    CreateEntity* ce = static_cast<CreateEntity*>(object);
+    SceneGraph* sg = Engine::Instance()->GetSceneGraph();
+    Online* online = Online::Instance();
 
-    void CreateEntity::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        CreateEntity* ce = static_cast<CreateEntity*>(object);
-        SceneGraph* sg = Engine::Instance()->GetSceneGraph();
-        Online* online = Online::Instance();
-
-        if(sg != nullptr) {
-            sg->map_editor->CreateObjectFromHost(ce->path, ce->pos, ce->entity_object_id);
-        }
-    }
-
-    void* CreateEntity::Construct(void* mem) {
-        return new(mem) CreateEntity("", vec3(), -1);
-    }
-
-    void CreateEntity::Destroy(void* object) {
-        CreateEntity* ce = static_cast<CreateEntity*>(object);
-        ce->~CreateEntity();
+    if (sg != nullptr) {
+        sg->map_editor->CreateObjectFromHost(ce->path, ce->pos, ce->entity_object_id);
     }
 }
+
+void* CreateEntity::Construct(void* mem) {
+    return new (mem) CreateEntity("", vec3(), -1);
+}
+
+void CreateEntity::Destroy(void* object) {
+    CreateEntity* ce = static_cast<CreateEntity*>(object);
+    ce->~CreateEntity();
+}
+}  // namespace OnlineMessages

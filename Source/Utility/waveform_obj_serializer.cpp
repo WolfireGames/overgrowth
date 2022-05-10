@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: waveform_obj_serializer.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,19 +25,18 @@
 
 #include <fstream>
 
-using std::ofstream;
 using std::endl;
+using std::ofstream;
 
 void SerializeToObj(const string& path, const vector<float>& vertices, const vector<uint32_t>& faces) {
-
     ofstream output(path, ofstream::out);
 
-    for(int i = 0; i < vertices.size(); i += 3) {
-        output << "v " << vertices[i] << " " << vertices[i+1] << " " << vertices[i+2] << endl;
+    for (int i = 0; i < vertices.size(); i += 3) {
+        output << "v " << vertices[i] << " " << vertices[i + 1] << " " << vertices[i + 2] << endl;
     }
 
-    for(int i = 0; i < faces.size(); i += 3) {
-        output << "f " << faces[i]+1 << " " << faces[i+1]+1 << " " << faces[i+2]+1 << endl;
+    for (int i = 0; i < faces.size(); i += 3) {
+        output << "f " << faces[i] + 1 << " " << faces[i + 1] + 1 << " " << faces[i + 2] + 1 << endl;
     }
 
     output.close();

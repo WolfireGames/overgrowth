@@ -30,20 +30,18 @@
 
 #include <SDL_assert.h>
 
-VBOContainer::VBOContainer():
-    is_valid(false),
-    storage(0)
-{}
+VBOContainer::VBOContainer() : is_valid(false),
+                               storage(0) {}
 
 void VBOContainer::Fill(char flags, GLuint size, void* data) {
-    if( size > 0  ) {
+    if (size > 0) {
         LOG_ASSERT(data);
 
         Graphics* graphics = Graphics::Instance();
         GLenum target;
-        if(flags & kVBOElement){
+        if (flags & kVBOElement) {
             target = GL_ELEMENT_ARRAY_BUFFER;
-        } else if(flags & kVBOFloat){
+        } else if (flags & kVBOFloat) {
             target = GL_ARRAY_BUFFER;
         } else {
             target = 0xFFFFFFFF;
@@ -51,32 +49,32 @@ void VBOContainer::Fill(char flags, GLuint size, void* data) {
             SDL_assert(false);
         }
         GLenum hint;
-        if(flags & kVBOStatic){
+        if (flags & kVBOStatic) {
             hint = GL_STATIC_DRAW;
-        } else if(flags & kVBODynamic){
+        } else if (flags & kVBODynamic) {
             hint = GL_DYNAMIC_DRAW;
-        } else if(flags & kVBOStream){
+        } else if (flags & kVBOStream) {
             hint = GL_STREAM_DRAW;
         } else {
             hint = 0xFFFFFFFF;
             // No hint flag set
             SDL_assert(false);
         }
-        if(flags & kVBOStatic || !is_valid){
+        if (flags & kVBOStatic || !is_valid) {
             element = flags & kVBOElement;
-            if(is_valid) {
+            if (is_valid) {
                 LOGS << "Disposing " << gl_VBO << std::endl;
                 Dispose();
             }
-            glGenBuffers( 1, &gl_VBO );  
-            //LOGI << "Generated vbo: " << gl_VBO << std::endl;
+            glGenBuffers(1, &gl_VBO);
+            // LOGI << "Generated vbo: " << gl_VBO << std::endl;
             graphics->BindVBO(target, gl_VBO);
-            glBufferData( target, size, data, hint );
+            glBufferData(target, size, data, hint);
             is_valid = true;
             storage = size;
         } else {
             graphics->BindVBO(target, gl_VBO);
-            
+
             /*
              * Some early tests indicate that no BufferData orphaning and memory mapped transfers are
              * the most efficient combination for MacOSX intel.
@@ -110,36 +108,35 @@ void VBOContainer::Fill(char flags, GLuint size, void* data) {
              */
             const bool kAlwaysOrphan = false;
             bool orphaned = false;
-            if(size > storage ) {
+            if (size > storage) {
                 LOGW << "Reallocating buffer because of resize" << std::endl;
                 PROFILER_ZONE(g_profiler_ctx, "glBufferData");
                 storage = size;
-                glBufferData( target, storage, NULL, hint );
+                glBufferData(target, storage, NULL, hint);
                 orphaned = true;
             }
-            
-            //if( !(flags & kVBOForceReBufferData) ){
-            if( orphaned == false && kAlwaysOrphan)
-            {
+
+            // if( !(flags & kVBOForceReBufferData) ){
+            if (orphaned == false && kAlwaysOrphan) {
                 PROFILER_ZONE(g_profiler_ctx, "glBufferData orphan");
-                glBufferData( target, storage, NULL, hint );
+                glBufferData(target, storage, NULL, hint);
             }
-            
+
             const bool kUseMapRange = true;
-            if(kUseMapRange) {
+            if (kUseMapRange) {
                 PROFILER_ZONE(g_profiler_ctx, "glMapBufferRange");
-                //Using the Unsynchronized bit here seems incorrect.
-                //Because we can't actually guarantee on the client side
-                //that the GL environment isn't done with the buffer yet.
-                //For this we have to do a ring buffer implementation instead.
-                //Which we might do anyways..
-                //void* mapped = glMapBufferRange(target, 0, size, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_RANGE_BIT );
-                void* mapped = glMapBufferRange(target, 0, size, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT | GL_MAP_INVALIDATE_RANGE_BIT );
+                // Using the Unsynchronized bit here seems incorrect.
+                // Because we can't actually guarantee on the client side
+                // that the GL environment isn't done with the buffer yet.
+                // For this we have to do a ring buffer implementation instead.
+                // Which we might do anyways..
+                // void* mapped = glMapBufferRange(target, 0, size, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT | GL_MAP_UNSYNCHRONIZED_BIT | GL_MAP_INVALIDATE_RANGE_BIT );
+                void* mapped = glMapBufferRange(target, 0, size, GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT | GL_MAP_INVALIDATE_RANGE_BIT);
                 memcpy(mapped, data, size);
                 glUnmapBuffer(target);
             } else {
                 PROFILER_ZONE(g_profiler_ctx, "glBufferSubData");
-                glBufferSubData( target, 0, size, data);
+                glBufferSubData(target, 0, size, data);
             }
         }
         graphics->BindVBO(target, 0);
@@ -148,34 +145,34 @@ void VBOContainer::Fill(char flags, GLuint size, void* data) {
 }
 
 void VBOContainer::Dispose() {
-    if(!is_valid){
+    if (!is_valid) {
         return;
     }
     Graphics* graphics = Graphics::Instance();
 
     GLenum target;
-    if( element ) {
+    if (element) {
         target = GL_ELEMENT_ARRAY_BUFFER;
     } else {
         target = GL_ARRAY_BUFFER;
     }
 
-    //LOGI << "Disposing vbo: " << gl_VBO << " for target " << target << std::endl;
+    // LOGI << "Disposing vbo: " << gl_VBO << " for target " << target << std::endl;
     LogSystem::Flush();
-    graphics->UnbindVBO( target, gl_VBO );
-    glDeleteBuffers( 1, &gl_VBO );
+    graphics->UnbindVBO(target, gl_VBO);
+    glDeleteBuffers(1, &gl_VBO);
     is_valid = false;
     size_ = 0;
 }
 
 void VBOContainer::Bind() const {
-    if(!is_valid){
+    if (!is_valid) {
         LOG_ASSERT(false);
         return;
     }
 
-    if(element){
-        Graphics::Instance()->BindElementVBO(gl_VBO);    
+    if (element) {
+        Graphics::Instance()->BindElementVBO(gl_VBO);
     } else {
         Graphics::Instance()->BindArrayVBO(gl_VBO);
     }

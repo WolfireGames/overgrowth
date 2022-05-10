@@ -31,8 +31,8 @@
 
 class SceneGraph;
 
-class Sky{
-private:
+class Sky {
+   private:
     TextureRef cube_map_texture_ref;
     TextureRef spec_cube_map_texture_ref;
     TextureRef original_spec_cube_map_texture_ref;
@@ -41,7 +41,7 @@ private:
     const char* fog;
     const char* shader;
 
-public:
+   public:
     bool displaying_YCOCG_sky;
     bool lighting_changed;
 
@@ -51,7 +51,7 @@ public:
 
     GLuint framebuffer;
     GLuint framebuffer2;
-        
+
     TextureAssetRef sky_texture_ref;
     TextureAssetRef horizon_texture_ref;
     Model sky_dome_model;
@@ -60,22 +60,21 @@ public:
     Model horizon_model;
 
     enum CubeMapFlags {
-        DRAW_LAND = 1<<0,
-        DRAW_HORIZON = 1<<1
+        DRAW_LAND = 1 << 0,
+        DRAW_HORIZON = 1 << 1
     };
-    
+
     void RenderCubeMap(int flags, const TextureRef* land_texture_ref);
 
-public:
+   public:
     Sky();
     void GetShaderNames(std::map<std::string, int>& shader_names);
 
     std::string dome_texture_name;
     std::string level_name;
     float sky_rotation;
-    vec3 sky_tint; // Current displayed tint
-    vec3 sky_base_tint; // Set by script parameters
-    
+    vec3 sky_tint;       // Current displayed tint
+    vec3 sky_base_tint;  // Set by script parameters
 
     bool live_updated;
 
@@ -85,10 +84,10 @@ public:
     void QueueLoadResources();
     void LoadResources();
     void Dispose();
-    void BakeFirstPass(); // Just render the skydome to a cubemap
-    void BakeSecondPass(const TextureRef *_land_texture_ref); // Render skydome, ground plane, and horizon band
+    void BakeFirstPass();                                      // Just render the skydome to a cubemap
+    void BakeSecondPass(const TextureRef* _land_texture_ref);  // Render skydome, ground plane, and horizon band
 
     void ResetSpecularCubeMapTexture();
-    void SetSpecularCubeMapTexture( TextureRef new_spec_cube_map_texture_ref );
+    void SetSpecularCubeMapTexture(TextureRef new_spec_cube_map_texture_ref);
     TextureRef GetSpecularCubeMapTexture();
 };

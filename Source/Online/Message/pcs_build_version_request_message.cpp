@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_build_version_request_message.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,30 +28,26 @@
 #include <Version/version.h>
 
 namespace OnlineMessages {
-    PCSBuildVersionRequestMessage::PCSBuildVersionRequestMessage() :
-        OnlineMessageBase(OnlineMessageCategory::TRANSIENT)
-    {
-
-    }
-
-    binn* PCSBuildVersionRequestMessage::Serialize(void* object) {
-        return binn_object();
-    }
-
-    void PCSBuildVersionRequestMessage::Deserialize(void* object, binn* l) {
-
-    }
-
-    void PCSBuildVersionRequestMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        Online::Instance()->SendTo<OnlineMessages::PCSBuildVersionMessage>(Online::Instance()->GetPeerFromID(from)->conn_id, GetBuildID());
-    }
-
-    void* PCSBuildVersionRequestMessage::Construct(void* mem) {
-        return new (mem) PCSBuildVersionRequestMessage();
-    }
-
-    void PCSBuildVersionRequestMessage::Destroy(void* object) {
-        PCSBuildVersionRequestMessage* bvr = static_cast<PCSBuildVersionRequestMessage*>(object);
-        bvr->~PCSBuildVersionRequestMessage();
-    }
+PCSBuildVersionRequestMessage::PCSBuildVersionRequestMessage() : OnlineMessageBase(OnlineMessageCategory::TRANSIENT) {
 }
+
+binn* PCSBuildVersionRequestMessage::Serialize(void* object) {
+    return binn_object();
+}
+
+void PCSBuildVersionRequestMessage::Deserialize(void* object, binn* l) {
+}
+
+void PCSBuildVersionRequestMessage::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    Online::Instance()->SendTo<OnlineMessages::PCSBuildVersionMessage>(Online::Instance()->GetPeerFromID(from)->conn_id, GetBuildID());
+}
+
+void* PCSBuildVersionRequestMessage::Construct(void* mem) {
+    return new (mem) PCSBuildVersionRequestMessage();
+}
+
+void PCSBuildVersionRequestMessage::Destroy(void* object) {
+    PCSBuildVersionRequestMessage* bvr = static_cast<PCSBuildVersionRequestMessage*>(object);
+    bvr->~PCSBuildVersionRequestMessage();
+}
+}  // namespace OnlineMessages

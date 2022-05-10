@@ -28,23 +28,25 @@
 #include <cstring>
 
 class Bitarray {
-public:
+   public:
     Bitarray(size_t _size);
     ~Bitarray();
-private:
-    DISALLOW_COPY_AND_ASSIGN(Bitarray); 
+
+   private:
+    DISALLOW_COPY_AND_ASSIGN(Bitarray);
     size_t size;
     uint64_t *arr;
-public:
+
+   public:
     void ResizeAndReset(size_t new_size);
 
     bool GetBit(size_t index);
-    
+
     void SetBit(size_t index);
     void FreeBit(size_t index);
 
-    void SetBits( size_t index, size_t count );
-    void FreeBits( size_t index, size_t count );
+    void SetBits(size_t index, size_t count);
+    void FreeBits(size_t index, size_t count);
 
     int GetFirstFreeSlot(size_t size);
 };

@@ -22,22 +22,18 @@
 //-----------------------------------------------------------------------------
 #include "generator.h"
 
-Generator::Generator( CreatorBase* creator )
-: creator(creator)
-{
+Generator::Generator(CreatorBase* creator)
+    : creator(creator) {
 }
 
-ManifestResult Generator::Run(const JobHandler& jh, const Manifest& manifest)
-{
-    return creator->Run(jh,manifest);
+ManifestResult Generator::Run(const JobHandler& jh, const Manifest& manifest) {
+    return creator->Run(jh, manifest);
 }
 
-std::string Generator::GetGeneratorName() const
-{
+std::string Generator::GetGeneratorName() const {
     return std::string(creator.GetConst().GetName());
 }
 
-std::string Generator::GetGeneratorVersion() const
-{
+std::string Generator::GetGeneratorVersion() const {
     return std::string(creator.GetConst().GetVersion());
 }

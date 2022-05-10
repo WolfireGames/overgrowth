@@ -24,10 +24,10 @@
 #include "assetloaderrors.h"
 
 const char* GetLoadErrorString(int& v) {
-    switch(v) {
-        case kLoadOk: 
+    switch (v) {
+        case kLoadOk:
             return "Load ok";
-        case kLoadErrorNoFile: 
+        case kLoadErrorNoFile:
             return "Path value is empty";
         case kLoadErrorMissingFile:
             return "File doesn't exist on disk";
@@ -51,5 +51,5 @@ const char* GetLoadErrorString(int& v) {
             return "Loader demands that the file has a specific file-ending in the path";
         default:
             return "Unknown/Undefined error code";
-    } 
+    }
 }

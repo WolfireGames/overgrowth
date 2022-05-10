@@ -45,36 +45,36 @@
 
 extern std::string script_dir_path;
 
-//Camera cannot see itself
+// Camera cannot see itself
 void CameraObject::Draw() {
 }
 
 void CameraObject::GetDisplayName(char* buf, int buf_size) {
-    if( GetName().empty() ) {
+    if (GetName().empty()) {
         FormatString(buf, buf_size, "%d, Camera", GetID());
     } else {
         FormatString(buf, buf_size, "%s, Camera", GetName().c_str());
     }
 }
 
-void CameraObject::saveStateToFile(FILE *){
+void CameraObject::saveStateToFile(FILE*) {
 }
 
-//Give camera fps controls
+// Give camera fps controls
 void CameraObject::Update(float timestep) {
     static const std::string kUpdateStr = "void Update()";
-	as_context->CallScriptFunction(kUpdateStr);
+    as_context->CallScriptFunction(kUpdateStr);
 }
 
 void CameraObject::Reload() {
-	as_context->Reload();
+    as_context->Reload();
 }
 
 bool CameraObject::Initialize() {
     ASData as_data;
     as_data.scenegraph = scenegraph_;
     as_data.gui = scenegraph_->map_editor->gui;
-    as_context = new ASContext("camera_object",as_data);
+    as_context = new ASContext("camera_object", as_data);
     AttachUIQueries(as_context);
     AttachActiveCamera(as_context);
     AttachScreenWidth(as_context);
@@ -91,22 +91,22 @@ bool CameraObject::Initialize() {
 
     as_collisions = new ASCollisions(scenegraph_);
     as_collisions->AttachToContext(as_context);
-    
+
     as_context->RegisterObjectType("CameraObject", 0, asOBJ_REF | asOBJ_NOHANDLE);
-    as_context->RegisterObjectProperty("CameraObject","vec3 velocity",asOFFSET(CameraObject,velocity));
-    as_context->RegisterObjectProperty("CameraObject","bool controlled",asOFFSET(CameraObject,controlled));
-    as_context->RegisterObjectProperty("CameraObject","bool frozen",asOFFSET(CameraObject,frozen));
-    as_context->RegisterObjectProperty("CameraObject","bool ignore_mouse_input",asOFFSET(CameraObject,ignore_mouse_input));
-    as_context->RegisterObjectProperty("CameraObject","bool has_position_initialized",asOFFSET(CameraObject,has_position_initialized));
-    as_context->RegisterObjectMethod("CameraObject","const vec3& GetTranslation()",asMETHOD(CameraObject,GetTranslation), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("CameraObject","const quaternion& GetRotation()",asMETHOD(CameraObject,GetRotation), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("CameraObject","void SetTranslation(const vec3 &in vec)",asMETHOD(CameraObject,SetTranslation), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("CameraObject","void SetRotation(const quaternion &in quat)",asMETHOD(CameraObject,SetRotation), asCALL_THISCALL);
+    as_context->RegisterObjectProperty("CameraObject", "vec3 velocity", asOFFSET(CameraObject, velocity));
+    as_context->RegisterObjectProperty("CameraObject", "bool controlled", asOFFSET(CameraObject, controlled));
+    as_context->RegisterObjectProperty("CameraObject", "bool frozen", asOFFSET(CameraObject, frozen));
+    as_context->RegisterObjectProperty("CameraObject", "bool ignore_mouse_input", asOFFSET(CameraObject, ignore_mouse_input));
+    as_context->RegisterObjectProperty("CameraObject", "bool has_position_initialized", asOFFSET(CameraObject, has_position_initialized));
+    as_context->RegisterObjectMethod("CameraObject", "const vec3& GetTranslation()", asMETHOD(CameraObject, GetTranslation), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("CameraObject", "const quaternion& GetRotation()", asMETHOD(CameraObject, GetRotation), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("CameraObject", "void SetTranslation(const vec3 &in vec)", asMETHOD(CameraObject, SetTranslation), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("CameraObject", "void SetRotation(const quaternion &in quat)", asMETHOD(CameraObject, SetRotation), asCALL_THISCALL);
     as_context->DocsCloseBrace();
     as_context->RegisterGlobalProperty("CameraObject co", this);
 
-    as_funcs.init               = as_context->RegisterExpectedFunction("void Init()",true);
-    as_funcs.frame_selection    = as_context->RegisterExpectedFunction("void FrameSelection(bool)",true);
+    as_funcs.init = as_context->RegisterExpectedFunction("void Init()", true);
+    as_funcs.frame_selection = as_context->RegisterExpectedFunction("void FrameSelection(bool)", true);
 
     PROFILER_ENTER(g_profiler_ctx, "Exporting docs");
     char path[kPathSize];
@@ -114,10 +114,10 @@ bool CameraObject::Initialize() {
     as_context->ExportDocs(path);
     PROFILER_LEAVE(g_profiler_ctx);
 
-    Path script_path = FindFilePath(script_dir_path+"cam.as", kDataPaths | kModPaths);
+    Path script_path = FindFilePath(script_dir_path + "cam.as", kDataPaths | kModPaths);
 
-    if( script_path.isValid() )  {
-        if( as_context->LoadScript(script_path)) {
+    if (script_path.isValid()) {
+        if (as_context->LoadScript(script_path)) {
             as_context->CallScriptFunction(as_funcs.init);
 
             SDL_assert(update_list_entry == -1);
@@ -130,12 +130,11 @@ bool CameraObject::Initialize() {
     } else {
         FatalError("Error", "We don't handle the case of an invalid camera, missing camera script file.");
         return false;
-
     }
 }
 
 void CameraObject::FrameSelection(bool v) {
-    if(as_context) {
+    if (as_context) {
         ASArglist args;
         args.Add(v);
         as_context->CallScriptFunction(as_funcs.frame_selection, &args);
@@ -146,4 +145,3 @@ CameraObject::~CameraObject() {
     delete as_context;
     delete as_collisions;
 }
-

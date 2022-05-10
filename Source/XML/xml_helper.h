@@ -28,11 +28,11 @@
 
 #include <string>
 
-bool LoadXML( TiXmlDocument& doc,
-                       const std::string &path, 
-                       const std::string type );
-bool LoadXMLRetryable(TiXmlDocument& doc, 
-                      const std::string &path, 
+bool LoadXML(TiXmlDocument &doc,
+             const std::string &path,
+             const std::string type);
+bool LoadXMLRetryable(TiXmlDocument &doc,
+                      const std::string &path,
                       const std::string type);
 
 void GetRange(const TiXmlElement *el,
@@ -42,23 +42,22 @@ void GetRange(const TiXmlElement *el,
               float &min_val,
               float &max_val);
 
-bool LoadText(void* &mem, const char* path);
+bool LoadText(void *&mem, const char *path);
 
-uint8_t* StackLoadText(const char* path, size_t* size_out);
+uint8_t *StackLoadText(const char *path, size_t *size_out);
 
-bool LoadTextRetryable(void* &mem, const std::string &path, const std::string type );
+bool LoadTextRetryable(void *&mem, const std::string &path, const std::string type);
 
-class XmlHelper
-{
-public:
-    static TiXmlElement *findNode(TiXmlDocument &doc, std::string &item, TiXmlElement* element = NULL);
-    static TiXmlElement *findNode(TiXmlDocument &doc, const char *item, TiXmlElement* element = NULL);
+class XmlHelper {
+   public:
+    static TiXmlElement *findNode(TiXmlDocument &doc, std::string &item, TiXmlElement *element = NULL);
+    static TiXmlElement *findNode(TiXmlDocument &doc, const char *item, TiXmlElement *element = NULL);
     static bool getNodeValue(TiXmlDocument &doc, const char *item, std::string &text);
     static bool getNodeValue(TiXmlDocument &doc, const char *item, double &d);
-  static bool getNodeValue(TiXmlDocument &doc, const char *item, float &f);
+    static bool getNodeValue(TiXmlDocument &doc, const char *item, float &f);
     static bool getNodeValue(TiXmlDocument &doc, TiXmlElement *element, const char *item, std::string &text);
     static bool getNodeValue(TiXmlDocument &doc, TiXmlElement *element, const char *item, double &d);
-  static bool getNodeValue(TiXmlDocument &doc, TiXmlElement *element, const char *item, float &f);
+    static bool getNodeValue(TiXmlDocument &doc, TiXmlElement *element, const char *item, float &f);
 };
 
-void LoadAttribIntoString(TiXmlElement* el, const char* attrib, std::string &str);
+void LoadAttribIntoString(TiXmlElement *el, const char *attrib, std::string &str);

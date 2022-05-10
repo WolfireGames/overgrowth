@@ -96,21 +96,45 @@
 #define IMGUI_GREEN ImVec4(0.1f, 0.9f, 0.1f, 1.0f)
 #define IMGUI_WHITE ImVec4(1.0f, 1.0f, 1.0f, 1.0f)
 
-static inline ImVec2 operator*(const ImVec2& lhs, const float rhs)              { return ImVec2(lhs.x * rhs, lhs.y * rhs); }
-static inline ImVec2 operator/(const ImVec2& lhs, const float rhs)              { return ImVec2(lhs.x / rhs, lhs.y / rhs); }
-static inline ImVec2 operator+(const ImVec2& lhs, const ImVec2& rhs)            { return ImVec2(lhs.x + rhs.x, lhs.y + rhs.y); }
-static inline ImVec2 operator-(const ImVec2& lhs, const ImVec2& rhs)            { return ImVec2(lhs.x - rhs.x, lhs.y - rhs.y); }
-static inline ImVec2 operator*(const ImVec2& lhs, const ImVec2& rhs)            { return ImVec2(lhs.x * rhs.x, lhs.y * rhs.y); }
-static inline ImVec2 operator/(const ImVec2& lhs, const ImVec2& rhs)            { return ImVec2(lhs.x / rhs.x, lhs.y / rhs.y); }
-static inline ImVec2& operator*=(ImVec2& lhs, const float rhs)                  { lhs.x *= rhs; lhs.y *= rhs; return lhs; }
-static inline ImVec2& operator/=(ImVec2& lhs, const float rhs)                  { lhs.x /= rhs; lhs.y /= rhs; return lhs; }
-static inline ImVec2& operator+=(ImVec2& lhs, const ImVec2& rhs)                { lhs.x += rhs.x; lhs.y += rhs.y; return lhs; }
-static inline ImVec2& operator-=(ImVec2& lhs, const ImVec2& rhs)                { lhs.x -= rhs.x; lhs.y -= rhs.y; return lhs; }
-static inline ImVec2& operator*=(ImVec2& lhs, const ImVec2& rhs)                { lhs.x *= rhs.x; lhs.y *= rhs.y; return lhs; }
-static inline ImVec2& operator/=(ImVec2& lhs, const ImVec2& rhs)                { lhs.x /= rhs.x; lhs.y /= rhs.y; return lhs; }
-static inline ImVec4 operator+(const ImVec4& lhs, const ImVec4& rhs)            { return ImVec4(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w); }
-static inline ImVec4 operator-(const ImVec4& lhs, const ImVec4& rhs)            { return ImVec4(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w); }
-static inline ImVec4 operator*(const ImVec4& lhs, const ImVec4& rhs)            { return ImVec4(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w); }
+static inline ImVec2 operator*(const ImVec2& lhs, const float rhs) { return ImVec2(lhs.x * rhs, lhs.y * rhs); }
+static inline ImVec2 operator/(const ImVec2& lhs, const float rhs) { return ImVec2(lhs.x / rhs, lhs.y / rhs); }
+static inline ImVec2 operator+(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x + rhs.x, lhs.y + rhs.y); }
+static inline ImVec2 operator-(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x - rhs.x, lhs.y - rhs.y); }
+static inline ImVec2 operator*(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x * rhs.x, lhs.y * rhs.y); }
+static inline ImVec2 operator/(const ImVec2& lhs, const ImVec2& rhs) { return ImVec2(lhs.x / rhs.x, lhs.y / rhs.y); }
+static inline ImVec2& operator*=(ImVec2& lhs, const float rhs) {
+    lhs.x *= rhs;
+    lhs.y *= rhs;
+    return lhs;
+}
+static inline ImVec2& operator/=(ImVec2& lhs, const float rhs) {
+    lhs.x /= rhs;
+    lhs.y /= rhs;
+    return lhs;
+}
+static inline ImVec2& operator+=(ImVec2& lhs, const ImVec2& rhs) {
+    lhs.x += rhs.x;
+    lhs.y += rhs.y;
+    return lhs;
+}
+static inline ImVec2& operator-=(ImVec2& lhs, const ImVec2& rhs) {
+    lhs.x -= rhs.x;
+    lhs.y -= rhs.y;
+    return lhs;
+}
+static inline ImVec2& operator*=(ImVec2& lhs, const ImVec2& rhs) {
+    lhs.x *= rhs.x;
+    lhs.y *= rhs.y;
+    return lhs;
+}
+static inline ImVec2& operator/=(ImVec2& lhs, const ImVec2& rhs) {
+    lhs.x /= rhs.x;
+    lhs.y /= rhs.y;
+    return lhs;
+}
+static inline ImVec4 operator+(const ImVec4& lhs, const ImVec4& rhs) { return ImVec4(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w); }
+static inline ImVec4 operator-(const ImVec4& lhs, const ImVec4& rhs) { return ImVec4(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w); }
+static inline ImVec4 operator*(const ImVec4& lhs, const ImVec4& rhs) { return ImVec4(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w); }
 
 char imgui_ini_path[kPathSize];
 
@@ -166,20 +190,20 @@ float imgui_scale = 1.0f;
 
 std::map<std::string, ImGUIGraph<256>> graphs;
 
-//ImGUIGraph<256> host_walltime_offset_shift;
-//ImGUIGraph<128> interpolation_step;
-//ImGUIGraph<128> rigged_interpolation_time;
-//ImGUIGraph<1000> interpolation_speed;
-//ImGUIGraph<1000> playerVelocity;
-//ImGUIGraph<1000> delta_time;
-//ImGUIGraph<256> pendingBonesHistory;
-//ImGUIGraph<256> pendingPosHistory;
-//ImGUIGraph<256> frametimeHistory;
-//ImGUIGraph<256> deltabetweenframes;
-//ImGUIGraph<256> root_bone_x;
-//ImGUIGraph<256> root_bone_y;
-//ImGUIGraph<256> root_bone_z;
-//ImGUIGraph<256> last_frame_delta;
+// ImGUIGraph<256> host_walltime_offset_shift;
+// ImGUIGraph<128> interpolation_step;
+// ImGUIGraph<128> rigged_interpolation_time;
+// ImGUIGraph<1000> interpolation_speed;
+// ImGUIGraph<1000> playerVelocity;
+// ImGUIGraph<1000> delta_time;
+// ImGUIGraph<256> pendingBonesHistory;
+// ImGUIGraph<256> pendingPosHistory;
+// ImGUIGraph<256> frametimeHistory;
+// ImGUIGraph<256> deltabetweenframes;
+// ImGUIGraph<256> root_bone_x;
+// ImGUIGraph<256> root_bone_y;
+// ImGUIGraph<256> root_bone_z;
+// ImGUIGraph<256> last_frame_delta;
 
 extern std::string script_dir_path;
 
@@ -201,7 +225,6 @@ float GraphTime = 0.f;
 extern RamHandler ram_handler;
 
 static int select_start_index = -1;
-
 
 static bool show_graphics_debug_disable_menu = false;
 
@@ -251,121 +274,124 @@ extern bool g_debug_runtime_disable_terrain_object_draw_depth_map;
 extern bool g_debug_runtime_disable_terrain_object_draw_terrain;
 extern bool g_debug_runtime_disable_terrain_object_pre_draw_camera;
 
-
 #ifdef _WIN32
 #include <shellapi.h>
 static void open_url(const char* url) {
 #if ENABLE_STEAMWORKS
-    if( Steamworks::Instance()->IsConnected() ) {
+    if (Steamworks::Instance()->IsConnected()) {
         Steamworks::Instance()->OpenWebPage(url);
         return;
     }
 #endif
 
     ShellExecute(GetActiveWindow(),
-        "open", url, NULL, NULL, SW_SHOWNORMAL);
+                 "open", url, NULL, NULL, SW_SHOWNORMAL);
 }
 #elif defined(PLATFORM_MACOSX)
 #include <ApplicationServices/ApplicationServices.h>
-static void open_url (const char* url) {
+static void open_url(const char* url) {
 #if ENABLE_STEAMWORKS
-    if( Steamworks::Instance()->IsConnected() ) {
+    if (Steamworks::Instance()->IsConnected()) {
         Steamworks::Instance()->OpenWebPage(url);
-	return;
-    } 
+        return;
+    }
 #endif
     CFURLRef url_ref = CFURLCreateWithBytes(NULL, (UInt8*)url, strlen(url), kCFStringEncodingASCII, NULL);
     LSOpenCFURLRef(url_ref, NULL);
     CFRelease(url_ref);
 }
 #else
-static void open_url(const char* url){
+static void open_url(const char* url) {
 #if ENABLE_STEAMWORKS
-    if( Steamworks::Instance()->IsConnected() ) {
+    if (Steamworks::Instance()->IsConnected()) {
         Steamworks::Instance()->OpenWebPage(url);
-	return;
+        return;
     }
 #endif
     DisplayError("Error", "Browser open is not yet implemented on this OS");
 }
 #endif
- 
 
-static vec4 GetObjColor(Object* obj){
+static vec4 GetObjColor(Object* obj) {
     vec4 color(1.0f);
-    switch(obj->GetType()){
-    case _env_object:
-        color = vec4(0.8f, 0.8f, 1.0f, 1.0f); break;
-    case _movement_object:
-        color = vec4(1.0f, 0.8f, 0.8f, 1.0f); break;
-    case _hotspot_object:
-        color = vec4(1.0f, 1.0f, 0.8f, 1.0f); break;
-    case _decal_object:
-        color = vec4(0.8f, 1.0f, 0.8f, 1.0f); break;
-    default:
-        color = vec4(0.9f, 0.9f, 0.9f, 1.0f); break;
+    switch (obj->GetType()) {
+        case _env_object:
+            color = vec4(0.8f, 0.8f, 1.0f, 1.0f);
+            break;
+        case _movement_object:
+            color = vec4(1.0f, 0.8f, 0.8f, 1.0f);
+            break;
+        case _hotspot_object:
+            color = vec4(1.0f, 1.0f, 0.8f, 1.0f);
+            break;
+        case _decal_object:
+            color = vec4(0.8f, 1.0f, 0.8f, 1.0f);
+            break;
+        default:
+            color = vec4(0.9f, 0.9f, 0.9f, 1.0f);
+            break;
     }
-    if(obj->exclude_from_save){
+    if (obj->exclude_from_save) {
         color[3] *= 0.5f;
     }
     return color;
 }
 
 static int ParseDetails(const char* str, float* results) {
-    //example str: "min:0,max:2,step:0.001,text_mult:100"
-    //parse that into results = {0.0f, 2.0f, 0.001f, 100.0f}
-    //return 0 on success, -1 on failure
+    // example str: "min:0,max:2,step:0.001,text_mult:100"
+    // parse that into results = {0.0f, 2.0f, 0.001f, 100.0f}
+    // return 0 on success, -1 on failure
     int last_break = -1;
     int last_colon = -1;
-    for(int index=0;; ++index){
-        if(str[index] == ':'){
+    for (int index = 0;; ++index) {
+        if (str[index] == ':') {
             last_colon = index;
         }
-        if(str[index] == ' ' && index == last_break+1){
+        if (str[index] == ' ' && index == last_break + 1) {
             last_break = index;
         }
-        if(str[index] == ',' || str[index] == '\0'){
-            if(last_colon <= last_break){
+        if (str[index] == ',' || str[index] == '\0') {
+            if (last_colon <= last_break) {
                 return -1;
             }
-            const char* token = &str[last_break+1];
+            const char* token = &str[last_break + 1];
             int token_len = last_colon - last_break - 1;
-            float val = (float) atof(&str[last_colon+1]);
-            switch(token_len){
-            case 3:
-                if(strncmp(token, "min", 3) == 0){
-                    results[0] = val;
-                } else if(strncmp(token, "max", 3) == 0){
-                    results[1] = val;
-                } else {
+            float val = (float)atof(&str[last_colon + 1]);
+            switch (token_len) {
+                case 3:
+                    if (strncmp(token, "min", 3) == 0) {
+                        results[0] = val;
+                    } else if (strncmp(token, "max", 3) == 0) {
+                        results[1] = val;
+                    } else {
+                        return -1;
+                    }
+                    break;
+                case 4:
+                    if (strncmp(token, "step", 4) == 0) {
+                        results[2] = val;
+                    } else {
+                        return -1;
+                    }
+                    break;
+                case 9:
+                    if (strncmp(token, "text_mult", 9) == 0) {
+                        results[3] = val;
+                    } else {
+                        return -1;
+                    }
+                    break;
+                default:
                     return -1;
-                }
-                break;
-            case 4:
-                if(strncmp(token, "step", 4) == 0){
-                    results[2] = val;
-                } else {
-                    return -1;
-                }
-                break;
-            case 9:
-                if(strncmp(token, "text_mult", 9) == 0){
-                    results[3] = val;
-                } else {
-                    return -1;
-                }
-                break;
-            default:
-                return -1;
             }
             last_break = index;
         }
-        if(str[index] == '\0'){
+        if (str[index] == '\0') {
             break;
         }
     }
-    for(int i=0; i<4; ++i){
-        if(results[i] == FLT_MAX){
+    for (int i = 0; i < 4; ++i) {
+        if (results[i] == FLT_MAX) {
             return -1;
         }
     }
@@ -379,11 +405,11 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
 
     ImGui::Text("Color history");
     ImGui::BeginGroup();
-    for(int i = 0; i < MapEditor::kColorHistoryLen; ++i) {
+    for (int i = 0; i < MapEditor::kColorHistoryLen; ++i) {
         vec4 col = me->GetColorHistoryIndex(i);
         ImVec4 imCol(col.x(), col.y(), col.z(), col.w());
         ImGui::PushID(i);
-        if(ImGui::ColorButton("##histcolbutt", imCol, false)) {
+        if (ImGui::ColorButton("##histcolbutt", imCol, false)) {
             color.x() = imCol.x;
             color.y() = imCol.y;
             color.z() = imCol.z;
@@ -391,15 +417,15 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
         }
         ImGui::PopID();
 
-        if(i == 0 || (i + 1) % 10 != 0)
+        if (i == 0 || (i + 1) % 10 != 0)
             ImGui::SameLine(0, -1);
     }
     ImGui::EndGroup();
 
     // Show color picker if no objects are selected
     bool only_movement_objects_selected = (selected_count != 0);
-    for(unsigned selected_i=0; selected_i<selected_count; ++selected_i){
-        if(selected[selected_i]->GetType() != _movement_object) {
+    for (unsigned selected_i = 0; selected_i < selected_count; ++selected_i) {
+        if (selected[selected_i]->GetType() != _movement_object) {
             only_movement_objects_selected = false;
             break;
         }
@@ -409,24 +435,24 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
     const char* labeled_colors[MAX_PALETTES];
     unsigned labeled_color_count = 0;
 
-    if(only_movement_objects_selected) {
+    if (only_movement_objects_selected) {
         static int palette_index = 0;
         int max_palette_index = 0;
-        for(unsigned selected_i=0; selected_i<selected_count; ++selected_i){
+        for (unsigned selected_i = 0; selected_i < selected_count; ++selected_i) {
             MovementObject* mo = (MovementObject*)selected[selected_i];
             OGPalette* palette = mo->GetPalette();
-            for(auto & i : *palette){
+            for (auto& i : *palette) {
                 LabeledColor* labeled_color = &i;
                 bool found = false;
-                for(unsigned palette_i = 0; palette_i < labeled_color_count; palette_i++) {
-                    if(strcmp(labeled_colors[palette_i], labeled_color->label.c_str()) == 0) {
+                for (unsigned palette_i = 0; palette_i < labeled_color_count; palette_i++) {
+                    if (strcmp(labeled_colors[palette_i], labeled_color->label.c_str()) == 0) {
                         found = true;
                         break;
                     }
                 }
 
-                if(!found) {
-                    if(labeled_color_count < MAX_PALETTES) {
+                if (!found) {
+                    if (labeled_color_count < MAX_PALETTES) {
                         labeled_colors[labeled_color_count] = labeled_color->label.c_str();
                         labeled_color_count++;
                     }
@@ -449,7 +475,7 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
                 for (unsigned selected_i = 0; selected_i < selected_count; ++selected_i) {
                     MovementObject* mo = (MovementObject*)selected[selected_i];
                     OGPalette* palette = mo->GetPalette();
-                    for (auto & i : *palette) {
+                    for (auto& i : *palette) {
                         LabeledColor* labeled_color = &i;
                         bool found = false;
                         if (strcmp(labeled_colors[palette_index], labeled_color->label.c_str()) == 0) {
@@ -461,17 +487,17 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
             }
 
         breakselectedloop:
-            if(ColorPicker(&color[0], NULL, false, false) || color_changed){
-                if(!color_changed)
+            if (ColorPicker(&color[0], NULL, false, false) || color_changed) {
+                if (!color_changed)
                     me->AddColorToHistory(color);
 
-                for(unsigned selected_i=0; selected_i<selected_count; ++selected_i){
+                for (unsigned selected_i = 0; selected_i < selected_count; ++selected_i) {
                     MovementObject* mo = (MovementObject*)selected[selected_i];
                     OGPalette* palette = mo->GetPalette();
                     bool found = false;
-                    for(size_t i=0, len=palette->size(); i<len; ++i){
+                    for (size_t i = 0, len = palette->size(); i < len; ++i) {
                         LabeledColor* labeled_color = &palette->at(i);
-                        if(strcmp(labeled_colors[palette_index], labeled_color->label.c_str()) == 0) {
+                        if (strcmp(labeled_colors[palette_index], labeled_color->label.c_str()) == 0) {
                             labeled_color->color = color.xyz();
                             mo->ApplyPalette(*palette);
                             break;
@@ -483,49 +509,49 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
     } else {
         float overbright(0.0f);
 
-        if(!color_changed) {
-            for(unsigned i=0; i<selected_count; ++i){
-                if(selected[i]->GetType() == _env_object){
+        if (!color_changed) {
+            for (unsigned i = 0; i < selected_count; ++i) {
+                if (selected[i]->GetType() == _env_object) {
                     color = ((EnvObject*)selected[i])->GetColorTint();
                     overbright = ((EnvObject*)selected[i])->GetOverbright();
                     break;
-                } else if(selected[i]->GetType() == _item_object){
+                } else if (selected[i]->GetType() == _item_object) {
                     color = ((ItemObject*)selected[i])->GetColorTint();
                     overbright = ((ItemObject*)selected[i])->GetOverbright();
                     break;
-                } else if(selected[i]->GetType() == _decal_object){
+                } else if (selected[i]->GetType() == _decal_object) {
                     color = ((DecalObject*)selected[i])->color_tint_component_.tint_;
                     overbright = ((DecalObject*)selected[i])->color_tint_component_.overbright_;
                     break;
-                } else if(selected[i]->GetType() == _dynamic_light_object ) {
+                } else if (selected[i]->GetType() == _dynamic_light_object) {
                     color = ((DynamicLightObject*)selected[i])->GetTint();
                     overbright = ((DynamicLightObject*)selected[i])->GetOverbright();
                 }
             }
         }
 
-        if(ColorPicker(&color[0], &overbright, false, true) || color_changed) {
-            if(!color_changed)
+        if (ColorPicker(&color[0], &overbright, false, true) || color_changed) {
+            if (!color_changed)
                 me->AddColorToHistory(color);
 
-            for(auto obj : scenegraph->objects_) {
-                if(obj->Selected()){
-                    if(obj->GetType() == _env_object) {
+            for (auto obj : scenegraph->objects_) {
+                if (obj->Selected()) {
+                    if (obj->GetType() == _env_object) {
                         EnvObject* eo = (EnvObject*)obj;
                         eo->ReceiveObjectMessage(OBJECT_MSG::SET_COLOR, &color);
                         eo->ReceiveObjectMessage(OBJECT_MSG::SET_OVERBRIGHT, &overbright);
                     }
-                    if(obj->GetType() == _item_object) {
+                    if (obj->GetType() == _item_object) {
                         ItemObject* io = (ItemObject*)obj;
                         io->ReceiveObjectMessage(OBJECT_MSG::SET_COLOR, &color);
                         io->ReceiveObjectMessage(OBJECT_MSG::SET_OVERBRIGHT, &overbright);
                     }
-                    if(obj->GetType() == _decal_object) {
+                    if (obj->GetType() == _decal_object) {
                         DecalObject* decalo = (DecalObject*)obj;
                         decalo->ReceiveObjectMessage(OBJECT_MSG::SET_COLOR, &color);
                         decalo->ReceiveObjectMessage(OBJECT_MSG::SET_OVERBRIGHT, &overbright);
                     }
-                    if(obj->GetType() == _dynamic_light_object) {
+                    if (obj->GetType() == _dynamic_light_object) {
                         DynamicLightObject* dlo = (DynamicLightObject*)obj;
                         dlo->ReceiveObjectMessage(OBJECT_MSG::SET_COLOR, &color);
                         dlo->ReceiveObjectMessage(OBJECT_MSG::SET_OVERBRIGHT, &overbright);
@@ -539,41 +565,40 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
 
 static void DrawAudioDebug() {
     std::vector<SoundSourceInfo> sound_sources = Engine::Instance()->GetSound()->GetCurrentSoundSources();
-    if(ImGui::TreeNode("Sounds", "Sounds: %d", (int)sound_sources.size())){
-        for(auto & ss : sound_sources) {
+    if (ImGui::TreeNode("Sounds", "Sounds: %d", (int)sound_sources.size())) {
+        for (auto& ss : sound_sources) {
             ImGui::Text("%s :%f %f %f", ss.name, ss.pos[0], ss.pos[1], ss.pos[2]);
         }
         ImGui::TreePop();
     }
 
-    if( ImGui::TreeNode( "Handle Count", "Handle Count: %d", (int)Engine::Instance()->GetSound()->GetSoundHandleCount() ) ) {
-        std::map<wrapper_sound_handle,real_sound_handle> handles = Engine::Instance()->GetSound()->GetAllHandles();
-        std::map<wrapper_sound_handle,real_sound_handle>::iterator hit = handles.begin();
+    if (ImGui::TreeNode("Handle Count", "Handle Count: %d", (int)Engine::Instance()->GetSound()->GetSoundHandleCount())) {
+        std::map<wrapper_sound_handle, real_sound_handle> handles = Engine::Instance()->GetSound()->GetAllHandles();
+        std::map<wrapper_sound_handle, real_sound_handle>::iterator hit = handles.begin();
 
-        for(; hit != handles.end(); hit++) {
-            ImGui::Text("%s %s: %s",Engine::Instance()->GetSound()->GetID(hit->first).c_str(), Engine::Instance()->GetSound()->GetName(hit->first).c_str(), Engine::Instance()->GetSound()->GetType(hit->first).c_str());
+        for (; hit != handles.end(); hit++) {
+            ImGui::Text("%s %s: %s", Engine::Instance()->GetSound()->GetID(hit->first).c_str(), Engine::Instance()->GetSound()->GetName(hit->first).c_str(), Engine::Instance()->GetSound()->GetType(hit->first).c_str());
         }
         ImGui::TreePop();
     }
 
-    ImGui::Text( "Sound Instances: %d", (int)Engine::Instance()->GetSound()->GetSoundInstanceCount() );
+    ImGui::Text("Sound Instances: %d", (int)Engine::Instance()->GetSound()->GetSoundInstanceCount());
 
-    ImGui::Text("Current Song: %s", Engine::Instance()->GetSound()->GetSongName().c_str() );
-    ImGui::Text("Current Song Type: %s", Engine::Instance()->GetSound()->GetSongType().c_str() );
+    ImGui::Text("Current Song: %s", Engine::Instance()->GetSound()->GetSongName().c_str());
+    ImGui::Text("Current Song Type: %s", Engine::Instance()->GetSound()->GetSongType().c_str());
 
-    if( strmtch( Engine::Instance()->GetSound()->GetSongType().c_str(), "layered" ) ) {
+    if (strmtch(Engine::Instance()->GetSound()->GetSongType().c_str(), "layered")) {
         std::vector<std::string> layers = Engine::Instance()->GetSound()->GetLayerNames();
-        if(ImGui::TreeNode("Layers", "Layers: %d", (int)layers.size())) {
-
+        if (ImGui::TreeNode("Layers", "Layers: %d", (int)layers.size())) {
             static float v = 0.0f;
             static std::string selected_layer_name = "";
 
-            for(auto & layer : layers) {
+            for (auto& layer : layers) {
                 float layer_gain = Engine::Instance()->GetSound()->GetLayerGain(layer);
-                ImGui::Text("%s %f", layer.c_str(), layer_gain );
+                ImGui::Text("%s %f", layer.c_str(), layer_gain);
 
-                if( ImGui::IsItemClicked() ) {
-                    if( selected_layer_name == layer ) {
+                if (ImGui::IsItemClicked()) {
+                    if (selected_layer_name == layer) {
                         selected_layer_name = "";
                     } else {
                         selected_layer_name = layer;
@@ -581,10 +606,10 @@ static void DrawAudioDebug() {
                     }
                 }
 
-                if( selected_layer_name == layer ) {
-                    if( ImGui::DragFloat(layer.c_str(),&v, 0.01f, 0.0f, 1.0f) ) {
-                        LOGI << "Settings layer gain"  << std::endl;
-                        Engine::Instance()->GetSound()->SetLayerGain(layer,v);
+                if (selected_layer_name == layer) {
+                    if (ImGui::DragFloat(layer.c_str(), &v, 0.01f, 0.0f, 1.0f)) {
+                        LOGI << "Settings layer gain" << std::endl;
+                        Engine::Instance()->GetSound()->SetLayerGain(layer, v);
                     }
                 }
             }
@@ -593,17 +618,16 @@ static void DrawAudioDebug() {
         }
     }
 
-    ImGui::Text("Next Song: %s", Engine::Instance()->GetSound()->GetNextSongName().c_str() );
-    ImGui::Text("Next Song Type: %s", Engine::Instance()->GetSound()->GetNextSongType().c_str() );
+    ImGui::Text("Next Song: %s", Engine::Instance()->GetSound()->GetNextSongName().c_str());
+    ImGui::Text("Next Song Type: %s", Engine::Instance()->GetSound()->GetNextSongType().c_str());
 }
 
 static void DrawDebugText(GUI* gui) {
     uint32_t curr_ticks = SDL_TS_GetTicks();
-    for(GUI::DebugTextMap::iterator iter = gui->debug_text.begin();
-        iter != gui->debug_text.end();)
-    {
+    for (GUI::DebugTextMap::iterator iter = gui->debug_text.begin();
+         iter != gui->debug_text.end();) {
         GUI::DebugTextEntry* debug_text_entry = &(iter->second);
-        if(debug_text_entry->delete_time >= curr_ticks){
+        if (debug_text_entry->delete_time >= curr_ticks) {
             ImGui::Text(debug_text_entry->text.c_str());
             ++iter;
         } else {
@@ -614,7 +638,7 @@ static void DrawDebugText(GUI* gui) {
 
 static void DrawDebugText(GUI* gui, const std::string& text) {
     GUI::DebugTextMap::iterator iter = gui->debug_text.find(text);
-    if(iter != gui->debug_text.end()) {
+    if (iter != gui->debug_text.end()) {
         ImGui::Text(iter->second.text.c_str());
     }
 }
@@ -631,13 +655,13 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
     const ScriptParamMap& spm = params->GetParameterMap();
     ImGui::Columns(3);
     int id = 0;
-    for(const auto & iter : spm){
+    for (const auto& iter : spm) {
         const ScriptParam& sp = iter.second;
         const ScriptParamParts::Editor& editor = sp.editor();
         FormatString(buf, kBufSize, "%s", iter.first.c_str());
-        ImGui::PushItemWidth(-1); // Don't make space for invisible labels
+        ImGui::PushItemWidth(-1);  // Don't make space for invisible labels
         ImGui::PushID(id++);
-        if(ImGui::InputText("###inputnamething", buf, kBufSize, ImGuiInputTextFlags_EnterReturnsTrue)){
+        if (ImGui::InputText("###inputnamething", buf, kBufSize, ImGuiInputTextFlags_EnterReturnsTrue)) {
             FormatString(rename_buf[0], kBufSize, "%s", iter.first.c_str());
             FormatString(rename_buf[1], kBufSize, "%s", buf);
             rename = true;
@@ -655,95 +679,98 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
         MULTI_SELECT,
         CUSTOM_WINDOW_LAUNCHER*/
 
-        ImGui::PushItemWidth(-1); // Don't make space for invisible labels
+        ImGui::PushItemWidth(-1);  // Don't make space for invisible labels
         ImGui::PushID(id++);
-        switch(editor.type()){
-        case ScriptParamEditorType::CHECKBOX:{
-            bool checked = (sp.GetInt()==1);
-            if(ImGui::Checkbox("", &checked)){
-                params->ASSetInt(iter.first, checked?1:0);
-                changed = true;
-            }
-            break;}
-        case ScriptParamEditorType::COLOR_PICKER:{
-            vec3 color = ColorFromString(sp.GetString().c_str());
-            if(ImGui::ColorEdit3("", &color[0])){
-                FormatString(buf, kBufSize, "%d, %d, %d", (int)(color[0]*255), (int)(color[1]*255), (int)(color[2]*255));
-                params->ASSetString(iter.first, buf);
-                changed = true;
-            }
-            break;}
-        case ScriptParamEditorType::DISPLAY_SLIDER:{
-            const char* details = editor.GetDetails().c_str();
-            float details_flt[4] = {FLT_MAX, FLT_MAX, 1.0f, 1.0f};
-            if(ParseDetails(details, details_flt) == 0){
-                bool is_float = false;
-                if(sp.GetFloat() != (int)sp.GetFloat() ||
-                   details_flt[0] != (int)details_flt[0] ||
-                   details_flt[1] != (int)details_flt[1] ||
-                   details_flt[2] != (int)details_flt[2] ||
-                   details_flt[3] != (int)details_flt[3])
-                {
-                    is_float = true;
-                }
-                if(is_float){
-                    float val = sp.GetFloat() * details_flt[3];
-                    if(ImGui::SliderFloat("", &val, details_flt[0] * details_flt[3], details_flt[1] * details_flt[3])){
-                        params->ASSetFloat(iter.first, val / details_flt[3]);
-                        changed = true;
-                    }
-                } else {
-                    int val = (int) (sp.GetInt() * details_flt[3]);
-                    if(ImGui::SliderInt("", &val, (int) (details_flt[0] * details_flt[3]), (int) (details_flt[1] * details_flt[3]))){
-                        params->ASSetInt(iter.first, (int) (val / details_flt[3]));
-                        changed = true;
-                    }
-                }
-            }
-            break;}
-        case ScriptParamEditorType::TEXTFIELD:{
-            if(sp.IsString()){
-                //Due to some problem in ImGUI this value can't grow during runtime. Limits input.
-                const size_t kLargerBufSize = 1024 * 16;
-                if( sp.GetString().size() < (kBufSize - 1) ) {
-                    FormatString(buf, kBufSize, "%s", sp.GetString().c_str());
-                    if(ImGui::InputText("##smallertextfield", buf, kBufSize)){
-                        params->ASSetString(iter.first, buf);
-                        changed = true;
-                    }
-                } else if( sp.GetString().size() < kLargerBufSize ) {
-                    char* larger_buf = (char*)alloc.stack.Alloc(kLargerBufSize);
-                    FormatString(larger_buf, kLargerBufSize, "%s", sp.GetString().c_str());
-                    if(ImGui::InputTextMultiline("##largertextfield", larger_buf, kLargerBufSize)){
-                        params->ASSetString(iter.first, larger_buf);
-                        changed = true;
-                    }
-                    alloc.stack.Free(larger_buf);
-                } else {
-                    ImGui::TextWrapped("String is too large to display");
-                }
-            } else if(sp.IsInt()){
-                int val = sp.GetInt();
-                if(ImGui::InputInt("", &val)){
-                    params->ASSetInt(iter.first, val);
+        switch (editor.type()) {
+            case ScriptParamEditorType::CHECKBOX: {
+                bool checked = (sp.GetInt() == 1);
+                if (ImGui::Checkbox("", &checked)) {
+                    params->ASSetInt(iter.first, checked ? 1 : 0);
                     changed = true;
                 }
-            } else if(sp.IsFloat()){
-                int val = (int) sp.GetFloat();
-                if(ImGui::InputInt("", &val)){
-                    params->ASSetFloat(iter.first, (float) val);
+                break;
+            }
+            case ScriptParamEditorType::COLOR_PICKER: {
+                vec3 color = ColorFromString(sp.GetString().c_str());
+                if (ImGui::ColorEdit3("", &color[0])) {
+                    FormatString(buf, kBufSize, "%d, %d, %d", (int)(color[0] * 255), (int)(color[1] * 255), (int)(color[2] * 255));
+                    params->ASSetString(iter.first, buf);
                     changed = true;
                 }
+                break;
             }
-            break;}
-        default:
-            ImGui::LabelText("", sp.AsString().c_str());
+            case ScriptParamEditorType::DISPLAY_SLIDER: {
+                const char* details = editor.GetDetails().c_str();
+                float details_flt[4] = {FLT_MAX, FLT_MAX, 1.0f, 1.0f};
+                if (ParseDetails(details, details_flt) == 0) {
+                    bool is_float = false;
+                    if (sp.GetFloat() != (int)sp.GetFloat() ||
+                        details_flt[0] != (int)details_flt[0] ||
+                        details_flt[1] != (int)details_flt[1] ||
+                        details_flt[2] != (int)details_flt[2] ||
+                        details_flt[3] != (int)details_flt[3]) {
+                        is_float = true;
+                    }
+                    if (is_float) {
+                        float val = sp.GetFloat() * details_flt[3];
+                        if (ImGui::SliderFloat("", &val, details_flt[0] * details_flt[3], details_flt[1] * details_flt[3])) {
+                            params->ASSetFloat(iter.first, val / details_flt[3]);
+                            changed = true;
+                        }
+                    } else {
+                        int val = (int)(sp.GetInt() * details_flt[3]);
+                        if (ImGui::SliderInt("", &val, (int)(details_flt[0] * details_flt[3]), (int)(details_flt[1] * details_flt[3]))) {
+                            params->ASSetInt(iter.first, (int)(val / details_flt[3]));
+                            changed = true;
+                        }
+                    }
+                }
+                break;
+            }
+            case ScriptParamEditorType::TEXTFIELD: {
+                if (sp.IsString()) {
+                    // Due to some problem in ImGUI this value can't grow during runtime. Limits input.
+                    const size_t kLargerBufSize = 1024 * 16;
+                    if (sp.GetString().size() < (kBufSize - 1)) {
+                        FormatString(buf, kBufSize, "%s", sp.GetString().c_str());
+                        if (ImGui::InputText("##smallertextfield", buf, kBufSize)) {
+                            params->ASSetString(iter.first, buf);
+                            changed = true;
+                        }
+                    } else if (sp.GetString().size() < kLargerBufSize) {
+                        char* larger_buf = (char*)alloc.stack.Alloc(kLargerBufSize);
+                        FormatString(larger_buf, kLargerBufSize, "%s", sp.GetString().c_str());
+                        if (ImGui::InputTextMultiline("##largertextfield", larger_buf, kLargerBufSize)) {
+                            params->ASSetString(iter.first, larger_buf);
+                            changed = true;
+                        }
+                        alloc.stack.Free(larger_buf);
+                    } else {
+                        ImGui::TextWrapped("String is too large to display");
+                    }
+                } else if (sp.IsInt()) {
+                    int val = sp.GetInt();
+                    if (ImGui::InputInt("", &val)) {
+                        params->ASSetInt(iter.first, val);
+                        changed = true;
+                    }
+                } else if (sp.IsFloat()) {
+                    int val = (int)sp.GetFloat();
+                    if (ImGui::InputInt("", &val)) {
+                        params->ASSetFloat(iter.first, (float)val);
+                        changed = true;
+                    }
+                }
+                break;
+            }
+            default:
+                ImGui::LabelText("", sp.AsString().c_str());
         }
         ImGui::PopID();
         ImGui::PopItemWidth();
         ImGui::NextColumn();
         ImGui::PushID(id++);
-        if(ImGui::Button("x")){
+        if (ImGui::Button("x")) {
             to_delete = true;
             FormatString(rename_buf[0], kBufSize, "%s", iter.first.c_str());
         }
@@ -751,38 +778,38 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
         ImGui::NextColumn();
     }
     ImGui::Columns(1);
-    if(ImGui::Button("New parameter")){
+    if (ImGui::Button("New parameter")) {
         ScriptParamMap spm = params->GetParameterMap();
         ScriptParam sp;
         sp.SetString("");
-		params->InsertNewScriptParam("Untitled parameter",sp);
+        params->InsertNewScriptParam("Untitled parameter", sp);
         changed = true;
     }
-    if(rename){
+    if (rename) {
         ScriptParamMap spm = params->GetParameterMap();
         ScriptParamMap::iterator iter = spm.find(std::string(rename_buf[0]));
- 
-        if(iter != spm.end()){
+
+        if (iter != spm.end()) {
             ScriptParam sp = iter->second;
             spm.erase(iter);
             spm[rename_buf[1]] = sp;
             params->SetParameterMap(spm);
             changed = true;
-			if (online->IsActive()) {
+            if (online->IsActive()) {
                 online->Send<OnlineMessages::SPRenameMessage>(params->GetObjectID(), std::string(rename_buf[1]), std::string(rename_buf[0]));
-			}
+            }
         }
     }
-    if(to_delete){
+    if (to_delete) {
         ScriptParamMap spm = params->GetParameterMap();
         ScriptParamMap::iterator iter = spm.find(std::string(rename_buf[0]));
-        if(iter != spm.end()){
+        if (iter != spm.end()) {
             spm.erase(iter);
             params->SetParameterMap(spm);
             changed = true;
-			if (online->IsActive()) {
-				online->Send<OnlineMessages::SPRemoveMessage>(params->GetObjectID(), std::string(rename_buf[0]));
-			}
+            if (online->IsActive()) {
+                online->Send<OnlineMessages::SPRemoveMessage>(params->GetObjectID(), std::string(rename_buf[0]));
+            }
         }
     }
     return changed;
@@ -795,7 +822,7 @@ static bool DrawScriptParamsEditor(ScriptParams* params) {
 void GetDisplayName(Object* obj, std::vector<char>& buffer) {
     char temp[512];
     temp[0] = '\0';
-    if(!obj->GetName().empty()) {
+    if (!obj->GetName().empty()) {
         sprintf(temp, "%d, ", obj->GetID());
     }
     obj->GetDisplayName(temp + strlen(temp), 512);
@@ -806,96 +833,92 @@ void GetDisplayName(Object* obj, std::vector<char>& buffer) {
 }
 
 static void PrintConnections(MovementObject* mov,
-                                const char* name,
-                                const std::list<ItemObjectScriptReader>& list,
-                                AttachmentType type,
-                                bool mirrored,
-                                bool show_connected,
-                                bool only_named)
-{
-    if(ImGui::TreeNodeEx(name)) {
-		if (ImGui::BeginListBox("Connected")) {
-			for (const auto & it : list) {
-				if (it.attachment_type == type && it.attachment_mirror == mirrored) {
-					Object* obj = it.obj;
-					char buffer[512];
-					obj->GetDisplayName(buffer, 512);
-					if (ImGui::Selectable(buffer, false)) {
-						mov->Disconnect(*obj);
-					}
-				}
-			}
-			ImGui::EndListBox();
-		}
+                             const char* name,
+                             const std::list<ItemObjectScriptReader>& list,
+                             AttachmentType type,
+                             bool mirrored,
+                             bool show_connected,
+                             bool only_named) {
+    if (ImGui::TreeNodeEx(name)) {
+        if (ImGui::BeginListBox("Connected")) {
+            for (const auto& it : list) {
+                if (it.attachment_type == type && it.attachment_mirror == mirrored) {
+                    Object* obj = it.obj;
+                    char buffer[512];
+                    obj->GetDisplayName(buffer, 512);
+                    if (ImGui::Selectable(buffer, false)) {
+                        mov->Disconnect(*obj);
+                    }
+                }
+            }
+            ImGui::EndListBox();
+        }
 
-		if (ImGui::BeginListBox("Available")) {
-			for (size_t i = 0; i < mov->scenegraph_->item_objects_.size(); ++i) {
-				ItemObject* obj = (ItemObject*)mov->scenegraph_->item_objects_[i];
-				if ((!show_connected && obj->HeldByWhom() != -1)
-					|| (only_named && obj->GetName().empty()))
-				{
-					continue;
-				}
+        if (ImGui::BeginListBox("Available")) {
+            for (size_t i = 0; i < mov->scenegraph_->item_objects_.size(); ++i) {
+                ItemObject* obj = (ItemObject*)mov->scenegraph_->item_objects_[i];
+                if ((!show_connected && obj->HeldByWhom() != -1) || (only_named && obj->GetName().empty())) {
+                    continue;
+                }
 
-				bool found = false;
-				for (const auto & it : list) {
-					if (obj->GetID() == it->GetID() && it.attachment_type == type && it.attachment_mirror == mirrored) {
-						found = true;
-						break;
-					}
-				}
-				if (!found) {
-					const ItemRef& ref = obj->item_ref();
-					if (ref->HasAttachment(type)) {
-						int held_by_id = obj->HeldByWhom();
-						Object* held_by = NULL;
-						if (held_by_id != -1)
-							held_by = obj->scenegraph_->GetObjectFromID(held_by_id);
+                bool found = false;
+                for (const auto& it : list) {
+                    if (obj->GetID() == it->GetID() && it.attachment_type == type && it.attachment_mirror == mirrored) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    const ItemRef& ref = obj->item_ref();
+                    if (ref->HasAttachment(type)) {
+                        int held_by_id = obj->HeldByWhom();
+                        Object* held_by = NULL;
+                        if (held_by_id != -1)
+                            held_by = obj->scenegraph_->GetObjectFromID(held_by_id);
 
-						char buffer[512];
-						obj->GetDisplayName(buffer, 512);
+                        char buffer[512];
+                        obj->GetDisplayName(buffer, 512);
 
-						size_t length = strlen(buffer);
-						if (held_by != NULL) {
-							if (held_by->GetName().empty()) {
-								length += sprintf(buffer + length, " held by %d", held_by->GetID());
-							}
-							else {
-								length += sprintf(buffer + length, " held by %d (%s)", held_by->GetID(), held_by->GetName().c_str());
-							}
-						}
+                        size_t length = strlen(buffer);
+                        if (held_by != NULL) {
+                            if (held_by->GetName().empty()) {
+                                length += sprintf(buffer + length, " held by %d", held_by->GetID());
+                            } else {
+                                length += sprintf(buffer + length, " held by %d (%s)", held_by->GetID(), held_by->GetName().c_str());
+                            }
+                        }
 
-						if (ImGui::Selectable(buffer, false)) {
-							AttachmentRef attachment_ref;
-							mov->AttachItemToSlotEditor(obj->GetID(), type, mirrored, attachment_ref);
-						}
-					}
-				}
-			}
-			ImGui::EndListBox();
-		}
+                        if (ImGui::Selectable(buffer, false)) {
+                            AttachmentRef attachment_ref;
+                            mov->AttachItemToSlotEditor(obj->GetID(), type, mirrored, attachment_ref);
+                        }
+                    }
+                }
+            }
+            ImGui::EndListBox();
+        }
         ImGui::TreePop();
     }
 }
 
 static void DrawLaunchCustomGuiButton(Object* obj, bool& are_script_params_read_only, int button_instance_id = -1) {
-    if(button_instance_id != -1) {
+    if (button_instance_id != -1) {
         ImGui::PushID(button_instance_id);
     }
 
-    if(obj->GetType() == _hotspot_object) {
+    if (obj->GetType() == _hotspot_object) {
         Hotspot* hotspot = (Hotspot*)obj;
 
-        if(hotspot->HasCustomGUI() && ImGui::Button("Open custom editor")) {
+        if (hotspot->HasCustomGUI() && ImGui::Button("Open custom editor")) {
             hotspot->LaunchCustomGUI();
         }
 
         are_script_params_read_only = hotspot->ObjectInspectorReadOnly();
-    } else if(obj->GetType() == _placeholder_object) {
+    } else if (obj->GetType() == _placeholder_object) {
         PlaceholderObject* placeholder = (PlaceholderObject*)obj;
 
-        if(placeholder->GetScriptParams()->HasParam("Dialogue")) {
-            if(ImGui::Button("Launch dialogue editor")) {
+        if (placeholder->GetScriptParams()->HasParam("Dialogue")) {
+            if (ImGui::Button("Launch dialogue editor")) {
                 char buffer[64];
                 sprintf(buffer, "edit_dialogue_id%i", placeholder->GetID());
                 placeholder->scenegraph_->level->Message(buffer);
@@ -905,7 +928,7 @@ static void DrawLaunchCustomGuiButton(Object* obj, bool& are_script_params_read_
         }
     }
 
-    if(button_instance_id != -1) {
+    if (button_instance_id != -1) {
         ImGui::PopID();
     }
 }
@@ -919,25 +942,25 @@ static void DrawObjectInfoFlat(Object* obj) {
     DrawLaunchCustomGuiButton(obj, are_script_params_read_only);
 
     bool temp_enabled = obj->enabled_;
-    if(ImGui::Checkbox("Enabled", &temp_enabled)){
+    if (ImGui::Checkbox("Enabled", &temp_enabled)) {
         obj->SetEnabled(temp_enabled);
     }
 
     const size_t name_len = 64;
     char name[name_len];
-    strscpy(name,obj->GetName().c_str(),name_len);
-    if(ImGui::InputText("Name", name, name_len)) {
+    strscpy(name, obj->GetName().c_str(), name_len);
+    if (ImGui::InputText("Name", name, name_len)) {
         obj->SetName(std::string(name));
         obj->scenegraph_->map_editor->QueueSaveHistoryState();
     }
 
-    if( obj->GetType() == _prefab ) {
-        Prefab *prefab = static_cast<Prefab*>(obj);
+    if (obj->GetType() == _prefab) {
+        Prefab* prefab = static_cast<Prefab*>(obj);
 
         bool prefab_locked;
         prefab_locked = prefab->prefab_locked;
 
-        if(ImGui::Checkbox("Prefab Locked", &prefab_locked)) {
+        if (ImGui::Checkbox("Prefab Locked", &prefab_locked)) {
             prefab->prefab_locked = prefab_locked;
             prefab->scenegraph_->map_editor->QueueSaveHistoryState();
         }
@@ -948,31 +971,31 @@ static void DrawObjectInfoFlat(Object* obj) {
     bool changed = false;
 
     vec3 translation = obj->GetTranslation();
-    if(ImGui::DragFloat3("Translation", &translation[0], 0.01f) || ImGui::IsItemActive() ){
+    if (ImGui::DragFloat3("Translation", &translation[0], 0.01f) || ImGui::IsItemActive()) {
         obj->SetTranslation(translation);
         changed = true;
     }
 
     vec3 scale = obj->GetScale();
-    if(ImGui::DragFloat3("Scale", &scale[0], 0.01f) || ImGui::IsItemActive()){
+    if (ImGui::DragFloat3("Scale", &scale[0], 0.01f) || ImGui::IsItemActive()) {
         obj->SetScale(scale);
         changed = true;
     }
 
     vec3 euler_angles = obj->GetRotationEuler();
-    euler_angles *= 180.0f / (float) M_PI;
+    euler_angles *= 180.0f / (float)M_PI;
 
-    if(ImGui::DragFloat3("Rotation", &euler_angles[0], 1.0f, 0.0f, 0.0f, "%.0f") || ImGui::IsItemActive()){
-        obj->SetRotationEuler(euler_angles * (float) M_PI / 180.0f);
+    if (ImGui::DragFloat3("Rotation", &euler_angles[0], 1.0f, 0.0f, 0.0f, "%.0f") || ImGui::IsItemActive()) {
+        obj->SetRotationEuler(euler_angles * (float)M_PI / 180.0f);
         changed = true;
     }
 
-    if( ImGui::Button("Reset Rotation") ) {
+    if (ImGui::Button("Reset Rotation")) {
         obj->SetRotation(quaternion());
         changed = true;
     }
 
-    if(changed){
+    if (changed) {
         obj->scenegraph_->UpdatePhysicsTransforms();
         obj->scenegraph_->map_editor->QueueSaveHistoryState();
     }
@@ -980,8 +1003,8 @@ static void DrawObjectInfoFlat(Object* obj) {
     SceneGraph* scenegraph = obj->scenegraph_;
     ImGui::Separator();
     bool show_connections = false;
-    switch(obj->GetType()) {
-        case _movement_object:{
+    switch (obj->GetType()) {
+        case _movement_object: {
             static bool only_named = false;
             ImGui::Text("Connected objects");
             ImGui::Checkbox("Show only named items in available list", &only_named);
@@ -994,32 +1017,32 @@ static void DrawObjectInfoFlat(Object* obj) {
             strcpy(text.data(), "Nothing");
             int item_index = 0;
             int path_point_count = 0;
-            for(auto obj : scenegraph->path_points_) {
-                if(!(only_named && obj->GetName().empty())) {
+            for (auto obj : scenegraph->path_points_) {
+                if (!(only_named && obj->GetName().empty())) {
                     GetDisplayName(obj, text);
-                    if(obj->GetID() == mov->connected_pathpoint_id) {
+                    if (obj->GetID() == mov->connected_pathpoint_id) {
                         item_index = path_point_count + 1;
                     }
                     path_point_count++;
                 }
             }
             int movement_object_count = 0;
-            for(auto obj : scenegraph->movement_objects_) {
-                if(!(only_named && obj->GetName().empty()) && mov->GetID() != obj->GetID()) {
+            for (auto obj : scenegraph->movement_objects_) {
+                if (!(only_named && obj->GetName().empty()) && mov->GetID() != obj->GetID()) {
                     GetDisplayName(obj, text);
-                    if(obj->GetID() == mov->connected_pathpoint_id) {
+                    if (obj->GetID() == mov->connected_pathpoint_id) {
                         item_index = path_point_count + movement_object_count + 1;
                     }
                     movement_object_count++;
                 }
             }
             text.push_back('\0');
-            if(ImGui::Combo("Path object", &item_index, text.data())) {
-                if(item_index == 0 && mov->connected_pathpoint_id != -1) {
+            if (ImGui::Combo("Path object", &item_index, text.data())) {
+                if (item_index == 0 && mov->connected_pathpoint_id != -1) {
                     mov->Disconnect(*scenegraph->GetObjectFromID(mov->connected_pathpoint_id));
                 } else {
                     size_t offset = 0;
-                    for(int i = 0; i < item_index; ++i) {
+                    for (int i = 0; i < item_index; ++i) {
                         offset += strlen(text.data() + offset) + 1;
                     }
                     int id = atoi(text.data() + offset);
@@ -1033,34 +1056,35 @@ static void DrawObjectInfoFlat(Object* obj) {
             PrintConnections(mov, "Sheathe", list, _at_sheathe, false, show_connected, only_named);
             PrintConnections(mov, "Mirrored sheathe", list, _at_sheathe, true, show_connected, only_named);
 
-            if(ImGui::TreeNode("Connected objects")) {
+            if (ImGui::TreeNode("Connected objects")) {
                 show_connections = true;
                 RiggedObject* rig = mov->rigged_object();
-                if(rig && !rig->children.empty()) {
-					if (ImGui::BeginListBox("Attached objects")) {
-						for (auto & i : rig->children) {
-							Object* ptr = i.direct_ptr;
-							char buffer[512];
-							ptr->GetDisplayName(buffer, 512);
-							if (ImGui::Selectable(buffer, false)) {
-								ptr->SetParent(NULL);
-							}
-						}
-						ImGui::EndListBox();
-					}
+                if (rig && !rig->children.empty()) {
+                    if (ImGui::BeginListBox("Attached objects")) {
+                        for (auto& i : rig->children) {
+                            Object* ptr = i.direct_ptr;
+                            char buffer[512];
+                            ptr->GetDisplayName(buffer, 512);
+                            if (ImGui::Selectable(buffer, false)) {
+                                ptr->SetParent(NULL);
+                            }
+                        }
+                        ImGui::EndListBox();
+                    }
                 }
             }
-            break;}
-        case _item_object:{
+            break;
+        }
+        case _item_object: {
             ItemObject* item = (ItemObject*)obj;
             Object* held_by = NULL;
-            if(item->HeldByWhom() != -1) {
+            if (item->HeldByWhom() != -1) {
                 held_by = scenegraph->GetObjectFromID(item->HeldByWhom());
-                if(ImGui::Button("X")) {
+                if (ImGui::Button("X")) {
                     item->Disconnect(*held_by);
                 } else {
                     ImGui::SameLine();
-                    if(held_by->GetName().empty()) {
+                    if (held_by->GetName().empty()) {
                         ImGui::Text("Held by %d", held_by->GetID());
                     } else {
                         ImGui::Text("Held by %d (%s)", held_by->GetID(), held_by->GetName().c_str());
@@ -1069,166 +1093,170 @@ static void DrawObjectInfoFlat(Object* obj) {
             } else {
                 ImGui::Text("Not held by anyone");
             }
-            if(ImGui::TreeNode("Hotspots connected to this")) {
+            if (ImGui::TreeNode("Hotspots connected to this")) {
                 show_connections = true;
             }
-            break;}
-        case _path_point_object:{
+            break;
+        }
+        case _path_point_object: {
             PathPointObject* path_obj = (PathPointObject*)obj;
-			if (ImGui::BeginListBox("Connected")) {
-				for (auto & movement_object : scenegraph->movement_objects_) {
-					MovementObject* mov_obj = (MovementObject*)movement_object;
-					if (mov_obj->connected_pathpoint_id == path_obj->GetID()) {
-						char buffer[512];
-						mov_obj->GetDisplayName(buffer, 512);
-						if (ImGui::Selectable(buffer, false)) {
-							mov_obj->Disconnect(*path_obj);
-						}
-					}
-				}
-				for (size_t i = 0; i < path_obj->connection_ids.size(); i++) {
-					Object* obj = scenegraph->GetObjectFromID(path_obj->connection_ids[i]);
-					char buffer[512];
-					obj->GetDisplayName(buffer, 512);
-					if (ImGui::Selectable(buffer, false)) {
-						path_obj->Disconnect(*obj);
-					}
-				}
-				ImGui::EndListBox();
-			}
-			if (ImGui::BeginListBox("Available characters")) {
-				for (auto & movement_object : scenegraph->movement_objects_) {
-					MovementObject* obj = (MovementObject*)movement_object;
-					if (obj->connected_pathpoint_id != path_obj->GetID()) {
-						char buffer[512];
-						obj->GetDisplayName(buffer, 512);
-						if (ImGui::Selectable(buffer, false)) {
-							obj->ConnectTo(*path_obj);
-						}
-					}
-				}
-				ImGui::EndListBox();
-			}
-            if(ImGui::TreeNode("Hotspots connected to this")) {
+            if (ImGui::BeginListBox("Connected")) {
+                for (auto& movement_object : scenegraph->movement_objects_) {
+                    MovementObject* mov_obj = (MovementObject*)movement_object;
+                    if (mov_obj->connected_pathpoint_id == path_obj->GetID()) {
+                        char buffer[512];
+                        mov_obj->GetDisplayName(buffer, 512);
+                        if (ImGui::Selectable(buffer, false)) {
+                            mov_obj->Disconnect(*path_obj);
+                        }
+                    }
+                }
+                for (size_t i = 0; i < path_obj->connection_ids.size(); i++) {
+                    Object* obj = scenegraph->GetObjectFromID(path_obj->connection_ids[i]);
+                    char buffer[512];
+                    obj->GetDisplayName(buffer, 512);
+                    if (ImGui::Selectable(buffer, false)) {
+                        path_obj->Disconnect(*obj);
+                    }
+                }
+                ImGui::EndListBox();
+            }
+            if (ImGui::BeginListBox("Available characters")) {
+                for (auto& movement_object : scenegraph->movement_objects_) {
+                    MovementObject* obj = (MovementObject*)movement_object;
+                    if (obj->connected_pathpoint_id != path_obj->GetID()) {
+                        char buffer[512];
+                        obj->GetDisplayName(buffer, 512);
+                        if (ImGui::Selectable(buffer, false)) {
+                            obj->ConnectTo(*path_obj);
+                        }
+                    }
+                }
+                ImGui::EndListBox();
+            }
+            if (ImGui::TreeNode("Hotspots connected to this")) {
                 show_connections = true;
             }
-            break;}
-        case _navmesh_connection_object:{
+            break;
+        }
+        case _navmesh_connection_object: {
             static bool only_named = false;
             ImGui::Text("Connected objects");
             ImGui::Checkbox("Show only named items in available list", &only_named);
             static bool show_connected = true;
             ImGui::Checkbox("Show items with connections in available list", &show_connected);
             NavmeshConnectionObject* nav_con = (NavmeshConnectionObject*)obj;
-			if (ImGui::BeginListBox("Connected")) {
-				for (size_t i = 0; i < nav_con->connections.size(); i++) {
-					Object* obj = scenegraph->GetObjectFromID(nav_con->connections[i].other_object_id);
-					char buffer[512];
-					obj->GetDisplayName(buffer, 512);
-					if (ImGui::Selectable(buffer, false)) {
-						nav_con->Disconnect(*obj);
-					}
-				}
-				ImGui::EndListBox();
-			}
-			if (ImGui::BeginListBox("Available")) {
-				for (auto & navmesh_connection : scenegraph->navmesh_connections_) {
-					NavmeshConnectionObject* obj = (NavmeshConnectionObject*)navmesh_connection;
-					if (obj->GetID() == nav_con->GetID()
-						|| (!show_connected && !obj->connections.empty())) {
-						continue;
-					}
-					bool connected = false;
-					for (auto & connection : nav_con->connections) {
-						if (obj->GetID() == connection.other_object_id) {
-							connected = true;
-							break;
-						}
-					}
-					if (!connected && !(only_named && obj->GetName().empty())) {
-						char buffer[512];
-						obj->GetDisplayName(buffer, 512);
-						if (ImGui::Selectable(buffer, false)) {
-							nav_con->ConnectTo(*obj);
-						}
-					}
-				}
-				ImGui::EndListBox();
-			}
-            if(ImGui::TreeNode("Hotspots connected to this")) {
+            if (ImGui::BeginListBox("Connected")) {
+                for (size_t i = 0; i < nav_con->connections.size(); i++) {
+                    Object* obj = scenegraph->GetObjectFromID(nav_con->connections[i].other_object_id);
+                    char buffer[512];
+                    obj->GetDisplayName(buffer, 512);
+                    if (ImGui::Selectable(buffer, false)) {
+                        nav_con->Disconnect(*obj);
+                    }
+                }
+                ImGui::EndListBox();
+            }
+            if (ImGui::BeginListBox("Available")) {
+                for (auto& navmesh_connection : scenegraph->navmesh_connections_) {
+                    NavmeshConnectionObject* obj = (NavmeshConnectionObject*)navmesh_connection;
+                    if (obj->GetID() == nav_con->GetID() || (!show_connected && !obj->connections.empty())) {
+                        continue;
+                    }
+                    bool connected = false;
+                    for (auto& connection : nav_con->connections) {
+                        if (obj->GetID() == connection.other_object_id) {
+                            connected = true;
+                            break;
+                        }
+                    }
+                    if (!connected && !(only_named && obj->GetName().empty())) {
+                        char buffer[512];
+                        obj->GetDisplayName(buffer, 512);
+                        if (ImGui::Selectable(buffer, false)) {
+                            nav_con->ConnectTo(*obj);
+                        }
+                    }
+                }
+                ImGui::EndListBox();
+            }
+            if (ImGui::TreeNode("Hotspots connected to this")) {
                 show_connections = true;
             }
-            break;}
-        case _placeholder_object:{
+            break;
+        }
+        case _placeholder_object: {
             PlaceholderObject* place_obj = (PlaceholderObject*)obj;
             int item_index = 0;
             std::vector<char> text;
             text.reserve(1024);
             text.resize(strlen("Nothing") + 1, '\0');
             strcpy(text.data(), "Nothing");
-            for(size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
+            for (size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
                 MovementObject* mov_obj = (MovementObject*)scenegraph->movement_objects_[i];
                 GetDisplayName(mov_obj, text);
-                if(mov_obj->GetID() == place_obj->GetConnectID()) {
+                if (mov_obj->GetID() == place_obj->GetConnectID()) {
                     item_index = (int)i + 1;
                 }
             }
             text.push_back('\0');
-            if(ImGui::Combo("##setcon", &item_index, text.data())) {
-                if(item_index == 0 && place_obj->GetConnectID() != -1) {
+            if (ImGui::Combo("##setcon", &item_index, text.data())) {
+                if (item_index == 0 && place_obj->GetConnectID() != -1) {
                     place_obj->Disconnect(*scenegraph->GetObjectFromID(place_obj->GetConnectID()));
                 } else {
                     size_t offset = 0;
-                    for(int i = 0; i < item_index; ++i) {
+                    for (int i = 0; i < item_index; ++i) {
                         offset += strlen(text.data() + offset) + 1;
                     }
                     int id = atoi(text.data() + offset);
                     place_obj->ConnectTo(*scenegraph->GetObjectFromID(id));
                 }
             }
-            if(ImGui::TreeNode("Hotspots connected to this")) {
+            if (ImGui::TreeNode("Hotspots connected to this")) {
                 show_connections = true;
             }
-            break;}
-        case _hotspot_object:{
-            if(ImGui::TreeNode("Connected objects")) {
+            break;
+        }
+        case _hotspot_object: {
+            if (ImGui::TreeNode("Connected objects")) {
                 show_connections = true;
             }
-            break;}
+            break;
+        }
         default:
-            if(ImGui::TreeNode("Hotspots connected to this")) {
+            if (ImGui::TreeNode("Hotspots connected to this")) {
                 show_connections = true;
             }
             break;
     }
 
-    if(show_connections) {
-		if (!obj->connected_to.empty()) {
-			if (ImGui::BeginListBox("Hotspots")) {
-				for (size_t i = 0; i < obj->connected_to.size(); ++i) {
-					Object* ptr = scenegraph->GetObjectFromID(obj->connected_to[i]);
-					char buffer[512];
-					ptr->GetDisplayName(buffer, 512);
-					if (ImGui::Selectable(buffer)) {
-						obj->Disconnect(*ptr);
-					}
-				}
-			ImGui::EndListBox();
-			}
+    if (show_connections) {
+        if (!obj->connected_to.empty()) {
+            if (ImGui::BeginListBox("Hotspots")) {
+                for (size_t i = 0; i < obj->connected_to.size(); ++i) {
+                    Object* ptr = scenegraph->GetObjectFromID(obj->connected_to[i]);
+                    char buffer[512];
+                    ptr->GetDisplayName(buffer, 512);
+                    if (ImGui::Selectable(buffer)) {
+                        obj->Disconnect(*ptr);
+                    }
+                }
+                ImGui::EndListBox();
+            }
         }
         ImGui::TreePop();
     }
 
     ImGui::Separator();
     DrawColorPicker(&obj, 1, obj->scenegraph_);
-    if(obj->GetType() == _env_object){
+    if (obj->GetType() == _env_object) {
         EnvObject* eo = (EnvObject*)obj;
         ImGui::Separator();
         ImGui::Checkbox("no_navmesh", &eo->no_navmesh);
     }
 
     ImGui::Separator();
-    if(obj->GetType() == _movement_object) {
+    if (obj->GetType() == _movement_object) {
         MovementObject* mov_obj = (MovementObject*)obj;
         ImGui::Text("NPC control script: %s", mov_obj->GetCurrentControlScript().c_str());
         ImGui::SameLine();
@@ -1237,26 +1265,26 @@ static void DrawObjectInfoFlat(Object* obj) {
             preview_script_name = mov_obj->GetCurrentControlScript();
         }
 
-        if(ImGui::Button("Set NPC script...")) {
+        if (ImGui::Button("Set NPC script...")) {
             const int BUF_SIZE = 512;
             char buffer[BUF_SIZE];
-            Dialog::DialogErr err = Dialog::readFile("as",1,"Data/Scripts", buffer, BUF_SIZE);
-            if( err != Dialog::NO_ERR ){
-                LOGE << Dialog::DialogErrString( err ) << std::endl;
+            Dialog::DialogErr err = Dialog::readFile("as", 1, "Data/Scripts", buffer, BUF_SIZE);
+            if (err != Dialog::NO_ERR) {
+                LOGE << Dialog::DialogErrString(err) << std::endl;
             } else {
-                std::string script_name = SplitPathFileName( buffer ).second;
+                std::string script_name = SplitPathFileName(buffer).second;
                 mov_obj->object_npc_script_path = script_name;
                 mov_obj->ChangeControlScript(script_name);
             }
         }
-        if(!mov_obj->object_npc_script_path.empty()) {
+        if (!mov_obj->object_npc_script_path.empty()) {
             ImGui::SameLine();
-            if(ImGui::Button("Remove control script")) {
+            if (ImGui::Button("Remove control script")) {
                 mov_obj->object_npc_script_path.clear();
                 mov_obj->ChangeControlScript(mov_obj->scenegraph_->level->GetNPCScript(mov_obj));
             }
         }
-        if(mov_obj->is_player) {
+        if (mov_obj->is_player) {
             ImGui::Text("PC control script: %s", mov_obj->scenegraph_->level->GetPCScript(mov_obj).c_str());
             ImGui::SameLine();
             if (ImGui::Button("Preview script##1")) {
@@ -1264,20 +1292,20 @@ static void DrawObjectInfoFlat(Object* obj) {
                 preview_script_name = mov_obj->scenegraph_->level->GetPCScript(mov_obj);
             }
 
-            if(ImGui::Button("Set PC script...")) {
+            if (ImGui::Button("Set PC script...")) {
                 const int BUF_SIZE = 512;
                 char buffer[BUF_SIZE];
-                Dialog::DialogErr err = Dialog::readFile("as",1,"Data/Scripts", buffer, BUF_SIZE);
-                if( err != Dialog::NO_ERR ){
-                    LOGE << Dialog::DialogErrString( err ) << std::endl;
+                Dialog::DialogErr err = Dialog::readFile("as", 1, "Data/Scripts", buffer, BUF_SIZE);
+                if (err != Dialog::NO_ERR) {
+                    LOGE << Dialog::DialogErrString(err) << std::endl;
                 } else {
-                    std::string script_name = SplitPathFileName( buffer ).second;
+                    std::string script_name = SplitPathFileName(buffer).second;
                     mov_obj->object_pc_script_path = script_name;
                 }
             }
-            if(!mov_obj->object_pc_script_path.empty()) {
+            if (!mov_obj->object_pc_script_path.empty()) {
                 ImGui::SameLine();
-                if(ImGui::Button("Remove control script")) {
+                if (ImGui::Button("Remove control script")) {
                     mov_obj->object_pc_script_path.clear();
                 }
             }
@@ -1289,7 +1317,7 @@ static void DrawObjectInfoFlat(Object* obj) {
     DrawLaunchCustomGuiButton(obj, are_script_params_read_only, kSecondLaunchCustomGuiInstanceId);
 
     ImGui::BeginDisabled(are_script_params_read_only);
-    if(DrawScriptParamsEditor(obj->GetScriptParams())){
+    if (DrawScriptParamsEditor(obj->GetScriptParams())) {
         obj->scenegraph_->map_editor->QueueSaveHistoryState();
         obj->UpdateScriptParams();
     }
@@ -1298,14 +1326,14 @@ static void DrawObjectInfoFlat(Object* obj) {
     ImGui::Separator();
     ImGui::Text("Debug");
     ImGui::Text("Selectable: %s", obj->selectable_ ? "true" : "false");
-    if( obj->parent ) {
+    if (obj->parent) {
         ImGui::Text("Parent: %d", obj->parent->GetID());
     } else {
         ImGui::Text("No Parent");
     }
 }
 
-static void DrawObjectInfo(Object* obj, bool force_expand_script_params){
+static void DrawObjectInfo(Object* obj, bool force_expand_script_params) {
     ImGui::Indent(ImGui::GetTreeNodeToLabelSpacing());
     obj->DrawImGuiEditor();
     ImGui::Unindent(ImGui::GetTreeNodeToLabelSpacing());
@@ -1314,26 +1342,26 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params){
     DrawLaunchCustomGuiButton(obj, are_script_params_read_only);
 
     bool temp_enabled = obj->enabled_;
-    if(ImGui::Checkbox("Enabled", &temp_enabled)){
+    if (ImGui::Checkbox("Enabled", &temp_enabled)) {
         obj->SetEnabled(temp_enabled);
     }
 
-    if(ImGui::TreeNode("Name")){
+    if (ImGui::TreeNode("Name")) {
         const size_t name_len = 64;
         char name[name_len];
-        strscpy(name,obj->GetName().c_str(),name_len);
-        if(ImGui::InputText("Name", name, name_len)) {
+        strscpy(name, obj->GetName().c_str(), name_len);
+        if (ImGui::InputText("Name", name, name_len)) {
             obj->SetName(std::string(name));
             obj->scenegraph_->map_editor->QueueSaveHistoryState();
         }
 
-        if( obj->GetType() == _prefab ) {
-            Prefab *prefab = static_cast<Prefab*>(obj);
+        if (obj->GetType() == _prefab) {
+            Prefab* prefab = static_cast<Prefab*>(obj);
 
             bool prefab_locked;
             prefab_locked = prefab->prefab_locked;
 
-            if(ImGui::Checkbox("Prefab Locked", &prefab_locked)) {
+            if (ImGui::Checkbox("Prefab Locked", &prefab_locked)) {
                 prefab->prefab_locked = prefab_locked;
                 prefab->scenegraph_->map_editor->QueueSaveHistoryState();
             }
@@ -1344,61 +1372,61 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params){
         ImGui::TreePop();
     }
 
-    if(ImGui::TreeNode("Transform")){
+    if (ImGui::TreeNode("Transform")) {
         bool changed = false;
 
         vec3 translation = obj->GetTranslation();
-        if(ImGui::DragFloat3("Translation", &translation[0], 0.01f) || ImGui::IsItemActive() ){
+        if (ImGui::DragFloat3("Translation", &translation[0], 0.01f) || ImGui::IsItemActive()) {
             obj->SetTranslation(translation);
             changed = true;
         }
 
         vec3 scale = obj->GetScale();
-        if(ImGui::DragFloat3("Scale", &scale[0], 0.01f) || ImGui::IsItemActive()){
+        if (ImGui::DragFloat3("Scale", &scale[0], 0.01f) || ImGui::IsItemActive()) {
             obj->SetScale(scale);
             changed = true;
         }
 
         vec3 euler_angles = obj->GetRotationEuler();
-        euler_angles *= 180.0f / (float) M_PI;
+        euler_angles *= 180.0f / (float)M_PI;
 
-        if(ImGui::DragFloat3("Rotation", &euler_angles[0], 1.0f, 0.0f, 0.0f, "%.0f") || ImGui::IsItemActive()){
-            obj->SetRotationEuler(euler_angles * (float) M_PI / 180.0f);
+        if (ImGui::DragFloat3("Rotation", &euler_angles[0], 1.0f, 0.0f, 0.0f, "%.0f") || ImGui::IsItemActive()) {
+            obj->SetRotationEuler(euler_angles * (float)M_PI / 180.0f);
             changed = true;
         }
 
-        if( ImGui::Button("Reset Rotation") ) {
+        if (ImGui::Button("Reset Rotation")) {
             obj->SetRotation(quaternion());
             changed = true;
         }
 
-        if(changed){
+        if (changed) {
             obj->scenegraph_->UpdatePhysicsTransforms();
             obj->scenegraph_->map_editor->QueueSaveHistoryState();
         }
 
         ImGui::TreePop();
-    } // Transform
+    }  // Transform
 
-    if(obj->GetType() == _env_object){
+    if (obj->GetType() == _env_object) {
         EnvObject* eo = (EnvObject*)obj;
         vec3 color = eo->GetColorTint();
-        if(ImGui::TreeNode("Tint")){
-            if(ColorPicker(&color[0],NULL,false,false)){
+        if (ImGui::TreeNode("Tint")) {
+            if (ColorPicker(&color[0], NULL, false, false)) {
                 eo->ReceiveObjectMessage(OBJECT_MSG::SET_COLOR, &color);
                 obj->scenegraph_->map_editor->QueueSaveHistoryState();
             }
             ImGui::TreePop();
         }
-        if(ImGui::TreeNode("Flags")) {
+        if (ImGui::TreeNode("Flags")) {
             ImGui::Checkbox("no_navmesh", &eo->no_navmesh);
             ImGui::TreePop();
         }
     }
 
-    if(obj->GetType() == _movement_object){
+    if (obj->GetType() == _movement_object) {
         MovementObject* mo = (MovementObject*)obj;
-        if(ImGui::TreeNode("Color Palette")){
+        if (ImGui::TreeNode("Color Palette")) {
             DrawColorPicker(&obj, 1, obj->scenegraph_);
             ImGui::TreePop();
         }
@@ -1408,11 +1436,11 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params){
         ImGui::SetNextItemOpen(true);
     }
 
-    if(ImGui::TreeNode("Script Params")){
+    if (ImGui::TreeNode("Script Params")) {
         DrawLaunchCustomGuiButton(obj, are_script_params_read_only);
 
         ImGui::BeginDisabled(are_script_params_read_only);
-        if(DrawScriptParamsEditor(obj->GetScriptParams())) {
+        if (DrawScriptParamsEditor(obj->GetScriptParams())) {
             obj->scenegraph_->map_editor->QueueSaveHistoryState();
             obj->UpdateScriptParams();
         }
@@ -1421,9 +1449,9 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params){
         ImGui::TreePop();
     }
 
-    if(ImGui::TreeNode("Debug")){
+    if (ImGui::TreeNode("Debug")) {
         ImGui::Text("Selectable: %s", obj->selectable_ ? "true" : "false");
-        if( obj->parent ) {
+        if (obj->parent) {
             ImGui::Text("Parent: %d", obj->parent->GetID());
         } else {
             ImGui::Text("No Parent");
@@ -1434,46 +1462,43 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params){
 }
 
 static bool IsCharacterSelceted(SpawnerItem* item) {
-	bool return_value = false;
-	if (ImGui::MenuItem(item->display_name.c_str())) { 
-		return_value = true;
-	}
- 
+    bool return_value = false;
+    if (ImGui::MenuItem(item->display_name.c_str())) {
+        return_value = true;
+    }
 
-	if (ImGui::IsItemHovered()) {
-		std::string thumbnail_full_path = item->thumbnail_path;
+    if (ImGui::IsItemHovered()) {
+        std::string thumbnail_full_path = item->thumbnail_path;
 
-		if (thumbnail_full_path != Engine::Instance()->current_spawner_thumbnail) {
-			if (FileExists(thumbnail_full_path, kDataPaths | kModPaths)) {
-				Engine::Instance()->spawner_thumbnail = Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>(thumbnail_full_path, PX_NOMIPMAP | PX_NOREDUCE | PX_NOCONVERT, 0x0);
-			}
-			else {
-				Engine::Instance()->spawner_thumbnail.clear();
-			}
-			Engine::Instance()->current_spawner_thumbnail = thumbnail_full_path;
-		}
+        if (thumbnail_full_path != Engine::Instance()->current_spawner_thumbnail) {
+            if (FileExists(thumbnail_full_path, kDataPaths | kModPaths)) {
+                Engine::Instance()->spawner_thumbnail = Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>(thumbnail_full_path, PX_NOMIPMAP | PX_NOREDUCE | PX_NOCONVERT, 0x0);
+            } else {
+                Engine::Instance()->spawner_thumbnail.clear();
+            }
+            Engine::Instance()->current_spawner_thumbnail = thumbnail_full_path;
+        }
 
-		if (Engine::Instance()->spawner_thumbnail.valid()) {
-			ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.5, 0.5, 1.0, 0.5));
-			ImGui::BeginTooltip();
-			ImGui::PushTextWrapPos(450.0f);
+        if (Engine::Instance()->spawner_thumbnail.valid()) {
+            ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.5, 0.5, 1.0, 0.5));
+            ImGui::BeginTooltip();
+            ImGui::PushTextWrapPos(450.0f);
 
-			Textures::Instance()->EnsureInVRAM(Engine::Instance()->spawner_thumbnail);
-			ImGui::Image((ImTextureID)Textures::Instance()->returnTexture(Engine::Instance()->spawner_thumbnail), ImVec2(128, 128), ImVec2(0, 0), ImVec2(1, 1));
+            Textures::Instance()->EnsureInVRAM(Engine::Instance()->spawner_thumbnail);
+            ImGui::Image((ImTextureID)Textures::Instance()->returnTexture(Engine::Instance()->spawner_thumbnail), ImVec2(128, 128), ImVec2(0, 0), ImVec2(1, 1));
 
-			ImGui::PopTextWrapPos();
-			ImGui::EndTooltip();
-			ImGui::PopStyleColor();
-		}
-	}
-	return return_value;
+            ImGui::PopTextWrapPos();
+            ImGui::EndTooltip();
+            ImGui::PopStyleColor();
+        }
+    }
+    return return_value;
 }
 
 static bool AddSpawnerItem(SpawnerItem* item, SceneGraph* scenegraph) {
     bool return_value = false;
     if (ImGui::MenuItem(item->display_name.c_str())) {
-        if (scenegraph->map_editor->state_ == MapEditor::kIdle
-            && scenegraph->map_editor->LoadEntitiesFromFile(item->path)==0) {
+        if (scenegraph->map_editor->state_ == MapEditor::kIdle && scenegraph->map_editor->LoadEntitiesFromFile(item->path) == 0) {
             scenegraph->level->PushSpawnerItemRecent(*item);
             scenegraph->map_editor->active_tool_ = EditorTypes::ADD_ONCE;
             return_value = true;
@@ -1482,8 +1507,8 @@ static bool AddSpawnerItem(SpawnerItem* item, SceneGraph* scenegraph) {
     if (ImGui::IsItemHovered()) {
         std::string thumbnail_full_path = item->thumbnail_path;
 
-        if( thumbnail_full_path != Engine::Instance()->current_spawner_thumbnail ) {
-            if(FileExists(thumbnail_full_path, kDataPaths | kModPaths)){
+        if (thumbnail_full_path != Engine::Instance()->current_spawner_thumbnail) {
+            if (FileExists(thumbnail_full_path, kDataPaths | kModPaths)) {
                 Engine::Instance()->spawner_thumbnail = Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>(thumbnail_full_path, PX_NOMIPMAP | PX_NOREDUCE | PX_NOCONVERT, 0x0);
             } else {
                 Engine::Instance()->spawner_thumbnail.clear();
@@ -1491,13 +1516,13 @@ static bool AddSpawnerItem(SpawnerItem* item, SceneGraph* scenegraph) {
             Engine::Instance()->current_spawner_thumbnail = thumbnail_full_path;
         }
 
-        if( Engine::Instance()->spawner_thumbnail.valid() ) {
+        if (Engine::Instance()->spawner_thumbnail.valid()) {
             ImGui::PushStyleColor(ImGuiCol_PopupBg, ImVec4(0.5, 0.5, 1.0, 0.5));
             ImGui::BeginTooltip();
             ImGui::PushTextWrapPos(450.0f);
 
             Textures::Instance()->EnsureInVRAM(Engine::Instance()->spawner_thumbnail);
-            ImGui::Image((ImTextureID)Textures::Instance()->returnTexture(Engine::Instance()->spawner_thumbnail), ImVec2(128,128), ImVec2(0,0), ImVec2(1,1));
+            ImGui::Image((ImTextureID)Textures::Instance()->returnTexture(Engine::Instance()->spawner_thumbnail), ImVec2(128, 128), ImVec2(0, 0), ImVec2(1, 1));
 
             ImGui::PopTextWrapPos();
             ImGui::EndTooltip();
@@ -1508,27 +1533,25 @@ static bool AddSpawnerItem(SpawnerItem* item, SceneGraph* scenegraph) {
 }
 
 static void LevelMenuItem(ModInstance::Campaign& campaign, ModInstance::Level& level) {
-	const char* level_name = level.title;
-	const char* level_path = level.path;
-	const char* level_id = level.id;
+    const char* level_name = level.title;
+    const char* level_path = level.path;
+    const char* level_id = level.id;
 
-	if(ImGui::MenuItem(level_name, NULL, false, level_name[0] != '*')) {
-		Engine::Instance()->ScriptableUICallback("set_campaign " + campaign.id.str());
-		Engine::Instance()->ScriptableUICallback("load_campaign_level " + std::string(level_id));
-	}
-	if (ImGui::IsItemHovered()) {
-		ImGui::BeginTooltip();
-		ImGui::PushTextWrapPos(450.0f);
-		ImGui::Text("Path: %s", level_path);
-		ImGui::PopTextWrapPos();
-		ImGui::EndTooltip();
-	}
-
+    if (ImGui::MenuItem(level_name, NULL, false, level_name[0] != '*')) {
+        Engine::Instance()->ScriptableUICallback("set_campaign " + campaign.id.str());
+        Engine::Instance()->ScriptableUICallback("load_campaign_level " + std::string(level_id));
+    }
+    if (ImGui::IsItemHovered()) {
+        ImGui::BeginTooltip();
+        ImGui::PushTextWrapPos(450.0f);
+        ImGui::Text("Path: %s", level_path);
+        ImGui::PopTextWrapPos();
+        ImGui::EndTooltip();
+    }
 }
 
 static void OpenLevelMenu() {
     if (ImGui::BeginMenu("Open")) {
-
         ModLoading& mod_loading = ModLoading::Instance();
 
         std::vector<ModInstance::Campaign> campaigns = mod_loading.GetCampaigns();
@@ -1543,23 +1566,22 @@ static void OpenLevelMenu() {
             }
         }
 
-
         ImGui::EndMenu();
     }
 }
 
 static void OpenRecentMenu() {
     if (ImGui::BeginMenu("Open Recent")) {
-        for(int i=0; i<kMaxLevelHistory; ++i){
+        for (int i = 0; i < kMaxLevelHistory; ++i) {
             const int kBufSize = 128;
             char buf[kBufSize];
-            FormatString(buf, kBufSize, "level_history%d", i+1);
-            if(config.HasKey(buf) && config[buf].str() != ""){
-                if(ImGui::MenuItem(config[buf].str().c_str())){
-                    if(FileExists(config[buf].str(),kAnyPath)) {
+            FormatString(buf, kBufSize, "level_history%d", i + 1);
+            if (config.HasKey(buf) && config[buf].str() != "") {
+                if (ImGui::MenuItem(config[buf].str().c_str())) {
+                    if (FileExists(config[buf].str(), kAnyPath)) {
                         LevelInfoAssetRef levelinfo = Engine::Instance()->GetAssetManager()->LoadSync<LevelInfoAsset>(config[buf].str());
-                        Path p = FindFilePath(config[buf].str(),kAnyPath);
-                        Engine::Instance()->QueueState(EngineState(levelinfo->GetName(),kEngineEditorLevelState, p));
+                        Path p = FindFilePath(config[buf].str(), kAnyPath);
+                        Engine::Instance()->QueueState(EngineState(levelinfo->GetName(), kEngineEditorLevelState, p));
                     } else {
                         LOGE << "Level missing: " << config[buf].str() << std::endl;
                     }
@@ -1572,16 +1594,16 @@ static void OpenRecentMenu() {
 
 static bool TreeScenegraphElementVisible(Object* obj, Object* root, char* buf) {
     const int kBufSize = 512;
-    if((show_named_only_scenegraph == false || obj->GetName().empty() == false) && obj->selectable_) {
-        if( obj->parent == root ) {
+    if ((show_named_only_scenegraph == false || obj->GetName().empty() == false) && obj->selectable_) {
+        if (obj->parent == root) {
             obj->GetDisplayName(buf, kBufSize);
-            if (scenegraph_filter.IsActive() && !scenegraph_filter.PassFilter( buf )){
-                if(search_children_scenegraph && obj->IsGroupDerived()) {
+            if (scenegraph_filter.IsActive() && !scenegraph_filter.PassFilter(buf)) {
+                if (search_children_scenegraph && obj->IsGroupDerived()) {
                     char child_buf[kBufSize];
                     Group* group = static_cast<Group*>(obj);
-                    for(auto & i : group->children) {
+                    for (auto& i : group->children) {
                         i.direct_ptr->GetDisplayName(child_buf, kBufSize);
-                        if(scenegraph_filter.PassFilter( child_buf )) {
+                        if (scenegraph_filter.PassFilter(child_buf)) {
                             return true;
                         }
                     }
@@ -1596,25 +1618,25 @@ static bool TreeScenegraphElementVisible(Object* obj, Object* root, char* buf) {
 
     return false;
 }
-static void DrawTreeScenegraphFor( SceneGraph* scenegraph, GUI* gui, Object* root );
+static void DrawTreeScenegraphFor(SceneGraph* scenegraph, GUI* gui, Object* root);
 
-static void DrawTreeScenegraphElement( SceneGraph* scenegraph, GUI* gui, Object* parent, Object* obj, int index, bool force ) {
+static void DrawTreeScenegraphElement(SceneGraph* scenegraph, GUI* gui, Object* parent, Object* obj, int index, bool force) {
     static bool select_elements;
 
     const int kBufSize = 512;
     char buf[kBufSize];
-    if(!force) {
-        if(!TreeScenegraphElementVisible(obj, parent, buf))
+    if (!force) {
+        if (!TreeScenegraphElementVisible(obj, parent, buf))
             return;
     } else {
         obj->GetDisplayName(buf, kBufSize);
     }
 
     ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-    if(obj->Selected()) {
+    if (obj->Selected()) {
         node_flags |= ImGuiTreeNodeFlags_Selected;
     }
-    if(obj->GetType() != _group && obj->GetType() != _prefab) {
+    if (obj->GetType() != _group && obj->GetType() != _prefab) {
         node_flags |= ImGuiTreeNodeFlags_Leaf;
     }
     ImGui::PushID(obj->GetID());
@@ -1628,8 +1650,8 @@ static void DrawTreeScenegraphElement( SceneGraph* scenegraph, GUI* gui, Object*
 
         const Keyboard& keyboard = Input::Instance()->getKeyboard();
 
-        if(ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_LShift)) || ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_RShift))) {
-            if(select_start_index == -1) {
+        if (ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_LShift)) || ImGui::IsKeyDown(ImGui::GetKeyIndex(ImGuiKey_RShift))) {
+            if (select_start_index == -1) {
                 select_start_index = index;
                 select_elements = obj->Selected();
             } else {
@@ -1638,11 +1660,11 @@ static void DrawTreeScenegraphElement( SceneGraph* scenegraph, GUI* gui, Object*
                 int low_index = std::min(select_start_index, index);
                 int high_index = std::max(select_start_index, index);
 
-                for(int j=0, len=(int)scenegraph->objects_.size(); j<len; ++j) {
+                for (int j = 0, len = (int)scenegraph->objects_.size(); j < len; ++j) {
                     Object* temp_obj = scenegraph->objects_[j];
-                    if(TreeScenegraphElementVisible(temp_obj, parent, temp_buf)) {
-                        if(j >= low_index && j <= high_index) {
-                            if(temp_obj->Selected() != select_elements)
+                    if (TreeScenegraphElementVisible(temp_obj, parent, temp_buf)) {
+                        if (j >= low_index && j <= high_index) {
+                            if (temp_obj->Selected() != select_elements)
                                 temp_obj->Select(select_elements);
                         }
                     }
@@ -1661,72 +1683,72 @@ static void DrawTreeScenegraphElement( SceneGraph* scenegraph, GUI* gui, Object*
     }
 }
 
-static void DrawTreeScenegraphFor( SceneGraph* scenegraph, GUI* gui, Object* root ) {
-    if(root && root->IsGroupDerived()) {
+static void DrawTreeScenegraphFor(SceneGraph* scenegraph, GUI* gui, Object* root) {
+    if (root && root->IsGroupDerived()) {
         Group* group = static_cast<Group*>(root);
-        for(int i=0, len=(int)group->children.size(); i<len; ++i){
+        for (int i = 0, len = (int)group->children.size(); i < len; ++i) {
             DrawTreeScenegraphElement(scenegraph, gui, root, group->children[i].direct_ptr, i, true);
         }
     } else {
-        for(int i=0, len=(int)scenegraph->objects_.size(); i<len; ++i){
+        for (int i = 0, len = (int)scenegraph->objects_.size(); i < len; ++i) {
             DrawTreeScenegraphElement(scenegraph, gui, root, scenegraph->objects_[i], i, false);
         }
     }
 }
 
-static void FindFaces( const Model &model, const WOLFIRE_SIMPLIFY::SimplifyModel& processed_model, const std::vector<HalfEdge>& half_edges,  std::vector<int>& half_edge_face, std::vector<int>& face_vert_equivalent ) {
+static void FindFaces(const Model& model, const WOLFIRE_SIMPLIFY::SimplifyModel& processed_model, const std::vector<HalfEdge>& half_edges, std::vector<int>& half_edge_face, std::vector<int>& face_vert_equivalent) {
     std::vector<VertSortable> face_vert_sortable;
-    face_vert_sortable.resize(model.vertices.size()/3);
-    for(int vert_index=0, vert_id=0, len=(int)model.vertices.size(); vert_index<len; ++vert_id, vert_index += 3){
+    face_vert_sortable.resize(model.vertices.size() / 3);
+    for (int vert_index = 0, vert_id = 0, len = (int)model.vertices.size(); vert_index < len; ++vert_id, vert_index += 3) {
         face_vert_sortable[vert_id].id = vert_id;
         memcpy(&face_vert_sortable[vert_id].vert, &model.vertices[vert_index], sizeof(vec3));
     }
     std::vector<VertSortable> processed_vert_sortable;
-    processed_vert_sortable.resize(processed_model.vertices.size()/3);
-    for(int vert_index=0, vert_id=0, len=(int)processed_model.vertices.size(); vert_index<len; ++vert_id, vert_index += 3){
+    processed_vert_sortable.resize(processed_model.vertices.size() / 3);
+    for (int vert_index = 0, vert_id = 0, len = (int)processed_model.vertices.size(); vert_index < len; ++vert_id, vert_index += 3) {
         processed_vert_sortable[vert_id].id = vert_id;
         memcpy(&processed_vert_sortable[vert_id].vert, &processed_model.vertices[vert_index], sizeof(vec3));
     }
     std::sort(face_vert_sortable.begin(), face_vert_sortable.end(), SortVertSortable);
     std::sort(processed_vert_sortable.begin(), processed_vert_sortable.end(), SortVertSortable);
     face_vert_equivalent.resize(face_vert_sortable.size(), -1);
-    unsigned processed_vert_index=0;
-    for(size_t i=0, len=face_vert_equivalent.size(); i<len;){
-        if(face_vert_sortable[i].vert == processed_vert_sortable[processed_vert_index].vert){
+    unsigned processed_vert_index = 0;
+    for (size_t i = 0, len = face_vert_equivalent.size(); i < len;) {
+        if (face_vert_sortable[i].vert == processed_vert_sortable[processed_vert_index].vert) {
             face_vert_equivalent[face_vert_sortable[i].id] = processed_vert_sortable[processed_vert_index].id;
             ++i;
         } else {
             ++processed_vert_index;
         }
-        if(processed_vert_index >= processed_vert_sortable.size()){
+        if (processed_vert_index >= processed_vert_sortable.size()) {
             break;
         }
     }
 
     std::vector<EdgeSortable> face_edge_sortable;
     face_edge_sortable.resize(model.faces.size());
-    for(int face_index=0, face_id=0, len=(int)model.faces.size(); face_index<len; ++face_id, face_index += 3){
-        for(int i=0; i<3; ++i){
-            face_edge_sortable[face_index+i].id = face_id;
-            face_edge_sortable[face_index+i].verts[0] = face_vert_equivalent[model.faces[face_index+i]];
-            face_edge_sortable[face_index+i].verts[1] = face_vert_equivalent[model.faces[face_index+((i+1)%3)]];
+    for (int face_index = 0, face_id = 0, len = (int)model.faces.size(); face_index < len; ++face_id, face_index += 3) {
+        for (int i = 0; i < 3; ++i) {
+            face_edge_sortable[face_index + i].id = face_id;
+            face_edge_sortable[face_index + i].verts[0] = face_vert_equivalent[model.faces[face_index + i]];
+            face_edge_sortable[face_index + i].verts[1] = face_vert_equivalent[model.faces[face_index + ((i + 1) % 3)]];
         }
     }
     std::vector<EdgeSortable> half_edge_sortable;
     half_edge_sortable.resize(half_edges.size());
-    for(int half_edge_id=0, len=(int)half_edges.size(); half_edge_id<len; ++half_edge_id){
+    for (int half_edge_id = 0, len = (int)half_edges.size(); half_edge_id < len; ++half_edge_id) {
         half_edge_sortable[half_edge_id].id = half_edge_id;
-        for(int i=0; i<2; ++i){
+        for (int i = 0; i < 2; ++i) {
             half_edge_sortable[half_edge_id].verts[i] = half_edges[half_edge_id].vert[i];
         }
     }
     std::sort(face_edge_sortable.begin(), face_edge_sortable.end(), SortEdgeSortable);
     std::sort(half_edge_sortable.begin(), half_edge_sortable.end(), SortEdgeSortable);
     half_edge_face.resize(half_edges.size(), -1);
-    unsigned face_index=0;
-    for(size_t i=0, len=half_edges.size(); i<len;){
-        if(half_edge_sortable[i].verts[0] == face_edge_sortable[face_index].verts[0]){
-            if(half_edge_sortable[i].verts[1] == face_edge_sortable[face_index].verts[1]){
+    unsigned face_index = 0;
+    for (size_t i = 0, len = half_edges.size(); i < len;) {
+        if (half_edge_sortable[i].verts[0] == face_edge_sortable[face_index].verts[0]) {
+            if (half_edge_sortable[i].verts[1] == face_edge_sortable[face_index].verts[1]) {
                 half_edge_face[half_edge_sortable[i].id] = face_edge_sortable[face_index].id;
                 ++i;
             } else {
@@ -1735,18 +1757,18 @@ static void FindFaces( const Model &model, const WOLFIRE_SIMPLIFY::SimplifyModel
         } else {
             ++face_index;
         }
-        if(face_index >= face_edge_sortable.size()){
+        if (face_index >= face_edge_sortable.size()) {
             break;
         }
     }
 }
 
-static int LogWindowCallback(ImGuiInputTextCallbackData *data) {
-   uint32_t* selection_out = static_cast<uint32_t*>(data->UserData);
+static int LogWindowCallback(ImGuiInputTextCallbackData* data) {
+    uint32_t* selection_out = static_cast<uint32_t*>(data->UserData);
 
-   selection_out[0] = data->SelectionStart;
-   selection_out[1] = data->SelectionEnd;
-   return 0;
+    selection_out[0] = data->SelectionStart;
+    selection_out[1] = data->SelectionEnd;
+    return 0;
 }
 
 static void ParseSpawner() {
@@ -1754,13 +1776,13 @@ static void ParseSpawner() {
 
     const std::vector<ModInstance*>& mods = ModLoading::Instance().GetMods();
 
-    for(auto mod : mods) {
-        if( mod->IsActive() ) {
-            for( unsigned u = 0; u < mod->items.size(); u++ ) {
+    for (auto mod : mods) {
+        if (mod->IsActive()) {
+            for (unsigned u = 0; u < mod->items.size(); u++) {
                 const ModInstance::Item& item = mod->items[u];
 
                 SpawnerTab* spawner_tab_ptr = &spawner_tabs[std::string(item.category)];
-                spawner_tab_ptr->resize(spawner_tab_ptr->size()+1);
+                spawner_tab_ptr->resize(spawner_tab_ptr->size() + 1);
 
                 SpawnerItem* new_item = &spawner_tab_ptr->back();
 
@@ -1776,8 +1798,8 @@ static void ParseSpawner() {
 }
 
 void InitImGui() {
-	ImGui::CreateContext();
-	ImPlot::CreateContext();
+    ImGui::CreateContext();
+    ImPlot::CreateContext();
     ImGui_ImplSdlGL3_Init(Graphics::Instance()->sdl_window_);
     FormatString(imgui_ini_path, kPathSize, "%simgui.ini", GetWritePath(CoreGameModID).c_str());
 
@@ -1789,7 +1811,7 @@ void InitImGui() {
 }
 
 void UpdateImGui() {
-    if( run_parse_spawner_flag ) {
+    if (run_parse_spawner_flag) {
         ParseSpawner();
         run_parse_spawner_flag = false;
     }
@@ -1807,11 +1829,11 @@ void ProcessEventImGui(SDL_Event* event) {
     ImGui_ImplSdlGL3_ProcessEvent(event);
 }
 
-void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph_ ,Graphics* graphics ) {
+void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph_, Graphics* graphics) {
     Object* cam_object = scenegraph_->map_editor->GetSelectedCameraObject();
-    if(cam_object && (!graphics->queued_screenshot || cam_object->Selected()) && ActiveCameras::Instance()->Get()->GetFlags() != Camera::kPreviewCamera){
+    if (cam_object && (!graphics->queued_screenshot || cam_object->Selected()) && ActiveCameras::Instance()->Get()->GetFlags() != Camera::kPreviewCamera) {
         ImGui::SetNextWindowSizeConstraints(ImVec2(320.0f, 240.0f), ImVec2(FLT_MAX, FLT_MAX));
-        if (ImGui::Begin("Camera Preview", NULL, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoFocusOnAppearing)){
+        if (ImGui::Begin("Camera Preview", NULL, ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoFocusOnAppearing)) {
             PushGPUProfileRange("Draw in-game camera");
             bool media_mode = graphics->media_mode();
             graphics->SetMediaMode(true);
@@ -1825,12 +1847,11 @@ void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph_ ,Graphics* g
                 ImVec2 window_content_max = ImGui::GetWindowContentRegionMax();
                 top_left[0] = pos.x + window_content_min.x;
                 top_left[1] = pos.y + window_content_min.y;
-                bottom_right[0] = pos.x+window_content_max.x;
-                bottom_right[1] = pos.y+window_content_max.y;
+                bottom_right[0] = pos.x + window_content_max.x;
+                bottom_right[1] = pos.y + window_content_max.y;
             }
-            if(bottom_right[0] > top_left[0] && bottom_right[1] > top_left[1]) {
+            if (bottom_right[0] > top_left[0] && bottom_right[1] > top_left[1]) {
                 {
-
                     ImVec2 size(bottom_right[0] - top_left[0], bottom_right[1] - top_left[1]);
                     ImVec2 uv0(top_left[0] / graphics->render_dims[0], 1.0f - top_left[1] / graphics->render_dims[1]);
                     ImVec2 uv1(bottom_right[0] / graphics->render_dims[0], 1.0f - bottom_right[1] / graphics->render_dims[1]);
@@ -1845,7 +1866,7 @@ void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph_ ,Graphics* g
                 bottom_right[1] = 1.0f - bottom_right[1];
                 std::swap(top_left[1], bottom_right[1]);
 
-                if(graphics->queued_screenshot && cam_object->Selected()) {
+                if (graphics->queued_screenshot && cam_object->Selected()) {
                     top_left[0] = 0.0f;
                     top_left[1] = 0.0f;
                     bottom_right[0] = 1.0f;
@@ -1858,33 +1879,33 @@ void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph_ ,Graphics* g
                 engine->active_screen_end[1] = clamp(bottom_right[1], 0.0f, 1.0f);
 
                 graphics->startDraw(vec2(top_left[0], top_left[1]),
-                    vec2(bottom_right[0], bottom_right[1]),
-                    Graphics::kWindow);
+                                    vec2(bottom_right[0], bottom_right[1]),
+                                    Graphics::kWindow);
                 ActiveCameras::Set(2);
                 ActiveCameras::Get()->SetFlags(Camera::kPreviewCamera);
 
                 // Apply camera object settings to camera
                 Camera* camera = ActiveCameras::Instance()->Get();
 
-                //static Camera prev_camera = *camera;
-                //LOGI << "First camera diff" << std::endl;
-                //camera->PrintDifferences(prev_camera);
-                //prev_camera = *camera;
+                // static Camera prev_camera = *camera;
+                // LOGI << "First camera diff" << std::endl;
+                // camera->PrintDifferences(prev_camera);
+                // prev_camera = *camera;
 
                 // Set camera position
                 camera->SetPos(cam_object->GetTranslation());
                 // Set camera euler angles from rotation matrix
-                const mat4 &rot = Mat4FromQuaternion(cam_object->GetRotation());
-                vec3 front = rot * vec3(0,0,1);
-                camera->SetYRotation(atan2f(front[0], front[2])*180.0f/PI_f);
-                camera->SetXRotation(asinf(front[1])*-180.0f/PI_f);
-                vec3 up = rot * vec3(0,1,0);
-                vec3 expected_right = normalize(cross(front, vec3(0,1,0)));
+                const mat4& rot = Mat4FromQuaternion(cam_object->GetRotation());
+                vec3 front = rot * vec3(0, 0, 1);
+                camera->SetYRotation(atan2f(front[0], front[2]) * 180.0f / PI_f);
+                camera->SetXRotation(asinf(front[1]) * -180.0f / PI_f);
+                vec3 up = rot * vec3(0, 1, 0);
+                vec3 expected_right = normalize(cross(front, vec3(0, 1, 0)));
                 vec3 expected_up = normalize(cross(expected_right, front));
-                camera->SetZRotation(atan2f(dot(up,expected_right), dot(up, expected_up))*180.0f/PI_f);
+                camera->SetZRotation(atan2f(dot(up, expected_right), dot(up, expected_up)) * 180.0f / PI_f);
                 // Set camera zoom from scale
                 const float zoom_sensitivity = 3.5f;
-                camera->SetFOV(min(150.0f, 90.0f / max(0.001f,(1.0f+(cam_object->GetScale()[0]-1.0f)*zoom_sensitivity))));
+                camera->SetFOV(min(150.0f, 90.0f / max(0.001f, (1.0f + (cam_object->GetScale()[0] - 1.0f) * zoom_sensitivity))));
                 camera->SetDistance(0.0f);
 
                 scenegraph_->level->Message("request_preview_dof");
@@ -1892,7 +1913,7 @@ void DrawImGuiCameraPreview(Engine* engine, SceneGraph* scenegraph_ ,Graphics* g
                 // Draw view
                 engine->DrawScene(Engine::kViewport, Engine::kFinal, SceneGraph::kStaticAndDynamic);
 
-                if(!graphics->queued_screenshot){
+                if (!graphics->queued_screenshot) {
                     camera->DrawSafeZone();
                 }
 
@@ -1924,38 +1945,40 @@ bool DrawBrowsePath(const char* label, const char* current_path, const char* ext
     bool change = false;
     ImGui::PushID(label);
     char path_buffer[kPathSize];
-    if(ImGui::Button("Browse...")) {
+    if (ImGui::Button("Browse...")) {
         Dialog::DialogErr err = Dialog::readFile(extensions, extension_count, start_dir ? start_dir : "Data", path_buffer, kPathSize);
-        if( err != Dialog::NO_ERR ){
-            LOGE << Dialog::DialogErrString( err ) << std::endl;
+        if (err != Dialog::NO_ERR) {
+            LOGE << Dialog::DialogErrString(err) << std::endl;
         } else {
             change = true;
         }
     } else {
         int copy = strscpy(path_buffer, current_path, kPathSize);
-        if(copy != 0 && copy != SOURCE_IS_NULL) {
-            LOGE << "Path is too long for buffer. Contact developers and attach log file\n" << GenerateStacktrace() << std::endl;
+        if (copy != 0 && copy != SOURCE_IS_NULL) {
+            LOGE << "Path is too long for buffer. Contact developers and attach log file\n"
+                 << GenerateStacktrace() << std::endl;
             LOGE << "Path is " << current_path << std::endl;
         }
         assert(copy == 0 || copy == SOURCE_IS_NULL);
     }
     ImGui::SameLine();
-    if(ImGui::InputText(label, path_buffer, kPathSize, ImGuiInputTextFlags_EnterReturnsTrue)) {
+    if (ImGui::InputText(label, path_buffer, kPathSize, ImGuiInputTextFlags_EnterReturnsTrue)) {
         change = true;
     }
-    if(change) {
+    if (change) {
         const char* data = strstr(path_buffer, "Data/");
-        if(!data) {
+        if (!data) {
             DisplayError("Error", "Path must include 'Data' folder");
             change = false;
         } else {
-            if(!FindFilePath(data, kDataPaths | kModPaths, false).isValid()) {
+            if (!FindFilePath(data, kDataPaths | kModPaths, false).isValid()) {
                 DisplayError("Error", "Path must be inside Overgrowth data directory");
                 change = false;
             } else {
                 int copy = strscpy(out_buffer, data, out_buffer_size);
-                if(copy != 0 && copy != SOURCE_IS_NULL) {
-                    LOGE << "Path is too long for buffer. Contact developers and attach log file\n" << GenerateStacktrace() << std::endl;
+                if (copy != 0 && copy != SOURCE_IS_NULL) {
+                    LOGE << "Path is too long for buffer. Contact developers and attach log file\n"
+                         << GenerateStacktrace() << std::endl;
                     LOGE << "Path is " << current_path << std::endl;
                 }
                 assert(copy == 0 || copy == SOURCE_IS_NULL);
@@ -1975,10 +1998,10 @@ static void ResizeCallback(ImGuiSizeCallbackData* data) {
     float increase_x = (data->CurrentSize.x - last_x) * 0.1f;
     float increase_y = (max_height - last_y) * 0.1f;
 
-    if(increase_x < 1.0f && increase_x > -1.0f) {
+    if (increase_x < 1.0f && increase_x > -1.0f) {
         increase_x = data->CurrentSize.x - last_x;
     }
-    if(increase_y < 1.0f && increase_y > -1.0f) {
+    if (increase_y < 1.0f && increase_y > -1.0f) {
         increase_y = max_height - last_y;
     }
 
@@ -1989,18 +2012,18 @@ static void ResizeCallback(ImGuiSizeCallbackData* data) {
 }
 
 void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManager* assetmanager, Engine* engine, bool cursor_visible) {
-	Online* online = Online::Instance();
+    Online* online = Online::Instance();
 
     ImGui::GetIO().FontGlobalScale = imgui_scale;
     ImGui_ImplSdlGL3_NewFrame(graphics->sdl_window_, Input::Instance()->GetGrabMouse());
     ImGui::GetIO().MouseDrawCursor = cursor_visible;
 
-    if(engine->check_save_level_changes_dialog_is_showing) {
+    if (engine->check_save_level_changes_dialog_is_showing) {
         bool dialog_finished = false;
         bool execute_save = false;
         bool continue_action = false;
 
-        if( false == scenegraph->map_editor->WasLastSaveOnCurrentUndoChunk() || scenegraph->level->isMetaDataDirty() ){
+        if (false == scenegraph->map_editor->WasLastSaveOnCurrentUndoChunk() || scenegraph->level->isMetaDataDirty()) {
             ImGui::OpenPopup("Check Save Changes");
 
             ImVec2 center(ImGui::GetIO().DisplaySize.x * 0.5f, ImGui::GetIO().DisplaySize.y * 0.5f);
@@ -2010,16 +2033,32 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                 ImGui::Text("Save changes to the level before closing it?");
                 ImGui::Separator();
 
-                if(ImGui::Button("Yes", ImVec2(120, 0))) { ImGui::CloseCurrentPopup(); continue_action = true; execute_save = true; dialog_finished = true; }
+                if (ImGui::Button("Yes", ImVec2(120, 0))) {
+                    ImGui::CloseCurrentPopup();
+                    continue_action = true;
+                    execute_save = true;
+                    dialog_finished = true;
+                }
                 ImGui::SetItemDefaultFocus();
 
                 ImGui::SameLine();
-                if(ImGui::Button("No", ImVec2(120, 0))) { ImGui::CloseCurrentPopup(); continue_action = true; execute_save = false; dialog_finished = true; }
+                if (ImGui::Button("No", ImVec2(120, 0))) {
+                    ImGui::CloseCurrentPopup();
+                    continue_action = true;
+                    execute_save = false;
+                    dialog_finished = true;
+                }
 
                 ImGui::SameLine();
-                if(ImGui::Button("Cancel", ImVec2(120, 0))) { ImGui::CloseCurrentPopup(); dialog_finished = true; }
+                if (ImGui::Button("Cancel", ImVec2(120, 0))) {
+                    ImGui::CloseCurrentPopup();
+                    dialog_finished = true;
+                }
 
-                if(ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Escape))) { ImGui::CloseCurrentPopup(); dialog_finished = true; }
+                if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Escape))) {
+                    ImGui::CloseCurrentPopup();
+                    dialog_finished = true;
+                }
 
                 ImGui::EndPopup();
             } else {
@@ -2032,8 +2071,8 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
             dialog_finished = true;
         }
 
-        if(dialog_finished) {
-            if(execute_save) {
+        if (dialog_finished) {
+            if (execute_save) {
                 scenegraph->map_editor->ExecuteSaveLevelChanges();
             }
 
@@ -2046,16 +2085,16 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
     }
 
     const bool kDisplayKeys = false;
-    if(kDisplayKeys){
+    if (kDisplayKeys) {
         {
             const int kBufSize = 256;
             char buf[kBufSize] = {'\0'};
             FormatString(buf, kBufSize, "Keys(ImGui): ");
             char temp[kBufSize];
-            for(int i=0; i<512; ++i){
-                if(ImGui::IsKeyDown(i)){
+            for (int i = 0; i < 512; ++i) {
+                if (ImGui::IsKeyDown(i)) {
                     int val = i;
-                    if(val > SDLK_z){
+                    if (val > SDLK_z) {
                         val = val + SDLK_CAPSLOCK - 1 - SDLK_z;
                     }
                     FormatString(temp, kBufSize, "%s%s ", buf, SDLKeycodeToString(val));
@@ -2071,8 +2110,8 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
             char temp[kBufSize];
             FormatString(buf, kBufSize, "Keys(game): ");
             Keyboard::KeyStatusMap* keys = &Input::Instance()->getKeyboard().keys;
-            for(auto & key : *keys){
-                if(key.second.down){
+            for (auto& key : *keys) {
+                if (key.second.down) {
                     FormatString(temp, kBufSize, "%s%s ", buf, SDLKeycodeToString(key.first));
                     FormatString(buf, kBufSize, "%s", temp);
                 }
@@ -2081,19 +2120,17 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
         }
     }
 
-    if(!scenegraph || scenegraph->map_editor->state_ != MapEditor::kInGame){
-        if (ImGui::BeginMainMenuBar())
-        {
-            if(!scenegraph){
-                if (ImGui::BeginMenu("File"))
-                {
+    if (!scenegraph || scenegraph->map_editor->state_ != MapEditor::kInGame) {
+        if (ImGui::BeginMainMenuBar()) {
+            if (!scenegraph) {
+                if (ImGui::BeginMenu("File")) {
                     if (ImGui::MenuItem("New Level", KeyCommand::GetDisplayText(KeyCommand::kNewLevel))) {
                         Engine::NewLevel();
                     }
                     if (ImGui::MenuItem("Open Level...", KeyCommand::GetDisplayText(KeyCommand::kOpenLevel))) {
                         LoadLevel(false);
                     }
-                    if(ImGui::MenuItem("Open Local Level...", "")) {
+                    if (ImGui::MenuItem("Open Local Level...", "")) {
                         LoadLevel(true);
                     }
                     OpenLevelMenu();
@@ -2109,7 +2146,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::EndMenu();
                 }
             }
-            if(scenegraph){
+            if (scenegraph) {
                 MapEditor* me = scenegraph->map_editor;
 
                 // TODO: only enable items that are relevant to what we can do now
@@ -2138,8 +2175,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     SetBit(ribbon_toggle, RibbonGUI::view_nav_mesh_jump_nodes, type_enable_.IsTypeEnabled( _navmesh_connection_object ));
                 }
                 */
-                if (ImGui::BeginMenu("File"))
-                {
+                if (ImGui::BeginMenu("File")) {
                     if (ImGui::MenuItem("New Level", KeyCommand::GetDisplayText(KeyCommand::kNewLevel))) {
                         Engine::NewLevel();
                     }
@@ -2160,7 +2196,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
 
                     ImGui::Separator();
                     if (ImGui::MenuItem("Back to main menu")) {
-                        if(scenegraph){
+                        if (scenegraph) {
                             Engine::Instance()->ScriptableUICallback("back_to_main_menu");
                         }
                     }
@@ -2170,8 +2206,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::EndMenu();
                 }
 
-                if (ImGui::BeginMenu("Edit"))
-                {
+                if (ImGui::BeginMenu("Edit")) {
                     if (ImGui::MenuItem("Undo", KeyCommand::GetDisplayText(KeyCommand::kUndo), false, !me->GetTerrainPreviewMode())) {
                         me->Undo();
                     }
@@ -2198,46 +2233,45 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     }
                     ImGui::Separator();
 
-                    if(ImGui_TooltipMenuItem("Reload All Prefabs", NULL, "Reload all prefabs from their source file, assuming they are locked")) {
+                    if (ImGui_TooltipMenuItem("Reload All Prefabs", NULL, "Reload all prefabs from their source file, assuming they are locked")) {
                         me->ReloadAllPrefabs();
                     }
                     ImGui::Separator();
 
-                    if(ImGui::MenuItem("Set Level Params...")) {
+                    if (ImGui::MenuItem("Set Level Params...")) {
                         show_scenegraph = true;
                         select_scenegraph_level_params = true;
                     }
-                    if(ImGui::MenuItem("Set Level Script...")){
+                    if (ImGui::MenuItem("Set Level Script...")) {
                         me->RibbonItemClicked("level_script", true);
                     }
-                    if(ImGui::MenuItem("Set Sky Texture...")){
+                    if (ImGui::MenuItem("Set Sky Texture...")) {
                         Input::Instance()->ignore_mouse_frame = true;
                         const int BUF_SIZE = 512;
                         char buffer[BUF_SIZE];
 
                         // Display a file dialog to the user
-                        Dialog::DialogErr err = Dialog::readFile("tga\0png\0jpg\0dds", 4,"Data/Textures/skies/", buffer, BUF_SIZE);
-                        if( err != Dialog::NO_ERR ){
-                            LOGE << Dialog::DialogErrString( err ) << std::endl;
+                        Dialog::DialogErr err = Dialog::readFile("tga\0png\0jpg\0dds", 4, "Data/Textures/skies/", buffer, BUF_SIZE);
+                        if (err != Dialog::NO_ERR) {
+                            LOGE << Dialog::DialogErrString(err) << std::endl;
                         } else {
                             const char* find_str[2] = {"data/", "DATA\\"};
                             int found_match = -1;
-                            for(size_t i=0, len=strlen(buffer); i<len-5; ++i){
+                            for (size_t i = 0, len = strlen(buffer); i < len - 5; ++i) {
                                 bool match = true;
-                                for(size_t j=0; j<5; ++j){
-                                    if(buffer[i+j] != find_str[0][j] &&
-                                       buffer[i+j] != find_str[1][j] )
-                                    {
+                                for (size_t j = 0; j < 5; ++j) {
+                                    if (buffer[i + j] != find_str[0][j] &&
+                                        buffer[i + j] != find_str[1][j]) {
                                         match = false;
                                         break;
                                     }
                                 }
-                                if(match){
+                                if (match) {
                                     found_match = (int)i;
                                     break;
                                 }
                             }
-                            if(found_match != -1){
+                            if (found_match != -1) {
                                 scenegraph->sky->dome_texture_name = &buffer[found_match];
                                 scenegraph->sky->LightingChanged(scenegraph->terrain_object_ != NULL);
                             } else {
@@ -2245,91 +2279,91 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                             }
                         }
                     }
-                    if(ImGui::MenuItem("Set Player Control Script...")){
+                    if (ImGui::MenuItem("Set Player Control Script...")) {
                         const int BUF_SIZE = 512;
                         char buffer[BUF_SIZE];
-                        Dialog::DialogErr err = Dialog::readFile("as",1,"Data/Scripts", buffer, BUF_SIZE);
-                        if( err != Dialog::NO_ERR ){
-                            LOGE << Dialog::DialogErrString( err ) << std::endl;
+                        Dialog::DialogErr err = Dialog::readFile("as", 1, "Data/Scripts", buffer, BUF_SIZE);
+                        if (err != Dialog::NO_ERR) {
+                            LOGE << Dialog::DialogErrString(err) << std::endl;
                         } else {
-                            std::string scriptName = SplitPathFileName( buffer ).second;
-                            scenegraph->level->SetPCScript( scriptName );
+                            std::string scriptName = SplitPathFileName(buffer).second;
+                            scenegraph->level->SetPCScript(scriptName);
                         }
                     }
-                    if(ImGui::BeginMenu("Player control script")) {
+                    if (ImGui::BeginMenu("Player control script")) {
                         std::string pc_script = scenegraph->level->GetPCScript(NULL);
-                        if(pc_script == Level::DEFAULT_PLAYER_SCRIPT) {
+                        if (pc_script == Level::DEFAULT_PLAYER_SCRIPT) {
                             ImGui::Text("%s (default)", pc_script.c_str());
                         } else {
                             ImGui::Text("%s (custom)", pc_script.c_str());
                         }
-                        if(ImGui::MenuItem("Change script...")){
+                        if (ImGui::MenuItem("Change script...")) {
                             const int BUF_SIZE = 512;
                             char buffer[BUF_SIZE];
-                            Dialog::DialogErr err = Dialog::readFile("as",1,"Data/Scripts", buffer, BUF_SIZE);
-                            if( err != Dialog::NO_ERR ){
-                                LOGE << Dialog::DialogErrString( err ) << std::endl;
+                            Dialog::DialogErr err = Dialog::readFile("as", 1, "Data/Scripts", buffer, BUF_SIZE);
+                            if (err != Dialog::NO_ERR) {
+                                LOGE << Dialog::DialogErrString(err) << std::endl;
                             } else {
-                                std::string script_name = SplitPathFileName( buffer ).second;
-                                for(size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
+                                std::string script_name = SplitPathFileName(buffer).second;
+                                for (size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
                                     MovementObject* obj = (MovementObject*)scenegraph->movement_objects_[i];
                                     std::string old_script = scenegraph->level->GetPCScript(obj);
-                                    if(obj->object_pc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
-                                        obj->ChangeControlScript( script_name );
+                                    if (obj->object_pc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
+                                        obj->ChangeControlScript(script_name);
                                     }
                                 }
-                                if(script_name != Level::DEFAULT_PLAYER_SCRIPT)
-                                    scenegraph->level->SetPCScript( script_name );
+                                if (script_name != Level::DEFAULT_PLAYER_SCRIPT)
+                                    scenegraph->level->SetPCScript(script_name);
                                 else
                                     scenegraph->level->ClearPCScript();
                             }
                         }
-                        if(ImGui::MenuItem("Clear script")) {
-                            for(size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
+                        if (ImGui::MenuItem("Clear script")) {
+                            for (size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
                                 MovementObject* obj = (MovementObject*)scenegraph->movement_objects_[i];
                                 std::string old_script = scenegraph->level->GetPCScript(obj);
-                                if(obj->object_pc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
-                                    obj->ChangeControlScript( obj->GetActorScript().empty() ? Level::DEFAULT_PLAYER_SCRIPT : obj->GetActorScript() );
+                                if (obj->object_pc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
+                                    obj->ChangeControlScript(obj->GetActorScript().empty() ? Level::DEFAULT_PLAYER_SCRIPT : obj->GetActorScript());
                                 }
                             }
                             scenegraph->level->ClearPCScript();
                         }
                         ImGui::EndMenu();
                     }
-                    if(ImGui::BeginMenu("Enemy control script")) {
+                    if (ImGui::BeginMenu("Enemy control script")) {
                         std::string npc_script = scenegraph->level->GetNPCScript(NULL);
-                        if(npc_script == Level::DEFAULT_ENEMY_SCRIPT) {
+                        if (npc_script == Level::DEFAULT_ENEMY_SCRIPT) {
                             ImGui::Text("%s (default)", npc_script.c_str());
                         } else {
                             ImGui::Text("%s (custom)", npc_script.c_str());
                         }
-                        if(ImGui::MenuItem("Change script...")){
+                        if (ImGui::MenuItem("Change script...")) {
                             const int BUF_SIZE = 512;
                             char buffer[BUF_SIZE];
-                            Dialog::DialogErr err = Dialog::readFile("as",1,"Data/Scripts", buffer, BUF_SIZE);
-                            if( err != Dialog::NO_ERR ){
-                                LOGE << Dialog::DialogErrString( err ) << std::endl;
+                            Dialog::DialogErr err = Dialog::readFile("as", 1, "Data/Scripts", buffer, BUF_SIZE);
+                            if (err != Dialog::NO_ERR) {
+                                LOGE << Dialog::DialogErrString(err) << std::endl;
                             } else {
-                                std::string script_name = SplitPathFileName( buffer ).second;
-                                for(size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
+                                std::string script_name = SplitPathFileName(buffer).second;
+                                for (size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
                                     MovementObject* obj = (MovementObject*)scenegraph->movement_objects_[i];
                                     std::string old_script = scenegraph->level->GetNPCScript(obj);
-                                    if(obj->object_npc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
-                                        obj->ChangeControlScript( script_name );
+                                    if (obj->object_npc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
+                                        obj->ChangeControlScript(script_name);
                                     }
                                 }
-                                if(script_name != Level::DEFAULT_ENEMY_SCRIPT)
-                                    scenegraph->level->SetNPCScript( script_name );
+                                if (script_name != Level::DEFAULT_ENEMY_SCRIPT)
+                                    scenegraph->level->SetNPCScript(script_name);
                                 else
                                     scenegraph->level->ClearNPCScript();
                             }
                         }
-                        if(ImGui::MenuItem("Clear script")) {
-                            for(size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
+                        if (ImGui::MenuItem("Clear script")) {
+                            for (size_t i = 0; i < scenegraph->movement_objects_.size(); ++i) {
                                 MovementObject* obj = (MovementObject*)scenegraph->movement_objects_[i];
                                 std::string old_script = scenegraph->level->GetNPCScript(obj);
-                                if(obj->object_npc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
-                                    obj->ChangeControlScript( obj->GetActorScript().empty() ? Level::DEFAULT_ENEMY_SCRIPT : obj->GetActorScript() );
+                                if (obj->object_npc_script_path.empty() && obj->GetCurrentControlScript() == old_script) {
+                                    obj->ChangeControlScript(obj->GetActorScript().empty() ? Level::DEFAULT_ENEMY_SCRIPT : obj->GetActorScript());
                                 }
                             }
                             scenegraph->level->ClearNPCScript();
@@ -2338,19 +2372,19 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     }
                     ImGui::Separator();
                     bool temp = me->IsTypeEnabled(_env_object);
-                    if(ImGui::Checkbox("Edit static meshes", &temp)){
+                    if (ImGui::Checkbox("Edit static meshes", &temp)) {
                         me->RibbonItemClicked("objecteditoractive", temp);
                     }
                     temp = me->IsTypeEnabled(_decal_object);
-                    if(ImGui::Checkbox("Edit decals", &temp)){
+                    if (ImGui::Checkbox("Edit decals", &temp)) {
                         me->RibbonItemClicked("decaleditoractive", temp);
                     }
                     temp = me->IsTypeEnabled(_hotspot_object);
-                    if(ImGui::Checkbox("Edit gameplay objects", &temp)){
+                    if (ImGui::Checkbox("Edit gameplay objects", &temp)) {
                         me->RibbonItemClicked("hotspoteditoractive", temp);
                     }
                     temp = me->IsTypeEnabled(_dynamic_light_object);
-                    if(ImGui::Checkbox("Edit lighting", &temp)){
+                    if (ImGui::Checkbox("Edit lighting", &temp)) {
                         me->RibbonItemClicked("lighteditoractive", temp);
                     }
                     ImGui::Separator();
@@ -2363,13 +2397,13 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::EndMenu();
                 }
 
-                if( ImGui::BeginMenu("View") ) {
+                if (ImGui::BeginMenu("View")) {
                     bool temp = scenegraph->IsNavMeshVisible();
-                    if(ImGui::Checkbox("Nav mesh", &temp)){
+                    if (ImGui::Checkbox("Nav mesh", &temp)) {
                         scenegraph->SetNavMeshVisible(temp);
                     }
                     temp = scenegraph->IsCollisionNavMeshVisible();
-                    if(ImGui::Checkbox("Nav mesh collision", &temp)){
+                    if (ImGui::Checkbox("Nav mesh collision", &temp)) {
                         scenegraph->SetCollisionNavMeshVisible(temp);
                     }
                     ImGui::Checkbox("Collision paint visualization", &g_draw_collision);
@@ -2378,19 +2412,19 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
 
                     ImGui::BeginDisabled(!me->GameplayObjectsEnabled());
                     temp = me->IsTypeEnabled(_navmesh_hint_object);
-                    if(ImGui::Checkbox("Nav hints", &temp)){
+                    if (ImGui::Checkbox("Nav hints", &temp)) {
                         me->SetTypeEnabled(_navmesh_hint_object, temp);
                         me->SetTypeVisible(_navmesh_hint_object, temp);
                     }
 
                     temp = me->IsTypeEnabled(_navmesh_region_object);
-                    if(ImGui::Checkbox("Nav regions", &temp)){
+                    if (ImGui::Checkbox("Nav regions", &temp)) {
                         me->SetTypeEnabled(_navmesh_region_object, temp);
                         me->SetTypeVisible(_navmesh_region_object, temp);
                     }
 
                     temp = me->IsTypeEnabled(_navmesh_connection_object);
-                    if(ImGui::Checkbox("Jump nodes", &temp)){
+                    if (ImGui::Checkbox("Jump nodes", &temp)) {
                         me->SetTypeEnabled(_navmesh_connection_object, temp);
                         me->SetTypeVisible(_navmesh_connection_object, temp);
                     }
@@ -2413,52 +2447,52 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     bool any_selected_object_has_custom_gui = false;
                     bool selected_items_changed = false;
 
-                    for(auto & selected_i : selected) {
-                        if(selected_i->GetType() == _hotspot_object) {
+                    for (auto& selected_i : selected) {
+                        if (selected_i->GetType() == _hotspot_object) {
                             Hotspot* hotspot = (Hotspot*)selected_i;
 
-                            if(hotspot->HasCustomGUI()) {
+                            if (hotspot->HasCustomGUI()) {
                                 any_selected_object_has_custom_gui = true;
                                 break;
                             }
-                        } else if(selected_i->GetType() == _placeholder_object) {
+                        } else if (selected_i->GetType() == _placeholder_object) {
                             PlaceholderObject* placeholder = (PlaceholderObject*)selected_i;
 
-                            if(placeholder->GetScriptParams()->HasParam("Dialogue")) {
+                            if (placeholder->GetScriptParams()->HasParam("Dialogue")) {
                                 any_selected_object_has_custom_gui = true;
                                 break;
                             }
                         }
                     }
 
-                    if(!any_selected_object_has_custom_gui) {
+                    if (!any_selected_object_has_custom_gui) {
                         ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
                         ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
                     }
 
-                    if(ImGui::MenuItem("Open Custom Editor", KeyCommand::GetDisplayText(KeyCommand::kOpenCustomEditor))) {
+                    if (ImGui::MenuItem("Open Custom Editor", KeyCommand::GetDisplayText(KeyCommand::kOpenCustomEditor))) {
                         LOGI << "Launch custom editor(s)" << std::endl;
                         scenegraph->level->Message("edit_selected_dialogue");
 
-                        for(auto & selected_i : selected) {
-                            if(selected_i->GetType() == _hotspot_object) {
+                        for (auto& selected_i : selected) {
+                            if (selected_i->GetType() == _hotspot_object) {
                                 Hotspot* hotspot = (Hotspot*)selected_i;
 
-                                if(hotspot->HasCustomGUI()) {
+                                if (hotspot->HasCustomGUI()) {
                                     hotspot->LaunchCustomGUI();
                                 }
                             }
                         }
                     }
 
-                    if(!any_selected_object_has_custom_gui) {
+                    if (!any_selected_object_has_custom_gui) {
                         ImGui::PopItemFlag();
                         ImGui::PopStyleVar();
                     }
 
-                    if(ImGui::MenuItem("Go To Selected", KeyCommand::GetDisplayText(KeyCommand::kFrameSelected))) {
-                        CameraObject *co = ActiveCameras::Instance()->Get()->getCameraObject();
-                        if( co ) {
+                    if (ImGui::MenuItem("Go To Selected", KeyCommand::GetDisplayText(KeyCommand::kFrameSelected))) {
+                        CameraObject* co = ActiveCameras::Instance()->Get()->getCameraObject();
+                        if (co) {
                             co->FrameSelection(true);
                         }
                     }
@@ -2468,13 +2502,13 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         me->DeleteSelected();
                         selected_items_changed = true;
                     }
-                    if(ImGui::MenuItem("Replace mesh...")) {
+                    if (ImGui::MenuItem("Replace mesh...")) {
                         Input::Instance()->ignore_mouse_frame = true;
                         const int BUF_SIZE = 512;
                         char buf[BUF_SIZE];
-                        Dialog::DialogErr err = Dialog::readFile("xml",1,"Data/Objects",buf,BUF_SIZE);
-                        if(!err){
-                            //Un-absolute the file and make it relative to the "best" candidate for relative reference.
+                        Dialog::DialogErr err = Dialog::readFile("xml", 1, "Data/Objects", buf, BUF_SIZE);
+                        if (!err) {
+                            // Un-absolute the file and make it relative to the "best" candidate for relative reference.
                             std::string shortened = FindShortestPath(std::string(buf));
                             scenegraph->map_editor->ReplaceObjects(selected, shortened);
                         }
@@ -2500,49 +2534,49 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     }*/
 
                     ImGui::Separator();
-                    if(ImGui_TooltipMenuItem("Save Selection...", KeyCommand::GetDisplayText(KeyCommand::kSaveSelectedItems), "Save selection in to loadable file, not a prefab")){
+                    if (ImGui_TooltipMenuItem("Save Selection...", KeyCommand::GetDisplayText(KeyCommand::kSaveSelectedItems), "Save selection in to loadable file, not a prefab")) {
                         me->SaveSelected();
                     }
 
-                    if(ImGui_TooltipMenuItem("Prefab Save", NULL, "Save selection as a prefab object")) {
+                    if (ImGui_TooltipMenuItem("Prefab Save", NULL, "Save selection as a prefab object")) {
                         me->SavePrefab(true);
                         selected_items_changed = true;
                     }
 
-                    if(ImGui_TooltipMenuItem("Prefab Save As...", NULL,"Save selection as a prefab object in an explicit path")) {
+                    if (ImGui_TooltipMenuItem("Prefab Save As...", NULL, "Save selection as a prefab object in an explicit path")) {
                         me->SavePrefab(false);
                         selected_items_changed = true;
                     }
 
                     ImGui::Separator();
 
-                    if(selected_items_changed) {
+                    if (selected_items_changed) {
                         selected.clear();
                         scenegraph->ReturnSelected(&selected);
                     }
 
                     bool any_movement_objects_selected = false;
-                    for(auto & selected_i : selected) {
-                        if(selected_i->GetType() == _movement_object) {
+                    for (auto& selected_i : selected) {
+                        if (selected_i->GetType() == _movement_object) {
                             any_movement_objects_selected = true;
                             break;
                         }
                     }
 
-                    if(!any_movement_objects_selected) {
+                    if (!any_movement_objects_selected) {
                         ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
                         ImGui::PushStyleVar(ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
                     }
 
-                    if(ImGui_TooltipMenuItem("Make Character(s) Corpse", KeyCommand::GetDisplayText(KeyCommand::kMakeSelectedCharacterSavedCorpse), "Save selected characters' current corpse positions (and knock them out, if awake)")) {
+                    if (ImGui_TooltipMenuItem("Make Character(s) Corpse", KeyCommand::GetDisplayText(KeyCommand::kMakeSelectedCharacterSavedCorpse), "Save selected characters' current corpse positions (and knock them out, if awake)")) {
                         scenegraph->level->Message("make_selected_character_saved_corpse");
                     }
 
-                    if(ImGui_TooltipMenuItem("Revive Character Corpse(s)", KeyCommand::GetDisplayText(KeyCommand::kReviveSelectedCharacterAndUnsaveCorpse), "Wipe selected characters' saved corpse positions (and revive them, if knocked out)")) {
+                    if (ImGui_TooltipMenuItem("Revive Character Corpse(s)", KeyCommand::GetDisplayText(KeyCommand::kReviveSelectedCharacterAndUnsaveCorpse), "Wipe selected characters' saved corpse positions (and revive them, if knocked out)")) {
                         scenegraph->level->Message("revive_selected_character_and_unsave_corpse");
                     }
 
-                    if(!any_movement_objects_selected) {
+                    if (!any_movement_objects_selected) {
                         ImGui::PopItemFlag();
                         ImGui::PopStyleVar();
                     }
@@ -2555,21 +2589,21 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         Input::Instance()->ignore_mouse_frame = true;
                         const int BUF_SIZE = 512;
                         char buf[BUF_SIZE];
-                        Dialog::DialogErr err = Dialog::readFile("xml",1,"Data/Objects",buf,BUF_SIZE);
-                        if(!err){
-                            //Un-absolute the file and make it relative to the "best" candidate for relative reference.
+                        Dialog::DialogErr err = Dialog::readFile("xml", 1, "Data/Objects", buf, BUF_SIZE);
+                        if (!err) {
+                            // Un-absolute the file and make it relative to the "best" candidate for relative reference.
                             std::string shortened = FindShortestPath(std::string(buf));
-                            if(scenegraph->map_editor->state_ == MapEditor::kIdle && scenegraph->map_editor->LoadEntitiesFromFile(shortened)==0){
-                                scenegraph->level->PushSpawnerItemRecent(SpawnerItem( "Load Item", SplitPathFileName(shortened).second, shortened, "empty_placeholder.png"));
+                            if (scenegraph->map_editor->state_ == MapEditor::kIdle && scenegraph->map_editor->LoadEntitiesFromFile(shortened) == 0) {
+                                scenegraph->level->PushSpawnerItemRecent(SpawnerItem("Load Item", SplitPathFileName(shortened).second, shortened, "empty_placeholder.png"));
                                 scenegraph->map_editor->active_tool_ = EditorTypes::ADD_ONCE;
                             }
                         }
                     }
-                    if( ImGui::BeginMenu("Open Recent...") ) {
+                    if (ImGui::BeginMenu("Open Recent...")) {
                         std::vector<SpawnerItem> spawner_items = scenegraph->level->GetRecentlyCreatedItems();
 
                         for (auto it = spawner_items.rbegin(); it != spawner_items.rend(); it++) {
-                           AddSpawnerItem( &(*it), scenegraph);
+                            AddSpawnerItem(&(*it), scenegraph);
                         }
 
                         ImGui::EndMenu();
@@ -2586,33 +2620,33 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     }
 
                     if (spawner_global_filter.IsActive()) {
-                        for (auto & spawner_tab : spawner_tabs) {
+                        for (auto& spawner_tab : spawner_tabs) {
                             SpawnerTab* tab = &spawner_tab.second;
 
-                            for (auto & item_iter : *tab) {
+                            for (auto& item_iter : *tab) {
                                 std::string item_display_name = spawner_tab.first + " -> " + item_iter.display_name;
 
-                                if (spawner_global_filter.PassFilter( item_iter.mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
+                                if (spawner_global_filter.PassFilter(item_iter.mod_source_title.c_str()) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
                                     AddSpawnerItem(&item_iter, scenegraph);
                                 }
                             }
                         }
                     } else {
-                        for (auto & spawner_tab : spawner_tabs) {
+                        for (auto& spawner_tab : spawner_tabs) {
                             if (ImGui::BeginMenu(spawner_tab.first.c_str())) {
                                 SpawnerTab* tab = &spawner_tab.second;
                                 ImGuiTextFilter& current_tab_filter = spawner_tab_filters[spawner_tab.first];
 
-                                //if (ImGui::IsWindowHovered()) {
-                                //    ImGui::SetKeyboardFocusHere();
-                                //}
+                                // if (ImGui::IsWindowHovered()) {
+                                //     ImGui::SetKeyboardFocusHere();
+                                // }
 
                                 // Not calling filter.Draw() so we can pass InputText flags
                                 if (ImGui::InputText("", current_tab_filter.InputBuf, IM_ARRAYSIZE(current_tab_filter.InputBuf), ImGuiInputTextFlags_AutoSelectAll)) {
                                     current_tab_filter.Build();
                                 }
 
-                                for (auto & item_iter : *tab) {
+                                for (auto& item_iter : *tab) {
                                     if (current_tab_filter.PassFilter(item_iter.mod_source_title.c_str()) || current_tab_filter.PassFilter(item_iter.display_name.c_str())) {
                                         AddSpawnerItem(&item_iter, scenegraph);
                                     }
@@ -2650,18 +2684,18 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::EndMenu();
                 }*/
                 if (ImGui::BeginMenu("Nav Mesh", !scenegraph->map_editor->GetTerrainPreviewMode())) {
-                    NavMeshParameters *nmp = &scenegraph->level->nav_mesh_parameters_;
+                    NavMeshParameters* nmp = &scenegraph->level->nav_mesh_parameters_;
                     ImGui::Checkbox("Automatically generate navmesh for this level", &nmp->generate);
 
                     ImGui::Separator();
 
-                    if(ImGui::MenuItem("Create")){
+                    if (ImGui::MenuItem("Create")) {
                         scenegraph->CreateNavMesh();
                     }
-                    if(ImGui::MenuItem("Save")){
+                    if (ImGui::MenuItem("Save")) {
                         scenegraph->SaveNavMesh();
                     }
-                    if(ImGui::MenuItem("Load")){
+                    if (ImGui::MenuItem("Load")) {
                         scenegraph->LoadNavMesh();
                     }
 
@@ -2678,30 +2712,29 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         ImGui::PopStyleColor(1);
                     }
 
-
-                    if(ImGui::SliderFloat("Cell Size",         &nmp->m_cellSize,       0.1f,  0.5f,  "%.2f")) {
+                    if (ImGui::SliderFloat("Cell Size", &nmp->m_cellSize, 0.1f, 0.5f, "%.2f")) {
                         Graphics::Instance()->nav_mesh_out_of_date = true;
                     }
-                    if(ImGui::SliderFloat("Cell Height",       &nmp->m_cellHeight,     0.1f,  0.5f,  "%.2f")) {
+                    if (ImGui::SliderFloat("Cell Height", &nmp->m_cellHeight, 0.1f, 0.5f, "%.2f")) {
                         Graphics::Instance()->nav_mesh_out_of_date = true;
                     }
-                    if(ImGui::SliderFloat("Agent Height",      &nmp->m_agentHeight,    1.5f,  2.0f,  "%.2f")) {
+                    if (ImGui::SliderFloat("Agent Height", &nmp->m_agentHeight, 1.5f, 2.0f, "%.2f")) {
                         Graphics::Instance()->nav_mesh_out_of_date = true;
                     }
-                    if(ImGui::SliderFloat("Agent Radius",      &nmp->m_agentRadius,    0.2f,  1.0f,  "%.2f")) {
+                    if (ImGui::SliderFloat("Agent Radius", &nmp->m_agentRadius, 0.2f, 1.0f, "%.2f")) {
                         Graphics::Instance()->nav_mesh_out_of_date = true;
                     }
-                    if(ImGui::SliderFloat("Agent Max Climb",   &nmp->m_agentMaxClimb,  1.0f,  2.0f,  "%.2f")) {
+                    if (ImGui::SliderFloat("Agent Max Climb", &nmp->m_agentMaxClimb, 1.0f, 2.0f, "%.2f")) {
                         Graphics::Instance()->nav_mesh_out_of_date = true;
                     }
-                    if(ImGui::SliderFloat("Agent Max Slope",   &nmp->m_agentMaxSlope,  45.0f, 70.0f, "%.2f")) {
+                    if (ImGui::SliderFloat("Agent Max Slope", &nmp->m_agentMaxSlope, 45.0f, 70.0f, "%.2f")) {
                         Graphics::Instance()->nav_mesh_out_of_date = true;
                     }
 
                     ImGui::EndMenu();
                 }
                 if (ImGui::BeginMenu("Dialogue")) {
-                    if(ImGui::MenuItem("Edit selected")){
+                    if (ImGui::MenuItem("Edit selected")) {
                         me->RibbonItemClicked("edit_selected_dialogue", true);
                     }
                     /*
@@ -2709,67 +2742,67 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         me->RibbonItemClicked("load_dialogue_pose", true);
                     }
                     */
-                    if(ImGui::MenuItem("Load dialogue")){
+                    if (ImGui::MenuItem("Load dialogue")) {
                         me->RibbonItemClicked("load_dialogue", true);
                     }
-                    if(ImGui::MenuItem("New dialogue")){
+                    if (ImGui::MenuItem("New dialogue")) {
                         me->RibbonItemClicked("create_empty_dialogue", true);
                     }
                     ImGui::EndMenu();
                 }
             }
             if (ImGui::BeginMenu("Windows")) {
-                if(scenegraph) {
-                    if(ImGui::MenuItem("Scenegraph", KeyCommand::GetDisplayText(KeyCommand::kScenegraph), &show_scenegraph)) {
+                if (scenegraph) {
+                    if (ImGui::MenuItem("Scenegraph", KeyCommand::GetDisplayText(KeyCommand::kScenegraph), &show_scenegraph)) {
                     }
-                    if(ImGui::MenuItem("Selected", KeyCommand::GetDisplayText(KeyCommand::kEditScriptParams), &show_selected)) {
+                    if (ImGui::MenuItem("Selected", KeyCommand::GetDisplayText(KeyCommand::kEditScriptParams), &show_selected)) {
                     }
-                    if(ImGui::MenuItem("ColorPicker", KeyCommand::GetDisplayText(KeyCommand::kEditColor), &show_color_picker)) {
+                    if (ImGui::MenuItem("ColorPicker", KeyCommand::GetDisplayText(KeyCommand::kEditColor), &show_color_picker)) {
                     }
-                    if(ImGui::MenuItem("Collision Paint", "", &show_paintbrush)) {
+                    if (ImGui::MenuItem("Collision Paint", "", &show_paintbrush)) {
                     }
                 } else {
-                    if(ImGui::MenuItem("Mods", NULL, &show_mod_menu)){
+                    if (ImGui::MenuItem("Mods", NULL, &show_mod_menu)) {
                     }
-                } 
-				if (ImGui::MenuItem("Multiplayer debug", "", &show_mp_debug)) {
-				}
-				if (ImGui::MenuItem("Multiplayer settings", "", &show_mp_settings)) {
-				}
-                if(ImGui::MenuItem("Performance", "", &show_performance)) {
                 }
-                if(ImGui::MenuItem("Log", "", &show_log)) {
+                if (ImGui::MenuItem("Multiplayer debug", "", &show_mp_debug)) {
                 }
-                if(ImGui::MenuItem("Warnings", "", &show_warnings)) {
+                if (ImGui::MenuItem("Multiplayer settings", "", &show_mp_settings)) {
                 }
-                if(ImGui::MenuItem("Save", "", &show_save)) {
+                if (ImGui::MenuItem("Performance", "", &show_performance)) {
                 }
-                if(ImGui::MenuItem("State", "", &show_state)) {
+                if (ImGui::MenuItem("Log", "", &show_log)) {
                 }
-                if(ImGui::MenuItem("Sound", "", &show_sound)) {
+                if (ImGui::MenuItem("Warnings", "", &show_warnings)) {
+                }
+                if (ImGui::MenuItem("Save", "", &show_save)) {
+                }
+                if (ImGui::MenuItem("State", "", &show_state)) {
+                }
+                if (ImGui::MenuItem("Sound", "", &show_sound)) {
                 }
                 if (ImGui::MenuItem("Input", "", &show_input_debug)) {
                 }
                 bool val = config["debug_draw_window"].toNumber<bool>();
-                if(ImGui::MenuItem("Debug Window", "", &val)) {
+                if (ImGui::MenuItem("Debug Window", "", &val)) {
                     config.GetRef("debug_draw_window") = val;
                 }
                 if (ImGui::MenuItem("View scripts", "", &show_select_script)) {
                 }
                 if (ImGui::MenuItem("Test pose", "", &show_pose)) {
                 }
-                if(ImGui::MenuItem("ImGUI Demo", "", &show_test_window)) {
+                if (ImGui::MenuItem("ImGUI Demo", "", &show_test_window)) {
                 }
                 ImGui::EndMenu();
             }
             if (ImGui::BeginMenu("Debug")) {
-                if(ImGui::MenuItem("Events", "", &show_events)) {
+                if (ImGui::MenuItem("Events", "", &show_events)) {
                 }
-                if(asdebugger_enabled && ImGui::MenuItem("AS debugger contexts", "", &show_asdebugger_contexts)) {
+                if (asdebugger_enabled && ImGui::MenuItem("AS debugger contexts", "", &show_asdebugger_contexts)) {
                 }
-                if(asprofiler_enabled && ImGui::MenuItem("AS profiler", "", &show_asprofiler)) {
+                if (asprofiler_enabled && ImGui::MenuItem("AS profiler", "", &show_asprofiler)) {
                 }
-                if(ImGui::MenuItem("Graphics Debug Disable", "", &show_graphics_debug_disable_menu)) {
+                if (ImGui::MenuItem("Graphics Debug Disable", "", &show_graphics_debug_disable_menu)) {
                 }
                 ImGui::EndMenu();
             }
@@ -2787,12 +2820,11 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     }
                     ImGui::EndMenu();
                 }
-                if (ImGui::BeginMenu("Hardware Info"))
-                {
+                if (ImGui::BeginMenu("Hardware Info")) {
                     static bool first = true;
                     static std::string output;
-                    if( first ) {
-                        PrintGPU(output,true);
+                    if (first) {
+                        PrintGPU(output, true);
                         first = false;
                     }
 
@@ -2800,10 +2832,12 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
 
                     ImGui::EndMenu();
                 }
-                if (ImGui::MenuItem("Open Write Directory...", NULL, false, false)) {}
+                if (ImGui::MenuItem("Open Write Directory...", NULL, false, false)) {
+                }
                 ImGui::Separator();
                 if (ImGui::BeginMenu("Credits...")) {
-                    ImGui::Text("Kylie Allen\nMicah J Best\nJimmy Chi\n\
+                    ImGui::Text(
+                        "Kylie Allen\nMicah J Best\nJimmy Chi\n\
 Max Danielsson\nJosh Goheen\nJohn Graham\nPhillip Isola\nTuro Lamminen\n\
 Tapio Liukkonen\nRyan Mapa\nBrendan Mauro\nGyrth McMulin\nMerlyn Morgan-Graham\n\
 Tuomas Narvainen\nJillian Ogle\n\
@@ -2813,29 +2847,29 @@ Mark Stockton\nMikko Tarmia");
                 }
 
                 if (ImGui::BeginMenu("About...")) {
-                    ImGui::Text("%s",GetPlatform());
-                    ImGui::Text("%s",GetArch());
-                    ImGui::Text("%s",GetBuildVersion());
-                    ImGui::Text("%s",GetBuildTimestamp());
+                    ImGui::Text("%s", GetPlatform());
+                    ImGui::Text("%s", GetArch());
+                    ImGui::Text("%s", GetBuildVersion());
+                    ImGui::Text("%s", GetBuildTimestamp());
                     ImGui::EndMenu();
                 }
                 ImGui::EndMenu();
             }
-            if(scenegraph && scenegraph->level) {
+            if (scenegraph && scenegraph->level) {
                 bool draw_menu = false;
                 const std::vector<Level::HookedASContext>& contexts = scenegraph->level->as_contexts_;
-                for(auto & as_context : scenegraph->level->as_contexts_) {
-                    if(as_context.context_name == "mod_level_hook") {
-                        if(as_context.ctx->HasFunction(as_context.as_funcs.menu)) {
+                for (auto& as_context : scenegraph->level->as_contexts_) {
+                    if (as_context.context_name == "mod_level_hook") {
+                        if (as_context.ctx->HasFunction(as_context.as_funcs.menu)) {
                             draw_menu = true;
                             break;
                         }
                     }
                 }
-                if(draw_menu && ImGui::BeginMenu("Mods")) {
+                if (draw_menu && ImGui::BeginMenu("Mods")) {
                     const std::vector<Level::HookedASContext>& contexts = scenegraph->level->as_contexts_;
-                    for(auto & as_context : scenegraph->level->as_contexts_) {
-                        if(as_context.context_name == "mod_level_hook") {
+                    for (auto& as_context : scenegraph->level->as_contexts_) {
+                        if (as_context.context_name == "mod_level_hook") {
                             as_context.ctx->CallScriptFunction(as_context.as_funcs.menu);
                         }
                     }
@@ -2845,41 +2879,40 @@ Mark Stockton\nMikko Tarmia");
             ImGui::EndMainMenuBar();
         }
 
-        if(show_load_item_search) {
+        if (show_load_item_search) {
             ImGui::OpenPopup("loaditemsearch");
             show_load_item_search = false;
         }
-		
-		
+
         ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x * 0.5f, 19.0f), ImGuiCond_Always, ImVec2(0.5f, 0.0f));
-		ImGui::SetNextWindowSizeConstraints(ImVec2(-1.0f, -1.0f), ImVec2(-1.0f, -1.0f), ResizeCallback);
-        //ImGui::SetNextWindowSizeConstraints(ImVec2(-1.0f, -1.0f), ImVec2(-1.0f, -1.0f), ResizeCallback);
-        // This stupid counter has to be here, because otherwise the SetKeyboardFocusHere
-        // call does nothing the first time the popup is opened if it isn't called
-        // like 30 times
+        ImGui::SetNextWindowSizeConstraints(ImVec2(-1.0f, -1.0f), ImVec2(-1.0f, -1.0f), ResizeCallback);
+        // ImGui::SetNextWindowSizeConstraints(ImVec2(-1.0f, -1.0f), ImVec2(-1.0f, -1.0f), ResizeCallback);
+        //  This stupid counter has to be here, because otherwise the SetKeyboardFocusHere
+        //  call does nothing the first time the popup is opened if it isn't called
+        //  like 30 times
         static int counter = 0;
-        if(ImGui::BeginPopup("loaditemsearch")) {
+        if (ImGui::BeginPopup("loaditemsearch")) {
             static int available_numbers = 0;
 
             int pressed_number = -1;
-            for(int i = SDLK_1; i < SDLK_9; ++i) {
+            for (int i = SDLK_1; i < SDLK_9; ++i) {
                 Keyboard& keyboard = Input::Instance()->getKeyboard();
-                if(ImGui::GetIO().KeyCtrl && ImGui::IsKeyPressed(i)) {
+                if (ImGui::GetIO().KeyCtrl && ImGui::IsKeyPressed(i)) {
                     pressed_number = i - SDLK_1 + 1;
                     break;
                 }
             }
-            if(ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Enter))) {
+            if (ImGui::IsKeyPressed(ImGui::GetKeyIndex(ImGuiKey_Enter))) {
                 pressed_number = 1;
             }
 
-            if(pressed_number >= available_numbers) {
+            if (pressed_number >= available_numbers) {
                 pressed_number = -1;
             }
 
-            if(pressed_number == -1) {
+            if (pressed_number == -1) {
                 ImGui::Text("Press CTRL + number to spawn items");
-                if(counter < 60) {
+                if (counter < 60) {
                     ImGui::SetKeyboardFocusHere(0);
                 }
                 if (ImGui::InputText("Search for item", spawner_global_filter.InputBuf, IM_ARRAYSIZE(spawner_global_filter.InputBuf), ImGuiInputTextFlags_AutoSelectAll)) {
@@ -2887,16 +2920,16 @@ Mark Stockton\nMikko Tarmia");
                 }
             }
             bool item_clicked = false;
-            if(pressed_number != -1) {
+            if (pressed_number != -1) {
                 int items = 0;
                 for (SpawnerTabMap::iterator tab_iter = spawner_tabs.begin(); !item_clicked && tab_iter != spawner_tabs.end(); ++tab_iter) {
                     SpawnerTab* tab = &tab_iter->second;
 
-                    for (auto & item_iter : *tab) {
+                    for (auto& item_iter : *tab) {
                         std::string item_display_name = tab_iter->first + " -> " + item_iter.display_name;
 
-                        if (spawner_global_filter.PassFilter( item_iter.mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
-                            if (pressed_number == items + 1 && scenegraph->map_editor->state_ == MapEditor::kIdle  && scenegraph->map_editor->LoadEntitiesFromFile(item_iter.path)==0) {
+                        if (spawner_global_filter.PassFilter(item_iter.mod_source_title.c_str()) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
+                            if (pressed_number == items + 1 && scenegraph->map_editor->state_ == MapEditor::kIdle && scenegraph->map_editor->LoadEntitiesFromFile(item_iter.path) == 0) {
                                 scenegraph->level->PushSpawnerItemRecent(item_iter);
                                 scenegraph->map_editor->active_tool_ = EditorTypes::ADD_ONCE;
                                 item_clicked = true;
@@ -2909,23 +2942,23 @@ Mark Stockton\nMikko Tarmia");
             } else {
                 int items = 0;
                 if (spawner_global_filter.IsActive()) {
-                    for (auto & spawner_tab : spawner_tabs) {
+                    for (auto& spawner_tab : spawner_tabs) {
                         SpawnerTab* tab = &spawner_tab.second;
 
-                        for (auto & item_iter : *tab) {
+                        for (auto& item_iter : *tab) {
                             std::string item_display_name = spawner_tab.first + " -> " + item_iter.display_name;
 
-                            if (spawner_global_filter.PassFilter( item_iter.mod_source_title.c_str() ) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
-                                if(items < 9) {
+                            if (spawner_global_filter.PassFilter(item_iter.mod_source_title.c_str()) || spawner_global_filter.PassFilter(item_display_name.c_str())) {
+                                if (items < 9) {
                                     char buffer[32];
                                     sprintf(buffer, "%i", items + 1);
                                     ImGui::Text("%s", buffer);
                                     ImGui::SameLine(0.0f, 16.0f);
-                                    if(AddSpawnerItem(&item_iter, scenegraph)) {
+                                    if (AddSpawnerItem(&item_iter, scenegraph)) {
                                         item_clicked = true;
                                     }
                                 } else {
-                                    if(AddSpawnerItem(&item_iter, scenegraph)) {
+                                    if (AddSpawnerItem(&item_iter, scenegraph)) {
                                         item_clicked = true;
                                     }
                                 }
@@ -2936,7 +2969,7 @@ Mark Stockton\nMikko Tarmia");
                 }
                 available_numbers = items + 1;
             }
-            if(item_clicked) {
+            if (item_clicked) {
                 ImGui::CloseCurrentPopup();
             }
             ImGui::EndPopup();
@@ -2958,8 +2991,8 @@ Mark Stockton\nMikko Tarmia");
                 static char last_checked_screenshot_path[kPathSize];
                 static int last_checked_screenshot_path_color = 0;
 
-                if( strmtch( last_checked_screenshot_path, input_text_buf ) == false ) {
-                    if( FileExists( input_text_buf, kModPaths | kDataPaths) ) {
+                if (strmtch(last_checked_screenshot_path, input_text_buf) == false) {
+                    if (FileExists(input_text_buf, kModPaths | kDataPaths)) {
                         last_checked_screenshot_path_color = 1;
                     } else {
                         last_checked_screenshot_path_color = 2;
@@ -2967,31 +3000,31 @@ Mark Stockton\nMikko Tarmia");
                     strscpy(last_checked_screenshot_path, input_text_buf, kPathSize);
                 }
 
-                if( last_checked_screenshot_path_color == 1 ) {
+                if (last_checked_screenshot_path_color == 1) {
                     ImGui::PushStyleColor(ImGuiCol_Text, IMGUI_GREEN);
                 } else {
                     ImGui::PushStyleColor(ImGuiCol_Text, IMGUI_RED);
                 }
 
-                if(ImGui::InputText("Loading Screen Image", input_text_buf, kPathSize)) {
+                if (ImGui::InputText("Loading Screen Image", input_text_buf, kPathSize)) {
                     scenegraph->level->loading_screen_.image = input_text_buf;
                 }
 
                 ImGui::PopStyleColor();
 
                 vec3 pos = scenegraph->primary_light.pos;
-                if(ImGui::DragFloat3("Sun Position", &pos[0], 0.1f, -1.0f, 1.0f)){
+                if (ImGui::DragFloat3("Sun Position", &pos[0], 0.1f, -1.0f, 1.0f)) {
                     scenegraph->map_editor->sky_editor_->PlaceSun(normalize(pos));
                     shadow_cache_dirty = true;
                     shadow_cache_dirty_sun_moved = true;
                 }
                 float color = scenegraph->map_editor->sky_editor_->m_sun_color_angle;
-                if(ImGui::DragFloat("Sun Color", &color, 1.0f)){
+                if (ImGui::DragFloat("Sun Color", &color, 1.0f)) {
                     scenegraph->map_editor->sky_editor_->m_sun_color_angle = 0.0f;
                     scenegraph->map_editor->sky_editor_->RotateSun(color);
                 }
                 float sun_intensity = scenegraph->map_editor->sky_editor_->m_sun_angular_rad;
-                if(ImGui::DragFloat("Sun Intensity", &sun_intensity, 0.001f, 0.0f, 0.314f)){
+                if (ImGui::DragFloat("Sun Intensity", &sun_intensity, 0.001f, 0.0f, 0.314f)) {
                     scenegraph->map_editor->sky_editor_->m_sun_angular_rad = sun_intensity;
                     scenegraph->map_editor->sky_editor_->ScaleSun(1.0f);
                 }
@@ -3001,11 +3034,11 @@ Mark Stockton\nMikko Tarmia");
                     select_scenegraph_level_params = false;
                 }
 
-                if(ImGui::Checkbox("Enable dynamic shadows for this level", &g_level_shadows)) {
+                if (ImGui::Checkbox("Enable dynamic shadows for this level", &g_level_shadows)) {
                     Graphics::Instance()->setSimpleShadows(g_simple_shadows);
                     scenegraph->level->setMetaDataDirty();
                 }
-                if(g_simple_shadows) {
+                if (g_simple_shadows) {
                     ImGui::Text("Note: disable \"Simple shadows\" in the settings menu to see dynamic shadows");
                 }
 
@@ -3098,7 +3131,7 @@ Mark Stockton\nMikko Tarmia");
                 }*/
 
                 ImGui::Separator();
-                if(ImGui::TreeNode("Script Params")){
+                if (ImGui::TreeNode("Script Params")) {
                     ScriptParamMap spm = scenegraph->level->script_params().GetParameterMap();
                     {
                         ScriptParam& sp = spm["Sky Rotation"];
@@ -3151,7 +3184,7 @@ Mark Stockton\nMikko Tarmia");
                         spm["Sky Brightness"].editor().SetDisplaySlider("min:0,max:5,step:0.01,text_mult:100");
                     }
                     scenegraph->level->script_params().SetParameterMap(spm);
-                    if(DrawScriptParamsEditor(&scenegraph->level->script_params())){
+                    if (DrawScriptParamsEditor(&scenegraph->level->script_params())) {
                         SceneGraph::ApplyScriptParams(scenegraph, scenegraph->level->script_params().GetParameterMap());
                         scenegraph->map_editor->QueueSaveHistoryState();
                     }
@@ -3171,21 +3204,21 @@ Mark Stockton\nMikko Tarmia");
             ImGui::Checkbox("Flat", &show_flat_scenegraph);
             ImGui::Checkbox("Search children", &search_children_scenegraph);
             ImGui::Checkbox("Named Only", &show_named_only_scenegraph);
-            if( show_flat_scenegraph ) {
-                for(auto obj : scenegraph->objects_){
+            if (show_flat_scenegraph) {
+                for (auto obj : scenegraph->objects_) {
                     const int kBufSize = 512;
                     char buf[kBufSize];
-                    if((show_named_only_scenegraph == false || obj->GetName().empty() == false) && obj->selectable_) {
+                    if ((show_named_only_scenegraph == false || obj->GetName().empty() == false) && obj->selectable_) {
                         obj->GetDisplayName(buf, kBufSize);
-                        if (scenegraph_filter.IsActive() && !scenegraph_filter.PassFilter( buf )){
+                        if (scenegraph_filter.IsActive() && !scenegraph_filter.PassFilter(buf)) {
                             bool pass = false;
-                            if(search_children_scenegraph) {
-                                if(obj->IsGroupDerived()) {
+                            if (search_children_scenegraph) {
+                                if (obj->IsGroupDerived()) {
                                     char child_buf[kBufSize];
                                     Group* group = static_cast<Group*>(obj);
-                                    for(auto & i : group->children) {
+                                    for (auto& i : group->children) {
                                         i.direct_ptr->GetDisplayName(child_buf, kBufSize);
-                                        if(scenegraph_filter.PassFilter( child_buf )) {
+                                        if (scenegraph_filter.PassFilter(child_buf)) {
                                             pass = true;
                                             break;
                                         }
@@ -3193,13 +3226,13 @@ Mark Stockton\nMikko Tarmia");
                                 }
                             }
 
-                            if(!pass)
+                            if (!pass)
                                 continue;
                         }
 
                         ImGuiTreeNodeFlags node_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
 
-                        if(obj->Selected()){
+                        if (obj->Selected()) {
                             node_flags |= ImGuiTreeNodeFlags_Selected;
                         }
                         ImGui::PushID(obj->GetID());
@@ -3211,8 +3244,8 @@ Mark Stockton\nMikko Tarmia");
                         if (ImGui::IsItemClicked()) {
                             obj->Select(!obj->Selected());
                         }
-                        if (node_open){
-                            DrawObjectInfo(obj,false);
+                        if (node_open) {
+                            DrawObjectInfo(obj, false);
                             ImGui::TreePop();
                         }
                     }
@@ -3233,12 +3266,12 @@ Mark Stockton\nMikko Tarmia");
             ImGui::Text(selected.size() == 1 ? "%u object selected" : "%u objects selected", selected.size());
             ImGui::PopStyleColor(1);
 
-            for(size_t i=0, len=selected.size(); i<len; ++i){
+            for (size_t i = 0, len = selected.size(); i < len; ++i) {
                 const int kBufSize = 512;
                 char buf[kBufSize];
                 Object* obj = selected[i];
                 obj->GetDisplayName(buf, kBufSize);
-                if(len > 1) {
+                if (len > 1) {
                     ImGui::PushID(obj->GetID());
 
                     vec4 color = GetObjColor(obj);
@@ -3248,22 +3281,22 @@ Mark Stockton\nMikko Tarmia");
 
                     ImGui::SameLine();
                     ImGui::SmallButton("copy");
-                    if(ImGui::BeginPopupContextItem("copy object info", 0)) {
+                    if (ImGui::BeginPopupContextItem("copy object info", 0)) {
                         ImGui::Text("Copy to clipboard");
                         ImGui::Separator();
-                        if(ImGui::Button("copy object id")) {
+                        if (ImGui::Button("copy object id")) {
                             char copy_buf[kBufSize];
                             FormatString(copy_buf, kBufSize, "%i", obj->GetID());
                             ImGui::SetClipboardText(copy_buf);
                             ImGui::CloseCurrentPopup();
                         }
-                        if(ImGui::Button("copy object path")) {
+                        if (ImGui::Button("copy object path")) {
                             char copy_buf[kBufSize];
                             FormatString(copy_buf, kBufSize, "%s", obj->obj_file.c_str());
                             ImGui::SetClipboardText(copy_buf);
                             ImGui::CloseCurrentPopup();
                         }
-                        if(ImGui::Button("copy all")) {
+                        if (ImGui::Button("copy all")) {
                             ImGui::SetClipboardText(buf);
                             ImGui::CloseCurrentPopup();
                         }
@@ -3284,22 +3317,22 @@ Mark Stockton\nMikko Tarmia");
 
                     ImGui::SameLine();
                     ImGui::SmallButton("copy");
-                    if(ImGui::BeginPopupContextItem("copy object info", 0)) {
+                    if (ImGui::BeginPopupContextItem("copy object info", 0)) {
                         ImGui::Text("Copy to clipboard");
                         ImGui::Separator();
-                        if(ImGui::Button("copy object id")) {
+                        if (ImGui::Button("copy object id")) {
                             char copy_buf[kBufSize];
                             FormatString(copy_buf, kBufSize, "%i", obj->GetID());
                             ImGui::SetClipboardText(copy_buf);
                             ImGui::CloseCurrentPopup();
                         }
-                        if(ImGui::Button("copy object path")) {
+                        if (ImGui::Button("copy object path")) {
                             char copy_buf[kBufSize];
                             FormatString(copy_buf, kBufSize, "%s", obj->obj_file.c_str());
                             ImGui::SetClipboardText(copy_buf);
                             ImGui::CloseCurrentPopup();
                         }
-                        if(ImGui::Button("copy all")) {
+                        if (ImGui::Button("copy all")) {
                             ImGui::SetClipboardText(buf);
                             ImGui::CloseCurrentPopup();
                         }
@@ -3322,21 +3355,21 @@ Mark Stockton\nMikko Tarmia");
 
             static int spread = 1;
             static float spread_threshold = 0.0;
-            if(paint_type == 1){
+            if (paint_type == 1) {
                 ImGui::RadioButton("Don't spread", &spread, 0);
                 ImGui::RadioButton("Spread across flat surfaces", &spread, 1);
                 ImGui::RadioButton("Spread across similar normals", &spread, 2);
 
-                if(spread == 2){
+                if (spread == 2) {
                     ImGui::DragFloat("Range", &spread_threshold, 0.01f, -1.0f, 1.0f);
                 }
             }
 
-            if(ImGui::Button("Save")){
+            if (ImGui::Button("Save")) {
                 SaveCollisionNormals(scenegraph);
             }
             ImGui::SameLine();
-            if(ImGui::Button("Load")){
+            if (ImGui::Button("Load")) {
                 LoadCollisionNormals(scenegraph);
             }
 
@@ -3364,14 +3397,14 @@ Mark Stockton\nMikko Tarmia");
             ImGui::RadioButton("Clear", &paintbrush_type, 8);
             ImGui::SameLine();
             ImGui::RadioButton("No climb", &paintbrush_type, 9);
-            if(paintbrush_type == 9) {
-                if(ImGui::Button("Apply 'no climb' to all unlabeled surfaces")){
-                    for(auto obj : scenegraph->collide_objects_){
-                        if(obj->GetType() == _env_object){
+            if (paintbrush_type == 9) {
+                if (ImGui::Button("Apply 'no climb' to all unlabeled surfaces")) {
+                    for (auto obj : scenegraph->collide_objects_) {
+                        if (obj->GetType() == _env_object) {
                             EnvObject* eo = (EnvObject*)obj;
-                            for(auto & i : eo->normal_override_custom){
-                                if(i == vec4(0.0f)){
-                                    i = vec4(0.0f,9.5f,0.0f,1.0f);
+                            for (auto& i : eo->normal_override_custom) {
+                                if (i == vec4(0.0f)) {
+                                    i = vec4(0.0f, 9.5f, 0.0f, 1.0f);
                                 }
                             }
                             eo->normal_override_buffer_dirty = true;
@@ -3381,9 +3414,9 @@ Mark Stockton\nMikko Tarmia");
             }
             const bool kEnableBrushSize = false;
             static float brush_size = 10.0f;
-            if(kEnableBrushSize){
+            if (kEnableBrushSize) {
                 ImGui::DragFloat("Size", &brush_size);
-                if(brush_size < 1.0f){
+                if (brush_size < 1.0f) {
                     brush_size = 1.0f;
                 }
                 Camera* cam = ActiveCameras::Get();
@@ -3396,13 +3429,12 @@ Mark Stockton\nMikko Tarmia");
                 circle_transform.SetColumn(0, cam_right);
                 circle_transform.SetColumn(1, cam_up);
                 circle_transform.SetColumn(2, cam_facing);
-                circle_transform.SetTranslationPart(cam->GetPos() + normalize(cam->GetMouseRay())*100.0f);
-                DebugDraw::Instance()->AddCircle(circle_transform * old_scale, vec4(0.0f,0.0f,0.0f,0.5f), _delete_on_draw, _DD_XRAY);
+                circle_transform.SetTranslationPart(cam->GetPos() + normalize(cam->GetMouseRay()) * 100.0f);
+                DebugDraw::Instance()->AddCircle(circle_transform * old_scale, vec4(0.0f, 0.0f, 0.0f, 0.5f), _delete_on_draw, _DD_XRAY);
                 // Paintbrush tag (wall, floor, ceiling)
                 // Paintbrush toggle by-asset or by-triangle
                 // Paintbrush size
             }
-
 
             ImGui::End();
 
@@ -3426,23 +3458,23 @@ Mark Stockton\nMikko Tarmia");
 
             SimpleRayTriResultCallback cb;
             int num_samples = 1;
-            if(paint_type == 1 && kEnableBrushSize){
+            if (paint_type == 1 && kEnableBrushSize) {
                 num_samples = 20;
             }
-            for(int i=0; i<num_samples; ++i){
+            for (int i = 0; i < num_samples; ++i) {
                 float rand_amount = 0.0f;
-                if(paint_type == 1 && kEnableBrushSize){
+                if (paint_type == 1 && kEnableBrushSize) {
                     rand_amount = brush_size * 0.01f;
                 }
-                vec3 jitter = vec3(RangedRandomFloat(-rand_amount,rand_amount), RangedRandomFloat(-rand_amount,rand_amount), RangedRandomFloat(-rand_amount,rand_amount));
+                vec3 jitter = vec3(RangedRandomFloat(-rand_amount, rand_amount), RangedRandomFloat(-rand_amount, rand_amount), RangedRandomFloat(-rand_amount, rand_amount));
                 vec3 dir = ActiveCameras::Get()->GetMouseRay();
                 cb.m_collisionObject = NULL;
                 float dist = 10.0f;
-                while(!cb.m_collisionObject && dist < 1000.0f){
-                    scenegraph->bullet_world_->CheckRayTriCollisionInfo(ActiveCameras::Get()->GetPos(), ActiveCameras::Get()->GetPos() + normalize(dir+jitter)*dist, cb, true);
+                while (!cb.m_collisionObject && dist < 1000.0f) {
+                    scenegraph->bullet_world_->CheckRayTriCollisionInfo(ActiveCameras::Get()->GetPos(), ActiveCameras::Get()->GetPos() + normalize(dir + jitter) * dist, cb, true);
                     dist *= 2.0f;
                 }
-                if(cb.hasHit() && cb.m_object){
+                if (cb.hasHit() && cb.m_object) {
                     mouseray_collision_selected.hit_what = cb.m_object->owner_object;
                     mouseray_collision_selected.hit_where = cb.m_hit_pos;
                     mouseray_collision_selected.hit_how = cb.m_tri;
@@ -3450,25 +3482,25 @@ Mark Stockton\nMikko Tarmia");
                     mouseray_collision_selected.hit_what = NULL;
                 }
 
-                if(mouseray_collision_selected.hit_what){
-                    if(mouseray_collision_selected.hit_what->GetType() == _env_object){
+                if (mouseray_collision_selected.hit_what) {
+                    if (mouseray_collision_selected.hit_what->GetType() == _env_object) {
                         EnvObject* eo = (EnvObject*)mouseray_collision_selected.hit_what;
                         vec4 norm;
-                        if(paintbrush_type != 8) {
-                            norm = vec4(0,paintbrush_type+0.5f,0,1.0f);
+                        if (paintbrush_type != 8) {
+                            norm = vec4(0, paintbrush_type + 0.5f, 0, 1.0f);
                         } else {
                             norm = vec4(0.0f);
                         }
-                        if(paint_type == 0){
-                            if(actually_painting){
-                                for(auto & i : eo->normal_override_custom){
+                        if (paint_type == 0) {
+                            if (actually_painting) {
+                                for (auto& i : eo->normal_override_custom) {
                                     i = norm;
                                 }
                                 eo->normal_override_buffer_dirty = true;
                             }
                         } else {
                             int model_id = eo->GetCollisionModelID();
-                            if(model_id != -1){
+                            if (model_id != -1) {
                                 Model* model = &Models::Instance()->GetModel(model_id);
                                 WOLFIRE_SIMPLIFY::SimplifyModel processed_model;
                                 std::vector<HalfEdge> half_edges;
@@ -3479,91 +3511,89 @@ Mark Stockton\nMikko Tarmia");
                                 vec3 verts[3];
                                 int face_index = mouseray_collision_selected.hit_how * 3;
                                 int vert_translate[3] = {-1};
-                                for(size_t index=0, len=processed_model.vertices.size(); index<len; index+=3){
-                                    for(int vert_id=0; vert_id<3; ++vert_id){
-                                        int vert_index = model->faces[face_index+vert_id]*3;
-                                        if(processed_model.vertices[index+0] == model->vertices[vert_index+0] &&
-                                           processed_model.vertices[index+1] == model->vertices[vert_index+1] &&
-                                           processed_model.vertices[index+2] == model->vertices[vert_index+2])
-                                        {
-                                            vert_translate[vert_id] = (int)index/3;
+                                for (size_t index = 0, len = processed_model.vertices.size(); index < len; index += 3) {
+                                    for (int vert_id = 0; vert_id < 3; ++vert_id) {
+                                        int vert_index = model->faces[face_index + vert_id] * 3;
+                                        if (processed_model.vertices[index + 0] == model->vertices[vert_index + 0] &&
+                                            processed_model.vertices[index + 1] == model->vertices[vert_index + 1] &&
+                                            processed_model.vertices[index + 2] == model->vertices[vert_index + 2]) {
+                                            vert_translate[vert_id] = (int)index / 3;
                                         }
                                     }
                                 }
-                                for(int vert_id=0; vert_id<3; ++vert_id){
-                                    int vert_index = model->faces[face_index+vert_id]*3;
+                                for (int vert_id = 0; vert_id < 3; ++vert_id) {
+                                    int vert_index = model->faces[face_index + vert_id] * 3;
                                     memcpy(&verts[vert_id], &model->vertices[vert_index], sizeof(vec3));
                                     verts[vert_id] = eo->GetTransform() * verts[vert_id];
                                 }
                                 std::vector<int> checked;
                                 checked.resize(half_edges.size(), 0);
                                 std::queue<HalfEdge*> to_check;
-                                for(auto & half_edge : half_edges){
-                                    if(half_edge.vert[0] == vert_translate[0] &&
-                                        half_edge.vert[1] == vert_translate[1])
-                                    {
+                                for (auto& half_edge : half_edges) {
+                                    if (half_edge.vert[0] == vert_translate[0] &&
+                                        half_edge.vert[1] == vert_translate[1]) {
                                         to_check.push(&half_edge);
                                     }
                                 }
                                 vec3 start_norm;
                                 bool norm_set = false;
-                                while(!to_check.empty()){
+                                while (!to_check.empty()) {
                                     HalfEdge* curr = to_check.front();
                                     to_check.pop();
-                                    if(checked[curr->id] == 1){
+                                    if (checked[curr->id] == 1) {
                                         continue;
                                     }
 
                                     vec3 verts[3];
-                                    for(auto & vert : verts){
-                                        int vert_index = processed_model.old_vert_id[curr->vert[0]]*3;
+                                    for (auto& vert : verts) {
+                                        int vert_index = processed_model.old_vert_id[curr->vert[0]] * 3;
                                         memcpy(&vert, &model->vertices[vert_index], sizeof(vec3));
                                         curr = curr->next;
                                     }
 
-                                    vec3 curr_norm = normalize(cross(verts[1]-verts[0], verts[2]-verts[0]));
-                                    if(!norm_set){
+                                    vec3 curr_norm = normalize(cross(verts[1] - verts[0], verts[2] - verts[0]));
+                                    if (!norm_set) {
                                         norm_set = true;
                                         start_norm = curr_norm;
 
                                         float shortest_dist = FLT_MAX;
                                         int closest_edge = 0;
-                                        for(int edge=0; edge<3; ++edge){
-                                            vec3 perp_dir = normalize(cross(dir, eo->GetTransform()*verts[(edge+1)%3] - eo->GetTransform()*verts[edge]));
-                                            float dist = fabs(dot(perp_dir, eo->GetTransform()*verts[edge]) - dot(perp_dir, mouseray_collision_selected.hit_where));
-                                            if(dist < shortest_dist){
+                                        for (int edge = 0; edge < 3; ++edge) {
+                                            vec3 perp_dir = normalize(cross(dir, eo->GetTransform() * verts[(edge + 1) % 3] - eo->GetTransform() * verts[edge]));
+                                            float dist = fabs(dot(perp_dir, eo->GetTransform() * verts[edge]) - dot(perp_dir, mouseray_collision_selected.hit_where));
+                                            if (dist < shortest_dist) {
                                                 shortest_dist = dist;
                                                 closest_edge = edge;
                                             }
                                         }
-                                        for(int edge=0; edge<3; ++edge){
+                                        for (int edge = 0; edge < 3; ++edge) {
                                             vec4 color = vec4(1.0);
-                                            if(edge == closest_edge){
-                                                color = vec4(0,1,0,1);
-                                                if(actually_edge_painting){
-                                                    DebugDraw::Instance()->AddLine(eo->GetTransform()*verts[edge], eo->GetTransform()*verts[(edge+1)%3], color, _fade, _DD_XRAY);
+                                            if (edge == closest_edge) {
+                                                color = vec4(0, 1, 0, 1);
+                                                if (actually_edge_painting) {
+                                                    DebugDraw::Instance()->AddLine(eo->GetTransform() * verts[edge], eo->GetTransform() * verts[(edge + 1) % 3], color, _fade, _DD_XRAY);
                                                 }
                                             }
-                                            DebugDraw::Instance()->AddLine(eo->GetTransform()*verts[edge], eo->GetTransform()*verts[(edge+1)%3], color, _delete_on_draw, _DD_XRAY);
+                                            DebugDraw::Instance()->AddLine(eo->GetTransform() * verts[edge], eo->GetTransform() * verts[(edge + 1) % 3], color, _delete_on_draw, _DD_XRAY);
                                         }
                                     }
                                     bool can_spread = false;
-                                    if(spread == 1){
+                                    if (spread == 1) {
                                         can_spread = distance(start_norm, curr_norm) < 0.1f;
-                                    } else if(spread == 2){
+                                    } else if (spread == 2) {
                                         can_spread = dot(start_norm, curr_norm) > spread_threshold;
                                     }
-                                    if(actually_painting && half_edge_faces[curr->id] != -1 && (spread == 0 || can_spread)){
-                                        if((int)eo->normal_override_custom.size() > half_edge_faces[curr->id]){
+                                    if (actually_painting && half_edge_faces[curr->id] != -1 && (spread == 0 || can_spread)) {
+                                        if ((int)eo->normal_override_custom.size() > half_edge_faces[curr->id]) {
                                             eo->normal_override_custom[half_edge_faces[curr->id]] = norm;
                                         }
                                         eo->normal_override_buffer_dirty = true;
                                     }
-                                    if(can_spread){
-                                        for(int i=0; i<3; ++i){
-                                            //DebugDraw::Instance()->AddLine(eo->GetTransform()*verts[i], eo->GetTransform()*verts[(i+1)%3], vec4(1.0), _delete_on_draw, _DD_XRAY);
+                                    if (can_spread) {
+                                        for (int i = 0; i < 3; ++i) {
+                                            // DebugDraw::Instance()->AddLine(eo->GetTransform()*verts[i], eo->GetTransform()*verts[(i+1)%3], vec4(1.0), _delete_on_draw, _DD_XRAY);
                                             checked[curr->id] = 1;
-                                            if(curr->twin && checked[curr->twin->id] == 0){
+                                            if (curr->twin && checked[curr->twin->id] == 0) {
                                                 to_check.push(curr->twin);
                                             }
                                             curr = curr->next;
@@ -3571,23 +3601,23 @@ Mark Stockton\nMikko Tarmia");
                                     }
                                 }
                                 eo->ledge_lines.clear();
-                                for(auto & half_edge : half_edges){
+                                for (auto& half_edge : half_edges) {
                                     HalfEdge* curr = &half_edge;
-                                    if(curr->twin) {
-                                        if( (int)eo->normal_override_custom.size() > half_edge_faces[curr->id] ) {
+                                    if (curr->twin) {
+                                        if ((int)eo->normal_override_custom.size() > half_edge_faces[curr->id]) {
                                             int curr_color = (int)(eo->normal_override_custom[half_edge_faces[curr->id]][1]);
                                             int neighbor_color = (int)(eo->normal_override_custom[half_edge_faces[curr->twin->id]][1]);
-                                            if(curr_color == 6 && neighbor_color < 4){
-                                                for(int j : curr->vert){
-                                                    int vert_index = processed_model.old_vert_id[j]*3;
+                                            if (curr_color == 6 && neighbor_color < 4) {
+                                                for (int j : curr->vert) {
+                                                    int vert_index = processed_model.old_vert_id[j] * 3;
                                                     eo->ledge_lines.push_back(vert_index);
                                                 }
                                             }
                                         }
                                     }
                                 }
-                                for(size_t index=1, len=eo->ledge_lines.size(); index<len; index+=2){
-                                    DebugDraw::Instance()->AddLine(eo->GetTransform() * *((vec3*)&model->vertices[eo->ledge_lines[index-1]]),
+                                for (size_t index = 1, len = eo->ledge_lines.size(); index < len; index += 2) {
+                                    DebugDraw::Instance()->AddLine(eo->GetTransform() * *((vec3*)&model->vertices[eo->ledge_lines[index - 1]]),
                                                                    eo->GetTransform() * *((vec3*)&model->vertices[eo->ledge_lines[index]]),
                                                                    vec4(1.0),
                                                                    vec4(1.0),
@@ -3601,12 +3631,12 @@ Mark Stockton\nMikko Tarmia");
             }
         }
 
-        if( show_mod_menu ) {
+        if (show_mod_menu) {
             show_mod_menu_previous = true;
             DrawModMenu(engine);
         }
 
-        if(show_mod_menu_previous && !show_mod_menu) {
+        if (show_mod_menu_previous && !show_mod_menu) {
             show_mod_menu_previous = false;
             CleanupModMenu();
         }
@@ -3622,16 +3652,15 @@ Mark Stockton\nMikko Tarmia");
 
             ImGui::End();
         }
-        if(!gui->debug_text.empty())
-        {
-            if(config["debug_draw_window"].toBool()) {
-                ImGui::SetNextWindowPos(ImVec2(10,30));
-                ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_AlwaysAutoResize|ImGuiWindowFlags_NoInputs);
+        if (!gui->debug_text.empty()) {
+            if (config["debug_draw_window"].toBool()) {
+                ImGui::SetNextWindowPos(ImVec2(10, 30));
+                ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoInputs);
                 DrawDebugText(gui);
                 ImGui::End();
-            } else if(config["fps_label"].toBool()) {
-                ImGui::SetNextWindowPos(ImVec2(10,30));
-                ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_AlwaysAutoResize|ImGuiWindowFlags_NoInputs);
+            } else if (config["fps_label"].toBool()) {
+                ImGui::SetNextWindowPos(ImVec2(10, 30));
+                ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoInputs);
                 DrawDebugText(gui, "_framerate");
                 DrawDebugText(gui, "_frametime");
                 ImGui::End();
@@ -3641,54 +3670,54 @@ Mark Stockton\nMikko Tarmia");
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
             ImGui::ShowDemoWindow(&show_test_window);
         }
-    } else if(scenegraph && scenegraph->map_editor->state_ == MapEditor::kInGame && !gui->debug_text.empty()){
-        if(engine->current_engine_state_.type == kEngineEditorLevelState && config["debug_draw_window"].toBool()) {
-            ImGui::SetNextWindowPos(ImVec2(10,10)); 
+    } else if (scenegraph && scenegraph->map_editor->state_ == MapEditor::kInGame && !gui->debug_text.empty()) {
+        if (engine->current_engine_state_.type == kEngineEditorLevelState && config["debug_draw_window"].toBool()) {
+            ImGui::SetNextWindowPos(ImVec2(10, 10));
 
-            ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_AlwaysAutoResize|ImGuiWindowFlags_NoInputs);
+            ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoInputs);
             DrawDebugText(gui);
             ImGui::End();
-        } else if(config["fps_label"].toBool()) {
-            ImGui::SetNextWindowPos(ImVec2(10,30));
-            ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar|ImGuiWindowFlags_NoResize|ImGuiWindowFlags_NoMove|ImGuiWindowFlags_NoSavedSettings|ImGuiWindowFlags_AlwaysAutoResize|ImGuiWindowFlags_NoInputs);
+        } else if (config["fps_label"].toBool()) {
+            ImGui::SetNextWindowPos(ImVec2(10, 30));
+            ImGui::Begin("##debug_text_overlay", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoInputs);
             DrawDebugText(gui, "_framerate");
             DrawDebugText(gui, "_frametime");
             ImGui::End();
         }
     }
 
-	if (show_mp_settings) {
-		ImGui::SetNextWindowPos(ImVec2(0.f, 200.f));
-		ImGui::Begin("Multiplayer Settings", &show_mp_info,
-			ImGuiWindowFlags_NoTitleBar | 
-			ImGuiWindowFlags_NoResize | 
-			ImGuiWindowFlags_NoMove | 
-			ImGuiWindowFlags_NoSavedSettings | 
-			ImGuiWindowFlags_AlwaysAutoResize);
+    if (show_mp_settings) {
+        ImGui::SetNextWindowPos(ImVec2(0.f, 200.f));
+        ImGui::Begin("Multiplayer Settings", &show_mp_info,
+                     ImGuiWindowFlags_NoTitleBar |
+                         ImGuiWindowFlags_NoResize |
+                         ImGuiWindowFlags_NoMove |
+                         ImGuiWindowFlags_NoSavedSettings |
+                         ImGuiWindowFlags_AlwaysAutoResize);
 
-		bool host_allow_editor = online->GetHostAllowsClientEditor();
-		ImGui::Checkbox("Allow clients using the editor", &host_allow_editor);
+        bool host_allow_editor = online->GetHostAllowsClientEditor();
+        ImGui::Checkbox("Allow clients using the editor", &host_allow_editor);
 
-		online->SetIfHostAllowsClientEditor(host_allow_editor);
+        online->SetIfHostAllowsClientEditor(host_allow_editor);
 
-		if (spawner_tabs.find("Character") != spawner_tabs.end()) {
-			SpawnerTab * character_tab =  &spawner_tabs["Character"];
-			std::string current_hot_join_char = online->GetDefaultHotJoinCharacter();
-			ImGui::Text(("Hot join character: " + current_hot_join_char).c_str());
-			if (ImGui::BeginMenu("Select hot join character")) {
-				for (auto & i : *character_tab) {
-					SpawnerItem *  item = &i; // no way that the asm is pretty here
+        if (spawner_tabs.find("Character") != spawner_tabs.end()) {
+            SpawnerTab* character_tab = &spawner_tabs["Character"];
+            std::string current_hot_join_char = online->GetDefaultHotJoinCharacter();
+            ImGui::Text(("Hot join character: " + current_hot_join_char).c_str());
+            if (ImGui::BeginMenu("Select hot join character")) {
+                for (auto& i : *character_tab) {
+                    SpawnerItem* item = &i;  // no way that the asm is pretty here
 
-					if (IsCharacterSelceted(item)) {
-						online->SetDefaultHotJoinCharacter(item->path);
-					}
-				}
-				ImGui::EndMenu();
-			}
-		}
-		 
-		ImGui::End();
-	}
+                    if (IsCharacterSelceted(item)) {
+                        online->SetDefaultHotJoinCharacter(item->path);
+                    }
+                }
+                ImGui::EndMenu();
+            }
+        }
+
+        ImGui::End();
+    }
 
     if (show_build_watermark && GetBuildID() != -1) {
         const ImVec4 transparent = ImVec4(0.0f, 0.0f, 0.0f, 0.0f);
@@ -3696,21 +3725,20 @@ Mark Stockton\nMikko Tarmia");
         ImGui::PushStyleColor(ImGuiCol_Border, transparent);
         ImGui::SetNextWindowPos(ImVec2(0, Graphics::Instance()->render_dims[1] - ImGui::GetTextLineHeight() * 2), ImGuiCond_Always);
         ImGui::SetNextWindowSize(ImVec2(400, ImGui::GetTextLineHeight()), ImGuiCond_Always);
-        ImGui::Begin("VersionWatermark", (bool*) 1, ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs);
+        ImGui::Begin("VersionWatermark", (bool*)1, ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs);
         ImGui::TextColored(ImVec4(1.0f, 1.0f, 1.0f, 1.0f), std::string("BUILD ID: " + std::to_string(GetBuildID()) + ", IN_DEV").c_str());
         ImGui::End();
         ImGui::PopStyleColor(2);
     }
 
     static bool write_to_chat = false;
-	if (online->IsActive()) {
-		Input* input = Input::Instance();
-		const Keyboard& keyboard = input->getKeyboard();
-		int window_x = Graphics::Instance()->render_dims[0];
-		int window_y = Graphics::Instance()->render_dims[1];
+    if (online->IsActive()) {
+        Input* input = Input::Instance();
+        const Keyboard& keyboard = input->getKeyboard();
+        int window_x = Graphics::Instance()->render_dims[0];
+        int window_y = Graphics::Instance()->render_dims[1];
 
-		ImGuiWindowFlags w_flags = 0;
-
+        ImGuiWindowFlags w_flags = 0;
 
         static bool enter_is_down_this_frame = false;
         static bool enter_was_down_last_frame = false;
@@ -3722,15 +3750,15 @@ Mark Stockton\nMikko Tarmia");
         static float time_from_host_start = 0;
         static bool host_started_level_last_frame = false;
 
-        if (host_started_level_last_frame != online->host_started_level) { //check if host started the level this frame
+        if (host_started_level_last_frame != online->host_started_level) {  // check if host started the level this frame
             wait_for_enter_release = true;
             host_started_level_last_frame = online->host_started_level;
             time_from_host_start = game_timer.game_time;
-            write_to_chat = false; // close the chat when moving from lobby into game
+            write_to_chat = false;  // close the chat when moving from lobby into game
         }
 
         if (wait_for_enter_release) {
-            //can not open chat by pressing enter for the first half second when going from loading screen to game, except from if enter is released 
+            // can not open chat by pressing enter for the first half second when going from loading screen to game, except from if enter is released
             if (game_timer.game_time - time_from_host_start > 0.5f) {
                 wait_for_enter_release = false;
             } else if (enter_was_down_last_frame && !enter_is_down_this_frame) {
@@ -3739,7 +3767,7 @@ Mark Stockton\nMikko Tarmia");
         }
 
         bool player_pressed_enter = enter_is_down_this_frame && !enter_was_down_last_frame && !wait_for_enter_release;
-        
+
         bool open_chat = false;
         if (!write_to_chat && player_pressed_enter) {
             write_to_chat = true;
@@ -3748,18 +3776,16 @@ Mark Stockton\nMikko Tarmia");
             write_to_chat = false;
         }
 
-
         if (show_chat) {
             SceneGraph* scene_graph = Engine::Instance()->GetSceneGraph();
             if (scene_graph) {
-
-                //This will prevent the chat from open when i a dialogue.
+                // This will prevent the chat from open when i a dialogue.
                 ObjectID player_object_id = online->GetOwnPlayerState().object_id;
                 if (player_object_id != -1) {
                     Object* player_object = scene_graph->GetObjectFromID(player_object_id);
                     if (player_object && player_object->GetType() == _movement_object) {
                         MovementObject* player_mo = static_cast<MovementObject*>(player_object);
-                        //if player is in dialogue set write_to_chat to false;
+                        // if player is in dialogue set write_to_chat to false;
                         write_to_chat &= !*reinterpret_cast<bool*>(player_mo->as_context->module.GetVarPtrCache("dialogue_control"));
                     }
                 }
@@ -3773,12 +3799,11 @@ Mark Stockton\nMikko Tarmia");
             ImVec2 chat_text_pos = chat_write_pos - ImVec2(0, ImGui::GetTextLineHeight() * line_count * 2);
 
             if (chat_messages.size() > 0) {
-
                 ImGui::SetNextWindowBgAlpha(chat_alpha);
                 ImGui::SetNextWindowPos(chat_text_pos, ImGuiCond_Always);
                 ImGui::SetNextWindowSize(ImVec2(chat_width, ImGui::GetTextLineHeight() * line_count * 2), ImGuiCond_Always);
                 ImGui::Begin("Online Chat", &show_chat, ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs);
-                
+
                 // Pad lines so messages are always bottom aligned
                 for (size_t i = 0; i < line_count + 1; i++) {
                     ImGui::Text("");
@@ -3786,7 +3811,7 @@ Mark Stockton\nMikko Tarmia");
 
                 // Display actual chat messages
                 ImGui::PushTextWrapPos();
-                for(const auto & chat_message : chat_messages) {
+                for (const auto& chat_message : chat_messages) {
                     ImGui::Text(chat_message.message.c_str());
                 }
                 ImGui::PopTextWrapPos();
@@ -3795,20 +3820,18 @@ Mark Stockton\nMikko Tarmia");
                 if (ImGui::GetScrollY() < ImGui::GetScrollMaxY()) {
                     ImGui::SetScrollY(ImGui::GetScrollY() + (ImGui::GetScrollMaxY() - ImGui::GetScrollY() + 10.0f) * ImGui::GetIO().DeltaTime * 10);
                 }
-                
 
                 ImGui::End();
 
-                online->RemoveOldChatMessages(10.0f); // todo: should be moved to mp.update once thats a thing
+                online->RemoveOldChatMessages(10.0f);  // todo: should be moved to mp.update once thats a thing
             }
             if (write_to_chat) {
-
                 ImGui::SetNextWindowBgAlpha(chat_alpha);
                 ImGui::SetNextWindowPos(chat_write_pos, ImGuiCond_Always);
                 ImGui::SetNextWindowSize(ImVec2(chat_width, ImGui::GetTextLineHeight()), ImGuiCond_Always);
                 ImGui::Begin("Online Chat Write", &show_chat, ImGuiWindowFlags_NoNav | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoInputs);
 
-                static char input_buffer[512]; //player will be able to write a message with 511 chars 
+                static char input_buffer[512];  // player will be able to write a message with 511 chars
                 if (open_chat) {
                     ImGui::SetKeyboardFocusHere();
                     memset(input_buffer, '\0', sizeof(input_buffer));
@@ -3816,7 +3839,7 @@ Mark Stockton\nMikko Tarmia");
                 if (write_to_chat) {
                     if (ImGui::InputText("", input_buffer, sizeof(input_buffer), ImGuiInputTextFlags_EnterReturnsTrue)) {
                         write_to_chat = false;
-                        
+
                         if (input_buffer[0] != '\0') {
                             online->BroadcastChatMessage(input_buffer);
                         }
@@ -3829,102 +3852,100 @@ Mark Stockton\nMikko Tarmia");
         write_to_chat = false;
     }
 
-	if (show_mp_debug && online->IsActive()) {
-		ImGui::SetNextWindowSize(ImVec2(640.0f, 480.0f), ImGuiCond_FirstUseEver);
-		ImGui::Begin("Multiplayer status", &show_mp_debug, ImGuiWindowFlags_NoSavedSettings);
+    if (show_mp_debug && online->IsActive()) {
+        ImGui::SetNextWindowSize(ImVec2(640.0f, 480.0f), ImGuiCond_FirstUseEver);
+        ImGui::Begin("Multiplayer status", &show_mp_debug, ImGuiWindowFlags_NoSavedSettings);
         std::vector<ObjectID> myAvatarID = online->GetLocalAvatarIDs();
-		float step = online->GetNoDataInterpStepOverRide();
-		ImGui::SliderFloat("Interp no data override", &step, 0, 1.0);
-		online->SetNoDataInterpStepOverRide(step);
+        float step = online->GetNoDataInterpStepOverRide();
+        ImGui::SliderFloat("Interp no data override", &step, 0, 1.0);
+        online->SetNoDataInterpStepOverRide(step);
 
-        if(ImGui::Button("Send Test Message")) {
+        if (ImGui::Button("Send Test Message")) {
             online->Send<OnlineMessages::TestMessage>("Test message from debug menu");
         }
- 
-        if(online->IsClient()) {
+
+        if (online->IsClient()) {
             ImGui::SliderFloat("Time Shift Coefficient", &TimeInterpolator::offset_shift_coefficient_factor, 0.0f, 20.0f, "%.3f", 0);
             ImGui::SliderInt("Target Window Size", &TimeInterpolator::target_window_size, 3, 16);
         }
 
 #if ENABLE_STEAMWORKS || ENABLE_GAMENETWORKINGSOCKETS
-		ISteamNetworkingUtils* utils = SteamNetworkingUtils();
-		ISteamNetworkingSockets * isns = SteamNetworkingSockets();
-		if (utils && isns) {
-			SteamNetworkingConfigValue_t config[4];
+        ISteamNetworkingUtils* utils = SteamNetworkingUtils();
+        ISteamNetworkingSockets* isns = SteamNetworkingSockets();
+        if (utils && isns) {
+            SteamNetworkingConfigValue_t config[4];
 
-			static int32_t outPing = 0;
-			static int32_t inPing = 0;
+            static int32_t outPing = 0;
+            static int32_t inPing = 0;
 
-			static float packetLossIn = 0;
-			static float packetOutIn = 0;
+            static float packetLossIn = 0;
+            static float packetOutIn = 0;
 
-			ImGui::Text(std::string("Outgoing Messages: " + std::to_string(online->OutgoingMessageCount())).c_str());
-			ImGui::Text(std::string("Incoming Messages: " + std::to_string(online->IncomingMessageCount())).c_str());
+            ImGui::Text(std::string("Outgoing Messages: " + std::to_string(online->OutgoingMessageCount())).c_str());
+            ImGui::Text(std::string("Incoming Messages: " + std::to_string(online->IncomingMessageCount())).c_str());
 
-			if (ImGui::TreeNode("Link Quality Testing")) {
-				ImGui::SliderInt("Ping out in ms", &outPing, 0, 1000);
-				ImGui::SliderInt("Ping in ms", &inPing, 0, 1000);
+            if (ImGui::TreeNode("Link Quality Testing")) {
+                ImGui::SliderInt("Ping out in ms", &outPing, 0, 1000);
+                ImGui::SliderInt("Ping in ms", &inPing, 0, 1000);
 
-				ImGui::SliderFloat("Packet loss percentage OUT", &packetOutIn, 0, 100);
-				ImGui::SliderFloat("Packet loss percentage IN", &packetLossIn, 0, 100);
-				ImGui::TreePop();
-			}
+                ImGui::SliderFloat("Packet loss percentage OUT", &packetOutIn, 0, 100);
+                ImGui::SliderFloat("Packet loss percentage IN", &packetLossIn, 0, 100);
+                ImGui::TreePop();
+            }
 
-			config[0].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLag_Send, outPing);
-			config[1].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLag_Recv, inPing);
-			config[2].SetFloat(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLoss_Recv, packetLossIn);
-			config[3].SetFloat(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLoss_Send, packetOutIn);
+            config[0].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLag_Send, outPing);
+            config[1].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLag_Recv, inPing);
+            config[2].SetFloat(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLoss_Recv, packetLossIn);
+            config[3].SetFloat(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_FakePacketLoss_Send, packetOutIn);
 
-			utils->SetConfigValueStruct(config[0], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-			utils->SetConfigValueStruct(config[1], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-			utils->SetConfigValueStruct(config[2], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-			utils->SetConfigValueStruct(config[3], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-			intptr_t packageSize = 0;
-			ESteamNetworkingConfigDataType type;
-			int mtuDatasize = 0;
-			int mtuPacketsize = 0;
-			size_t size = 4;
-			int outgoingbuffersize = 0;
-			int sentRateMax = -1;
-			int sentRateMin = -1;
+            utils->SetConfigValueStruct(config[0], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
+            utils->SetConfigValueStruct(config[1], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
+            utils->SetConfigValueStruct(config[2], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
+            utils->SetConfigValueStruct(config[3], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
+            intptr_t packageSize = 0;
+            ESteamNetworkingConfigDataType type;
+            int mtuDatasize = 0;
+            int mtuPacketsize = 0;
+            size_t size = 4;
+            int outgoingbuffersize = 0;
+            int sentRateMax = -1;
+            int sentRateMin = -1;
 
-			utils->GetConfigValue(k_ESteamNetworkingConfig_MTU_PacketSize, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &mtuDatasize, &size);
-			utils->GetConfigValue(k_ESteamNetworkingConfig_MTU_DataSize, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &mtuPacketsize, &size);
-			utils->GetConfigValue(k_ESteamNetworkingConfig_SendRateMax, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &sentRateMax, &size);
-			utils->GetConfigValue(k_ESteamNetworkingConfig_SendRateMin, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &sentRateMin, &size);
-			utils->GetConfigValue(k_ESteamNetworkingConfig_SendBufferSize, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &outgoingbuffersize, &size);
+            utils->GetConfigValue(k_ESteamNetworkingConfig_MTU_PacketSize, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &mtuDatasize, &size);
+            utils->GetConfigValue(k_ESteamNetworkingConfig_MTU_DataSize, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &mtuPacketsize, &size);
+            utils->GetConfigValue(k_ESteamNetworkingConfig_SendRateMax, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &sentRateMax, &size);
+            utils->GetConfigValue(k_ESteamNetworkingConfig_SendRateMin, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &sentRateMin, &size);
+            utils->GetConfigValue(k_ESteamNetworkingConfig_SendBufferSize, ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0, &type, &outgoingbuffersize, &size);
 
-			if (ImGui::TreeNode("Steam Network Config")) {
-				ImGui::SliderInt("MTU packet size", &mtuPacketsize, 1, 5000);
+            if (ImGui::TreeNode("Steam Network Config")) {
+                ImGui::SliderInt("MTU packet size", &mtuPacketsize, 1, 5000);
 
-				ImGui::SliderInt("Internal buffer size", &outgoingbuffersize, 1, 4096 * 60 * 10);
-				ImGui::TreePop();
-			}
+                ImGui::SliderInt("Internal buffer size", &outgoingbuffersize, 1, 4096 * 60 * 10);
+                ImGui::TreePop();
+            }
 
-			SteamNetworkingConfigValue_t config_1[4];
+            SteamNetworkingConfigValue_t config_1[4];
 
-			config_1[0].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_MTU_PacketSize, mtuPacketsize + 100);
+            config_1[0].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_MTU_PacketSize, mtuPacketsize + 100);
 
-			config_1[1].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_SendBufferSize, outgoingbuffersize);
+            config_1[1].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_SendBufferSize, outgoingbuffersize);
 
-			config_1[2].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_SendRateMin, 1024 * 1024 * 9);
+            config_1[2].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_SendRateMin, 1024 * 1024 * 9);
 
-			config_1[3].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_SendRateMax, 1024 * 1024 * 10);
+            config_1[3].SetInt32(ESteamNetworkingConfigValue::k_ESteamNetworkingConfig_SendRateMax, 1024 * 1024 * 10);
 
+            utils->SetConfigValueStruct(config_1[0], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
+            utils->SetConfigValueStruct(config_1[1], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
 
-			utils->SetConfigValueStruct(config_1[0], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-			utils->SetConfigValueStruct(config_1[1], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-
-			utils->SetConfigValueStruct(config_1[2], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-			utils->SetConfigValueStruct(config_1[3], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
-
+            utils->SetConfigValueStruct(config_1[2], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
+            utils->SetConfigValueStruct(config_1[3], ESteamNetworkingConfigScope::k_ESteamNetworkingConfig_Global, 0);
         }
 #endif
-        if (ImGui::TreeNode("Data config")) { 
+        if (ImGui::TreeNode("Data config")) {
             static int tickperiod = 30;
             ImGui::SliderInt("Compression level", &online->compression_level, 0, 100);
             ImGui::SliderInt("Tickperiod in ms", &tickperiod, 1, 200);
-            online->SetTickperiod(tickperiod); 
+            online->SetTickperiod(tickperiod);
             ImGui::TreePop();
         }
 
@@ -3932,13 +3953,12 @@ Mark Stockton\nMikko Tarmia");
 
         std::vector<Peer> peers = online->GetPeers();
         static ImGuiTableFlags flags = ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersV |
-            ImGuiTableFlags_RowBg | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable;
+                                       ImGuiTableFlags_RowBg | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable;
 
         uint32_t count = 0;
         float bytesOut = 0.f;
         float bytesIn = 0.f;
         if (ImGui::BeginTable("##table", 6, flags, ImVec2(-1, 0))) {
-
             ImGui::TableSetupColumn("Player", ImGuiTableColumnFlags_WidthStretch);
             ImGui::TableSetupColumn("Message Ping", ImGuiTableColumnFlags_WidthFixed, 100.0f);
             ImGui::TableSetupColumn("Ping", ImGuiTableColumnFlags_WidthFixed, 75.0f);
@@ -3953,7 +3973,7 @@ Mark Stockton\nMikko Tarmia");
                 online->GetConnectionStatus(it, &c_status);
                 ImGui::TableNextRow();
                 static ImGuiTableFlags flags = ImGuiTableFlags_BordersOuter | ImGuiTableFlags_BordersV |
-                    ImGuiTableFlags_RowBg | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable;
+                                               ImGuiTableFlags_RowBg | ImGuiTableFlags_Resizable | ImGuiTableFlags_Reorderable;
                 ImGui::TableSetColumnIndex(0);
                 ImGui::Text("%d", count++);
 
@@ -3966,10 +3986,8 @@ Mark Stockton\nMikko Tarmia");
                 ImGui::TableSetColumnIndex(3);
                 ImGui::Text("%f", c_status.in_bytes_per_sec);
 
-
                 ImGui::TableSetColumnIndex(4);
                 ImGui::Text(" %f", c_status.out_bytes_per_sec);
-
 
                 ImGui::TableSetColumnIndex(5);
                 ImGui::Text("%f", 1.0f - c_status.connection_quality_remote);
@@ -3980,23 +3998,20 @@ Mark Stockton\nMikko Tarmia");
             ImGui::EndTable();
         }
 
-
 #ifdef NETWORK_DEBUG_DATA
         static ScrollingBuffer<ImVec2> sdata1, sdata2, sdata3, sdata4, sdata5;
 
         GraphTime += ImGui::GetIO().DeltaTime;
 
-
-
         static float history = 10.0f;
-        static ImPlotAxisFlags flags1 = 0; ImPlotAxisFlags_NoTickLabels;
+        static ImPlotAxisFlags flags1 = 0;
+        ImPlotAxisFlags_NoTickLabels;
         if (ImGui::TreeNode("Data graphs")) {
             ImGui::SliderFloat("History", &history, 1, 30, "%.1f s");
 
             sdata1.AddPoint(ImVec2(GraphTime, (bytesOut) / 1000.f));
             sdata2.AddPoint(ImVec2(GraphTime, (bytesIn) / 1000.f));
             sdata3.AddPoint(ImVec2(GraphTime, (bytesIn + bytesOut) / 1000.f));
-
 
             if (ImPlot::BeginPlot("##BytesRealTime", ImVec2(-1, 150))) {
                 ImPlot::SetupAxes(NULL, NULL, flags1, flags1);
@@ -4015,8 +4030,8 @@ Mark Stockton\nMikko Tarmia");
         }
 #endif
 
-        if(ImGui::TreeNode("Player debug info")) {
-            for(const auto& player_state : online->GetPlayerStates()) {
+        if (ImGui::TreeNode("Player debug info")) {
+            for (const auto& player_state : online->GetPlayerStates()) {
                 ImGui::Text("Playername: %d", player_state.playername.c_str());
                 ImGui::Text("Object ID: %d (%d)", player_state.object_id, online->GetOriginalID(player_state.object_id));
                 ImGui::Text("Ping: %d", player_state.ping);
@@ -4027,9 +4042,9 @@ Mark Stockton\nMikko Tarmia");
             ImGui::TreePop();
         }
 
-        if(ImGui::TreeNode("Peer debug info")) {
+        if (ImGui::TreeNode("Peer debug info")) {
             auto peers = online->GetPeers();
-            for(const auto& peer : peers) {
+            for (const auto& peer : peers) {
                 ImGui::Text("Connection ID: %d", peer.conn_id);
                 ImGui::Text("Peer ID: %d", peer.peer_id);
                 ImGui::Separator();
@@ -4037,14 +4052,14 @@ Mark Stockton\nMikko Tarmia");
             ImGui::TreePop();
         }
 
-        if(ImGui::TreeNode("Player Characters")) {
-            if(scenegraph != nullptr) {
+        if (ImGui::TreeNode("Player Characters")) {
+            if (scenegraph != nullptr) {
                 int num_avatars;
                 int avatar_ids[256];
 
                 scenegraph->GetPlayerCharacterIDs(&num_avatars, avatar_ids, 256);
 
-                for(int i = 0; i < num_avatars; i++) {
+                for (int i = 0; i < num_avatars; i++) {
                     MovementObject* avatar = static_cast<MovementObject*>(scenegraph->GetObjectFromID(engine->avatar_ids[i]));
 
                     ImGui::Text("ID %d", avatar->GetID());
@@ -4058,14 +4073,14 @@ Mark Stockton\nMikko Tarmia");
             }
         }
 
-        if(ImGui::TreeNode("NPC Characters")) {
-            if(scenegraph != nullptr) {
+        if (ImGui::TreeNode("NPC Characters")) {
+            if (scenegraph != nullptr) {
                 int num_avatars;
                 int avatar_ids[256];
 
                 scenegraph->GetNPCCharacterIDs(&num_avatars, avatar_ids, 256);
 
-                for(int i = 0; i < num_avatars; i++) {
+                for (int i = 0; i < num_avatars; i++) {
                     MovementObject* avatar = static_cast<MovementObject*>(scenegraph->GetObjectFromID(engine->avatar_ids[i]));
 
                     ImGui::Text("ID %d", avatar->GetID());
@@ -4078,25 +4093,25 @@ Mark Stockton\nMikko Tarmia");
             }
         }
 
-        if(ImGui::TreeNode("Character Graphs")) {
-            if(scenegraph != nullptr) {
+        if (ImGui::TreeNode("Character Graphs")) {
+            if (scenegraph != nullptr) {
                 int num_avatars;
                 int avatar_ids[256];
 
                 scenegraph->GetCharacterIDs(&num_avatars, avatar_ids, 256);
 
-                for(int i = 0; i < num_avatars; i++) {
+                for (int i = 0; i < num_avatars; i++) {
                     float pending_bones = 0.0f;
 
                     std::stringstream ss;
                     ss << avatar_ids[i];
                     std::string id_prefix = ss.str();
 
-                    MovementObject * movobj = (MovementObject*)(scenegraph->GetObjectFromID(avatar_ids[i]));
-                    RiggedObject * rigged  = movobj->rigged_object();
+                    MovementObject* movobj = (MovementObject*)(scenegraph->GetObjectFromID(avatar_ids[i]));
+                    RiggedObject* rigged = movobj->rigged_object();
 
                     ImGui::PushID(avatar_ids[i]);
-                    if(ImGui::TreeNode("MO #%s", id_prefix.c_str())) {
+                    if (ImGui::TreeNode("MO #%s", id_prefix.c_str())) {
                         if (movobj != nullptr) {
                             pending_bones = movobj->network_time_interpolator.full_interpolation;
 
@@ -4114,7 +4129,6 @@ Mark Stockton\nMikko Tarmia");
                             graphs[id_prefix + "_delta_between_frames"].Push(0);
 
                             graphs[id_prefix + "_pending_bones_history"].Push(movobj->network_time_interpolator.full_interpolation);
-
 
                             ImGui::Checkbox("Update Camera Pos", &rigged->update_camera_pos);
                             ImGui::Checkbox("Disable Linear Interpolation", &movobj->disable_network_bone_interpolation);
@@ -4149,42 +4163,38 @@ Mark Stockton\nMikko Tarmia");
         DrawDebugText(gui, "_frametime");
 
         ImGui::End();
-	}
+    }
 
-
-
-    if(show_state) {
+    if (show_state) {
         ImGui::SetNextWindowSize(ImVec2(500.0f, 200.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("State", &show_state);
 
         ImGui::Text("Engine State Stack");
 
-        ImGui::Text( "0 %s: %s (%s)",
-                        CStrEngineStateType(engine->current_engine_state_.type),
-                        engine->current_engine_state_.path.GetOriginalPath(),
-                        engine->current_engine_state_.id.c_str()
-        );
+        ImGui::Text("0 %s: %s (%s)",
+                    CStrEngineStateType(engine->current_engine_state_.type),
+                    engine->current_engine_state_.path.GetOriginalPath(),
+                    engine->current_engine_state_.id.c_str());
 
-        for( unsigned i = 0; i < engine->state_history.size(); i++ ) {
-            ImGui::Text( "%u %s: %s (%s)",
-                        i+1,
+        for (unsigned i = 0; i < engine->state_history.size(); i++) {
+            ImGui::Text("%u %s: %s (%s)",
+                        i + 1,
                         CStrEngineStateType(engine->state_history[i].type),
                         engine->state_history[i].path.GetOriginalPath(),
-                        engine->state_history[i].id.c_str()
-            );
+                        engine->state_history[i].id.c_str());
         }
 
         ImGui::Separator();
 
-        ScriptableCampaign *sc = engine->GetCurrentCampaign();
-        if( sc ) {
+        ScriptableCampaign* sc = engine->GetCurrentCampaign();
+        if (sc) {
             ImGui::Text("Current Campaign ID: %s", sc->GetCampaignID().c_str());
         } else {
             ImGui::Text("No Active Campaign");
         }
 
         std::string current_level_id = engine->GetCurrentLevelID();
-        if(current_level_id.empty() == false) {
+        if (current_level_id.empty() == false) {
             ImGui::Text("Currently Loaded Level: %s", current_level_id.c_str());
         } else {
             ImGui::Text("No Level Currently Loaded");
@@ -4197,38 +4207,36 @@ Mark Stockton\nMikko Tarmia");
         ImGui::SetNextWindowSize(ImVec2(350.0f, 150.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("Save", &show_save);
         std::set<std::string> campaign_ids;
-        for( size_t i = 0; i < engine->save_file_.GetSaveCount(); i++ ) {
+        for (size_t i = 0; i < engine->save_file_.GetSaveCount(); i++) {
             SavedLevel& level = engine->save_file_.GetSaveIndex(i);
 
             campaign_ids.insert(level.campaign_id_);
         }
 
         std::set<std::string>::iterator campaign_id_it = campaign_ids.begin();
-        for(;campaign_id_it != campaign_ids.end(); campaign_id_it++) {
-            const char* node_title =  "{empty}";
-            if( *campaign_id_it != "" ) {
+        for (; campaign_id_it != campaign_ids.end(); campaign_id_it++) {
+            const char* node_title = "{empty}";
+            if (*campaign_id_it != "") {
                 node_title = (*campaign_id_it).c_str();
             }
 
             char save_t_id[256];
             FormatString(save_t_id, 256, "save_cat_%s", node_title);
 
-            if( ImGui::TreeNode(save_t_id, "%s", node_title ) ) {
-                for( size_t i = 0; i < engine->save_file_.GetSaveCount(); i++ ) {
+            if (ImGui::TreeNode(save_t_id, "%s", node_title)) {
+                for (size_t i = 0; i < engine->save_file_.GetSaveCount(); i++) {
                     SavedLevel& level = engine->save_file_.GetSaveIndex(i);
-                    if( *campaign_id_it == level.campaign_id_ ) {
-                        FormatString(save_t_id, 256, "save_inst_%s_%s_%s",level.campaign_id_.c_str(), level.save_category_.c_str(), level.save_name_.c_str() );
-                        if( ImGui::TreeNode(save_t_id, "%s %s", level.save_category_.c_str(), level.save_name_.c_str() ) ) {
-
+                    if (*campaign_id_it == level.campaign_id_) {
+                        FormatString(save_t_id, 256, "save_inst_%s_%s_%s", level.campaign_id_.c_str(), level.save_category_.c_str(), level.save_name_.c_str());
+                        if (ImGui::TreeNode(save_t_id, "%s %s", level.save_category_.c_str(), level.save_name_.c_str())) {
                             const DataMap& data_map = level.GetDataMap();
 
-                            if( data_map.size() > 0 ) {
-                                if( ImGui::TreeNode("DataMap") ) {
-
+                            if (data_map.size() > 0) {
+                                if (ImGui::TreeNode("DataMap")) {
                                     DataMap::const_iterator data_map_it = data_map.begin();
 
-                                    for(; data_map_it != data_map.end(); data_map_it++ ) {
-                                         ImGui::Text("[%s]:%s", data_map_it->first.c_str(), data_map_it->second.c_str());
+                                    for (; data_map_it != data_map.end(); data_map_it++) {
+                                        ImGui::Text("[%s]:%s", data_map_it->first.c_str(), data_map_it->second.c_str());
                                     }
                                     ImGui::TreePop();
                                 }
@@ -4238,14 +4246,14 @@ Mark Stockton\nMikko Tarmia");
 
                             const ArrayDataMap& array_data_map = level.GetArrayDataMap();
 
-                            if( array_data_map.size() > 0 ) {
-                                if(ImGui::TreeNode("ArrayDataMap")) {
+                            if (array_data_map.size() > 0) {
+                                if (ImGui::TreeNode("ArrayDataMap")) {
                                     ArrayDataMap::const_iterator array_data_map_it = array_data_map.begin();
-                                    for(; array_data_map_it != array_data_map.end(); array_data_map_it++) {
-                                        if(ImGui::TreeNode(array_data_map_it->first.c_str())) {
+                                    for (; array_data_map_it != array_data_map.end(); array_data_map_it++) {
+                                        if (ImGui::TreeNode(array_data_map_it->first.c_str())) {
                                             std::vector<std::string>::const_iterator array_data_it = array_data_map_it->second.begin();
                                             int index = 0;
-                                            for(; array_data_it != array_data_map_it->second.end(); array_data_it++) {
+                                            for (; array_data_it != array_data_map_it->second.end(); array_data_it++) {
                                                 ImGui::Text("%d: %s", index, array_data_it->c_str());
                                                 index++;
                                             }
@@ -4272,38 +4280,38 @@ Mark Stockton\nMikko Tarmia");
         ImGui::End();
     }
 
-    if(show_events) {
+    if (show_events) {
         ImGui::SetNextWindowSize(ImVec2(300.0f, 146.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("Events", &show_events);
         static fixed_string<256> event_buf;
         ImGui::InputText("Message", event_buf.ptr(), event_buf.max_size());
 
-        if(ImGui::Button("Send As Global Event")){
+        if (ImGui::Button("Send As Global Event")) {
             std::string msg(event_buf.str());
-            if( scenegraph ) {
+            if (scenegraph) {
                 scenegraph->SendScriptMessageToAllObjects(msg);
                 scenegraph->level->Message(msg);
             }
-            ScriptableCampaign *sc = Engine::Instance()->GetCurrentCampaign();
-            if( sc ) {
+            ScriptableCampaign* sc = Engine::Instance()->GetCurrentCampaign();
+            if (sc) {
                 sc->ReceiveMessage(msg);
             }
         }
-        if(ImGui::Button("Send As Campaign Event")){
+        if (ImGui::Button("Send As Campaign Event")) {
             std::string msg(event_buf.str());
-            ScriptableCampaign *sc = Engine::Instance()->GetCurrentCampaign();
-            if( sc ) {
+            ScriptableCampaign* sc = Engine::Instance()->GetCurrentCampaign();
+            if (sc) {
                 sc->ReceiveMessage(msg);
             }
         }
-        if(ImGui::Button("Send As Level Event")){
+        if (ImGui::Button("Send As Level Event")) {
             std::string msg(event_buf.str());
-            if( scenegraph ) {
+            if (scenegraph) {
                 scenegraph->level->Message(msg);
             }
         }
 
-        if(ImGui::Button("Send as ScriptableUICallback")) {
+        if (ImGui::Button("Send as ScriptableUICallback")) {
             std::string msg(event_buf.str());
             Engine::Instance()->ScriptableUICallback(msg);
         }
@@ -4320,52 +4328,52 @@ Mark Stockton\nMikko Tarmia");
         static bool paused = true;
         ImGui::Checkbox("Pause", &paused);
         static float max_time = 0.0f;
-        if(!paused){
+        if (!paused) {
             max_time = 0.0f;
-            for(int i=0, len=kNumElements-1; i<len; ++i){
-                frame_times[i] = frame_times[i+1];
+            for (int i = 0, len = kNumElements - 1; i < len; ++i) {
+                frame_times[i] = frame_times[i + 1];
             }
-            frame_times[kNumElements-1] = (float)(frame_time_stopwatch.StopAndReportNanoseconds() / 1000000.0);
-            for(int i=0, len=kNumElements; i<len; ++i){
+            frame_times[kNumElements - 1] = (float)(frame_time_stopwatch.StopAndReportNanoseconds() / 1000000.0);
+            for (int i = 0, len = kNumElements; i < len; ++i) {
                 max_time = max(max_time, frame_times[i]);
             }
         } else {
             frame_time_stopwatch.StopAndReportNanoseconds();
         }
-        ImGui::PlotHistogram("Frame Times", frame_times, kNumElements, 0, NULL, 0.0f, 100.0f, ImVec2(0,80));
-        ImGui::Text("Max time: %3.2f ms (%3.0f fps)", max_time, 1000.0f/(max_time));
+        ImGui::PlotHistogram("Frame Times", frame_times, kNumElements, 0, NULL, 0.0f, 100.0f, ImVec2(0, 80));
+        ImGui::Text("Max time: %3.2f ms (%3.0f fps)", max_time, 1000.0f / (max_time));
 
         ImGui::Separator();
 
 #if MONITOR_MEMORY
-        ImGui::Text("malloc Calls This Frame: %d", GetAndResetMallocAllocationCount() );
-        ImGui::Text("malloc Current Allocations: %d", GetCurrentNumberOfMallocAllocations() );
+        ImGui::Text("malloc Calls This Frame: %d", GetAndResetMallocAllocationCount());
+        ImGui::Text("malloc Current Allocations: %d", GetCurrentNumberOfMallocAllocations());
 
-        for( int i = 0; i < OG_MALLOC_TYPE_COUNT; i++ ) {
+        for (int i = 0; i < OG_MALLOC_TYPE_COUNT; i++) {
             uint64_t mem_cb = GetCurrentTotalMallocAllocation(i);
-            if( mem_cb >= 1024 ) {
-               ImGui::Text("malloc Memory Use (%s): %u KiB\n", OgMallocTypeString(i), (unsigned)(mem_cb / 1024) );
+            if (mem_cb >= 1024) {
+                ImGui::Text("malloc Memory Use (%s): %u KiB\n", OgMallocTypeString(i), (unsigned)(mem_cb / 1024));
             } else {
-               ImGui::Text("malloc Memory Use (%s): %u B\n", OgMallocTypeString(i), (unsigned)mem_cb );
+                ImGui::Text("malloc Memory Use (%s): %u B\n", OgMallocTypeString(i), (unsigned)mem_cb);
             }
         }
 #else
-        ImGui::TextWrapped( "Compile project with -DMONITOR_MEMORY to have detailed memory use information on malloc and new" );
+        ImGui::TextWrapped("Compile project with -DMONITOR_MEMORY to have detailed memory use information on malloc and new");
 #endif
         ImGui::Separator();
 
         ImGui::Text("Stack Frame Allocs: %d", alloc.stack.GetAndResetAllocationCount());
         ImGui::Text("Stack Current Allocs: %d", alloc.stack.GetCurrentAllocations());
-        if( alloc.stack.AllocatedAmountMemory() >= 1024 ) {
-            ImGui::Text("Stack Alloc Use: %u KiB", (unsigned)(alloc.stack.AllocatedAmountMemory() / 1024) );
+        if (alloc.stack.AllocatedAmountMemory() >= 1024) {
+            ImGui::Text("Stack Alloc Use: %u KiB", (unsigned)(alloc.stack.AllocatedAmountMemory() / 1024));
         } else {
-            ImGui::Text("Stack Alloc Use: %u B", (unsigned)(alloc.stack.AllocatedAmountMemory()) );
+            ImGui::Text("Stack Alloc Use: %u B", (unsigned)(alloc.stack.AllocatedAmountMemory()));
         }
 
         ImGui::Separator();
         ImGui::Text("Total Active Assets: %d", assetmanager->GetLoadedAssetCount());
 
-        if( ImGui::IsItemClicked() ) {
+        if (ImGui::IsItemClicked()) {
             asset_detail_list.clear();
             asset_detail_list_load_flags.clear();
             asset_detail_list_ref_count.clear();
@@ -4373,7 +4381,7 @@ Mark Stockton\nMikko Tarmia");
 
             asset_detail_list_type = (AssetType)0;
             asset_detail_title = "Complete Asset List";
-            for( size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++ ) {
+            for (size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++) {
                 asset_detail_list.push_back(assetmanager->GetAssetName(k));
                 asset_detail_list_load_flags.push_back(assetmanager->GetAssetHoldFlags(k));
                 asset_detail_list_ref_count.push_back(assetmanager->GetAssetRefCount(k));
@@ -4383,7 +4391,7 @@ Mark Stockton\nMikko Tarmia");
 
         ImGui::Text("Asset Load Warnings: %d", assetmanager->GetAssetWarningCount());
 
-        if( ImGui::IsItemClicked() ) {
+        if (ImGui::IsItemClicked()) {
             asset_detail_list.clear();
             asset_detail_list_load_flags.clear();
             asset_detail_list_ref_count.clear();
@@ -4391,8 +4399,8 @@ Mark Stockton\nMikko Tarmia");
 
             asset_detail_list_type = (AssetType)0;
             asset_detail_title = "Asset Load Warning List";
-            for( size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++ ) {
-                if(assetmanager->GetAssetLoadWarning(k)) {
+            for (size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++) {
+                if (assetmanager->GetAssetLoadWarning(k)) {
                     asset_detail_list.push_back(assetmanager->GetAssetName(k));
                     asset_detail_list_load_flags.push_back(assetmanager->GetAssetHoldFlags(k));
                     asset_detail_list_ref_count.push_back(assetmanager->GetAssetRefCount(k));
@@ -4402,7 +4410,7 @@ Mark Stockton\nMikko Tarmia");
         }
 
         ImGui::Text("Assets held (Likely Preloaded): %d", assetmanager->GetAssetHoldCount());
-        if( ImGui::IsItemClicked() ) {
+        if (ImGui::IsItemClicked()) {
             asset_detail_list.clear();
             asset_detail_list_load_flags.clear();
             asset_detail_list_ref_count.clear();
@@ -4410,8 +4418,8 @@ Mark Stockton\nMikko Tarmia");
 
             asset_detail_list_type = (AssetType)0;
             asset_detail_title = "Assets held";
-            for( size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++ ) {
-                if(assetmanager->GetAssetHoldFlags(k)) {
+            for (size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++) {
+                if (assetmanager->GetAssetHoldFlags(k)) {
                     asset_detail_list.push_back(assetmanager->GetAssetName(k));
                     asset_detail_list_load_flags.push_back(assetmanager->GetAssetHoldFlags(k));
                     asset_detail_list_ref_count.push_back(assetmanager->GetAssetRefCount(k));
@@ -4421,55 +4429,54 @@ Mark Stockton\nMikko Tarmia");
         }
 
         int tot = 0;
-        for( int i = 1; i < (int)ASSET_TYPE_FINAL; i++ ) {
+        for (int i = 1; i < (int)ASSET_TYPE_FINAL; i++) {
             int c = assetmanager->GetAssetTypeCount((AssetType)i);
             ImGui::Text("Active %s: %d", GetAssetTypeString((AssetType)i), c);
             tot += c;
 
-            if( ImGui::IsItemClicked() ) {
+            if (ImGui::IsItemClicked()) {
                 asset_detail_list.clear();
                 asset_detail_list_load_flags.clear();
                 asset_detail_list_ref_count.clear();
                 asset_detail_list_load_warning.clear();
                 asset_detail_list_type = (AssetType)i;
                 asset_detail_title = "Dump insight to loaded AssetType";
-                for( size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++ ) {
-                    if(assetmanager->GetAssetType(k) == (AssetType)i) {
+                for (size_t k = 0; k < assetmanager->GetLoadedAssetCount(); k++) {
+                    if (assetmanager->GetAssetType(k) == (AssetType)i) {
                         asset_detail_list.push_back(assetmanager->GetAssetName(k));
                         asset_detail_list_load_flags.push_back(assetmanager->GetAssetHoldFlags(k));
                         asset_detail_list_ref_count.push_back(assetmanager->GetAssetRefCount(k));
                         asset_detail_list_load_warning.push_back(assetmanager->GetAssetLoadWarning(k));
                     }
                 }
-
             }
         }
 
         ImGui::Text("Total Sanity Check: %d", tot);
 
-        if( asset_detail_list.size() > 0 ) {
+        if (asset_detail_list.size() > 0) {
             ImGui::Separator();
             ImGui::Text("%s: %s", asset_detail_title, GetAssetTypeString(asset_detail_list_type));
-            if( ImGui::IsItemClicked() ) {
+            if (ImGui::IsItemClicked()) {
                 asset_detail_list.clear();
                 asset_detail_list_load_flags.clear();
                 asset_detail_list_ref_count.clear();
                 asset_detail_list_load_warning.clear();
             }
-            for( unsigned int i = 0; i < asset_detail_list.size(); i++ ) {
+            for (unsigned int i = 0; i < asset_detail_list.size(); i++) {
                 const char* second = "";
-                if(  asset_detail_list_load_flags[i] & HOLD_LOAD_MASK_PRELOAD ) {
+                if (asset_detail_list_load_flags[i] & HOLD_LOAD_MASK_PRELOAD) {
                     ImGui::PushStyleColor(ImGuiCol_Text, IMGUI_GREEN);
                     second = " (Held by preloader)";
-                } else if( asset_detail_list_ref_count[i] == 0 ) {
+                } else if (asset_detail_list_ref_count[i] == 0) {
                     ImGui::PushStyleColor(ImGuiCol_Text, IMGUI_RED);
-                } else if( asset_detail_list_load_warning[i] ) {
+                } else if (asset_detail_list_load_warning[i]) {
                     ImGui::PushStyleColor(ImGuiCol_Text, IMGUI_ORANGE);
                     second = " (Post Loadscreen Warning)";
                 } else {
                     ImGui::PushStyleColor(ImGuiCol_Text, IMGUI_WHITE);
                 }
-                ImGui::Text("(refc: %d) %s%s", (int)asset_detail_list_ref_count[i], asset_detail_list[i].c_str(),second);
+                ImGui::Text("(refc: %d) %s%s", (int)asset_detail_list_ref_count[i], asset_detail_list[i].c_str(), second);
                 ImGui::PopStyleColor();
             }
         }
@@ -4485,7 +4492,7 @@ Mark Stockton\nMikko Tarmia");
         ImGui::End();
     }
 
-    if( show_log ) {
+    if (show_log) {
         static bool show_log_scrollbar = false;
         static bool show_log_spam = false;
         static bool show_log_debug = false;
@@ -4494,9 +4501,9 @@ Mark Stockton\nMikko Tarmia");
         static bool show_log_error = true;
         static bool do_lock = false;
         static bool do_pause = false;
-        static uint8_t *edit_log_field = NULL;
+        static uint8_t* edit_log_field = NULL;
         static uint32_t edit_log_field_size;
-        static uint32_t edit_log_selection[2] = {0,0};
+        static uint32_t edit_log_selection[2] = {0, 0};
 
         bool do_pop_style = false;
 
@@ -4505,20 +4512,20 @@ Mark Stockton\nMikko Tarmia");
 
         ImGuiWindowFlags w_flags = 0;
 
-        if(do_lock) {
-            ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(1.0f,1.0f,1.0f,0.05f));
+        if (do_lock) {
+            ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(1.0f, 1.0f, 1.0f, 0.05f));
             do_pop_style = true;
             ImGui::SetNextWindowPos(ImVec2(10, window_y - ImGui::GetTextLineHeight() * 20 - 10), ImGuiCond_Always);
             ImGui::SetNextWindowSize(ImVec2(window_x * 0.8f, ImGui::GetTextLineHeight() * 20), ImGuiCond_Always);
             w_flags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoInputs;
         } else {
-            ImGui::SetNextWindowSize(ImVec2(700,500), ImGuiCond_FirstUseEver);
+            ImGui::SetNextWindowSize(ImVec2(700, 500), ImGuiCond_FirstUseEver);
         }
 
         ImGui::Begin("Log", &show_log, w_flags);
 
-        ImGui::BeginChild("settings", ImVec2(0,20));
-        if( do_pause == false ) {
+        ImGui::BeginChild("settings", ImVec2(0, 20));
+        if (do_pause == false) {
             ImGui::Checkbox("Show Scrollbar", &show_log_scrollbar);
             ImGui::SameLine();
             ImGui::Checkbox("Info", &show_log_info);
@@ -4534,60 +4541,59 @@ Mark Stockton\nMikko Tarmia");
             ImGui::Checkbox("Lock", &do_lock);
             ImGui::SameLine();
         }
-        if(ImGui::Checkbox("Pause", &do_pause)) {
-            if( do_pause ) {
+        if (ImGui::Checkbox("Pause", &do_pause)) {
+            if (do_pause) {
                 ram_handler.Lock();
                 uint32_t count = ram_handler.GetCount();
                 uint32_t current_pos = 0;
                 edit_log_field_size = 0;
-                if(edit_log_field) {
+                if (edit_log_field) {
                     OG_FREE(edit_log_field);
                     edit_log_field = NULL;
                 }
-                for( uint32_t stage = 0; stage < 2; stage++ ) {
-                    if( stage == 1 ) {
-                        edit_log_field = (uint8_t*)OG_MALLOC(edit_log_field_size+1);
+                for (uint32_t stage = 0; stage < 2; stage++) {
+                    if (stage == 1) {
+                        edit_log_field = (uint8_t*)OG_MALLOC(edit_log_field_size + 1);
                         edit_log_field[edit_log_field_size] = '\0';
                     }
-                    for( uint32_t i = 0; i < count; i++ ) {
+                    for (uint32_t i = 0; i < count; i++) {
                         RamHandlerLogRow rhlr = ram_handler.GetLog(i);
 
                         const char* level_string = "";
                         bool skip = false;
                         bool pushed_style = false;
 
-                        switch( rhlr.type )
-                        {
-                           case LogSystem::spam:
-                               level_string = "s";
-                               skip = !show_log_spam;
-                               break;
-                           case LogSystem::debug:
-                               level_string = "d";
-                               skip = !show_log_debug;
-                               break;
-                           case LogSystem::info:
-                               level_string = "i";
-                               skip = !show_log_info;
-                               break;
-                           case LogSystem::warning:
-                               level_string = "w";
-                               skip = !show_log_warning;
-                               break;
-                           case LogSystem::error:
-                               level_string = "e";
-                               skip = !show_log_error;
-                               break;
-                           case LogSystem::fatal:
-                               level_string = "f";
-                               break;
-                           default:
-                               level_string = "u";
-                               break;
+                        switch (rhlr.type) {
+                            case LogSystem::spam:
+                                level_string = "s";
+                                skip = !show_log_spam;
+                                break;
+                            case LogSystem::debug:
+                                level_string = "d";
+                                skip = !show_log_debug;
+                                break;
+                            case LogSystem::info:
+                                level_string = "i";
+                                skip = !show_log_info;
+                                break;
+                            case LogSystem::warning:
+                                level_string = "w";
+                                skip = !show_log_warning;
+                                break;
+                            case LogSystem::error:
+                                level_string = "e";
+                                skip = !show_log_error;
+                                break;
+                            case LogSystem::fatal:
+                                level_string = "f";
+                                break;
+                            default:
+                                level_string = "u";
+                                break;
                         }
 
-                        if( skip == false ) {
-                            if( stage == 0 ) {
+                        if (skip == false) {
+                            if (stage == 0) {
                                 edit_log_field_size += snprintf(NULL, 0, "[%s][%2s][%-17s]:%-4u: %s", level_string, rhlr.prefix, rhlr.filename, rhlr.row, rhlr.data);
                             } else {
                                 current_pos += snprintf((char*)(edit_log_field + current_pos), edit_log_field_size - current_pos, "[%s][%2s][%-17s]:%-4u: %s", level_string, rhlr.prefix, rhlr.filename, rhlr.row, rhlr.data);
@@ -4598,7 +4604,7 @@ Mark Stockton\nMikko Tarmia");
                 }
                 ram_handler.Unlock();
             } else {
-                if(edit_log_field) {
+                if (edit_log_field) {
                     OG_FREE(edit_log_field);
                     edit_log_field = NULL;
                 }
@@ -4607,7 +4613,7 @@ Mark Stockton\nMikko Tarmia");
 
         size_t selection_begin;
         size_t selection_length;
-        if( edit_log_selection[1] > edit_log_selection[0] ) {
+        if (edit_log_selection[1] > edit_log_selection[0]) {
             selection_length = edit_log_selection[1] - edit_log_selection[0];
             selection_begin = edit_log_selection[0];
         } else {
@@ -4615,13 +4621,13 @@ Mark Stockton\nMikko Tarmia");
             selection_begin = edit_log_selection[1];
         }
 
-        if(do_pause) {
+        if (do_pause) {
             ImGui::SameLine();
-            if(ImGui::Button("Copy Selection")) {
-                if( selection_length > 0 ) {
+            if (ImGui::Button("Copy Selection")) {
+                if (selection_length > 0) {
                     uint8_t* selection = (uint8_t*)OG_MALLOC(selection_length + 1);
-                    if( selection_begin + selection_length < edit_log_field_size ) {
-                        memcpy(selection, edit_log_field+selection_begin, selection_length);
+                    if (selection_begin + selection_length < edit_log_field_size) {
+                        memcpy(selection, edit_log_field + selection_begin, selection_length);
                         selection[selection_length] = '\0';
                         SDL_SetClipboardText((char*)selection);
                     }
@@ -4629,7 +4635,7 @@ Mark Stockton\nMikko Tarmia");
                 } else {
                     uint8_t* selection = (uint8_t*)OG_MALLOC(edit_log_field_size);
                     memcpy(selection, edit_log_field, edit_log_field_size);
-                    selection[edit_log_field_size-1] = '\0';
+                    selection[edit_log_field_size - 1] = '\0';
                     SDL_SetClipboardText((char*)selection);
                     OG_FREE(selection);
                 }
@@ -4639,17 +4645,17 @@ Mark Stockton\nMikko Tarmia");
 
         w_flags = 0;
 
-        if( show_log_scrollbar == false ) {
+        if (show_log_scrollbar == false) {
             w_flags |= ImGuiWindowFlags_NoScrollbar;
         }
 
-        ImGui::BeginChild("Log body", ImVec2(0,0), !do_lock, w_flags);
-        if( do_pause ) {
-            ImGui::InputTextMultiline("log_edit", (char*)edit_log_field, edit_log_field_size, ImVec2(-1,-1), ImGuiInputTextFlags_ReadOnly | ImGuiInputTextFlags_CallbackAlways, LogWindowCallback, &edit_log_selection );
+        ImGui::BeginChild("Log body", ImVec2(0, 0), !do_lock, w_flags);
+        if (do_pause) {
+            ImGui::InputTextMultiline("log_edit", (char*)edit_log_field, edit_log_field_size, ImVec2(-1, -1), ImGuiInputTextFlags_ReadOnly | ImGuiInputTextFlags_CallbackAlways, LogWindowCallback, &edit_log_selection);
         } else {
             ram_handler.Lock();
             uint32_t count = ram_handler.GetCount();
-            for( uint32_t i = 0; i < count; i++ ) {
+            for (uint32_t i = 0; i < count; i++) {
                 RamHandlerLogRow rhlr = ram_handler.GetLog(i);
 
                 const char* level_string = "";
@@ -4657,41 +4663,40 @@ Mark Stockton\nMikko Tarmia");
                 bool pushed_style = false;
 
                 ImVec4 text_color = ImGui::GetStyle().Colors[ImGuiCol_Text];
-                switch( rhlr.type )
-                {
-                   case LogSystem::spam:
-                       level_string = "s";
-                       skip = !show_log_spam;
-                       break;
-                   case LogSystem::debug:
-                       level_string = "d";
-                       skip = !show_log_debug;
-                       break;
-                   case LogSystem::info:
-                       level_string = "i";
-                       skip = !show_log_info;
-                       text_color = ImVec4(144.0f/255.0f,192.0f/255.0f,34.0f/255.0f,1.0f);
-                       break;
-                   case LogSystem::warning:
-                       level_string = "w";
-                       skip = !show_log_warning;
-                       text_color = ImVec4(229.0f/255.0f,220.0f/255.0f,89.0f/255.0f,1.0f);
-                       break;
-                   case LogSystem::error:
-                       level_string = "e";
-                       skip = !show_log_error;
-                       text_color = ImVec4(1.0f,107.0f/255.0f,104.0f/255.0f,1.0f);
-                       break;
-                   case LogSystem::fatal:
-                       level_string = "f";
-                       text_color = ImVec4(1.0f,107.0f/255.0f,104.0f/255.0f,1.0f);
-                       break;
-                   default:
-                       level_string = "u";
-                       break;
+                switch (rhlr.type) {
+                    case LogSystem::spam:
+                        level_string = "s";
+                        skip = !show_log_spam;
+                        break;
+                    case LogSystem::debug:
+                        level_string = "d";
+                        skip = !show_log_debug;
+                        break;
+                    case LogSystem::info:
+                        level_string = "i";
+                        skip = !show_log_info;
+                        text_color = ImVec4(144.0f / 255.0f, 192.0f / 255.0f, 34.0f / 255.0f, 1.0f);
+                        break;
+                    case LogSystem::warning:
+                        level_string = "w";
+                        skip = !show_log_warning;
+                        text_color = ImVec4(229.0f / 255.0f, 220.0f / 255.0f, 89.0f / 255.0f, 1.0f);
+                        break;
+                    case LogSystem::error:
+                        level_string = "e";
+                        skip = !show_log_error;
+                        text_color = ImVec4(1.0f, 107.0f / 255.0f, 104.0f / 255.0f, 1.0f);
+                        break;
+                    case LogSystem::fatal:
+                        level_string = "f";
+                        text_color = ImVec4(1.0f, 107.0f / 255.0f, 104.0f / 255.0f, 1.0f);
+                        break;
+                    default:
+                        level_string = "u";
+                        break;
                 }
 
-                if( skip == false ) {
+                if (skip == false) {
                     ImGui::PushStyleColor(ImGuiCol_Text, text_color);
                     ImGui::Text("[%s][%2s][%-17s]:%-4u: %s", level_string, rhlr.prefix, rhlr.filename, rhlr.row, rhlr.data);
                     ImGui::PopStyleColor();
@@ -4700,7 +4705,7 @@ Mark Stockton\nMikko Tarmia");
             ram_handler.Unlock();
         }
 
-        if( show_log_scrollbar == false ) {
+        if (show_log_scrollbar == false) {
             ImGui::SetScrollY(ImGui::GetScrollMaxY());
         }
 
@@ -4708,27 +4713,27 @@ Mark Stockton\nMikko Tarmia");
 
         ImGui::End();
 
-        if(do_pop_style) {
+        if (do_pop_style) {
             ImGui::PopStyleColor();
         }
     }
 
-    if( show_warnings ) {
+    if (show_warnings) {
         ImGuiWindowFlags w_flags = 0;
         ImGui::Begin("Warnings", &show_warnings, w_flags);
 
-        if( scenegraph ) {
+        if (scenegraph) {
             const int kBufSize = 1024;
             char* buf_sanityerror = (char*)alloc.stack.Alloc(kBufSize);
             char* buf_dispname = (char*)alloc.stack.Alloc(kBufSize);
-            for(auto & sanity : scenegraph->sanity_list) {
-                if(sanity.Valid() && sanity.Ok() == false) {
+            for (auto& sanity : scenegraph->sanity_list) {
+                if (sanity.Valid() && sanity.Ok() == false) {
                     Object* obj = scenegraph->GetObjectFromID(sanity.GetID());
-                    if(obj) {
+                    if (obj) {
                         obj->GetDisplayName(buf_dispname, kBufSize);
 
-                        ImGuiTreeNodeFlags node_flags = 0UL; //ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
-                        if(obj->Selected()) {
+                        ImGuiTreeNodeFlags node_flags = 0UL;  // ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick;
+                        if (obj->Selected()) {
                             node_flags |= ImGuiTreeNodeFlags_Selected;
                         }
 
@@ -4738,11 +4743,11 @@ Mark Stockton\nMikko Tarmia");
                         vec4 color = GetObjColor(obj);
                         ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(color[0], color[1], color[2], color[3]));
 
-                        for( unsigned k = 0; k < sanity.GetErrorCount(); k++ ) {
-                            sanity.GetError(k,buf_sanityerror,kBufSize);
+                        for (unsigned k = 0; k < sanity.GetErrorCount(); k++) {
+                            sanity.GetError(k, buf_sanityerror, kBufSize);
                             bool node_open = ImGui::TreeNodeEx("", node_flags, "%d (%s): %s", sanity.GetID(), buf_dispname, buf_sanityerror);
 
-                            if( node_open ) {
+                            if (node_open) {
                                 ImGui::TreePop();
                             }
                         }
@@ -4763,16 +4768,16 @@ Mark Stockton\nMikko Tarmia");
     }
 
     static ASContext* active_asdebugger_context = NULL;
-    if( show_asdebugger_contexts ) {
+    if (show_asdebugger_contexts) {
         ImGui::SetNextWindowSize(ImVec2(640.0f, 480.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("AS debugger contexts", &show_asdebugger_contexts);
 
         static char debug_buffer[256] = "somefile.as:123";
         ImGui::InputText("##Breakpoint", debug_buffer, 256);
         ImGui::SameLine();
-        if(ImGui::Button("Set breakpoint")) {
-            for(size_t i = 0; i < strlen(debug_buffer); ++i) {
-                if(debug_buffer[i] == ':') {
+        if (ImGui::Button("Set breakpoint")) {
+            for (size_t i = 0; i < strlen(debug_buffer); ++i) {
+                if (debug_buffer[i] == ':') {
                     debug_buffer[i] = '\0';
                     int line = atoi(&debug_buffer[i + 1]);
                     ASDebugger::AddGlobalBreakpoint(debug_buffer, line);
@@ -4781,11 +4786,11 @@ Mark Stockton\nMikko Tarmia");
         }
 
         ImGui::Text("File breakpoints");
-        const std::vector<std::pair<std::string, int> > global_breakpoints = ASDebugger::GetGlobalBreakpoints();
-        for(const auto & global_breakpoint : global_breakpoints) {
+        const std::vector<std::pair<std::string, int>> global_breakpoints = ASDebugger::GetGlobalBreakpoints();
+        for (const auto& global_breakpoint : global_breakpoints) {
             char buffer[256];
             sprintf(buffer, "%s:%d", global_breakpoint.first.c_str(), global_breakpoint.second);
-            if(ImGui::Button(buffer)) {
+            if (ImGui::Button(buffer)) {
                 ASDebugger::RemoveGlobalBreakpoint(global_breakpoint.first.c_str(), global_breakpoint.second);
             }
         }
@@ -4794,9 +4799,9 @@ Mark Stockton\nMikko Tarmia");
         ImGui::Text("Active contexts");
         const std::vector<ASContext*>& active_contexts = ASDebugger::GetActiveContexts();
 
-        for(size_t i = 0; i < active_contexts.size(); ++i) {
+        for (size_t i = 0; i < active_contexts.size(); ++i) {
             ImGui::PushID((int)i);
-            if(ImGui::Button(active_contexts[i]->current_script.GetOriginalPath())) {
+            if (ImGui::Button(active_contexts[i]->current_script.GetOriginalPath())) {
                 active_asdebugger_context = active_contexts[i];
             }
             ImGui::PopID();
@@ -4805,10 +4810,10 @@ Mark Stockton\nMikko Tarmia");
         ImGui::End();
     }
 
-    if( active_asdebugger_context != NULL ) {
+    if (active_asdebugger_context != NULL) {
         const std::vector<ASContext*>& active_contexts = ASDebugger::GetActiveContexts();
         // Contexts may disappear whenever
-        if(std::find(active_contexts.begin(), active_contexts.end(), active_asdebugger_context) == active_contexts.end()) {
+        if (std::find(active_contexts.begin(), active_contexts.end(), active_asdebugger_context) == active_contexts.end()) {
             active_asdebugger_context = NULL;
         } else {
             bool is_open = true;
@@ -4818,8 +4823,8 @@ Mark Stockton\nMikko Tarmia");
             const ScriptFile* script = ScriptFileUtil::GetScriptFile(active_asdebugger_context->current_script);
             const char* file_name = script->file_path.GetFullPath();
             size_t last_slash = 0;
-            for(size_t i = 0; i < std::strlen(file_name); ++i) {
-                if(file_name[i] == '\\' || file_name[i] == '/')
+            for (size_t i = 0; i < std::strlen(file_name); ++i) {
+                if (file_name[i] == '\\' || file_name[i] == '/')
                     last_slash = i;
             }
             file_name += last_slash + 1;
@@ -4830,7 +4835,7 @@ Mark Stockton\nMikko Tarmia");
             int start_index = 0;
             int end_index = 0;
 
-            ImGui::BeginChild("ASSourceMain", ImVec2(0,0), false, 0);
+            ImGui::BeginChild("ASSourceMain", ImVec2(0, 0), false, 0);
             ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
             ImGui::Columns(2);
 
@@ -4843,7 +4848,7 @@ Mark Stockton\nMikko Tarmia");
 
             ImGui::PushStyleVar(ImGuiStyleVar_ButtonTextAlign, ImVec2(0.0f, 0.5f));
             ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(0.0f, 0.0f));
-            while(end_index != (int)script_source.size()) {
+            while (end_index != (int)script_source.size()) {
                 end_index = (int)std::min(script_source.find('\n', start_index), script_source.size());
 
                 int copy_length = std::min(MAX_LINE_LENGTH, end_index - start_index);
@@ -4852,28 +4857,28 @@ Mark Stockton\nMikko Tarmia");
                 start_index = end_index + 1;
 
                 bool is_breakpoint = false;
-                if(breakpoints != NULL) {
-                    for(int breakpoint : *breakpoints) {
-                        if(breakpoint == line_nr) {
+                if (breakpoints != NULL) {
+                    for (int breakpoint : *breakpoints) {
+                        if (breakpoint == line_nr) {
                             is_breakpoint = true;
                             break;
                         }
                     }
                 }
 
-                if(is_breakpoint)
+                if (is_breakpoint)
                     ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.8f, 0.0f, 0.0f, 0.5f));
 
                 ImGui::Text("%d", line_nr);
                 ImGui::NextColumn();
                 ImGui::PushID(line_nr);
                 ImGui::SetColumnOffset(-1, 36);
-                if(ImGui::ButtonEx(line, ImVec2(ImGui::GetWindowWidth() - 36, 0), ImGuiButtonFlags_AlignTextBaseLine)) {
+                if (ImGui::ButtonEx(line, ImVec2(ImGui::GetWindowWidth() - 36, 0), ImGuiButtonFlags_AlignTextBaseLine)) {
                     active_asdebugger_context->dbg.ToggleBreakpoint(file_name, line_nr);
                 }
                 ImGui::NextColumn();
                 ImGui::PopID();
-                if(is_breakpoint)
+                if (is_breakpoint)
                     ImGui::PopStyleColor();
 
                 ++line_nr;
@@ -4884,12 +4889,12 @@ Mark Stockton\nMikko Tarmia");
             ImGui::EndChild();
             ImGui::End();
 
-            if(!is_open)
+            if (!is_open)
                 active_asdebugger_context = NULL;
         }
     }
 
-    if( show_asprofiler ) {
+    if (show_asprofiler) {
         ImGui::SetNextWindowSize(ImVec2(640.0f, 480.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("AS profiler", &show_asprofiler);
 
@@ -4897,9 +4902,9 @@ Mark Stockton\nMikko Tarmia");
         ImGui::Text("Active contexts");
         const std::vector<ASContext*>& active_contexts = ASProfiler::GetActiveContexts();
 
-        for(size_t i = 0; i < active_contexts.size(); ++i) {
+        for (size_t i = 0; i < active_contexts.size(); ++i) {
             ImGui::PushID((int)i);
-            if(ImGui::Checkbox(active_contexts[i]->current_script.GetOriginalPath(), &active_contexts[i]->profiler.enabled)) {
+            if (ImGui::Checkbox(active_contexts[i]->current_script.GetOriginalPath(), &active_contexts[i]->profiler.enabled)) {
             }
             ImGui::PopID();
         }
@@ -4910,16 +4915,15 @@ Mark Stockton\nMikko Tarmia");
         ImGui::Text("Each time point is calculated by taking the max time over %d frames", ASProfiler::GetMaxWindowSize());
         ImGui::Text("Times may appear to be lagging because not all functions are called each frame");
 
-        for(auto active_context : active_contexts) {
-            if(active_context->profiler.enabled)
+        for (auto active_context : active_contexts) {
+            if (active_context->profiler.enabled)
                 active_context->profiler.Draw();
         }
 
         ImGui::End();
     }
 
-    if( show_graphics_debug_disable_menu ) {
-        
+    if (show_graphics_debug_disable_menu) {
         ImGui::SetNextWindowSize(ImVec2(640.0f, 480.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("Graphics Debug Disable", &show_graphics_debug_disable_menu);
 
@@ -5113,7 +5117,7 @@ Mark Stockton\nMikko Tarmia");
         ImGui::End();
     }
 
-    if( show_sound ) {
+    if (show_sound) {
         ImGui::SetNextWindowSize(ImVec2(400.0f, 300.0f), ImGuiCond_FirstUseEver);
         ImGui::Begin("Sound", &show_sound);
 
@@ -5126,10 +5130,9 @@ Mark Stockton\nMikko Tarmia");
 
         Input::JoystickMap& open_joysticks = Input::Instance()->GetOpenJoysticks();
 
-
         std::vector<MovementObject*> controlled_movementobjects;
         std::vector<MovementObject*> controllable_movement_objects;
-       
+
         if (scenegraph != nullptr) {
             controlled_movementobjects = scenegraph->GetControlledMovementObjects();
             controllable_movement_objects = scenegraph->GetControllableMovementObjects();
@@ -5157,7 +5160,7 @@ Mark Stockton\nMikko Tarmia");
                 }
             }
 
-            if(found == false) {
+            if (found == false) {
                 ImGui::Text("No Avatar Assigned");
             }
 
@@ -5174,7 +5177,7 @@ Mark Stockton\nMikko Tarmia");
         ImGui::Text("player_input: 0");
         RenderControlledMovementObject(0);
         ImGui::Separator();
-        
+
         int joystick_subid = 0;
         ImGui::PushID("joystick_inputs");
         for (auto joystick : open_joysticks) {
@@ -5182,11 +5185,11 @@ Mark Stockton\nMikko Tarmia");
             SDL_Joystick* sdl_joystick = joystick.second->sdl_joystick;
             ImGui::Text("Gamepad #%d: \"%s\"", joystick.first, SDL_JoystickName(sdl_joystick));
             ImGui::Text("player_input: %d", joystick.second->player_input);
-            //ImGui::BeginCombo("Change Avatar");
-            //for(MovementObject* mo : controllable_movement_objects) {
-            //    //ImGui::Selectable
-            //}
-            //ImGui::EndCombo();
+            // ImGui::BeginCombo("Change Avatar");
+            // for(MovementObject* mo : controllable_movement_objects) {
+            //     //ImGui::Selectable
+            // }
+            // ImGui::EndCombo();
             RenderControlledMovementObject(joystick.second->player_input);
             ImGui::Separator();
             ImGui::PopID();
@@ -5207,7 +5210,7 @@ Mark Stockton\nMikko Tarmia");
                     ImGui::Text("player_state: %d", it.first);
                     ImGui::Text("player_input: %d", it.second.controller_id);
 
-					RenderControlledMovementObject(it.second.controller_id);
+                    RenderControlledMovementObject(it.second.controller_id);
                     ImGui::Separator();
                     ImGui::PopID();
                 }
@@ -5219,8 +5222,8 @@ Mark Stockton\nMikko Tarmia");
         ImGui::Text("Player Movement Objects");
 
         ImGui::Indent(20.0f);
-        for(MovementObject* mo : controllable_movement_objects) {
-            RenderMovementObject(mo); 
+        for (MovementObject* mo : controllable_movement_objects) {
+            RenderMovementObject(mo);
             ImGui::Separator();
         }
 
@@ -5257,9 +5260,8 @@ Mark Stockton\nMikko Tarmia");
     }
 
     if (show_select_script) {
-
         ImGui::Begin("Select script", &show_select_script);
-        
+
         std::vector<std::string> script_paths;
         std::string script_path;
         for (int i = 0; i < vanilla_data_paths.num_paths; i++) {
@@ -5287,7 +5289,7 @@ Mark Stockton\nMikko Tarmia");
         }
         ImGui::End();
     }
-    
+
     if (show_script && !preview_script_name.empty()) {
         static std::string prev_script_path = "";
         static std::vector<unsigned char> content;

@@ -39,18 +39,17 @@ std::string MurmurHash::ToString() {
     return ss.str();
 }
 
-MurmurHash GetFileHash( const char* file ) {
+MurmurHash GetFileHash(const char* file) {
     std::vector<unsigned char> data = readFile(file);
 
     MurmurHash hash;
     memset(&hash, 0, sizeof(MurmurHash));
 
-    if( data.size()  == 0 )
-    {
+    if (data.size() == 0) {
         return hash;
     }
 
-    MurmurHash3_x86_128( &data[0], data.size(), 1337, hash.hash );
+    MurmurHash3_x86_128(&data[0], data.size(), 1337, hash.hash);
 
     return hash;
 }

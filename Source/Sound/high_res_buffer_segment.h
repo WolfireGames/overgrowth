@@ -27,9 +27,8 @@
 #include <cmath>
 #include <cstring>
 
-class HighResBufferSegment
-{
-public:
+class HighResBufferSegment {
+   public:
     HighResBufferSegment();
 
     size_t FullSampleCount() const;
@@ -37,7 +36,7 @@ public:
     size_t SampleSize() const;
 
     static const size_t SAMPLE_SIZE = 4;
-    static const size_t BUF_SIZE = 4096*2*SAMPLE_SIZE;
+    static const size_t BUF_SIZE = 4096 * 2 * SAMPLE_SIZE;
 
     size_t sample_rate;
     size_t channels;

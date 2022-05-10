@@ -35,11 +35,12 @@ enum FilterType {
 };
 
 enum SoundPriority {
-      _sound_priority_max = 0,
-      _sound_priority_very_high = 1,
-      _sound_priority_high = 2,
-      _sound_priority_med = 3,
-      _sound_priority_low = 4};
+    _sound_priority_max = 0,
+    _sound_priority_very_high = 1,
+    _sound_priority_high = 2,
+    _sound_priority_med = 3,
+    _sound_priority_low = 4
+};
 
 const unsigned char _default_priority = _sound_priority_med;
 
@@ -47,8 +48,7 @@ struct FilterInfo {
     std::string path;
     float wet;
     FilterType type;
-    FilterInfo():wet(0.0f)
-    {}
+    FilterInfo() : wet(0.0f) {}
 };
 
 struct SoundPlayInfo {
@@ -78,10 +78,12 @@ struct SoundGroupPlayInfo {
     float max_gain;
     float volume_mult;
     float pitch_shift;
-private:
+
+   private:
     std::string path;
     int previous_sound_id;
-public:
+
+   public:
     std::string specific_path;
     std::string sound_base_path;
     int created_by_id;
@@ -89,20 +91,21 @@ public:
     unsigned char priority;
     FilterInfo filter_info;
 
-    //Values from SoundGroup
+    // Values from SoundGroup
     float volume;
     float max_distance;
 
-    SoundGroupPlayInfo(const SoundGroup& sg, const vec3 &_pos);
+    SoundGroupPlayInfo(const SoundGroup& sg, const vec3& _pos);
 
     std::string GetARandomOrderedSoundPath(pcg32_random_t* reseed);
-    
+
     void SetNumVariants(int _num_variants);
     inline int GetNumVariants() { return num_variants; };
 
     unsigned int play_past_tick;
 
     const std::string& GetPath() const;
-private:
+
+   private:
     int num_variants;
 };

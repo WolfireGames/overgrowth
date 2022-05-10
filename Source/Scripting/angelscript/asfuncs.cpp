@@ -105,7 +105,7 @@
 #undef max
 #endif
 
-SceneGraph *the_scenegraph = NULL;
+SceneGraph* the_scenegraph = NULL;
 extern std::stack<ASContext*> active_context_stack;
 extern Timer game_timer;
 extern Timer ui_timer;
@@ -113,18 +113,18 @@ extern Config default_config;
 
 static ASContext* GetActiveASContext() {
     asIScriptContext* ctx = asGetActiveContext();
-    if(ctx) {
+    if (ctx) {
         return (ASContext*)ctx->GetUserData(0);
     } else {
         return NULL;
     }
 }
 
-void MessageCallback(const asSMessageInfo *msg, void *param) {
-    const char *type = "ERR ";
-    if( msg->type == asMSGTYPE_WARNING )
+void MessageCallback(const asSMessageInfo* msg, void* param) {
+    const char* type = "ERR ";
+    if (msg->type == asMSGTYPE_WARNING)
         type = "WARN";
-    else if( msg->type == asMSGTYPE_INFORMATION )
+    else if (msg->type == asMSGTYPE_INFORMATION)
         type = "INFO";
 
     std::ostringstream oss;
@@ -132,7 +132,7 @@ void MessageCallback(const asSMessageInfo *msg, void *param) {
     oss << type << " : " << msg->message << "\n";
 
     *((std::string*)param) += oss.str();
-//    printf("%s (%d, %d) : %s : %s\n", msg->section, msg->row, msg->col, type, msg->message);
+    //    printf("%s (%d, %d) : %s : %s\n", msg->section, msg->row, msg->col, type, msg->message);
 }
 
 static uint32_t socket_id_invalid = SOCKET_ID_INVALID;
@@ -141,80 +141,79 @@ static uint32_t AS_CreateSocketTCP(std::string& host, uint16_t port) {
     return Engine::Instance()->GetASNetwork()->CreateSocketTCP(host, port);
 }
 
-static void AS_DestroySocketTCP( uint32_t socket ) {
+static void AS_DestroySocketTCP(uint32_t socket) {
     return Engine::Instance()->GetASNetwork()->DestroySocketTCP(socket);
 }
 
-static int AS_SocketTCPSend( uint32_t socket, const CScriptArray &array ) {
+static int AS_SocketTCPSend(uint32_t socket, const CScriptArray& array) {
     uint8_t* datc = (uint8_t*)alloc.stack.Alloc(array.GetSize());
-    for( unsigned i = 0; i < array.GetSize(); i++ ) {
+    for (unsigned i = 0; i < array.GetSize(); i++) {
         datc[i] = *(uint8_t*)array.At(i);
     }
-    int ret = Engine::Instance()->GetASNetwork()->SocketTCPSend(socket,datc,array.GetSize());
+    int ret = Engine::Instance()->GetASNetwork()->SocketTCPSend(socket, datc, array.GetSize());
     alloc.stack.Free(datc);
     return ret;
 }
 
-static bool AS_IsValidSocketTCP( uint32_t socket )
-{
+static bool AS_IsValidSocketTCP(uint32_t socket) {
     return Engine::Instance()->GetASNetwork()->IsValidSocketTCP(socket);
 }
 
 static CScriptArray* AS_GetPlayerStates() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<PlayerState>@"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<PlayerState>@"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<PlayerState> vals = Online::Instance()->GetPlayerStates();
 
     array->Reserve(vals.size());
 
-    for(auto & val : vals) {
+    for (auto& val : vals) {
         array->InsertLast((void*)&val);
     }
 
     return array;
 }
 
-static void PlayerStateDefaultConstructor(PlayerState *self) {
-    new(self) PlayerState();
+static void PlayerStateDefaultConstructor(PlayerState* self) {
+    new (self) PlayerState();
 }
 
 void AttachASNetwork(ASContext* context) {
-    context->RegisterObjectType("PlayerState", sizeof(PlayerState), asOBJ_VALUE | asOBJ_POD );
+    context->RegisterObjectType("PlayerState", sizeof(PlayerState), asOBJ_VALUE | asOBJ_POD);
     context->RegisterObjectProperty("PlayerState", "string playername", asOFFSET(PlayerState, playername));
     context->RegisterObjectProperty("PlayerState", "int avatar_id", asOFFSET(PlayerState, object_id));
     context->RegisterObjectProperty("PlayerState", "int ping", asOFFSET(PlayerState, ping));
-    context->RegisterObjectBehaviour("PlayerState", asBEHAVE_CONSTRUCT,  "void f()", asFUNCTION(PlayerStateDefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("PlayerState", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(PlayerStateDefaultConstructor), asCALL_CDECL_OBJLAST);
 
-    context->RegisterGlobalFunction("array<PlayerState>@ GetPlayerStates()", asFUNCTION(AS_GetPlayerStates), asCALL_CDECL );
+    context->RegisterGlobalFunction("array<PlayerState>@ GetPlayerStates()", asFUNCTION(AS_GetPlayerStates), asCALL_CDECL);
 
     context->RegisterGlobalProperty("uint SOCKET_ID_INVALID", &socket_id_invalid);
     context->RegisterGlobalFunction("uint CreateSocketTCP(string& host, uint16 port)",
                                     asFUNCTION(AS_CreateSocketTCP),
-                                    asCALL_CDECL );
+                                    asCALL_CDECL);
     context->RegisterGlobalFunction("void DestroySocketTCP(uint socket)",
                                     asFUNCTION(AS_DestroySocketTCP),
-                                    asCALL_CDECL );
+                                    asCALL_CDECL);
     context->RegisterGlobalFunction("int SocketTCPSend(uint socket, const array<uint8>& data)",
                                     asFUNCTION(AS_SocketTCPSend),
-                                    asCALL_CDECL );
+                                    asCALL_CDECL);
     context->RegisterGlobalFunction("bool IsValidSocketTCP(uint socket)",
                                     asFUNCTION(AS_IsValidSocketTCP),
-                                    asCALL_CDECL );
+                                    asCALL_CDECL);
 }
 
 // Function implementation with native calling convention
-void PrintString(std::string &str) {
-    printf( "%s", str.c_str() );
-    //LogSystem::LogData( LogSystem::info,"us","Print()",0) << " " << str;
+void PrintString(std::string& str) {
+    printf("%s", str.c_str());
+    // LogSystem::LogData( LogSystem::info,"us","Print()",0) << " " << str;
 }
 
 float AS_GetMoveXAxis(int controller_id) {
     PlayerInput* controller = Input::Instance()->GetController(controller_id);
 
-    if(controller == NULL) {
+    if (controller == NULL) {
         return 0.0f;
     }
 
@@ -226,7 +225,7 @@ float AS_GetMoveXAxis(int controller_id) {
 float AS_GetMoveYAxis(int controller_id) {
     PlayerInput* controller = Input::Instance()->GetController(controller_id);
 
-    if(controller == NULL) {
+    if (controller == NULL) {
         return 0.0f;
     }
 
@@ -235,44 +234,43 @@ float AS_GetMoveYAxis(int controller_id) {
     return down_depth - up_depth;
 }
 
-static bool AS_GetInputDownFiltered( int controller_id, const std::string &which_key, uint32_t filter )
-{
+static bool AS_GetInputDownFiltered(int controller_id, const std::string& which_key, uint32_t filter) {
     PlayerInput* controller = Input::Instance()->GetController(controller_id);
 
-    if(controller == NULL) {
+    if (controller == NULL) {
         return false;
     }
 
     bool key_down = false;
 
     PlayerInput::KeyDownMap::iterator iter = controller->key_down.find(which_key);
-    if(iter != controller->key_down.end()) {
+    if (iter != controller->key_down.end()) {
         return iter->second.depth_count != 0;
     } else {
-        if(which_key == "move_left"){
+        if (which_key == "move_left") {
             key_down = controller->key_down["left"].count != 0;
-        } else if(which_key == "move_right") {
+        } else if (which_key == "move_right") {
             key_down = controller->key_down["right"].count != 0;
-        } else if(which_key == "move_up") {
+        } else if (which_key == "move_up") {
             key_down = controller->key_down["up"].count != 0;
-        } else if(which_key == "move_down") {
+        } else if (which_key == "move_down") {
             key_down = controller->key_down["down"].count != 0;
-        } else if(which_key == "skip_dialogue") {
+        } else if (which_key == "skip_dialogue") {
             key_down = controller->key_down["skip_dialogue"].count != 0;
-        } else if(which_key == "mouse0"){
+        } else if (which_key == "mouse0") {
             key_down = Input::Instance()->getMouse().mouse_down_[Mouse::LEFT] != 0;
-        } else if(which_key == "mousescrollup"){
+        } else if (which_key == "mousescrollup") {
             key_down = Input::Instance()->getMouse().wheel_delta_y_ > 0;
-        } else if(which_key == "mousescrolldown"){
+        } else if (which_key == "mousescrolldown") {
             key_down = Input::Instance()->getMouse().wheel_delta_y_ < 0;
-        } else if(which_key == "mousescrollleft"){
+        } else if (which_key == "mousescrollleft") {
             key_down = Input::Instance()->getMouse().wheel_delta_x_ < 0;
-        } else if(which_key == "mousescrollright"){
+        } else if (which_key == "mousescrollright") {
             key_down = Input::Instance()->getMouse().wheel_delta_x_ > 0;
         } else {
             SDL_Scancode key = StringToSDLScancode(which_key);
-            if(key != SDL_SCANCODE_SYSREQ) {
-                key_down = Input::Instance()->getKeyboard().isScancodeDown(key,filter);
+            if (key != SDL_SCANCODE_SYSREQ) {
+                key_down = Input::Instance()->getKeyboard().isScancodeDown(key, filter);
             }
         }
     }
@@ -280,37 +278,37 @@ static bool AS_GetInputDownFiltered( int controller_id, const std::string &which
     return key_down;
 }
 
-static bool AS_GetInputDown(int controller_id, const std::string &which_key ) {
+static bool AS_GetInputDown(int controller_id, const std::string& which_key) {
     return AS_GetInputDownFiltered(controller_id, which_key, KIMF_PLAYING);
 }
 
-static bool AS_GetInputPressedFiltered(int controller_id, const std::string &which_key, uint32_t filter ) {
+static bool AS_GetInputPressedFiltered(int controller_id, const std::string& which_key, uint32_t filter) {
     PlayerInput* controller = Input::Instance()->GetController(controller_id);
 
-    if(controller == NULL) {
+    if (controller == NULL) {
         return false;
     }
 
     bool key_down = false;
 
     PlayerInput::KeyDownMap::iterator iter = controller->key_down.find(which_key);
-    if(iter != controller->key_down.end()) {
+    if (iter != controller->key_down.end()) {
         return iter->second.depth_count == 1;
     } else {
-        if(which_key == "move_left") {
+        if (which_key == "move_left") {
             key_down = controller->key_down["left"].count == 1;
-        } else if(which_key == "move_right") {
+        } else if (which_key == "move_right") {
             key_down = controller->key_down["right"].count == 1;
-        } else if(which_key == "move_up") {
+        } else if (which_key == "move_up") {
             key_down = controller->key_down["up"].count == 1;
-        } else if(which_key == "move_down") {
+        } else if (which_key == "move_down") {
             key_down = controller->key_down["down"].count == 1;
-        } else if(which_key == "mouse0"){
+        } else if (which_key == "mouse0") {
             key_down = Input::Instance()->getMouse().mouse_down_[Mouse::LEFT] == 1;
         } else {
             SDL_Scancode key = StringToSDLScancode(which_key);
-            if(key != SDL_SCANCODE_SYSREQ) {
-                key_down = Input::Instance()->getKeyboard().wasScancodePressed(key,filter);
+            if (key != SDL_SCANCODE_SYSREQ) {
+                key_down = Input::Instance()->getKeyboard().wasScancodePressed(key, filter);
             }
         }
     }
@@ -318,26 +316,22 @@ static bool AS_GetInputPressedFiltered(int controller_id, const std::string &whi
     return key_down;
 }
 
-static bool AS_GetInputPressed(int controller_id, const std::string &which_key) {
+static bool AS_GetInputPressed(int controller_id, const std::string& which_key) {
     return AS_GetInputPressedFiltered(controller_id, which_key, KIMF_PLAYING);
 }
 
-void AS_ActivateKeyboardEvents()
-{
+void AS_ActivateKeyboardEvents() {
     ASContext* ctx = GetActiveASContext();
 
-    if( ctx )
-    {
+    if (ctx) {
         ctx->ActivateKeyboardEvents();
     }
 }
 
-void AS_DeactivateKeyboardEvents()
-{
+void AS_DeactivateKeyboardEvents() {
     ASContext* ctx = GetActiveASContext();
 
-    if( ctx )
-    {
+    if (ctx) {
         ctx->DeactivateKeyboardEvents();
     }
 }
@@ -346,7 +340,7 @@ const std::string AS_GetClipboard() {
     return SDL_GetClipboardText();
 }
 
-void AS_SetClipboard(const std::string &text) {
+void AS_SetClipboard(const std::string& text) {
     SDL_SetClipboardText(text.c_str());
 }
 
@@ -383,13 +377,13 @@ static uint32_t AS_GetInputMode() {
 }
 
 static bool AS_IsKeyDown(int which_key) {
-    return Input::Instance()->getKeyboard().isScancodeDown((SDL_Scancode)which_key,KIMF_PLAYING);
+    return Input::Instance()->getKeyboard().isScancodeDown((SDL_Scancode)which_key, KIMF_PLAYING);
 }
 
 float AS_GetLookXAxis(int controller_id) {
     PlayerInput* controller = Input::Instance()->GetController(controller_id);
 
-    if(controller == NULL) {
+    if (controller == NULL) {
         return 0.0f;
     }
 
@@ -401,7 +395,7 @@ float AS_GetLookXAxis(int controller_id) {
 float AS_GetLookYAxis(int controller_id) {
     PlayerInput* controller = Input::Instance()->GetController(controller_id);
 
-    if(controller == NULL) {
+    if (controller == NULL) {
         return 0.0f;
     }
 
@@ -414,11 +408,11 @@ void AS_SetGrabMouse(bool grab) {
     return Input::Instance()->SetGrabMouse(grab);
 }
 
-bool AS_GetDebugKeysEnabled(){
+bool AS_GetDebugKeysEnabled() {
     return Input::Instance()->debug_keys && Engine::Instance()->current_engine_state_.type == kEngineEditorLevelState;
 }
 
-bool AS_EditorEnabled(){
+bool AS_EditorEnabled() {
     return Engine::Instance()->current_engine_state_.type == kEngineEditorLevelState;
 }
 
@@ -427,24 +421,24 @@ static void AS_LoadEditorLevel() {
     engine->NewLevel();
 }
 
-std::string AS_GetStringDescriptionForBinding( const std::string& type, const std::string& name ) {
-    if(type == "xbox") // Backwards compat
-        return Input::Instance()->GetStringDescriptionForBinding( "controller", name );
+std::string AS_GetStringDescriptionForBinding(const std::string& type, const std::string& name) {
+    if (type == "xbox")  // Backwards compat
+        return Input::Instance()->GetStringDescriptionForBinding("controller", name);
     else
-        return Input::Instance()->GetStringDescriptionForBinding( type, name );
+        return Input::Instance()->GetStringDescriptionForBinding(type, name);
 }
 
 static CScriptArray* AS_GetRawKeyboardInputs() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<KeyboardPress>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<KeyboardPress>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<Keyboard::KeyboardPress> vals = Input::Instance()->GetKeyboardInputs();
 
     array->Reserve(vals.size());
 
-    for(auto & val : vals) {
+    for (auto& val : vals) {
         array->InsertLast((void*)&val);
     }
 
@@ -452,16 +446,16 @@ static CScriptArray* AS_GetRawKeyboardInputs() {
 }
 
 static CScriptArray* AS_GetRawMouseInputs() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<MousePress>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<MousePress>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<Mouse::MousePress> vals = Input::Instance()->GetMouseInputs();
 
     array->Reserve(vals.size());
 
-    for(auto & val : vals) {
+    for (auto& val : vals) {
         array->InsertLast((void*)&val);
     }
 
@@ -469,16 +463,16 @@ static CScriptArray* AS_GetRawMouseInputs() {
 }
 
 static CScriptArray* AS_GetRawJoystickInputs(int which) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ControllerPress>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ControllerPress>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<Joystick::JoystickPress> vals = Input::Instance()->GetJoystickInputs(which);
 
     array->Reserve(vals.size());
 
-    for(auto & val : vals) {
+    for (auto& val : vals) {
         array->InsertLast((void*)&val);
     }
 
@@ -489,7 +483,7 @@ static bool AS_IsControllerConnected() {
     return Input::Instance()->IsControllerConnected();
 }
 
-void AttachUIQueries(ASContext *context) {
+void AttachUIQueries(ASContext* context) {
     context->RegisterGlobalFunction("bool GetInputDown(int controller_id, const string &in input_label)",
                                     asFUNCTION(AS_GetInputDown),
                                     asCALL_CDECL);
@@ -550,30 +544,30 @@ void AttachUIQueries(ASContext *context) {
     context->RegisterGlobalFunction("int GetCodeForKey(string key_name)",
                                     asFUNCTION(AS_GetCodeForKey),
                                     asCALL_CDECL);
-    context->RegisterGlobalFunction( "string GetStringDescriptionForBinding( const string& in, const string& in )",
+    context->RegisterGlobalFunction("string GetStringDescriptionForBinding( const string& in, const string& in )",
                                     asFUNCTION(AS_GetStringDescriptionForBinding),
                                     asCALL_CDECL);
-    context->RegisterGlobalFunction( "string GetLocaleStringForScancode(int scancode)",
+    context->RegisterGlobalFunction("string GetLocaleStringForScancode(int scancode)",
                                     asFUNCTION(AS_GetLocaleStringForScancode),
                                     asCALL_CDECL);
-    context->RegisterGlobalFunction( "string GetStringForMouseButton(int button)",
+    context->RegisterGlobalFunction("string GetStringForMouseButton(int button)",
                                     asFUNCTION(AS_GetStringForMouseButton),
                                     asCALL_CDECL);
-    context->RegisterGlobalFunction( "string GetStringForControllerInput(int input)",
+    context->RegisterGlobalFunction("string GetStringForControllerInput(int input)",
                                     asFUNCTION(AS_GetStringForControllerInput),
                                     asCALL_CDECL);
-    context->RegisterGlobalFunction( "string GetStringForMouseString(const string& text)",
+    context->RegisterGlobalFunction("string GetStringForMouseString(const string& text)",
                                     asFUNCTION(AS_GetStringForMouseString),
                                     asCALL_CDECL);
 
     context->RegisterEnum("KeyboardInputModeFlag");
-    context->RegisterEnumValue("KeyboardInputModeFlag","KIMF_NO",KIMF_NO);
-    context->RegisterEnumValue("KeyboardInputModeFlag","KIMF_MENU",KIMF_MENU);
-    context->RegisterEnumValue("KeyboardInputModeFlag","KIMF_PLAYING",KIMF_PLAYING);
-    context->RegisterEnumValue("KeyboardInputModeFlag","KIMF_LEVEL_EDITOR_GENERAL",KIMF_LEVEL_EDITOR_GENERAL);
-    context->RegisterEnumValue("KeyboardInputModeFlag","KIMF_LEVEL_EDITOR_DIALOGUE_EDITOR",KIMF_LEVEL_EDITOR_DIALOGUE_EDITOR);
-    context->RegisterEnumValue("KeyboardInputModeFlag","KIMF_GUI_GENERAL",KIMF_GUI_GENERAL);
-    context->RegisterEnumValue("KeyboardInputModeFlag","KIMF_ANY",KIMF_ANY);
+    context->RegisterEnumValue("KeyboardInputModeFlag", "KIMF_NO", KIMF_NO);
+    context->RegisterEnumValue("KeyboardInputModeFlag", "KIMF_MENU", KIMF_MENU);
+    context->RegisterEnumValue("KeyboardInputModeFlag", "KIMF_PLAYING", KIMF_PLAYING);
+    context->RegisterEnumValue("KeyboardInputModeFlag", "KIMF_LEVEL_EDITOR_GENERAL", KIMF_LEVEL_EDITOR_GENERAL);
+    context->RegisterEnumValue("KeyboardInputModeFlag", "KIMF_LEVEL_EDITOR_DIALOGUE_EDITOR", KIMF_LEVEL_EDITOR_DIALOGUE_EDITOR);
+    context->RegisterEnumValue("KeyboardInputModeFlag", "KIMF_GUI_GENERAL", KIMF_GUI_GENERAL);
+    context->RegisterEnumValue("KeyboardInputModeFlag", "KIMF_ANY", KIMF_ANY);
 
     context->RegisterEnum("SDLNumeric");
     context->RegisterEnumValue("SDLNumeric", "K_ESCAPE", SDLK_ESCAPE);
@@ -606,7 +600,7 @@ void AttachUIQueries(ASContext *context) {
                                     asFUNCTION(AS_GetInputMode),
                                     asCALL_CDECL);
 
-    context->RegisterObjectType("KeyboardPress", sizeof(Keyboard::KeyboardPress), asOBJ_VALUE | asOBJ_POD );
+    context->RegisterObjectType("KeyboardPress", sizeof(Keyboard::KeyboardPress), asOBJ_VALUE | asOBJ_POD);
     context->RegisterObjectProperty("KeyboardPress", "uint16 s_id", asOFFSET(Keyboard::KeyboardPress, s_id));
     context->RegisterObjectProperty("KeyboardPress", "uint32 keycode", asOFFSET(Keyboard::KeyboardPress, keycode));
     context->RegisterObjectProperty("KeyboardPress", "uint32 scancode", asOFFSET(Keyboard::KeyboardPress, scancode));
@@ -616,7 +610,7 @@ void AttachUIQueries(ASContext *context) {
     context->RegisterGlobalProperty("float last_mouse_event_time", &(Input::Instance()->last_mouse_event_time));
     context->RegisterGlobalProperty("float last_controller_event_time", &(Input::Instance()->last_controller_event_time));
 
-    context->RegisterGlobalFunction( "array<KeyboardPress>@ GetRawKeyboardInputs()",
+    context->RegisterGlobalFunction("array<KeyboardPress>@ GetRawKeyboardInputs()",
                                     asFUNCTION(AS_GetRawKeyboardInputs),
                                     asCALL_CDECL);
 
@@ -633,11 +627,11 @@ void AttachUIQueries(ASContext *context) {
     context->RegisterEnumValue("MouseButton", "TENTH", Mouse::MouseButton::TENTH);
     context->RegisterEnumValue("MouseButton", "TWELFTH", Mouse::MouseButton::TWELFTH);
 
-    context->RegisterObjectType("MousePress", sizeof(Mouse::MousePress), asOBJ_VALUE | asOBJ_POD );
+    context->RegisterObjectType("MousePress", sizeof(Mouse::MousePress), asOBJ_VALUE | asOBJ_POD);
     context->RegisterObjectProperty("MousePress", "uint16 s_id", asOFFSET(Mouse::MousePress, s_id));
     context->RegisterObjectProperty("MousePress", "MouseButton button", asOFFSET(Mouse::MousePress, button));
 
-    context->RegisterGlobalFunction( "array<MousePress>@ GetRawMouseInputs()",
+    context->RegisterGlobalFunction("array<MousePress>@ GetRawMouseInputs()",
                                     asFUNCTION(AS_GetRawMouseInputs),
                                     asCALL_CDECL);
 
@@ -681,30 +675,30 @@ void AttachUIQueries(ASContext *context) {
                                     asCALL_CDECL);
 }
 
-void ASDisplayError(const std::string& title, const std::string& contents){
+void ASDisplayError(const std::string& title, const std::string& contents) {
     DisplayError(title.c_str(), contents.c_str(), _ok);
 }
 
-void AttachError(ASContext *context) {
+void AttachError(ASContext* context) {
     context->RegisterGlobalFunction("void DisplayError(const string &in title, const string &in contents)",
-        asFUNCTION(ASDisplayError),
-        asCALL_CDECL);
+                                    asFUNCTION(ASDisplayError),
+                                    asCALL_CDECL);
 }
 
 float as_min(float a, float b) {
-    return a<b?a:b;
+    return a < b ? a : b;
 }
 
 float as_max(float a, float b) {
-    return a>b?a:b;
+    return a > b ? a : b;
 }
 
 int as_min_int(int a, int b) {
-    return a<b?a:b;
+    return a < b ? a : b;
 }
 
 int as_max_int(int a, int b) {
-    return a>b?a:b;
+    return a > b ? a : b;
 }
 
 float asPow(float a, float b) {
@@ -715,28 +709,24 @@ float asPow(float a, float b) {
 // functions for converting float values to IEEE 754 formatted values etc. This also allow us to
 // provide a platform agnostic representation to the script so the scripts don't have to worry
 // about whether the CPU uses IEEE 754 floats or some other representation
-float fpFromIEEE(asUINT raw)
-{
+float fpFromIEEE(asUINT raw) {
     // TODO: Identify CPU family to provide proper conversion
     //        if the CPU doesn't natively use IEEE style floats
     return *reinterpret_cast<float*>(&raw);
 }
-asUINT fpToIEEE(float fp)
-{
+asUINT fpToIEEE(float fp) {
     return *reinterpret_cast<asUINT*>(&fp);
 }
-double fpFromIEEE(asQWORD raw)
-{
+double fpFromIEEE(asQWORD raw) {
     return *reinterpret_cast<double*>(&raw);
 }
-asQWORD fpToIEEE(double fp)
-{
+asQWORD fpToIEEE(double fp) {
     return *reinterpret_cast<asQWORD*>(&fp);
 }
 
 static uint32_t uint32max = UINT32MAX;
 
-void AttachMathFuncs( ASContext *context ) {
+void AttachMathFuncs(ASContext* context) {
     context->RegisterGlobalProperty("uint UINT32MAX", &uint32max);
 
     // Conversion between floating point and IEEE bits representations
@@ -749,7 +739,7 @@ void AttachMathFuncs( ASContext *context ) {
     context->RegisterGlobalFunction("float max(float,float)", asFUNCTION(as_max), asCALL_CDECL);
     context->RegisterGlobalFunction("int min(int,int)", asFUNCTION(as_min_int), asCALL_CDECL);
     context->RegisterGlobalFunction("int max(int,int)", asFUNCTION(as_max_int), asCALL_CDECL);
-    context->RegisterGlobalFunction("float mix(float a,float b,float amount)", asFUNCTIONPR(mix, (float,float,float), float), asCALL_CDECL);
+    context->RegisterGlobalFunction("float mix(float a,float b,float amount)", asFUNCTIONPR(mix, (float, float, float), float), asCALL_CDECL);
 
     context->RegisterGlobalFunction("float cos(float)", asFUNCTIONPR(cosf, (float), float), asCALL_CDECL);
     context->RegisterGlobalFunction("float sin(float)", asFUNCTIONPR(sinf, (float), float), asCALL_CDECL);
@@ -775,25 +765,25 @@ void AttachMathFuncs( ASContext *context ) {
 
 #include "Math/quaternions.h"
 
-static void quaternionDefaultConstructor(quaternion *self) {
-    new(self) quaternion();
+static void quaternionDefaultConstructor(quaternion* self) {
+    new (self) quaternion();
 }
 
-static void quaternionCopyConstructor(const quaternion &other, quaternion *self) {
-    new(self) quaternion(other);
+static void quaternionCopyConstructor(const quaternion& other, quaternion* self) {
+    new (self) quaternion(other);
 }
 
-static void quaternionInitConstructor(float x, float y, float z, float w, quaternion *self) {
-    new(self) quaternion(x,y,z,w);
+static void quaternionInitConstructor(float x, float y, float z, float w, quaternion* self) {
+    new (self) quaternion(x, y, z, w);
 }
 
-static void quaternionInitConstructor2(vec4 vec, quaternion *self) {
-    new(self) quaternion(vec);
+static void quaternionInitConstructor2(vec4 vec, quaternion* self) {
+    new (self) quaternion(vec);
 }
 
-static void ASMult_Generic (asIScriptGeneric *gen) {
-    quaternion *a = (quaternion*)gen->GetArgObject(0);
-    vec3 *b = (vec3*)gen->GetArgObject(1);
+static void ASMult_Generic(asIScriptGeneric* gen) {
+    quaternion* a = (quaternion*)gen->GetArgObject(0);
+    vec3* b = (vec3*)gen->GetArgObject(1);
     vec3 prod = *b;
     QuaternionMultiplyVector(a, &prod);
     gen->SetReturnObject(&prod);
@@ -808,40 +798,40 @@ static void quatquatmultgeneric(asIScriptGeneric *gen) {
 }
 */
 
-static quaternion quatquatmult(quaternion *a, const quaternion& b) {
+static quaternion quatquatmult(quaternion* a, const quaternion& b) {
     return *a * b;
 }
 
-static vec3 quatvecmult(quaternion *a, const vec3& b) {
+static vec3 quatvecmult(quaternion* a, const vec3& b) {
     vec3 prod = b;
     QuaternionMultiplyVector(a, &prod);
     return prod;
 }
 
-static void quatdestructor(void *memory) {
+static void quatdestructor(void* memory) {
     ((quaternion*)memory)->~quaternion();
 }
 
-static const quaternion& quatassign(quaternion *self, const quaternion& other) {
+static const quaternion& quatassign(quaternion* self, const quaternion& other) {
     return (*self) = other;
 }
 
-quaternion ASQuatMix(const quaternion &a, const quaternion &b, float alpha) {
+quaternion ASQuatMix(const quaternion& a, const quaternion& b, float alpha) {
     return mix(a, b, alpha);
 }
 
-void AttachQuaternionFuncs( ASContext *context ) {
+void AttachQuaternionFuncs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("quaternion", sizeof(quaternion), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
 
     // Register the object properties
     context->RegisterObjectProperty("quaternion", "float x", asOFFSET(quaternion, entries));
-    context->RegisterObjectProperty("quaternion", "float y", asOFFSET(quaternion, entries)+sizeof(float));
-    context->RegisterObjectProperty("quaternion", "float z", asOFFSET(quaternion, entries)+sizeof(float)*2);
-    context->RegisterObjectProperty("quaternion", "float w", asOFFSET(quaternion, entries)+sizeof(float)*3);
+    context->RegisterObjectProperty("quaternion", "float y", asOFFSET(quaternion, entries) + sizeof(float));
+    context->RegisterObjectProperty("quaternion", "float z", asOFFSET(quaternion, entries) + sizeof(float) * 2);
+    context->RegisterObjectProperty("quaternion", "float w", asOFFSET(quaternion, entries) + sizeof(float) * 3);
 
     // Register the constructors
-    context->RegisterObjectBehaviour("quaternion", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(quaternionDefaultConstructor),  asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("quaternion", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(quaternionDefaultConstructor), asCALL_CDECL_OBJLAST);
     context->RegisterObjectBehaviour("quaternion", asBEHAVE_CONSTRUCT, "void f(const quaternion &in)", asFUNCTION(quaternionCopyConstructor), asCALL_CDECL_OBJLAST);
     context->RegisterObjectBehaviour("quaternion", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", asFUNCTION(quaternionInitConstructor), asCALL_CDECL_OBJLAST);
     context->RegisterObjectBehaviour("quaternion", asBEHAVE_CONSTRUCT, "void f(vec4)", asFUNCTION(quaternionInitConstructor2), asCALL_CDECL_OBJLAST, "Axis-angle (axis.x, axis.y, axis.z, angle_radians)");
@@ -852,7 +842,7 @@ void AttachQuaternionFuncs( ASContext *context ) {
     context->RegisterObjectMethod("quaternion", "quaternion &opAddAssign(const quaternion &in)", asMETHOD(quaternion, operator+=), asCALL_THISCALL);
     context->RegisterObjectMethod("quaternion", "bool opEquals(const quaternion &in) const", asFUNCTIONPR(operator==, (const quaternion&, const quaternion&), bool), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("quaternion", "quaternion opAdd(const quaternion &in) const", asFUNCTIONPR(operator+, (const quaternion&, const quaternion&), const quaternion), asCALL_CDECL_OBJFIRST);
-    //context->RegisterObjectMethod("quaternion", "quaternion opMul(const quaternion &in) const", asFUNCTIONPR(operator*, (const quaternion&, const quaternion&), const quaternion), asCALL_CDECL_OBJFIRST);
+    // context->RegisterObjectMethod("quaternion", "quaternion opMul(const quaternion &in) const", asFUNCTIONPR(operator*, (const quaternion&, const quaternion&), const quaternion), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("quaternion", "quaternion opMul(const quaternion &in) const", asFUNCTION(quatquatmult), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("quaternion", "vec3 opMul(const vec3 &in) const", asFUNCTION(quatvecmult), asCALL_CDECL_OBJFIRST);
     context->DocsCloseBrace();
@@ -864,73 +854,73 @@ void AttachQuaternionFuncs( ASContext *context ) {
     context->RegisterGlobalFunction("void GetRotationBetweenVectors(const vec3 &in start, const vec3 &in end, quaternion &out rotation)", asFUNCTION(GetRotationBetweenVectors), asCALL_CDECL);
 }
 
-static void ASSetSunPosition(vec3 pos){
+static void ASSetSunPosition(vec3 pos) {
     the_scenegraph->primary_light.pos = normalize(pos);
     the_scenegraph->flares.flares[0]->position = the_scenegraph->primary_light.pos;
 }
 
-static void ASSetSunColor(vec3 color){
+static void ASSetSunColor(vec3 color) {
     the_scenegraph->primary_light.color = color;
     the_scenegraph->flares.flares[0]->color = color;
 }
 
-static void ASSetSunAmbient(float ambient){
+static void ASSetSunAmbient(float ambient) {
     the_scenegraph->primary_light.intensity = ambient;
 }
 
-static vec3 ASGetSunPosition(){
+static vec3 ASGetSunPosition() {
     return the_scenegraph->primary_light.pos;
 }
 
-static vec3 ASGetSunColor(){
-    return(the_scenegraph->primary_light.color);
+static vec3 ASGetSunColor() {
+    return (the_scenegraph->primary_light.color);
 }
 
-static float ASGetSunAmbient(){
+static float ASGetSunAmbient() {
     return the_scenegraph->primary_light.intensity;
 }
 
-static void ASSetSkyTint(vec3 color){
+static void ASSetSkyTint(vec3 color) {
     the_scenegraph->sky->sky_tint = color;
 }
 
-static vec3 ASGetSkyTint(){
+static vec3 ASGetSkyTint() {
     return the_scenegraph->sky->sky_tint;
 }
 
-static vec3 ASGetBaseSkyTint(){
+static vec3 ASGetBaseSkyTint() {
     return the_scenegraph->sky->sky_base_tint;
 }
 
-static void ASSetFlareDiffuse(float diffuse){
+static void ASSetFlareDiffuse(float diffuse) {
     the_scenegraph->flares.flares[0]->diffuse = diffuse;
 }
 
-static void ASSetHDRWhitePoint(float val){
+static void ASSetHDRWhitePoint(float val) {
     Graphics::Instance()->hdr_white_point = val;
 }
 
-static void ASSetHDRBlackPoint(float val){
+static void ASSetHDRBlackPoint(float val) {
     Graphics::Instance()->hdr_black_point = val;
 }
 
-static void ASSetHDRBloomMult(float val){
+static void ASSetHDRBloomMult(float val) {
     Graphics::Instance()->hdr_bloom_mult = val;
 }
 
-static float ASGetHDRWhitePoint(){
+static float ASGetHDRWhitePoint() {
     return Graphics::Instance()->hdr_white_point;
 }
 
-static float ASGetHDRBlackPoint(){
+static float ASGetHDRBlackPoint() {
     return Graphics::Instance()->hdr_black_point;
 }
 
-static float ASGetHDRBloomMult(){
+static float ASGetHDRBloomMult() {
     return Graphics::Instance()->hdr_bloom_mult;
 }
 
-void AttachSky( ASContext *context ) {
+void AttachSky(ASContext* context) {
     // Register the object methods
     context->RegisterGlobalFunction("void SetSunPosition(vec3)", asFUNCTION(ASSetSunPosition), asCALL_CDECL);
     context->RegisterGlobalFunction("void SetSunColor(vec3)", asFUNCTION(ASSetSunColor), asCALL_CDECL);
@@ -953,17 +943,17 @@ void AttachSky( ASContext *context ) {
 std::vector<char> file_buf;
 int file_index;
 
-bool ASLoadFile(const std::string &path){
+bool ASLoadFile(const std::string& path) {
     DiskFileDescriptor file;
     char abs_path[kPathSize];
-    if(-1 == FindFilePath(path.c_str(), abs_path, kPathSize, kModPaths|kDataPaths|kAbsPath|kWriteDir|kModWriteDirs)){
+    if (-1 == FindFilePath(path.c_str(), abs_path, kPathSize, kModPaths | kDataPaths | kAbsPath | kWriteDir | kModWriteDirs)) {
         const int kBufSize = 512;
         char err[kBufSize];
         FormatString(err, kBufSize, "Could not find file: %s", path.c_str());
         DisplayError("Error", err);
         return false;
     }
-    if(!file.Open(abs_path, "r")){
+    if (!file.Open(abs_path, "r")) {
         const int kBufSize = 512;
         char err[kBufSize];
         FormatString(err, kBufSize, "Could not open file: %s", abs_path);
@@ -974,7 +964,7 @@ bool ASLoadFile(const std::string &path){
     file_buf.resize(file_size);
 
     int bytes_read = file.ReadBytesPartial(&file_buf[0], file_size);
-    file_buf.resize(bytes_read+1);
+    file_buf.resize(bytes_read + 1);
     file_buf.back() = '\0';
 
     file.Close();
@@ -982,24 +972,24 @@ bool ASLoadFile(const std::string &path){
     return true;
 }
 
-std::string ASGetFileLine(){
+std::string ASGetFileLine() {
     std::string ret;
     int str_max = (int)file_buf.size();
-    if(file_index == str_max || file_buf[file_index] == '\0'){
+    if (file_index == str_max || file_buf[file_index] == '\0') {
         return "end";
     }
     int str_end = file_index;
-    for(int i=file_index; i<str_max; ++i){
+    for (int i = file_index; i < str_max; ++i) {
         str_end = i;
-        if(file_buf[i] == '\n' || file_buf[i] == '\r' || file_buf[i] == '\0'){
+        if (file_buf[i] == '\n' || file_buf[i] == '\r' || file_buf[i] == '\0') {
             break;
         }
     }
     ret.resize(str_end - file_index);
-    for(int i=file_index; i<str_end; ++i){
-        ret[i-file_index] = file_buf[i];
+    for (int i = file_index; i < str_end; ++i) {
+        ret[i - file_index] = file_buf[i];
     }
-    file_index = str_end+1;
+    file_index = str_end + 1;
     return ret;
 }
 
@@ -1007,19 +997,19 @@ void ASStartWriteFile() {
     file_buf.clear();
 }
 
-void ASAddFileString(const std::string &str){
+void ASAddFileString(const std::string& str) {
     int index = file_buf.size();
     int str_len = str.length();
     file_buf.resize(index + str_len);
-    for(int i=0; i<str_len; ++i){
+    for (int i = 0; i < str_len; ++i) {
         file_buf[index] = str[i];
         ++index;
     }
 }
 
-bool ASWriteFile(const std::string &path){
+bool ASWriteFile(const std::string& path) {
     DiskFileDescriptor file;
-    if(!file.Open(path, "w")){
+    if (!file.Open(path, "w")) {
         return false;
     }
     file.WriteBytes(&file_buf[0], file_buf.size());
@@ -1027,11 +1017,11 @@ bool ASWriteFile(const std::string &path){
     return true;
 }
 
-bool ASWriteFileKeepBackup(const std::string &path){
+bool ASWriteFileKeepBackup(const std::string& path) {
     DiskFileDescriptor file;
     CreateBackup(path.c_str());
 
-    if(!file.Open(path, "w")){
+    if (!file.Open(path, "w")) {
         return false;
     }
     file.WriteBytes(&file_buf[0], file_buf.size());
@@ -1039,13 +1029,13 @@ bool ASWriteFileKeepBackup(const std::string &path){
     return true;
 }
 
-bool ASWriteFileToWriteDir(const std::string &path){
+bool ASWriteFileToWriteDir(const std::string& path) {
     DiskFileDescriptor file;
-    std::string full_path = std::string(GetWritePath(CoreGameModID).c_str())+"/"+path;
+    std::string full_path = std::string(GetWritePath(CoreGameModID).c_str()) + "/" + path;
 
     CreateParentDirs(full_path);
 
-    if(!file.Open(full_path, "w")){
+    if (!file.Open(full_path, "w")) {
         return false;
     }
 
@@ -1060,17 +1050,17 @@ std::string ASGetLocalizedDialoguePath(const std::string& path) {
     char buffer[kPathSize];
     strcpy(buffer, path.c_str());
     ApplicationPathSeparators(buffer);
-    if(memcmp(buffer, "Data/Dialogues/", strlen("Data/Dialogues/")) == 0) {
+    if (memcmp(buffer, "Data/Dialogues/", strlen("Data/Dialogues/")) == 0) {
         FormatString(buffer, kPathSize, "Data/DialoguesLocalized/%s/%s", locale.c_str(), path.c_str() + strlen("Data/Dialogues/"));
     }
 
     Path found_path = FindFilePath(buffer, kAnyPath, false);
-    if(found_path.isValid()) {
+    if (found_path.isValid()) {
         return found_path.GetFullPath();
     } else {
         FormatString(buffer, kPathSize, "Data/DialoguesLocalized/en_us/%s", path.c_str() + strlen("Data/Dialogues/"));
         found_path = FindFilePath(buffer, kAnyPath, false);
-        if(found_path.isValid()) {
+        if (found_path.isValid()) {
             return found_path.GetFullPath();
         }
 
@@ -1078,7 +1068,7 @@ std::string ASGetLocalizedDialoguePath(const std::string& path) {
     }
 }
 
-void AttachSimpleFile( ASContext *context ) {
+void AttachSimpleFile(ASContext* context) {
     context->RegisterGlobalFunction("bool LoadFile(const string &in)", asFUNCTION(ASLoadFile), asCALL_CDECL);
     context->RegisterGlobalFunction("string GetFileLine()", asFUNCTION(ASGetFileLine), asCALL_CDECL);
     context->RegisterGlobalFunction("void StartWriteFile()", asFUNCTION(ASStartWriteFile), asCALL_CDECL);
@@ -1089,47 +1079,47 @@ void AttachSimpleFile( ASContext *context ) {
     context->RegisterGlobalFunction("string GetLocalizedDialoguePath(const string &in)", asFUNCTION(ASGetLocalizedDialoguePath), asCALL_CDECL);
 }
 
-static void BoneTransformDefaultConstructor(BoneTransform *self) {
-    new(self) BoneTransform();
+static void BoneTransformDefaultConstructor(BoneTransform* self) {
+    new (self) BoneTransform();
 }
 
-static void BoneTransformCopyConstructor(BoneTransform *self, const mat4 &other) {
-    new(self) BoneTransform(other);
+static void BoneTransformCopyConstructor(BoneTransform* self, const mat4& other) {
+    new (self) BoneTransform(other);
 }
 
-static void BoneTransformCopyConstructor2(BoneTransform *self, const BoneTransform &other) {
-    new(self) BoneTransform(other);
+static void BoneTransformCopyConstructor2(BoneTransform* self, const BoneTransform& other) {
+    new (self) BoneTransform(other);
 }
 
-static BoneTransform BoneTransformOpMult(BoneTransform *self, const BoneTransform &other) {
+static BoneTransform BoneTransformOpMult(BoneTransform* self, const BoneTransform& other) {
     return *self * other;
 }
 
-static bool BoneTransformOpEquals(BoneTransform *self, const BoneTransform &other) {
+static bool BoneTransformOpEquals(BoneTransform* self, const BoneTransform& other) {
     return (*self == other);
 }
 
-static BoneTransform BoneTransformOpMultQuat(quaternion *self, const BoneTransform &other) {
+static BoneTransform BoneTransformOpMultQuat(quaternion* self, const BoneTransform& other) {
     return *self * other;
 }
 
-static vec3 BoneTransformOpMult2(BoneTransform *self, const vec3 &other) {
+static vec3 BoneTransformOpMult2(BoneTransform* self, const vec3& other) {
     return *self * other;
 }
 
-static BoneTransform BoneTransformInvert(const BoneTransform &transform) {
+static BoneTransform BoneTransformInvert(const BoneTransform& transform) {
     return invert(transform);
 }
 
-static BoneTransform BoneTransformMix(const BoneTransform &a, const BoneTransform &b, float alpha) {
-    return mix(a,b,alpha);
+static BoneTransform BoneTransformMix(const BoneTransform& a, const BoneTransform& b, float alpha) {
+    return mix(a, b, alpha);
 }
 
-static mat4 BoneTransformGetMat4(BoneTransform *self){
+static mat4 BoneTransformGetMat4(BoneTransform* self) {
     return self->GetMat4();
 }
 
-static void AttachBoneTransform( ASContext *context ) {
+static void AttachBoneTransform(ASContext* context) {
     // Register the type
     context->RegisterObjectType("BoneTransform",
                                 sizeof(BoneTransform),
@@ -1139,9 +1129,9 @@ static void AttachBoneTransform( ASContext *context ) {
     context->RegisterObjectProperty("BoneTransform", "vec3 origin", asOFFSET(BoneTransform, origin));
 
     // Register the constructors
-    context->RegisterObjectBehaviour("BoneTransform", asBEHAVE_CONSTRUCT,  "void f()",               asFUNCTION(BoneTransformDefaultConstructor), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectBehaviour("BoneTransform", asBEHAVE_CONSTRUCT,  "void f(const mat4 &in)", asFUNCTION(BoneTransformCopyConstructor), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectBehaviour("BoneTransform", asBEHAVE_CONSTRUCT,  "void f(const BoneTransform &in)", asFUNCTION(BoneTransformCopyConstructor2), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectBehaviour("BoneTransform", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(BoneTransformDefaultConstructor), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectBehaviour("BoneTransform", asBEHAVE_CONSTRUCT, "void f(const mat4 &in)", asFUNCTION(BoneTransformCopyConstructor), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectBehaviour("BoneTransform", asBEHAVE_CONSTRUCT, "void f(const BoneTransform &in)", asFUNCTION(BoneTransformCopyConstructor2), asCALL_CDECL_OBJFIRST);
 
     // Register the operator overloads
     context->RegisterObjectMethod("BoneTransform", "bool opEquals(const BoneTransform &in) const", asFUNCTION(BoneTransformOpEquals), asCALL_CDECL_OBJFIRST);
@@ -1154,35 +1144,35 @@ static void AttachBoneTransform( ASContext *context ) {
     context->RegisterGlobalFunction("BoneTransform mix(const BoneTransform &in a, const BoneTransform &in b, float alpha)", asFUNCTION(BoneTransformMix), asCALL_CDECL);
 }
 
-static void mat4DefaultConstructor(mat4 *self) {
-    new(self) mat4();
+static void mat4DefaultConstructor(mat4* self) {
+    new (self) mat4();
 }
 
-static void mat4CopyConstructor(const mat4 &other, mat4 *self) {
-    new(self) mat4(other);
+static void mat4CopyConstructor(const mat4& other, mat4* self) {
+    new (self) mat4(other);
 }
 
-void ASSetTranslationPart(vec3 val, mat4 *self) {
+void ASSetTranslationPart(vec3 val, mat4* self) {
     self->SetTranslationPart(val);
 }
 
-vec3 ASGetTranslationPart(mat4 *self) {
+vec3 ASGetTranslationPart(mat4* self) {
     return self->GetTranslationPart();
 }
 
-void ASSetRotationPart(mat4 val, mat4 *self) {
+void ASSetRotationPart(mat4 val, mat4* self) {
     self->SetRotationPart(val);
 }
 
-mat4 ASGetRotationPart(mat4 *self) {
+mat4 ASGetRotationPart(mat4* self) {
     return self->GetRotationPart();
 }
 
-void ASSetColumn(int which, vec3 val, mat4 *self) {
-    self->SetColumn(which,val);
+void ASSetColumn(int which, vec3 val, mat4* self) {
+    self->SetColumn(which, val);
 }
 
-vec3 ASGetColumn(int which, mat4 *self) {
+vec3 ASGetColumn(int which, mat4* self) {
     return self->GetColumn(which).xyz();
 }
 
@@ -1194,24 +1184,24 @@ mat4 ASinvert(mat4 mat) {
     return invert(mat);
 }
 
-static void mat4multgeneric(asIScriptGeneric *gen) {
-    mat4 *a = (mat4*)gen->GetObject();
-    mat4 *b = (mat4*)gen->GetArgObject(0);
-    mat4 prod = (*a)*(*b);
+static void mat4multgeneric(asIScriptGeneric* gen) {
+    mat4* a = (mat4*)gen->GetObject();
+    mat4* b = (mat4*)gen->GetArgObject(0);
+    mat4 prod = (*a) * (*b);
     gen->SetReturnObject(&prod);
 }
 
-static void mat4multvec3generic(asIScriptGeneric *gen) {
-    mat4 *a = (mat4*)gen->GetObject();
-    vec3 *b = (vec3*)gen->GetArgObject(0);
-    vec3 prod = (*a)*(*b);
+static void mat4multvec3generic(asIScriptGeneric* gen) {
+    mat4* a = (mat4*)gen->GetObject();
+    vec3* b = (vec3*)gen->GetArgObject(0);
+    vec3 prod = (*a) * (*b);
     gen->SetReturnObject(&prod);
 }
 
-static void mat4multvec4generic(asIScriptGeneric *gen) {
-    mat4 *a = (mat4*)gen->GetObject();
-    vec4 *b = (vec4*)gen->GetArgObject(0);
-    vec4 prod = (*a)*(*b);
+static void mat4multvec4generic(asIScriptGeneric* gen) {
+    mat4* a = (mat4*)gen->GetObject();
+    vec4* b = (vec4*)gen->GetArgObject(0);
+    vec4 prod = (*a) * (*b);
     gen->SetReturnObject(&prod);
 }
 
@@ -1219,47 +1209,47 @@ static quaternion ASQuaternionFromMat4(const mat4& mat) {
     return QuaternionFromMat4(mat);
 }
 
-static mat4 ASMatrixMix(const mat4& a, const mat4& b, float alpha){
+static mat4 ASMatrixMix(const mat4& a, const mat4& b, float alpha) {
     return mix(a, b, alpha);
 }
 
-static float& mat4index(unsigned int which, mat4 *mat){
+static float& mat4index(unsigned int which, mat4* mat) {
     return mat->entries[which];
 }
 
-static const float& mat4indexconst(unsigned int which, mat4 *mat){
+static const float& mat4indexconst(unsigned int which, mat4* mat) {
     return mat->entries[which];
 }
 
-static void mat3DefaultConstructor(mat3 *self) {
-    new(self) mat3();
+static void mat3DefaultConstructor(mat3* self) {
+    new (self) mat3();
 }
 
-static void mat3CopyConstructor(const mat3 &other, mat3 *self) {
-    new(self) mat3(other);
+static void mat3CopyConstructor(const mat3& other, mat3* self) {
+    new (self) mat3(other);
 }
 
-static float& mat3index(unsigned int which, mat3 *mat){
+static float& mat3index(unsigned int which, mat3* mat) {
     return mat->entries[which];
 }
 
-static const float& mat3indexconst(unsigned int which, mat3 *mat){
+static const float& mat3indexconst(unsigned int which, mat3* mat) {
     return mat->entries[which];
 }
 
-static vec3 mat3multvec3(mat3 *mat, const vec3 &vec){
+static vec3 mat3multvec3(mat3* mat, const vec3& vec) {
     return *mat * vec;
 }
 
-void AttachMatrixFuncs( ASContext *context ) {
+void AttachMatrixFuncs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("mat4",
                                 sizeof(mat4),
                                 asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CDA | asOBJ_APP_CLASS_ALLFLOATS);
 
     // Register the constructors
-    context->RegisterObjectBehaviour("mat4", asBEHAVE_CONSTRUCT,  "void f()",                     asFUNCTION(mat4DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("mat4", asBEHAVE_CONSTRUCT,  "void f(const mat4 &in)",       asFUNCTION(mat4CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("mat4", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(mat4DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("mat4", asBEHAVE_CONSTRUCT, "void f(const mat4 &in)", asFUNCTION(mat4CopyConstructor), asCALL_CDECL_OBJLAST);
 
     // Register the operator overloads
     context->RegisterObjectMethod("mat4", "float &opIndex(uint)", asFUNCTION(mat4index), asCALL_CDECL_OBJLAST);
@@ -1281,15 +1271,14 @@ void AttachMatrixFuncs( ASContext *context ) {
     context->RegisterGlobalFunction("mat4 invert(mat4)", asFUNCTION(ASinvert), asCALL_CDECL);
     context->RegisterGlobalFunction("mat4 mix(const mat4 &in a, const mat4 &in b, float alpha)", asFUNCTION(ASMatrixMix), asCALL_CDECL);
 
-
     // Register the type
     context->RegisterObjectType("mat3",
                                 sizeof(mat3),
                                 asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CDA | asOBJ_APP_CLASS_ALLFLOATS);
 
     // Register the constructors
-    context->RegisterObjectBehaviour("mat3", asBEHAVE_CONSTRUCT,  "void f()",                     asFUNCTION(mat3DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("mat3", asBEHAVE_CONSTRUCT,  "void f(const mat3 &in)",       asFUNCTION(mat3CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("mat3", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(mat3DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("mat3", asBEHAVE_CONSTRUCT, "void f(const mat3 &in)", asFUNCTION(mat3CopyConstructor), asCALL_CDECL_OBJLAST);
 
     // Register the operator overloads
     context->RegisterObjectMethod("mat3", "float &opIndex(uint)", asFUNCTION(mat3index), asCALL_CDECL_OBJLAST);
@@ -1300,23 +1289,23 @@ void AttachMatrixFuncs( ASContext *context ) {
     AttachBoneTransform(context);
 }
 
-static void vec3DefaultConstructor(vec3 *self) {
-    new(self) vec3();
+static void vec3DefaultConstructor(vec3* self) {
+    new (self) vec3();
 }
 
-static void vec3CopyConstructor(const vec3 &other, vec3 *self) {
-    new(self) vec3(other);
+static void vec3CopyConstructor(const vec3& other, vec3* self) {
+    new (self) vec3(other);
 }
 
-static void vec3InitConstructor(float x, float y, float z, vec3 *self) {
-    new(self) vec3(x,y,z);
+static void vec3InitConstructor(float x, float y, float z, vec3* self) {
+    new (self) vec3(x, y, z);
 }
 
-static void vec3InitConstructor2(float val, vec3 *self) {
-    new(self) vec3(val);
+static void vec3InitConstructor2(float val, vec3* self) {
+    new (self) vec3(val);
 }
 
-void AttachVec3Funcs( ASContext *context) {
+void AttachVec3Funcs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("vec3",
                                 sizeof(vec3),
@@ -1324,18 +1313,18 @@ void AttachVec3Funcs( ASContext *context) {
 
     // Register the object properties
     context->RegisterObjectProperty("vec3", "float x", asOFFSET(vec3, entries));
-    context->RegisterObjectProperty("vec3", "float y", asOFFSET(vec3, entries)+sizeof(float));
-    context->RegisterObjectProperty("vec3", "float z", asOFFSET(vec3, entries)+sizeof(float)*2);
+    context->RegisterObjectProperty("vec3", "float y", asOFFSET(vec3, entries) + sizeof(float));
+    context->RegisterObjectProperty("vec3", "float z", asOFFSET(vec3, entries) + sizeof(float) * 2);
 
     // Register the constructors
-    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT,  "void f()",                     asFUNCTION(vec3DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT,  "void f(const vec3 &in)",       asFUNCTION(vec3CopyConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT,  "void f(float, float, float)",  asFUNCTION(vec3InitConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT,  "void f(float)",  asFUNCTION(vec3InitConstructor2), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(vec3DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT, "void f(const vec3 &in)", asFUNCTION(vec3CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT, "void f(float, float, float)", asFUNCTION(vec3InitConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec3", asBEHAVE_CONSTRUCT, "void f(float)", asFUNCTION(vec3InitConstructor2), asCALL_CDECL_OBJLAST);
 
     // Register the operator overloads
-    context->RegisterObjectMethod("vec3", "vec3 &opAddAssign(const vec3 &in)", asFUNCTIONPR(operator+=, (vec3&, const vec3 &), vec3&), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("vec3", "vec3 &opSubAssign(const vec3 &in)", asFUNCTIONPR(operator-=, (vec3&, const vec3 &), vec3&), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("vec3", "vec3 &opAddAssign(const vec3 &in)", asFUNCTIONPR(operator+=, (vec3&, const vec3&), vec3&), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("vec3", "vec3 &opSubAssign(const vec3 &in)", asFUNCTIONPR(operator-=, (vec3&, const vec3&), vec3&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("vec3", "vec3 &opMulAssign(float)", asFUNCTIONPR(operator*=, (vec3&, float), vec3&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("vec3", "vec3 &opDivAssign(float)", asFUNCTIONPR(operator/=, (vec3&, float), vec3&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("vec3", "bool opEquals(const vec3 &in) const", asFUNCTIONPR(operator==, (const vec3&, const vec3&), bool), asCALL_CDECL_OBJFIRST);
@@ -1352,51 +1341,51 @@ void AttachVec3Funcs( ASContext *context) {
     context->RegisterGlobalFunction("float length(const vec3 &in)", asFUNCTIONPR(length, (const vec3&), float), asCALL_CDECL);
     context->RegisterGlobalFunction("float length_squared(const vec3 &in)", asFUNCTIONPR(length_squared, (const vec3&), float), asCALL_CDECL);
     context->RegisterGlobalFunction("float dot(const vec3 &in, const vec3 &in)", asFUNCTIONPR(dot, (const vec3&, const vec3&), float), asCALL_CDECL);
-    context->RegisterGlobalFunction("float distance(const vec3 &in, const vec3 &in)", asFUNCTIONPR(distance, (const vec3&,const vec3&), float), asCALL_CDECL);
-    context->RegisterGlobalFunction("float distance_squared(const vec3 &in, const vec3 &in)", asFUNCTIONPR(distance_squared, (const vec3&,const vec3&), float), asCALL_CDECL);
-    context->RegisterGlobalFunction("float xz_distance(const vec3 &in, const vec3 &in)", asFUNCTIONPR(xz_distance, (const vec3&,const vec3&), float), asCALL_CDECL);
-    context->RegisterGlobalFunction("float xz_distance_squared(const vec3 &in, const vec3 &in)", asFUNCTIONPR(xz_distance_squared, (const vec3&,const vec3&), float), asCALL_CDECL);
+    context->RegisterGlobalFunction("float distance(const vec3 &in, const vec3 &in)", asFUNCTIONPR(distance, (const vec3&, const vec3&), float), asCALL_CDECL);
+    context->RegisterGlobalFunction("float distance_squared(const vec3 &in, const vec3 &in)", asFUNCTIONPR(distance_squared, (const vec3&, const vec3&), float), asCALL_CDECL);
+    context->RegisterGlobalFunction("float xz_distance(const vec3 &in, const vec3 &in)", asFUNCTIONPR(xz_distance, (const vec3&, const vec3&), float), asCALL_CDECL);
+    context->RegisterGlobalFunction("float xz_distance_squared(const vec3 &in, const vec3 &in)", asFUNCTIONPR(xz_distance_squared, (const vec3&, const vec3&), float), asCALL_CDECL);
     context->RegisterGlobalFunction("vec3 normalize(const vec3 &in)", asFUNCTIONPR(normalize, (const vec3&), vec3), asCALL_CDECL);
     context->RegisterGlobalFunction("vec3 cross(const vec3 &in, const vec3 &in)", asFUNCTIONPR(cross, (const vec3&, const vec3&), vec3), asCALL_CDECL);
     context->RegisterGlobalFunction("vec3 reflect(const vec3 &in vec, const vec3 &in normal)", asFUNCTIONPR(reflect, (const vec3&, const vec3&), vec3), asCALL_CDECL);
-    context->RegisterGlobalFunction("vec3 mix(vec3 a,vec3 b,float alpha)", asFUNCTIONPR(mix, (vec3,vec3,float), vec3), asCALL_CDECL);
+    context->RegisterGlobalFunction("vec3 mix(vec3 a,vec3 b,float alpha)", asFUNCTIONPR(mix, (vec3, vec3, float), vec3), asCALL_CDECL);
 }
 
-static void vec2DefaultConstructor(vec2 *self) {
-    new(self) vec2();
+static void vec2DefaultConstructor(vec2* self) {
+    new (self) vec2();
 }
 
-static void vec2CopyConstructor(const vec2 &other, vec2 *self) {
-    new(self) vec2(other);
+static void vec2CopyConstructor(const vec2& other, vec2* self) {
+    new (self) vec2(other);
 }
 
-static void vec2InitConstructor(float x, float y, vec2 *self) {
-    new(self) vec2(x,y);
+static void vec2InitConstructor(float x, float y, vec2* self) {
+    new (self) vec2(x, y);
 }
 
-static void vec2InitConstructor2(float val, vec2 *self) {
-    new(self) vec2(val);
+static void vec2InitConstructor2(float val, vec2* self) {
+    new (self) vec2(val);
 }
 
-void AttachVec2Funcs( ASContext *context) {
+void AttachVec2Funcs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("vec2",
-        sizeof(vec2),
-        asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLFLOATS);
+                                sizeof(vec2),
+                                asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLFLOATS);
 
     // Register the object properties
     context->RegisterObjectProperty("vec2", "float x", asOFFSET(vec2, entries));
-    context->RegisterObjectProperty("vec2", "float y", asOFFSET(vec2, entries)+sizeof(float));
+    context->RegisterObjectProperty("vec2", "float y", asOFFSET(vec2, entries) + sizeof(float));
 
     // Register the constructors
-    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT,  "void f()",                     asFUNCTION(vec2DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT,  "void f(const vec2 &in)",       asFUNCTION(vec2CopyConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT,  "void f(float, float)",  asFUNCTION(vec2InitConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT,  "void f(float)",  asFUNCTION(vec2InitConstructor2), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(vec2DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT, "void f(const vec2 &in)", asFUNCTION(vec2CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT, "void f(float, float)", asFUNCTION(vec2InitConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec2", asBEHAVE_CONSTRUCT, "void f(float)", asFUNCTION(vec2InitConstructor2), asCALL_CDECL_OBJLAST);
 
     // Register the operator overloads
-    context->RegisterObjectMethod("vec2", "vec2 &opAddAssign(const vec2 &in)", asFUNCTIONPR(operator+=, (vec2&, const vec2 &), vec2&), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("vec2", "vec2 &opSubAssign(const vec2 &in)", asFUNCTIONPR(operator-=, (vec2&, const vec2 &), vec2&), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("vec2", "vec2 &opAddAssign(const vec2 &in)", asFUNCTIONPR(operator+=, (vec2&, const vec2&), vec2&), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("vec2", "vec2 &opSubAssign(const vec2 &in)", asFUNCTIONPR(operator-=, (vec2&, const vec2&), vec2&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("vec2", "vec2 &opMulAssign(float)", asFUNCTIONPR(operator*=, (vec2&, float), vec2&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("vec2", "vec2 &opDivAssign(float)", asFUNCTIONPR(operator/=, (vec2&, float), vec2&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("vec2", "bool opEquals(const vec2 &in) const", asFUNCTIONPR(operator==, (const vec2&, const vec2&), bool), asCALL_CDECL_OBJFIRST);
@@ -1412,57 +1401,57 @@ void AttachVec2Funcs( ASContext *context) {
     context->RegisterGlobalFunction("float length(const vec2 &in)", asFUNCTIONPR(length, (const vec2&), float), asCALL_CDECL);
     context->RegisterGlobalFunction("float length_squared(const vec2 &in)", asFUNCTIONPR(length_squared, (const vec2&), float), asCALL_CDECL);
     context->RegisterGlobalFunction("float dot(const vec2 &in, const vec2 &in)", asFUNCTIONPR(dot, (const vec2&, const vec2&), float), asCALL_CDECL);
-    context->RegisterGlobalFunction("float distance(const vec2 &in, const vec2 &in)", asFUNCTIONPR(distance, (const vec2&,const vec2&), float), asCALL_CDECL);
-    context->RegisterGlobalFunction("float distance_squared(const vec2 &in, const vec2 &in)", asFUNCTIONPR(distance_squared, (const vec2&,const vec2&), float), asCALL_CDECL);
+    context->RegisterGlobalFunction("float distance(const vec2 &in, const vec2 &in)", asFUNCTIONPR(distance, (const vec2&, const vec2&), float), asCALL_CDECL);
+    context->RegisterGlobalFunction("float distance_squared(const vec2 &in, const vec2 &in)", asFUNCTIONPR(distance_squared, (const vec2&, const vec2&), float), asCALL_CDECL);
     context->RegisterGlobalFunction("vec2 normalize(const vec2 &in)", asFUNCTIONPR(normalize, (const vec2&), vec2), asCALL_CDECL);
     context->RegisterGlobalFunction("vec2 reflect(const vec2 &in vec, const vec2 &in normal)", asFUNCTIONPR(reflect, (const vec2&, const vec2&), vec2), asCALL_CDECL);
-    context->RegisterGlobalFunction("vec2 mix(vec2 a,vec2 b,float alpha)", asFUNCTIONPR(mix, (vec2,vec2,float), vec2), asCALL_CDECL);
+    context->RegisterGlobalFunction("vec2 mix(vec2 a,vec2 b,float alpha)", asFUNCTIONPR(mix, (vec2, vec2, float), vec2), asCALL_CDECL);
 }
 
-static void vec4DefaultConstructor(vec4 *self) {
-    new(self) vec4();
+static void vec4DefaultConstructor(vec4* self) {
+    new (self) vec4();
 }
 
-static void vec4CopyConstructor(const vec4 &other, vec4 *self) {
-    new(self) vec4(other);
+static void vec4CopyConstructor(const vec4& other, vec4* self) {
+    new (self) vec4(other);
 }
 
-static void vec4InitConstructor(float x, float y, float z, float a, vec3 *self) {
-    new(self) vec4(x,y,z,a);
+static void vec4InitConstructor(float x, float y, float z, float a, vec3* self) {
+    new (self) vec4(x, y, z, a);
 }
 
-static void vec4InitConstructor2(float val, vec4 *self) {
-    new(self) vec4(val);
+static void vec4InitConstructor2(float val, vec4* self) {
+    new (self) vec4(val);
 }
 
-static void vec4InitConstructor3(const vec3 &vec, float val, vec4 *self) {
-    new(self) vec4(vec, val);
+static void vec4InitConstructor3(const vec3& vec, float val, vec4* self) {
+    new (self) vec4(vec, val);
 }
 
-vec4 ASMix(vec4 a,vec4 b,float alpha){
+vec4 ASMix(vec4 a, vec4 b, float alpha) {
     vec4 result;
-    for(int i=0; i<4; ++i){
-        result[i] = a[i] * (1.0f-alpha) + b[i]*alpha;
+    for (int i = 0; i < 4; ++i) {
+        result[i] = a[i] * (1.0f - alpha) + b[i] * alpha;
     }
     return result;
 }
 
-void AttachVec4Funcs( ASContext *context) {
+void AttachVec4Funcs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("vec4", sizeof(vec4), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLFLOATS);
 
     // Register the object properties
     context->RegisterObjectProperty("vec4", "float x", asOFFSET(vec4, entries));
-    context->RegisterObjectProperty("vec4", "float y", asOFFSET(vec4, entries)+sizeof(float));
-    context->RegisterObjectProperty("vec4", "float z", asOFFSET(vec4, entries)+sizeof(float)*2);
-    context->RegisterObjectProperty("vec4", "float a", asOFFSET(vec4, entries)+sizeof(float)*3);
+    context->RegisterObjectProperty("vec4", "float y", asOFFSET(vec4, entries) + sizeof(float));
+    context->RegisterObjectProperty("vec4", "float z", asOFFSET(vec4, entries) + sizeof(float) * 2);
+    context->RegisterObjectProperty("vec4", "float a", asOFFSET(vec4, entries) + sizeof(float) * 3);
 
     // Register the constructors
-    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT,  "void f()", asFUNCTION(vec4DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT,  "void f(const vec4 &in)", asFUNCTION(vec4CopyConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT,  "void f(float, float, float, float)",  asFUNCTION(vec4InitConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT,  "void f(const vec3 &in, float)",  asFUNCTION(vec4InitConstructor3), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT,  "void f(float)",  asFUNCTION(vec4InitConstructor2), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(vec4DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT, "void f(const vec4 &in)", asFUNCTION(vec4CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT, "void f(float, float, float, float)", asFUNCTION(vec4InitConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT, "void f(const vec3 &in, float)", asFUNCTION(vec4InitConstructor3), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("vec4", asBEHAVE_CONSTRUCT, "void f(float)", asFUNCTION(vec4InitConstructor2), asCALL_CDECL_OBJLAST);
     context->RegisterGlobalFunction("vec4 mix(vec4 a,vec4 b,float alpha)", asFUNCTION(ASMix), asCALL_CDECL);
 
     // Register the operator overloads
@@ -1470,40 +1459,40 @@ void AttachVec4Funcs( ASContext *context) {
     context->DocsCloseBrace();
 }
 
-static void ivec2DefaultConstructor(ivec2 *self) {
-    new(self) ivec2();
+static void ivec2DefaultConstructor(ivec2* self) {
+    new (self) ivec2();
 }
 
-static void ivec2CopyConstructor(const ivec2 &other, ivec2 *self) {
-    new(self) ivec2(other);
+static void ivec2CopyConstructor(const ivec2& other, ivec2* self) {
+    new (self) ivec2(other);
 }
 
-static void ivec2InitConstructor(int x, int y, ivec2 *self) {
-    new(self) ivec2(x,y);
+static void ivec2InitConstructor(int x, int y, ivec2* self) {
+    new (self) ivec2(x, y);
 }
 
-static void ivec2InitConstructor2(int val, ivec2 *self) {
-    new(self) ivec2(val);
+static void ivec2InitConstructor2(int val, ivec2* self) {
+    new (self) ivec2(val);
 }
 
-void AttachIVec2Funcs( ASContext *context) {
+void AttachIVec2Funcs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("ivec2",
-        sizeof(ivec2),
-        asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLINTS);
+                                sizeof(ivec2),
+                                asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLINTS);
 
     // Register the object properties
     context->RegisterObjectProperty("ivec2", "int x", asOFFSET(ivec2, entries));
-    context->RegisterObjectProperty("ivec2", "int y", asOFFSET(ivec2, entries)+sizeof(int));
+    context->RegisterObjectProperty("ivec2", "int y", asOFFSET(ivec2, entries) + sizeof(int));
 
     // Register the constructors
-    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT,  "void f()", asFUNCTION(ivec2DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT,  "void f(const ivec2 &in)", asFUNCTION(ivec2CopyConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT,  "void f(int, int)", asFUNCTION(ivec2InitConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT,  "void f(int)", asFUNCTION(ivec2InitConstructor2), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ivec2DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT, "void f(const ivec2 &in)", asFUNCTION(ivec2CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT, "void f(int, int)", asFUNCTION(ivec2InitConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec2", asBEHAVE_CONSTRUCT, "void f(int)", asFUNCTION(ivec2InitConstructor2), asCALL_CDECL_OBJLAST);
 
-    context->RegisterObjectMethod("ivec2", "ivec2 &opAddAssign(const ivec2 &in)", asFUNCTIONPR(operator+=, (ivec2&, const ivec2 &), ivec2&), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("ivec2", "ivec2 &opSubAssign(const ivec2 &in)", asFUNCTIONPR(operator-=, (ivec2&, const ivec2 &), ivec2&), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ivec2", "ivec2 &opAddAssign(const ivec2 &in)", asFUNCTIONPR(operator+=, (ivec2&, const ivec2&), ivec2&), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ivec2", "ivec2 &opSubAssign(const ivec2 &in)", asFUNCTIONPR(operator-=, (ivec2&, const ivec2&), ivec2&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("ivec2", "ivec2 &opMulAssign(int)", asFUNCTIONPR(operator*=, (ivec2&, int), ivec2&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("ivec2", "ivec2 &opDivAssign(int)", asFUNCTIONPR(operator/=, (ivec2&, int), ivec2&), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("ivec2", "ivec2 opAdd(const ivec2 &in) const", asFUNCTIONPR(operator+, (const ivec2&, const ivec2&), ivec2), asCALL_CDECL_OBJFIRST);
@@ -1514,81 +1503,81 @@ void AttachIVec2Funcs( ASContext *context) {
     context->DocsCloseBrace();
 }
 
-static void ivec3DefaultConstructor(ivec3 *self) {
-    new(self) ivec3();
+static void ivec3DefaultConstructor(ivec3* self) {
+    new (self) ivec3();
 }
 
-static void ivec3CopyConstructor(const ivec3 &other, ivec3 *self) {
-    new(self) ivec3(other);
+static void ivec3CopyConstructor(const ivec3& other, ivec3* self) {
+    new (self) ivec3(other);
 }
 
-static void ivec3InitConstructor(int x, int y, int z, ivec3 *self) {
-    new(self) ivec3(x,y,z);
+static void ivec3InitConstructor(int x, int y, int z, ivec3* self) {
+    new (self) ivec3(x, y, z);
 }
 
-static void ivec3InitConstructor2(int val, ivec3 *self) {
-    new(self) ivec3(val);
+static void ivec3InitConstructor2(int val, ivec3* self) {
+    new (self) ivec3(val);
 }
 
-void AttachIVec3Funcs( ASContext *context) {
+void AttachIVec3Funcs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("ivec3",
-        sizeof(ivec3),
-        asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLINTS);
+                                sizeof(ivec3),
+                                asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLINTS);
 
     // Register the object properties
     context->RegisterObjectProperty("ivec3", "int x", asOFFSET(ivec3, entries));
-    context->RegisterObjectProperty("ivec3", "int y", asOFFSET(ivec3, entries)+sizeof(int));
+    context->RegisterObjectProperty("ivec3", "int y", asOFFSET(ivec3, entries) + sizeof(int));
 
     // Register the constructors
-    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT,  "void f()", asFUNCTION(ivec3DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT,  "void f(const ivec3 &in)", asFUNCTION(ivec3CopyConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT,  "void f(int, int, int)", asFUNCTION(ivec3InitConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT,  "void f(int)", asFUNCTION(ivec3InitConstructor2), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ivec3DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT, "void f(const ivec3 &in)", asFUNCTION(ivec3CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT, "void f(int, int, int)", asFUNCTION(ivec3InitConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec3", asBEHAVE_CONSTRUCT, "void f(int)", asFUNCTION(ivec3InitConstructor2), asCALL_CDECL_OBJLAST);
 
     // Register the operator overloads
     context->RegisterObjectMethod("ivec3", "int &opIndex(int)", asMETHODPR(ivec3, operator[], (const int), int&), asCALL_THISCALL);
     context->DocsCloseBrace();
 }
 
-static void ivec4DefaultConstructor(ivec4 *self) {
-    new(self) ivec4();
+static void ivec4DefaultConstructor(ivec4* self) {
+    new (self) ivec4();
 }
 
-static void ivec4CopyConstructor(const ivec4 &other, ivec4 *self) {
-    new(self) ivec4(other);
+static void ivec4CopyConstructor(const ivec4& other, ivec4* self) {
+    new (self) ivec4(other);
 }
 
-static void ivec4InitConstructor(int x, int y, int z, int w, ivec4 *self) {
-    new(self) ivec4(x,y,z,w);
+static void ivec4InitConstructor(int x, int y, int z, int w, ivec4* self) {
+    new (self) ivec4(x, y, z, w);
 }
 
-static void ivec4InitConstructor2(int val, ivec4 *self) {
-    new(self) ivec4(val);
+static void ivec4InitConstructor2(int val, ivec4* self) {
+    new (self) ivec4(val);
 }
 
-void AttachIVec4Funcs( ASContext *context) {
+void AttachIVec4Funcs(ASContext* context) {
     // Register the type
     context->RegisterObjectType("ivec4",
-        sizeof(ivec4),
-        asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLINTS);
+                                sizeof(ivec4),
+                                asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CA | asOBJ_APP_CLASS_ALLINTS);
 
     // Register the object properties
     context->RegisterObjectProperty("ivec4", "int x", asOFFSET(ivec4, entries));
-    context->RegisterObjectProperty("ivec4", "int y", asOFFSET(ivec4, entries)+sizeof(int));
+    context->RegisterObjectProperty("ivec4", "int y", asOFFSET(ivec4, entries) + sizeof(int));
 
     // Register the constructors
-    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT,  "void f()", asFUNCTION(ivec4DefaultConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT,  "void f(const ivec4 &in)", asFUNCTION(ivec4CopyConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT,  "void f(int, int, int, int)", asFUNCTION(ivec4InitConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT,  "void f(int)", asFUNCTION(ivec4InitConstructor2), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ivec4DefaultConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT, "void f(const ivec4 &in)", asFUNCTION(ivec4CopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT, "void f(int, int, int, int)", asFUNCTION(ivec4InitConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ivec4", asBEHAVE_CONSTRUCT, "void f(int)", asFUNCTION(ivec4InitConstructor2), asCALL_CDECL_OBJLAST);
 
     // Register the operator overloads
     context->RegisterObjectMethod("ivec4", "int &opIndex(int)", asMETHODPR(ivec4, operator[], (const int), int&), asCALL_THISCALL);
     context->DocsCloseBrace();
 }
 
-void Attach3DMathFuncs( ASContext *context ) {
+void Attach3DMathFuncs(ASContext* context) {
     AttachVec2Funcs(context);
     AttachVec3Funcs(context);
     AttachVec4Funcs(context);
@@ -1607,59 +1596,59 @@ void Attach3DMathFuncs( ASContext *context ) {
 
 Camera* GetCamera(int* id) { return (*id == -1 ? ActiveCameras::Get() : ActiveCameras::GetCamera(*id)); }
 
-static vec3 AS_MetaCameraGetFacing(int* camera_id) {return GetCamera(camera_id)->GetFacing();}
+static vec3 AS_MetaCameraGetFacing(int* camera_id) { return GetCamera(camera_id)->GetFacing(); }
 
-static void AS_MetaCameraFixDiscontinuity(int* camera_id) {GetCamera(camera_id)->FixDiscontinuity();}
+static void AS_MetaCameraFixDiscontinuity(int* camera_id) { GetCamera(camera_id)->FixDiscontinuity(); }
 
-static vec3 AS_MetaCameraGetFlatFacing(int* camera_id) {return GetCamera(camera_id)->GetFlatFacing();}
+static vec3 AS_MetaCameraGetFlatFacing(int* camera_id) { return GetCamera(camera_id)->GetFlatFacing(); }
 
-static vec3 AS_MetaCameraGetMouseRay(int* camera_id)  {return GetCamera(camera_id)->GetMouseRay();}
+static vec3 AS_MetaCameraGetMouseRay(int* camera_id) { return GetCamera(camera_id)->GetMouseRay(); }
 
-static float AS_MetaCameraGetXRotation(int* camera_id) {return GetCamera(camera_id)->GetXRotation();}
+static float AS_MetaCameraGetXRotation(int* camera_id) { return GetCamera(camera_id)->GetXRotation(); }
 
-static void AS_MetaCameraSetXRotation(int* camera_id,float val) {GetCamera(camera_id)->SetXRotation(val);}
+static void AS_MetaCameraSetXRotation(int* camera_id, float val) { GetCamera(camera_id)->SetXRotation(val); }
 
-static float AS_MetaCameraGetYRotation(int* camera_id) {return GetCamera(camera_id)->GetYRotation();}
+static float AS_MetaCameraGetYRotation(int* camera_id) { return GetCamera(camera_id)->GetYRotation(); }
 
-static void AS_MetaCameraSetYRotation(int* camera_id,float val) {GetCamera(camera_id)->SetYRotation(val);}
+static void AS_MetaCameraSetYRotation(int* camera_id, float val) { GetCamera(camera_id)->SetYRotation(val); }
 
-static float AS_MetaCameraGetZRotation(int* camera_id) {return GetCamera(camera_id)->GetZRotation();}
+static float AS_MetaCameraGetZRotation(int* camera_id) { return GetCamera(camera_id)->GetZRotation(); }
 
-static void AS_MetaCameraSetZRotation(int* camera_id,float val) {GetCamera(camera_id)->SetZRotation(val);}
+static void AS_MetaCameraSetZRotation(int* camera_id, float val) { GetCamera(camera_id)->SetZRotation(val); }
 
-static vec3 AS_MetaCameraGetPos(int* camera_id) {return GetCamera(camera_id)->GetPos();}
+static vec3 AS_MetaCameraGetPos(int* camera_id) { return GetCamera(camera_id)->GetPos(); }
 
-static vec3 AS_MetaCameraGetUpVector(int* camera_id) {return GetCamera(camera_id)->GetUpVector();}
+static vec3 AS_MetaCameraGetUpVector(int* camera_id) { return GetCamera(camera_id)->GetUpVector(); }
 
-static void AS_MetaCameraSetPos(int* camera_id,vec3 val) {GetCamera(camera_id)->SetPos(val);}
+static void AS_MetaCameraSetPos(int* camera_id, vec3 val) { GetCamera(camera_id)->SetPos(val); }
 
-static void AS_MetaCameraSetFacing(int* camera_id,vec3 val) {GetCamera(camera_id)->SetFacing(val);}
+static void AS_MetaCameraSetFacing(int* camera_id, vec3 val) { GetCamera(camera_id)->SetFacing(val); }
 
-static void AS_MetaCameraSetUp(int* camera_id,vec3 val) {GetCamera(camera_id)->SetUp(val);}
+static void AS_MetaCameraSetUp(int* camera_id, vec3 val) { GetCamera(camera_id)->SetUp(val); }
 
-static void AS_MetaCameraCalcFacing(int* camera_id) {GetCamera(camera_id)->CalcFacing();}
+static void AS_MetaCameraCalcFacing(int* camera_id) { GetCamera(camera_id)->CalcFacing(); }
 
-static void AS_MetaCameraCalcUp(int* camera_id) {GetCamera(camera_id)->calcUp();}
+static void AS_MetaCameraCalcUp(int* camera_id) { GetCamera(camera_id)->calcUp(); }
 
-static void AS_MetaCameraSetVelocity(int* camera_id,vec3 val) {GetCamera(camera_id)->SetVelocity(val);}
+static void AS_MetaCameraSetVelocity(int* camera_id, vec3 val) { GetCamera(camera_id)->SetVelocity(val); }
 
-static void AS_MetaCameraLookAt(int* camera_id,vec3 val) {GetCamera(camera_id)->LookAt(val);}
+static void AS_MetaCameraLookAt(int* camera_id, vec3 val) { GetCamera(camera_id)->LookAt(val); }
 
-static void AS_MetaCameraSetFOV(int* camera_id,float val) {GetCamera(camera_id)->SetFOV(val);}
+static void AS_MetaCameraSetFOV(int* camera_id, float val) { GetCamera(camera_id)->SetFOV(val); }
 
-static float AS_MetaCameraGetFOV(int* camera_id,float val) {return GetCamera(camera_id)->GetFOV();}
+static float AS_MetaCameraGetFOV(int* camera_id, float val) { return GetCamera(camera_id)->GetFOV(); }
 
-static bool AS_MetaCameraGetAutoCamera(int* camera_id) {return GetCamera(camera_id)->GetAutoCamera();}
+static bool AS_MetaCameraGetAutoCamera(int* camera_id) { return GetCamera(camera_id)->GetAutoCamera(); }
 
-static void AS_MetaCameraSetDistance(int* camera_id,float val) {GetCamera(camera_id)->SetDistance(val);}
+static void AS_MetaCameraSetDistance(int* camera_id, float val) { GetCamera(camera_id)->SetDistance(val); }
 
-static void AS_MetaCameraSetInterpSteps(int* camera_id,int val) {GetCamera(camera_id)->SetInterpSteps(val);}
+static void AS_MetaCameraSetInterpSteps(int* camera_id, int val) { GetCamera(camera_id)->SetInterpSteps(val); }
 
-static int AS_MetaCameraGetFlags(int* camera_id) {return GetCamera(camera_id)->GetFlags();}
+static int AS_MetaCameraGetFlags(int* camera_id) { return GetCamera(camera_id)->GetFlags(); }
 
-static void AS_MetaCameraSetFlags(int* camera_id,int val) {return GetCamera(camera_id)->SetFlags(val);}
+static void AS_MetaCameraSetFlags(int* camera_id, int val) { return GetCamera(camera_id)->SetFlags(val); }
 
-static void AS_MetaCameraSetDOF(int* camera_id,float near_blur, float near_dist, float near_transition, float far_blur, float far_dist, float far_transition) {
+static void AS_MetaCameraSetDOF(int* camera_id, float near_blur, float near_dist, float near_transition, float far_blur, float far_dist, float far_transition) {
     Camera* camera = GetCamera(camera_id);
     camera->near_blur_amount = near_blur;
     camera->near_sharp_dist = near_dist;
@@ -1697,62 +1686,60 @@ static const vec3& GetBloodTint() {
     return Graphics::Instance()->config_.blood_color();
 }
 
-void AttachScreenWidth(ASContext *context) {
+void AttachScreenWidth(ASContext* context) {
     context->RegisterGlobalFunction("int GetScreenWidth()", asFUNCTION(GetScreenWidth), asCALL_CDECL);
     context->RegisterGlobalFunction("int GetScreenHeight()", asFUNCTION(GetScreenHeight), asCALL_CDECL);
 }
 
 static int zero_camera_id = -1;
-void AttachMovementObjectCamera(ASContext *context, MovementObject* mo)
-{
+void AttachMovementObjectCamera(ASContext* context, MovementObject* mo) {
     context->RegisterObjectType("Camera", 0, asOBJ_REF | asOBJ_NOHANDLE);
-    context->RegisterObjectMethod("Camera","vec3 &GetTint()",asFUNCTION(ASGetTint), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetTint(const vec3 &in)",asFUNCTION(ASSetTint), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","vec3 &GetVignetteTint()",asFUNCTION(ASGetVignetteTint), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetVignetteTint(const vec3 &in)",asFUNCTION(ASSetVignetteTint), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "vec3 &GetTint()", asFUNCTION(ASGetTint), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetTint(const vec3 &in)", asFUNCTION(ASSetTint), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "vec3 &GetVignetteTint()", asFUNCTION(ASGetVignetteTint), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetVignetteTint(const vec3 &in)", asFUNCTION(ASSetVignetteTint), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("Camera","void FixDiscontinuity()",asFUNCTION(AS_MetaCameraFixDiscontinuity), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","vec3 GetFacing()",asFUNCTION(AS_MetaCameraGetFacing), asCALL_CDECL_OBJFIRST);
-    //context->RegisterObjectMethod("Camera","void SetFacing()",asFUNCTION(AS_MetaCameraSetFacing), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","vec3 GetFlatFacing()",asFUNCTION(AS_MetaCameraGetFlatFacing), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","vec3 GetMouseRay()",asFUNCTION(AS_MetaCameraGetMouseRay), asCALL_CDECL_OBJFIRST, "Direction that mouse cursor is pointing");
-    context->RegisterObjectMethod("Camera","float GetXRotation()",asFUNCTION(AS_MetaCameraGetXRotation), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetXRotation(float)",asFUNCTION(AS_MetaCameraSetXRotation), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","float GetYRotation()",asFUNCTION(AS_MetaCameraGetYRotation), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetYRotation(float)",asFUNCTION(AS_MetaCameraSetYRotation), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","float GetZRotation()",asFUNCTION(AS_MetaCameraGetZRotation), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetZRotation(float)",asFUNCTION(AS_MetaCameraSetZRotation), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","vec3 GetPos()",asFUNCTION(AS_MetaCameraGetPos), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","vec3 GetUpVector()",asFUNCTION(AS_MetaCameraGetUpVector), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetPos(vec3)",asFUNCTION(AS_MetaCameraSetPos), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetFacing(vec3)",asFUNCTION(AS_MetaCameraSetFacing), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetUp(vec3)",asFUNCTION(AS_MetaCameraSetUp), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void CalcFacing()",asFUNCTION(AS_MetaCameraCalcFacing), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetVelocity(vec3)",asFUNCTION(AS_MetaCameraSetVelocity), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void LookAt(vec3 target)",asFUNCTION(AS_MetaCameraLookAt), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetFOV(float)",asFUNCTION(AS_MetaCameraSetFOV), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","float GetFOV()",asFUNCTION(AS_MetaCameraGetFOV), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","bool GetAutoCamera()",asFUNCTION(AS_MetaCameraGetAutoCamera), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetDistance(float)",asFUNCTION(AS_MetaCameraSetDistance), asCALL_CDECL_OBJFIRST, "From orbit point, for chase camera");
-    context->RegisterObjectMethod("Camera","void SetInterpSteps(int)",asFUNCTION(AS_MetaCameraSetInterpSteps), asCALL_CDECL_OBJFIRST, "Number of time steps between camera updates");
-    context->RegisterObjectMethod("Camera","int GetFlags()",asFUNCTION(AS_MetaCameraGetFlags), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetFlags(int)",asFUNCTION(AS_MetaCameraSetFlags), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void CalcUp()",asFUNCTION(AS_MetaCameraCalcUp), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Camera","void SetDOF(float near_blur, float near_dist, float near_transition, float far_blur, float far_dist, float far_transition)",asFUNCTION(AS_MetaCameraSetDOF), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void FixDiscontinuity()", asFUNCTION(AS_MetaCameraFixDiscontinuity), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "vec3 GetFacing()", asFUNCTION(AS_MetaCameraGetFacing), asCALL_CDECL_OBJFIRST);
+    // context->RegisterObjectMethod("Camera","void SetFacing()",asFUNCTION(AS_MetaCameraSetFacing), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "vec3 GetFlatFacing()", asFUNCTION(AS_MetaCameraGetFlatFacing), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "vec3 GetMouseRay()", asFUNCTION(AS_MetaCameraGetMouseRay), asCALL_CDECL_OBJFIRST, "Direction that mouse cursor is pointing");
+    context->RegisterObjectMethod("Camera", "float GetXRotation()", asFUNCTION(AS_MetaCameraGetXRotation), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetXRotation(float)", asFUNCTION(AS_MetaCameraSetXRotation), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "float GetYRotation()", asFUNCTION(AS_MetaCameraGetYRotation), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetYRotation(float)", asFUNCTION(AS_MetaCameraSetYRotation), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "float GetZRotation()", asFUNCTION(AS_MetaCameraGetZRotation), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetZRotation(float)", asFUNCTION(AS_MetaCameraSetZRotation), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "vec3 GetPos()", asFUNCTION(AS_MetaCameraGetPos), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "vec3 GetUpVector()", asFUNCTION(AS_MetaCameraGetUpVector), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetPos(vec3)", asFUNCTION(AS_MetaCameraSetPos), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetFacing(vec3)", asFUNCTION(AS_MetaCameraSetFacing), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetUp(vec3)", asFUNCTION(AS_MetaCameraSetUp), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void CalcFacing()", asFUNCTION(AS_MetaCameraCalcFacing), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetVelocity(vec3)", asFUNCTION(AS_MetaCameraSetVelocity), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void LookAt(vec3 target)", asFUNCTION(AS_MetaCameraLookAt), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetFOV(float)", asFUNCTION(AS_MetaCameraSetFOV), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "float GetFOV()", asFUNCTION(AS_MetaCameraGetFOV), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "bool GetAutoCamera()", asFUNCTION(AS_MetaCameraGetAutoCamera), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetDistance(float)", asFUNCTION(AS_MetaCameraSetDistance), asCALL_CDECL_OBJFIRST, "From orbit point, for chase camera");
+    context->RegisterObjectMethod("Camera", "void SetInterpSteps(int)", asFUNCTION(AS_MetaCameraSetInterpSteps), asCALL_CDECL_OBJFIRST, "Number of time steps between camera updates");
+    context->RegisterObjectMethod("Camera", "int GetFlags()", asFUNCTION(AS_MetaCameraGetFlags), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetFlags(int)", asFUNCTION(AS_MetaCameraSetFlags), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void CalcUp()", asFUNCTION(AS_MetaCameraCalcUp), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Camera", "void SetDOF(float near_blur, float near_dist, float near_transition, float far_blur, float far_dist, float far_transition)", asFUNCTION(AS_MetaCameraSetDOF), asCALL_CDECL_OBJFIRST);
 
     context->DocsCloseBrace();
-    context->RegisterGlobalProperty("Camera camera", mo ? &mo->camera_id: &zero_camera_id);
+    context->RegisterGlobalProperty("Camera camera", mo ? &mo->camera_id : &zero_camera_id);
     context->RegisterGlobalFunction("bool GetSplitscreen()", asFUNCTION(GetSplitscreen), asCALL_CDECL);
     context->RegisterGlobalFunction("int GetBloodLevel()", asFUNCTION(GetBloodLevel), asCALL_CDECL);
     context->RegisterGlobalFunction("const vec3 &GetBloodTint()", asFUNCTION(GetBloodTint), asCALL_CDECL);
     context->RegisterEnum("CameraFlags");
-    context->RegisterEnumValue("CameraFlags","kEditorCamera",Camera::kEditorCamera);
-    context->RegisterEnumValue("CameraFlags","kPreviewCamera",Camera::kPreviewCamera);
+    context->RegisterEnumValue("CameraFlags", "kEditorCamera", Camera::kEditorCamera);
+    context->RegisterEnumValue("CameraFlags", "kPreviewCamera", Camera::kPreviewCamera);
     context->DocsCloseBrace();
 }
 
-void AttachActiveCamera( ASContext *context )
-{
+void AttachActiveCamera(ASContext* context) {
     AttachMovementObjectCamera(context, NULL);
 }
 
@@ -1777,7 +1764,7 @@ static bool GetMenuPaused() {
     return Engine::Instance()->menu_paused;
 }
 
-void AttachTimer( ASContext *context ) {
+void AttachTimer(ASContext* context) {
     context->RegisterGlobalProperty("float time_step", &game_timer.timestep, "Time in seconds between engine time steps");
     context->RegisterGlobalProperty("float the_time", &game_timer.game_time, "The current time in seconds since engine started (in-game time)");
     context->RegisterGlobalProperty("float ui_time", &ui_timer.game_time, "The current time in seconds since engine started (absolute time)");
@@ -1788,22 +1775,22 @@ void AttachTimer( ASContext *context ) {
 }
 
 #include "Physics/physics.h"
-void AttachPhysics( ASContext *context ) {
-    Physics *physics = Physics::Instance();
+void AttachPhysics(ASContext* context) {
+    Physics* physics = Physics::Instance();
 
     context->RegisterObjectType("Physics", 0, asOBJ_REF | asOBJ_NOHANDLE);
-    context->RegisterObjectProperty("Physics","vec3 gravity_vector",asOFFSET(Physics,gravity));
+    context->RegisterObjectProperty("Physics", "vec3 gravity_vector", asOFFSET(Physics, gravity));
     context->DocsCloseBrace();
     context->RegisterGlobalProperty("Physics physics", physics);
 }
 
 #include "Sound/sound.h"
 static int ASPlaySound(std::string path) {
-	Online* online = Online::Instance();
+    Online* online = Online::Instance();
 
-	if (online->IsHosting()) {
-		online->Send<OnlineMessages::AudioPlaySoundMessage>(path);
-	}
+    if (online->IsHosting()) {
+        online->Send<OnlineMessages::AudioPlaySoundMessage>(path);
+    }
 
     SoundPlayInfo spi;
     spi.path = path;
@@ -1813,12 +1800,12 @@ static int ASPlaySound(std::string path) {
     return handle;
 }
 
-static int ASPlaySoundLoop(const std::string &path, float gain) {
-	Online* online = Online::Instance();
+static int ASPlaySoundLoop(const std::string& path, float gain) {
+    Online* online = Online::Instance();
 
-	if (online->IsHosting()) {
+    if (online->IsHosting()) {
         online->Send<OnlineMessages::AudioPlaySoundLoopMessage>(path, gain);
-	}
+    }
 
     SoundPlayInfo spi;
     spi.path = path;
@@ -1830,12 +1817,12 @@ static int ASPlaySoundLoop(const std::string &path, float gain) {
     return handle;
 }
 
-static int ASPlaySoundLoopAtLocation(const std::string &path, vec3 pos, float gain) {
-	Online* online = Online::Instance();
+static int ASPlaySoundLoopAtLocation(const std::string& path, vec3 pos, float gain) {
+    Online* online = Online::Instance();
 
-	if (online->IsHosting()) {
+    if (online->IsHosting()) {
         online->Send<OnlineMessages::AudioPlaySoundLoopAtLocationMessage>(path, gain, pos);
-	}
+    }
 
     SoundPlayInfo spi;
     spi.path = path;
@@ -1863,12 +1850,12 @@ static int ASPlaySoundAtLocation(std::string path, vec3 location) {
 }
 
 static int ASPlaySoundGroupRelative(std::string path) {
-    //SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
-	Online* online = Online::Instance();
+    // SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
+    Online* online = Online::Instance();
 
-	if (online->IsHosting()) {
+    if (online->IsHosting()) {
         online->Send<OnlineMessages::AudioPlaySoundGroupRelativeMessage>(path);
-	}
+    }
     SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(path);
     SoundGroupPlayInfo sgpi(SoundGroupPlayInfo(*sgr, vec3(0.0f)));
     sgpi.flags = sgpi.flags | SoundFlags::kRelative;
@@ -1879,7 +1866,7 @@ static int ASPlaySoundGroupRelative(std::string path) {
 }
 
 static int ASPlaySoundGroupRelativeGain(std::string path, float gain) {
-    //SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
+    // SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
     Online* online = Online::Instance();
 
     if (online->IsHosting()) {
@@ -1904,7 +1891,7 @@ static int ASPlaySoundGroup(std::string path, vec3 location) {
     }
 
     int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
-    //SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
+    // SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
     SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(path);
     SoundGroupPlayInfo sgpi(*sgr, location);
     Engine::Instance()->GetSound()->PlayGroup(handle, sgpi);
@@ -1912,13 +1899,13 @@ static int ASPlaySoundGroup(std::string path, vec3 location) {
 }
 
 static int ASPlaySoundGroupPriority(std::string path, vec3 location, int priority) {
-    //SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
+    // SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
 
-	Online* online = Online::Instance();
+    Online* online = Online::Instance();
 
-	if (online->IsHosting()) {
+    if (online->IsHosting()) {
         online->Send<OnlineMessages::AudioPlayGroupPriorityMessage>(path, location, priority);
-	}
+    }
 
     SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(path);
     SoundGroupPlayInfo sgpi(*sgr, location);
@@ -1929,7 +1916,7 @@ static int ASPlaySoundGroupPriority(std::string path, vec3 location, int priorit
 }
 
 static int ASPlaySoundGroupGain(std::string path, vec3 location, float gain) {
-    //SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
+    // SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(path);
     Online* online = Online::Instance();
 
     if (online->IsHosting()) {
@@ -1940,14 +1927,14 @@ static int ASPlaySoundGroupGain(std::string path, vec3 location, float gain) {
     SoundGroupPlayInfo sgpi(*sgr, location);
     sgpi.gain = gain;
     int handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
-    Engine::Instance()->GetSound()->PlayGroup(handle,sgpi);
+    Engine::Instance()->GetSound()->PlayGroup(handle, sgpi);
     return handle;
 }
 
 static void ASSetRemoteAirWhoosh(int id, float volume, float pitch) {
-	// Send the whoosh to the client
+    // Send the whoosh to the client
     for (const auto& it : Online::Instance()->online_session->player_states) {
-        if (it.second.object_id == id) { // TODO This assumes that player_id == peer_id!
+        if (it.second.object_id == id) {  // TODO This assumes that player_id == peer_id!
             Peer* peer = Online::Instance()->GetPeerFromID(it.first);
             if (peer != nullptr) {
                 Online::Instance()->SendTo<OnlineMessages::WhooshSoundMessage>(peer->conn_id, volume, pitch);
@@ -1959,12 +1946,12 @@ static void ASSetRemoteAirWhoosh(int id, float volume, float pitch) {
     }
 }
 
-static void ASSetAirWhoosh(float volume, float pitch){
+static void ASSetAirWhoosh(float volume, float pitch) {
     Engine::Instance()->GetSound()->setAirWhoosh(volume, pitch);
 }
 
-static void ASUpdateListener(vec3 a, vec3 b, vec3 c, vec3 d){
-    Engine::Instance()->GetSound()->updateListener(a,b,c,d);
+static void ASUpdateListener(vec3 a, vec3 b, vec3 c, vec3 d) {
+    Engine::Instance()->GetSound()->updateListener(a, b, c, d);
 }
 
 static void ASStopSound(int which) {
@@ -1987,51 +1974,45 @@ static void ASPlaySong(const std::string& type) {
     Engine::Instance()->GetSound()->TransitionToSong(type);
 }
 
-static void ASQueueSegment( const std::string& name ) {
+static void ASQueueSegment(const std::string& name) {
     Engine::Instance()->GetSound()->QueueSegment(name);
 }
 
-static void ASPlaySegment( const std::string& name ) {
+static void ASPlaySegment(const std::string& name) {
     Engine::Instance()->GetSound()->TransitionToSegment(name);
 }
 
-static bool ASAddMusic( const std::string& path ) {
+static bool ASAddMusic(const std::string& path) {
     Path p = FindFilePath(path);
-    if( p.valid )
-    {
+    if (p.valid) {
         Engine::Instance()->GetSound()->AddMusic(p);
         return true;
-    }
-    else
-    {
+    } else {
         LOGE << "Invalid path, can't load music" << p << std::endl;
         return false;
     }
 }
 
-static bool ASRemoveMusic( const std::string& path ) {
+static bool ASRemoveMusic(const std::string& path) {
     Path p = FindFilePath(path);
-    if( p.valid )
-    {
+    if (p.valid) {
         Engine::Instance()->GetSound()->RemoveMusic(p);
         return true;
-    }
-    else
-    {
+    } else {
         LOGE << "Invalid path, can't remove music" << p << std::endl;
         return false;
     }
 }
 
-static void ASSetSegment( const std::string& name ) {
+static void ASSetSegment(const std::string& name) {
     Engine::Instance()->GetSound()->SetSegment(name);
 }
 
-static std::string ASGetSegment( ) {
+static std::string ASGetSegment() {
     return Engine::Instance()->GetSound()->GetSegment();
 }
 
-static void ASSetSong( const std::string& name ) {
+static void ASSetSong(const std::string& name) {
     Engine::Instance()->GetSound()->SetSong(name);
 }
 
@@ -2040,34 +2021,34 @@ static std::string ASGetSong() {
 }
 
 static CScriptArray* ASGetLayerNames() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
-    std::map<std::string,float> layer_gains = Engine::Instance()->GetSound()->GetLayerGains();
+    std::map<std::string, float> layer_gains = Engine::Instance()->GetSound()->GetLayerGains();
 
     array->Reserve(layer_gains.size());
 
-    std::map<std::string,float>::iterator layerit = layer_gains.begin();
+    std::map<std::string, float>::iterator layerit = layer_gains.begin();
 
-    for( ; layerit != layer_gains.end(); layerit++ ) {
+    for (; layerit != layer_gains.end(); layerit++) {
         array->InsertLast((void*)&(layerit->first));
     }
 
     return array;
 }
 
-static void ASSetLayerGain( const std::string& layer, float gain ) {
-    Engine::Instance()->GetSound()->SetLayerGain(layer,gain);
+static void ASSetLayerGain(const std::string& layer, float gain) {
+    Engine::Instance()->GetSound()->SetLayerGain(layer, gain);
 }
 
-static float ASGetLayerGain( const std::string& layer ) {
-    std::map<std::string,float> layer_gains =  Engine::Instance()->GetSound()->GetLayerGains();
+static float ASGetLayerGain(const std::string& layer) {
+    std::map<std::string, float> layer_gains = Engine::Instance()->GetSound()->GetLayerGains();
 
-    std::map<std::string,float>::iterator layerit = layer_gains.find(layer);
+    std::map<std::string, float>::iterator layerit = layer_gains.find(layer);
 
-    if( layerit != layer_gains.end() ) {
+    if (layerit != layer_gains.end()) {
         return layerit->second;
     } else {
         return 0.0f;
@@ -2084,7 +2065,7 @@ const int as_sound_priority_high = _sound_priority_high;
 const int as_sound_priority_med = _sound_priority_med;
 const int as_sound_priority_low = _sound_priority_low;
 
-void AttachSound( ASContext *context ) {
+void AttachSound(ASContext* context) {
     context->RegisterGlobalFunction("void UpdateListener(vec3 pos, vec3 vel, vec3 facing, vec3 up)", asFUNCTION(ASUpdateListener), asCALL_CDECL);
     context->RegisterGlobalFunction("int PlaySound(string path)", asFUNCTION(ASPlaySound), asCALL_CDECL);
     context->RegisterGlobalFunction("int PlaySoundLoop(const string &in path, float gain)", asFUNCTION(ASPlaySoundLoop), asCALL_CDECL);
@@ -2100,7 +2081,7 @@ void AttachSound( ASContext *context ) {
     context->RegisterGlobalFunction("int PlaySoundGroup(string path, vec3 position, float gain)", asFUNCTION(ASPlaySoundGroupGain), asCALL_CDECL);
     context->RegisterGlobalFunction("int PlaySoundGroup(string path, vec3 position, int priority)", asFUNCTION(ASPlaySoundGroupPriority), asCALL_CDECL);
     context->RegisterGlobalFunction("void SetAirWhoosh(float volume, float pitch)", asFUNCTION(ASSetAirWhoosh), asCALL_CDECL);
-	context->RegisterGlobalFunction("void SetRemoteAirWhoosh(int id, float volume, float pitch)", asFUNCTION(ASSetRemoteAirWhoosh), asCALL_CDECL);
+    context->RegisterGlobalFunction("void SetRemoteAirWhoosh(int id, float volume, float pitch)", asFUNCTION(ASSetRemoteAirWhoosh), asCALL_CDECL);
     context->RegisterGlobalProperty("const int _sound_priority_max", (void*)&as_sound_priority_max);
     context->RegisterGlobalProperty("const int _sound_priority_very_high", (void*)&as_sound_priority_very_high);
     context->RegisterGlobalProperty("const int _sound_priority_high", (void*)&as_sound_priority_high);
@@ -2110,7 +2091,7 @@ void AttachSound( ASContext *context ) {
     context->RegisterGlobalFunction("bool AddMusic(const string& in)", asFUNCTION(ASAddMusic), asCALL_CDECL);
     context->RegisterGlobalFunction("bool RemoveMusic(const string& in)", asFUNCTION(ASRemoveMusic), asCALL_CDECL);
 
-    //Old music API (keep for backwards compatability)
+    // Old music API (keep for backwards compatability)
     context->RegisterGlobalFunction("void PlaySong(const string& in)", asFUNCTION(ASPlaySong), asCALL_CDECL);
     context->RegisterGlobalFunction("void SetSong(const string& in)", asFUNCTION(ASSetSong), asCALL_CDECL);
     context->RegisterGlobalFunction("string GetSong()", asFUNCTION(ASGetSong), asCALL_CDECL);
@@ -2136,14 +2117,14 @@ unsigned ASMakeParticleColor(std::string path, vec3 pos, vec3 vel, vec3 color) {
 }
 
 void ASConnectParticles(unsigned a, unsigned b) {
-    the_scenegraph->particle_system->ConnectParticles(a,b);
+    the_scenegraph->particle_system->ConnectParticles(a, b);
 }
 
-void ASTintParticle(unsigned id, const vec3 &color) {
+void ASTintParticle(unsigned id, const vec3& color) {
     the_scenegraph->particle_system->TintParticle(id, color);
 }
 
-void AttachParticles( ASContext *context ) {
+void AttachParticles(ASContext* context) {
     context->RegisterGlobalFunction("void ConnectParticles(uint32 id_a, uint32 id_b)", asFUNCTION(ASConnectParticles), asCALL_CDECL, "Used for ribbon particles, like throat-cut blood");
     context->RegisterGlobalFunction("uint32 MakeParticle(string path, vec3 pos, vec3 vel)", asFUNCTION(ASMakeParticle), asCALL_CDECL);
     context->RegisterGlobalFunction("uint32 MakeParticle(string path, vec3 pos, vec3 vel, vec3 color)", asFUNCTION(ASMakeParticleColor), asCALL_CDECL);
@@ -2156,17 +2137,16 @@ void ASStartStopwatch() {
     stopwatch.Start();
 }
 
-
 void ASStopAndReportStopwatch() {
     stopwatch.StopAndReportNanoseconds();
 }
 
-void AttachStopwatch( ASContext *context ) {
+void AttachStopwatch(ASContext* context) {
     context->RegisterGlobalFunction("void StartStopwatch()", asFUNCTION(ASStartStopwatch), asCALL_CDECL);
     context->RegisterGlobalFunction("uint64 StopAndReportStopwatch()", asFUNCTION(ASStopAndReportStopwatch), asCALL_CDECL);
 }
 
-void ASEnterTelemetryZone( const std::string& str ) {
+void ASEnterTelemetryZone(const std::string& str) {
     PROFILER_ENTER_DYNAMIC_STRING(g_profiler_ctx, str.c_str());
 }
 
@@ -2182,12 +2162,12 @@ void ASLeaveTelemetryZoneProfiler() {
     LOGI << "Leave" << std::endl;
 }*/
 
-void AttachProfiler( ASContext *context ) {
+void AttachProfiler(ASContext* context) {
     context->RegisterGlobalFunctionThis("void EnterTelemetryZone(const string& in name)", asMETHOD(ASProfiler, ASEnterTelemetryZone), asCALL_THISCALL_ASGLOBAL, &context->profiler);
     context->RegisterGlobalFunctionThis("void LeaveTelemetryZone()", asMETHOD(ASProfiler, ASLeaveTelemetryZone), asCALL_THISCALL_ASGLOBAL, &context->profiler);
 }
 
-void AttachTelemetry( ASContext *context ) {
+void AttachTelemetry(ASContext* context) {
     context->RegisterGlobalFunction("void EnterTelemetryZone(const string& in name)", asFUNCTION(ASEnterTelemetryZone), asCALL_CDECL);
     context->RegisterGlobalFunction("void LeaveTelemetryZone()", asFUNCTION(ASLeaveTelemetryZone), asCALL_CDECL);
 }
@@ -2201,7 +2181,7 @@ const int _fade_val = _fade;
 
 int ASDebugDrawLine(vec3 start, vec3 end, vec3 color, int lifespan_int) {
     DDLifespan lifespan = LifespanFromInt(lifespan_int);
-    return DebugDraw::Instance()->AddLine(start,end, color, lifespan);
+    return DebugDraw::Instance()->AddLine(start, end, color, lifespan);
 }
 
 int ASDebugDrawBillboard(const std::string& texture_path, vec3 center, float scale, vec4 color, int lifespan_int) {
@@ -2212,17 +2192,17 @@ int ASDebugDrawBillboard(const std::string& texture_path, vec3 center, float sca
 
 int ASDebugDrawLine2(vec3 start, vec3 end, vec3 color, vec3 color2, int lifespan_int) {
     DDLifespan lifespan = LifespanFromInt(lifespan_int);
-    return DebugDraw::Instance()->AddLine(start,end, color, color2, lifespan);
+    return DebugDraw::Instance()->AddLine(start, end, color, color2, lifespan);
 }
 
 int ASDebugDrawLine3(vec3 start, vec3 end, vec4 color, vec4 color2, int lifespan_int) {
     DDLifespan lifespan = LifespanFromInt(lifespan_int);
-    return DebugDraw::Instance()->AddLine(start,end, color, color2, lifespan);
+    return DebugDraw::Instance()->AddLine(start, end, color, color2, lifespan);
 }
 
 int ASDebugDrawRibbon(vec3 start, vec3 end, vec4 color, vec4 color2, float start_width, float end_width, int lifespan_int) {
     DDLifespan lifespan = LifespanFromInt(lifespan_int);
-    return DebugDraw::Instance()->AddRibbon(start,end, color, color2, start_width, end_width, lifespan);
+    return DebugDraw::Instance()->AddRibbon(start, end, color, color2, start_width, end_width, lifespan);
 }
 
 int ASDebugDrawRibbon2(int lifespan_int) {
@@ -2232,17 +2212,15 @@ int ASDebugDrawRibbon2(int lifespan_int) {
 
 void ASAddDebugDrawRibbonPoint(int which, vec3 pos, vec4 color, float width) {
     DebugDrawElement* element = DebugDraw::Instance()->GetElement(which);
-    DebugDrawRibbon* ribbon = (DebugDrawRibbon*) element;
+    DebugDrawRibbon* ribbon = (DebugDrawRibbon*)element;
     ribbon->AddPoint(pos, color, width);
 }
 
-int ASDebugDrawLines( const CScriptArray &array, vec4 color, int lifespan_int ) {
-
+int ASDebugDrawLines(const CScriptArray& array, vec4 color, int lifespan_int) {
     std::vector<vec3> data;
 
     data.reserve((int)array.GetSize());
-    for (int n = 0; n < (int)array.GetSize(); n++)
-    {
+    for (int n = 0; n < (int)array.GetSize(); n++) {
         data.push_back(*((vec3*)array.At(n)));
     }
 
@@ -2252,12 +2230,11 @@ int ASDebugDrawLines( const CScriptArray &array, vec4 color, int lifespan_int ) 
 
 int ASDebugDrawText(vec3 pos, std::string text, float scale, bool screen_space, int lifespan_int) {
     DDLifespan lifespan = LifespanFromInt(lifespan_int);
-    return DebugDraw::Instance()->AddText(pos, text, scale, lifespan, screen_space ? _DD_SCREEN_SPACE : _DD_NO_FLAG );
+    return DebugDraw::Instance()->AddText(pos, text, scale, lifespan, screen_space ? _DD_SCREEN_SPACE : _DD_NO_FLAG);
 }
 
-bool ASDebugSetPosition( int id, vec3 pos )
-{
-    return DebugDraw::Instance()->SetPosition( id, pos );
+bool ASDebugSetPosition(int id, vec3 pos) {
+    return DebugDraw::Instance()->SetPosition(id, pos);
 }
 
 int ASDebugDrawSphere(vec3 pos, float radius, vec3 color, int lifespan_int) {
@@ -2284,11 +2261,10 @@ int ASDebugDrawCylinder(vec3 pos,
                         float radius,
                         float height,
                         vec3 color,
-                        int lifespan_int)
-{
+                        int lifespan_int) {
     DDLifespan lifespan = LifespanFromInt(lifespan_int);
     DebugDraw* dd = DebugDraw::Instance();
-    return dd->AddWireCylinder(pos,radius, height, color, lifespan);
+    return dd->AddWireCylinder(pos, radius, height, color, lifespan);
 }
 
 int ASDebugDrawBox(vec3 pos, vec3 dimensions, vec3 color, int lifespan_int) {
@@ -2306,16 +2282,15 @@ void ASDebugDrawClear(int which) {
 }
 
 void ASDebugText(std::string key, std::string text, float time) {
-    GetActiveASContext()->gui->AddDebugText(key,text,time);
+    GetActiveASContext()->gui->AddDebugText(key, text, time);
 }
 
-int ASDebugDrawPoint(vec3 pos, vec4 color, int lifespan_int ){
-
+int ASDebugDrawPoint(vec3 pos, vec4 color, int lifespan_int) {
     DDLifespan lifespan = LifespanFromInt(lifespan_int);
     return DebugDraw::Instance()->AddPoint(pos, color, lifespan, _DD_NO_FLAG);
 }
 
-void AttachDebugDraw( ASContext *context ) {
+void AttachDebugDraw(ASContext* context) {
     context->RegisterGlobalProperty("const int _delete_on_update",
                                     (void*)&_delete_on_update_val);
     context->RegisterGlobalProperty("const int _fade",
@@ -2371,7 +2346,7 @@ void AttachDebugDraw( ASContext *context ) {
 static bool ObjectExists(int id) {
     bool result = false;
 
-    if(id >= 0) {
+    if (id >= 0) {
         result = the_scenegraph->DoesObjectWithIdExist(id);
     }
 
@@ -2380,17 +2355,18 @@ static bool ObjectExists(int id) {
 
 Object* ReadObjectFromID(int id) {
     Object* obj = the_scenegraph->GetObjectFromID(id);
-    if(!obj) {
+    if (!obj) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         std::ostringstream oss;
-        oss << "There is no object " << id << "\n Called from:\n" << callstack;
+        oss << "There is no object " << id << "\n Called from:\n"
+            << callstack;
         FatalError("Error", "There is no object %d\n Called from:\n%s", id, callstack.c_str());
     }
     return obj;
 }
 
-void ASSetTranslation(Object* obj, const vec3 &vec) {
-    switch(obj->GetType()){
+void ASSetTranslation(Object* obj, const vec3& vec) {
+    switch (obj->GetType()) {
         case _env_object:
             ((EnvObject*)obj)->SetTranslation(vec);
             ((EnvObject*)obj)->UpdatePhysicsTransform();
@@ -2413,49 +2389,48 @@ void ASSetTranslation(Object* obj, const vec3 &vec) {
     }
 }
 
-bool ASIsSelected(Object* obj){
-    if(obj){
+bool ASIsSelected(Object* obj) {
+    if (obj) {
         return obj->Selected();
     } else {
         return false;
     }
 }
 
-void ASSetSelected(Object* obj, bool val){
-    if(val && obj->permission_flags & Object::CAN_SELECT){
+void ASSetSelected(Object* obj, bool val) {
+    if (val && obj->permission_flags & Object::CAN_SELECT) {
         obj->Select(true);
     } else {
         obj->Select(false);
     }
 }
 
-void ASSetEnabled(Object* obj, bool val){
+void ASSetEnabled(Object* obj, bool val) {
     obj->SetEnabled(val);
 }
 
-void ASSetCollisionEnabled(Object* obj, bool val){
+void ASSetCollisionEnabled(Object* obj, bool val) {
     obj->SetCollisionEnabled(val);
 }
 
-bool ASGetEnabled(Object* obj){
+bool ASGetEnabled(Object* obj) {
     return obj->enabled_;
 }
 
-void ASDeselectAll(){
+void ASDeselectAll() {
     MapEditor::DeselectAll(the_scenegraph);
 }
 
 CScriptArray* ASGetSelected() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(the_scenegraph->objects_.size());
 
-    const SceneGraph::object_list &objects = the_scenegraph->objects_;
-    for(auto obj : objects)
-    {
-        if(obj->Selected()) {
+    const SceneGraph::object_list& objects = the_scenegraph->objects_;
+    for (auto obj : objects) {
+        if (obj->Selected()) {
             int val = obj->GetID();
             array->InsertLast(&val);
         }
@@ -2467,8 +2442,8 @@ vec3 ASGetScale(Object* obj) {
     return obj->GetScale();
 }
 
-void ASSetScale(Object* obj, const vec3 &vec) {
-    switch(obj->GetType()){
+void ASSetScale(Object* obj, const vec3& vec) {
+    switch (obj->GetType()) {
         case _env_object:
             ((EnvObject*)obj)->SetScale(vec);
             ((EnvObject*)obj)->UpdatePhysicsTransform();
@@ -2489,8 +2464,8 @@ vec3 ASGetTranslation(Object* obj) {
     return obj->GetTranslation();
 }
 
-void ASSetRotation(Object* obj, const quaternion &quat) {
-    switch(obj->GetType()){
+void ASSetRotation(Object* obj, const quaternion& quat) {
+    switch (obj->GetType()) {
         case _env_object:
             ((EnvObject*)obj)->SetRotation(quat);
             ((EnvObject*)obj)->UpdatePhysicsTransform();
@@ -2507,8 +2482,8 @@ void ASSetRotation(Object* obj, const quaternion &quat) {
     }
 }
 
-void ASSetTranslationRotationFast(Object* obj, const vec3 &vec, const quaternion &quat) {
-    switch(obj->GetType()){
+void ASSetTranslationRotationFast(Object* obj, const vec3& vec, const quaternion& quat) {
+    switch (obj->GetType()) {
         case _env_object:
             ((EnvObject*)obj)->SetTranslationRotationFast(vec, quat);
             break;
@@ -2520,7 +2495,6 @@ void ASSetTranslationRotationFast(Object* obj, const vec3 &vec, const quaternion
             break;
     }
 }
-
 
 quaternion ASGetRotation(Object* obj) {
     return obj->GetRotation();
@@ -2536,19 +2510,18 @@ EntityType ASGetType(Object* obj) {
     return obj->GetType();
 }
 
-CScriptArray *ASGetObjectIDArrayType(int type) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+CScriptArray* ASGetObjectIDArrayType(int type) {
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(the_scenegraph->objects_.size());
 
-    const SceneGraph::object_list &objects = the_scenegraph->objects_;
-    for(auto obj : objects)
-    {
-        if(obj->GetType() == type){
+    const SceneGraph::object_list& objects = the_scenegraph->objects_;
+    for (auto obj : objects) {
+        if (obj->GetType() == type) {
             int val = obj->GetID();
-            if(val != -1){
+            if (val != -1) {
                 array->InsertLast(&val);
             }
         }
@@ -2556,18 +2529,17 @@ CScriptArray *ASGetObjectIDArrayType(int type) {
     return array;
 }
 
-CScriptArray *ASGetObjectIDArray() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+CScriptArray* ASGetObjectIDArray() {
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(the_scenegraph->objects_.size());
 
-    const SceneGraph::object_list &objects = the_scenegraph->objects_;
-    for(auto object : objects)
-    {
+    const SceneGraph::object_list& objects = the_scenegraph->objects_;
+    for (auto object : objects) {
         int val = object->GetID();
-        if(val != -1){
+        if (val != -1) {
             array->InsertLast(&val);
         }
     }
@@ -2589,9 +2561,9 @@ int ASCreateObject(const std::string& path, bool exclude_from_save) {
     std::string file_type;
     Path source;
     ActorsEditor_LoadEntitiesFromFile(path, desc_list, &file_type, &source);
-    for(auto & i : desc_list){
+    for (auto& i : desc_list) {
         Object* obj = MapEditor::AddEntityFromDesc(the_scenegraph, i, false);
-        if( obj ) {
+        if (obj) {
             obj->exclude_from_undo = exclude_from_save;
             obj->exclude_from_save = exclude_from_save;
             obj->permission_flags = 0;
@@ -2604,29 +2576,29 @@ int ASCreateObject(const std::string& path, bool exclude_from_save) {
 }
 
 int ASCreateObject2(const std::string& path) {
-    return ASCreateObject(path,true);
+    return ASCreateObject(path, true);
 }
 
-int ASDuplicateObject(const Object* obj){
+int ASDuplicateObject(const Object* obj) {
     return the_scenegraph->map_editor->DuplicateObject(obj);
 }
 
 void ASSetPlayer(Object* obj, bool val) {
-    if(obj->GetType() == _movement_object){
+    if (obj->GetType() == _movement_object) {
         ((MovementObject*)obj)->is_player = val;
     }
 }
 
 bool ASGetPlayer(Object* obj) {
-    if(obj->GetType() == _movement_object){
+    if (obj->GetType() == _movement_object) {
         return static_cast<MovementObject*>(obj)->is_player;
     }
     return false;
 }
 
 int ASGetNumPaletteColors(Object* obj) {
-    OGPalette *palette = obj->GetPalette();
-    if(!palette){
+    OGPalette* palette = obj->GetPalette();
+    if (!palette) {
         return 0;
     } else {
         return palette->size();
@@ -2634,20 +2606,20 @@ int ASGetNumPaletteColors(Object* obj) {
 }
 
 vec3 GetPaletteColor(Object* obj, int which) {
-    OGPalette *palette = obj->GetPalette();
+    OGPalette* palette = obj->GetPalette();
     return palette->at(which).color;
 }
 
 void SetPaletteColor(Object* obj, int which, const vec3& color) {
-    OGPalette *palette = obj->GetPalette();
-    if(palette && (int)palette->size() > which){
+    OGPalette* palette = obj->GetPalette();
+    if (palette && (int)palette->size() > which) {
         palette->at(which).color = color;
         obj->ApplyPalette(*palette);
     }
 }
 
 vec3 GetTint(Object* obj) {
-    switch(obj->GetType()){
+    switch (obj->GetType()) {
         case _env_object:
             return ((EnvObject*)obj)->GetColorTint();
             break;
@@ -2668,14 +2640,14 @@ void SetTint(Object* obj, const vec3& color) {
 }
 
 bool ConnectTo(Object* obj, Object* other) {
-    if(obj && other)
+    if (obj && other)
         return obj->ConnectTo(*other);
 
     return false;
 }
 
 bool Disconnect(Object* obj, Object* other) {
-    if(obj && other)
+    if (obj && other)
         return obj->Disconnect(*other);
 
     return false;
@@ -2686,8 +2658,8 @@ void AttachItem(Object* movement_object_base, Object* item_object_base, int type
     MovementObject* movement_object = (MovementObject*)movement_object_base;
     AttachmentSlotList attachment_slots;
     movement_object->rigged_object()->AvailableItemSlots(item_object->item_ref(), &attachment_slots);
-    for(auto & slot : attachment_slots) {
-        if(slot.mirrored == mirrored && slot.type == type){
+    for (auto& slot : attachment_slots) {
+        if (slot.mirrored == mirrored && slot.type == type) {
             movement_object->AttachItemToSlotEditor(item_object->GetID(), slot.type, slot.mirrored, slot.attachment_ref);
             break;
         }
@@ -2698,8 +2670,8 @@ ScriptParams* GetScriptParams(Object* obj) {
     return obj->GetScriptParams();
 }
 
-std::string GetLabel(Object* obj){
-    switch(obj->GetType()){
+std::string GetLabel(Object* obj) {
+    switch (obj->GetType()) {
         case _env_object:
             return ((EnvObject*)obj)->GetLabel();
             break;
@@ -2709,39 +2681,39 @@ std::string GetLabel(Object* obj){
     }
 }
 
-void ASUpdateScriptParams(Object* obj){
+void ASUpdateScriptParams(Object* obj) {
     obj->UpdateScriptParams();
 }
 
-void SetBit(int* flags, int bit, bool val){
-    if(val){
+void SetBit(int* flags, int bit, bool val) {
+    if (val) {
         *flags |= bit;
     } else {
         *flags &= ~bit;
     }
 }
 
-void ASSetCopyable(Object* obj, bool val){
+void ASSetCopyable(Object* obj, bool val) {
     SetBit(&obj->permission_flags, Object::CAN_COPY, val);
 }
 
-void ASSetSelectable(Object* obj, bool val){
+void ASSetSelectable(Object* obj, bool val) {
     SetBit(&obj->permission_flags, Object::CAN_SELECT, val);
 }
 
-void ASSetDeletable(Object* obj, bool val){
+void ASSetDeletable(Object* obj, bool val) {
     SetBit(&obj->permission_flags, Object::CAN_DELETE, val);
 }
 
-void ASSetRotatable(Object* obj, bool val){
+void ASSetRotatable(Object* obj, bool val) {
     SetBit(&obj->permission_flags, Object::CAN_ROTATE, val);
 }
 
-void ASSetTranslatable(Object* obj, bool val){
+void ASSetTranslatable(Object* obj, bool val) {
     SetBit(&obj->permission_flags, Object::CAN_TRANSLATE, val);
 }
 
-void ASSetScalable(Object* obj, bool val){
+void ASSetScalable(Object* obj, bool val) {
     SetBit(&obj->permission_flags, Object::CAN_SCALE, val);
 }
 
@@ -2749,38 +2721,38 @@ void ASSetEditorLabel(Object* obj, std::string value) {
     obj->editor_label = value;
 }
 
-std::string ASGetEditorLabel( Object *obj ) {
+std::string ASGetEditorLabel(Object* obj) {
     return obj->editor_label;
 }
 
-void ASSetEditorLabelOffset(Object* obj, vec3 offset ) {
+void ASSetEditorLabelOffset(Object* obj, vec3 offset) {
     obj->editor_label_offset = offset;
 }
 
-vec3 ASGetEditorLabelOffset(Object *obj ) {
+vec3 ASGetEditorLabelOffset(Object* obj) {
     return obj->editor_label_offset;
 }
 
-void ASSetEditorLabelScale(Object* obj, float scale ) {
+void ASSetEditorLabelScale(Object* obj, float scale) {
     obj->editor_label_scale = scale;
 }
 
-float ASGetEditorLabelScale(Object *obj ) {
+float ASGetEditorLabelScale(Object* obj) {
     return obj->editor_label_scale;
 }
 
-template<class A, class B>
+template <class A, class B>
 B* refCast(A* a) {
-    if( !a ) return 0;
+    if (!a) return 0;
     return dynamic_cast<B*>(a);
 }
 
-mat4 ASGetTransform(Object* object){
+mat4 ASGetTransform(Object* object) {
     return object->GetTransform();
 }
 
 static vec3 ASGetBoundingBox(Object* object) {
-    if( object->GetType() == _env_object ) {
+    if (object->GetType() == _env_object) {
         return static_cast<EnvObject*>(object)->GetBoundingBoxSize();
     } else {
         return vec3(0.0f);
@@ -2788,7 +2760,7 @@ static vec3 ASGetBoundingBox(Object* object) {
 }
 
 static bool ASIsExcludedFromSave(Object* obj) {
-    if( obj ) {
+    if (obj) {
         return obj->exclude_from_save;
     } else {
         LOGE << "Got NULL" << std::endl;
@@ -2797,7 +2769,7 @@ static bool ASIsExcludedFromSave(Object* obj) {
 }
 
 static bool ASIsExcludedFromUndo(Object* obj) {
-    if( obj ) {
+    if (obj) {
         return obj->exclude_from_undo;
     } else {
         LOGE << "Got NULL" << std::endl;
@@ -2810,82 +2782,81 @@ static int ASGetParent(Object* obj) {
 }
 
 CScriptArray* ASGetChildren(Object* obj) {
-    if(obj->GetType() != _group) {
+    if (obj->GetType() != _group) {
         return NULL;
     }
 
     Group* group = static_cast<Group*>(obj);
 
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<int>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
     array->Reserve(group->children.size());
 
-    for(const auto & iter : group->children)
-    {
+    for (const auto& iter : group->children) {
         int val = iter.direct_ptr->GetID();
-        if(val != -1){
+        if (val != -1) {
             array->InsertLast(&val);
         }
     }
     return array;
 }
 
-static int ASObjectGetID( Object* obj ) {
+static int ASObjectGetID(Object* obj) {
     return obj->GetID();
 }
 
-static std::string ASObjectGetName( Object* obj ) {
+static std::string ASObjectGetName(Object* obj) {
     return obj->GetName();
 }
 
-static void ASObjectSetName(Object* obj, const std::string& string ) {
+static void ASObjectSetName(Object* obj, const std::string& string) {
     obj->SetName(string);
 }
 
-void AttachObject(ASContext *context) {
+void AttachObject(ASContext* context) {
     context->RegisterEnum("EntityType");
-    context->RegisterEnumValue("EntityType","_any_type",_any_type);
-    context->RegisterEnumValue("EntityType","_no_type",_no_type);
-    context->RegisterEnumValue("EntityType","_camera_type",_camera_type);
-    context->RegisterEnumValue("EntityType","_terrain_type",_terrain_type);
-    context->RegisterEnumValue("EntityType","_env_object",_env_object);
-    context->RegisterEnumValue("EntityType","_movement_object",_movement_object);
-    context->RegisterEnumValue("EntityType","_spawn_point",_spawn_point);
-    context->RegisterEnumValue("EntityType","_decal_object",_decal_object);
-    context->RegisterEnumValue("EntityType","_hotspot_object",_hotspot_object);
-    context->RegisterEnumValue("EntityType","_group",_group);
-    context->RegisterEnumValue("EntityType","_rigged_object",_rigged_object);
-    context->RegisterEnumValue("EntityType","_item_object",_item_object);
-    context->RegisterEnumValue("EntityType","_path_point_object",_path_point_object);
-    context->RegisterEnumValue("EntityType","_ambient_sound_object",_ambient_sound_object);
-    context->RegisterEnumValue("EntityType","_placeholder_object",_placeholder_object);
-    context->RegisterEnumValue("EntityType","_light_probe_object",_light_probe_object);
-    context->RegisterEnumValue("EntityType","_dynamic_light_object",_dynamic_light_object);
-    context->RegisterEnumValue("EntityType","_navmesh_hint_object",_navmesh_hint_object);
-    context->RegisterEnumValue("EntityType","_navmesh_region_object",_navmesh_region_object);
-    context->RegisterEnumValue("EntityType","_navmesh_connection_object",_navmesh_connection_object);
-    context->RegisterEnumValue("EntityType","_reflection_capture_object",_reflection_capture_object);
-    context->RegisterEnumValue("EntityType","_light_volume_object",_light_volume_object);
-    context->RegisterEnumValue("EntityType","_prefab",_prefab);
+    context->RegisterEnumValue("EntityType", "_any_type", _any_type);
+    context->RegisterEnumValue("EntityType", "_no_type", _no_type);
+    context->RegisterEnumValue("EntityType", "_camera_type", _camera_type);
+    context->RegisterEnumValue("EntityType", "_terrain_type", _terrain_type);
+    context->RegisterEnumValue("EntityType", "_env_object", _env_object);
+    context->RegisterEnumValue("EntityType", "_movement_object", _movement_object);
+    context->RegisterEnumValue("EntityType", "_spawn_point", _spawn_point);
+    context->RegisterEnumValue("EntityType", "_decal_object", _decal_object);
+    context->RegisterEnumValue("EntityType", "_hotspot_object", _hotspot_object);
+    context->RegisterEnumValue("EntityType", "_group", _group);
+    context->RegisterEnumValue("EntityType", "_rigged_object", _rigged_object);
+    context->RegisterEnumValue("EntityType", "_item_object", _item_object);
+    context->RegisterEnumValue("EntityType", "_path_point_object", _path_point_object);
+    context->RegisterEnumValue("EntityType", "_ambient_sound_object", _ambient_sound_object);
+    context->RegisterEnumValue("EntityType", "_placeholder_object", _placeholder_object);
+    context->RegisterEnumValue("EntityType", "_light_probe_object", _light_probe_object);
+    context->RegisterEnumValue("EntityType", "_dynamic_light_object", _dynamic_light_object);
+    context->RegisterEnumValue("EntityType", "_navmesh_hint_object", _navmesh_hint_object);
+    context->RegisterEnumValue("EntityType", "_navmesh_region_object", _navmesh_region_object);
+    context->RegisterEnumValue("EntityType", "_navmesh_connection_object", _navmesh_connection_object);
+    context->RegisterEnumValue("EntityType", "_reflection_capture_object", _reflection_capture_object);
+    context->RegisterEnumValue("EntityType", "_light_volume_object", _light_volume_object);
+    context->RegisterEnumValue("EntityType", "_prefab", _prefab);
 
     context->DocsCloseBrace();
     context->RegisterEnum("AttachmentType");
-    context->RegisterEnumValue("AttachmentType","_at_attachment",_at_attachment);
-    context->RegisterEnumValue("AttachmentType","_at_grip",_at_grip);
-    context->RegisterEnumValue("AttachmentType","_at_sheathe",_at_sheathe);
-    context->RegisterEnumValue("AttachmentType","_at_unspecified",_at_unspecified);
+    context->RegisterEnumValue("AttachmentType", "_at_attachment", _at_attachment);
+    context->RegisterEnumValue("AttachmentType", "_at_grip", _at_grip);
+    context->RegisterEnumValue("AttachmentType", "_at_sheathe", _at_sheathe);
+    context->RegisterEnumValue("AttachmentType", "_at_unspecified", _at_unspecified);
     context->DocsCloseBrace();
     context->RegisterEnum("ConnectionType");
-    context->RegisterEnumValue("ConnectionType","kCTNone",Object::kCTNone);
-    context->RegisterEnumValue("ConnectionType","kCTMovementObjects",Object::kCTMovementObjects);
-    context->RegisterEnumValue("ConnectionType","kCTItemObjects",Object::kCTItemObjects);
-    context->RegisterEnumValue("ConnectionType","kCTEnvObjectsAndGroups",Object::kCTEnvObjectsAndGroups);
-    context->RegisterEnumValue("ConnectionType","kCTPathPoints",Object::kCTPathPoints);
-    context->RegisterEnumValue("ConnectionType","kCTPlaceholderObjects",Object::kCTPlaceholderObjects);
-    context->RegisterEnumValue("ConnectionType","kCTNavmeshConnections",Object::kCTNavmeshConnections);
-    context->RegisterEnumValue("ConnectionType","kCTHotspots",Object::kCTHotspots);
+    context->RegisterEnumValue("ConnectionType", "kCTNone", Object::kCTNone);
+    context->RegisterEnumValue("ConnectionType", "kCTMovementObjects", Object::kCTMovementObjects);
+    context->RegisterEnumValue("ConnectionType", "kCTItemObjects", Object::kCTItemObjects);
+    context->RegisterEnumValue("ConnectionType", "kCTEnvObjectsAndGroups", Object::kCTEnvObjectsAndGroups);
+    context->RegisterEnumValue("ConnectionType", "kCTPathPoints", Object::kCTPathPoints);
+    context->RegisterEnumValue("ConnectionType", "kCTPlaceholderObjects", Object::kCTPlaceholderObjects);
+    context->RegisterEnumValue("ConnectionType", "kCTNavmeshConnections", Object::kCTNavmeshConnections);
+    context->RegisterEnumValue("ConnectionType", "kCTHotspots", Object::kCTHotspots);
     context->DocsCloseBrace();
     context->RegisterObjectMethod("Object", "int GetID()", asFUNCTION(ASObjectGetID), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("Object", "string GetName()", asFUNCTION(ASObjectGetName), asCALL_CDECL_OBJFIRST);
@@ -2952,28 +2923,27 @@ void AttachObject(ASContext *context) {
     context->RegisterGlobalFunction("array<int> @GetSelected()", asFUNCTION(ASGetSelected), asCALL_CDECL);
 
     PathPointObject::RegisterToScript(context);
-    context->RegisterObjectMethod("Object", "PathPointObject@ opCast()", asFUNCTION((refCast<Object,PathPointObject>)), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectMethod("Object", "PathPointObject@ opCast()", asFUNCTION((refCast<Object, PathPointObject>)), asCALL_CDECL_OBJLAST);
     context->RegisterObjectMethod("Object", "Hotspot@ opCast()", asFUNCTION((refCast<Object, Hotspot>)), asCALL_CDECL_OBJLAST);
-
 }
 
-static void ASSetEditorDisplayName(PlaceholderObject* obj, const std::string& name){
+static void ASSetEditorDisplayName(PlaceholderObject* obj, const std::string& name) {
     obj->editor_display_name = name;
 }
 
-static void ASSetUnsavedChanges(PlaceholderObject* obj, bool changes){
+static void ASSetUnsavedChanges(PlaceholderObject* obj, bool changes) {
     obj->unsaved_changes = changes;
 }
 
-static bool ASGetUnsavedChanges(PlaceholderObject* obj){
+static bool ASGetUnsavedChanges(PlaceholderObject* obj) {
     return obj->unsaved_changes;
 }
 
-void AttachPlaceholderObject(ASContext *context) {
+void AttachPlaceholderObject(ASContext* context) {
     context->RegisterEnum("PlaceholderObjectType");
-    context->RegisterEnumValue("PlaceholderObjectType","kCamPreview",PlaceholderObject::kCamPreview);
-    context->RegisterEnumValue("PlaceholderObjectType","kPlayerConnect",PlaceholderObject::kPlayerConnect);
-    context->RegisterEnumValue("PlaceholderObjectType","kSpawn",PlaceholderObject::kSpawn);
+    context->RegisterEnumValue("PlaceholderObjectType", "kCamPreview", PlaceholderObject::kCamPreview);
+    context->RegisterEnumValue("PlaceholderObjectType", "kPlayerConnect", PlaceholderObject::kPlayerConnect);
+    context->RegisterEnumValue("PlaceholderObjectType", "kSpawn", PlaceholderObject::kSpawn);
     context->RegisterObjectType("PlaceholderObject", 0, asOBJ_REF | asOBJ_NOCOUNT);
     context->RegisterObjectMethod("PlaceholderObject", "void SetPreview(const string &in path)", asMETHOD(PlaceholderObject, SetPreview), asCALL_THISCALL);
     context->RegisterObjectMethod("PlaceholderObject", "void SetBillboard(const string &in path)", asMETHOD(PlaceholderObject, SetBillboard), asCALL_THISCALL);
@@ -2984,24 +2954,24 @@ void AttachPlaceholderObject(ASContext *context) {
     context->RegisterObjectMethod("PlaceholderObject", "void SetConnectToTypeFilterFlags(uint64 flags)", asMETHOD(PlaceholderObject, SetConnectToTypeFilterFlags), asCALL_THISCALL, "Set a bit mask, with EntityType for bit indices");
     context->RegisterObjectMethod("PlaceholderObject", "void SetUnsavedChanges(bool changes)", asFUNCTION(ASSetUnsavedChanges), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("PlaceholderObject", "bool GetUnsavedChanges()", asFUNCTION(ASGetUnsavedChanges), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Object", "PlaceholderObject@ opCast()", asFUNCTION((refCast<Object,PlaceholderObject>)), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectMethod("Object", "PlaceholderObject@ opCast()", asFUNCTION((refCast<Object, PlaceholderObject>)), asCALL_CDECL_OBJLAST);
     context->DocsCloseBrace();
 }
 
 void ASClearTemporaryDecals() {
-    //the_scenegraph->decals->ClearTemporary();
-    while(!the_scenegraph->dynamic_decals.empty()){
-        DecalObject *obj = the_scenegraph->dynamic_decals.front();
+    // the_scenegraph->decals->ClearTemporary();
+    while (!the_scenegraph->dynamic_decals.empty()) {
+        DecalObject* obj = the_scenegraph->dynamic_decals.front();
         obj->SetParent(NULL);
         the_scenegraph->UnlinkObject(obj);
         obj->Dispose();
-        delete(obj);
+        delete (obj);
     }
 }
 
-void AttachDecals( ASContext *context ) {
+void AttachDecals(ASContext* context) {
     context->RegisterGlobalFunction("void ClearTemporaryDecals()",
-        asFUNCTION(ASClearTemporaryDecals), asCALL_CDECL, "Like blood splats and footprints");
+                                    asFUNCTION(ASClearTemporaryDecals), asCALL_CDECL, "Like blood splats and footprints");
 }
 
 void ResetLevel() {
@@ -3025,53 +2995,53 @@ struct TokenIterator {
         token_end = 0;
         last_token_end = 0;
     }
-    bool FindNextToken(const std::string &str){
+    bool FindNextToken(const std::string& str) {
         bool in_quotes = false;
         const char* cstr = str.c_str();
         const char* chr = &cstr[last_token_end];
-        if(*chr == '\0'){
+        if (*chr == '\0') {
             return false;
         }
-        while(*chr == ' '){
+        while (*chr == ' ') {
             ++chr;
         }
-        if(*chr == '\"'){
+        if (*chr == '\"') {
             in_quotes = true;
             ++chr;
         }
-        token_start = (int64_t) (chr - cstr);
+        token_start = (int64_t)(chr - cstr);
         bool escape_character = false;
-        while(true){
-            if((*chr == ' ' && !in_quotes) || (*chr == '\"' && !escape_character) || *chr == '\0'){
+        while (true) {
+            if ((*chr == ' ' && !in_quotes) || (*chr == '\"' && !escape_character) || *chr == '\0') {
                 break;
             }
             escape_character = false;
-            if(*chr == '\\' && !escape_character){
+            if (*chr == '\\' && !escape_character) {
                 escape_character = true;
             }
             ++chr;
         }
-        token_end = (int64_t) (chr - cstr);
+        token_end = (int64_t)(chr - cstr);
         last_token_end = token_end;
-        if(in_quotes && *chr == '\"'){
+        if (in_quotes && *chr == '\"') {
             ++chr;
             ++last_token_end;
         }
-        //printf("Tokenized: %s\n", str.substr(token_start, token_end-token_start).c_str());
+        // printf("Tokenized: %s\n", str.substr(token_start, token_end-token_start).c_str());
         return true;
     }
-    std::string GetToken(const std::string &str){
+    std::string GetToken(const std::string& str) {
         int64_t len = token_end - token_start;
         std::vector<char> token;
-        token.resize(len+1);
+        token.resize(len + 1);
         int64_t index = 0;
         bool escape = false;
-        for(int i=0; i<len; ++i){
-            char c = str[token_start+i];
-            if(c == '\\' && !escape){
+        for (int i = 0; i < len; ++i) {
+            char c = str[token_start + i];
+            if (c == '\\' && !escape) {
                 escape = true;
             } else {
-                if(escape && c != '"' && c != '\\'){
+                if (escape && c != '"' && c != '\\') {
                     token[index] = '\\';
                     ++index;
                 }
@@ -3086,43 +3056,43 @@ struct TokenIterator {
     }
 };
 
-void Breakpoint(int val){
+void Breakpoint(int val) {
     LOGI << "Breakpoint: " << val << std::endl;
 }
 
-void AttachTokenIterator(ASContext *context) {
+void AttachTokenIterator(ASContext* context) {
     context->RegisterObjectType("TokenIterator", sizeof(TokenIterator), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS);
-    context->RegisterObjectMethod("TokenIterator","void Init()", asMETHOD(TokenIterator, Init), asCALL_THISCALL);
-    context->RegisterObjectMethod("TokenIterator","bool FindNextToken(const string& in)", asMETHOD(TokenIterator, FindNextToken), asCALL_THISCALL);
-    context->RegisterObjectMethod("TokenIterator","string GetToken(const string& in)", asMETHOD(TokenIterator, GetToken), asCALL_THISCALL);
+    context->RegisterObjectMethod("TokenIterator", "void Init()", asMETHOD(TokenIterator, Init), asCALL_THISCALL);
+    context->RegisterObjectMethod("TokenIterator", "bool FindNextToken(const string& in)", asMETHOD(TokenIterator, FindNextToken), asCALL_THISCALL);
+    context->RegisterObjectMethod("TokenIterator", "string GetToken(const string& in)", asMETHOD(TokenIterator, GetToken), asCALL_THISCALL);
     context->DocsCloseBrace();
     context->RegisterGlobalFunction("void Breakpoint(int)", asFUNCTION(Breakpoint), asCALL_CDECL);
 }
 
-MovementObject* ASReadCharacter( int which ) {
-    if(which < 0 || which >= (int)the_scenegraph->movement_objects_.size()){
+MovementObject* ASReadCharacter(int which) {
+    if (which < 0 || which >= (int)the_scenegraph->movement_objects_.size()) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         FatalError("Error", "There is no movement object #%d\n Called from:\n%s", which, callstack.c_str());
     }
     return (MovementObject*)the_scenegraph->movement_objects_[which];
 }
 
-Hotspot* ASReadHotspot( int which ) {
-    if(which < 0 || which >= (int)the_scenegraph->hotspots_.size()){
+Hotspot* ASReadHotspot(int which) {
+    if (which < 0 || which >= (int)the_scenegraph->hotspots_.size()) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         FatalError("Error", "There is no hotspot %d\n Called from:\n%s", which, callstack.c_str());
     }
     return (Hotspot*)the_scenegraph->hotspots_[which];
 }
 
-MovementObject* ASReadCharacterID( int which ) {
-    if(which==-1) {
+MovementObject* ASReadCharacterID(int which) {
+    if (which == -1) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         LOGW << "Called ReadCharacter ID with parameter -1 from\n " << callstack.c_str() << std::endl;
         return NULL;
     }
     Object* obj = the_scenegraph->GetObjectFromID(which);
-    if(!obj || obj->GetType() != _movement_object){
+    if (!obj || obj->GetType() != _movement_object) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         LOGE.Format("There is no movement object with id %d\n Called from:\n%s\n", which, callstack.c_str());
         return NULL;
@@ -3130,51 +3100,51 @@ MovementObject* ASReadCharacterID( int which ) {
     return (MovementObject*)obj;
 }
 
-int ASGetNumItems( ) {
+int ASGetNumItems() {
     return the_scenegraph->item_objects_.size();
 }
 
-ItemObject* ASReadItem( int which ) {
-    if(which < 0 || which >= (int)the_scenegraph->item_objects_.size()){
+ItemObject* ASReadItem(int which) {
+    if (which < 0 || which >= (int)the_scenegraph->item_objects_.size()) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         FatalError("Error", "There is no item object %d\n Called from:\n%s", which, callstack.c_str());
     }
     return (ItemObject*)the_scenegraph->item_objects_[which];
 }
 
-ItemObject* ASReadItemID( int which ) {
+ItemObject* ASReadItemID(int which) {
     Object* obj = the_scenegraph->GetObjectFromID(which);
-    if(!obj || obj->GetType() != _item_object){
+    if (!obj || obj->GetType() != _item_object) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         FatalError("Error", "There is no item object %d\n Called from:\n%s", which, callstack.c_str());
     }
     return (ItemObject*)obj;
 }
 
-EnvObject* ASReadEnvObjectID( int which ) {
+EnvObject* ASReadEnvObjectID(int which) {
     Object* obj = the_scenegraph->GetObjectFromID(which);
-    if(!obj || obj->GetType() != _env_object){
+    if (!obj || obj->GetType() != _env_object) {
         FatalError("Error", "There is no env object %d", which);
     }
     return (EnvObject*)obj;
 }
 
-bool ASObjectExists( int which ) {
+bool ASObjectExists(int which) {
     return the_scenegraph->DoesObjectWithIdExist(which);
 }
 
-bool ASMovementObjectExists( int id ) {
+bool ASMovementObjectExists(int id) {
     Object* obj = the_scenegraph->GetObjectFromID(id);
-    if(obj && obj->GetType() == _movement_object) {
+    if (obj && obj->GetType() == _movement_object) {
         return true;
     } else {
         return false;
     }
 }
 
-bool ASIsGroupDerived( int id ) {
+bool ASIsGroupDerived(int id) {
     Object* obj = the_scenegraph->GetObjectFromID(id);
-    if(obj && obj->IsGroupDerived() ) {
+    if (obj && obj->IsGroupDerived()) {
         return true;
     } else {
         return false;
@@ -3182,33 +3152,33 @@ bool ASIsGroupDerived( int id ) {
 }
 
 #include "Scripting/angelscript/add_on/scriptarray/scriptarray.h"
-void GetCharactersInSphere( vec3 origin, float radius, CScriptArray *array ) {
+void GetCharactersInSphere(vec3 origin, float radius, CScriptArray* array) {
     ContactInfoCallback cb;
     the_scenegraph->abstract_bullet_world_->GetSphereCollisions(origin, radius, cb);
-    for(int i=0; i<cb.contact_info.size();++i){
+    for (int i = 0; i < cb.contact_info.size(); ++i) {
         BulletObject* bo = cb.contact_info[i].object;
-        if(bo && bo->owner_object && the_scenegraph->IsObjectSane(bo->owner_object) && bo->owner_object->GetType() == _movement_object) {
+        if (bo && bo->owner_object && the_scenegraph->IsObjectSane(bo->owner_object) && bo->owner_object->GetType() == _movement_object) {
             int val = ((MovementObject*)bo->owner_object)->GetID();
             array->InsertLast(&val);
         }
     }
 }
 
-void GetCharacters( CScriptArray *array ) {
-    for(auto & movement_object : the_scenegraph->movement_objects_){
+void GetCharacters(CScriptArray* array) {
+    for (auto& movement_object : the_scenegraph->movement_objects_) {
         int val = movement_object->GetID();
         array->InsertLast(&val);
     }
 }
 
-void GetCharactersInHull( std::string path, mat4 transform, CScriptArray *array ) {
+void GetCharactersInHull(std::string path, mat4 transform, CScriptArray* array) {
     ContactInfoCallback cb;
     the_scenegraph->abstract_bullet_world_->GetConvexHullCollisions(path, transform, cb);
-    for(int i=0; i<cb.contact_info.size();++i){
+    for (int i = 0; i < cb.contact_info.size(); ++i) {
         BulletObject* bo = cb.contact_info[i].object;
-        if(bo && bo->owner_object && the_scenegraph->IsObjectSane(bo->owner_object) && bo->owner_object->GetType() == _movement_object) {
+        if (bo && bo->owner_object && the_scenegraph->IsObjectSane(bo->owner_object) && bo->owner_object->GetType() == _movement_object) {
             MovementObject* mo = (MovementObject*)bo->owner_object;
-            if(mo->visible){
+            if (mo->visible) {
                 int val = mo->GetID();
                 array->InsertLast(&val);
             }
@@ -3216,21 +3186,21 @@ void GetCharactersInHull( std::string path, mat4 transform, CScriptArray *array 
     }
 }
 
-void GetObjectsInHull( std::string path, mat4 transform, CScriptArray *array ) {
+void GetObjectsInHull(std::string path, mat4 transform, CScriptArray* array) {
     ContactInfoCallback cb;
     the_scenegraph->abstract_bullet_world_->GetConvexHullCollisions(path, transform, cb);
-    for(int i=0; i<cb.contact_info.size();++i){
+    for (int i = 0; i < cb.contact_info.size(); ++i) {
         BulletObject* bo = cb.contact_info[i].object;
-        if(bo && bo->owner_object && the_scenegraph->IsObjectSane(bo->owner_object) ) {
+        if (bo && bo->owner_object && the_scenegraph->IsObjectSane(bo->owner_object)) {
             int val = ((Object*)bo->owner_object)->GetID();
             array->InsertLast(&val);
         }
     }
 }
 
-static void CreateCustomHull( const std::string& key, const CScriptArray &array ) {
+static void CreateCustomHull(const std::string& key, const CScriptArray& array) {
     std::vector<vec3> data;
-    for(int i=0, len=array.GetSize(); i<len ; ++i) {
+    for (int i = 0, len = array.GetSize(); i < len; ++i) {
         data.push_back(*((vec3*)array.At(i)));
     }
     the_scenegraph->abstract_bullet_world_->CreateCustomHullShape(key, data);
@@ -3239,39 +3209,39 @@ static void CreateCustomHull( const std::string& key, const CScriptArray &array 
 #include "Objects/movementobject.h"
 #include "Objects/itemobject.h"
 
-bool ASDoesItemFitInItem( int a, int b ) {
+bool ASDoesItemFitInItem(int a, int b) {
     Object* obj_a = the_scenegraph->GetObjectFromID(a);
     Object* obj_b = the_scenegraph->GetObjectFromID(b);
-    if(!obj_a || obj_a->GetType() != _item_object){
+    if (!obj_a || obj_a->GetType() != _item_object) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         FatalError("Error", "There is no item object %d.\n Called from:\n%s", a, callstack.c_str());
     };
-    if(!obj_b || obj_b->GetType() != _item_object){
+    if (!obj_b || obj_b->GetType() != _item_object) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         FatalError("Error", "There is no item object %d.\n Called from:\n%s", b, callstack.c_str());
     }
-    ItemObject* item_obj_a = (ItemObject*) obj_a;
-    ItemObject* item_obj_b = (ItemObject*) obj_b;
+    ItemObject* item_obj_a = (ItemObject*)obj_a;
+    ItemObject* item_obj_b = (ItemObject*)obj_b;
     return item_obj_b->item_ref()->GetContains() == item_obj_a->item_ref()->path_;
 }
 
-float ASGetFriction( const vec3 &pos ) {
+float ASGetFriction(const vec3& pos) {
     return the_scenegraph->GetMaterialFriction(pos);
 }
 
-void ASSetPaused(bool paused){
+void ASSetPaused(bool paused) {
     Engine::Instance()->menu_paused = paused;
     Engine::Instance()->CommitPause();
 }
 
 int ASFindFirstCharacterInGroup(int id) {
     Object* obj = the_scenegraph->GetObjectFromID(id);
-    if(obj && obj->IsGroupDerived() ) {
+    if (obj && obj->IsGroupDerived()) {
         Group* group = static_cast<Group*>(obj);
         std::vector<Object*> children;
         group->GetTopDownCompleteChildren(&children);
-        for(auto & i : children) {
-            if( i->GetType() == _movement_object ) {
+        for (auto& i : children) {
+            if (i->GetType() == _movement_object) {
                 return i->GetID();
             }
         }
@@ -3279,36 +3249,36 @@ int ASFindFirstCharacterInGroup(int id) {
     return -1;
 }
 
-void AttachScenegraph( ASContext *context, SceneGraph *scenegraph ) {
+void AttachScenegraph(ASContext* context, SceneGraph* scenegraph) {
     the_scenegraph = scenegraph;
 
     context->RegisterGlobalFunction("int GetNumCharacters()",
-        asFUNCTION(ASGetNumCharacters), asCALL_CDECL);
+                                    asFUNCTION(ASGetNumCharacters), asCALL_CDECL);
     context->RegisterGlobalFunction("int GetNumHotspots()",
-        asFUNCTION(ASGetNumHotspots), asCALL_CDECL);
+                                    asFUNCTION(ASGetNumHotspots), asCALL_CDECL);
     context->RegisterGlobalFunction("int GetNumItems()",
-        asFUNCTION(ASGetNumItems), asCALL_CDECL);
+                                    asFUNCTION(ASGetNumItems), asCALL_CDECL);
     context->RegisterGlobalFunction("void GetCharactersInSphere(vec3 position, float radius, array<int>@ id_array)",
-        asFUNCTION(GetCharactersInSphere), asCALL_CDECL);
+                                    asFUNCTION(GetCharactersInSphere), asCALL_CDECL);
     context->RegisterGlobalFunction("void GetCharacters(array<int>@ id_array)",
-        asFUNCTION(GetCharacters), asCALL_CDECL);
+                                    asFUNCTION(GetCharacters), asCALL_CDECL);
     context->RegisterGlobalFunction("void GetCharactersInHull(string model_path, mat4, array<int>@ id_array)",
-        asFUNCTION(GetCharactersInHull), asCALL_CDECL);
+                                    asFUNCTION(GetCharactersInHull), asCALL_CDECL);
     context->RegisterGlobalFunction("void GetObjectsInHull(string model_path, mat4, array<int>@ id_array)",
-        asFUNCTION(GetObjectsInHull), asCALL_CDECL);
+                                    asFUNCTION(GetObjectsInHull), asCALL_CDECL);
     context->RegisterGlobalFunction("void ResetLevel()",
-        asFUNCTION(ResetLevel), asCALL_CDECL);
+                                    asFUNCTION(ResetLevel), asCALL_CDECL);
     context->RegisterGlobalFunction("bool DoesItemFitInItem(int item_id, int holster_item_id)",
-        asFUNCTION(ASDoesItemFitInItem), asCALL_CDECL);
+                                    asFUNCTION(ASDoesItemFitInItem), asCALL_CDECL);
     context->RegisterGlobalFunction("float GetFriction(const vec3 &in position)",
-        asFUNCTION(ASGetFriction), asCALL_CDECL);
+                                    asFUNCTION(ASGetFriction), asCALL_CDECL);
     context->RegisterGlobalFunction("void CreateCustomHull(const string &in key, const array<vec3> &vertices)",
-        asFUNCTION(CreateCustomHull), asCALL_CDECL);
+                                    asFUNCTION(CreateCustomHull), asCALL_CDECL);
 
     context->RegisterObjectType("Object", 0, asOBJ_REF | asOBJ_NOCOUNT);
 
     DefineRiggedObjectTypePublic(context);
-    if(!context->TypeExists("MovementObject")){
+    if (!context->TypeExists("MovementObject")) {
         DefineMovementObjectTypePublic(context);
         context->DocsCloseBrace();
     }
@@ -3318,17 +3288,17 @@ void AttachScenegraph( ASContext *context, SceneGraph *scenegraph ) {
 
     AttachObject(context);
 
-    context->RegisterGlobalFunction("MovementObject@ ReadCharacter(int index)",asFUNCTION( ASReadCharacter), asCALL_CDECL, "e.g. first character in scene");
-    context->RegisterGlobalFunction("MovementObject@ ReadCharacterID(int id)",asFUNCTION( ASReadCharacterID), asCALL_CDECL, "e.g. character with object ID 39");
-    context->RegisterGlobalFunction("Hotspot@ ReadHotspot(int index)",asFUNCTION( ASReadHotspot), asCALL_CDECL);
-    context->RegisterGlobalFunction("ItemObject@ ReadItem(int index)",asFUNCTION( ASReadItem), asCALL_CDECL);
-    context->RegisterGlobalFunction("ItemObject@ ReadItemID(int id)",asFUNCTION( ASReadItemID), asCALL_CDECL);
-    context->RegisterGlobalFunction("EnvObject@ ReadEnvObjectID(int id)",asFUNCTION( ASReadEnvObjectID), asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ObjectExists(int id)",asFUNCTION( ASObjectExists), asCALL_CDECL);
+    context->RegisterGlobalFunction("MovementObject@ ReadCharacter(int index)", asFUNCTION(ASReadCharacter), asCALL_CDECL, "e.g. first character in scene");
+    context->RegisterGlobalFunction("MovementObject@ ReadCharacterID(int id)", asFUNCTION(ASReadCharacterID), asCALL_CDECL, "e.g. character with object ID 39");
+    context->RegisterGlobalFunction("Hotspot@ ReadHotspot(int index)", asFUNCTION(ASReadHotspot), asCALL_CDECL);
+    context->RegisterGlobalFunction("ItemObject@ ReadItem(int index)", asFUNCTION(ASReadItem), asCALL_CDECL);
+    context->RegisterGlobalFunction("ItemObject@ ReadItemID(int id)", asFUNCTION(ASReadItemID), asCALL_CDECL);
+    context->RegisterGlobalFunction("EnvObject@ ReadEnvObjectID(int id)", asFUNCTION(ASReadEnvObjectID), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ObjectExists(int id)", asFUNCTION(ASObjectExists), asCALL_CDECL);
     context->RegisterGlobalFunction("bool MovementObjectExists(int id)", asFUNCTION(ASMovementObjectExists), asCALL_CDECL);
     context->RegisterGlobalFunction("bool IsGroupDerived(int id)", asFUNCTION(ASIsGroupDerived), asCALL_CDECL);
-    context->RegisterGlobalFunction("void SetPaused(bool paused)",asFUNCTION( ASSetPaused), asCALL_CDECL);
-    context->RegisterGlobalFunction("int FindFirstCharacterInGroup(int id)", asFUNCTION( ASFindFirstCharacterInGroup ), asCALL_CDECL);
+    context->RegisterGlobalFunction("void SetPaused(bool paused)", asFUNCTION(ASSetPaused), asCALL_CDECL);
+    context->RegisterGlobalFunction("int FindFirstCharacterInGroup(int id)", asFUNCTION(ASFindFirstCharacterInGroup), asCALL_CDECL);
 }
 
 #include "Game/level.h"
@@ -3337,13 +3307,13 @@ void ASClearUndoHistory() {
     the_scenegraph->map_editor->ClearUndoHistory();
 }
 
-void ASRibbonItemSetEnabled(const std::string& str, bool val){
+void ASRibbonItemSetEnabled(const std::string& str, bool val) {
 }
 
-void ASRibbonItemSetToggled(const std::string& str, bool val){
+void ASRibbonItemSetToggled(const std::string& str, bool val) {
 }
 
-void ASRibbonItemFlash(const std::string& str){
+void ASRibbonItemFlash(const std::string& str) {
 }
 
 bool ASMediaMode() {
@@ -3362,28 +3332,28 @@ static std::string ASGetInterlevelData(const std::string& key) {
     return Engine::Instance()->interlevel_data[key];
 }
 
-void AttachLevel( ASContext *context ) {
+void AttachLevel(ASContext* context) {
     Level::DefineLevelTypePublic(context);
     context->RegisterGlobalProperty("Level level", the_scenegraph->level);
-    context->RegisterGlobalFunction("void ClearUndoHistory()",asFUNCTION( ASClearUndoHistory), asCALL_CDECL);
-    context->RegisterGlobalFunction("void RibbonItemSetEnabled(const string &in, bool)",asFUNCTION( ASRibbonItemSetEnabled), asCALL_CDECL);
-    context->RegisterGlobalFunction("void RibbonItemSetToggled(const string &in, bool)",asFUNCTION( ASRibbonItemSetToggled), asCALL_CDECL);
-    context->RegisterGlobalFunction("void RibbonItemFlash(const string &in)",asFUNCTION( ASRibbonItemFlash), asCALL_CDECL);
-    context->RegisterGlobalFunction("bool MediaMode()",asFUNCTION( ASMediaMode), asCALL_CDECL);
-    context->RegisterGlobalFunction("void SetMediaMode(bool)",asFUNCTION( ASSetMediaMode), asCALL_CDECL);
+    context->RegisterGlobalFunction("void ClearUndoHistory()", asFUNCTION(ASClearUndoHistory), asCALL_CDECL);
+    context->RegisterGlobalFunction("void RibbonItemSetEnabled(const string &in, bool)", asFUNCTION(ASRibbonItemSetEnabled), asCALL_CDECL);
+    context->RegisterGlobalFunction("void RibbonItemSetToggled(const string &in, bool)", asFUNCTION(ASRibbonItemSetToggled), asCALL_CDECL);
+    context->RegisterGlobalFunction("void RibbonItemFlash(const string &in)", asFUNCTION(ASRibbonItemFlash), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool MediaMode()", asFUNCTION(ASMediaMode), asCALL_CDECL);
+    context->RegisterGlobalFunction("void SetMediaMode(bool)", asFUNCTION(ASSetMediaMode), asCALL_CDECL);
 }
 
-void AttachInterlevelData( ASContext *context ) {
-    context->RegisterGlobalFunction("void SetInterlevelData(const string &in, const string &in)",asFUNCTION( ASSetInterlevelData), asCALL_CDECL);
-    context->RegisterGlobalFunction("string GetInterlevelData(const string &in)",asFUNCTION( ASGetInterlevelData), asCALL_CDECL);
+void AttachInterlevelData(ASContext* context) {
+    context->RegisterGlobalFunction("void SetInterlevelData(const string &in, const string &in)", asFUNCTION(ASSetInterlevelData), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetInterlevelData(const string &in)", asFUNCTION(ASGetInterlevelData), asCALL_CDECL);
 }
 
 static void AS_TextureAssetRefConstructor(void* memory) {
-    new(memory) TextureAssetRef();
+    new (memory) TextureAssetRef();
 }
 
 static void AS_TextureAssetRefCopyConstructor(void* memory, const TextureAssetRef& other) {
-    new(memory) TextureAssetRef(other);
+    new (memory) TextureAssetRef(other);
 }
 
 static void AS_TextureAssetRefDestructor(void* memory) {
@@ -3399,9 +3369,7 @@ static bool AS_TextureAssetRefOpEquals(TextureAssetRef* self, const TextureAsset
 }
 
 static int AS_TextureAssetRefOpCmp(TextureAssetRef* self, const TextureAssetRef& other) {
-    return (*self) < other ?
-        -1 :
-        ((*self) == other ? 0 : 1);
+    return (*self) < other ? -1 : ((*self) == other ? 0 : 1);
 }
 
 static TextureAssetRef AS_LoadTexture(const std::string& path, uint32_t texture_load_flags) {
@@ -3495,7 +3463,7 @@ void AS_ImGui_SetNextWindowPos(const vec2& pos, int cond) {
 }
 
 void AS_ImGui_SetNextWindowPosCenter(int cond) {
-	ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x * 0.5f, ImGui::GetIO().DisplaySize.y * 0.5f), cond, ImVec2(0.5f, 0.5f));
+    ImGui::SetNextWindowPos(ImVec2(ImGui::GetIO().DisplaySize.x * 0.5f, ImGui::GetIO().DisplaySize.y * 0.5f), cond, ImVec2(0.5f, 0.5f));
 }
 
 void AS_ImGui_SetNextWindowSize(const vec2& size, int cond) {
@@ -3609,7 +3577,7 @@ void AS_ImGui_PushStyleVar3(int idx, bool value) {
 }
 
 void AS_ImGui_PushStyleVar4(int idx, int value) {
-    ImGui::PushStyleVar(idx, (float) value);
+    ImGui::PushStyleVar(idx, (float)value);
 }
 
 void AS_ImGui_BeginDisabled(bool is_disabled) {
@@ -3882,7 +3850,7 @@ bool AS_ImGui_InvisibleButton(const std::string& str_id, const vec2& size) {
 }
 
 void AS_ImGui_Image(const TextureAssetRef& user_texture_ref, const vec2& size, const vec2& uv0, const vec2& uv1, const vec4& tint_color, const vec4& border_color) {
-    if(user_texture_ref.valid()) {
+    if (user_texture_ref.valid()) {
         ImVec2 size_temp(size[0], size[1]);
         ImVec2 uv0_temp(uv0[0], uv0[1]);
         ImVec2 uv1_temp(uv1[0], uv1[1]);
@@ -3894,7 +3862,7 @@ void AS_ImGui_Image(const TextureAssetRef& user_texture_ref, const vec2& size, c
 }
 
 bool AS_ImGui_ImageButton(const TextureAssetRef& user_texture_ref, const vec2& size, const vec2& uv0, const vec2& uv1, int frame_padding, const vec4& background_color, const vec4& tint_color) {
-    if(user_texture_ref.valid()) {
+    if (user_texture_ref.valid()) {
         ImVec2 size_temp(size[0], size[1]);
         ImVec2 uv0_temp(uv0[0], uv0[1]);
         ImVec2 uv1_temp(uv1[0], uv1[1]);
@@ -3920,7 +3888,7 @@ bool AS_ImGui_RadioButton(const std::string& label, bool active) {
 }
 
 bool AS_ImGui_RadioButton2(const std::string& label, int& value, int v_button) {
-    return ImGui::RadioButton(label.c_str(), & value, v_button);
+    return ImGui::RadioButton(label.c_str(), &value, v_button);
 }
 
 bool AS_ImGui_BeginCombo(const std::string& label, const std::string& preview_value, int flags) {
@@ -3964,7 +3932,7 @@ bool AS_ImGui_ColorEdit3(const std::string& label, vec3& color) {
 
 bool AS_ImGui_ColorEdit4(const std::string& label, vec4& color, bool show_alpha) {
     ImGuiColorEditFlags flags = 0x01;
-    if(!show_alpha) {
+    if (!show_alpha) {
         flags = ImGuiColorEditFlags_NoAlpha;
     }
     return ImGui::ColorEdit4(label.c_str(), color.entries, flags);
@@ -3988,13 +3956,13 @@ bool AS_ImGui_ColorPicker4_2(const std::string label, vec4& color, int flags, ve
 
 void AS_ImGui_ColorEditMode(int mode) {
     // From old imgui version
-    //ImGuiColorEditMode_UserSelect = -2;
-    //ImGuiColorEditMode_UserSelectShowButton = -1;
-    //ImGuiColorEditMode_RGB = 0
-    //ImGuiColorEditMode_HSV = 1;
-    //ImGuiColorEditMode_HEX = 2;
+    // ImGuiColorEditMode_UserSelect = -2;
+    // ImGuiColorEditMode_UserSelectShowButton = -1;
+    // ImGuiColorEditMode_RGB = 0
+    // ImGuiColorEditMode_HSV = 1;
+    // ImGuiColorEditMode_HEX = 2;
 
-    switch(mode) {
+    switch (mode) {
         case 0:
             ImGui::SetColorEditOptions(ImGuiColorEditFlags_RGB);
             break;
@@ -4083,11 +4051,11 @@ bool AS_ImGui_InputText2(const std::string& label, std::string& text_buffer, int
     text_buffer.reserve(buffer_size);
     AS_ImGui_SetTextBuf(text_buffer);
     bool ret_val = ImGui::InputText(label.c_str(), buf, buffer_size, flags);
-    if(ret_val) {
+    if (ret_val) {
         size_t new_size = strlen(buf);
-        if(text_buffer.size() < new_size) {
+        if (text_buffer.size() < new_size) {
             text_buffer.insert(text_buffer.size(), new_size - text_buffer.size(), 0);
-        } else if(text_buffer.size() > new_size) {
+        } else if (text_buffer.size() > new_size) {
             text_buffer.erase(text_buffer.end() - (text_buffer.size() - new_size), text_buffer.end());
         }
         strcpy(&text_buffer[0], buf);
@@ -4095,26 +4063,26 @@ bool AS_ImGui_InputText2(const std::string& label, std::string& text_buffer, int
     return ret_val;
 }
 
-int ImGui_TextInputCallback(ImGuiInputTextCallbackData *data) {
-	imgui_text_input_CursorPos = data->CursorPos;
-	imgui_text_input_SelectionStart = data->SelectionStart;
-	imgui_text_input_SelectionEnd = data->SelectionEnd;
-	return 0;
+int ImGui_TextInputCallback(ImGuiInputTextCallbackData* data) {
+    imgui_text_input_CursorPos = data->CursorPos;
+    imgui_text_input_SelectionStart = data->SelectionStart;
+    imgui_text_input_SelectionEnd = data->SelectionEnd;
+    return 0;
 }
 
 bool AS_ImGui_InputTextMultiline(const std::string& label, const vec2& size, int flags) {
-	return ImGui::InputTextMultiline(label.c_str(), buf, kBufSize, ImVec2(size[0], size[1]), flags | ImGuiInputTextFlags_CallbackAlways, ImGui_TextInputCallback);
+    return ImGui::InputTextMultiline(label.c_str(), buf, kBufSize, ImVec2(size[0], size[1]), flags | ImGuiInputTextFlags_CallbackAlways, ImGui_TextInputCallback);
 }
 
 bool AS_ImGui_InputTextMultiline2(const std::string& label, std::string& text_buffer, int buffer_size, const vec2& size, int flags) {
     text_buffer.reserve(buffer_size);
     AS_ImGui_SetTextBuf(text_buffer);
     bool ret_val = ImGui::InputTextMultiline(label.c_str(), buf, buffer_size, ImVec2(size[0], size[1]), flags | ImGuiInputTextFlags_CallbackAlways, ImGui_TextInputCallback);
-    if(ret_val) {
+    if (ret_val) {
         size_t new_size = strlen(buf);
-        if(text_buffer.size() < new_size) {
+        if (text_buffer.size() < new_size) {
             text_buffer.insert(text_buffer.size(), new_size - text_buffer.size(), 0);
-        } else if(text_buffer.size() > new_size) {
+        } else if (text_buffer.size() > new_size) {
             text_buffer.erase(text_buffer.end() - (text_buffer.size() - new_size), text_buffer.end());
         }
         strcpy(&text_buffer[0], buf);
@@ -4210,7 +4178,7 @@ void AS_ImGui_TreePush2(const std::string& str_id) {
     ImGui::TreePush(str_id.c_str());
 }
 
-void AS_ImGui_TreePush3(const void *ref, int typeId) {
+void AS_ImGui_TreePush3(const void* ref, int typeId) {
     ImGui::TreePush(ref);
 }
 
@@ -4271,7 +4239,7 @@ bool AS_ImGui_ListBoxHeader2(const std::string& label, const vec2& size) {
 }
 
 bool AS_ImGui_ListBoxHeader3(const std::string& label, int items_count, int height_in_items) {
-	return ImGui::BeginListBox(label.c_str());// , items_count, height_in_items);
+    return ImGui::BeginListBox(label.c_str());  // , items_count, height_in_items);
 }
 
 void AS_ImGui_ListBoxFooter() {
@@ -4450,7 +4418,7 @@ bool AS_ImGui_IsPosHoveringAnyWindow(const vec2& pos) {
 }
 
 float AS_ImGui_GetTime() {
-    return (float) ImGui::GetTime();
+    return (float)ImGui::GetTime();
 }
 
 int AS_ImGui_GetFrameCount() {
@@ -4461,7 +4429,7 @@ std::string AS_ImGui_GetStyleColorName(int idx) {
     return std::string(ImGui::GetStyleColorName(idx));  // Note: Original returned const char*, not a copy
 }
 //
-//vec2 AS_ImGui_CalcItemRectClosestPoint(const vec2& pos, bool on_edge, float outward) {
+// vec2 AS_ImGui_CalcItemRectClosestPoint(const vec2& pos, bool on_edge, float outward) {
 //    ImVec2 temp_pos(pos[0], pos[1]);
 //    ImVec2 result = ImGui::CalcItemRectClosestPoint(temp_pos, on_edge, outward);
 //    return vec2(result.x, result.y);
@@ -4600,7 +4568,7 @@ bool ImGui_TryGetWindowDrawList(ImDrawList** draw_list) {
     bool result = false;
     ImGuiWindow* window = ImGui::GetCurrentWindow();
 
-    if(window && window->DrawList) {
+    if (window && window->DrawList) {
         *draw_list = window->DrawList;
         result = true;
     }
@@ -4611,7 +4579,7 @@ bool ImGui_TryGetWindowDrawList(ImDrawList** draw_list) {
 void AS_ImDrawList_AddLine(const vec2& a, const vec2& b, uint32_t col, float thickness) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddLine(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), col, thickness);
     }
 }
@@ -4619,7 +4587,7 @@ void AS_ImDrawList_AddLine(const vec2& a, const vec2& b, uint32_t col, float thi
 void AS_ImDrawList_AddRect(const vec2& a, const vec2& b, uint32_t col, float rounding, int rounding_corners_flags, float thickness) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddRect(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), col, rounding, rounding_corners_flags, thickness);
     }
 }
@@ -4627,7 +4595,7 @@ void AS_ImDrawList_AddRect(const vec2& a, const vec2& b, uint32_t col, float rou
 void AS_ImDrawList_AddRectFilled(const vec2& a, const vec2& b, uint32_t col, float rounding, int rounding_corners_flags) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddRectFilled(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), col, rounding, rounding_corners_flags);
     }
 }
@@ -4635,7 +4603,7 @@ void AS_ImDrawList_AddRectFilled(const vec2& a, const vec2& b, uint32_t col, flo
 void AS_ImDrawList_AddRectFilledMultiColor(const vec2& a, const vec2& b, uint32_t col_upr_left, uint32_t col_upr_right, uint32_t col_bot_right, uint32_t col_bot_left) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddRectFilledMultiColor(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), col_upr_left, col_upr_right, col_bot_right, col_bot_left);
     }
 }
@@ -4643,7 +4611,7 @@ void AS_ImDrawList_AddRectFilledMultiColor(const vec2& a, const vec2& b, uint32_
 void AS_ImDrawList_AddQuad(const vec2& a, const vec2& b, const vec2& c, const vec2& d, uint32_t col, float thickness) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddQuad(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), ImVec2(c[0], c[1]), ImVec2(d[0], d[1]), col, thickness);
     }
 }
@@ -4651,7 +4619,7 @@ void AS_ImDrawList_AddQuad(const vec2& a, const vec2& b, const vec2& c, const ve
 void AS_ImDrawList_AddQuadFilled(const vec2& a, const vec2& b, const vec2& c, const vec2& d, uint32_t col) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddQuadFilled(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), ImVec2(c[0], c[1]), ImVec2(d[0], d[1]), col);
     }
 }
@@ -4659,7 +4627,7 @@ void AS_ImDrawList_AddQuadFilled(const vec2& a, const vec2& b, const vec2& c, co
 void AS_ImDrawList_AddTriangle(const vec2& a, const vec2& b, const vec2& c, uint32_t col, float thickness) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddTriangle(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), ImVec2(c[0], c[1]), col, thickness);
     }
 }
@@ -4667,7 +4635,7 @@ void AS_ImDrawList_AddTriangle(const vec2& a, const vec2& b, const vec2& c, uint
 void AS_ImDrawList_AddTriangleFilled(const vec2& a, const vec2& b, const vec2& c, uint32_t col) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddTriangleFilled(ImVec2(a[0], a[1]), ImVec2(b[0], b[1]), ImVec2(c[0], c[1]), col);
     }
 }
@@ -4675,7 +4643,7 @@ void AS_ImDrawList_AddTriangleFilled(const vec2& a, const vec2& b, const vec2& c
 void AS_ImDrawList_AddCircle(const vec2& center, float radius, uint32_t col, int num_segments, float thickness) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddCircle(ImVec2(center[0], center[1]), radius, col, num_segments, thickness);
     }
 }
@@ -4683,7 +4651,7 @@ void AS_ImDrawList_AddCircle(const vec2& center, float radius, uint32_t col, int
 void AS_ImDrawList_AddCircleFilled(const vec2& center, float radius, uint32_t col, int num_segments) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddCircleFilled(ImVec2(center[0], center[1]), radius, col, num_segments);
     }
 }
@@ -4691,7 +4659,7 @@ void AS_ImDrawList_AddCircleFilled(const vec2& center, float radius, uint32_t co
 void AS_ImDrawList_AddText(const vec2& pos, uint32_t col, const std::string& text) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddText(ImVec2(pos[0], pos[1]), col, text.c_str());
     }
 }
@@ -4699,7 +4667,7 @@ void AS_ImDrawList_AddText(const vec2& pos, uint32_t col, const std::string& tex
 void AS_ImDrawList_AddImage(const TextureAssetRef& user_texture_ref, const vec2& a, const vec2& b, const vec2& uv_a, const vec2& uv_b, uint32_t tint_color) {
     ImDrawList* draw_list;
 
-    if(user_texture_ref.valid() && ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (user_texture_ref.valid() && ImGui_TryGetWindowDrawList(&draw_list)) {
         Textures::Instance()->EnsureInVRAM(user_texture_ref);
         draw_list->AddImage(
             reinterpret_cast<ImTextureID>(Textures::Instance()->returnTexture(user_texture_ref)),
@@ -4714,7 +4682,7 @@ void AS_ImDrawList_AddImage(const TextureAssetRef& user_texture_ref, const vec2&
 void AS_ImDrawList_AddImageQuad(const TextureAssetRef& user_texture_ref, const vec2& a, const vec2& b, const vec2& c, const vec2& d, const vec2& uv_a, const vec2& uv_b, const vec2& uv_c, const vec2& uv_d, uint32_t tint_color) {
     ImDrawList* draw_list;
 
-    if(user_texture_ref.valid() && ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (user_texture_ref.valid() && ImGui_TryGetWindowDrawList(&draw_list)) {
         Textures::Instance()->EnsureInVRAM(user_texture_ref);
         draw_list->AddImageQuad(
             reinterpret_cast<ImTextureID>(Textures::Instance()->returnTexture(user_texture_ref)),
@@ -4733,7 +4701,7 @@ void AS_ImDrawList_AddImageQuad(const TextureAssetRef& user_texture_ref, const v
 void AS_ImDrawList_AddImageRounded(const TextureAssetRef& user_texture_ref, const vec2& a, const vec2& b, const vec2& uv_a, const vec2& uv_b, uint32_t tint_color, float rounding, int rounding_corners) {
     ImDrawList* draw_list;
 
-    if(user_texture_ref.valid() && ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (user_texture_ref.valid() && ImGui_TryGetWindowDrawList(&draw_list)) {
         Textures::Instance()->EnsureInVRAM(user_texture_ref);
         draw_list->AddImageRounded(
             reinterpret_cast<ImTextureID>(Textures::Instance()->returnTexture(user_texture_ref)),
@@ -4750,7 +4718,7 @@ void AS_ImDrawList_AddImageRounded(const TextureAssetRef& user_texture_ref, cons
 void AS_ImDrawList_AddBezierCurve(const vec2& pos0, const vec2& cp0, const vec2& cp1, const vec2& pos1, uint32_t col, float thickness, int num_segments) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->AddBezierCurve(ImVec2(pos0[0], pos0[1]), ImVec2(cp0[0], cp0[1]), ImVec2(cp1[0], cp1[1]), ImVec2(pos1[0], pos1[1]), col, thickness, num_segments);
     }
 }
@@ -4758,7 +4726,7 @@ void AS_ImDrawList_AddBezierCurve(const vec2& pos0, const vec2& cp0, const vec2&
 void AS_ImDrawList_PathClear() {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathClear();
     }
 }
@@ -4766,7 +4734,7 @@ void AS_ImDrawList_PathClear() {
 void AS_ImDrawList_PathLineTo(const vec2& pos) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathLineTo(ImVec2(pos[0], pos[1]));
     }
 }
@@ -4774,7 +4742,7 @@ void AS_ImDrawList_PathLineTo(const vec2& pos) {
 void AS_ImDrawList_PathLineToMergeDuplicate(const vec2& pos) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathLineToMergeDuplicate(ImVec2(pos[0], pos[1]));
     }
 }
@@ -4782,7 +4750,7 @@ void AS_ImDrawList_PathLineToMergeDuplicate(const vec2& pos) {
 void AS_ImDrawList_PathFillConvex(uint32_t col) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathFillConvex(col);
     }
 }
@@ -4790,7 +4758,7 @@ void AS_ImDrawList_PathFillConvex(uint32_t col) {
 void AS_ImDrawList_PathStroke(uint32_t col, bool closed, float thickness) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathStroke(col, closed, thickness);
     }
 }
@@ -4798,7 +4766,7 @@ void AS_ImDrawList_PathStroke(uint32_t col, bool closed, float thickness) {
 void AS_ImDrawList_PathArcTo(const vec2& center, float radius, float a_min, float a_max, int num_segments) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathArcTo(ImVec2(center[0], center[1]), radius, a_min, a_max, num_segments);
     }
 }
@@ -4806,7 +4774,7 @@ void AS_ImDrawList_PathArcTo(const vec2& center, float radius, float a_min, floa
 void AS_ImDrawList_PathArcToFast(const vec2& center, float radius, int a_min_of_12, int a_max_of_12) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathArcToFast(ImVec2(center[0], center[1]), radius, a_min_of_12, a_max_of_12);
     }
 }
@@ -4814,7 +4782,7 @@ void AS_ImDrawList_PathArcToFast(const vec2& center, float radius, int a_min_of_
 void AS_ImDrawList_PathBezierCurveTo(const vec2& p1, const vec2& p2, const vec2& p3, int num_segments) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathBezierCurveTo(ImVec2(p1[0], p1[1]), ImVec2(p2[0], p2[1]), ImVec2(p3[0], p3[1]), num_segments);
     }
 }
@@ -4822,7 +4790,7 @@ void AS_ImDrawList_PathBezierCurveTo(const vec2& p1, const vec2& p2, const vec2&
 void AS_ImDrawList_PathRect(const vec2& rect_min, const vec2& rect_max, float rounding, int rounding_corners_flags) {
     ImDrawList* draw_list;
 
-    if(ImGui_TryGetWindowDrawList(&draw_list)) {
+    if (ImGui_TryGetWindowDrawList(&draw_list)) {
         draw_list->PathRect(ImVec2(rect_min[0], rect_min[1]), ImVec2(rect_max[0], rect_max[1]), rounding, rounding_corners_flags);
     }
 }
@@ -4835,7 +4803,7 @@ std::string GetUserPickedWritePath(const std::string& suffix, const std::string&
     const int BUF_SIZE = 512;
     char buf[BUF_SIZE];
     Dialog::DialogErr err = Dialog::writeFile(suffix.c_str(), 1, default_path.c_str(), buf, BUF_SIZE);
-    if(!err){
+    if (!err) {
         return std::string(buf);
     } else {
         return std::string("");
@@ -4848,8 +4816,8 @@ std::string GetUserPickedReadPath(const std::string& suffix, const std::string& 
     char buffer[BUF_SIZE];
     Dialog::DialogErr err = Dialog::readFile(suffix.c_str(), 1, default_path.c_str(), buffer, BUF_SIZE);
 
-    if( err != Dialog::NO_ERR ) {
-        LOGE << Dialog::DialogErrString( err ) << std::endl;
+    if (err != Dialog::NO_ERR) {
+        LOGE << Dialog::DialogErrString(err) << std::endl;
         return std::string("");
     } else {
         std::string shortened = FindShortestPath(std::string(buffer));
@@ -4866,7 +4834,7 @@ std::string AS_FindFilePath(const std::string& path) {
 }
 
 // Register Dear ImGui functions to be accessible to an angelscript context
-void AttachIMGUI( ASContext *context ) {
+void AttachIMGUI(ASContext* context) {
     // TextureLoadFlags - This is a phoenix engine thing, not a Dear ImGui thing, but is necessary in order to feed images to Dear ImGui
     context->RegisterEnum("TextureLoadFlags");
     context->RegisterEnumValue("TextureLoadFlags", "TextureLoadFlags_SRGB", PX_SRGB);
@@ -4949,7 +4917,7 @@ void AttachIMGUI( ASContext *context ) {
     context->RegisterGlobalFunction("uint32 ImGui_GetColorU32(uint32 idx, float alpha_mul = 1.0f)", asFUNCTION(AS_ImGui_GetColorU32), asCALL_CDECL, "uint32 GetColorU32(ImGuiCol idx, float alpha_mul = 1.0f)");
     context->RegisterGlobalFunction("uint32 ImGui_GetColorU32(const vec3 &in col)", asFUNCTION(AS_ImGui_GetColorU32_2), asCALL_CDECL);
     context->RegisterGlobalFunction("uint32 ImGui_GetColorU32(const vec4 &in col)", asFUNCTION(AS_ImGui_GetColorU32_3), asCALL_CDECL);
-	context->RegisterGlobalFunction("uint32 ImGui_GetColorU32(float r, float g, float b, float alpha_mul = 1.0f)", asFUNCTION(AS_ImGui_GetColorU32_4), asCALL_CDECL);
+    context->RegisterGlobalFunction("uint32 ImGui_GetColorU32(float r, float g, float b, float alpha_mul = 1.0f)", asFUNCTION(AS_ImGui_GetColorU32_4), asCALL_CDECL);
 
     // Parameters stacks (current window)
     context->RegisterGlobalFunction("void ImGui_PushItemWidth(float item_width)", asFUNCTION(AS_ImGui_PushItemWidth), asCALL_CDECL);
@@ -5157,9 +5125,9 @@ void AttachIMGUI( ASContext *context ) {
     context->RegisterGlobalFunction("bool ImGui_WantCaptureMouse()", asFUNCTION(AS_ImGui_WantCaptureMouse), asCALL_CDECL);
     context->RegisterGlobalFunction("float ImGui_GetTime()", asFUNCTION(AS_ImGui_GetTime), asCALL_CDECL);
     context->RegisterGlobalFunction("int ImGui_GetFrameCount()", asFUNCTION(AS_ImGui_GetFrameCount), asCALL_CDECL);
-    context->RegisterGlobalFunction("string ImGui_GetStyleColName(int idx)", asFUNCTION(AS_ImGui_GetStyleColorName), asCALL_CDECL, "string ImGui_GetStyleColName(ImGuiCol idx)");  // Note: Original returned const char*, not a copy
+    context->RegisterGlobalFunction("string ImGui_GetStyleColName(int idx)", asFUNCTION(AS_ImGui_GetStyleColorName), asCALL_CDECL, "string ImGui_GetStyleColName(ImGuiCol idx)");      // Note: Original returned const char*, not a copy
     context->RegisterGlobalFunction("string ImGui_GetStyleColorName(int idx)", asFUNCTION(AS_ImGui_GetStyleColorName), asCALL_CDECL, "string ImGui_GetStyleColorName(ImGuiCol idx)");  // Note: Original returned const char*, not a copy
-    //context->RegisterGlobalFunction("vec2 ImGui_CalcItemRectClosestPoint(const vec2 &in pos, bool on_edge = false, float outward = 0.0f)", asFUNCTION(AS_ImGui_CalcItemRectClosestPoint), asCALL_CDECL);
+    // context->RegisterGlobalFunction("vec2 ImGui_CalcItemRectClosestPoint(const vec2 &in pos, bool on_edge = false, float outward = 0.0f)", asFUNCTION(AS_ImGui_CalcItemRectClosestPoint), asCALL_CDECL);
     context->RegisterGlobalFunction("vec2 ImGui_CalcTextSize(const string &in text, bool hide_text_after_double_hash = false, float wrap_width = -1.0f)", asFUNCTION(AS_ImGui_CalcTextSize), asCALL_CDECL);
     context->RegisterGlobalFunction("void ImGui_CalcListClipping(int items_count, float items_height, int &out out_items_display_start, int &out out_items_display_end)", asFUNCTION(AS_ImGui_CalcListClipping), asCALL_CDECL);
 
@@ -5199,43 +5167,43 @@ void AttachIMGUI( ASContext *context ) {
 
     // Flags for ImGui::Begin()
     context->RegisterEnum("ImGuiWindowFlags_");
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoTitleBar", ImGuiWindowFlags_NoTitleBar);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoResize", ImGuiWindowFlags_NoResize);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoMove", ImGuiWindowFlags_NoMove);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoScrollbar", ImGuiWindowFlags_NoScrollbar);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoScrollWithMouse", ImGuiWindowFlags_NoScrollWithMouse);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoCollapse", ImGuiWindowFlags_NoCollapse);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_AlwaysAutoResize", ImGuiWindowFlags_AlwaysAutoResize);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoSavedSettings", ImGuiWindowFlags_NoSavedSettings);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoInputs", ImGuiWindowFlags_NoInputs);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_MenuBar", ImGuiWindowFlags_MenuBar);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_HorizontalScrollbar", ImGuiWindowFlags_HorizontalScrollbar);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoFocusOnAppearing", ImGuiWindowFlags_NoFocusOnAppearing);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_NoBringToFrontOnFocus", ImGuiWindowFlags_NoBringToFrontOnFocus);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_AlwaysVerticalScrollbar", ImGuiWindowFlags_AlwaysVerticalScrollbar);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_AlwaysHorizontalScrollbar", ImGuiWindowFlags_AlwaysHorizontalScrollbar);
-    context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_AlwaysUseWindowPadding", ImGuiWindowFlags_AlwaysUseWindowPadding);
-    //context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_ResizeFromAnySide", ImGuiWindowFlags_ResizeFromAnySide); Obsolete
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoTitleBar", ImGuiWindowFlags_NoTitleBar);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoResize", ImGuiWindowFlags_NoResize);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoMove", ImGuiWindowFlags_NoMove);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoScrollbar", ImGuiWindowFlags_NoScrollbar);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoScrollWithMouse", ImGuiWindowFlags_NoScrollWithMouse);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoCollapse", ImGuiWindowFlags_NoCollapse);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_AlwaysAutoResize", ImGuiWindowFlags_AlwaysAutoResize);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoSavedSettings", ImGuiWindowFlags_NoSavedSettings);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoInputs", ImGuiWindowFlags_NoInputs);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_MenuBar", ImGuiWindowFlags_MenuBar);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_HorizontalScrollbar", ImGuiWindowFlags_HorizontalScrollbar);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoFocusOnAppearing", ImGuiWindowFlags_NoFocusOnAppearing);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_NoBringToFrontOnFocus", ImGuiWindowFlags_NoBringToFrontOnFocus);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_AlwaysVerticalScrollbar", ImGuiWindowFlags_AlwaysVerticalScrollbar);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_AlwaysHorizontalScrollbar", ImGuiWindowFlags_AlwaysHorizontalScrollbar);
+    context->RegisterEnumValue("ImGuiWindowFlags_", "ImGuiWindowFlags_AlwaysUseWindowPadding", ImGuiWindowFlags_AlwaysUseWindowPadding);
+    // context->RegisterEnumValue("ImGuiWindowFlags_","ImGuiWindowFlags_ResizeFromAnySide", ImGuiWindowFlags_ResizeFromAnySide); Obsolete
 
     // Flags for ImGui::InputText()
     context->RegisterEnum("ImGuiInputTextFlags_");
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CharsDecimal", ImGuiInputTextFlags_CharsDecimal);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CharsHexadecimal", ImGuiInputTextFlags_CharsHexadecimal);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CharsUppercase", ImGuiInputTextFlags_CharsUppercase);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CharsNoBlank", ImGuiInputTextFlags_CharsNoBlank);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_AutoSelectAll", ImGuiInputTextFlags_AutoSelectAll);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_EnterReturnsTrue", ImGuiInputTextFlags_EnterReturnsTrue);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CallbackCompletion", ImGuiInputTextFlags_CallbackCompletion);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CallbackHistory", ImGuiInputTextFlags_CallbackHistory);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CallbackAlways", ImGuiInputTextFlags_CallbackAlways);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CallbackCharFilter", ImGuiInputTextFlags_CallbackCharFilter);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_AllowTabInput", ImGuiInputTextFlags_AllowTabInput);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_CtrlEnterForNewLine", ImGuiInputTextFlags_CtrlEnterForNewLine);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_NoHorizontalScroll", ImGuiInputTextFlags_NoHorizontalScroll);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_AlwaysInsertMode", ImGuiInputTextFlags_AlwaysInsertMode);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_ReadOnly", ImGuiInputTextFlags_ReadOnly);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_Password", ImGuiInputTextFlags_Password);
-    context->RegisterEnumValue("ImGuiInputTextFlags_","ImGuiInputTextFlags_NoUndoRedo", ImGuiInputTextFlags_NoUndoRedo);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CharsDecimal", ImGuiInputTextFlags_CharsDecimal);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CharsHexadecimal", ImGuiInputTextFlags_CharsHexadecimal);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CharsUppercase", ImGuiInputTextFlags_CharsUppercase);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CharsNoBlank", ImGuiInputTextFlags_CharsNoBlank);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_AutoSelectAll", ImGuiInputTextFlags_AutoSelectAll);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_EnterReturnsTrue", ImGuiInputTextFlags_EnterReturnsTrue);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CallbackCompletion", ImGuiInputTextFlags_CallbackCompletion);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CallbackHistory", ImGuiInputTextFlags_CallbackHistory);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CallbackAlways", ImGuiInputTextFlags_CallbackAlways);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CallbackCharFilter", ImGuiInputTextFlags_CallbackCharFilter);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_AllowTabInput", ImGuiInputTextFlags_AllowTabInput);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_CtrlEnterForNewLine", ImGuiInputTextFlags_CtrlEnterForNewLine);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_NoHorizontalScroll", ImGuiInputTextFlags_NoHorizontalScroll);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_AlwaysInsertMode", ImGuiInputTextFlags_AlwaysInsertMode);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_ReadOnly", ImGuiInputTextFlags_ReadOnly);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_Password", ImGuiInputTextFlags_Password);
+    context->RegisterEnumValue("ImGuiInputTextFlags_", "ImGuiInputTextFlags_NoUndoRedo", ImGuiInputTextFlags_NoUndoRedo);
 
     // Flags for ImGui::TreeNodeEx(), ImGui::CollapsingHeader*()
     context->RegisterEnum("ImGuiTreeNodeFlags_");
@@ -5255,17 +5223,17 @@ void AttachIMGUI( ASContext *context ) {
 
     // Flags for ImGui::Selectable()
     context->RegisterEnum("ImGuiSelectableFlags_");
-    context->RegisterEnumValue("ImGuiSelectableFlags_","ImGuiSelectableFlags_DontClosePopups", ImGuiSelectableFlags_DontClosePopups);
-    context->RegisterEnumValue("ImGuiSelectableFlags_","ImGuiSelectableFlags_SpanAllColumns", ImGuiSelectableFlags_SpanAllColumns);
-    context->RegisterEnumValue("ImGuiSelectableFlags_","ImGuiSelectableFlags_AllowDoubleClick", ImGuiSelectableFlags_AllowDoubleClick);
+    context->RegisterEnumValue("ImGuiSelectableFlags_", "ImGuiSelectableFlags_DontClosePopups", ImGuiSelectableFlags_DontClosePopups);
+    context->RegisterEnumValue("ImGuiSelectableFlags_", "ImGuiSelectableFlags_SpanAllColumns", ImGuiSelectableFlags_SpanAllColumns);
+    context->RegisterEnumValue("ImGuiSelectableFlags_", "ImGuiSelectableFlags_AllowDoubleClick", ImGuiSelectableFlags_AllowDoubleClick);
 
     // Flags for ImGui::BeginCombo()
     context->RegisterEnum("ImGuiComboFlags_");
-    context->RegisterEnumValue("ImGuiComboFlags_","ImGuiComboFlags_PopupAlignLeft", ImGuiComboFlags_PopupAlignLeft);
-    context->RegisterEnumValue("ImGuiComboFlags_","ImGuiComboFlags_HeightSmall", ImGuiComboFlags_HeightSmall);
-    context->RegisterEnumValue("ImGuiComboFlags_","ImGuiComboFlags_HeightRegular", ImGuiComboFlags_HeightRegular);
-    context->RegisterEnumValue("ImGuiComboFlags_","ImGuiComboFlags_HeightLarge", ImGuiComboFlags_HeightLarge);
-    context->RegisterEnumValue("ImGuiComboFlags_","ImGuiComboFlags_HeightLargest", ImGuiComboFlags_HeightLargest);
+    context->RegisterEnumValue("ImGuiComboFlags_", "ImGuiComboFlags_PopupAlignLeft", ImGuiComboFlags_PopupAlignLeft);
+    context->RegisterEnumValue("ImGuiComboFlags_", "ImGuiComboFlags_HeightSmall", ImGuiComboFlags_HeightSmall);
+    context->RegisterEnumValue("ImGuiComboFlags_", "ImGuiComboFlags_HeightRegular", ImGuiComboFlags_HeightRegular);
+    context->RegisterEnumValue("ImGuiComboFlags_", "ImGuiComboFlags_HeightLarge", ImGuiComboFlags_HeightLarge);
+    context->RegisterEnumValue("ImGuiComboFlags_", "ImGuiComboFlags_HeightLargest", ImGuiComboFlags_HeightLargest);
 
     // Flags for ImGui::IsWindowFocused
     // ...
@@ -5295,69 +5263,69 @@ void AttachIMGUI( ASContext *context ) {
 
     // Enumeration for PushStyleColor() / PopStyleColor()
     context->RegisterEnum("ImGuiCol_");
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_Text", ImGuiCol_Text);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_TextDisabled", ImGuiCol_TextDisabled);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_WindowBg", ImGuiCol_WindowBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ChildWindowBg", ImGuiCol_ChildBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ChildBg", ImGuiCol_ChildBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_PopupBg", ImGuiCol_PopupBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_Border", ImGuiCol_Border);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_BorderShadow", ImGuiCol_BorderShadow);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_FrameBg", ImGuiCol_FrameBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_FrameBgHovered", ImGuiCol_FrameBgHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_FrameBgActive", ImGuiCol_FrameBgActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_TitleBg", ImGuiCol_TitleBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_TitleBgCollapsed", ImGuiCol_TitleBgCollapsed);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_TitleBgActive", ImGuiCol_TitleBgActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_MenuBarBg", ImGuiCol_MenuBarBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ScrollbarBg", ImGuiCol_ScrollbarBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ScrollbarGrab", ImGuiCol_ScrollbarGrab);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ScrollbarGrabHovered", ImGuiCol_ScrollbarGrabHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ScrollbarGrabActive", ImGuiCol_ScrollbarGrabActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ComboBg", ImGuiCol_PopupBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_CheckMark", ImGuiCol_CheckMark);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_SliderGrab", ImGuiCol_SliderGrab);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_SliderGrabActive", ImGuiCol_SliderGrabActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_Button", ImGuiCol_Button);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ButtonHovered", ImGuiCol_ButtonHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ButtonActive", ImGuiCol_ButtonActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_Header", ImGuiCol_Header);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_HeaderHovered", ImGuiCol_HeaderHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_HeaderActive", ImGuiCol_HeaderActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_Column", ImGuiCol_Separator);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ColumnHovered", ImGuiCol_SeparatorHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ColumnActive", ImGuiCol_SeparatorActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ResizeGrip", ImGuiCol_ResizeGrip);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ResizeGripHovered", ImGuiCol_ResizeGripHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ResizeGripActive", ImGuiCol_ResizeGripActive);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_CloseButton", ImGuiCol_Button); // Obsolete, Equal to "ImGuiCol_Button"!
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_CloseButtonHovered", ImGuiCol_ButtonHovered); // Obsolete, Equal to "ImGuiCol_ButtonHovered"!
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_CloseButtonActive", ImGuiCol_ButtonActive); // Obsolete, Equal to "ImGuiCol_ButtonActive"!
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_PlotLines", ImGuiCol_PlotLines);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_PlotLinesHovered", ImGuiCol_PlotLinesHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_PlotHistogram", ImGuiCol_PlotHistogram);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_PlotHistogramHovered", ImGuiCol_PlotHistogramHovered);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_TextSelectedBg", ImGuiCol_TextSelectedBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_ModalWindowDarkening", ImGuiCol_ModalWindowDimBg);
-    context->RegisterEnumValue("ImGuiCol_","ImGuiCol_COUNT", ImGuiCol_COUNT);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_Text", ImGuiCol_Text);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_TextDisabled", ImGuiCol_TextDisabled);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_WindowBg", ImGuiCol_WindowBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ChildWindowBg", ImGuiCol_ChildBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ChildBg", ImGuiCol_ChildBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_PopupBg", ImGuiCol_PopupBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_Border", ImGuiCol_Border);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_BorderShadow", ImGuiCol_BorderShadow);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_FrameBg", ImGuiCol_FrameBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_FrameBgHovered", ImGuiCol_FrameBgHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_FrameBgActive", ImGuiCol_FrameBgActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_TitleBg", ImGuiCol_TitleBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_TitleBgCollapsed", ImGuiCol_TitleBgCollapsed);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_TitleBgActive", ImGuiCol_TitleBgActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_MenuBarBg", ImGuiCol_MenuBarBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ScrollbarBg", ImGuiCol_ScrollbarBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ScrollbarGrab", ImGuiCol_ScrollbarGrab);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ScrollbarGrabHovered", ImGuiCol_ScrollbarGrabHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ScrollbarGrabActive", ImGuiCol_ScrollbarGrabActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ComboBg", ImGuiCol_PopupBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_CheckMark", ImGuiCol_CheckMark);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_SliderGrab", ImGuiCol_SliderGrab);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_SliderGrabActive", ImGuiCol_SliderGrabActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_Button", ImGuiCol_Button);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ButtonHovered", ImGuiCol_ButtonHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ButtonActive", ImGuiCol_ButtonActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_Header", ImGuiCol_Header);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_HeaderHovered", ImGuiCol_HeaderHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_HeaderActive", ImGuiCol_HeaderActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_Column", ImGuiCol_Separator);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ColumnHovered", ImGuiCol_SeparatorHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ColumnActive", ImGuiCol_SeparatorActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ResizeGrip", ImGuiCol_ResizeGrip);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ResizeGripHovered", ImGuiCol_ResizeGripHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ResizeGripActive", ImGuiCol_ResizeGripActive);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_CloseButton", ImGuiCol_Button);                // Obsolete, Equal to "ImGuiCol_Button"!
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_CloseButtonHovered", ImGuiCol_ButtonHovered);  // Obsolete, Equal to "ImGuiCol_ButtonHovered"!
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_CloseButtonActive", ImGuiCol_ButtonActive);    // Obsolete, Equal to "ImGuiCol_ButtonActive"!
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_PlotLines", ImGuiCol_PlotLines);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_PlotLinesHovered", ImGuiCol_PlotLinesHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_PlotHistogram", ImGuiCol_PlotHistogram);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_PlotHistogramHovered", ImGuiCol_PlotHistogramHovered);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_TextSelectedBg", ImGuiCol_TextSelectedBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_ModalWindowDarkening", ImGuiCol_ModalWindowDimBg);
+    context->RegisterEnumValue("ImGuiCol_", "ImGuiCol_COUNT", ImGuiCol_COUNT);
 
     // Enumeration for PushStyleVar() / PopStyleVar()
     // NB: the enum only refers to fields of ImGuiStyle() which makes sense to be pushed/poped in UI code. Feel free to add others.
     context->RegisterEnum("ImGuiStyleVar_");
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_Alpha", ImGuiStyleVar_Alpha);  // float
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_WindowPadding", ImGuiStyleVar_WindowPadding);  // ImVec2
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_WindowRounding", ImGuiStyleVar_WindowRounding);  // float
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_WindowMinSize", ImGuiStyleVar_WindowMinSize);  // ImVec2
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_Alpha", ImGuiStyleVar_Alpha);                        // float
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_WindowPadding", ImGuiStyleVar_WindowPadding);        // ImVec2
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_WindowRounding", ImGuiStyleVar_WindowRounding);      // float
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_WindowMinSize", ImGuiStyleVar_WindowMinSize);        // ImVec2
     context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ChildWindowRounding", ImGuiStyleVar_ChildRounding);  // float
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ChildRounding", ImGuiStyleVar_ChildRounding);  // float
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_FramePadding", ImGuiStyleVar_FramePadding);  // ImVec2
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_FrameRounding", ImGuiStyleVar_FrameRounding);  // float
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ItemSpacing", ImGuiStyleVar_ItemSpacing);  // ImVec2
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ChildRounding", ImGuiStyleVar_ChildRounding);        // float
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_FramePadding", ImGuiStyleVar_FramePadding);          // ImVec2
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_FrameRounding", ImGuiStyleVar_FrameRounding);        // float
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ItemSpacing", ImGuiStyleVar_ItemSpacing);            // ImVec2
     context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ItemInnerSpacing", ImGuiStyleVar_ItemInnerSpacing);  // ImVec2
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_IndentSpacing", ImGuiStyleVar_IndentSpacing);  // float
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_GrabMinSize", ImGuiStyleVar_GrabMinSize);  // float
-    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ButtonTextAlign", ImGuiStyleVar_ButtonTextAlign);  // flags ImGuiAlign_*
-  //  context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_Enabled", ImGuiStyleVar_Enabled);
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_IndentSpacing", ImGuiStyleVar_IndentSpacing);        // float
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_GrabMinSize", ImGuiStyleVar_GrabMinSize);            // float
+    context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_ButtonTextAlign", ImGuiStyleVar_ButtonTextAlign);    // flags ImGuiAlign_*
+                                                                                                                     //  context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_Enabled", ImGuiStyleVar_Enabled);
     context->RegisterEnumValue("ImGuiStyleVar_", "ImGuiStyleVar_Count_", ImGuiStyleVar_COUNT);
 
     // Enumeration for EditColor4/ColorPicker4
@@ -5385,11 +5353,11 @@ void AttachIMGUI( ASContext *context ) {
     // Enumeration for ColorEditMode()
     // This is from an old imgui version, but kept for backwards compatibility
     context->RegisterEnum("ImGuiColorEditMode_");
-    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_UserSelect", -2); //ImGuiColorEditMode_UserSelect
-    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_UserSelectShowButton", -1);//ImGuiColorEditMode_UserSelectShowButton
-    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_RGB", 0); //ImGuiColorEditMode_RGB
-    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_HSV", 1); //ImGuiColorEditMode_HSV
-    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_HEX", 2); //ImGuiColorEditMode_HEX
+    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_UserSelect", -2);            // ImGuiColorEditMode_UserSelect
+    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_UserSelectShowButton", -1);  // ImGuiColorEditMode_UserSelectShowButton
+    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_RGB", 0);                    // ImGuiColorEditMode_RGB
+    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_HSV", 1);                    // ImGuiColorEditMode_HSV
+    context->RegisterEnumValue("ImGuiColorEditMode_", "ImGuiColorEditMode_HEX", 2);                    // ImGuiColorEditMode_HEX
 
     // Condition flags for ImGui::SetWindow***(), SetNextWindow***(), SetNextTreeNode***() functions
     context->RegisterEnum("ImGuiSetCond_");
@@ -5397,11 +5365,11 @@ void AttachIMGUI( ASContext *context ) {
     context->RegisterEnumValue("ImGuiSetCond_", "ImGuiCond_Once", ImGuiCond_Once);
     context->RegisterEnumValue("ImGuiSetCond_", "ImGuiCond_FirstUseEver", ImGuiCond_FirstUseEver);
     context->RegisterEnumValue("ImGuiSetCond_", "ImGuiCond_Appearing", ImGuiCond_Appearing);
-    
-    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_Always", ImGuiCond_Always); // Obsolete, Equal to "ImGuiCond_Always"!
-    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_Once", ImGuiCond_Once); // Obsolete, Equal to "ImGuiCond_Once"!
-    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_FirstUseEver", ImGuiCond_FirstUseEver); // Obsolete, Equal to "ImGuiCond_FirstUseEver"!
-    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_Appearing", ImGuiCond_Appearing); // Obsolete, Equal to "ImGuiCond_Appearing"!
+
+    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_Always", ImGuiCond_Always);              // Obsolete, Equal to "ImGuiCond_Always"!
+    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_Once", ImGuiCond_Once);                  // Obsolete, Equal to "ImGuiCond_Once"!
+    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_FirstUseEver", ImGuiCond_FirstUseEver);  // Obsolete, Equal to "ImGuiCond_FirstUseEver"!
+    context->RegisterEnumValue("ImGuiSetCond_", "ImGuiSetCond_Appearing", ImGuiCond_Appearing);        // Obsolete, Equal to "ImGuiCond_Appearing"!
 
     // Primitives
     context->RegisterGlobalFunction("void ImDrawList_AddLine(const vec2 &in a, const vec2 &in b, uint32 col, float thickness = 1.0f)", asFUNCTION(AS_ImDrawList_AddLine), asCALL_CDECL);
@@ -5462,8 +5430,8 @@ void AttachIMGUI( ASContext *context ) {
     context->RegisterGlobalFunction("string FindFilePath(const string &in path)", asFUNCTION(AS_FindFilePath), asCALL_CDECL);
 }
 
-NavPath ASGetPath2(vec3 start, vec3 end, uint16_t inclusive_poly_flags, uint16_t exclusive_poly_flags ) {
-    if(the_scenegraph->GetNavMesh()) {
+NavPath ASGetPath2(vec3 start, vec3 end, uint16_t inclusive_poly_flags, uint16_t exclusive_poly_flags) {
+    if (the_scenegraph->GetNavMesh()) {
         return the_scenegraph->GetNavMesh()->FindPath(start, end, inclusive_poly_flags, exclusive_poly_flags);
     } else {
         NavPath path;
@@ -5476,13 +5444,12 @@ NavPath ASGetPath(vec3 start, vec3 end) {
     return ASGetPath2(
         start,
         end,
-        SAMPLE_POLYFLAGS_ALL ,
-        SAMPLE_POLYFLAGS_NONE
-        );
+        SAMPLE_POLYFLAGS_ALL,
+        SAMPLE_POLYFLAGS_NONE);
 }
 
 vec3 ASNavRaycast(vec3 start, vec3 end) {
-    if(the_scenegraph->GetNavMesh()) {
+    if (the_scenegraph->GetNavMesh()) {
         return the_scenegraph->GetNavMesh()->RayCast(start, end);
     } else {
         return end;
@@ -5490,7 +5457,7 @@ vec3 ASNavRaycast(vec3 start, vec3 end) {
 }
 
 vec3 ASNavRaycastSlide(vec3 start, vec3 end, int depth) {
-    if(the_scenegraph->GetNavMesh()) {
+    if (the_scenegraph->GetNavMesh()) {
         return the_scenegraph->GetNavMesh()->RayCastSlide(start, end, depth);
     } else {
         return end;
@@ -5498,7 +5465,7 @@ vec3 ASNavRaycastSlide(vec3 start, vec3 end, int depth) {
 }
 
 static NavPoint ASGetNavPoint(vec3 point) {
-    if(the_scenegraph->GetNavMesh()) {
+    if (the_scenegraph->GetNavMesh()) {
         return the_scenegraph->GetNavMesh()->GetNavPoint(point);
     } else {
         return NavPoint(point);
@@ -5506,60 +5473,59 @@ static NavPoint ASGetNavPoint(vec3 point) {
 }
 
 static vec3 ASGetNavPointPos(vec3 point) {
-    if(the_scenegraph->GetNavMesh()) {
+    if (the_scenegraph->GetNavMesh()) {
         return the_scenegraph->GetNavMesh()->GetNavPoint(point).GetPoint();
     } else {
         return point;
     }
 }
 
-static void NavPathConstructor(void *memory) {
-    new(memory) NavPath();
+static void NavPathConstructor(void* memory) {
+    new (memory) NavPath();
 }
 
-static void NavPathDestructor(void *memory) {
+static void NavPathDestructor(void* memory) {
     ((NavPath*)memory)->~NavPath();
 }
 
-static const NavPath& NavPathAssign(NavPath *self, const NavPath& other) {
+static const NavPath& NavPathAssign(NavPath* self, const NavPath& other) {
     return (*self) = other;
 }
 
-static void NavPathCopyConstructor(void *memory, const NavPath& other) {
-    new(memory) NavPath(other);
+static void NavPathCopyConstructor(void* memory, const NavPath& other) {
+    new (memory) NavPath(other);
 }
 
-
-static void NavPointConstructor(void *memory) {
-    new(memory) NavPoint();
+static void NavPointConstructor(void* memory) {
+    new (memory) NavPoint();
 }
 
-static void NavPointDestructor(void *memory) {
+static void NavPointDestructor(void* memory) {
     ((NavPoint*)memory)->~NavPoint();
 }
 
-static const NavPoint& NavPointAssign(NavPoint *self, const NavPoint& other) {
+static const NavPoint& NavPointAssign(NavPoint* self, const NavPoint& other) {
     return (*self) = other;
 }
 
-static void NavPointCopyConstructor(void *memory, const NavPoint& other) {
-    new(memory) NavPoint(other);
+static void NavPointCopyConstructor(void* memory, const NavPoint& other) {
+    new (memory) NavPoint(other);
 }
 
-void AttachNavMesh(ASContext *context) {
+void AttachNavMesh(ASContext* context) {
     context->RegisterEnum("SamplePolyFlag");
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_NONE",     SAMPLE_POLYFLAGS_NONE);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_WALK",     SAMPLE_POLYFLAGS_WALK);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_SWIM",     SAMPLE_POLYFLAGS_SWIM);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_DOOR",     SAMPLE_POLYFLAGS_DOOR);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP1",    SAMPLE_POLYFLAGS_JUMP1);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP2",    SAMPLE_POLYFLAGS_JUMP2);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP3",    SAMPLE_POLYFLAGS_JUMP3);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP4",    SAMPLE_POLYFLAGS_JUMP4);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP5",    SAMPLE_POLYFLAGS_JUMP5);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_NONE", SAMPLE_POLYFLAGS_NONE);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_WALK", SAMPLE_POLYFLAGS_WALK);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_SWIM", SAMPLE_POLYFLAGS_SWIM);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_DOOR", SAMPLE_POLYFLAGS_DOOR);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP1", SAMPLE_POLYFLAGS_JUMP1);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP2", SAMPLE_POLYFLAGS_JUMP2);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP3", SAMPLE_POLYFLAGS_JUMP3);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP4", SAMPLE_POLYFLAGS_JUMP4);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP5", SAMPLE_POLYFLAGS_JUMP5);
     context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_JUMP_ALL", SAMPLE_POLYFLAGS_JUMP_ALL);
     context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_DISABLED", SAMPLE_POLYFLAGS_DISABLED);
-    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_ALL",      SAMPLE_POLYFLAGS_ALL);
+    context->RegisterEnumValue("SamplePolyFlag", "POLYFLAGS_ALL", SAMPLE_POLYFLAGS_ALL);
 
     context->RegisterEnum("NavPathFlag");
     context->RegisterEnumValue("NavPathFlag", "DT_STRAIGHTPATH_START", DT_STRAIGHTPATH_START);
@@ -5572,10 +5538,10 @@ void AttachNavMesh(ASContext *context) {
     context->RegisterObjectBehaviour("NavPath", asBEHAVE_DESTRUCT, "void NavPath()", asFUNCTION(NavPathDestructor), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("NavPath", "NavPath& opAssign(const NavPath &in other)", asFUNCTION(NavPathAssign), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectProperty("NavPath","bool success",asOFFSET(NavPath,success));
-    context->RegisterObjectMethod("NavPath","int NumPoints()",asMETHOD(NavPath, NumPoints), asCALL_THISCALL);
-    context->RegisterObjectMethod("NavPath","vec3 GetPoint(int)",asMETHOD(NavPath, GetPoint), asCALL_THISCALL);
-    context->RegisterObjectMethod("NavPath","uint8 GetFlag(int)",asMETHOD(NavPath, GetFlag), asCALL_THISCALL);
+    context->RegisterObjectProperty("NavPath", "bool success", asOFFSET(NavPath, success));
+    context->RegisterObjectMethod("NavPath", "int NumPoints()", asMETHOD(NavPath, NumPoints), asCALL_THISCALL);
+    context->RegisterObjectMethod("NavPath", "vec3 GetPoint(int)", asMETHOD(NavPath, GetPoint), asCALL_THISCALL);
+    context->RegisterObjectMethod("NavPath", "uint8 GetFlag(int)", asMETHOD(NavPath, GetFlag), asCALL_THISCALL);
     context->DocsCloseBrace();
 
     context->RegisterObjectType("NavPoint", sizeof(NavPoint), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
@@ -5584,16 +5550,16 @@ void AttachNavMesh(ASContext *context) {
     context->RegisterObjectBehaviour("NavPoint", asBEHAVE_DESTRUCT, "void NavPoint()", asFUNCTION(NavPointDestructor), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("NavPoint", "NavPoint& opAssign(const NavPoint &in other)", asFUNCTION(NavPointAssign), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("NavPoint","bool IsSuccess()",asMETHOD(NavPoint, IsSuccess), asCALL_THISCALL);
-    context->RegisterObjectMethod("NavPoint","vec3 GetPoint()",asMETHOD(NavPoint, GetPoint), asCALL_THISCALL);
+    context->RegisterObjectMethod("NavPoint", "bool IsSuccess()", asMETHOD(NavPoint, IsSuccess), asCALL_THISCALL);
+    context->RegisterObjectMethod("NavPoint", "vec3 GetPoint()", asMETHOD(NavPoint, GetPoint), asCALL_THISCALL);
     context->DocsCloseBrace();
 
-    context->RegisterGlobalFunction("NavPath GetPath(vec3 start, vec3 end)",asFUNCTION(ASGetPath), asCALL_CDECL);
-    context->RegisterGlobalFunction("NavPath GetPath(vec3 start, vec3 end, uint16 include_poly_flags, uint16 exclude_poly_flags)",asFUNCTION(ASGetPath2), asCALL_CDECL);
-    context->RegisterGlobalFunction("vec3 NavRaycast(vec3 start, vec3 end)",asFUNCTION(ASNavRaycast), asCALL_CDECL);
-    context->RegisterGlobalFunction("vec3 NavRaycastSlide(vec3 start, vec3 end, int depth)",asFUNCTION(ASNavRaycastSlide), asCALL_CDECL);
-    context->RegisterGlobalFunction("NavPoint GetNavPoint(vec3)",asFUNCTION(ASGetNavPoint), asCALL_CDECL);
-    context->RegisterGlobalFunction("vec3 GetNavPointPos(vec3)",asFUNCTION(ASGetNavPointPos), asCALL_CDECL);
+    context->RegisterGlobalFunction("NavPath GetPath(vec3 start, vec3 end)", asFUNCTION(ASGetPath), asCALL_CDECL);
+    context->RegisterGlobalFunction("NavPath GetPath(vec3 start, vec3 end, uint16 include_poly_flags, uint16 exclude_poly_flags)", asFUNCTION(ASGetPath2), asCALL_CDECL);
+    context->RegisterGlobalFunction("vec3 NavRaycast(vec3 start, vec3 end)", asFUNCTION(ASNavRaycast), asCALL_CDECL);
+    context->RegisterGlobalFunction("vec3 NavRaycastSlide(vec3 start, vec3 end, int depth)", asFUNCTION(ASNavRaycastSlide), asCALL_CDECL);
+    context->RegisterGlobalFunction("NavPoint GetNavPoint(vec3)", asFUNCTION(ASGetNavPoint), asCALL_CDECL);
+    context->RegisterGlobalFunction("vec3 GetNavPointPos(vec3)", asFUNCTION(ASGetNavPointPos), asCALL_CDECL);
 }
 
 const int as_plant_movement_msg = _plant_movement_msg;
@@ -5601,43 +5567,45 @@ const int as_editor_msg = _editor_msg;
 
 void ASPrintCallstack() {
     std::string callstack = active_context_stack.top()->GetCallstack();
-    LOGI << "Callstack: \n" << callstack << std::endl;
+    LOGI << "Callstack: \n"
+         << callstack << std::endl;
 }
 
-void ASSendMessage( int target, int type, vec3 vec_a, vec3 vec_b ) {
+void ASSendMessage(int target, int type, vec3 vec_a, vec3 vec_b) {
     Object* obj = the_scenegraph->GetObjectFromID(target);
-    if(!obj){
+    if (!obj) {
         std::string callstack = active_context_stack.top()->GetCallstack();
         std::ostringstream oss;
         oss << "No object with id: " << target << "\n";
-        oss << "Called from:\n" << callstack;
+        oss << "Called from:\n"
+            << callstack;
         DisplayError("Error", oss.str().c_str());
         return;
     }
     obj->ReceiveASVec3Message(type, vec_a, vec_b);
 }
 
-void ASSendMessageString( int type, std::string msg ) {
+void ASSendMessageString(int type, std::string msg) {
     the_scenegraph->map_editor->ReceiveMessage(msg);
 }
 
-static void ASSendGlobalMessage( std::string msg ) {
+static void ASSendGlobalMessage(std::string msg) {
     SceneGraph* s = Engine::Instance()->GetSceneGraph();
-    if( s ) {
+    if (s) {
         s->SendScriptMessageToAllObjects(msg);
         s->level->Message(msg);
     }
 
-    ScriptableCampaign *sc = Engine::Instance()->GetCurrentCampaign();
+    ScriptableCampaign* sc = Engine::Instance()->GetCurrentCampaign();
 
-    if( sc ) {
+    if (sc) {
         sc->ReceiveMessage(msg);
     }
 }
 
-void AttachMessages( ASContext *context ) {
-    context->RegisterGlobalFunction("void SendMessage(int target, int type, vec3 vec_a, vec3 vec_b)",asFUNCTION(ASSendMessage), asCALL_CDECL);
-    context->RegisterGlobalFunction("void SendMessage(int type, string msg)",asFUNCTION(ASSendMessageString), asCALL_CDECL);
+void AttachMessages(ASContext* context) {
+    context->RegisterGlobalFunction("void SendMessage(int target, int type, vec3 vec_a, vec3 vec_b)", asFUNCTION(ASSendMessage), asCALL_CDECL);
+    context->RegisterGlobalFunction("void SendMessage(int type, string msg)", asFUNCTION(ASSendMessageString), asCALL_CDECL);
     context->RegisterGlobalFunction("void SendGlobalMessage(string msg)", asFUNCTION(ASSendGlobalMessage), asCALL_CDECL);
     context->RegisterGlobalProperty("int _plant_movement_msg", (void*)&as_plant_movement_msg);
     context->RegisterGlobalProperty("int _editor_msg", (void*)&as_editor_msg);
@@ -5658,11 +5626,11 @@ static void ASLoadLevel(std::string path) {
 
 static void ASLoadLevelID(std::string id) {
     Engine* engine = Engine::Instance();
-	Online* online = Online::Instance();
+    Online* online = Online::Instance();
 
-	if (online->IsHosting()) {
-		//mp.changeLevel(id);
-	}
+    if (online->IsHosting()) {
+        // mp.changeLevel(id);
+    }
 
     engine->ScriptableUICallback("load_campaign_level " + id);
 }
@@ -5673,8 +5641,8 @@ static void ASSetCampaignID(std::string id) {
 }
 
 static std::string ASGetCurrLevelAbsPath() {
-    SceneGraph *s = Engine::Instance()->GetSceneGraph();
-    if( s ) {
+    SceneGraph* s = Engine::Instance()->GetSceneGraph();
+    if (s) {
         return s->level_path_.GetAbsPathStr();
     } else {
         return "";
@@ -5682,8 +5650,8 @@ static std::string ASGetCurrLevelAbsPath() {
 }
 
 static std::string ASGetCurrLevel() {
-    SceneGraph *s = Engine::Instance()->GetSceneGraph();
-    if( s ) {
+    SceneGraph* s = Engine::Instance()->GetSceneGraph();
+    if (s) {
         return s->level_path_.GetFullPath();
     } else {
         return "";
@@ -5696,7 +5664,7 @@ static std::string ASGetCurrLevelID() {
 
 static std::string ASGetCurrCampaignID() {
     ScriptableCampaign* sc = Engine::Instance()->GetCurrentCampaign();
-    if( sc ) {
+    if (sc) {
         return sc->GetCampaignID();
     } else {
         return "";
@@ -5704,19 +5672,19 @@ static std::string ASGetCurrCampaignID() {
 }
 
 static std::string ASGetCurrLevelRelPath() {
-    SceneGraph *s = Engine::Instance()->GetSceneGraph();
-    if( s ) {
+    SceneGraph* s = Engine::Instance()->GetSceneGraph();
+    if (s) {
         return s->level_path_.GetOriginalPath();
     } else {
         return "";
     }
 }
 
-static std::string ASGetLevelName( const std::string& path) {
-    if(FileExists(path,kAnyPath)){
+static std::string ASGetLevelName(const std::string& path) {
+    if (FileExists(path, kAnyPath)) {
         LevelInfoAssetRef levelinfo = Engine::Instance()->GetAssetManager()->LoadSync<LevelInfoAsset>(path);
 
-        if( levelinfo.valid() ) {
+        if (levelinfo.valid()) {
             return levelinfo->GetLevelName();
         } else {
             LOGW << "Failed to load levelinfo for " << path << std::endl;
@@ -5740,22 +5708,22 @@ static std::string ASGetCurrentLevelModsourceID() {
 }
 
 static std::string ASGetCurrentCampaignModsourceID() {
-//    return ModLoading::Instance().GetModID(Engine::Instnace()->GetLatestCampaign
+    //    return ModLoading::Instance().GetModID(Engine::Instnace()->GetLatestCampaign
     return "";
 }
 
 static bool ASEditorModeActive() {
     SceneGraph* s = Engine::Instance()->GetSceneGraph();
-    if( s ) {
+    if (s) {
         return s->map_editor->state_ != MapEditor::kInGame;
     } else {
         return false;
     }
 }
 
-static void ASAssert(asIScriptGeneric *gen) {
+static void ASAssert(asIScriptGeneric* gen) {
     bool arg0 = gen->GetArgByte(0);
-    if(arg0 == 0) {
+    if (arg0 == 0) {
         LOGE << "Failed assert in angelscript" << std::endl;
     }
 }
@@ -5764,53 +5732,52 @@ static void ASSetSplitScreenMode(ForcedSplitScreenMode mode) {
     Engine::Instance()->SetForcedSplitScreenMode(mode);
 }
 
-void AttachEngine(ASContext *context)
-{
-	context->RegisterEnum("EngineState");
-	context->RegisterEnumValue("EngineState", "kEngineNoState", kEngineNoState);
-	context->RegisterEnumValue("EngineState", "kEngineLevelState", kEngineLevelState);
-	context->RegisterEnumValue("EngineState", "kEngineEditorLevelState", kEngineEditorLevelState);
-	context->RegisterEnumValue("EngineState", "kEngineEngineScriptableUIState", kEngineScriptableUIState);
-	context->RegisterEnumValue("EngineState", "kEngineCampaignState", kEngineCampaignState);
+void AttachEngine(ASContext* context) {
+    context->RegisterEnum("EngineState");
+    context->RegisterEnumValue("EngineState", "kEngineNoState", kEngineNoState);
+    context->RegisterEnumValue("EngineState", "kEngineLevelState", kEngineLevelState);
+    context->RegisterEnumValue("EngineState", "kEngineEditorLevelState", kEngineEditorLevelState);
+    context->RegisterEnumValue("EngineState", "kEngineEngineScriptableUIState", kEngineScriptableUIState);
+    context->RegisterEnumValue("EngineState", "kEngineCampaignState", kEngineCampaignState);
 
-	context->RegisterEnum("SplitScreenMode");
-	context->RegisterEnumValue("SplitScreenMode", "kModeNone", kForcedModeNone);
-	context->RegisterEnumValue("SplitScreenMode", "kModeFull", kForcedModeFull);
-	context->RegisterEnumValue("SplitScreenMode", "kModeSplit", kForcedModeSplit);
+    context->RegisterEnum("SplitScreenMode");
+    context->RegisterEnumValue("SplitScreenMode", "kModeNone", kForcedModeNone);
+    context->RegisterEnumValue("SplitScreenMode", "kModeFull", kForcedModeFull);
+    context->RegisterEnumValue("SplitScreenMode", "kModeSplit", kForcedModeSplit);
 
-	context->RegisterGlobalFunction("void LoadLevel(string level_path)",
-		asFUNCTION(ASLoadLevel), asCALL_CDECL);
-	context->RegisterGlobalFunction("void LoadLevelID(string id)",
-		asFUNCTION(ASLoadLevelID), asCALL_CDECL);
-	context->RegisterGlobalFunction("void SetCampaignID(string id)",
-		asFUNCTION(ASSetCampaignID), asCALL_CDECL);
+    context->RegisterGlobalFunction("void LoadLevel(string level_path)",
+                                    asFUNCTION(ASLoadLevel), asCALL_CDECL);
+    context->RegisterGlobalFunction("void LoadLevelID(string id)",
+                                    asFUNCTION(ASLoadLevelID), asCALL_CDECL);
+    context->RegisterGlobalFunction("void SetCampaignID(string id)",
+                                    asFUNCTION(ASSetCampaignID), asCALL_CDECL);
 
-	context->RegisterGlobalFunction("string GetCurrLevelAbsPath()",
-		asFUNCTION(ASGetCurrLevelAbsPath), asCALL_CDECL);
-	context->RegisterGlobalFunction("string GetCurrLevel()",
-		asFUNCTION(ASGetCurrLevel), asCALL_CDECL);
-	context->RegisterGlobalFunction("string GetCurrLevelRelPath()",
-		asFUNCTION(ASGetCurrLevelRelPath), asCALL_CDECL);
-	context->RegisterGlobalFunction("string GetLevelName(const string& path)",
-		asFUNCTION(ASGetLevelName), asCALL_CDECL);
-	context->RegisterGlobalFunction("string GetCurrLevelName()",
-		asFUNCTION(ASGetCurrLevelName), asCALL_CDECL);
-	context->RegisterGlobalFunction("string GetCurrLevelID()",
-		asFUNCTION(ASGetCurrLevelID), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrLevelAbsPath()",
+                                    asFUNCTION(ASGetCurrLevelAbsPath), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrLevel()",
+                                    asFUNCTION(ASGetCurrLevel), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrLevelRelPath()",
+                                    asFUNCTION(ASGetCurrLevelRelPath), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetLevelName(const string& path)",
+                                    asFUNCTION(ASGetLevelName), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrLevelName()",
+                                    asFUNCTION(ASGetCurrLevelName), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrLevelID()",
+                                    asFUNCTION(ASGetCurrLevelID), asCALL_CDECL);
 
-	context->RegisterGlobalFunction("string GetCurrCampaignID()",
-		asFUNCTION(ASGetCurrCampaignID), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrCampaignID()",
+                                    asFUNCTION(ASGetCurrCampaignID), asCALL_CDECL);
 
-	context->RegisterGlobalFunction("string GetCurrentMenuModsourceID()",
-		asFUNCTION(ASGetCurrentMenuModsourceID), asCALL_CDECL);
-	context->RegisterGlobalFunction("string GetCurrentLevelModsourceID()",
-		asFUNCTION(ASGetCurrentLevelModsourceID), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrentMenuModsourceID()",
+                                    asFUNCTION(ASGetCurrentMenuModsourceID), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetCurrentLevelModsourceID()",
+                                    asFUNCTION(ASGetCurrentLevelModsourceID), asCALL_CDECL);
 
-	context->RegisterGlobalFunction("bool EditorModeActive()", asFUNCTION(ASEditorModeActive), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool EditorModeActive()", asFUNCTION(ASEditorModeActive), asCALL_CDECL);
 
-	context->RegisterGlobalFunction("void assert(bool val)", asFUNCTION(ASAssert), asCALL_GENERIC);
+    context->RegisterGlobalFunction("void assert(bool val)", asFUNCTION(ASAssert), asCALL_GENERIC);
 
-	context->RegisterGlobalFunction("void SetSplitScreenMode(SplitScreenMode mode)", asFUNCTION(ASSetSplitScreenMode), asCALL_CDECL);
+    context->RegisterGlobalFunction("void SetSplitScreenMode(SplitScreenMode mode)", asFUNCTION(ASSetSplitScreenMode), asCALL_CDECL);
 }
 
 bool AS_Online_IsActive() {
@@ -5875,7 +5842,7 @@ uint32_t AS_Online_RegisterState(std::string state) {
     return Online::Instance()->RegisterMPState(state);
 }
 
-void AS_Online_SendStateToPeer(uint32_t state, uint32_t avatar_id, const CScriptArray &data) {
+void AS_Online_SendStateToPeer(uint32_t state, uint32_t avatar_id, const CScriptArray& data) {
     const int items_count = data.GetSize();
     std::vector<uint32_t> array_data;
     array_data.resize(items_count);
@@ -5884,7 +5851,7 @@ void AS_Online_SendStateToPeer(uint32_t state, uint32_t avatar_id, const CScript
         array_data[n] = (*static_cast<const unsigned int*>(data.At(n)));
     }
 
-    ASContext * ctx = GetActiveASContext();
+    ASContext* ctx = GetActiveASContext();
 
     LOGD << "Calling: " << ctx->GetASFunctionNameFromMPState(state) << " on client with state:" << state << std::endl;
 
@@ -5892,12 +5859,12 @@ void AS_Online_SendStateToPeer(uint32_t state, uint32_t avatar_id, const CScript
 }
 
 void AS_Online_RegisterStateCallback(uint32_t state, std::string function) {
-    ASContext * ctx = GetActiveASContext();
+    ASContext* ctx = GetActiveASContext();
     ctx->RegisterMPStateCallback(state, function);
 }
 
 void ASCallStateMPCallback(uint32_t state, std::vector<char>& data) {
-    ASContext *ctx = GetActiveASContext();
+    ASContext* ctx = GetActiveASContext();
     ctx->CallMPCallBack(state, data);
 }
 
@@ -5913,7 +5880,7 @@ void AS_Online_ActivateInviteDialog() {
     Online::Instance()->ActivateGameOverlayInviteDialog();
 }
 
-void AS_Online_AddSyncState(uint32_t state, const CScriptArray &data) {
+void AS_Online_AddSyncState(uint32_t state, const CScriptArray& data) {
     // This is the same as bellow, please write helper function instead of copy code
     const int items_count = data.GetSize();
     std::vector<char> array_data;
@@ -5926,7 +5893,7 @@ void AS_Online_AddSyncState(uint32_t state, const CScriptArray &data) {
     Online::Instance()->AddSyncState(state, array_data);
 }
 
-void AS_Online_SendState(uint32_t state, const CScriptArray &data) {
+void AS_Online_SendState(uint32_t state, const CScriptArray& data) {
     const int items_count = data.GetSize();
     std::vector<char> array_data;
     array_data.resize(items_count);
@@ -5934,7 +5901,7 @@ void AS_Online_SendState(uint32_t state, const CScriptArray &data) {
     for (int n = 0; n < items_count; n++) {
         array_data[n] = (*reinterpret_cast<const char*>(data.At(n)));
     }
-    
+
     Online::Instance()->Send<OnlineMessages::AngelscriptData>(state, array_data, false);
 }
 
@@ -5946,7 +5913,7 @@ std::string AS_Online_GetActiveIncompatibleModsString() {
     return OnlineUtility::GetActiveIncompatibleModsString();
 }
 
-void AttachOnline(ASContext *context) {
+void AttachOnline(ASContext* context) {
     context->RegisterGlobalFunction("void Online_Connect(string ip)", asFUNCTION(AS_Online_Connect), asCALL_CDECL);
     context->RegisterGlobalFunction("void Online_Host()", asFUNCTION(AS_Online_Host), asCALL_CDECL);
     context->RegisterGlobalFunction("void Online_SendKillMessage(uint victim, uint killer)", asFUNCTION(AS_Online_SendKillMessage), asCALL_CDECL);
@@ -5972,83 +5939,72 @@ void AttachOnline(ASContext *context) {
     context->RegisterGlobalFunction("void Online_ActivateInviteDialog()", asFUNCTION(AS_Online_ActivateInviteDialog), asCALL_CDECL);
 }
 
-void AttachStringConvert( ASContext *context ) {
-    context->RegisterGlobalFunction("float atof(const string &in str)",  asFUNCTION(ASatof), asCALL_CDECL);
-    context->RegisterGlobalFunction("int atoi(const string &in str)",  asFUNCTION(ASatoi), asCALL_CDECL);
+void AttachStringConvert(ASContext* context) {
+    context->RegisterGlobalFunction("float atof(const string &in str)", asFUNCTION(ASatof), asCALL_CDECL);
+    context->RegisterGlobalFunction("int atoi(const string &in str)", asFUNCTION(ASatoi), asCALL_CDECL);
 }
 
-void ASWriteString(SavedChunk* chunk, const std::string &str){
+void ASWriteString(SavedChunk* chunk, const std::string& str) {
     chunk->desc.AddString(EDF_SCRIPT_PARAMS, str);
 }
 
-std::string ASReadString(SavedChunk* chunk){
-    EntityDescriptionField *edf = chunk->desc.GetField(EDF_SCRIPT_PARAMS);
+std::string ASReadString(SavedChunk* chunk) {
+    EntityDescriptionField* edf = chunk->desc.GetField(EDF_SCRIPT_PARAMS);
     LOG_ASSERT(edf);
     std::string str;
     edf->ReadString(&str);
     return str;
 }
 
-void AttachUndo( ASContext *context ) {
+void AttachUndo(ASContext* context) {
     context->RegisterObjectType("SavedChunk", 0, asOBJ_REF | asOBJ_NOCOUNT);
     context->RegisterObjectMethod("SavedChunk", "void WriteString(const string &in str)", asFUNCTION(ASWriteString), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("SavedChunk", "string ReadString()", asFUNCTION(ASReadString), asCALL_CDECL_OBJFIRST);
 }
 
-static void ASLog( LogSystem::LogType level, const std::string& str )
-{
-    if( active_context_stack.size() > 0 )
-    {
-        std::pair<Path,int> d = active_context_stack.top()->GetCallFile();
+static void ASLog(LogSystem::LogType level, const std::string& str) {
+    if (active_context_stack.size() > 0) {
+        std::pair<Path, int> d = active_context_stack.top()->GetCallFile();
 
-        if(memcmp(d.first.GetOriginalPath(), "Data/Scripts/", 13) == 0)
-            LogSystem::LogData(level, "us",d.first.GetOriginalPath() + 13,d.second) << str << std::endl;
+        if (memcmp(d.first.GetOriginalPath(), "Data/Scripts/", 13) == 0)
+            LogSystem::LogData(level, "us", d.first.GetOriginalPath() + 13, d.second) << str << std::endl;
         else
-            LogSystem::LogData(level, "us",d.first.GetOriginalPath(),d.second) << str << std::endl;
+            LogSystem::LogData(level, "us", d.first.GetOriginalPath(), d.second) << str << std::endl;
+    } else {
+        LogSystem::LogData(level, "us", "NO_CONTEXT", 0) << str << std::endl;
     }
-    else
-    {
-        LogSystem::LogData(level, "us","NO_CONTEXT",0) << str <<  std::endl;
-    }
-
 }
 
-void AttachLog( ASContext *context )
-{
+void AttachLog(ASContext* context) {
     context->RegisterEnum("LogType");
 
-    context->RegisterEnumValue("LogType","fatal", LogSystem::fatal);
-    context->RegisterEnumValue("LogType","error", LogSystem::error);
-    context->RegisterEnumValue("LogType","warning", LogSystem::warning);
-    context->RegisterEnumValue("LogType","info", LogSystem::info);
-    context->RegisterEnumValue("LogType","debug", LogSystem::debug);
-    context->RegisterEnumValue("LogType","spam", LogSystem::spam);
+    context->RegisterEnumValue("LogType", "fatal", LogSystem::fatal);
+    context->RegisterEnumValue("LogType", "error", LogSystem::error);
+    context->RegisterEnumValue("LogType", "warning", LogSystem::warning);
+    context->RegisterEnumValue("LogType", "info", LogSystem::info);
+    context->RegisterEnumValue("LogType", "debug", LogSystem::debug);
+    context->RegisterEnumValue("LogType", "spam", LogSystem::spam);
 
-    context->RegisterGlobalFunction( "void Log( LogType level, const string &in str )", asFUNCTION( ASLog ), asCALL_CDECL );
+    context->RegisterGlobalFunction("void Log( LogType level, const string &in str )", asFUNCTION(ASLog), asCALL_CDECL);
 }
 
-static std::string ASGetBuildVersionShort()
-{
+static std::string ASGetBuildVersionShort() {
     return std::string(GetBuildVersion());
 }
 
-static std::string ASGetBuildVersionFull()
-{
+static std::string ASGetBuildVersionFull() {
     return std::string(GetBuildVersion()) + "_" + std::string(GetBuildIDString());
 }
 
-static std::string ASGetBuildTimestamp()
-{
+static std::string ASGetBuildTimestamp() {
     return std::string(GetBuildTimestamp());
 }
 
-void AttachInfo( ASContext *context )
-{
-    context->RegisterGlobalFunction( "string GetBuildVersionShort( )", asFUNCTION( ASGetBuildVersionShort ), asCALL_CDECL );
-    context->RegisterGlobalFunction( "string GetBuildVersionFull( )", asFUNCTION( ASGetBuildVersionFull ), asCALL_CDECL );
-    context->RegisterGlobalFunction( "string GetBuildTimestamp( )", asFUNCTION( ASGetBuildTimestamp ), asCALL_CDECL );
+void AttachInfo(ASContext* context) {
+    context->RegisterGlobalFunction("string GetBuildVersionShort( )", asFUNCTION(ASGetBuildVersionShort), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetBuildVersionFull( )", asFUNCTION(ASGetBuildVersionFull), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetBuildTimestamp( )", asFUNCTION(ASGetBuildTimestamp), asCALL_CDECL);
 }
-
 
 /*******
  *
@@ -6058,174 +6014,151 @@ void AttachInfo( ASContext *context )
 
 #include "JSON/jsonhelper.h"
 
-
-static void JSONValueConstructor(void *memory) {
-    new(memory) Json::Value();
+static void JSONValueConstructor(void* memory) {
+    new (memory) Json::Value();
 }
 
-static void JSONValueTypeConstructor( void *memory, Json::ValueType& type ) {
-    new(memory) Json::Value( type );
+static void JSONValueTypeConstructor(void* memory, Json::ValueType& type) {
+    new (memory) Json::Value(type);
 }
 
-static void JSONValueIntConstructor(void *memory, Json::Int& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueIntConstructor(void* memory, Json::Int& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueUIntConstructor(void *memory, Json::UInt& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueUIntConstructor(void* memory, Json::UInt& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueInt64Constructor(void *memory, Json::Int64& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueInt64Constructor(void* memory, Json::Int64& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueUInt64Constructor(void *memory, Json::UInt64& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueUInt64Constructor(void* memory, Json::UInt64& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueDoubleConstructor(void *memory, double& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueDoubleConstructor(void* memory, double& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueStringConstructor(void *memory, std::string& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueStringConstructor(void* memory, std::string& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueBoolConstructor(void *memory, bool& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueBoolConstructor(void* memory, bool& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueValueConstructor(void *memory, Json::Value& value ) {
-    new(memory) Json::Value( value );
+static void JSONValueValueConstructor(void* memory, Json::Value& value) {
+    new (memory) Json::Value(value);
 }
 
-static void JSONValueDestructor(void *memory) {
+static void JSONValueDestructor(void* memory) {
     ((Json::Value*)memory)->~Value();
 }
 
-static Json::Value& JSONValueAssign(Json::Value *self, const Json::Value& other) {
+static Json::Value& JSONValueAssign(Json::Value* self, const Json::Value& other) {
     return (*self) = other;
 }
 
-static Json::Value& JSONValueConstStringIndex(Json::Value *self, const std::string &key) {
-    return (*self)[ key ];
+static Json::Value& JSONValueConstStringIndex(Json::Value* self, const std::string& key) {
+    return (*self)[key];
 }
 
-static Json::Value& JSONValueConstIntIndex(Json::Value *self, const int &key) {
-    return (*self)[ key ];
+static Json::Value& JSONValueConstIntIndex(Json::Value* self, const int& key) {
+    return (*self)[key];
 }
 
-static bool JSONValueRemoveIndex(Json::Value *self, const unsigned int i) {
+static bool JSONValueRemoveIndex(Json::Value* self, const unsigned int i) {
     Json::Value temp;
     return self->removeIndex(i, &temp);
 }
 
-static bool JSONValueRemoveMember(Json::Value *self, const std::string &key) {
+static bool JSONValueRemoveMember(Json::Value* self, const std::string& key) {
     Json::Value temp;
     return self->removeMember(key, &temp);
 }
 
-static bool JSONValueIsMember(Json::Value *self, const std::string &key) {
+static bool JSONValueIsMember(Json::Value* self, const std::string& key) {
     return self->isMember(key);
 }
 
-static CScriptArray* JSONValueGetMembers(Json::Value *self) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+static CScriptArray* JSONValueGetMembers(Json::Value* self) {
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<std::string> members = self->getMemberNames();
 
     array->Reserve(members.size());
 
-    for(const auto & member : members)
-    {
+    for (const auto& member : members) {
         array->InsertLast((void*)(&member));
     }
     return array;
 }
 
-static std::string JSONValueTypeName(Json::Value *self) {
-
-    switch ( self->type() )
-    {
-        case Json::nullValue:
-        {
+static std::string JSONValueTypeName(Json::Value* self) {
+    switch (self->type()) {
+        case Json::nullValue: {
             return "null";
-        }
-        break;
-        case Json::intValue:
-        {
+        } break;
+        case Json::intValue: {
             return "int";
-        }
-        break;
-        case Json::uintValue:
-        {
+        } break;
+        case Json::uintValue: {
             return "uint";
-        }
-        break;
-        case Json::realValue:
-        {
+        } break;
+        case Json::realValue: {
             return "real";
-        }
-        break;
-        case Json::stringValue:
-        {
+        } break;
+        case Json::stringValue: {
             return "string";
-        }
-        break;
-        case Json::booleanValue:
-        {
+        } break;
+        case Json::booleanValue: {
             return "boolean";
-        }
-        break;
-        case Json::arrayValue:
-        {
+        } break;
+        case Json::arrayValue: {
             return "array";
-        }
-        break;
-        case Json::objectValue:
-        {
+        } break;
+        case Json::objectValue: {
             return "object";
-        }
-        break;
+        } break;
 
-        default:
-        {
+        default: {
             return "unknown";
-        }
-        break;
+        } break;
     }
 }
 
-static void SimpleJSONWrapperConstructor(void *memory) {
-    new(memory) SimpleJSONWrapper();
+static void SimpleJSONWrapperConstructor(void* memory) {
+    new (memory) SimpleJSONWrapper();
 }
 
-static void SimpleJSONWrapperDestructor(void *memory) {
+static void SimpleJSONWrapperDestructor(void* memory) {
     ((SimpleJSONWrapper*)memory)->~SimpleJSONWrapper();
 }
 
-static SimpleJSONWrapper& SimpleJSONWrapperAssign(SimpleJSONWrapper *self, const SimpleJSONWrapper& other) {
+static SimpleJSONWrapper& SimpleJSONWrapperAssign(SimpleJSONWrapper* self, const SimpleJSONWrapper& other) {
     return (*self) = other;
 }
 
-void AttachJSON( ASContext *context )
-{
+void AttachJSON(ASContext* context) {
     // Register the JSON value type enumeration
     context->RegisterEnum("JsonValueType");
-    context->RegisterEnumValue("JsonValueType","JSONnullValue",Json::nullValue);
+    context->RegisterEnumValue("JsonValueType", "JSONnullValue", Json::nullValue);
 
-    context->RegisterEnumValue("JsonValueType","JSONintValue",Json::intValue);
-    context->RegisterEnumValue("JsonValueType","JSONuintValue",Json::uintValue);
-    context->RegisterEnumValue("JsonValueType","JSONrealValue",Json::realValue);
-    context->RegisterEnumValue("JsonValueType","JSONstringValue",Json::stringValue);
-    context->RegisterEnumValue("JsonValueType","JSONbooleanValue",Json::booleanValue);
-    context->RegisterEnumValue("JsonValueType","JSONarrayValue",Json::arrayValue);
-    context->RegisterEnumValue("JsonValueType","JSONobjectValue",Json::objectValue);
+    context->RegisterEnumValue("JsonValueType", "JSONintValue", Json::intValue);
+    context->RegisterEnumValue("JsonValueType", "JSONuintValue", Json::uintValue);
+    context->RegisterEnumValue("JsonValueType", "JSONrealValue", Json::realValue);
+    context->RegisterEnumValue("JsonValueType", "JSONstringValue", Json::stringValue);
+    context->RegisterEnumValue("JsonValueType", "JSONbooleanValue", Json::booleanValue);
+    context->RegisterEnumValue("JsonValueType", "JSONarrayValue", Json::arrayValue);
+    context->RegisterEnumValue("JsonValueType", "JSONobjectValue", Json::objectValue);
 
-    //Attach the JSON Value
+    // Attach the JSON Value
     context->RegisterObjectType("JSONValue", sizeof(Json::Value), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
 
     context->RegisterObjectBehaviour("JSONValue", asBEHAVE_CONSTRUCT, "void JSONValue()", asFUNCTION(JSONValueConstructor), asCALL_CDECL_OBJFIRST);
@@ -6256,71 +6189,71 @@ void AttachJSON( ASContext *context )
 
     context->RegisterObjectMethod("JSONValue", "JSONValue& opIndex( const int &in )", asFUNCTION(JSONValueConstIntIndex), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("JSONValue", "string asString()",asMETHOD(Json::Value, asString), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "string asString()", asMETHOD(Json::Value, asString), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "JsonValueType type()",asMETHOD(Json::Value, type), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "JsonValueType type()", asMETHOD(Json::Value, type), asCALL_THISCALL);
 
     context->RegisterObjectMethod("JSONValue", "string typeName()", asFUNCTION(JSONValueTypeName), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("JSONValue", "int asInt()",asMETHOD(Json::Value, asInt), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "int asInt()", asMETHOD(Json::Value, asInt), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "uint asUInt()",asMETHOD(Json::Value, asUInt), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "uint asUInt()", asMETHOD(Json::Value, asUInt), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "int64 asInt64()",asMETHOD(Json::Value, asInt64), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "int64 asInt64()", asMETHOD(Json::Value, asInt64), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "uint64 asUInt64()",asMETHOD(Json::Value, asUInt64 ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "uint64 asUInt64()", asMETHOD(Json::Value, asUInt64), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "float asFloat()",asMETHOD(Json::Value, asFloat ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "float asFloat()", asMETHOD(Json::Value, asFloat), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "double asDouble()",asMETHOD(Json::Value, asDouble ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "double asDouble()", asMETHOD(Json::Value, asDouble), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool asBool()",asMETHOD(Json::Value, asBool ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool asBool()", asMETHOD(Json::Value, asBool), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isNull()",asMETHOD(Json::Value, isNull ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isNull()", asMETHOD(Json::Value, isNull), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isBool()",asMETHOD(Json::Value, isBool ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isBool()", asMETHOD(Json::Value, isBool), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isInt()",asMETHOD(Json::Value,  isInt ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isInt()", asMETHOD(Json::Value, isInt), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isInt64()",asMETHOD(Json::Value, isInt64 ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isInt64()", asMETHOD(Json::Value, isInt64), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isUInt()",asMETHOD(Json::Value, isUInt ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isUInt()", asMETHOD(Json::Value, isUInt), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isUInt64()",asMETHOD(Json::Value, isUInt64 ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isUInt64()", asMETHOD(Json::Value, isUInt64), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isIntegral()",asMETHOD(Json::Value, isIntegral ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isIntegral()", asMETHOD(Json::Value, isIntegral), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isDouble()",asMETHOD(Json::Value, isDouble ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isDouble()", asMETHOD(Json::Value, isDouble), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isNumeric()",asMETHOD(Json::Value, isNumeric ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isNumeric()", asMETHOD(Json::Value, isNumeric), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isString()",asMETHOD(Json::Value, isString ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isString()", asMETHOD(Json::Value, isString), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isArray()",asMETHOD(Json::Value, isArray ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isArray()", asMETHOD(Json::Value, isArray), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isObject()",asMETHOD(Json::Value, isObject ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isObject()", asMETHOD(Json::Value, isObject), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isConvertibleTo(JsonValueType type)",asMETHOD(Json::Value, isConvertibleTo ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isConvertibleTo(JsonValueType type)", asMETHOD(Json::Value, isConvertibleTo), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "uint size()",asMETHOD(Json::Value, size ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "uint size()", asMETHOD(Json::Value, size), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool empty()",asMETHOD(Json::Value, empty ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool empty()", asMETHOD(Json::Value, empty), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "void clear()",asMETHOD(Json::Value, empty ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "void clear()", asMETHOD(Json::Value, empty), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "void resize(uint64)",asMETHOD(Json::Value, resize ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "void resize(uint64)", asMETHOD(Json::Value, resize), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "bool isValidIndex(uint64)",asMETHOD(Json::Value, isValidIndex ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "bool isValidIndex(uint64)", asMETHOD(Json::Value, isValidIndex), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSONValue", "JSONValue& append(const JSONValue &in)",asMETHOD(Json::Value, append ), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSONValue", "JSONValue& append(const JSONValue &in)", asMETHOD(Json::Value, append), asCALL_THISCALL);
 
     context->RegisterObjectMethod("JSONValue", "bool removeMember( const string &in )", asFUNCTION(JSONValueRemoveMember), asCALL_CDECL_OBJFIRST);
 
     context->RegisterObjectMethod("JSONValue", "bool removeIndex( uint  i )", asFUNCTION(JSONValueRemoveIndex), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("JSONValue", "bool isMember(const string &in)",asFUNCTION( JSONValueIsMember ), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("JSONValue", "bool isMember(const string &in)", asFUNCTION(JSONValueIsMember), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("JSONValue", "array<string>@ getMemberNames()",asFUNCTION( JSONValueGetMembers ), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("JSONValue", "array<string>@ getMemberNames()", asFUNCTION(JSONValueGetMembers), asCALL_CDECL_OBJFIRST);
 
     // Attach the wrapper
     context->RegisterObjectType("JSON", sizeof(SimpleJSONWrapper), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
@@ -6335,114 +6268,103 @@ void AttachJSON( ASContext *context )
 
     context->RegisterObjectMethod("JSON", "bool parseFile(string &in)", asMETHOD(SimpleJSONWrapper, parseFile), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSON", "string writeString(bool=false)",asMETHOD(SimpleJSONWrapper, writeString), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSON", "string writeString(bool=false)", asMETHOD(SimpleJSONWrapper, writeString), asCALL_THISCALL);
 
-    context->RegisterObjectMethod("JSON", "JSONValue& getRoot()",asMETHOD(SimpleJSONWrapper, getRoot), asCALL_THISCALL);
+    context->RegisterObjectMethod("JSON", "JSONValue& getRoot()", asMETHOD(SimpleJSONWrapper, getRoot), asCALL_THISCALL);
 }
 
-std::string AS_GetConfigValueString( std::string string )
-{
-    if(string == "overall"){
+std::string AS_GetConfigValueString(std::string string) {
+    if (string == "overall") {
         return config.GetSettingsPreset();
-    } else if(string == "difficulty_preset") {
+    } else if (string == "difficulty_preset") {
         return config.GetClosestDifficulty();
     } else {
         return config[string].str();
     }
 }
 
-static CScriptArray* AS_GetConfigValueOptions( std::string string ) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+static CScriptArray* AS_GetConfigValueOptions(std::string string) {
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<std::string> values;
 
-
-    if(string == "overall"){
+    if (string == "overall") {
         values = config.GetSettingsPresets();
-    } else if(string == "difficulty_preset") {
+    } else if (string == "difficulty_preset") {
         values = config.GetDifficultyPresets();
-    } else{
+    } else {
     }
 
     array->Reserve(values.size());
 
     std::vector<std::string>::iterator valueit = values.begin();
 
-    for(;valueit != values.end(); valueit++) {
+    for (; valueit != values.end(); valueit++) {
         array->InsertLast((void*)&(*valueit));
     }
 
     return array;
-
 }
 
-float AS_GetConfigValueFloat( std::string string )
-{
+float AS_GetConfigValueFloat(std::string string) {
     return config[string].toNumber<float>();
 }
 
-bool AS_GetConfigValueBool( std::string string )
-{
+bool AS_GetConfigValueBool(std::string string) {
     return config[string].toBool();
 }
 
-void AS_SetConfigValueString( std::string key, std::string value )
-{
-    if(key == "overall"){
+void AS_SetConfigValueString(std::string key, std::string value) {
+    if (key == "overall") {
         config.SetSettingsToPreset(value);
         config.ReloadStaticSettings();
         config.ReloadDynamicSettings();
-    } else if(key == "difficulty_preset") {
+    } else if (key == "difficulty_preset") {
         config.SetDifficultyPreset(value);
         config.ReloadDynamicSettings();
-    }else{
+    } else {
         config.GetRef(key) = value;
         config.ReloadDynamicSettings();
     }
 }
 
-void AS_SetConfigValueBool( std::string key, bool value )
-{
+void AS_SetConfigValueBool(std::string key, bool value) {
     config.GetRef(key) = value;
     config.ReloadDynamicSettings();
 }
 
-void AS_SetConfigValueInt( std::string key, int value )
-{
+void AS_SetConfigValueInt(std::string key, int value) {
     config.GetRef(key) = value;
     config.ReloadDynamicSettings();
 }
 
-int AS_GetConfigValueInt( std::string string )
-{
+int AS_GetConfigValueInt(std::string string) {
     return config[string].toNumber<int>();
 }
 
-void AS_SetConfigValueFloat( std::string key, float value )
-{
+void AS_SetConfigValueFloat(std::string key, float value) {
     config.GetRef(key) = value;
     config.ReloadDynamicSettings();
 }
 
-int AS_GetMonitorCount()
-{
+int AS_GetMonitorCount() {
     return SDL_GetNumVideoDisplays();
 }
 
 static CScriptArray* AS_GetPossibleResolutions() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<vec2>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<vec2>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<Resolution> resolutions = config.GetPossibleResolutions();
 
     array->Reserve(resolutions.size());
 
-    for(auto & resolution : resolutions) {
+    for (auto& resolution : resolutions) {
         vec2 cur_res = vec2(resolution.w, resolution.h);
         array->InsertLast((void*)&(cur_res));
     }
@@ -6454,10 +6376,10 @@ void AS_ReloadStaticValues() {
 }
 
 static CScriptArray* ASGetAvailableBindingCategories() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<std::string> descs = Input::Instance()->GetAvailableBindingCategories();
 
@@ -6465,18 +6387,18 @@ static CScriptArray* ASGetAvailableBindingCategories() {
 
     std::vector<std::string>::iterator descit = descs.begin();
 
-    for(;descit != descs.end(); descit++) {
+    for (; descit != descs.end(); descit++) {
         array->InsertLast((void*)&(*descit));
     }
 
     return array;
 }
 
-static CScriptArray* ASGetAvailableBindings( const std::string& category ) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+static CScriptArray* ASGetAvailableBindings(const std::string& category) {
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<std::string> descs = Input::Instance()->GetAvailableBindings(category);
 
@@ -6484,40 +6406,40 @@ static CScriptArray* ASGetAvailableBindings( const std::string& category ) {
 
     std::vector<std::string>::iterator descit = descs.begin();
 
-    for( ; descit != descs.end(); descit++ ) {
+    for (; descit != descs.end(); descit++) {
         array->InsertLast((void*)&(*descit));
     }
 
     return array;
 }
 
-static std::string ASGetBindingValue( std::string binding_category, std::string binding ) {
-    return Input::Instance()->GetBindingValue( binding_category, binding );
+static std::string ASGetBindingValue(std::string binding_category, std::string binding) {
+    return Input::Instance()->GetBindingValue(binding_category, binding);
 }
 
-static void ASSetBindingValue( std::string binding_category, std::string binding, std::string value ) {
-    Input::Instance()->SetBindingValue( binding_category, binding, value );
+static void ASSetBindingValue(std::string binding_category, std::string binding, std::string value) {
+    Input::Instance()->SetBindingValue(binding_category, binding, value);
 }
 
-static void ASSetKeyboardBindingValue( std::string binding_category, std::string binding, uint32_t scancode ) {
-    Input::Instance()->SetKeyboardBindingValue( binding_category, binding, (SDL_Scancode)scancode );
+static void ASSetKeyboardBindingValue(std::string binding_category, std::string binding, uint32_t scancode) {
+    Input::Instance()->SetKeyboardBindingValue(binding_category, binding, (SDL_Scancode)scancode);
 }
 
-static void ASSetMouseBindingValue( std::string binding_category, std::string binding, uint32_t button ) {
-    Input::Instance()->SetMouseBindingValue( binding_category, binding, button );
+static void ASSetMouseBindingValue(std::string binding_category, std::string binding, uint32_t button) {
+    Input::Instance()->SetMouseBindingValue(binding_category, binding, button);
 }
 
-static void ASSetMouseBindingValueString( std::string binding_category, std::string binding, std::string text ) {
-    Input::Instance()->SetMouseBindingValue( binding_category, binding, text );
+static void ASSetMouseBindingValueString(std::string binding_category, std::string binding, std::string text) {
+    Input::Instance()->SetMouseBindingValue(binding_category, binding, text);
 }
 
-static void ASSetControllerBindingValue( std::string binding_category, std::string binding, uint32_t input ) {
-    Input::Instance()->SetControllerBindingValue( binding_category, binding, (ControllerInput::Input)input );
+static void ASSetControllerBindingValue(std::string binding_category, std::string binding, uint32_t input) {
+    Input::Instance()->SetControllerBindingValue(binding_category, binding, (ControllerInput::Input)input);
 }
 
 static void ASSaveConfig() {
     std::string config_path = GetConfigPath();
-    if( config.HasChangedSinceLastSave() ) {
+    if (config.HasChangedSinceLastSave()) {
         LOGI << "Saving config at request from angel script" << std::endl;
         config.Save(config_path);
     }
@@ -6527,9 +6449,9 @@ static bool ASConfigHasKey(std::string key) {
     return config.HasKey(key);
 }
 
-static void ASResetBinding( std::string category, std::string binding) {
+static void ASResetBinding(std::string category, std::string binding) {
     const std::string config_value = category + "[" + binding + "]";
-    if(memcmp(category.c_str(), "gamepad_", strlen("gamepad_")) == 0) {
+    if (memcmp(category.c_str(), "gamepad_", strlen("gamepad_")) == 0) {
         config.RemoveConfig(config_value);
     } else {
         config.GetRef(config_value) = default_config.GetRef(config_value);
@@ -6537,8 +6459,7 @@ static void ASResetBinding( std::string category, std::string binding) {
     config.ReloadStaticSettings();
 }
 
-void AttachConfig( ASContext *context )
-{
+void AttachConfig(ASContext* context) {
     context->RegisterGlobalFunction("string GetConfigValueString(string index)",
                                     asFUNCTION(AS_GetConfigValueString),
                                     asCALL_CDECL);
@@ -6606,28 +6527,26 @@ void AttachConfig( ASContext *context )
                                     asFUNCTION(ASConfigHasKey),
                                     asCALL_CDECL);
     context->RegisterGlobalFunction("void ResetBinding(string binding_category, string binding)",
-                    asFUNCTION(ASResetBinding),
-                    asCALL_CDECL);
+                                    asFUNCTION(ASResetBinding),
+                                    asCALL_CDECL);
 }
 
-static std::string AS_ToUpper( std::string& in )
-{
-    size_t len = in.size()+1+(in.size()/10)+10;
-    char* output = (char*)alloca(len);//We pad for the trailing null sign and potential codepoint expansion of some characters.
-    UTF8ToUpper( output, len, in.c_str() );
+static std::string AS_ToUpper(std::string& in) {
+    size_t len = in.size() + 1 + (in.size() / 10) + 10;
+    char* output = (char*)alloca(len);  // We pad for the trailing null sign and potential codepoint expansion of some characters.
+    UTF8ToUpper(output, len, in.c_str());
     return std::string(output);
 }
 
-uint32_t AS_GetLengthInBytesForNCodepoints( const std::string& utf8in, uint32_t codepoint_index ) {
-    return GetLengthInBytesForNCodepoints( utf8in,codepoint_index );
+uint32_t AS_GetLengthInBytesForNCodepoints(const std::string& utf8in, uint32_t codepoint_index) {
+    return GetLengthInBytesForNCodepoints(utf8in, codepoint_index);
 }
 
-uint32_t AS_GetCodepointCount( const std::string &utf8in ) {
-    return GetCodepointCount( utf8in );
+uint32_t AS_GetCodepointCount(const std::string& utf8in) {
+    return GetCodepointCount(utf8in);
 }
 
-void AttachStringUtil( ASContext *context )
-{
+void AttachStringUtil(ASContext* context) {
     context->RegisterGlobalFunction("string ToUpper(string &in)",
                                     asFUNCTION(AS_ToUpper),
                                     asCALL_CDECL);
@@ -6639,48 +6558,46 @@ void AttachStringUtil( ASContext *context )
                                     asCALL_CDECL);
 }
 
-bool AS_DirectoryExists( std::string& in )
-{
+bool AS_DirectoryExists(std::string& in) {
     char out[kPathSize];
-    return 0 == FindFilePath( in.c_str(), out, kPathSize, kModPaths | kDataPaths | kWriteDir | kModWriteDirs, false ) && !isFile(out);
+    return 0 == FindFilePath(in.c_str(), out, kPathSize, kModPaths | kDataPaths | kWriteDir | kModWriteDirs, false) && !isFile(out);
 }
 
-bool AS_FileExists( std::string& in )
-{
+bool AS_FileExists(std::string& in) {
     char out[kPathSize];
-    return 0 == FindFilePath( in.c_str(), out, kPathSize, kModPaths | kDataPaths | kWriteDir | kModWriteDirs, false ) && isFile(out);
+    return 0 == FindFilePath(in.c_str(), out, kPathSize, kModPaths | kDataPaths | kWriteDir | kModWriteDirs, false) && isFile(out);
 }
 
-void AttachIO( ASContext *context ) {
+void AttachIO(ASContext* context) {
     context->RegisterGlobalFunction("bool DirectoryExists(string& in)", asFUNCTION(AS_DirectoryExists), asCALL_CDECL);
     context->RegisterGlobalFunction("bool FileExists(string& in)", asFUNCTION(AS_FileExists), asCALL_CDECL);
 }
 
-void AttachDebug( ASContext *context ) {
-    context->RegisterGlobalFunction("void PrintCallstack()",asFUNCTION(ASPrintCallstack), asCALL_CDECL);
+void AttachDebug(ASContext* context) {
+    context->RegisterGlobalFunction("void PrintCallstack()", asFUNCTION(ASPrintCallstack), asCALL_CDECL);
 }
 
-static void ASParameterConstructor( void* m ) {
+static void ASParameterConstructor(void* m) {
     new (m) ModInstance::Parameter();
 }
 
-static void ASParameterCopyConstructor( const ModInstance::Parameter& other, void * m ) {
+static void ASParameterCopyConstructor(const ModInstance::Parameter& other, void* m) {
     new (m) ModInstance::Parameter(other);
 }
 
-static void ASParameterDestructor( void* m ) {
+static void ASParameterDestructor(void* m) {
     ((ModInstance::Parameter*)m)->~Parameter();
 }
 
-static ModInstance::Parameter& ASParameterOpAssign( ModInstance::Parameter* self, const ModInstance::Parameter& other ) {
+static ModInstance::Parameter& ASParameterOpAssign(ModInstance::Parameter* self, const ModInstance::Parameter& other) {
     *self = other;
     return *self;
 }
 
-static ModInstance::Parameter ParameterConstStringIndex(ModInstance::Parameter *self, const std::string &key) {
-    if(strmtch(self->type,"table")) {
-        for(auto & parameter : self->parameters) {
-            if(strmtch(parameter.name,key.c_str())) {
+static ModInstance::Parameter ParameterConstStringIndex(ModInstance::Parameter* self, const std::string& key) {
+    if (strmtch(self->type, "table")) {
+        for (auto& parameter : self->parameters) {
+            if (strmtch(parameter.name, key.c_str())) {
                 return parameter;
             }
         }
@@ -6688,119 +6605,119 @@ static ModInstance::Parameter ParameterConstStringIndex(ModInstance::Parameter *
     return ModInstance::Parameter();
 }
 
-static ModInstance::Parameter ParameterConstIntIndex(ModInstance::Parameter *self, const int &key) {
-    if( key >= 0 && key < (int)self->parameters.size() ) {
+static ModInstance::Parameter ParameterConstIntIndex(ModInstance::Parameter* self, const int& key) {
+    if (key >= 0 && key < (int)self->parameters.size()) {
         return self->parameters[key];
     }
     return ModInstance::Parameter();
 }
 
-static bool ASParameterIsEmpty(ModInstance::Parameter *self) {
-    return strmtch(self->type,"empty");
+static bool ASParameterIsEmpty(ModInstance::Parameter* self) {
+    return strmtch(self->type, "empty");
 }
 
-static bool ASParameterIsString(ModInstance::Parameter *self) {
-    return strmtch(self->type,"string");
+static bool ASParameterIsString(ModInstance::Parameter* self) {
+    return strmtch(self->type, "string");
 }
 
-static bool ASParameterIsArray(ModInstance::Parameter *self) {
-    return strmtch(self->type,"array");
+static bool ASParameterIsArray(ModInstance::Parameter* self) {
+    return strmtch(self->type, "array");
 }
 
-static bool ASParameterIsTable(ModInstance::Parameter *self) {
-    return strmtch(self->type,"table");
+static bool ASParameterIsTable(ModInstance::Parameter* self) {
+    return strmtch(self->type, "table");
 }
 
-static uint32_t ASParameterSize(ModInstance::Parameter *self) {
+static uint32_t ASParameterSize(ModInstance::Parameter* self) {
     return self->parameters.size();
 }
 
-static std::string ASParameterAsString(ModInstance::Parameter *self) {
+static std::string ASParameterAsString(ModInstance::Parameter* self) {
     return std::string(self->value);
 }
 
-static std::string ASParameterGetName(ModInstance::Parameter *self) {
+static std::string ASParameterGetName(ModInstance::Parameter* self) {
     return std::string(self->name);
 }
 
-static bool ASParameterContains(ModInstance::Parameter *self, const std::string& val) {
-    for(auto & parameter : self->parameters) {
-        if(strmtch(parameter.value, val.c_str())) {
+static bool ASParameterContains(ModInstance::Parameter* self, const std::string& val) {
+    for (auto& parameter : self->parameters) {
+        if (strmtch(parameter.value, val.c_str())) {
             return true;
         }
     }
     return false;
 }
 
-static bool ASParameterContainsName(ModInstance::Parameter *self, const std::string& val) {
-    for(auto & parameter : self->parameters) {
-        if(strmtch(parameter.name, val.c_str())) {
+static bool ASParameterContainsName(ModInstance::Parameter* self, const std::string& val) {
+    for (auto& parameter : self->parameters) {
+        if (strmtch(parameter.name, val.c_str())) {
             return true;
         }
     }
     return false;
 }
 
-//Data parsed from the level structure
+// Data parsed from the level structure
 struct ASLevelDetails {
     char name[128];
 };
 
-static void ASLevelDetailsConstruct( ASLevelDetails* obj ) {
+static void ASLevelDetailsConstruct(ASLevelDetails* obj) {
     obj->name[0] = '\0';
 }
 
-static std::string ASLevelDetailsGetName( ASLevelDetails* obj ) {
+static std::string ASLevelDetailsGetName(ASLevelDetails* obj) {
     return std::string(obj->name);
 }
 
-void AttachLevelDetails(ASContext *context) {
-    context->RegisterObjectType("LevelDetails", sizeof(ASLevelDetails), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_C );
-    context->RegisterObjectBehaviour("LevelDetails", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ASLevelDetailsConstruct),  asCALL_CDECL_OBJLAST);
+void AttachLevelDetails(ASContext* context) {
+    context->RegisterObjectType("LevelDetails", sizeof(ASLevelDetails), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_C);
+    context->RegisterObjectBehaviour("LevelDetails", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ASLevelDetailsConstruct), asCALL_CDECL_OBJLAST);
 
     context->RegisterObjectMethod("LevelDetails", "string GetName()", asFUNCTION(ASLevelDetailsGetName), asCALL_CDECL_OBJFIRST);
 
     context->DocsCloseBrace();
 }
 
-static void ASModIDConstructor(void *memory) {
-    new(memory) ModID();
+static void ASModIDConstructor(void* memory) {
+    new (memory) ModID();
 }
 
-static void ASModIDDestructor(void *memory) {
+static void ASModIDDestructor(void* memory) {
     ((ModID*)memory)->~ModID();
 }
 
-static bool ASModIDValid(void *memory) {
+static bool ASModIDValid(void* memory) {
     return ((ModID*)memory)->Valid();
 }
 
-static void ASMenuItemConstructor(void *memory) {
-    new(memory) ModInstance::MenuItem();
+static void ASMenuItemConstructor(void* memory) {
+    new (memory) ModInstance::MenuItem();
 }
 
-static void ASMenuItemDestructor(void *memory) {
+static void ASMenuItemDestructor(void* memory) {
     ((ModInstance::MenuItem*)memory)->~MenuItem();
 }
 
-static std::string ASMenuItemGetTitle(void *memory) {
+static std::string ASMenuItemGetTitle(void* memory) {
     return std::string(((ModInstance::MenuItem*)memory)->title);
 }
 
-static std::string ASMenuItemGetCategory(void *memory) {
+static std::string ASMenuItemGetCategory(void* memory) {
     return std::string(((ModInstance::MenuItem*)memory)->category);
 }
 
-static std::string ASMenuItemGetPath(void *memory) {
+static std::string ASMenuItemGetPath(void* memory) {
     return std::string(((ModInstance::MenuItem*)memory)->path);
 }
 
-static std::string ASMenuItemGetThumbnail(void *memory) {
+static std::string ASMenuItemGetThumbnail(void* memory) {
     return std::string(((ModInstance::MenuItem*)memory)->thumbnail);
 }
 
 static void ASSpawnerItemConstructor(void* memory) {
-    new(memory) ModInstance::Item();
+    new (memory) ModInstance::Item();
 }
 
 static void ASSpawnerItemDestructor(void* memory) {
@@ -6824,7 +6741,7 @@ static std::string ASSpawnerItemGetThumbnail(void* memory) {
 }
 static bool ASModIsActive(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->IsActive();
     } else {
         return false;
@@ -6833,7 +6750,7 @@ static bool ASModIsActive(ModID& sid) {
 
 static bool ASModNeedsRestart(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->NeedsRestart();
     } else {
         return false;
@@ -6842,7 +6759,7 @@ static bool ASModNeedsRestart(ModID& sid) {
 
 static bool ASModIsValid(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if( mod ) {
+    if (mod) {
         return mod->IsValid();
     } else {
         return false;
@@ -6851,7 +6768,7 @@ static bool ASModIsValid(ModID& sid) {
 
 static bool ASModIsCore(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if( mod ) {
+    if (mod) {
         return mod->IsCore();
     } else {
         return false;
@@ -6860,7 +6777,7 @@ static bool ASModIsCore(ModID& sid) {
 
 static bool ASModCanActivate(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if( mod ) {
+    if (mod) {
         return mod->CanActivate();
     } else {
         return false;
@@ -6869,7 +6786,7 @@ static bool ASModCanActivate(ModID& sid) {
 
 static int ASModGetSource(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->modsource;
     } else {
         return 0;
@@ -6878,7 +6795,7 @@ static int ASModGetSource(ModID& sid) {
 
 static std::string ASModGetID(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return std::string(mod->id);
     } else {
         return std::string();
@@ -6887,7 +6804,7 @@ static std::string ASModGetID(ModID& sid) {
 
 static std::string ASModGetName(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return std::string(mod->name);
     } else {
         return std::string();
@@ -6896,7 +6813,7 @@ static std::string ASModGetName(ModID& sid) {
 
 static bool ASModGetSupportsOnline(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->SupportsOnline();
     } else {
         return false;
@@ -6905,7 +6822,7 @@ static bool ASModGetSupportsOnline(ModID& sid) {
 
 static bool ASModGetSupportsCurrentVersion(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->ExplicitVersionSupport();
     } else {
         return false;
@@ -6914,7 +6831,7 @@ static bool ASModGetSupportsCurrentVersion(ModID& sid) {
 
 static std::string ASModGetAuthor(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return std::string(mod->author);
     } else {
         return std::string();
@@ -6923,7 +6840,7 @@ static std::string ASModGetAuthor(ModID& sid) {
 
 static std::string ASModGetCategory(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return std::string(mod->category);
     } else {
         return std::string();
@@ -6932,7 +6849,7 @@ static std::string ASModGetCategory(ModID& sid) {
 
 static std::string ASModGetDescription(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return std::string(mod->description);
     } else {
         return std::string();
@@ -6941,7 +6858,7 @@ static std::string ASModGetDescription(ModID& sid) {
 
 static std::string ASModGetVersion(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return std::string(mod->version);
     } else {
         return std::string();
@@ -6950,7 +6867,7 @@ static std::string ASModGetVersion(ModID& sid) {
 
 static std::string ASModGetTags(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return std::string(mod->GetTagsListString());
     } else {
         return std::string();
@@ -6958,8 +6875,8 @@ static std::string ASModGetTags(ModID& sid) {
 }
 
 static bool ASModActivation(ModID& sid, bool active) {
-    ModInstance *inst = ModLoading::Instance().GetMod(sid);
-    if( inst ) {
+    ModInstance* inst = ModLoading::Instance().GetMod(sid);
+    if (inst) {
         return inst->Activate(active);
     } else {
         return false;
@@ -6968,17 +6885,16 @@ static bool ASModActivation(ModID& sid, bool active) {
 
 static std::string ASGetModPath(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->path;
     } else {
         return std::string();
     }
 }
 
-
 static std::string ASGetModValidityString(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->GetValidityErrors();
     } else {
         return "";
@@ -6987,19 +6903,19 @@ static std::string ASGetModValidityString(ModID& sid) {
 
 static std::string ASGetModThumbnail(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->thumbnail.str();
     } else {
         return "";
     }
 }
 
-static IMImage* ASGetModThumbnailImage( ModID& sid ) {
+static IMImage* ASGetModThumbnailImage(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
     IMImage* image = NULL;
-    if(mod) {
+    if (mod) {
         Path thumb = mod->GetFullAbsThumbnailPath();
-        if(thumb.isValid() && IsImageFile(thumb)) {
+        if (thumb.isValid() && IsImageFile(thumb)) {
             return IMImage::ASFactoryPath(thumb);
         } else {
             return IMImage::ASFactory("Images/thumb_fallback.png");
@@ -7010,33 +6926,33 @@ static IMImage* ASGetModThumbnailImage( ModID& sid ) {
 }
 
 static CScriptArray* ASGetModSids() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModID>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModID>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<ModID> sids = ModLoading::Instance().GetModsSid();
 
     array->Reserve(sids.size());
 
-    for(auto & sid : sids) {
+    for (auto& sid : sids) {
         array->InsertLast((void*)&sid);
     }
     return array;
 }
 
 static CScriptArray* ASGetActiveModSids() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModID>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModID>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<ModID> sids = ModLoading::Instance().GetModsSid();
 
     array->Reserve(sids.size());
 
-    for(auto & sid : sids) {
-        if( ModLoading::Instance().IsActive(sid) ) {
+    for (auto& sid : sids) {
+        if (ModLoading::Instance().IsActive(sid)) {
             array->InsertLast((void*)&sid);
         }
     }
@@ -7044,19 +6960,19 @@ static CScriptArray* ASGetActiveModSids() {
 }
 
 static CScriptArray* ASModGetMenuItems(ModID& sid) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<MenuItem>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<MenuItem>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
-    ModInstance *mod = ModLoading::Instance().GetMod(sid);
+    ModInstance* mod = ModLoading::Instance().GetMod(sid);
 
-    if(mod) {
+    if (mod) {
         std::vector<ModInstance::MenuItem>& mmi = mod->main_menu_items;
 
         array->Reserve(mmi.size());
 
-        for(auto & i : mmi) {
+        for (auto& i : mmi) {
             array->InsertLast((void*)&i);
         }
     }
@@ -7071,12 +6987,12 @@ static CScriptArray* ASModGetSpawnerItems(ModID& sid) {
 
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
 
-    if(mod) {
+    if (mod) {
         std::vector<ModInstance::Item>& msi = mod->items;
 
         array->Reserve(msi.size());
 
-        for(auto & i : msi) {
+        for (auto& i : msi) {
             array->InsertLast((void*)&i);
         }
     }
@@ -7094,19 +7010,19 @@ static CScriptArray* ASModGetAllSpawnerItems(bool only_include_active) {
 
     unsigned item_count = 0;
 
-    for(auto mod : mods) {
-        if(!only_include_active || mod->IsActive() ) {
+    for (auto mod : mods) {
+        if (!only_include_active || mod->IsActive()) {
             item_count += mod->items.size();
         }
     }
 
     array->Reserve(item_count);
 
-    for(auto mod : mods) {
-        if(!only_include_active || mod->IsActive() ) {
+    for (auto mod : mods) {
+        if (!only_include_active || mod->IsActive()) {
             const std::vector<ModInstance::Item>& msi = mod->items;
 
-            for(const auto & i : msi) {
+            for (const auto& i : msi) {
                 array->InsertLast((void*)&i);
             }
         }
@@ -7115,79 +7031,79 @@ static CScriptArray* ASModGetAllSpawnerItems(bool only_include_active) {
     return array;
 }
 
-static ModInstance::Campaign AsModGetCampaign( ModID& sid ) {
+static ModInstance::Campaign AsModGetCampaign(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
 
-    if(mod && !mod->campaigns.empty()) {
+    if (mod && !mod->campaigns.empty()) {
         return mod->campaigns[0];
     } else {
         return ModInstance::Campaign();
     }
 }
 
-static CScriptArray* ASModGetCampaigns( ModID& sid ) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<Campaign>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+static CScriptArray* ASModGetCampaigns(ModID& sid) {
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<Campaign>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
 
-    if(mod) {
+    if (mod) {
         std::vector<ModInstance::Campaign>& campaigns = mod->campaigns;
 
         array->Reserve(campaigns.size());
 
-        for(auto & campaign : campaigns) {
+        for (auto& campaign : campaigns) {
             array->InsertLast((void*)&campaign);
         }
     }
     return array;
 }
 
-static ModInstance::Campaign ASGetCampaign( std::string& campaign_id ) {
+static ModInstance::Campaign ASGetCampaign(std::string& campaign_id) {
     return ModLoading::Instance().GetCampaign(campaign_id);
 }
 
 static CScriptArray* ASGetCampaigns() {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<Campaign>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<Campaign>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<ModInstance::Campaign> campaigns = ModLoading::Instance().GetCampaigns();
 
     array->Reserve(campaigns.size());
 
-    for(auto & campaign : campaigns) {
+    for (auto& campaign : campaigns) {
         array->InsertLast((void*)&campaign);
     }
 
     return array;
 }
 
-static void ASLevelConstructor( void* m ) {
+static void ASLevelConstructor(void* m) {
     new (m) ModInstance::Level();
 }
 
-static void ASLevelCopyConstructor( const ModInstance::Level& other, void * m ) {
+static void ASLevelCopyConstructor(const ModInstance::Level& other, void* m) {
     new (m) ModInstance::Level(other);
 }
 
-static void ASLevelDestructor( void* m ) {
+static void ASLevelDestructor(void* m) {
     ((ModInstance::Level*)m)->~Level();
 }
 
-static ModInstance::Level& ASLevelOpAssign( ModInstance::Level* self, const ModInstance::Level& other ) {
+static ModInstance::Level& ASLevelOpAssign(ModInstance::Level* self, const ModInstance::Level& other) {
     *self = other;
     return *self;
 }
 
-static std::string ASLevelGetTitle( void* m ) {
+static std::string ASLevelGetTitle(void* m) {
     return std::string(((ModInstance::Level*)m)->title);
 }
 
-static std::string ASLevelGetID( void* m ) {
+static std::string ASLevelGetID(void* m) {
     return std::string(((ModInstance::Level*)m)->id);
 }
 
@@ -7199,23 +7115,23 @@ static bool ASLevelGetRequiresOnline(void* m) {
     return ((ModInstance::Level*)m)->requires_online;
 }
 
-static std::string ASLevelGetThumbnail( void* m ) {
+static std::string ASLevelGetThumbnail(void* m) {
     return std::string(((ModInstance::Level*)m)->thumbnail);
 }
 
-static std::string ASLevelGetPath( void* m ) {
+static std::string ASLevelGetPath(void* m) {
     return std::string(((ModInstance::Level*)m)->path);
 }
 
-static ASLevelDetails ASLevelGetLevelDetails( void* m ) {
+static ASLevelDetails ASLevelGetLevelDetails(void* m) {
     ASLevelDetails li;
     ASLevelDetailsConstruct(&li);
 
-    std::string path = AssemblePath("Data/Levels/",((ModInstance::Level*)m)->path);
-    if( FileExists(path, kAnyPath) ) {
-        LevelInfoAssetRef levelinfo = Engine::Instance()->GetAssetManager()->LoadSync<LevelInfoAsset>(AssemblePath("Data/Levels/",((ModInstance::Level*)m)->path));
+    std::string path = AssemblePath("Data/Levels/", ((ModInstance::Level*)m)->path);
+    if (FileExists(path, kAnyPath)) {
+        LevelInfoAssetRef levelinfo = Engine::Instance()->GetAssetManager()->LoadSync<LevelInfoAsset>(AssemblePath("Data/Levels/", ((ModInstance::Level*)m)->path));
 
-        if( levelinfo.valid() ) {
+        if (levelinfo.valid()) {
             strscpy(li.name, levelinfo->GetLevelName().c_str(), 128);
         } else {
             LOGW << "Failed to load levelinfo for " << ((ModInstance::Level*)m)->path << std::endl;
@@ -7227,95 +7143,95 @@ static ASLevelDetails ASLevelGetLevelDetails( void* m ) {
     return li;
 }
 
-static bool ASLevelCompletionOptional( void* m ) {
+static bool ASLevelCompletionOptional(void* m) {
     return ((ModInstance::Level*)m)->completion_optional;
 }
 
-static ModInstance::Parameter ASLevelGetParameter( void* m) {
+static ModInstance::Parameter ASLevelGetParameter(void* m) {
     ModInstance::Level* level = static_cast<ModInstance::Level*>(m);
     return level->parameter;
 }
 
-static void ASCampaignConstructor( void* m ) {
+static void ASCampaignConstructor(void* m) {
     new (m) ModInstance::Campaign();
 }
 
-static void ASCampaignCopyConstructor( const ModInstance::Campaign& other, void * m ) {
+static void ASCampaignCopyConstructor(const ModInstance::Campaign& other, void* m) {
     new (m) ModInstance::Campaign(other);
 }
 
-static void ASCampaignDestructor( void * m ) {
+static void ASCampaignDestructor(void* m) {
     ((ModInstance::Campaign*)m)->~Campaign();
 }
 
-static ModInstance::Parameter ASCampaignGetParameter( void* m) {
+static ModInstance::Parameter ASCampaignGetParameter(void* m) {
     ModInstance::Campaign* level = static_cast<ModInstance::Campaign*>(m);
     return level->parameter;
 }
 
-static ModInstance::Campaign& ASCampaignOpAssign( ModInstance::Campaign* self, const ModInstance::Campaign& other ) {
+static ModInstance::Campaign& ASCampaignOpAssign(ModInstance::Campaign* self, const ModInstance::Campaign& other) {
     *self = other;
     return *self;
 }
 
-static std::string ASCampaignGetID( void *m ) {
+static std::string ASCampaignGetID(void* m) {
     return std::string(((ModInstance::Campaign*)m)->id);
 }
 
-static std::string ASCampaignGetTitle( void *m ) {
+static std::string ASCampaignGetTitle(void* m) {
     return std::string(((ModInstance::Campaign*)m)->title);
 }
 
-static bool ASCampaignGetSupportsOnline(void *m) {
-	return (((ModInstance::Campaign*)m)->supports_online);
+static bool ASCampaignGetSupportsOnline(void* m) {
+    return (((ModInstance::Campaign*)m)->supports_online);
 }
 
-static bool ASCampaignGetRequiresOnline(void *m) {
+static bool ASCampaignGetRequiresOnline(void* m) {
     return (((ModInstance::Campaign*)m)->requires_online);
 }
 
-static std::string ASCampaignGetThumbnail( void *m ) {
+static std::string ASCampaignGetThumbnail(void* m) {
     return std::string(((ModInstance::Campaign*)m)->thumbnail);
 }
 
-static std::string ASCampaignGetMainScript( void *m ) {
+static std::string ASCampaignGetMainScript(void* m) {
     return std::string(((ModInstance::Campaign*)m)->main_script);
 }
 
-static std::string ASCampaignGetMenuScript( void *m ) {
+static std::string ASCampaignGetMenuScript(void* m) {
     return std::string(((ModInstance::Campaign*)m)->menu_script);
 }
 
-static std::string ASCampaignGetAttribute( void *m, std::string& id ) {
+static std::string ASCampaignGetAttribute(void* m, std::string& id) {
     std::vector<ModInstance::Attribute>& attributes = ((ModInstance::Campaign*)m)->attributes;
-    for(auto & attribute : attributes) {
-        if( strmtch( attribute.id, id.c_str()) ){
+    for (auto& attribute : attributes) {
+        if (strmtch(attribute.id, id.c_str())) {
             return attribute.value.str();
         }
     }
     return "";
 }
 
-static CScriptArray* ASCampaignGetLevels(void *m) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModLevel>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+static CScriptArray* ASCampaignGetLevels(void* m) {
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModLevel>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<ModInstance::Level> mmi = ((ModInstance::Campaign*)m)->levels;
 
     array->Reserve(mmi.size());
 
-    for(auto & i : mmi) {
+    for (auto& i : mmi) {
         array->InsertLast((void*)&i);
     }
 
     return array;
 }
 
-static ModInstance::Level ASCampaignGetLevel(ModInstance::Campaign *m, const std::string& id) {
-    for(auto & level : m->levels) {
-        if( strmtch(id, level.id) ) {
+static ModInstance::Level ASCampaignGetLevel(ModInstance::Campaign* m, const std::string& id) {
+    for (auto& level : m->levels) {
+        if (strmtch(id, level.id)) {
             return level;
         }
     }
@@ -7323,19 +7239,19 @@ static ModInstance::Level ASCampaignGetLevel(ModInstance::Campaign *m, const std
 }
 
 static CScriptArray* ASModGetModCampaignLevels(ModID& sid) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModLevel>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModLevel>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
-    ModInstance *mod = ModLoading::Instance().GetMod(sid);
+    ModInstance* mod = ModLoading::Instance().GetMod(sid);
 
-    if(mod && !mod->campaigns.empty()) {
+    if (mod && !mod->campaigns.empty()) {
         std::vector<ModInstance::Level>& mmi = mod->campaigns[0].levels;
 
         array->Reserve(mmi.size());
 
-        for(auto & i : mmi) {
+        for (auto& i : mmi) {
             array->InsertLast((void*)&i);
         }
     }
@@ -7343,95 +7259,95 @@ static CScriptArray* ASModGetModCampaignLevels(ModID& sid) {
 }
 
 static CScriptArray* ASModGetModSingleLevels(ModID& sid) {
-    asIScriptContext *ctx = asGetActiveContext();
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModLevel>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<ModLevel>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
-    ModInstance *mod = ModLoading::Instance().GetMod(sid);
+    ModInstance* mod = ModLoading::Instance().GetMod(sid);
 
-    if(mod) {
+    if (mod) {
         std::vector<ModInstance::Level>& mmi = mod->levels;
 
         array->Reserve(mmi.size());
 
-        for(auto & i : mmi) {
+        for (auto& i : mmi) {
             array->InsertLast((void*)&i);
         }
     }
     return array;
 }
 
-static ModInstance::UserVote ASModGetModUserVote( ModID& sid ) {
+static ModInstance::UserVote ASModGetModUserVote(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->GetUserVote();
     }
     return ModInstance::k_VoteUnknown;
 }
 
-static void ASRequestModSetUserVote( ModID& sid, bool voteup ) {
+static void ASRequestModSetUserVote(ModID& sid, bool voteup) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         mod->RequestVoteSet(voteup);
     }
 }
 
-static void ASRequestModSetFavorite( ModID& sid, bool fav ) {
+static void ASRequestModSetFavorite(ModID& sid, bool fav) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         mod->RequestFavoriteSet(fav);
     }
 }
 
-static bool ASModIsFavorite( ModID& sid ) {
+static bool ASModIsFavorite(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->IsFavorite();
     } else {
         return false;
     }
 }
 
-static void ASRequestWorkshopSubscribe( ModID& sid ) {
+static void ASRequestWorkshopSubscribe(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         mod->RequestSubscribe();
     }
 }
 
-static void ASRequestWorkshopUnSubscribe( ModID& sid ) {
+static void ASRequestWorkshopUnSubscribe(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         mod->RequestUnsubscribe();
     }
 }
 
-static bool ASIsWorkshopSubscribed( ModID& sid ) {
+static bool ASIsWorkshopSubscribed(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->IsSubscribed();
     } else {
         return true;
     }
 }
 
-static bool ASIsWorkshopMod( ModID& sid ) {
+static bool ASIsWorkshopMod(ModID& sid) {
     ModInstance* mod = ModLoading::Instance().GetMod(sid);
-    if(mod) {
+    if (mod) {
         return mod->modsource == ModSourceSteamworks;
     } else {
         return true;
     }
 }
 
-static void ASOpenModWorkshopPage( ModID& id ) {
+static void ASOpenModWorkshopPage(ModID& id) {
 #if ENABLE_STEAMWORKS
     Steamworks::Instance()->OpenWebPageToMod(id);
 #endif
 }
 
-static void ASOpenModAuthorWorkshopPage( ModID& id ) {
+static void ASOpenModAuthorWorkshopPage(ModID& id) {
 #if ENABLE_STEAMWORKS
     Steamworks::Instance()->OpenWebPageToModAuthor(id);
 #endif
@@ -7445,7 +7361,7 @@ static void ASOpenWorkshop() {
 
 static void ASDeactivateAllMods() {
     std::vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for(auto & mod : mods) {
+    for (auto& mod : mods) {
         mod->Activate(false);
     }
 }
@@ -7464,8 +7380,8 @@ static void ASSaveModConfig() {
 }
 
 uint32_t ASWorkshopSubscribedNotInstalledCount() {
-#if ENABLE_STEAMWORKS 
-    if( Steamworks::Instance()->GetUGC() ) {
+#if ENABLE_STEAMWORKS
+    if (Steamworks::Instance()->GetUGC()) {
         return Steamworks::Instance()->GetUGC()->SubscribedNotInstalledCount();
     }
 #endif
@@ -7475,7 +7391,7 @@ uint32_t ASWorkshopSubscribedNotInstalledCount() {
 
 uint32_t ASWorkshopDownloadingCount() {
 #if ENABLE_STEAMWORKS
-    if( Steamworks::Instance()->GetUGC() ) {
+    if (Steamworks::Instance()->GetUGC()) {
         return Steamworks::Instance()->GetUGC()->DownloadingCount();
     }
 #endif
@@ -7484,7 +7400,7 @@ uint32_t ASWorkshopDownloadingCount() {
 
 uint32_t ASWorkshopDownloadPendingCount() {
 #if ENABLE_STEAMWORKS
-    if( Steamworks::Instance()->GetUGC() ) {
+    if (Steamworks::Instance()->GetUGC()) {
         return Steamworks::Instance()->GetUGC()->DownloadPendingCount();
     }
 #endif
@@ -7493,7 +7409,7 @@ uint32_t ASWorkshopDownloadPendingCount() {
 
 uint32_t ASWorkshopNeedsUpdateCount() {
 #if ENABLE_STEAMWORKS
-    if( Steamworks::Instance()->GetUGC() ) {
+    if (Steamworks::Instance()->GetUGC()) {
         return Steamworks::Instance()->GetUGC()->NeedsUpdateCount();
     }
 #endif
@@ -7502,196 +7418,196 @@ uint32_t ASWorkshopNeedsUpdateCount() {
 
 float ASWorkshopTotalDownloadProgress() {
 #if ENABLE_STEAMWORKS
-    if( Steamworks::Instance()->GetUGC() ) {
+    if (Steamworks::Instance()->GetUGC()) {
         return Steamworks::Instance()->GetUGC()->TotalDownloadProgress();
     }
 #endif
     return 0.0f;
 }
 
-void AttachModding( ASContext *context ) {
+void AttachModding(ASContext* context) {
     context->RegisterEnum("UserVote");
 
-    context->RegisterEnumValue("UserVote","k_VoteUnknown",ModInstance::k_VoteUnknown);
-    context->RegisterEnumValue("UserVote","k_VoteNone",ModInstance::k_VoteNone);
-    context->RegisterEnumValue("UserVote","k_VoteUp",ModInstance::k_VoteUp);
-    context->RegisterEnumValue("UserVote","k_VoteDown",ModInstance::k_VoteDown);
+    context->RegisterEnumValue("UserVote", "k_VoteUnknown", ModInstance::k_VoteUnknown);
+    context->RegisterEnumValue("UserVote", "k_VoteNone", ModInstance::k_VoteNone);
+    context->RegisterEnumValue("UserVote", "k_VoteUp", ModInstance::k_VoteUp);
+    context->RegisterEnumValue("UserVote", "k_VoteDown", ModInstance::k_VoteDown);
 
-    context->RegisterObjectType("Parameter", sizeof(ModInstance::Parameter), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
+    context->RegisterObjectType("Parameter", sizeof(ModInstance::Parameter), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
     context->RegisterObjectBehaviour("Parameter", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ASParameterConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("Parameter", asBEHAVE_CONSTRUCT, "void f(const Parameter &in other)", asFUNCTION(ASParameterCopyConstructor),  asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("Parameter", asBEHAVE_DESTRUCT,  "void f()", asFUNCTION(ASParameterDestructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectMethod("Parameter", "Parameter& opAssign(const Parameter &in other)",   asFUNCTION(ASParameterOpAssign),             asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectBehaviour("Parameter", asBEHAVE_CONSTRUCT, "void f(const Parameter &in other)", asFUNCTION(ASParameterCopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("Parameter", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(ASParameterDestructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectMethod("Parameter", "Parameter& opAssign(const Parameter &in other)", asFUNCTION(ASParameterOpAssign), asCALL_CDECL_OBJFIRST);
 
     context->RegisterObjectMethod("Parameter", "Parameter opIndex( const string &in )", asFUNCTION(ParameterConstStringIndex), asCALL_CDECL_OBJFIRST);
     context->RegisterObjectMethod("Parameter", "Parameter opIndex( const int &in )", asFUNCTION(ParameterConstIntIndex), asCALL_CDECL_OBJFIRST);
 
     context->RegisterObjectMethod("Parameter", "string getName()", asFUNCTION(ASParameterGetName), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("Parameter", "bool isEmpty()",   asFUNCTION(ASParameterIsEmpty), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Parameter", "bool isString()",  asFUNCTION(ASParameterIsString), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Parameter", "bool isArray()",   asFUNCTION(ASParameterIsArray), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Parameter", "bool isTable()",   asFUNCTION(ASParameterIsTable), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Parameter", "uint size()",      asFUNCTION(ASParameterSize), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Parameter", "bool isEmpty()", asFUNCTION(ASParameterIsEmpty), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Parameter", "bool isString()", asFUNCTION(ASParameterIsString), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Parameter", "bool isArray()", asFUNCTION(ASParameterIsArray), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Parameter", "bool isTable()", asFUNCTION(ASParameterIsTable), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Parameter", "uint size()", asFUNCTION(ASParameterSize), asCALL_CDECL_OBJFIRST);
 
     context->RegisterObjectMethod("Parameter", "string asString()", asFUNCTION(ASParameterAsString), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("Parameter", "bool contains(const string &in value)",asFUNCTION(ASParameterContains), asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Parameter", "bool containsName(const string &in value)",asFUNCTION(ASParameterContainsName), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Parameter", "bool contains(const string &in value)", asFUNCTION(ASParameterContains), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Parameter", "bool containsName(const string &in value)", asFUNCTION(ASParameterContainsName), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectType("ModID", sizeof(ModID), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CD );
+    context->RegisterObjectType("ModID", sizeof(ModID), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CD);
 
     context->RegisterObjectBehaviour("ModID", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ASModIDConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ModID", asBEHAVE_DESTRUCT,  "void f()", asFUNCTION(ASModIDDestructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ModID", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(ASModIDDestructor), asCALL_CDECL_OBJLAST);
 
-    context->RegisterObjectMethod("ModID", "bool Valid()",                    asFUNCTION(ASModIDValid), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModID", "bool Valid()", asFUNCTION(ASModIDValid), asCALL_CDECL_OBJFIRST);
     context->DocsCloseBrace();
 
-    context->RegisterObjectType("MenuItem", sizeof(ModInstance::MenuItem), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CD );
+    context->RegisterObjectType("MenuItem", sizeof(ModInstance::MenuItem), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CD);
     context->RegisterObjectBehaviour("MenuItem", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ASMenuItemConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("MenuItem", asBEHAVE_DESTRUCT,  "void f()", asFUNCTION(ASMenuItemDestructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("MenuItem", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(ASMenuItemDestructor), asCALL_CDECL_OBJLAST);
 
-    context->RegisterObjectMethod("MenuItem", "string GetTitle()",          asFUNCTION(ASMenuItemGetTitle),     asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("MenuItem", "string GetCategory()",       asFUNCTION(ASMenuItemGetCategory),  asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("MenuItem", "string GetPath()",           asFUNCTION(ASMenuItemGetPath),      asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("MenuItem", "string GetThumbnail()",      asFUNCTION(ASMenuItemGetThumbnail), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("MenuItem", "string GetTitle()", asFUNCTION(ASMenuItemGetTitle), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("MenuItem", "string GetCategory()", asFUNCTION(ASMenuItemGetCategory), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("MenuItem", "string GetPath()", asFUNCTION(ASMenuItemGetPath), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("MenuItem", "string GetThumbnail()", asFUNCTION(ASMenuItemGetThumbnail), asCALL_CDECL_OBJFIRST);
     context->DocsCloseBrace();
 
-    context->RegisterObjectType("SpawnerItem", sizeof(ModInstance::Item), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CD );
+    context->RegisterObjectType("SpawnerItem", sizeof(ModInstance::Item), asOBJ_VALUE | asOBJ_POD | asOBJ_APP_CLASS_CD);
     context->RegisterObjectBehaviour("SpawnerItem", asBEHAVE_CONSTRUCT, "void SpawnerItem()", asFUNCTION(ASSpawnerItemConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("SpawnerItem", asBEHAVE_DESTRUCT,  "void SpawnerItem()", asFUNCTION(ASSpawnerItemDestructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("SpawnerItem", asBEHAVE_DESTRUCT, "void SpawnerItem()", asFUNCTION(ASSpawnerItemDestructor), asCALL_CDECL_OBJLAST);
 
-    context->RegisterObjectMethod("SpawnerItem", "string GetTitle()",          asFUNCTION(ASSpawnerItemGetTitle),     asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("SpawnerItem", "string GetCategory()",       asFUNCTION(ASSpawnerItemGetCategory),  asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("SpawnerItem", "string GetPath()",           asFUNCTION(ASSpawnerItemGetPath),      asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("SpawnerItem", "string GetThumbnail()",      asFUNCTION(ASSpawnerItemGetThumbnail), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("SpawnerItem", "string GetTitle()", asFUNCTION(ASSpawnerItemGetTitle), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("SpawnerItem", "string GetCategory()", asFUNCTION(ASSpawnerItemGetCategory), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("SpawnerItem", "string GetPath()", asFUNCTION(ASSpawnerItemGetPath), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("SpawnerItem", "string GetThumbnail()", asFUNCTION(ASSpawnerItemGetThumbnail), asCALL_CDECL_OBJFIRST);
     context->DocsCloseBrace();
 
-    context->RegisterObjectType("ModLevel", sizeof(ModInstance::Level), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK );
+    context->RegisterObjectType("ModLevel", sizeof(ModInstance::Level), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
 
     context->RegisterObjectBehaviour("ModLevel", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ASLevelConstructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ModLevel", asBEHAVE_CONSTRUCT, "void f(const ModLevel &in other)", asFUNCTION(ASLevelCopyConstructor),  asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("ModLevel", asBEHAVE_DESTRUCT,  "void f()", asFUNCTION(ASLevelDestructor), asCALL_CDECL_OBJLAST);
-    context->RegisterObjectMethod("ModLevel", "ModLevel& opAssign(const ModLevel &in other)",   asFUNCTION(ASLevelOpAssign),             asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectBehaviour("ModLevel", asBEHAVE_CONSTRUCT, "void f(const ModLevel &in other)", asFUNCTION(ASLevelCopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("ModLevel", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(ASLevelDestructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectMethod("ModLevel", "ModLevel& opAssign(const ModLevel &in other)", asFUNCTION(ASLevelOpAssign), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterObjectMethod("ModLevel", "string GetTitle()",         asFUNCTION(ASLevelGetTitle),         asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("ModLevel", "string GetID()",         asFUNCTION(ASLevelGetID),         asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("ModLevel", "string GetThumbnail()",     asFUNCTION(ASLevelGetThumbnail),     asCALL_CDECL_OBJFIRST);
-	context->RegisterObjectMethod("ModLevel", "bool GetSupportsOnline()",       asFUNCTION(ASLevelGetSupportsOnline),   asCALL_CDECL_OBJFIRST);
-	context->RegisterObjectMethod("ModLevel", "bool GetRequiresOnline()",       asFUNCTION(ASLevelGetRequiresOnline),    asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("ModLevel", "string GetPath()",          asFUNCTION(ASLevelGetPath),          asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("ModLevel", "LevelDetails GetDetails()",    asFUNCTION(ASLevelGetLevelDetails),          asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("ModLevel", "bool CompletionOptional()",    asFUNCTION(ASLevelCompletionOptional),          asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "string GetTitle()", asFUNCTION(ASLevelGetTitle), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "string GetID()", asFUNCTION(ASLevelGetID), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "string GetThumbnail()", asFUNCTION(ASLevelGetThumbnail), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "bool GetSupportsOnline()", asFUNCTION(ASLevelGetSupportsOnline), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "bool GetRequiresOnline()", asFUNCTION(ASLevelGetRequiresOnline), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "string GetPath()", asFUNCTION(ASLevelGetPath), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "LevelDetails GetDetails()", asFUNCTION(ASLevelGetLevelDetails), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("ModLevel", "bool CompletionOptional()", asFUNCTION(ASLevelCompletionOptional), asCALL_CDECL_OBJFIRST);
 
     context->RegisterObjectMethod("ModLevel", "Parameter GetParameter()", asFUNCTION(ASLevelGetParameter), asCALL_CDECL_OBJFIRST);
     context->DocsCloseBrace();
 
     context->RegisterObjectType("Campaign", sizeof(ModInstance::Campaign), asOBJ_VALUE | asOBJ_APP_CLASS_CDAK);
-    context->RegisterObjectBehaviour("Campaign", asBEHAVE_CONSTRUCT, "void f()",                         asFUNCTION(ASCampaignConstructor),      asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("Campaign", asBEHAVE_CONSTRUCT, "void f(const Campaign &in other)", asFUNCTION(ASCampaignCopyConstructor),  asCALL_CDECL_OBJLAST);
-    context->RegisterObjectBehaviour("Campaign", asBEHAVE_DESTRUCT,  "void f()",                         asFUNCTION(ASCampaignDestructor),       asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("Campaign", asBEHAVE_CONSTRUCT, "void f()", asFUNCTION(ASCampaignConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("Campaign", asBEHAVE_CONSTRUCT, "void f(const Campaign &in other)", asFUNCTION(ASCampaignCopyConstructor), asCALL_CDECL_OBJLAST);
+    context->RegisterObjectBehaviour("Campaign", asBEHAVE_DESTRUCT, "void f()", asFUNCTION(ASCampaignDestructor), asCALL_CDECL_OBJLAST);
 
-    context->RegisterObjectMethod("Campaign", "Campaign& opAssign(const Campaign &in other)",   asFUNCTION(ASCampaignOpAssign),             asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "string GetID()",                                 asFUNCTION(ASCampaignGetID),                asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "string GetTitle()",                              asFUNCTION(ASCampaignGetTitle),             asCALL_CDECL_OBJFIRST);
-	context->RegisterObjectMethod("Campaign", "bool GetSupportsOnline()",						asFUNCTION(ASCampaignGetSupportsOnline),	asCALL_CDECL_OBJFIRST);
-	context->RegisterObjectMethod("Campaign", "bool GetRequiresOnline()",						asFUNCTION(ASCampaignGetRequiresOnline),	asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "string GetThumbnail()",                          asFUNCTION(ASCampaignGetThumbnail),         asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "string GetMainScript()",                         asFUNCTION(ASCampaignGetMainScript),        asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "string GetMenuScript()",                         asFUNCTION(ASCampaignGetMenuScript),        asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "string GetAttribute(string &in id)",             asFUNCTION(ASCampaignGetAttribute),         asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "array<ModLevel>@ GetLevels()",                   asFUNCTION(ASCampaignGetLevels),            asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "ModLevel GetLevel(string &in id)",               asFUNCTION(ASCampaignGetLevel),             asCALL_CDECL_OBJFIRST);
-    context->RegisterObjectMethod("Campaign", "Parameter GetParameter()",                       asFUNCTION(ASCampaignGetParameter), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "Campaign& opAssign(const Campaign &in other)", asFUNCTION(ASCampaignOpAssign), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "string GetID()", asFUNCTION(ASCampaignGetID), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "string GetTitle()", asFUNCTION(ASCampaignGetTitle), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "bool GetSupportsOnline()", asFUNCTION(ASCampaignGetSupportsOnline), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "bool GetRequiresOnline()", asFUNCTION(ASCampaignGetRequiresOnline), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "string GetThumbnail()", asFUNCTION(ASCampaignGetThumbnail), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "string GetMainScript()", asFUNCTION(ASCampaignGetMainScript), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "string GetMenuScript()", asFUNCTION(ASCampaignGetMenuScript), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "string GetAttribute(string &in id)", asFUNCTION(ASCampaignGetAttribute), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "array<ModLevel>@ GetLevels()", asFUNCTION(ASCampaignGetLevels), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "ModLevel GetLevel(string &in id)", asFUNCTION(ASCampaignGetLevel), asCALL_CDECL_OBJFIRST);
+    context->RegisterObjectMethod("Campaign", "Parameter GetParameter()", asFUNCTION(ASCampaignGetParameter), asCALL_CDECL_OBJFIRST);
 
-    context->RegisterGlobalFunction("Campaign GetCampaign(string& campaign_id)",                asFUNCTION(ASGetCampaign),                  asCALL_CDECL);
-    context->RegisterGlobalFunction("array<Campaign>@ GetCampaigns()",                          asFUNCTION(ASGetCampaigns),                 asCALL_CDECL);
+    context->RegisterGlobalFunction("Campaign GetCampaign(string& campaign_id)", asFUNCTION(ASGetCampaign), asCALL_CDECL);
+    context->RegisterGlobalFunction("array<Campaign>@ GetCampaigns()", asFUNCTION(ASGetCampaigns), asCALL_CDECL);
 
-    context->RegisterGlobalFunction("bool ModIsActive(ModID& id)",                              asFUNCTION(ASModIsActive),                  asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModNeedsRestart(ModID& id)",                          asFUNCTION(ASModNeedsRestart),              asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModIsValid(ModID& id)",                               asFUNCTION(ASModIsValid),                   asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModIsCore(ModID& id)",                                asFUNCTION(ASModIsCore),                    asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModCanActivate(ModID& id)",                           asFUNCTION(ASModCanActivate),               asCALL_CDECL);
-    context->RegisterGlobalFunction("int ModGetSource(ModID& id)",                              asFUNCTION(ASModGetSource),                 asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetID(ModID& id)",                               asFUNCTION(ASModGetID),                     asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetName(ModID& id)",                             asFUNCTION(ASModGetName),                   asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModGetSupportsOnline(ModID& id)",                     asFUNCTION(ASModGetSupportsOnline),         asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModGetSupportsCurrentVersion(ModID& id)",             asFUNCTION(ASModGetSupportsCurrentVersion), asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetAuthor(ModID& id)",                           asFUNCTION(ASModGetAuthor),                 asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetVersion(ModID& id)",                          asFUNCTION(ASModGetVersion),                asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetTags(ModID& id)",                             asFUNCTION(ASModGetTags),                   asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetPath(ModID& sid)",                            asFUNCTION(ASGetModPath),                   asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetValidityString(ModID& sid)",                  asFUNCTION(ASGetModValidityString),         asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetDescription(ModID& id)",                      asFUNCTION(ASModGetDescription),            asCALL_CDECL);
-    context->RegisterGlobalFunction("string ModGetThumbnail(ModID& sid)",                       asFUNCTION(ASGetModThumbnail),              asCALL_CDECL);
-    context->RegisterGlobalFunction("array<MenuItem>@ ModGetMenuItems(ModID& sid)",             asFUNCTION(ASModGetMenuItems),              asCALL_CDECL);
-    context->RegisterGlobalFunction("array<SpawnerItem>@ ModGetSpawnerItems(ModID& sid)",       asFUNCTION(ASModGetSpawnerItems),           asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModIsActive(ModID& id)", asFUNCTION(ASModIsActive), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModNeedsRestart(ModID& id)", asFUNCTION(ASModNeedsRestart), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModIsValid(ModID& id)", asFUNCTION(ASModIsValid), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModIsCore(ModID& id)", asFUNCTION(ASModIsCore), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModCanActivate(ModID& id)", asFUNCTION(ASModCanActivate), asCALL_CDECL);
+    context->RegisterGlobalFunction("int ModGetSource(ModID& id)", asFUNCTION(ASModGetSource), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetID(ModID& id)", asFUNCTION(ASModGetID), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetName(ModID& id)", asFUNCTION(ASModGetName), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModGetSupportsOnline(ModID& id)", asFUNCTION(ASModGetSupportsOnline), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModGetSupportsCurrentVersion(ModID& id)", asFUNCTION(ASModGetSupportsCurrentVersion), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetAuthor(ModID& id)", asFUNCTION(ASModGetAuthor), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetVersion(ModID& id)", asFUNCTION(ASModGetVersion), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetTags(ModID& id)", asFUNCTION(ASModGetTags), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetPath(ModID& sid)", asFUNCTION(ASGetModPath), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetValidityString(ModID& sid)", asFUNCTION(ASGetModValidityString), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetDescription(ModID& id)", asFUNCTION(ASModGetDescription), asCALL_CDECL);
+    context->RegisterGlobalFunction("string ModGetThumbnail(ModID& sid)", asFUNCTION(ASGetModThumbnail), asCALL_CDECL);
+    context->RegisterGlobalFunction("array<MenuItem>@ ModGetMenuItems(ModID& sid)", asFUNCTION(ASModGetMenuItems), asCALL_CDECL);
+    context->RegisterGlobalFunction("array<SpawnerItem>@ ModGetSpawnerItems(ModID& sid)", asFUNCTION(ASModGetSpawnerItems), asCALL_CDECL);
     context->RegisterGlobalFunction("array<SpawnerItem>@ ModGetAllSpawnerItems(bool only_include_active = true)", asFUNCTION(ASModGetAllSpawnerItems), asCALL_CDECL);
-    context->RegisterGlobalFunction("array<ModLevel>@ ModGetCampaignLevels(ModID& sid)",        asFUNCTION(ASModGetModCampaignLevels),      asCALL_CDECL);
-    context->RegisterGlobalFunction("array<ModLevel>@ ModGetSingleLevels(ModID& sid)",          asFUNCTION(ASModGetModSingleLevels),        asCALL_CDECL);
-    context->RegisterGlobalFunction("UserVote ModGetUserVote(ModID& sid)",                      asFUNCTION(ASModGetModUserVote),            asCALL_CDECL);
-    context->RegisterGlobalFunction("void RequestModSetUserVote(ModID& id, bool voteup)",       asFUNCTION(ASRequestModSetUserVote),        asCALL_CDECL);
-    context->RegisterGlobalFunction("void RequestModSetFavorite(ModID& id, bool fav)",          asFUNCTION(ASRequestModSetFavorite),        asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModIsFavorite(ModID& id)",                            asFUNCTION(ASModIsFavorite),                asCALL_CDECL);
+    context->RegisterGlobalFunction("array<ModLevel>@ ModGetCampaignLevels(ModID& sid)", asFUNCTION(ASModGetModCampaignLevels), asCALL_CDECL);
+    context->RegisterGlobalFunction("array<ModLevel>@ ModGetSingleLevels(ModID& sid)", asFUNCTION(ASModGetModSingleLevels), asCALL_CDECL);
+    context->RegisterGlobalFunction("UserVote ModGetUserVote(ModID& sid)", asFUNCTION(ASModGetModUserVote), asCALL_CDECL);
+    context->RegisterGlobalFunction("void RequestModSetUserVote(ModID& id, bool voteup)", asFUNCTION(ASRequestModSetUserVote), asCALL_CDECL);
+    context->RegisterGlobalFunction("void RequestModSetFavorite(ModID& id, bool fav)", asFUNCTION(ASRequestModSetFavorite), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModIsFavorite(ModID& id)", asFUNCTION(ASModIsFavorite), asCALL_CDECL);
 
-    context->RegisterGlobalFunction("array<ModID>@ GetModSids()",                               asFUNCTION(ASGetModSids),                   asCALL_CDECL);
-    context->RegisterGlobalFunction("array<ModID>@ GetActiveModSids()",                         asFUNCTION(ASGetActiveModSids),             asCALL_CDECL);
-    context->RegisterGlobalFunction("bool ModActivation(ModID& sid, bool active)",              asFUNCTION(ASModActivation),                asCALL_CDECL);
+    context->RegisterGlobalFunction("array<ModID>@ GetModSids()", asFUNCTION(ASGetModSids), asCALL_CDECL);
+    context->RegisterGlobalFunction("array<ModID>@ GetActiveModSids()", asFUNCTION(ASGetActiveModSids), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool ModActivation(ModID& sid, bool active)", asFUNCTION(ASModActivation), asCALL_CDECL);
 
-    context->RegisterGlobalFunction("void RequestWorkshopSubscribe(ModID& id)",                 asFUNCTION(ASRequestWorkshopSubscribe),     asCALL_CDECL);
-    context->RegisterGlobalFunction("void RequestWorkshopUnSubscribe(ModID& id)",               asFUNCTION(ASRequestWorkshopUnSubscribe),   asCALL_CDECL);
-    context->RegisterGlobalFunction("bool IsWorkshopSubscribed(ModID& id)",                     asFUNCTION(ASIsWorkshopSubscribed),         asCALL_CDECL);
-    context->RegisterGlobalFunction("bool IsWorkshopMod(ModID& id)",                            asFUNCTION(ASIsWorkshopMod),                asCALL_CDECL);
+    context->RegisterGlobalFunction("void RequestWorkshopSubscribe(ModID& id)", asFUNCTION(ASRequestWorkshopSubscribe), asCALL_CDECL);
+    context->RegisterGlobalFunction("void RequestWorkshopUnSubscribe(ModID& id)", asFUNCTION(ASRequestWorkshopUnSubscribe), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool IsWorkshopSubscribed(ModID& id)", asFUNCTION(ASIsWorkshopSubscribed), asCALL_CDECL);
+    context->RegisterGlobalFunction("bool IsWorkshopMod(ModID& id)", asFUNCTION(ASIsWorkshopMod), asCALL_CDECL);
 
-    context->RegisterGlobalFunction("bool IsWorkshopAvailable()",                               asFUNCTION(ASIsWorkshopAvailable),          asCALL_CDECL);
+    context->RegisterGlobalFunction("bool IsWorkshopAvailable()", asFUNCTION(ASIsWorkshopAvailable), asCALL_CDECL);
 
-    context->RegisterGlobalFunction("void SaveModConfig()",                                     asFUNCTION(ASSaveModConfig),                asCALL_CDECL);
+    context->RegisterGlobalFunction("void SaveModConfig()", asFUNCTION(ASSaveModConfig), asCALL_CDECL);
 
-    context->RegisterGlobalFunction("void OpenModWorkshopPage(ModID& id)",                      asFUNCTION(ASOpenModWorkshopPage),          asCALL_CDECL);
-    context->RegisterGlobalFunction("void OpenModAuthorWorkshopPage(ModID& id)",                asFUNCTION(ASOpenModAuthorWorkshopPage),    asCALL_CDECL);
-    context->RegisterGlobalFunction("void OpenWorkshop()",                                      asFUNCTION(ASOpenWorkshop),                 asCALL_CDECL);
-    context->RegisterGlobalFunction("void DeactivateAllMods()",                                 asFUNCTION(ASDeactivateAllMods),                 asCALL_CDECL);
+    context->RegisterGlobalFunction("void OpenModWorkshopPage(ModID& id)", asFUNCTION(ASOpenModWorkshopPage), asCALL_CDECL);
+    context->RegisterGlobalFunction("void OpenModAuthorWorkshopPage(ModID& id)", asFUNCTION(ASOpenModAuthorWorkshopPage), asCALL_CDECL);
+    context->RegisterGlobalFunction("void OpenWorkshop()", asFUNCTION(ASOpenWorkshop), asCALL_CDECL);
+    context->RegisterGlobalFunction("void DeactivateAllMods()", asFUNCTION(ASDeactivateAllMods), asCALL_CDECL);
 
-    context->RegisterGlobalFunction("uint WorkshopSubscribedNotInstalledCount()",               asFUNCTION(ASWorkshopSubscribedNotInstalledCount), asCALL_CDECL);
-    context->RegisterGlobalFunction("uint WorkshopDownloadingCount()",                          asFUNCTION(ASWorkshopDownloadingCount),      asCALL_CDECL);
-    context->RegisterGlobalFunction("uint WorkshopDownloadPendingCount()",                      asFUNCTION(ASWorkshopDownloadPendingCount),  asCALL_CDECL);
-    context->RegisterGlobalFunction("uint WorkshopNeedsUpdateCount()",                          asFUNCTION(ASWorkshopNeedsUpdateCount),      asCALL_CDECL);
-    context->RegisterGlobalFunction("float WorkshopTotalDownloadProgress()",                    asFUNCTION(ASWorkshopTotalDownloadProgress), asCALL_CDECL);
+    context->RegisterGlobalFunction("uint WorkshopSubscribedNotInstalledCount()", asFUNCTION(ASWorkshopSubscribedNotInstalledCount), asCALL_CDECL);
+    context->RegisterGlobalFunction("uint WorkshopDownloadingCount()", asFUNCTION(ASWorkshopDownloadingCount), asCALL_CDECL);
+    context->RegisterGlobalFunction("uint WorkshopDownloadPendingCount()", asFUNCTION(ASWorkshopDownloadPendingCount), asCALL_CDECL);
+    context->RegisterGlobalFunction("uint WorkshopNeedsUpdateCount()", asFUNCTION(ASWorkshopNeedsUpdateCount), asCALL_CDECL);
+    context->RegisterGlobalFunction("float WorkshopTotalDownloadProgress()", asFUNCTION(ASWorkshopTotalDownloadProgress), asCALL_CDECL);
 }
 
-void AttachIMGUIModding(ASContext *context) {
-    context->RegisterGlobalFunction("IMImage@ ModGetThumbnailImage(ModID& sid)",                asFUNCTION(ASGetModThumbnailImage),         asCALL_CDECL);
+void AttachIMGUIModding(ASContext* context) {
+    context->RegisterGlobalFunction("IMImage@ ModGetThumbnailImage(ModID& sid)", asFUNCTION(ASGetModThumbnailImage), asCALL_CDECL);
 }
 
-static std::map<std::string,std::string> storage_string;
-static std::map<std::string,int32_t> storage_int32;
+static std::map<std::string, std::string> storage_string;
+static std::map<std::string, int32_t> storage_int32;
 
-void ASStorageSetString( std::string index, std::string value ) {
+void ASStorageSetString(std::string index, std::string value) {
     storage_string[index] = value;
 }
 
-bool ASStorageHasString( std::string index ) {
+bool ASStorageHasString(std::string index) {
     return storage_string.find(index) != storage_string.end();
 }
 
-std::string ASStorageGetString( std::string index ) {
+std::string ASStorageGetString(std::string index) {
     return storage_string[index];
 }
 
-void ASStorageSetInt32( std::string index, int32_t value ) {
+void ASStorageSetInt32(std::string index, int32_t value) {
     storage_int32[index] = value;
 }
 
-bool ASStorageHasInt32( std::string index ) {
+bool ASStorageHasInt32(std::string index) {
     return storage_int32.find(index) != storage_int32.end();
 }
 
-int32_t ASStorageGetInt32( std::string index ) {
+int32_t ASStorageGetInt32(std::string index) {
     return storage_int32[index];
 }
 
-//Routine for storing angelscript data over the course of single run.
-void AttachStorage(ASContext *context) {
+// Routine for storing angelscript data over the course of single run.
+void AttachStorage(ASContext* context) {
     context->RegisterGlobalFunction("void StorageSetString(string index, string value)", asFUNCTION(ASStorageSetString), asCALL_CDECL);
     context->RegisterGlobalFunction("bool StorageHasString(string index)", asFUNCTION(ASStorageHasString), asCALL_CDECL);
     context->RegisterGlobalFunction("string StorageGetString(string index)", asFUNCTION(ASStorageGetString), asCALL_CDECL);

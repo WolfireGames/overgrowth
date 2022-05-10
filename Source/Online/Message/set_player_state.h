@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: set_player_state.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,24 +27,24 @@
 struct PlayerState;
 
 namespace OnlineMessages {
-    // TODO It would be nice if we could only send the deltas instead of resending everything every time
-    class SetPlayerState : public OnlineMessageBase {
-    private:
-        PlayerID player_id;
+// TODO It would be nice if we could only send the deltas instead of resending everything every time
+class SetPlayerState : public OnlineMessageBase {
+   private:
+    PlayerID player_id;
 
-        CommonObjectID object_id;
-        std::string playername;
-        uint16_t ping;
-        int32_t controller_id;
-        int32_t camera_id;
+    CommonObjectID object_id;
+    std::string playername;
+    uint16_t ping;
+    int32_t controller_id;
+    int32_t camera_id;
 
-    public:
-        SetPlayerState(PlayerID player_id, const PlayerState* player_state);
+   public:
+    SetPlayerState(PlayerID player_id, const PlayerState* player_state);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

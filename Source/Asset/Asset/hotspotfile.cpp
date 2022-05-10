@@ -39,19 +39,18 @@
 #include <string>
 #include <cmath>
 
-HotspotFile::HotspotFile( AssetManager* owner, uint32_t asset_id ) : AssetInfo( owner, asset_id ), sub_error(0) {
-     
+HotspotFile::HotspotFile(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id), sub_error(0) {
 }
 
-void HotspotFile::ReturnPaths( PathSet& path_set ) {
-    path_set.insert("hotspot "+path_);
-    path_set.insert("texture "+billboard_color_map);
-    path_set.insert("script "+script);
+void HotspotFile::ReturnPaths(PathSet& path_set) {
+    path_set.insert("hotspot " + path_);
+    path_set.insert("texture " + billboard_color_map);
+    path_set.insert("script " + script);
     // Commented out so that 'loadlevel' works properly
-    //ScriptFileUtil::ReturnPaths("Data/Scripts/"+script, path_set);    
+    // ScriptFileUtil::ReturnPaths("Data/Scripts/"+script, path_set);
 }
 
-int HotspotFile::Load( const std::string &rel_path, uint32_t load_flags ) {
+int HotspotFile::Load(const std::string& rel_path, uint32_t load_flags) {
     sub_error = 0;
     char abs_path[kPathSize];
     if (FindFilePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths | kAbsPath) == -1) {
@@ -63,7 +62,8 @@ int HotspotFile::Load( const std::string &rel_path, uint32_t load_flags ) {
     if (!XmlHelper::getNodeValue(doc, "Hotspot/BillboardColorMap", billboard_color_map)) {
         sub_error = 1;
         return kLoadErrorMissingSubFile;
-    } if (!XmlHelper::getNodeValue(doc, "Hotspot/Script", script)) {
+    }
+    if (!XmlHelper::getNodeValue(doc, "Hotspot/Script", script)) {
         sub_error = 2;
         return kLoadErrorMissingSubFile;
     }
@@ -71,24 +71,25 @@ int HotspotFile::Load( const std::string &rel_path, uint32_t load_flags ) {
 }
 
 const char* HotspotFile::GetLoadErrorString() {
-    switch(sub_error) {
-        case 0: return "";
-        case 1: return "BillboardColorMap not found. Aborting hotspot load.";
-        case 2: return "Script not found. Aborting hotspot load.";
-        default: return "Undefined error";
+    switch (sub_error) {
+        case 0:
+            return "";
+        case 1:
+            return "BillboardColorMap not found. Aborting hotspot load.";
+        case 2:
+            return "Script not found. Aborting hotspot load.";
+        default:
+            return "Undefined error";
     }
 }
 
 void HotspotFile::Unload() {
-
 }
 
 void HotspotFile::Reload() {
-
 }
 
 void HotspotFile::ReportLoad() {
-
 }
 
 AssetLoaderBase* HotspotFile::NewLoader() {

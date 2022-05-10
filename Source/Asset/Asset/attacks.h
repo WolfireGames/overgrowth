@@ -52,7 +52,7 @@ enum CutPlaneType {
 class AssetManager;
 
 class Attack : public AssetInfo {
-public:
+   public:
     string special;
     string unblocked_anim_path;
     string blocked_anim_path;
@@ -83,8 +83,8 @@ public:
     CutPlaneType stab_type;
 
     Attack(AssetManager* owner, uint32_t asset_id);
-    void ReturnPaths(PathSet &path_set) override;
-    int Load(const string &path, uint32_t load_flags);
+    void ReturnPaths(PathSet& path_set) override;
+    int Load(const string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
 

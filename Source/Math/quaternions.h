@@ -27,28 +27,28 @@
 #include <Math/mat3.h>
 
 class quaternion {
-public:
+   public:
     float entries[4];
-    
-    quaternion& operator+=( const quaternion &b );
+
+    quaternion &operator+=(const quaternion &b);
 
     quaternion(bool Degree_Flag, vec3 Euler);
     quaternion(float x, float y, float z, float w);
-    quaternion(vec4 AnAx); // vec4(vec3(axis), float angle [radians])
-    quaternion(const quaternion &other);    
-    quaternion();    
-	float& operator[](int which){ return entries[which]; }
-	const float& operator[](int which)const{ return entries[which]; }
+    quaternion(vec4 AnAx);  // vec4(vec3(axis), float angle [radians])
+    quaternion(const quaternion &other);
+    quaternion();
+    float &operator[](int which) { return entries[which]; }
+    const float &operator[](int which) const { return entries[which]; }
 };
 
-float Length2(const quaternion& quat);
+float Length2(const quaternion &quat);
 vec4 Quat_2_AA(quaternion Quat);
 quaternion normalize(const quaternion &quat);
 quaternion Quat_Mult(const quaternion &q1, const quaternion &q2);
 quaternion QNormalize(quaternion Quat);
 vec3 Quat2Vector(quaternion Quat);
-void QuaternionInvert(quaternion * quat);
-void QuaternionToAxisAngle(quaternion quat, vec3 * axis, float * angle);
+void QuaternionInvert(quaternion *quat);
+void QuaternionToAxisAngle(quaternion quat, vec3 *axis, float *angle);
 quaternion QuaternionFromAxisAngle(vec3 axis, float angle);
 
 quaternion QuaternionFromMat4(const mat4 &m);
@@ -59,36 +59,34 @@ quaternion invert(const quaternion &quat);
 const quaternion operator*(const quaternion &a,
                            const quaternion &b);
 bool operator!=(const quaternion &a,
-                      const quaternion &b);
+                const quaternion &b);
 bool operator==(const quaternion &a,
-                      const quaternion &b);
+                const quaternion &b);
 const quaternion operator+(const quaternion &a,
                            const quaternion &b);
 const vec3 operator*(const quaternion &a,
                      const vec3 &b);
 const quaternion operator*(const quaternion &a,
-                            float b);
-float dot( const quaternion &a, const quaternion &b );
+                           float b);
+float dot(const quaternion &a, const quaternion &b);
 
 quaternion Slerp(quaternion start, quaternion end, float t);
-inline quaternion mix( const quaternion &a, const quaternion &b, float alpha )
-{return Slerp(a,b,alpha);}
+inline quaternion mix(const quaternion &a, const quaternion &b, float alpha) { return Slerp(a, b, alpha); }
 
-vec3 ASMult( quaternion a, vec3 b );
+vec3 ASMult(quaternion a, vec3 b);
 quaternion invert_by_val(quaternion quat);
-void QuaternionMultiplyVector(const quaternion * quat, vec3 * vector);
+void QuaternionMultiplyVector(const quaternion *quat, vec3 *vector);
 
-
-inline vec3 QuaternionMultiplyVectorFast(const quaternion& quat, const vec3& vector) {
+inline vec3 QuaternionMultiplyVectorFast(const quaternion &quat, const vec3 &vector) {
     // Adapted from https://github.com/g-truc/glm/blob/master/glm/detail/type_quat.inl
     // Also from Fabien Giesen, according to - https://blog.molecular-matters.com/2013/05/24/a-faster-quaternion-vector-multiplication/
-    vec3 quat_vector = *(vec3*)&quat.entries[0];
+    vec3 quat_vector = *(vec3 *)&quat.entries[0];
     vec3 uv = cross(quat_vector, vector);
     vec3 uuv = cross(quat_vector, uv);
     return vector + ((uv * quat[3]) + uuv) * 2.0f;
 }
 
-inline vec3 TransformVec3(const vec3& scale, const quaternion& rotation, const vec3& translation, const vec3& vertex) {
+inline vec3 TransformVec3(const vec3 &scale, const quaternion &rotation, const vec3 &translation, const vec3 &vertex) {
     vec3 result = vertex;
     result *= scale;
     result = QuaternionMultiplyVectorFast(rotation, result);
@@ -96,12 +94,10 @@ inline vec3 TransformVec3(const vec3& scale, const quaternion& rotation, const v
     return result;
 }
 
+vec3 QuaternionToEuler(const quaternion &quat);
+quaternion EulerToQuaternion(const vec3 &euler);
 
-vec3 QuaternionToEuler(const quaternion& quat);
-quaternion EulerToQuaternion(const vec3& euler);
-
-inline std::ostream& operator<<(std::ostream& os, const quaternion& v )
-{
+inline std::ostream &operator<<(std::ostream &os, const quaternion &v) {
     os << "quat(" << v[0] << "," << v[1] << "," << v[2] << "," << v[3] << ")";
     return os;
 }

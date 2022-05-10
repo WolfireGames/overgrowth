@@ -28,28 +28,28 @@
 
 #include <vector>
 
-class alAudioSource
-{
-public:
+class alAudioSource {
+   public:
     alAudioSource();
     ~alAudioSource();
 
-    void Sourcef( ALenum param, ALfloat value );
-    void Source3f( ALenum param, ALfloat v1, ALfloat v2, ALfloat v3 );
-    void Sourcei( ALenum param, ALint value );
+    void Sourcef(ALenum param, ALfloat value);
+    void Source3f(ALenum param, ALfloat v1, ALfloat v2, ALfloat v3);
+    void Sourcei(ALenum param, ALint value);
 
-    ALint GetSourcei( ALenum pname );
+    ALint GetSourcei(ALenum pname);
 
     void Allocate();
-    void SetBuffer( rc_alAudioBuffer buf );
-    void QueueBuffers( std::vector<rc_alAudioBuffer> d );
+    void SetBuffer(rc_alAudioBuffer buf);
+    void QueueBuffers(std::vector<rc_alAudioBuffer> d);
     std::vector<rc_alAudioBuffer> DequeueBuffers();
 
     void Play();
     void Stop();
 
     bool IsValid();
-private:
+
+   private:
     static const ALuint INVALID_SRC = 0xFFFFFFFF;
     ALuint src;
     rc_alAudioBuffer boundBuffer;

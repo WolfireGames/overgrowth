@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: sp_rename_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,19 +25,19 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class SPRenameMessage : public OnlineMessageBase {
-    private:
-        CommonObjectID param_id;
-        std::string current_key_name;
-        std::string new_key_name;
+class SPRenameMessage : public OnlineMessageBase {
+   private:
+    CommonObjectID param_id;
+    std::string current_key_name;
+    std::string new_key_name;
 
-    public:
-        SPRenameMessage(ObjectID param_id, const std::string& current_key_name, const std::string& new_key_name);
+   public:
+    SPRenameMessage(ObjectID param_id, const std::string& current_key_name, const std::string& new_key_name);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

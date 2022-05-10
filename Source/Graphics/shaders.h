@@ -37,12 +37,12 @@
 #define maximum_shaders 200
 #define maximum_programs 200
 
-enum ShaderType {_vertex = 0, 
-                 _fragment, 
-                 _geom, 
-                 _tess_ctrl,
-                 _tess_eval, 
-                 kMaxShaderTypes};
+enum ShaderType { _vertex = 0,
+                  _fragment,
+                  _geom,
+                  _tess_ctrl,
+                  _tess_eval,
+                  kMaxShaderTypes };
 
 const unsigned int UNLOADED_SHADER_ID = (unsigned int)-2;
 const int MISSING_GEOM_SHADER_ID = -1;
@@ -56,28 +56,28 @@ enum BlendMode {
 struct ShaderUniformType {
     enum Type {
         UNKNOWN = 0,
-        
+
         SAMPLER2D,
         SAMPLER3D,
         SAMPLERCUBE,
-        
+
         INT,
         FLOAT,
-        
+
         VEC2,
         VEC3,
         VEC4,
-        
+
         MAT3,
         MAT4,
-        
+
         NUM_TYPES
     } type;
-    
+
     operator Type() const { return type; }
-    
+
     ShaderUniformType(Type t) : type(t) {}
-    ShaderUniformType(const std::string &t) {
+    ShaderUniformType(const std::string& t) {
         if (t == "sampler2D") {
             type = SAMPLER2D;
         } else if (t == "sampler3D") {
@@ -98,23 +98,23 @@ struct ShaderUniformType {
             type = MAT3;
         } else if (t == "mat4") {
             type = MAT4;
-        } else  {
+        } else {
             type = UNKNOWN;
         }
     }
     unsigned int size() const {
         static const unsigned int SIZES[NUM_TYPES] = {
-            0, //UNKNOWN = 0,
-            0, //SAMPLER2D,
-            0, //SAMPLER3D,
-            0, //SAMPLERCUBE,
-            1, //INT,
-            1, //FLOAT,
-            2, //VEC2,
-            3, //VEC3,
-            4, //VEC4,
-            9, //MAT3,
-            16 //MAT4
+            0,  // UNKNOWN = 0,
+            0,  // SAMPLER2D,
+            0,  // SAMPLER3D,
+            0,  // SAMPLERCUBE,
+            1,  // INT,
+            1,  // FLOAT,
+            2,  // VEC2,
+            3,  // VEC3,
+            4,  // VEC4,
+            9,  // MAT3,
+            16  // MAT4
         };
         return SIZES[type];
     }
@@ -123,16 +123,16 @@ struct ShaderUniformType {
 struct ShaderUniform {
     ShaderUniformType type;
     std::string name;
-    GLint address; //uninitialized
-    float *cachedValue;
-    
+    GLint address;  // uninitialized
+    float* cachedValue;
+
     ShaderUniform() : type(ShaderUniformType::UNKNOWN), cachedValue(0) {}
-    ShaderUniform(const std::string &t, const std::string &n) : type(t), name(n), cachedValue(0) {}
+    ShaderUniform(const std::string& t, const std::string& n) : type(t), name(n), cachedValue(0) {}
     void Submit();
 };
 
 class Shader {
-public:
+   public:
     GLuint gl_shader;
     std::string name;
     std::string full_name;
@@ -164,7 +164,7 @@ struct UniformBufferObject {
 };
 
 class Program {
-public:
+   public:
     GLuint gl_program;
     std::string name;
     int shader_ids[kMaxShaderTypes];
@@ -178,101 +178,101 @@ public:
     typedef ska::flat_hash_map<GLint, std::vector<GLfloat> > UniformValueCacheMap;
     UniformValueCacheMap uniform_value_cache;
     std::vector<GLint> commonShaderUniforms;
-    
-public:
-    template <typename T> void SetUniform(CommonShaderUniformIDs uniformID, const T& value)
-    {
-        SetUniform(commonShaderUniforms[uniformID],value);
+
+   public:
+    template <typename T>
+    void SetUniform(CommonShaderUniformIDs uniformID, const T& value) {
+        SetUniform(commonShaderUniforms[uniformID], value);
     }
-    void SetUniform(GLint uniformID, const mat4& value)
-    {
-        //note that this avoids all of the caching that would otherwise happen
+    void SetUniform(GLint uniformID, const mat4& value) {
+        // note that this avoids all of the caching that would otherwise happen
         glUniformMatrix4fv(uniformID, 1, GL_FALSE, value);
     }
-    void SetUniform(GLint uniformID, const mat3& value)
-    {
-        //note that this avoids all of the caching that would otherwise happen
+    void SetUniform(GLint uniformID, const mat3& value) {
+        // note that this avoids all of the caching that would otherwise happen
         glUniformMatrix3fv(uniformID, 1, GL_FALSE, value);
     }
 };
 
 class Shaders {
-    private:
-        std::vector<Shader> shaders;
-            
-        Shaders():bound_program(-1), create_program_warning(false) {
-            // Help fix race conditions in loading screen
-            programs.reserve(1000);
-            shaders.reserve(1000);
-        }
+   private:
+    std::vector<Shader> shaders;
 
-    public:
-        std::vector<Program> programs;
-        enum ForceFlag {kNoForce, kForce}; // To determine if a value should be set even if the shadow state matches
-        enum OptionalShaders {kNone = 0, kGeometry = 1, kTesselation = 2};
+    Shaders() : bound_program(-1), create_program_warning(false) {
+        // Help fix race conditions in loading screen
+        programs.reserve(1000);
+        shaders.reserve(1000);
+    }
 
-        int bound_program;
-        std::string shader_dir_path;
-        // If true, print a warning when a shader program is created.
-        // Useful to make sure all shaders are preloaded
-        Path level_path;
-        bool create_program_warning;
-        
-        void setProgram(int which);
-        GLint returnShaderVariable(const std::string &name, int which);
-        GLint returnShaderVariableIndex(const std::string &name, int which);
-        GLint returnShaderVariableOffset(int uniform_index, int program_id);
-        GLint returnShaderBlockSize(int block_index, int program_id);
-        int returnShader(const char *path, ShaderType type, const std::vector<std::string> &definitions);
-        int returnProgram(std::string name, OptionalShaders optional_shaders = kNone);
-        bool createShader(int which, ShaderType type);
-        void createProgram(int which_program);
-        Program *GetCurrentProgram();
+   public:
+    std::vector<Program> programs;
+    enum ForceFlag { kNoForce,
+                     kForce };  // To determine if a value should be set even if the shadow state matches
+    enum OptionalShaders { kNone = 0,
+                           kGeometry = 1,
+                           kTesselation = 2 };
 
-        GLint GetTexUniform(int which);
-        void SetUniformMat4(const std::string & var_name, const GLfloat* data);
-        void SetUniformMat4(GLint var_id, const GLfloat* data);
-        void SetUniformMat3(const std::string & var_name, const GLfloat* data);
-        void SetUniformMat3(GLint var_id, const GLfloat* data);
-        void SetUniformVec3(const std::string & var_name, const vec3& data);
-        void SetUniformVec3(GLint var_id, const vec3& data); 
-        void SetUniformVec3(GLint var_id, const GLfloat* data);
-        void SetUniformVec4(const std::string & var_name, const vec4& data);
-        void SetUniformVec4(GLint var_id, const vec4& data);
-        void SetUniformVec4(GLint var_id, const GLfloat* data);
+    int bound_program;
+    std::string shader_dir_path;
+    // If true, print a warning when a shader program is created.
+    // Useful to make sure all shaders are preloaded
+    Path level_path;
+    bool create_program_warning;
 
-        bool IsProgramTransparent (int which_program);
-        int GetProgramBlendSrc (int which_program);
-        int GetProgramBlendDst (int which_program);
-        void noProgram();
+    void setProgram(int which);
+    GLint returnShaderVariable(const std::string& name, int which);
+    GLint returnShaderVariableIndex(const std::string& name, int which);
+    GLint returnShaderVariableOffset(int uniform_index, int program_id);
+    GLint returnShaderBlockSize(int block_index, int program_id);
+    int returnShader(const char* path, ShaderType type, const std::vector<std::string>& definitions);
+    int returnProgram(std::string name, OptionalShaders optional_shaders = kNone);
+    bool createShader(int which, ShaderType type);
+    void createProgram(int which_program);
+    Program* GetCurrentProgram();
 
-        void Reload(bool force = false);
-        void ReloadShader(int which, ShaderType type);
-        void Dispose();
+    GLint GetTexUniform(int which);
+    void SetUniformMat4(const std::string& var_name, const GLfloat* data);
+    void SetUniformMat4(GLint var_id, const GLfloat* data);
+    void SetUniformMat3(const std::string& var_name, const GLfloat* data);
+    void SetUniformMat3(GLint var_id, const GLfloat* data);
+    void SetUniformVec3(const std::string& var_name, const vec3& data);
+    void SetUniformVec3(GLint var_id, const vec3& data);
+    void SetUniformVec3(GLint var_id, const GLfloat* data);
+    void SetUniformVec4(const std::string& var_name, const vec4& data);
+    void SetUniformVec4(GLint var_id, const vec4& data);
+    void SetUniformVec4(GLint var_id, const GLfloat* data);
 
-        static Shaders* Instance()
-        {
-            static Shaders instance;
-            return &instance;
-        }
-        void SetUniformVec2( const std::string & var_name, const vec2& data_vec );
-        void SetUniformVec2( GLint var_id, const vec2& data_vec );
-        void SetUniformVec2( GLint var_id, const GLfloat* data );
-        void SetUniformFloat( const std::string &var_name, const float& data );
-        void SetUniformFloat( GLint var_id, const float& data);
-        void SetUniformInt( const std::string & var_name, const int& data, ForceFlag force_flag = kNoForce );
-        void SetUniformInt( GLint var_id, const int& data, ForceFlag force_flag = kNoForce);
-        bool DoesProgramUseTangent (int which_program);
-        void SetUniformMat4Array( const std::string &var_name, const std::vector<mat4> &transforms );
-        void SetUniformMat4Array(GLint var_id, const std::vector<mat4> &transforms);
-        GLint returnShaderAttrib(const std::string &name, int which);
-        void SetUniformVec4Array( const std::string &var_name, const std::vector<vec4> &val );
-        void SetUniformVec4Array(GLint var_id, const std::vector<vec4> &val);
-        void SetUniformVec3Array( const std::string &var_name, const std::vector<vec3> &val );
-        void SetUniformVec3Array(GLint var_id, const std::vector<vec3> &val);
-        void SetUniformVec3Array(GLint var_id, const vec3* val, int size);
-        void ResetVRAM();
-        int GetUBOBindIndex( int shader_id, const char* name );
+    bool IsProgramTransparent(int which_program);
+    int GetProgramBlendSrc(int which_program);
+    int GetProgramBlendDst(int which_program);
+    void noProgram();
+
+    void Reload(bool force = false);
+    void ReloadShader(int which, ShaderType type);
+    void Dispose();
+
+    static Shaders* Instance() {
+        static Shaders instance;
+        return &instance;
+    }
+    void SetUniformVec2(const std::string& var_name, const vec2& data_vec);
+    void SetUniformVec2(GLint var_id, const vec2& data_vec);
+    void SetUniformVec2(GLint var_id, const GLfloat* data);
+    void SetUniformFloat(const std::string& var_name, const float& data);
+    void SetUniformFloat(GLint var_id, const float& data);
+    void SetUniformInt(const std::string& var_name, const int& data, ForceFlag force_flag = kNoForce);
+    void SetUniformInt(GLint var_id, const int& data, ForceFlag force_flag = kNoForce);
+    bool DoesProgramUseTangent(int which_program);
+    void SetUniformMat4Array(const std::string& var_name, const std::vector<mat4>& transforms);
+    void SetUniformMat4Array(GLint var_id, const std::vector<mat4>& transforms);
+    GLint returnShaderAttrib(const std::string& name, int which);
+    void SetUniformVec4Array(const std::string& var_name, const std::vector<vec4>& val);
+    void SetUniformVec4Array(GLint var_id, const std::vector<vec4>& val);
+    void SetUniformVec3Array(const std::string& var_name, const std::vector<vec3>& val);
+    void SetUniformVec3Array(GLint var_id, const std::vector<vec3>& val);
+    void SetUniformVec3Array(GLint var_id, const vec3* val, int size);
+    void ResetVRAM();
+    int GetUBOBindIndex(int shader_id, const char* name);
 };
 
-std::string GetShaderPath( const std::string &shader_name, const std::string& shader_dir_path, ShaderType type );
+std::string GetShaderPath(const std::string& shader_name, const std::string& shader_dir_path, ShaderType type);

@@ -38,14 +38,12 @@ using std::endl;
 
 Allocation alloc;
 
-ErrorResponse DisplayError(const char* title, const char* contents, ErrorType type, bool allow_repetition)
-{
+ErrorResponse DisplayError(const char* title, const char* contents, ErrorType type, bool allow_repetition) {
     return _continue;
 }
 
-//Replacement for the main program version of the same fucntion
-void FatalError(const char* title, const char* fmt, ...)
-{
+// Replacement for the main program version of the same fucntion
+void FatalError(const char* title, const char* fmt, ...) {
     static const int kBufSize = 1024;
     char err_buf[kBufSize];
     va_list args;
@@ -56,27 +54,24 @@ void FatalError(const char* title, const char* fmt, ...)
     exit(10);
 }
 
-int ConvertTexture(int argc, const char* argv[]){
+int ConvertTexture(int argc, const char* argv[]) {
     ConvertImage(argv[0], argv[1], argv[2], TextureData::Nice);
-    return 0;   
+    return 0;
 }
 
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[]) {
     alloc.Init();
     ConsoleHandler consoleHandler;
-    LogSystem::RegisterLogHandler( 
-        LogSystem::info
-        | LogSystem::warning
-        | LogSystem::error
-        | LogSystem::fatal,
-        &consoleHandler ); 
-    if(!ProcessPool::AmIAWorkerProcess(argc, argv)){
+    LogSystem::RegisterLogHandler(
+        LogSystem::info | LogSystem::warning | LogSystem::error | LogSystem::fatal,
+        &consoleHandler);
+    if (!ProcessPool::AmIAWorkerProcess(argc, argv)) {
         exit(1);
     }
     ProcessPool::JobMap jobs;
     jobs["ConvertTexture"] = &ConvertTexture;
     int ret = ProcessPool::WorkerProcessMain(jobs);
-    LogSystem::DeregisterLogHandler( &consoleHandler ); 
+    LogSystem::DeregisterLogHandler(&consoleHandler);
     alloc.Dispose();
     return ret;
 }

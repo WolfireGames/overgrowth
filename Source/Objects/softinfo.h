@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: softinfo.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,5 +28,5 @@ struct SoftInfo {
     float joint_strength;
     float angular_damping;
     int ik_bone;
-    SoftInfo():soft(false), blend(0.0f), joint_strength(0.0f), angular_damping(0.0f) {}
+    SoftInfo() : soft(false), blend(0.0f), joint_strength(0.0f), angular_damping(0.0f) {}
 };

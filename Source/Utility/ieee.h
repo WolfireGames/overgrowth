@@ -21,9 +21,8 @@
 //
 //-----------------------------------------------------------------------------
 
-//This functions only returns expected results if the program isn't compiled with --fast-math in gcc as it removes strict IEEE standard compliance.
-inline bool IsNan( const float& val )
-{
-    //The IEEE 745 standard states that this only evaluates to true if val is NaN.
+// This functions only returns expected results if the program isn't compiled with --fast-math in gcc as it removes strict IEEE standard compliance.
+inline bool IsNan(const float& val) {
+    // The IEEE 745 standard states that this only evaluates to true if val is NaN.
     return val != val;
 }

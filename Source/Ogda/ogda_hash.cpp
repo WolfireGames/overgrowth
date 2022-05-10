@@ -29,16 +29,12 @@
 #include <Internal/datemodified.h>
 #include <Ogda/ogda_config.h>
 
-std::string OgdaGetFileHash(std::string path)
-{
-    if( config_use_date_modified_as_hash )
-    {
+std::string OgdaGetFileHash(std::string path) {
+    if (config_use_date_modified_as_hash) {
         std::stringstream ss;
         ss << GetDateModifiedInt64(path.c_str());
         return ss.str();
-    }
-    else
-    {
+    } else {
         return GetFileHash(path.c_str()).ToString();
     }
 }

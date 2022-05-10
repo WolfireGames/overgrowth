@@ -33,10 +33,10 @@
 #include <vector>
 #include <list>
 
+using std::list;
 using std::map;
 using std::string;
 using std::vector;
-using std::list;
 
 typedef uint8_t NetConnectionID;
 typedef uint8_t NetListenSocketID;
@@ -44,14 +44,13 @@ typedef uint8_t NetListenSocketID;
 class Online;
 
 class NetworkingMessage {
-private:
+   private:
     friend class BasicNetFramework;
 
     uint8_t* data;
     uint16_t size;
 
-public: 
-
+   public:
     NetworkingMessage();
     const void* GetData() const;
     uint64_t GetSize() const;
@@ -80,13 +79,12 @@ struct NetConnectionStatus {
 class BasicNetFramework {
     Online* online;
 
-private:
+   private:
     SDLNet_SocketSet socket_set;
 
     map<NetConnectionID, TCPsocket> connection_id_map;
     map<TCPsocket, NetConnectionID> connection_id_map_reverse;
     map<NetConnectionID, NetConnectionStatus> connection_status;
-
 
     map<NetListenSocketID, TCPsocket> listen_socket_map;
     map<TCPsocket, NetListenSocketID> listen_socket_map_reverse;
@@ -94,7 +92,7 @@ private:
     NetConnectionID GetFreeConnectionID();
     NetListenSocketID GetFreeListenSocketID();
 
-public:
+   public:
     BasicNetFramework(Online* online_callback);
 
     void Initialize();
@@ -105,7 +103,7 @@ public:
 
     bool ConnectByIPAddress(const string& address, NetConnectionID* id);
 
-    NetListenSocketID CreateListenSocketIP(const string &local_address);
+    NetListenSocketID CreateListenSocketIP(const string& local_address);
     void CloseListenSocket(NetListenSocketID listen_socket_id);
 
     void GetConnectionStatus(NetConnectionID conn_id, ConnectionStatus* status) const;
@@ -113,11 +111,11 @@ public:
     void CloseConnection(NetConnectionID conn_id, ConnectionClosedReason reason);
 
     int ReceiveMessageOnConnection(NetConnectionID conn_id, NetworkingMessage* msg);
-    
+
     bool AcceptConnection(NetConnectionID conn_id, int* result);
 
     string GetResultString(int result);
 
-    void SendMessageToConnection(NetConnectionID conn_id, char* buffer, uint32_t bytes, bool reliable, bool flush);  
+    void SendMessageToConnection(NetConnectionID conn_id, char* buffer, uint32_t bytes, bool reliable, bool flush);
 };
 #endif

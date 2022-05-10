@@ -26,6 +26,6 @@
 
 #include <cmath>
 
-float length( const vec4 &vec ) {
+float length(const vec4 &vec) {
     return sqrtf(length_squared(vec.xyz()));
 }

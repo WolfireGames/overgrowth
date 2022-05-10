@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: audio_play_group_priority_message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,19 +25,19 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class AudioPlayGroupPriorityMessage : public OnlineMessageBase {
-    private:
-        std::string path;
-        vec3 pos;
-        int32_t priority;
+class AudioPlayGroupPriorityMessage : public OnlineMessageBase {
+   private:
+    std::string path;
+    vec3 pos;
+    int32_t priority;
 
-    public:
-        AudioPlayGroupPriorityMessage(const std::string& path, vec3 pos, int priority);
+   public:
+    AudioPlayGroupPriorityMessage(const std::string& path, vec3 pos, int priority);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

@@ -27,26 +27,26 @@
 
 class JobHandler;
 
-class Item
-{
-public:
+class Item {
+   public:
     bool only_parse;
     bool delete_on_exit;
     bool is_overshadowed;
-private:
 
-    void SetPath( std::string path );
+   private:
+    void SetPath(std::string path);
     std::string overshadows;
-public:
-    //Which of the input folders the item was found in
+
+   public:
+    // Which of the input folders the item was found in
     std::string input_folder;
-    //Relative path beneath the Data/ path
+    // Relative path beneath the Data/ path
     std::string path;
 
     std::string type;
     std::string hash;
-    
-    //Original root source to this items existance, could be from a hierarchy of adds.
+
+    // Original root source to this items existance, could be from a hierarchy of adds.
     JobXMLParser::Item source;
 
     Item(const std::string& input_folder, const std::string& path, const std::string& type, const JobXMLParser::Item& source);
@@ -56,30 +56,30 @@ public:
     bool operator==(const Item& rhs) const;
     bool operator<(const Item& rhs) const;
 
-    //Faster way of checking if the file is valid in case hash isn't calculated.
+    // Faster way of checking if the file is valid in case hash isn't calculated.
     bool FileAccess();
     void CalculateHash();
     void VerifyPath();
     std::string GetPath() const;
     std::string GetAbsPath() const;
 
-    //Remove file when program shuts down
+    // Remove file when program shuts down
     bool IsDeleteOnExit();
-    void SetDeleteOnExit(bool value); 
-    //Used for inlined scripts in XML files that are stored to a temp place on disk.
+    void SetDeleteOnExit(bool value);
+    // Used for inlined scripts in XML files that are stored to a temp place on disk.
     bool IsOnlySearch();
     void SetOnlySearch(bool value);
 
     bool IsOvershadowed();
     void SetOvershadowed(bool value);
 
-    bool Overshadows( const Item& item );
-    void SetOvershadows( const Item& item );
+    bool Overshadows(const Item& item);
+    void SetOvershadows(const Item& item);
 
-    friend std::ostream& operator<<(std::ostream& out, const Item& item); 
+    friend std::ostream& operator<<(std::ostream& out, const Item& item);
 
-    //Extract a hash based on the first part. this is endian sensitive, so it shouldn't be stored, only used in runtime for first order identification.
+    // Extract a hash based on the first part. this is endian sensitive, so it shouldn't be stored, only used in runtime for first order identification.
     uint64_t GetSubHash() const;
 };
 
-std::ostream& operator<<(std::ostream& out, const Item& item); 
+std::ostream& operator<<(std::ostream& out, const Item& item);

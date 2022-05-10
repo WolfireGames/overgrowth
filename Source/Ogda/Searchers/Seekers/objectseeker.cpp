@@ -27,146 +27,117 @@
 #include <Logging/logdata.h>
 #include <Utility/strings.h>
 
-std::vector<Item> ObjectSeeker::SearchXML( const Item & item, TiXmlDocument& doc )
-{
-    const char* elems[] = 
-    {
-        "Model",
-        "ColorMap",
-        "NormalMap",
-        "PaletteMap",
-        "WeightMap",
-        "TranslucencyMap",
-        "WindMap",
-        "MaterialPath",
-        "SharpnessMap"
-    };
+std::vector<Item> ObjectSeeker::SearchXML(const Item& item, TiXmlDocument& doc) {
+    const char* elems[] =
+        {
+            "Model",
+            "ColorMap",
+            "NormalMap",
+            "PaletteMap",
+            "WeightMap",
+            "TranslucencyMap",
+            "WindMap",
+            "MaterialPath",
+            "SharpnessMap"};
 
     const char* elems_type[] =
-    {
-        "model",
-        "texture",
-        "texture",
-        "texture",
-        "texture",
-        "texture",
-        "texture",
-        "material",
-        "texture"
-    };
+        {
+            "model",
+            "texture",
+            "texture",
+            "texture",
+            "texture",
+            "texture",
+            "texture",
+            "material",
+            "texture"};
 
     assert(ARRLEN(elems_type) == ARRLEN(elems));
 
-    const char* ignored[] = 
-    {
-        "Shader",
-        "ShaderName",
-        "ShaderPath",
-        "flags",
-        "GroundOffset",
-        "avg_color",
-        "label"
-    };
+    const char* ignored[] =
+        {
+            "Shader",
+            "ShaderName",
+            "ShaderPath",
+            "flags",
+            "GroundOffset",
+            "avg_color",
+            "label"};
 
     std::vector<Item> items;
 
     TiXmlHandle hRoot(&doc);
-    
-    TiXmlElement *eElem = hRoot.FirstChildElement("Object").FirstChildElement().Element();
 
-    if( !eElem )
-    {
+    TiXmlElement* eElem = hRoot.FirstChildElement("Object").FirstChildElement().Element();
+
+    if (!eElem) {
         LOGE << "Cant find right root node in " << item << std::endl;
     }
 
-    while( eElem )
-    {
+    while (eElem) {
         const char* name = eElem->Value();
         const char* text = eElem->GetText();
-        if( name )
-        {
+        if (name) {
             int id;
-            if( (id = FindStringInArray( elems, ARRLEN(elems), name )) >= 0 )
-            {
-                if( text && strlen(text) > 0 )
-                {
-                    items.push_back(Item(item.input_folder, text,elems_type[id],item.source));
-                }
-                else
-                {
+            if ((id = FindStringInArray(elems, ARRLEN(elems), name)) >= 0) {
+                if (text && strlen(text) > 0) {
+                    items.push_back(Item(item.input_folder, text, elems_type[id], item.source));
+                } else {
                     LOGW << "String value in " << item << " for element " << elems[id] << " is empty" << std::endl;
                 }
-            }
-            else if( (id = FindStringInArray( ignored, ARRLEN(ignored), name )) >= 0 )
-            {
+            } else if ((id = FindStringInArray(ignored, ARRLEN(ignored), name)) >= 0) {
                 LOGD << "Ignored " << ignored[id] << " in " << item << std::endl;
-            }
-            else if( strmtch( "DetailObjects", name ) )
-            {
-                TiXmlElement *eDetailObject = eElem->FirstChildElement();
+            } else if (strmtch("DetailObjects", name)) {
+                TiXmlElement* eDetailObject = eElem->FirstChildElement();
 
-                while( eDetailObject )
-                {
+                while (eDetailObject) {
                     {
                         const char* obj_path = eDetailObject->Attribute("obj_path");
-                        if( obj_path )
-                        {
+                        if (obj_path) {
                             items.push_back(Item(item.input_folder, obj_path, "object", item.source));
                         }
                     }
 
                     {
                         const char* weight_path = eDetailObject->Attribute("weight_path");
-                        if( weight_path )
-                        {
+                        if (weight_path) {
                             items.push_back(Item(item.input_folder, weight_path, "texture", item.source));
                         }
                     }
 
                     eDetailObject = eDetailObject->NextSiblingElement();
                 }
-            }
-            else if( strmtch( "DetailMaps", name ) )
-            {
-                TiXmlElement *eDetailMap = eElem->FirstChildElement();
+            } else if (strmtch("DetailMaps", name)) {
+                TiXmlElement* eDetailMap = eElem->FirstChildElement();
 
-                while( eDetailMap )
-                {
-
+                while (eDetailMap) {
                     {
-                        const char* colorpath = eDetailMap->Attribute("colorpath"); 
-                        if( colorpath )
-                        {
-                             items.push_back(Item(item.input_folder, colorpath,"texture",item.source));
+                        const char* colorpath = eDetailMap->Attribute("colorpath");
+                        if (colorpath) {
+                            items.push_back(Item(item.input_folder, colorpath, "texture", item.source));
                         }
                     }
 
                     {
-                        const char* normalpath = eDetailMap->Attribute("normalpath"); 
-                        if( normalpath )
-                        {
-                             items.push_back(Item(item.input_folder, normalpath,"texture",item.source));
+                        const char* normalpath = eDetailMap->Attribute("normalpath");
+                        if (normalpath) {
+                            items.push_back(Item(item.input_folder, normalpath, "texture", item.source));
                         }
                     }
 
                     {
-                        const char* materialpath = eDetailMap->Attribute("materialpath"); 
-                        if( materialpath )
-                        {
-                             items.push_back(Item(item.input_folder, materialpath,"material",item.source));
+                        const char* materialpath = eDetailMap->Attribute("materialpath");
+                        if (materialpath) {
+                            items.push_back(Item(item.input_folder, materialpath, "material", item.source));
                         }
                     }
 
                     eDetailMap = eDetailMap->NextSiblingElement();
                 }
-            }
-            else
-            {
+            } else {
                 LOGE << "Unahandled subvalue in Object from " << item << " called " << name << std::endl;
             }
-        }
-        else
-        {
+        } else {
             LOGE << "Generic warning" << std::endl;
         }
 

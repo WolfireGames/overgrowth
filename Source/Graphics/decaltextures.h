@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: decaltextures.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -32,12 +32,12 @@ class EnvObject;
 /*
  Combined instance creating a reference to a texture
 */
-class DecalTexture
-{
+class DecalTexture {
     AtlasNodeTree::AtlasNodeRef colornode_ref;
     AtlasNodeTree::AtlasNodeRef normalnode_ref;
     friend class DecalTextures;
-public:
+
+   public:
     TextureAtlasRef color_texture_ref;
     TextureAtlasRef normal_texture_ref;
 
@@ -47,9 +47,8 @@ public:
 
 typedef ReferenceCounter<DecalTexture> RC_DecalTexture;
 
-class DecalTextures
-{
-private:
+class DecalTextures {
+   private:
     AtlasNodeTree* colornodetree;
     AtlasNodeTree* normalnodetree;
     TextureAtlas* coloratlas;
@@ -57,17 +56,17 @@ private:
     bool initialized;
     friend class DecalTexture;
     friend class EnvObject;
-	friend class SceneGraph;
+    friend class SceneGraph;
 
     DecalTextures();
     ~DecalTextures();
-public:
-    
+
+   public:
     void Init();
     void Draw();
     void Clear();
 
-    RC_DecalTexture allocateTexture( std::string color_tex, std::string norm_tex );
+    RC_DecalTexture allocateTexture(std::string color_tex, std::string norm_tex);
 
     static DecalTextures* Instance();
     static void Dispose();

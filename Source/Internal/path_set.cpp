@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: path_set.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,29 +26,29 @@
 #include <Graphics/textures.h>
 #include <Main/engine.h>
 
-void PathSetUtil::GetCachedFiles( PathSet& path_set ) {
+void PathSetUtil::GetCachedFiles(PathSet& path_set) {
     PathSet new_path_set;
-    for(const auto & labeled_path : path_set){
+    for (const auto& labeled_path : path_set) {
         size_t space_pos = labeled_path.find(' ');
-        if(space_pos == std::string::npos){
-            DisplayError("Error", ("No space found in labeled string: "+labeled_path).c_str());
+        if (space_pos == std::string::npos) {
+            DisplayError("Error", ("No space found in labeled string: " + labeled_path).c_str());
             continue;
         }
         const std::string& type = labeled_path.substr(0, space_pos);
-        const std::string& path = labeled_path.substr(space_pos+1, labeled_path.size() - (space_pos+1));
-        switch(type[0]){
-            case 'i': 
-                if(type == "image_sample"){
-                    ImageSamplerRef ref = Engine::Instance()->GetAssetManager()->LoadSync<ImageSampler>(path);   
-                    if( ref.valid() ) {
+        const std::string& path = labeled_path.substr(space_pos + 1, labeled_path.size() - (space_pos + 1));
+        switch (type[0]) {
+            case 'i':
+                if (type == "image_sample") {
+                    ImageSamplerRef ref = Engine::Instance()->GetAssetManager()->LoadSync<ImageSampler>(path);
+                    if (ref.valid()) {
                         std::string fixed;
-                        if(ref->GetCachePath(&fixed)) {
-                            new_path_set.insert("image_sample_cache "+fixed);
+                        if (ref->GetCachePath(&fixed)) {
+                            new_path_set.insert("image_sample_cache " + fixed);
                         }
                     } else {
                         LOGE << "Failed loading " << path << std::endl;
                     }
-                } 
+                }
                 break;
             default:
                 new_path_set.insert(labeled_path);

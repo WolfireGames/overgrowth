@@ -33,51 +33,38 @@ static TRexpp false_regex;
 
 static bool compiled_regexes = false;
 
-static void try_compile()
-{
-    if( !compiled_regexes )
-    {
+static void try_compile() {
+    if (!compiled_regexes) {
         true_regex.Compile(true_regex_string.c_str());
         false_regex.Compile(false_regex_string.c_str());
         compiled_regexes = true;
     }
 }
 
-CommonRegex::CommonRegex()
-{
+CommonRegex::CommonRegex() {
     try_compile();
 }
 
-bool CommonRegex::saysTrue(const std::string& str)
-{
+bool CommonRegex::saysTrue(const std::string& str) {
     return true_regex.Match(str.c_str());
 }
 
-bool CommonRegex::saysFalse(const std::string& str)
-{
+bool CommonRegex::saysFalse(const std::string& str) {
     return false_regex.Match(str.c_str());
 }
 
-bool CommonRegex::saysTrue(const char* str)
-{
-    if( str )
-    {
+bool CommonRegex::saysTrue(const char* str) {
+    if (str) {
         return saysTrue(std::string(str));
-    }
-    else
-    {
+    } else {
         return false;
     }
 }
 
-bool CommonRegex::saysFalse(const char* str)
-{
-    if( str )
-    {
+bool CommonRegex::saysFalse(const char* str) {
+    if (str) {
         return saysFalse(std::string(str));
-    }
-    else
-    {
+    } else {
         return false;
     }
 }

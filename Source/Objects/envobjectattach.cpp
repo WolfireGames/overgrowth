@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: envobjectattach.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,15 +23,15 @@
 #include <Objects/envobjectattach.h>
 #include <Internal/memwrite.h>
 
-void Serialize(const std::vector<AttachedEnvObject>& aeo, std::vector<char> &data) {
+void Serialize(const std::vector<AttachedEnvObject> &aeo, std::vector<char> &data) {
     data.clear();
     int num_attach = (int)aeo.size();
     memwrite(&num_attach, sizeof(num_attach), 1, data);
-    for(int i=0; i<num_attach; ++i){
+    for (int i = 0; i < num_attach; ++i) {
         const AttachedEnvObject &attached_env_object = aeo[i];
         memwrite(&attached_env_object.direct_ptr, sizeof(attached_env_object.direct_ptr), 1, data);
         memwrite(&attached_env_object.legacy_obj_id, sizeof(attached_env_object.legacy_obj_id), 1, data);
-        for(const auto & bone_connect : attached_env_object.bone_connects){
+        for (const auto &bone_connect : attached_env_object.bone_connects) {
             memwrite(&bone_connect.bone_id, sizeof(bone_connect.bone_id), 1, data);
             memwrite(&bone_connect.num_connections, sizeof(bone_connect.num_connections), 1, data);
             memwrite(&bone_connect.rel_mat, sizeof(bone_connect.rel_mat), 1, data);
@@ -39,20 +39,20 @@ void Serialize(const std::vector<AttachedEnvObject>& aeo, std::vector<char> &dat
     }
 }
 
-void Deserialize(const std::vector<char> &data, std::vector<AttachedEnvObject>& aeo) {
+void Deserialize(const std::vector<char> &data, std::vector<AttachedEnvObject> &aeo) {
     int index = 0;
     int num_attach;
     memread(&num_attach, sizeof(num_attach), 1, data, index);
     aeo.resize(num_attach);
-    for(int i=0; i<num_attach; ++i){
+    for (int i = 0; i < num_attach; ++i) {
         AttachedEnvObject &attached_env_object = aeo[i];
         attached_env_object.bone_connection_dirty = false;
         memread(&attached_env_object.direct_ptr, sizeof(attached_env_object.direct_ptr), 1, data, index);
         memread(&attached_env_object.legacy_obj_id, sizeof(attached_env_object.legacy_obj_id), 1, data, index);
-        for(const auto & bone_connect : attached_env_object.bone_connects){
-            memread((void*)&bone_connect.bone_id, sizeof(bone_connect.bone_id), 1, data, index);
-            memread((void*)&bone_connect.num_connections, sizeof(bone_connect.num_connections), 1, data, index);
-            memread((void*)&bone_connect.rel_mat, sizeof(bone_connect.rel_mat), 1, data, index);
+        for (const auto &bone_connect : attached_env_object.bone_connects) {
+            memread((void *)&bone_connect.bone_id, sizeof(bone_connect.bone_id), 1, data, index);
+            memread((void *)&bone_connect.num_connections, sizeof(bone_connect.num_connections), 1, data, index);
+            memread((void *)&bone_connect.rel_mat, sizeof(bone_connect.rel_mat), 1, data, index);
         }
     }
 }

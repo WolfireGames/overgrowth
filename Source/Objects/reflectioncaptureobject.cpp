@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: reflectioncaptureobject.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -65,12 +65,11 @@ void ReflectionCaptureObject::Draw() {
         return;
     }
 
-    if(scenegraph_->map_editor->IsTypeEnabled(_reflection_capture_object) &&
-       cube_map_ref.valid() && 
-       !Graphics::Instance()->media_mode() && 
-       scenegraph_->map_editor->state_ != MapEditor::kInGame && 
-       ActiveCameras::Instance()->Get()->GetFlags() == Camera::kEditorCamera)
-    {
+    if (scenegraph_->map_editor->IsTypeEnabled(_reflection_capture_object) &&
+        cube_map_ref.valid() &&
+        !Graphics::Instance()->media_mode() &&
+        scenegraph_->map_editor->state_ != MapEditor::kInGame &&
+        ActiveCameras::Instance()->Get()->GetFlags() == Camera::kEditorCamera) {
         PROFILER_GPU_ZONE(g_profiler_ctx, "ReflectionCaptureObject::Draw");
 
         Shaders* shaders = Shaders::Instance();
@@ -92,19 +91,19 @@ void ReflectionCaptureObject::Draw() {
         shaders->SetUniformMat4("model_mat", GetTransform());
         shaders->SetUniformMat4("view_mat", camera->GetViewMatrix());
         shaders->SetUniformMat4("proj_mat", camera->GetProjMatrix());
-    
+
         Textures::Instance()->bindTexture(cube_map_ref);
 
-		int vert_attrib_id = shaders->returnShaderAttrib("vertex", shader_id);
-		Model* probe_model = &Models::Instance()->GetModel(scenegraph_->light_probe_collection.probe_model_id);
-		if(!probe_model->vbo_loaded){
-			probe_model->createVBO();
-		}
+        int vert_attrib_id = shaders->returnShaderAttrib("vertex", shader_id);
+        Model* probe_model = &Models::Instance()->GetModel(scenegraph_->light_probe_collection.probe_model_id);
+        if (!probe_model->vbo_loaded) {
+            probe_model->createVBO();
+        }
         probe_model->VBO_vertices.Bind();
         probe_model->VBO_faces.Bind();
         graphics->EnableVertexAttribArray(vert_attrib_id);
         glVertexAttribPointer(vert_attrib_id, 3, GL_FLOAT, false, 3 * sizeof(GL_FLOAT), 0);
-        graphics->DrawElements(GL_TRIANGLES, (unsigned int) probe_model->faces.size(), GL_UNSIGNED_INT, 0);
+        graphics->DrawElements(GL_TRIANGLES, (unsigned int)probe_model->faces.size(), GL_UNSIGNED_INT, 0);
         graphics->ResetVertexAttribArrays();
     }
 }
@@ -113,14 +112,14 @@ ReflectionCaptureObject::~ReflectionCaptureObject() {
 }
 
 void ReflectionCaptureObject::GetDisplayName(char* buf, int buf_size) {
-    if( GetName().empty() ) {
+    if (GetName().empty()) {
         FormatString(buf, buf_size, "%d: Reflection Capture", GetID());
     } else {
         FormatString(buf, buf_size, "%s: Reflection Capture", GetName().c_str());
     }
 }
 
-void ReflectionCaptureObject::GetDesc(EntityDescription &desc) const {
+void ReflectionCaptureObject::GetDesc(EntityDescription& desc) const {
     Object::GetDesc(desc);
 
     const size_t data_size = kLightProbeNumCoeffs * sizeof(float);
@@ -130,16 +129,17 @@ void ReflectionCaptureObject::GetDesc(EntityDescription &desc) const {
     desc.AddData(EDF_GI_COEFFICIENTS, data);
 }
 
-bool ReflectionCaptureObject::SetFromDesc( const EntityDescription& desc ) {
+bool ReflectionCaptureObject::SetFromDesc(const EntityDescription& desc) {
     bool ret = Object::SetFromDesc(desc);
-    if( ret ) {
-        for(const auto & field : desc.fields){
-            switch(field.type){
-            case EDF_GI_COEFFICIENTS: {
-                memcpy(avg_color, &field.data[0], kLightProbeNumCoeffs * sizeof(float));
-                break;}
+    if (ret) {
+        for (const auto& field : desc.fields) {
+            switch (field.type) {
+                case EDF_GI_COEFFICIENTS: {
+                    memcpy(avg_color, &field.data[0], kLightProbeNumCoeffs * sizeof(float));
+                    break;
+                }
             }
-        }    
+        }
     }
     return ret;
 }

@@ -33,69 +33,49 @@
 #include <tinyxml.h>
 
 void AttributeScanner::Do(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlElement *eElem, 
-    const std::vector<attribpair>& attribs, 
-    const std::vector<const char*>& attribs_ignore)
-{
-    if( eElem )
-    {
-        TiXmlAttribute *aV = eElem->FirstAttribute();
-        while( aV ) 
-        {
+    std::vector<Item>& items,
+    const Item& item,
+    TiXmlElement* eElem,
+    const std::vector<attribpair>& attribs,
+    const std::vector<const char*>& attribs_ignore) {
+    if (eElem) {
+        TiXmlAttribute* aV = eElem->FirstAttribute();
+        while (aV) {
             int id = -1;
-            if((id = FindStringInArray( attribs, aV->Name() )) >= 0 )
-            {
-                if( aV->Value() && strlen( aV->Value() ) > 0 )
-                {
+            if ((id = FindStringInArray(attribs, aV->Name())) >= 0) {
+                if (aV->Value() && strlen(aV->Value()) > 0) {
                     items.push_back(Item(item.input_folder, aV->Value(), attribs[id].second, item.source));
-                }
-                else
-                {
+                } else {
                     LOGD << "Value is empty in " << item << std::endl;
                 }
-            }
-            else if( FindStringInArray( attribs_ignore, aV->Name() ) < 0 )
-            {
+            } else if (FindStringInArray(attribs_ignore, aV->Name()) < 0) {
                 LOGE << "Unhandled attrib on row " << aV->Row() << " " << aV->Name() << " in " << item << std::endl;
             }
 
             aV = aV->Next();
         }
-    }
-    else
-    {
+    } else {
         LOGE << "Root element is null for " << item << std::endl;
     }
 }
 
 void AttributeScanner::DoAllSame(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlElement *eElem,
-    std::string type )
-{
-    if( eElem )
-    {
-        TiXmlAttribute *aV = eElem->FirstAttribute();
-        while( aV ) 
-        {
-            if( aV->Value() && strlen( aV->Value() ) > 0 )
-            {
+    std::vector<Item>& items,
+    const Item& item,
+    TiXmlElement* eElem,
+    std::string type) {
+    if (eElem) {
+        TiXmlAttribute* aV = eElem->FirstAttribute();
+        while (aV) {
+            if (aV->Value() && strlen(aV->Value()) > 0) {
                 items.push_back(Item(item.input_folder, aV->Value(), type, item.source));
-            }
-            else
-            {
+            } else {
                 LOGD << "Value is empty in " << item << std::endl;
             }
 
             aV = aV->Next();
         }
-    }
-    else
-    {
+    } else {
         LOGE << "Root element is null for " << item << std::endl;
     }
 }
-    

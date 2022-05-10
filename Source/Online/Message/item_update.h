@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: item_update.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,20 +27,20 @@
 #include <Objects/itemobject.h>
 
 namespace OnlineMessages {
-    class ItemUpdate : public OnlineMessageBase {
-    private:
-        CommonObjectID id;
-        float timestamp;
-        mat4 transform;
+class ItemUpdate : public OnlineMessageBase {
+   private:
+    CommonObjectID id;
+    float timestamp;
+    mat4 transform;
 
-    public:
-        ItemUpdate();
-        ItemUpdate(ItemObject* item);
+   public:
+    ItemUpdate();
+    ItemUpdate(ItemObject* item);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

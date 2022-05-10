@@ -46,8 +46,8 @@ struct CSGModelInfo {
 class BulletWorld;
 class Model;
 class mat4;
-bool CollideObjects(BulletWorld& bw, const Model &model_a, const mat4 &transform_a, const Model &model_b, const mat4 &transform_b, CSGResultCombined *results);
-void AddCSGResult(const CSGResult &result, CSGModelInfo *csg_model, const Model& model, bool flip);
+bool CollideObjects(BulletWorld &bw, const Model &model_a, const mat4 &transform_a, const Model &model_b, const mat4 &transform_b, CSGResultCombined *results);
+void AddCSGResult(const CSGResult &result, CSGModelInfo *csg_model, const Model &model, bool flip);
 bool CheckShapeValid(const std::vector<int> &faces, const std::vector<double> &vertices);
-void MultiplyMat4Vec3D(const mat4& mat, double vec[]);
+void MultiplyMat4Vec3D(const mat4 &mat, double vec[]);
 int ModelFromCSGModelInfo(const CSGModelInfo &model_info);

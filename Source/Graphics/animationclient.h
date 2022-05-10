@@ -43,10 +43,10 @@ struct AnimationFadeOut {
 
 struct FadeCollection {
     std::vector<AnimationFadeOut> fade_out;
-    void Update(const BlendMap& blendmap, ASContext *as_context, float timestep);
+    void Update(const BlendMap &blendmap, ASContext *as_context, float timestep);
     float GetOpac();
-    void ApplyAngular( AnimInput &ang_anim_input, AnimOutput &ang_anim_output, AnimOutput &old_ang_anim_output, const std::string &retarget_new, const std::vector<int> *parents);
-    void AddFadingAnimation( AnimationReader &reader, const BlendMap& blendmap, float fade_speed );
+    void ApplyAngular(AnimInput &ang_anim_input, AnimOutput &ang_anim_output, AnimOutput &old_ang_anim_output, const std::string &retarget_new, const std::vector<int> *parents);
+    void AddFadingAnimation(AnimationReader &reader, const BlendMap &blendmap, float fade_speed);
     void clear();
 };
 
@@ -92,41 +92,41 @@ class AnimationClient {
         ASFunctionHandle layer_removed;
     } as_funcs;
 
-    void ApplyAnimationFlags( AnimationReader &reader, AnimationAssetRef &new_ref, char flags);
+    void ApplyAnimationFlags(AnimationReader &reader, AnimationAssetRef &new_ref, char flags);
 
-public:
-    void SetAnimation( const std::string &path, float fade_speed = _default_fade_speed, char flags = 0);
-    int AddLayer( const std::string &path, float fade_speed = _default_fade_speed, char flags = 0);
-    void SetBlendCoord(const std::string &label, float coord); 
+   public:
+    void SetAnimation(const std::string &path, float fade_speed = _default_fade_speed, char flags = 0);
+    int AddLayer(const std::string &path, float fade_speed = _default_fade_speed, char flags = 0);
+    void SetBlendCoord(const std::string &label, float coord);
     void Update(float timestep);
 
     void SetBoneMasses(const std::vector<float> &bone_masses);
 
     void SetRotationMatrix(const mat4 &matrix);
-    void GetMatrices( AnimOutput &anim_output, const std::vector<int> *parents);
-    void SetASContext( ASContext * _as_context );
-    void SetCallbackString( const std::string &_callback_string );
-    void SwapAnimation( const std::string &path, char flags = 0);
-    const mat4 &GetRotationMatrix( );
-    vec3 GetAvgTranslation(const std::vector<BoneTransform> &matrices );
+    void GetMatrices(AnimOutput &anim_output, const std::vector<int> *parents);
+    void SetASContext(ASContext *_as_context);
+    void SetCallbackString(const std::string &_callback_string);
+    void SwapAnimation(const std::string &path, char flags = 0);
+    const mat4 &GetRotationMatrix();
+    vec3 GetAvgTranslation(const std::vector<BoneTransform> &matrices);
     void Reset();
-    void SetSkeleton( Skeleton *_skeleton );
+    void SetSkeleton(Skeleton *_skeleton);
     std::queue<AnimationEvent> GetActiveEvents();
-    void SetRetargeting( const std::string &new_path);
+    void SetRetargeting(const std::string &new_path);
     void UpdateLayers(float timestep);
-    void SetLayerOpacity( int layer, float opac );
-    void RemoveLayer( int which, float fade_speed );
-    void SetBlendAnimation( const std::string & path );
-    void AddAnimationOffset( const vec3 & offset );
-    void AddAnimationRotOffset( float offset );
+    void SetLayerOpacity(int layer, float opac);
+    void RemoveLayer(int which, float fade_speed);
+    void SetBlendAnimation(const std::string &path);
+    void AddAnimationOffset(const vec3 &offset);
+    void AddAnimationRotOffset(float offset);
     void ClearBlendAnimation();
-    float GetAnimationEventTime( const std::string & event_name ) const;
+    float GetAnimationEventTime(const std::string &event_name) const;
     AnimationClient();
     void SetSpeedMult(float speed_mult);
     float GetTimeUntilEvent(const std::string &event);
-    void SetAnimatedItemID( int index, int id );
-    void SetLayerItemID( int layer_id, int index, int item_id );
-    const std::string& GetCurrAnim() const;
+    void SetAnimatedItemID(int index, int id);
+    void SetLayerItemID(int layer_id, int index, int item_id);
+    const std::string &GetCurrAnim() const;
     float GetNormalizedAnimTime() const;
     float GetAnimationSpeed() const;
     void RemoveAllLayers();

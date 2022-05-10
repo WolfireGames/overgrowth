@@ -29,44 +29,38 @@
 #include <string>
 #include <iostream>
 
-
-class ManifestXMLParser
-{
-public:
+class ManifestXMLParser {
+   public:
     ManifestXMLParser();
 
-    class Item
-    {
-    public:
-        Item( std::string path, std::string type, std::string hash );
-        std::string path, type, hash; 
+    class Item {
+       public:
+        Item(std::string path, std::string type, std::string hash);
+        std::string path, type, hash;
     };
 
-    class BuilderResult
-    {
-    public:
-        BuilderResult( std::string dest, std::string dest_hash, std::string builder, std::string builder_version, std::string type, bool success, bool fresh_built, std::vector<Item> items );
+    class BuilderResult {
+       public:
+        BuilderResult(std::string dest, std::string dest_hash, std::string builder, std::string builder_version, std::string type, bool success, bool fresh_built, std::vector<Item> items);
 
         std::string dest, dest_hash, builder, builder_version, type;
         bool success, fresh_built;
-        
+
         std::vector<Item> items;
     };
 
-    class GeneratorResult
-    {
-    public:
-        GeneratorResult( std::string dest, std::string dest_hash, std::string generator, std::string generator_version, std::string type, bool success, bool fresh_built ); 
+    class GeneratorResult {
+       public:
+        GeneratorResult(std::string dest, std::string dest_hash, std::string generator, std::string generator_version, std::string type, bool success, bool fresh_built);
 
         std::string dest, dest_hash, generator, generator_version, type;
         bool success, fresh_built;
     };
 
-    class Manifest
-    {
-    public:
+    class Manifest {
+       public:
         Manifest();
-        Manifest( std::vector<BuilderResult> builder_results, std::vector<GeneratorResult> generator_results );
+        Manifest(std::vector<BuilderResult> builder_results, std::vector<GeneratorResult> generator_results);
 
         std::vector<BuilderResult> builder_results;
         std::vector<GeneratorResult> generator_results;
@@ -74,7 +68,7 @@ public:
 
     Manifest manifest;
 
-    virtual bool Load( const std::string& path );
-    virtual bool Save( const std::string& path );
+    virtual bool Load(const std::string& path);
+    virtual bool Save(const std::string& path);
     virtual void Clear();
 };

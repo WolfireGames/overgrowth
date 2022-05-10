@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_datastructures.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -44,18 +44,17 @@ void NetworkBone::Deserialize(binn* l) {
     binn_object_get_float(l, "mcs", &model_char_scale);
 }
 
-
 binn* RiggedObjectFrame::Serialize() {
     binn* l = binn_object();
 
     binn_object_set_float(l, "ts", host_walltime);
     binn_object_set_uint8(l, "bc", bone_count);
-    
+
     binn* bl_bones = binn_list();
 
-    for(int i = 0; i < bone_count && i < bones.size(); i++) {
+    for (int i = 0; i < bone_count && i < bones.size(); i++) {
         binn* bo_bone = bones[i].Serialize();
-        binn_list_add_object(bl_bones,bo_bone);
+        binn_list_add_object(bl_bones, bo_bone);
         binn_free(bo_bone);
     }
 
@@ -73,7 +72,7 @@ void RiggedObjectFrame::Deserialize(binn* l) {
     void* bl_bones;
     binn_object_get_list(l, "bones", &bl_bones);
 
-    for(int i = 0; i < bone_count && i < bones.size(); i++) {
+    for (int i = 0; i < bone_count && i < bones.size(); i++) {
         void* bo_bone;
         binn_list_get_object(bl_bones, i + 1, &bo_bone);
         bones[i].Deserialize((binn*)bo_bone);

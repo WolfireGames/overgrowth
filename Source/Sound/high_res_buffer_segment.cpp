@@ -20,25 +20,23 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#include "high_res_buffer_segment.h" 
+#include "high_res_buffer_segment.h"
 
-HighResBufferSegment::HighResBufferSegment(): sample_rate(0), channels(0), data_size(0), error_code(0) {
-
+HighResBufferSegment::HighResBufferSegment() : sample_rate(0), channels(0), data_size(0), error_code(0) {
 }
 
 size_t HighResBufferSegment::FullSampleCount() const {
-    if( channels > 0 ) {
-        return data_size/SAMPLE_SIZE/channels;
+    if (channels > 0) {
+        return data_size / SAMPLE_SIZE / channels;
     } else {
-        return 0; 
+        return 0;
     }
 }
 
 size_t HighResBufferSegment::FlatSampleCount() const {
-    return data_size/SAMPLE_SIZE;
+    return data_size / SAMPLE_SIZE;
 }
 
 size_t HighResBufferSegment::SampleSize() const {
     return SAMPLE_SIZE;
 }
-

@@ -53,23 +53,21 @@
 #endif
 
 #ifndef COMPILER
-  #if (defined __GNUC__)
-    #define COMPILER "GCC"
-  #elif (defined _MSC_VER)
-    #define COMPILER "Visual Studio"
-  #else
-    #error Please define your platform.
-  #endif
+#if (defined __GNUC__)
+#define COMPILER "GCC"
+#elif (defined _MSC_VER)
+#define COMPILER "Visual Studio"
+#else
+#error Please define your platform.
+#endif
 #endif
 
 // macro mess so we can turn APPID and APPREV into a string literal...
 #define MAKEBUILDVERSTRINGLITERAL2(id, rev) \
-    #id ", Revision " #rev ", Built " __DATE__ " " __TIME__ ", by " \
-    COMPILER " version " __VERSION__
+#id ", Revision " #rev ", Built " __DATE__ " " __TIME__ ", by " COMPILER " version " __VERSION__
 
 #define MAKEBUILDVERSTRINGLITERAL(id, rev) MAKEBUILDVERSTRINGLITERAL2(id, rev)
 
 const char *GBuildVer = MAKEBUILDVERSTRINGLITERAL(APPID, APPREV);
 
 // end of buildver.cpp ...
-

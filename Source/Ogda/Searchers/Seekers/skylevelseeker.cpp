@@ -26,18 +26,14 @@
 
 #include <Logging/logdata.h>
 
-std::vector<Item> SkyLevelSeeker::SearchLevelRoot(const Item& item, TiXmlHandle& hRoot)
-{
+std::vector<Item> SkyLevelSeeker::SearchLevelRoot(const Item& item, TiXmlHandle& hRoot) {
     std::vector<Item> items;
 
-    TiXmlElement *eElem = hRoot.FirstChildElement("Sky").FirstChildElement("DomeTexture").Element();
+    TiXmlElement* eElem = hRoot.FirstChildElement("Sky").FirstChildElement("DomeTexture").Element();
 
-    if( eElem && eElem->GetText() && strlen(eElem->GetText()) > 0 )
-    {
+    if (eElem && eElem->GetText() && strlen(eElem->GetText()) > 0) {
         items.push_back(Item(item.input_folder, eElem->GetText(), "texture", item.source));
-    } 
-    else
-    {
+    } else {
         LOGW << "Level missing Sky DomeTexture " << std::endl;
     }
 

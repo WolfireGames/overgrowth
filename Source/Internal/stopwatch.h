@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: stopwatch.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,27 +27,29 @@
 void BusyWaitMilliseconds(uint32_t how_many);
 
 class Stopwatch {
-private:
+   private:
     uint32_t start_time;
-public:
+
+   public:
     void Start();
     void Stop(std::string text);
     uint32_t StopAndReport();
     uint32_t ReportMilliseconds();
-    
+
     Stopwatch() {
         Start();
     }
 };
 
 class PrecisionStopwatch {
-private:
+   private:
     uint64_t start_time;
-public:
+
+   public:
     void Start();
     void Stop(std::string text);
     uint64_t StopAndReportNanoseconds();
-    
+
     PrecisionStopwatch() {
         Start();
     }

@@ -34,8 +34,8 @@
 using std::string;
 
 class ActorFile : public AssetInfo {
-public:
-    ActorFile( AssetManager *owner, uint32_t asset_id );
+   public:
+    ActorFile(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return ACTOR_FILE_ASSET; }
     static const char* GetTypeName() { return "ACTOR_FILE_ASSET"; }
 
@@ -44,7 +44,7 @@ public:
 
     int load_error;
 
-    int Load(const string &path, uint32_t load_flags);
+    int Load(const string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
 

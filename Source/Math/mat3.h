@@ -25,28 +25,27 @@
 #include <Math/vec3.h>
 #include <Math/mat4.h>
 
-class mat3
-{
-public:
+class mat3 {
+   public:
     mat3(float val = 1.0f);
     mat3(float e0, float e1, float e2,
          float e3, float e4, float e5,
          float e6, float e7, float e8);
-    mat3(const float * rhs);
+    mat3(const float* rhs);
     mat3(const mat4& m);
-    ~mat3() {}    //empty
+    ~mat3() {}  // empty
 
-    //cast to pointer to a (float *) for glGetFloatv etc
-    operator float* () const {return (float*) this;}
-    operator const float* () const {return (const float*) this;}
-    
-    inline float& operator()(int i, int j) {return entries[i+j*3];}
-    inline const float& operator()(int i, int j) const {return entries[i+j*3];}
+    // cast to pointer to a (float *) for glGetFloatv etc
+    operator float*() const { return (float*)this; }
+    operator const float*() const { return (const float*)this; }
+
+    inline float& operator()(int i, int j) { return entries[i + j * 3]; }
+    inline const float& operator()(int i, int j) const { return entries[i + j * 3]; }
 
     inline float& operator[](int i) { return entries[i]; }
     inline const float& operator[](int i) const { return entries[i]; }
-    vec3 operator*(const vec3 &rhs) const;
+    vec3 operator*(const vec3& rhs) const;
 
-    //member variables
+    // member variables
     float entries[9];
 };

@@ -30,18 +30,17 @@
 
 #include <tinyxml.h>
 
-
-uint32_t AssetManifestParser::Load( const std::string& path ) {
-    TiXmlDocument doc( path.c_str() );
+uint32_t AssetManifestParser::Load(const std::string& path) {
+    TiXmlDocument doc(path.c_str());
     doc.LoadFile();
-    if(!doc.Error()) {
+    if (!doc.Error()) {
         TiXmlElement* pRoot = doc.RootElement();
-        if(pRoot) { 
+        if (pRoot) {
             TiXmlElement* e = pRoot->FirstChildElement("Asset");
-            while(e) {
+            while (e) {
                 Asset a;
 
-                strscpy(a.id,e->Attribute("id"),Asset::ID_LENGTH);
+                strscpy(a.id, e->Attribute("id"), Asset::ID_LENGTH);
                 a.path = nullAsEmpty(e->Attribute("path"));
                 a.asset_type = GetAssetTypeValue(nullAsEmpty(e->Attribute("asset_type")));
                 a.preload = saysTrue(e->Attribute("preload"));
@@ -56,17 +55,15 @@ uint32_t AssetManifestParser::Load( const std::string& path ) {
     return 0;
 }
 
-bool AssetManifestParser::Save( const std::string& path ) {
+bool AssetManifestParser::Save(const std::string& path) {
     return false;
 }
 
 void AssetManifestParser::Clear() {
-    assets.clear();    
+    assets.clear();
 }
 
-AssetManifestParser::Asset::Asset() :
-load_flags(0x0)
-{
+AssetManifestParser::Asset::Asset() : load_flags(0x0) {
     id[0] = '\0';
     asset_type = UNKNOWN;
     preload = false;

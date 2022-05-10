@@ -58,10 +58,10 @@ void FatalError(const char* title, const char* fmt, ...) {
 }
 
 ErrorResponse DisplayFormatError(ErrorType type,
-                           bool allow_repetition,
-                           const char* title,
-                           const char* fmtcontents, 
-                           ... ) {
+                                 bool allow_repetition,
+                                 const char* title,
+                                 const char* fmtcontents,
+                                 ...) {
     static const int kBufSize = 2048;
     char err_buf[kBufSize];
     va_list args;
@@ -82,7 +82,7 @@ struct ErrorDisplay {
 std::mutex error_queue_mutex;
 static int error_id_counter = 1;
 std::vector<ErrorDisplay> error_queue;
-std::map<int,ErrorResponse> error_return;
+std::map<int, ErrorResponse> error_return;
 
 std::mutex display_last_queued_error_mutex;
 
@@ -97,7 +97,7 @@ ErrorResponse DisplayLastQueuedError() {
     bool show_error = false;
 
     error_queue_mutex.lock();
-    if( error_queue.size() > 0 ) {
+    if (error_queue.size() > 0) {
         ed = error_queue[0];
         error_queue.erase(error_queue.begin());
         show_error = true;
@@ -107,27 +107,27 @@ ErrorResponse DisplayLastQueuedError() {
 
     std::stringstream ss;
 
-    ss << ed.pretext << std::endl << ed.contents;
+    ss << ed.pretext << std::endl
+       << ed.contents;
 
-    if( show_error ) {
+    if (show_error) {
         response = OSDisplayError(
-                        ed.title.c_str(),
-                        ss.str().c_str(),
-                        ed.type
-        );
+            ed.title.c_str(),
+            ss.str().c_str(),
+            ed.type);
 
-        switch( response ) {
-        case _er_exit:
-            LOGI.Format("\"Cancel\" chosen, shutting down program.");
-            LogSystem::Flush();
-            _exit(1);
-            break;
-        case _retry:
-            LOGI.Format("\"Retry\" chosen");
-            break;
-        case _continue:
-            LOGI.Format("\"Continue\" chosen");
-            break;
+        switch (response) {
+            case _er_exit:
+                LOGI.Format("\"Cancel\" chosen, shutting down program.");
+                LogSystem::Flush();
+                _exit(1);
+                break;
+            case _retry:
+                LOGI.Format("\"Retry\" chosen");
+                break;
+            case _continue:
+                LOGI.Format("\"Continue\" chosen");
+                break;
         }
     }
 
@@ -152,13 +152,13 @@ static int PushDisplayError(ErrorDisplay& ed) {
 ErrorResponse WaitResponseForDisplayError(int error_id) {
     ErrorResponse ret;
     bool result = false;
-    while(result == false) {
+    while (result == false) {
         error_queue_mutex.lock();
         result = (error_return.find(error_id) != error_return.end());
         error_queue_mutex.unlock();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
-    
+
     error_queue_mutex.lock();
     ret = error_return[error_id];
     error_return.erase(error_return.find(error_id));
@@ -170,27 +170,25 @@ std::mutex display_error_mutex;
 std::map<std::string, int> error_message_history;
 
 ErrorResponse DisplayError(const char* title, const char* contents, ErrorType type, bool allow_repetition) {
-
     display_error_mutex.lock();
 
     bool no_log = false;
-    if(type == _ok_no_log){
+    if (type == _ok_no_log) {
         no_log = true;
         type = _ok;
     }
 
-    if( !no_log ) {  
+    if (!no_log) {
         LOGI << "Displaying message: " << title << ", " << contents << std::endl;
         LOGI << GenerateStacktrace() << std::endl;
     }
 
-    if( config["no_dialogues"].toBool() )
-    {
+    if (config["no_dialogues"].toBool()) {
         display_error_mutex.unlock();
         return _continue;
     }
 
-    if(!allow_repetition && error_message_history[contents]) {
+    if (!allow_repetition && error_message_history[contents]) {
         display_error_mutex.unlock();
         return _continue;
     }
@@ -202,13 +200,13 @@ ErrorResponse DisplayError(const char* title, const char* contents, ErrorType ty
     bool active_mods = false;
     int active_count = 0;
     std::vector<ModInstance*> mods = ModLoading::Instance().GetAllMods();
-    for(auto & mod : mods) {
-        if( mod->IsActive() && mod->IsCore() == false) {
-            if( active_mods == false ) {
+    for (auto& mod : mods) {
+        if (mod->IsActive() && mod->IsCore() == false) {
+            if (active_mods == false) {
                 modlist << "Following mods are active" << std::endl;
                 active_mods = true;
             } else {
-                if( (active_count % 5) == 0 ) {
+                if ((active_count % 5) == 0) {
                     modlist << "," << std::endl;
                 } else {
                     modlist << ", ";
@@ -218,40 +216,41 @@ ErrorResponse DisplayError(const char* title, const char* contents, ErrorType ty
             active_count++;
         }
     }
-    modlist << std::endl << "Before reporting, see if disabling mods makes a difference and include this info." << std::endl;
-     
+    modlist << std::endl
+            << "Before reporting, see if disabling mods makes a difference and include this info." << std::endl;
+
     ErrorDisplay ed;
 
     ed.title = title;
-    if( active_mods ) {
+    if (active_mods) {
         ed.pretext = modlist.str();
     }
     ed.contents = contents;
     ed.type = type;
 
     int error_id = PushDisplayError(ed);
-    
+
     ErrorResponse response;
 
-//On windows, showing this dialogue on the non-main window seems fine. (not sure i like it though, might wanna not do this, it's helpful for stacktraces in visual studio however).
+// On windows, showing this dialogue on the non-main window seems fine. (not sure i like it though, might wanna not do this, it's helpful for stacktraces in visual studio however).
 #if PLATFORM_WINDOWS
     response = DisplayLastQueuedError();
 #else
-    if( IsMainThread() ) {
+    if (IsMainThread()) {
         response = DisplayLastQueuedError();
     } else {
         response = WaitResponseForDisplayError(error_id);
     }
 #endif
-    
+
     display_error_mutex.unlock();
 
     return response;
 }
 
 void DisplayFormatMessage(const char* title,
-                           const char* fmtcontents,
-                           ... ) {
+                          const char* fmtcontents,
+                          ...) {
     static const int kBufSize = 2048;
     char mess_buf[kBufSize];
     va_list args;
@@ -265,8 +264,7 @@ void DisplayMessage(const char* title,
                     const char* contents) {
     display_error_mutex.lock();
 
-    if( config["no_dialogues"].toBool() )
-    {
+    if (config["no_dialogues"].toBool()) {
         display_error_mutex.unlock();
         return;
     }
@@ -281,11 +279,11 @@ void DisplayMessage(const char* title,
 
     ErrorResponse response;
 
-//On windows, showing this dialogue on the non-main window seems fine. (not sure i like it though, might wanna not do this, it's helpful for stacktraces in visual studio however).
+// On windows, showing this dialogue on the non-main window seems fine. (not sure i like it though, might wanna not do this, it's helpful for stacktraces in visual studio however).
 #if PLATFORM_WINDOWS
     response = DisplayLastQueuedError();
 #else
-    if( IsMainThread() ) {
+    if (IsMainThread()) {
         response = DisplayLastQueuedError();
     } else {
         response = WaitResponseForDisplayError(error_id);

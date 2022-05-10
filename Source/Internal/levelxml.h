@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: levelxml.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -32,4 +32,4 @@
 #include <Asset/assets.h>
 #include <Scripting/scriptparams.h>
 
-void ParseLevelXML(const std::string &path, LevelInfo& li);
+void ParseLevelXML(const std::string& path, LevelInfo& li);

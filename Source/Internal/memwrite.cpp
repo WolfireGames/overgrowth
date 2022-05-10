@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: memwrite.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -24,28 +24,28 @@
 
 #include <cstring>
 
-void memwrite(const void* source, size_t size, size_t count, std::vector<char> &target) {
+void memwrite(const void *source, size_t size, size_t count, std::vector<char> &target) {
     int start = target.size();
-    int total_size = size*count;
+    int total_size = size * count;
     target.resize(start + total_size);
 
-    if(total_size > 0){
-        memcpy((void*)&target[start],source,total_size);
+    if (total_size > 0) {
+        memcpy((void *)&target[start], source, total_size);
     }
 }
 
-void memread( void* source, size_t size, size_t count, const std::vector<char> &target, int &index ) {
-    int total_size = size*count;
+void memread(void *source, size_t size, size_t count, const std::vector<char> &target, int &index) {
+    int total_size = size * count;
 
-    if(total_size > 0){
-        memcpy(source,(void*)&target[index],total_size);
+    if (total_size > 0) {
+        memcpy(source, (void *)&target[index], total_size);
     }
     index += total_size;
 }
 
-void memread( void* source, size_t size, size_t count, const std::vector<char> &target ) {
-    int total_size = size*count;
-    if(total_size > 0){
-        memcpy(source,(void*)&target[0],total_size);
+void memread(void *source, size_t size, size_t count, const std::vector<char> &target) {
+    int total_size = size * count;
+    if (total_size > 0) {
+        memcpy(source, (void *)&target[0], total_size);
     }
 }

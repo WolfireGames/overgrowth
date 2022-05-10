@@ -42,66 +42,62 @@ using std::endl;
 void* StackAllocator::Alloc(size_t requested_size) {
     current_allocation_count++;
     frame_allocation_count++;
-    //AssertMainThread();
+    // AssertMainThread();
 #ifdef DEBUG_DISABLE_STACK_ALLOCATOR
-	return OG_MALLOC(requested_size);
-#else // DEBUG_DISABLE_STACK_ALLOCATOR
-    if(stack_block_pts[stack_blocks] + requested_size < size && stack_blocks < kMaxBlocks-2){
+    return OG_MALLOC(requested_size);
+#else   // DEBUG_DISABLE_STACK_ALLOCATOR
+    if (stack_block_pts[stack_blocks] + requested_size < size && stack_blocks < kMaxBlocks - 2) {
         ++stack_blocks;
-        stack_block_pts[stack_blocks] = stack_block_pts[stack_blocks-1] + requested_size;
-        void* ptr = (void*)((uintptr_t)mem + stack_block_pts[stack_blocks-1]);
+        stack_block_pts[stack_blocks] = stack_block_pts[stack_blocks - 1] + requested_size;
+        void* ptr = (void*)((uintptr_t)mem + stack_block_pts[stack_blocks - 1]);
         return ptr;
     } else {
-        if( stack_block_pts[stack_blocks] + requested_size >= size )
-        {
+        if (stack_block_pts[stack_blocks] + requested_size >= size) {
             LOGF << "Unable to stack allocate memory size:" << requested_size << ". Out of memory." << endl;
-        }
-        else
-        {
+        } else {
             LOGF << "Unable to stack allocate memory size:" << requested_size << ". Out of blocks." << endl;
         }
-        
+
         LOGF << GenerateStacktrace() << endl;
         return NULL;
     }
-#endif // DEBUG_DISABLE_STACK_ALLOCATOR
+#endif  // DEBUG_DISABLE_STACK_ALLOCATOR
 }
 
 void StackAllocator::Free(void* ptr) {
     current_allocation_count--;
-    //AssertMainThread();
+    // AssertMainThread();
 #ifdef DEBUG_DISABLE_STACK_ALLOCATOR
-	OG_FREE(ptr);
-#else // DEBUG_DISABLE_STACK_ALLOCATOR
-    if(stack_blocks){
+    OG_FREE(ptr);
+#else  // DEBUG_DISABLE_STACK_ALLOCATOR
+    if (stack_blocks) {
         --stack_blocks;
         LOG_ASSERT(ptr == (void*)((uintptr_t)mem + stack_block_pts[stack_blocks]));
-        if( ptr != (void*)((uintptr_t)mem + stack_block_pts[stack_blocks]) )
-        {
+        if (ptr != (void*)((uintptr_t)mem + stack_block_pts[stack_blocks])) {
             LOGE << "Called fre on something that isn't at the top of the stack" << endl;
-            LOGE << "Stacktrace:" << endl << GenerateStacktrace() << endl; 
+            LOGE << "Stacktrace:" << endl
+                 << GenerateStacktrace() << endl;
         }
-        
+
     } else {
 #ifndef NO_ERR
         FatalError("Memory stack underflow", "Calling Free() on StackMemoryBlock with no stack elements");
 #endif
     }
-#endif // DEBUG_DISABLE_STACK_ALLOCATOR
+#endif  // DEBUG_DISABLE_STACK_ALLOCATOR
 }
 
-
 uintptr_t StackAllocator::TopBlockSize() {
-    switch(stack_blocks){
-    case 0:
-        return 0;
-    default:
-        return stack_block_pts[stack_blocks] - stack_block_pts[stack_blocks-1];
+    switch (stack_blocks) {
+        case 0:
+            return 0;
+        default:
+            return stack_block_pts[stack_blocks] - stack_block_pts[stack_blocks - 1];
     }
 }
 
 void StackAllocator::Init(void* p_mem, size_t p_size) {
-    for (auto & stack_block_pt : stack_block_pts) {
+    for (auto& stack_block_pt : stack_block_pts) {
         stack_block_pt = 0;
     }
     mem = p_mem;
@@ -110,7 +106,7 @@ void StackAllocator::Init(void* p_mem, size_t p_size) {
 }
 
 void StackAllocator::Dispose() {
-    for (auto & stack_block_pt : stack_block_pts) {
+    for (auto& stack_block_pt : stack_block_pts) {
         stack_block_pt = 0;
     }
     mem = 0;

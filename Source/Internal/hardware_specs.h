@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: hardware_specs.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -34,5 +34,4 @@ void PrintSpecs();
 void PrintProcessMemory();
 bool HasHardwareS3TCSupport();
 
-std::map<std::string,int> GetHardwareLimitationsInt();
-
+std::map<std::string, int> GetHardwareLimitationsInt();

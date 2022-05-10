@@ -23,4 +23,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-enum AttachmentType {_at_grip, _at_sheathe, _at_attachment, _at_unspecified};
+enum AttachmentType { _at_grip,
+                      _at_sheathe,
+                      _at_attachment,
+                      _at_unspecified };

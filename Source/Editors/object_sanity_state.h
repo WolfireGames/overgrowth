@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: object_sanity_state.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -21,26 +21,27 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include <Editors/entity_type.h>
 #include <Internal/integer.h>
-    
-static const int kObjectSanity_PO_UnsetConnectID            = (1UL<<0);
 
-static const int kObjectSanity_G_NullChild                  = (1UL<<0);
-static const int kObjectSanity_G_ChildHasSanityIssue        = (1UL<<1);
-static const int kObjectSanity_G_Empty                      = (1UL<<2);
-static const int kObjectSanity_G_ChildHasExternalConnection = (1UL<<3);
+static const int kObjectSanity_PO_UnsetConnectID = (1UL << 0);
+
+static const int kObjectSanity_G_NullChild = (1UL << 0);
+static const int kObjectSanity_G_ChildHasSanityIssue = (1UL << 1);
+static const int kObjectSanity_G_Empty = (1UL << 2);
+static const int kObjectSanity_G_ChildHasExternalConnection = (1UL << 3);
 
 class ObjectSanityState {
-public:
+   public:
     EntityType type;
-private:
+
+   private:
     int32_t id;
     uint32_t state_flags;
 
-public:
+   public:
     ObjectSanityState();
     ObjectSanityState(EntityType type, int32_t id, uint32_t state_flags);
     bool Valid();

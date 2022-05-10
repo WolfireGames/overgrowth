@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: remove_player_state.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,42 +26,39 @@
 #include <Utility/binn_util.h>
 
 namespace OnlineMessages {
-    RemovePlayerState::RemovePlayerState(PlayerID player_id) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        player_id(player_id)
-    {
+RemovePlayerState::RemovePlayerState(PlayerID player_id) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                           player_id(player_id) {
+}
 
-    }
+binn* RemovePlayerState::Serialize(void* object) {
+    RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
+    binn* l = binn_object();
 
-    binn* RemovePlayerState::Serialize(void* object) {
-        RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
-        binn* l = binn_object();
+    binn_object_set_uint8(l, "player_id", t->player_id);
 
-        binn_object_set_uint8(l, "player_id", t->player_id);
+    return l;
+}
 
-        return l;
-    }
+void RemovePlayerState::Deserialize(void* object, binn* l) {
+    RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
 
-    void RemovePlayerState::Deserialize(void* object, binn* l) {
-        RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
+    binn_object_get_uint8(l, "player_id", &t->player_id);
+}
 
-        binn_object_get_uint8(l, "player_id", &t->player_id);
-    }
+void RemovePlayerState::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
 
-    void RemovePlayerState::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
-
-        if (Online::Instance()->online_session->player_states.find(t->player_id) != Online::Instance()->online_session->player_states.end()) {
-            Online::Instance()->online_session->player_states.erase(t->player_id);
-        }
-    }
-
-    void* RemovePlayerState::Construct(void *mem) {
-        return new(mem) RemovePlayerState(0);
-    }
-
-    void RemovePlayerState::Destroy(void* object) {
-        RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
-        t->~RemovePlayerState();
+    if (Online::Instance()->online_session->player_states.find(t->player_id) != Online::Instance()->online_session->player_states.end()) {
+        Online::Instance()->online_session->player_states.erase(t->player_id);
     }
 }
+
+void* RemovePlayerState::Construct(void* mem) {
+    return new (mem) RemovePlayerState(0);
+}
+
+void RemovePlayerState::Destroy(void* object) {
+    RemovePlayerState* t = static_cast<RemovePlayerState*>(object);
+    t->~RemovePlayerState();
+}
+}  // namespace OnlineMessages

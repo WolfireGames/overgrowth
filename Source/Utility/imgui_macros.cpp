@@ -24,12 +24,12 @@
 
 #include <imgui.h>
 
-bool ImGui_TooltipMenuItem( const char* body, const char* shortcut, const char* tooltip ) {
+bool ImGui_TooltipMenuItem(const char* body, const char* shortcut, const char* tooltip) {
     bool ret = false;
-    if(ImGui::MenuItem(body, shortcut)) { 
+    if (ImGui::MenuItem(body, shortcut)) {
         ret = true;
     }
-    if(ImGui::IsItemHovered()) {
+    if (ImGui::IsItemHovered()) {
         ImGui::SetTooltip("%s", tooltip);
     }
     return ret;

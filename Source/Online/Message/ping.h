@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: ping.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,17 +25,17 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class Ping : public OnlineMessageBase {
-    public:
-        uint32_t ping_id;
+class Ping : public OnlineMessageBase {
+   public:
+    uint32_t ping_id;
 
-    public:
-        Ping(uint32_t ping_id);
+   public:
+    Ping(uint32_t ping_id);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

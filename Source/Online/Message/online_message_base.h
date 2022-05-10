@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_message_base.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,24 +22,23 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-
 #include <Online/online_datastructures.h>
 #include <binn.h>
 
-//These are message types, they control the behaviour and allowance of a message
-//this only controls messages from the host to the clients, messages sent from the client are always
-//treated as equivalent to being TRANSIENT, as the client doesn't maintain session state.
+// These are message types, they control the behaviour and allowance of a message
+// this only controls messages from the host to the clients, messages sent from the client are always
+// treated as equivalent to being TRANSIENT, as the client doesn't maintain session state.
 enum class OnlineMessageCategory {
-    TRANSIENT, //Messages sent to a single client before a client has loaded a level and is ready to receive all messages
-    LEVEL_TRANSIENT, //Messages sent to a single or all clients when a level has fully loaded
-    LEVEL_PERSISTENT //Persistent level messages sent to all clients, and future new client who connect.
+    TRANSIENT,        // Messages sent to a single client before a client has loaded a level and is ready to receive all messages
+    LEVEL_TRANSIENT,  // Messages sent to a single or all clients when a level has fully loaded
+    LEVEL_PERSISTENT  // Persistent level messages sent to all clients, and future new client who connect.
 };
 
-
 class OnlineMessageBase {
-public:
+   public:
     bool reliable_delivery;
     OnlineMessageCategory cat;
-public:
+
+   public:
     OnlineMessageBase(OnlineMessageCategory cat);
 };

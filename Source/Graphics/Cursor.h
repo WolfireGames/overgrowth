@@ -28,12 +28,28 @@
 
 #include <string>
 
-enum _cursor_type { DEFAULT_CURSOR, TRANSLATE_CURSOR, SCALE_CURSOR, ROTATE_CURSOR, ROTATE_CIRCLE_CURSOR, ADD_CURSOR, REMOVE_CURSOR, LINK_CURSOR, UNLINK_CURSOR, HAND_CURSOR };
+enum _cursor_type { DEFAULT_CURSOR,
+                    TRANSLATE_CURSOR,
+                    SCALE_CURSOR,
+                    ROTATE_CURSOR,
+                    ROTATE_CIRCLE_CURSOR,
+                    ADD_CURSOR,
+                    REMOVE_CURSOR,
+                    LINK_CURSOR,
+                    UNLINK_CURSOR,
+                    HAND_CURSOR };
 
 class GameCursor {
-public:
-    GameCursor() { m_type = DEFAULT_CURSOR; m_size = 40.0f; m_width = 32; m_height = 32; m_rotation = 0;
-                m_offset_x = m_offset_y = 0; visible = true;}
+   public:
+    GameCursor() {
+        m_type = DEFAULT_CURSOR;
+        m_size = 40.0f;
+        m_width = 32;
+        m_height = 32;
+        m_rotation = 0;
+        m_offset_x = m_offset_y = 0;
+        visible = true;
+    }
     void Draw();
     void SetVisible(bool _visible);
     void SetCursor(_cursor_type t);
@@ -41,11 +57,14 @@ public:
     void setCursor(std::string texture_name);
     void Rotate(float angle);
     inline void SetRotation(float angle) { m_rotation = angle; }
-    inline void SetSize(int width, int height) { m_width = width; m_height = height; }
+    inline void SetSize(int width, int height) {
+        m_width = width;
+        m_height = height;
+    }
 
     bool visible;
 
-private:
+   private:
     TextureAssetRef hand_cursor_asset;
     TextureAssetRef link_cursor_asset;
     TextureAssetRef unlink_cursor_asset;

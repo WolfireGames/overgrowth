@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: navmeshhintobject.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,17 +30,17 @@
 #include <string>
 #include <vector>
 
-class NavmeshHintObject: public Object {
-private:
+class NavmeshHintObject : public Object {
+   private:
     RC_VBOContainer unit_box_vbo;
     std::vector<vec3> cross_marking;
-public:
+
+   public:
     NavmeshHintObject();
     ~NavmeshHintObject() override;
     EntityType GetType() const override { return _navmesh_hint_object; }
     bool Initialize() override;
     void Draw() override;
-    void GetDesc(EntityDescription &desc) const override;
-    bool SetFromDesc( const EntityDescription& desc ) override;
+    void GetDesc(EntityDescription& desc) const override;
+    bool SetFromDesc(const EntityDescription& desc) override;
 };
-

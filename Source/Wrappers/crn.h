@@ -21,14 +21,14 @@
 //
 //-----------------------------------------------------------------------------
 #pragma once
-//crn uses size_t without including headers that contains it on mac
+// crn uses size_t without including headers that contains it on mac
 #include <cstdlib>
 #include <crn_mipmapped_texture.h>
 #include <crn_texture_conversion.h>
 #include <crn_buffer_stream.h>
 
-//crnlib pulls in wingdi.h on Windows which defines a GetObject macro in some circumstances.
-//This collides with GetObject functions in angelscript, so we undefine it here.
+// crnlib pulls in wingdi.h on Windows which defines a GetObject macro in some circumstances.
+// This collides with GetObject functions in angelscript, so we undefine it here.
 #ifdef GetObject
 #undef GetObject
 #endif

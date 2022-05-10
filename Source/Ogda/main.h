@@ -21,4 +21,4 @@
 //
 //-----------------------------------------------------------------------------
 #pragma once
-void SetPercent( const char* message, int percent );
+void SetPercent(const char* message, int percent);

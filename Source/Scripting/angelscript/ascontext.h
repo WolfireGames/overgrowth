@@ -55,15 +55,15 @@ struct ASExpectedFunction {
 struct ASData {
     SceneGraph* scenegraph;
     GUI* gui;
-    ASData():scenegraph(NULL), gui(NULL) {}
+    ASData() : scenegraph(NULL), gui(NULL) {}
 };
 
 class ASContext {
-public:
+   public:
     std::string angelscript_error_string;
 
-    asIScriptContext *ctx;
-    asIScriptEngine *engine;
+    asIScriptContext* ctx;
+    asIScriptEngine* engine;
     ASDebugger dbg;
     ASProfiler profiler;
     ASModule module;
@@ -72,8 +72,9 @@ public:
     std::string documentation;
 
     GUI* gui;
-private:
-	std::unordered_map<uint32_t, ASFunctionHandle> mpCallBacks;
+
+   private:
+    std::unordered_map<uint32_t, ASFunctionHandle> mpCallBacks;
 
     SceneGraph* scenegraph;
 
@@ -81,57 +82,57 @@ private:
 
     fixed_array<ASExpectedFunction, 64> expected_functions;
 
-public:
+   public:
     bool LoadExpectedFunctions();
-    ASFunctionHandle RegisterExpectedFunction( const std::string &function_decl, bool mandatory );
+    ASFunctionHandle RegisterExpectedFunction(const std::string& function_decl, bool mandatory);
     Path current_script;
 
     ASContext(const char* name, const ASData& as_data);
     ~ASContext();
-	void run( asIScriptFunction *func, const ASArglist *args_ptr, ASArg *return_val );
-	bool LoadScript( const Path& path );
+    void run(asIScriptFunction* func, const ASArglist* args_ptr, ASArg* return_val);
+    bool LoadScript(const Path& path);
 
     bool HasFunction(ASFunctionHandle handle);
-    bool CallScriptFunction(ASFunctionHandle handle, const ASArglist *args = NULL, ASArg *return_val = NULL);
+    bool CallScriptFunction(ASFunctionHandle handle, const ASArglist* args = NULL, ASArg* return_val = NULL);
     bool HasFunction(const std::string& function_definition);
-    bool CallScriptFunction(const std::string &function_name, const ASArglist* args = NULL, ASArg *return_val = NULL, bool fail_message = true);
+    bool CallScriptFunction(const std::string& function_name, const ASArglist* args = NULL, ASArg* return_val = NULL, bool fail_message = true);
 
     int CompileScript(const Path& path);
 
-    void RegisterEnum( const char* declaration );
-    void RegisterEnumValue( const char* enum_declaration, const char* enum_val_string, int enum_val );
-    void RegisterGlobalFunction( const char* declaration,
+    void RegisterEnum(const char* declaration);
+    void RegisterEnumValue(const char* enum_declaration, const char* enum_val_string, int enum_val);
+    void RegisterGlobalFunction(const char* declaration,
+                                const asSFuncPtr& funcPointer,
+                                asDWORD callconv,
+                                const char* comment = NULL);
+    void RegisterGlobalFunctionThis(const char* declaration,
+                                    const asSFuncPtr& funcPointer,
+                                    asDWORD callconv,
+                                    void* ptr,
+                                    const char* comment = NULL);
+    void RegisterGlobalProperty(const char* declaration,
+                                void* pointer,
+                                const char* comment = NULL);
+    void RegisterObjectType(const char* obj,
+                            int byteSize,
+                            asDWORD flags,
+                            const char* comment = NULL);
+    void RegisterFuncdef(const char* declaration, const char* comment = NULL);
+    void RegisterObjectMethod(const char* obj,
+                              const char* declaration,
+                              const asSFuncPtr& funcPointer,
+                              asDWORD callConv,
+                              const char* comment = NULL);
+    void RegisterObjectProperty(const char* obj,
+                                const char* declaration,
+                                int byteOffset,
+                                const char* comment = NULL);
+    void RegisterObjectBehaviour(const char* obj,
+                                 asEBehaviours behaviour,
+                                 const char* declaration,
                                  const asSFuncPtr& funcPointer,
-                                 asDWORD callconv,
+                                 asDWORD callConv,
                                  const char* comment = NULL);
-    void RegisterGlobalFunctionThis( const char* declaration, 
-                                     const asSFuncPtr& funcPointer, 
-                                     asDWORD callconv, 
-                                     void* ptr, 
-                                     const char* comment = NULL );
-    void RegisterGlobalProperty( const char* declaration,
-                                 void* pointer,
-                                 const char* comment = NULL);
-    void RegisterObjectType( const char *obj, 
-                             int byteSize, 
-                             asDWORD flags,
-                             const char* comment = NULL);
-    void RegisterFuncdef(const char *declaration, const char* comment = NULL);
-    void RegisterObjectMethod( const char *obj, 
-                               const char *declaration, 
-                               const asSFuncPtr &funcPointer, 
-                               asDWORD callConv,
-                               const char* comment = NULL);
-    void RegisterObjectProperty( const char *obj, 
-                                 const char *declaration, 
-                                 int byteOffset,
-                                 const char* comment = NULL);
-    void RegisterObjectBehaviour( const char *obj, 
-                                  asEBehaviours behaviour, 
-                                  const char *declaration, 
-                                  const asSFuncPtr &funcPointer, 
-                                  asDWORD callConv,
-                                  const char* comment = NULL);
     void ResetGlobals();
     void Recompile();
     void PrintGlobalVars();
@@ -140,24 +141,24 @@ public:
     std::string GetCallstack();
     void DumpCallstack(std::ostream& out);
     void LogCallstack();
-    void Execute( const std::string &code, bool newContext = false );
-    void *GetVarPtr(const char* name);
-    void *GetArrayVarPtr( const std::string& name, int index);
-    int CompileScriptFromText(const std::string &text);
-    void LoadScriptFromText( const std::string &text );
-    bool TypeExists( const std::string& decl );
+    void Execute(const std::string& code, bool newContext = false);
+    void* GetVarPtr(const char* name);
+    void* GetArrayVarPtr(const std::string& name, int index);
+    int CompileScriptFromText(const std::string& text);
+    void LoadScriptFromText(const std::string& text);
+    bool TypeExists(const std::string& decl);
     bool Reload();
     void ExportDocs(const char* path);
     void DocsCloseBrace();
     void ActivateKeyboardEvents();
     void DeactivateKeyboardEvents();
     bool IsKeyboardEventActivated();
-    std::pair<Path,int> GetCallFile();
-	std::string GetASFunctionNameFromMPState(uint32_t state);
-	void RegisterMPStateCallback(uint32_t state, const std::string &callbackFunction);
-	bool CallMPCallBack(uint32_t state, const std::vector<char> &data);
-	bool CallMPCallBack(uint32_t state, const std::vector<unsigned int> &data);
+    std::pair<Path, int> GetCallFile();
+    std::string GetASFunctionNameFromMPState(uint32_t state);
+    void RegisterMPStateCallback(uint32_t state, const std::string& callbackFunction);
+    bool CallMPCallBack(uint32_t state, const std::vector<char>& data);
+    bool CallMPCallBack(uint32_t state, const std::vector<unsigned int>& data);
     asIScriptEngine* GetEngine();
 };
 
-void DebugLineCallback(asIScriptContext *ctx, ASModule *asmod);
+void DebugLineCallback(asIScriptContext* ctx, ASModule* asmod);

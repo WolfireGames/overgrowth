@@ -30,17 +30,15 @@
 #include <cstdlib>
 #include <cmath>
 
-Joystick::Joystick(float look_sensitivity) :
-    look_sensitivity_(look_sensitivity),
-    deadzone(0.1f),
-    button_input_buffer_count(0)
-{
+Joystick::Joystick(float look_sensitivity) : look_sensitivity_(look_sensitivity),
+                                             deadzone(0.1f),
+                                             button_input_buffer_count(0) {
 }
 
-bool Joystick::HandleInputChange( ControllerInput::Input input, float val, uint32_t sequence_id ) {
+bool Joystick::HandleInputChange(ControllerInput::Input input, float val, uint32_t sequence_id) {
     float depth = val;
     std::ostringstream oss;
-    switch(input) {
+    switch (input) {
         case ControllerInput::L_STICK_XN:
         case ControllerInput::L_STICK_XP:
         case ControllerInput::L_STICK_YN:
@@ -58,37 +56,37 @@ bool Joystick::HandleInputChange( ControllerInput::Input input, float val, uint3
     }
 
     bool ret_val = false;
-    if(depth > 0.0f) {
+    if (depth > 0.0f) {
         AddInputBufferItem(input, depth, sequence_id);
         ret_val = true;
     }
 
     std::pair<BindingMap::iterator, BindingMap::iterator> iter_pair = binding_.equal_range(input);
-    if(iter_pair.first != binding_.end()) {
-        for(BindingMap::iterator iter = iter_pair.first; iter != iter_pair.second; ++iter) {
-            SetButtonDown(iter->second, depth); 
+    if (iter_pair.first != binding_.end()) {
+        for (BindingMap::iterator iter = iter_pair.first; iter != iter_pair.second; ++iter) {
+            SetButtonDown(iter->second, depth);
         }
     }
 
     return ret_val;
 }
 
-void Joystick::ProcessBinding( ControllerInput::Input input, const std::string command) {
+void Joystick::ProcessBinding(ControllerInput::Input input, const std::string command) {
     binding_.insert(std::pair<ControllerInput::Input, std::string>(input, command));
 }
 
-float Joystick::GetButtonDown( const std::string &name ) const {
+float Joystick::GetButtonDown(const std::string &name) const {
     ButtonMap::const_iterator iter(buttons_down_.find(name));
-    if(iter != buttons_down_.end()){
+    if (iter != buttons_down_.end()) {
         return iter->second;
     } else {
         return false;
     }
 }
 
-void Joystick::SetButtonDown( const std::string &name, float depth ) {
+void Joystick::SetButtonDown(const std::string &name, float depth) {
     ButtonMap::iterator iter(buttons_down_.find(name));
-    if(iter != buttons_down_.end()){
+    if (iter != buttons_down_.end()) {
         iter->second = depth;
     } else {
         buttons_down_.insert(std::pair<std::string, bool>(name, depth));
@@ -99,11 +97,10 @@ void Joystick::ClearBinding() {
     binding_.clear();
 }
 
-void Joystick::AddInputBufferItem(ControllerInput::Input input, float depth, uint32_t sequence_id)
-{
-    if( button_input_buffer_count >= button_input_buffer_size ) {
-        for( unsigned i = 1; i < button_input_buffer_count; i++ ) {
-            button_input_buffer[i-1] = button_input_buffer[i];
+void Joystick::AddInputBufferItem(ControllerInput::Input input, float depth, uint32_t sequence_id) {
+    if (button_input_buffer_count >= button_input_buffer_size) {
+        for (unsigned i = 1; i < button_input_buffer_count; i++) {
+            button_input_buffer[i - 1] = button_input_buffer[i];
         }
         button_input_buffer_count--;
     }
@@ -114,11 +111,10 @@ void Joystick::AddInputBufferItem(ControllerInput::Input input, float depth, uin
     button_input_buffer_count++;
 }
 
-std::vector<Joystick::JoystickPress> Joystick::GetJoystickInputs()
-{
+std::vector<Joystick::JoystickPress> Joystick::GetJoystickInputs() {
     std::vector<Joystick::JoystickPress> presses;
     presses.resize(button_input_buffer_count);
-    for( unsigned i = 0; i < button_input_buffer_count; i++ ) {
+    for (unsigned i = 0; i < button_input_buffer_count; i++) {
         presses[i] = button_input_buffer[i];
     }
     return presses;
@@ -126,9 +122,9 @@ std::vector<Joystick::JoystickPress> Joystick::GetJoystickInputs()
 
 float Joystick::NormalizeJoystick(float value) {
     // Do not let kDeadzone become 32767.0f, or divide by 0 will occur
-    const float kDeadzone = std::min(32767.0f * deadzone, 32000.0f); // Not actually a constant, but sort of
+    const float kDeadzone = std::min(32767.0f * deadzone, 32000.0f);  // Not actually a constant, but sort of
     // Deadzone
-    if(value < kDeadzone && value > -kDeadzone) {
+    if (value < kDeadzone && value > -kDeadzone) {
         return 0;
     }
     // Subtract deadzone from value and divisor
@@ -138,7 +134,7 @@ float Joystick::NormalizeJoystick(float value) {
     // Clamp each axis to {-1,1}
     if (axis < -1.0f) {
         axis = -1.0f;
-    } 
+    }
     if (axis > 1.0f) {
         axis = 1.0f;
     }
@@ -148,16 +144,11 @@ float Joystick::NormalizeJoystick(float value) {
 const float KeyState::kDepthThreshold = 0.5f;
 
 KeyState::KeyState()
-    : count(0)
-    , depth_count(0)
-    , depth(0)
-{ }
+    : count(0), depth_count(0), depth(0) {}
 
-bool KeyState::operator!=(const KeyState & other) const {
+bool KeyState::operator!=(const KeyState &other) const {
     return count != other.count || depth != other.depth || depth != other.depth_count;
 }
 
-PlayerInput::PlayerInput() : 
-    enabled(true),
-    remote_controlled(false)
-{ }
+PlayerInput::PlayerInput() : enabled(true),
+                             remote_controlled(false) {}

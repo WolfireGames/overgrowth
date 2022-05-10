@@ -2,39 +2,39 @@
 //           Name: geometry.cpp
 //         Author: Freeglut
 //        License: X-Consortium license
-//    Description: Data and utility functions for rendering several useful 
-//                 geometric shapes. This code is a modified version of the 
-//                 code found in "freeglut_teapot.c" and "freeglut_geometry.c", 
+//    Description: Data and utility functions for rendering several useful
+//                 geometric shapes. This code is a modified version of the
+//                 code found in "freeglut_teapot.c" and "freeglut_geometry.c",
 //                 which is part of the open source project, Freeglut.
 //                 http://freeglut.sourceforge.net/
-//               
-//                 Modified by Wolfire Games LLC for use in the project 
+//
+//                 Modified by Wolfire Games LLC for use in the project
 //                 Overgrowth.
 //
 // ----------------------------------------------------------------------------
 // Freeglut Copyright
 // ------------------
-// 
+//
 // Freeglut code without an explicit copyright is covered by the following
 // copyright :
-// 
+//
 // Copyright(c) 1999 - 2000 Pawel W.Olszta.All Rights Reserved.
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this softwareand associated documentation files(the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and /or sell
 // copies or substantial portions of the Software.
-// 
+//
 // The above  copyright notice and this permission notice  shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE  IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING  BUT  NOT LIMITED  TO THE WARRANTIES  OF MERCHANTABILITY,
 // FITNESS  FOR  A PARTICULAR PURPOSE  AND NONINFRINGEMENT.IN  NO EVENT  SHALL
 // PAWEL W.OLSZTA BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 // IN  AN ACTION  OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF  OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-// 
+//
 // Except as contained in this notice, the name of Pawel W.Olszta shall not be
 // used  in advertising or otherwise to promote the sale, use or other dealings
 // in this Software without prior written authorization from Pawel W.Olszta.
@@ -171,7 +171,7 @@
 
 #include <cmath>
 
-static void circleTable(double **sint,double **cost,const int n);
+static void circleTable(double **sint, double **cost, const int n);
 
 /* -- INTERFACE FUNCTIONS -------------------------------------------------- */
 
@@ -185,181 +185,172 @@ static void circleTable(double **sint,double **cost,const int n);
  *    The sign of n can be flipped to get the reverse loop
  */
 
-static void circleTable(double **sint,double **cost,const int n)
-{
-  int i;
-  
-  /* Table size, the sign of n flips the circle direction */
-  
-  const int size = abs(n);
-  
-  /* Determine the angle between samples */
-  
-  const double angle = 2*PI/(double)n;
-  
-  /* Allocate memory for n samples, plus duplicate of first entry at the end */
-  
-  *sint = (double *) calloc(sizeof(double), size+1);
-  *cost = (double *) calloc(sizeof(double), size+1);
-  
-  /* Bail out if memory allocation fails, fgError never returns */
-  
-  if (!(*sint) || !(*cost))
-  {
-    OG_FREE(*sint);
-    *sint = NULL;
-    OG_FREE(*cost);
-    *cost = NULL;
-    FatalError("Error", "Failed to allocate memory in circleTable");
-  }
-  
-  /* Compute cos and sin around the circle */
-  
-  for (i=0; i<size; i++)
-  {
-    (*sint)[i] = sin(angle*i);
-    (*cost)[i] = cos(angle*i);
-  }
-  
-  /* Last sample is duplicate of the first */
-  
-  (*sint)[size] = (*sint)[0];
-  (*cost)[size] = (*cost)[0];
+static void circleTable(double **sint, double **cost, const int n) {
+    int i;
+
+    /* Table size, the sign of n flips the circle direction */
+
+    const int size = abs(n);
+
+    /* Determine the angle between samples */
+
+    const double angle = 2 * PI / (double)n;
+
+    /* Allocate memory for n samples, plus duplicate of first entry at the end */
+
+    *sint = (double *)calloc(sizeof(double), size + 1);
+    *cost = (double *)calloc(sizeof(double), size + 1);
+
+    /* Bail out if memory allocation fails, fgError never returns */
+
+    if (!(*sint) || !(*cost)) {
+        OG_FREE(*sint);
+        *sint = NULL;
+        OG_FREE(*cost);
+        *cost = NULL;
+        FatalError("Error", "Failed to allocate memory in circleTable");
+    }
+
+    /* Compute cos and sin around the circle */
+
+    for (i = 0; i < size; i++) {
+        (*sint)[i] = sin(angle * i);
+        (*cost)[i] = cos(angle * i);
+    }
+
+    /* Last sample is duplicate of the first */
+
+    (*sint)[size] = (*sint)[0];
+    (*cost)[size] = (*cost)[0];
 }
 
-void GetWireCylinderVertArray(GLint slices, std::vector<vec3> &data)
-{
+void GetWireCylinderVertArray(GLint slices, std::vector<vec3> &data) {
     // x right, y up, z forward
-    float rotationStep = (2.0f*PI_f)/(float)slices;
+    float rotationStep = (2.0f * PI_f) / (float)slices;
     float radius = 0.5f;
     float halfheight = 0.5f;
 
-    vec3 centerTop( 0,halfheight,0 );
-    vec3 centerBottom( 0, -halfheight,0);
-   
-    data.reserve( slices * 2 * 10 );
+    vec3 centerTop(0, halfheight, 0);
+    vec3 centerBottom(0, -halfheight, 0);
 
-    for( int i = 0; i < slices; i++ )
-    {
-        float rotation1 = i*rotationStep;
-        float rotation2 = (i+1)*rotationStep;
+    data.reserve(slices * 2 * 10);
 
-        vec3 offset1(radius*(std::cos(rotation1)-std::sin(rotation1)), 0.0f, radius*(std::sin(rotation1)+std::cos(rotation1)));
-        vec3 pointTop1 = offset1+centerTop;
-        vec3 pointBottom1 = offset1+centerBottom;
+    for (int i = 0; i < slices; i++) {
+        float rotation1 = i * rotationStep;
+        float rotation2 = (i + 1) * rotationStep;
 
-        vec3 offset2(radius*(std::cos(rotation2)-std::sin(rotation2)), 0.0f, radius*(std::sin(rotation2)+std::cos(rotation2)));
-        vec3 pointTop2 = offset2+centerTop;
-        vec3 pointBottom2 = offset2+centerBottom;
+        vec3 offset1(radius * (std::cos(rotation1) - std::sin(rotation1)), 0.0f, radius * (std::sin(rotation1) + std::cos(rotation1)));
+        vec3 pointTop1 = offset1 + centerTop;
+        vec3 pointBottom1 = offset1 + centerBottom;
 
-        data.push_back( centerTop );
-        data.push_back( pointTop1 );
+        vec3 offset2(radius * (std::cos(rotation2) - std::sin(rotation2)), 0.0f, radius * (std::sin(rotation2) + std::cos(rotation2)));
+        vec3 pointTop2 = offset2 + centerTop;
+        vec3 pointBottom2 = offset2 + centerBottom;
 
-        data.push_back( pointTop1 );
-        data.push_back( pointTop2 );
+        data.push_back(centerTop);
+        data.push_back(pointTop1);
 
-        data.push_back( pointTop1 );
-        data.push_back( pointBottom1 );
+        data.push_back(pointTop1);
+        data.push_back(pointTop2);
 
-        data.push_back( pointBottom1 );
-        data.push_back( pointBottom2 );
+        data.push_back(pointTop1);
+        data.push_back(pointBottom1);
 
-        data.push_back( pointBottom1 );
-        data.push_back( centerBottom );
-    }      
+        data.push_back(pointBottom1);
+        data.push_back(pointBottom2);
+
+        data.push_back(pointBottom1);
+        data.push_back(centerBottom);
+    }
 }
 
-void GetWireBoxVertArray( std::vector<vec3> &data )
-{
+void GetWireBoxVertArray(std::vector<vec3> &data) {
     vec3 corners[] =
-    {
-        //Upper four corners
-        vec3( 0.5f,   0.5f, 0.5f ),
-        vec3( 0.5f,   0.5f, -0.5f ),
-        vec3( -0.5f,  0.5f, -0.5f ),
-        vec3( -0.5f,  0.5f, 0.5f ),
+        {
+            // Upper four corners
+            vec3(0.5f, 0.5f, 0.5f),
+            vec3(0.5f, 0.5f, -0.5f),
+            vec3(-0.5f, 0.5f, -0.5f),
+            vec3(-0.5f, 0.5f, 0.5f),
 
-        //Lower four corners
-        vec3( 0.5f,  -0.5f, 0.5f ),
-        vec3( 0.5f,  -0.5f, -0.5f ),
-        vec3( -0.5f, -0.5f, -0.5f ),
-        vec3( -0.5f, -0.5f, 0.5f ),
-    };
+            // Lower four corners
+            vec3(0.5f, -0.5f, 0.5f),
+            vec3(0.5f, -0.5f, -0.5f),
+            vec3(-0.5f, -0.5f, -0.5f),
+            vec3(-0.5f, -0.5f, 0.5f),
+        };
 
-    //We start with spinning around the top and the bottom.
-    for( int i = 1; i <= 4; i++ )
-    {
+    // We start with spinning around the top and the bottom.
+    for (int i = 1; i <= 4; i++) {
         int prev_index = i - 1;
         int cur_index = i % 4;
 
-        data.push_back( corners[prev_index] );
-        data.push_back( corners[cur_index] );
+        data.push_back(corners[prev_index]);
+        data.push_back(corners[cur_index]);
     }
 
-    for( int i = 1; i <= 4; i++ )
-    {
+    for (int i = 1; i <= 4; i++) {
         int prev_index = 4 + i - 1;
         int cur_index = 4 + i % 4;
 
-        data.push_back( corners[prev_index] );
-        data.push_back( corners[cur_index] );
+        data.push_back(corners[prev_index]);
+        data.push_back(corners[cur_index]);
     }
 
-    //Then we match each bottom point with the one right above.
-    for( int i = 0; i < 4; i++ )
-    {
-        data.push_back( corners[i] );
-        data.push_back( corners[i+4] );
+    // Then we match each bottom point with the one right above.
+    for (int i = 0; i < 4; i++) {
+        data.push_back(corners[i]);
+        data.push_back(corners[i + 4]);
     }
 }
 
 // Get interleaved vert array (3 verts) for GL_LINES
 void GetWireSphereVertArray(GLdouble radius, GLint slices, GLint stacks, std::vector<float> &data) {
-    double r,x,y,z;
-    double *sint1,*cost1;
-    double *sint2,*cost2;
-    circleTable(&sint1,&cost1,-slices  );
-    circleTable(&sint2,&cost2, stacks*2);
-    for (int i=1; i<stacks; i++) {
+    double r, x, y, z;
+    double *sint1, *cost1;
+    double *sint2, *cost2;
+    circleTable(&sint1, &cost1, -slices);
+    circleTable(&sint2, &cost2, stacks * 2);
+    for (int i = 1; i < stacks; i++) {
         z = cost2[i];
         r = sint2[i];
-        for(int j=0; j<=slices; j++){
+        for (int j = 0; j <= slices; j++) {
             x = cost1[j];
             y = sint1[j];
-            //data.push_back((float)x);
-            //data.push_back((float)y);
-            //data.push_back((float)z);
-            data.push_back((float)(x*r*radius));
-            data.push_back((float)(y*r*radius));
-            data.push_back((float)(z*radius));
-            if(j!=0 && j!=slices){
-                //data.push_back((float)x);
-                //data.push_back((float)y);
-                //data.push_back((float)z);
-                data.push_back((float)(x*r*radius));
-                data.push_back((float)(y*r*radius));
-                data.push_back((float)(z*radius));
+            // data.push_back((float)x);
+            // data.push_back((float)y);
+            // data.push_back((float)z);
+            data.push_back((float)(x * r * radius));
+            data.push_back((float)(y * r * radius));
+            data.push_back((float)(z * radius));
+            if (j != 0 && j != slices) {
+                // data.push_back((float)x);
+                // data.push_back((float)y);
+                // data.push_back((float)z);
+                data.push_back((float)(x * r * radius));
+                data.push_back((float)(y * r * radius));
+                data.push_back((float)(z * radius));
             }
         }
     }
-    for (int i=0; i<slices; i++) {
-        for(int j=0; j<=stacks; j++){
-            x = cost1[i]*sint2[j];
-            y = sint1[i]*sint2[j];
+    for (int i = 0; i < slices; i++) {
+        for (int j = 0; j <= stacks; j++) {
+            x = cost1[i] * sint2[j];
+            y = sint1[i] * sint2[j];
             z = cost2[j];
-            //data.push_back((float)x);
-            //data.push_back((float)y);
-            //data.push_back((float)z);
-            data.push_back((float)(x*radius));
-            data.push_back((float)(y*radius));
-            data.push_back((float)(z*radius));
-            if(j!=0 && j!=stacks){
-                //data.push_back((float)x);
-                //data.push_back((float)y);
-                //data.push_back((float)z);
-                data.push_back((float)(x*radius));
-                data.push_back((float)(y*radius));
-                data.push_back((float)(z*radius));
+            // data.push_back((float)x);
+            // data.push_back((float)y);
+            // data.push_back((float)z);
+            data.push_back((float)(x * radius));
+            data.push_back((float)(y * radius));
+            data.push_back((float)(z * radius));
+            if (j != 0 && j != stacks) {
+                // data.push_back((float)x);
+                // data.push_back((float)y);
+                // data.push_back((float)z);
+                data.push_back((float)(x * radius));
+                data.push_back((float)(y * radius));
+                data.push_back((float)(z * radius));
             }
         }
     }
@@ -369,49 +360,118 @@ void GetWireSphereVertArray(GLdouble radius, GLint slices, GLint stacks, std::ve
     OG_FREE(cost2);
 }
 
-void GetUnitBoxVertArray(std::vector<float> &verts) 
-{
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(-0.5f);
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(-0.5f);
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(-0.5f); 
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(0.5f); 
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(0.5f);
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(0.5f); 
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(-0.5f); 
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(0.5f); 
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(0.5f); 
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(-0.5f); 
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(0.5f); 
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(-0.5f); verts.push_back(-0.5f);
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(-0.5f);
-    verts.push_back(-0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
-    verts.push_back(0.5f); verts.push_back(0.5f); verts.push_back(0.5f);
+void GetUnitBoxVertArray(std::vector<float> &verts) {
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(-0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
+    verts.push_back(0.5f);
 }
 
-void GetUnitBoxVertArray(std::vector<float> &verts, std::vector<unsigned> &faces) 
-{
-
+void GetUnitBoxVertArray(std::vector<float> &verts, std::vector<unsigned> &faces) {
     verts.push_back(0.500000);
     verts.push_back(-0.500000);
     verts.push_back(-0.500000);
@@ -444,40 +504,40 @@ void GetUnitBoxVertArray(std::vector<float> &verts, std::vector<unsigned> &faces
     verts.push_back(0.500000);
     verts.push_back(-0.500000);
 
-    faces.push_back(1-1);
-    faces.push_back(2-1);
-    faces.push_back(4-1);
-    faces.push_back(5-1);
-    faces.push_back(8-1);
-    faces.push_back(6-1);
-    faces.push_back(1-1);
-    faces.push_back(5-1);
-    faces.push_back(2-1);
-    faces.push_back(2-1);
-    faces.push_back(6-1);
-    faces.push_back(3-1);
-    faces.push_back(3-1);
-    faces.push_back(7-1);
-    faces.push_back(4-1);
-    faces.push_back(5-1);
-    faces.push_back(1-1);
-    faces.push_back(8-1);
-    faces.push_back(2-1);
-    faces.push_back(3-1);
-    faces.push_back(4-1);
-    faces.push_back(8-1);
-    faces.push_back(7-1);
-    faces.push_back(6-1);
-    faces.push_back(5-1);
-    faces.push_back(6-1);
-    faces.push_back(2-1);
-    faces.push_back(6-1);
-    faces.push_back(7-1);
-    faces.push_back(3-1);
-    faces.push_back(7-1);
-    faces.push_back(8-1);
-    faces.push_back(4-1);
-    faces.push_back(1-1);
-    faces.push_back(4-1);
-    faces.push_back(8-1);
+    faces.push_back(1 - 1);
+    faces.push_back(2 - 1);
+    faces.push_back(4 - 1);
+    faces.push_back(5 - 1);
+    faces.push_back(8 - 1);
+    faces.push_back(6 - 1);
+    faces.push_back(1 - 1);
+    faces.push_back(5 - 1);
+    faces.push_back(2 - 1);
+    faces.push_back(2 - 1);
+    faces.push_back(6 - 1);
+    faces.push_back(3 - 1);
+    faces.push_back(3 - 1);
+    faces.push_back(7 - 1);
+    faces.push_back(4 - 1);
+    faces.push_back(5 - 1);
+    faces.push_back(1 - 1);
+    faces.push_back(8 - 1);
+    faces.push_back(2 - 1);
+    faces.push_back(3 - 1);
+    faces.push_back(4 - 1);
+    faces.push_back(8 - 1);
+    faces.push_back(7 - 1);
+    faces.push_back(6 - 1);
+    faces.push_back(5 - 1);
+    faces.push_back(6 - 1);
+    faces.push_back(2 - 1);
+    faces.push_back(6 - 1);
+    faces.push_back(7 - 1);
+    faces.push_back(3 - 1);
+    faces.push_back(7 - 1);
+    faces.push_back(8 - 1);
+    faces.push_back(4 - 1);
+    faces.push_back(1 - 1);
+    faces.push_back(4 - 1);
+    faces.push_back(8 - 1);
 }

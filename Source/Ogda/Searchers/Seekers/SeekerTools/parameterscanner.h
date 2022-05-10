@@ -32,14 +32,12 @@ class XMLSeekerBase;
 
 typedef std::pair<const char*, const char*> parampair;
 
-class ParameterScanner
-{
-public:
-static void Do(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlNode *eRoot, 
-    const std::vector<parampair>& params, 
-    const std::vector<const char*>& params_ignore
-    );
+class ParameterScanner {
+   public:
+    static void Do(
+        std::vector<Item>& items,
+        const Item& item,
+        TiXmlNode* eRoot,
+        const std::vector<parampair>& params,
+        const std::vector<const char*>& params_ignore);
 };

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: textureref.cpp
 //      Developer: Wolfire Games LLC
-//    Description: TextureRef is used for generated textures. TextureAssetRef 
+//    Description: TextureRef is used for generated textures. TextureAssetRef
 //                 for data-related loaded textures.
 //        License: Read below
 //-----------------------------------------------------------------------------
@@ -47,13 +47,13 @@ TextureRef::TextureRef(int _id) {
     Textures::Instance()->IncrementRefCount(id);
 }
 
-TextureRef::TextureRef(const TextureRef &_id) {
+TextureRef::TextureRef(const TextureRef& _id) {
     id = _id.id;
     Textures::Instance()->IncrementRefCount(id);
 }
 
 TextureRef::~TextureRef() {
-    if(id != (int)INVALID_ID) {
+    if (id != (int)INVALID_ID) {
         Textures::Instance()->DecrementRefCount(id);
     }
 }
@@ -65,10 +65,10 @@ const TextureRef& TextureRef::operator=(const TextureRef& other) {
     return *this;
 }
 
-bool TextureRef::operator!=( const TextureRef& other ) const {
+bool TextureRef::operator!=(const TextureRef& other) const {
     return id != other.id;
 }
 
-bool TextureRef::operator<( const TextureRef& other ) const {
+bool TextureRef::operator<(const TextureRef& other) const {
     return id < other.id;
 }

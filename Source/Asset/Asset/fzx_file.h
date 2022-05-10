@@ -40,7 +40,7 @@ struct FZXObject {
 };
 
 class FZXAsset : public Asset {
-public:
+   public:
     FZXAsset(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return FZX_ASSET; }
     static const char* GetTypeName() { return "FZX_ASSET"; }
@@ -49,7 +49,7 @@ public:
     std::vector<FZXObject> objects;
 
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
@@ -59,4 +59,3 @@ public:
 };
 
 typedef AssetRef<FZXAsset> FZXAssetRef;
-

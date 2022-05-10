@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: env_object_update.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,24 +27,23 @@
 #include <Online/online_datastructures.h>
 #include <Objects/envobject.h>
 
-
 namespace OnlineMessages {
-    class EnvObjectUpdate : public OnlineMessageBase {
-    private:
-        CommonObjectID id;
+class EnvObjectUpdate : public OnlineMessageBase {
+   private:
+    CommonObjectID id;
 
-    public:
-        float timestamp;
-        mat4 transform;
+   public:
+    float timestamp;
+    mat4 transform;
 
-    public:
-        EnvObjectUpdate();
-        EnvObjectUpdate(EnvObject* object);
+   public:
+    EnvObjectUpdate();
+    EnvObjectUpdate(EnvObject* object);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

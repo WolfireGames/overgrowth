@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_file_transfer_handler.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -47,25 +47,25 @@ struct FileTransfer {
     uint32_t file_len;
     int8_t file_id;
     int8_t number_of_messages;
-    char * file_name;
-    unsigned char * file_data;
+    char* file_name;
+    unsigned char* file_data;
 };
 
 /// TODO This class has a big assumption that we only send one file at a time!
 /// Attempting to send another file while the previous file is not fully send will cause all kinds of corruption issues
 class OnlineFileTransferHandler {
-private:
-    std::fstream file_handle; // TODO this shouldn't be a member variable
-    
+   private:
+    std::fstream file_handle;  // TODO this shouldn't be a member variable
+
     std::string GetTempFileTransferPath(const FileTransfer file_transfer) const;
     void CreateDirectoriesForFile(FileTransfer file, const std::string& file_location);
     void FinishedStreamingFileToDisk(const std::string& file_location);
     void StreamFilePackageToDisk(FileTransfer file);
     std::vector<FileTransfer*> SplitFile(std::string path, std::vector<unsigned char> buffer, FileTransfer::Type filetype);
-    //void SendFile(HSteamNetConnection peer, const char * path, FileTransfer::Type filetype);
+    // void SendFile(HSteamNetConnection peer, const char * path, FileTransfer::Type filetype);
 
-public:
-    //void SendLevelFiles(const HSteamNetConnection peer, const LevelInfo& level_info, const std::string& level_name);
-    //void SendCampaignFiles(HSteamNetConnection peer, const std::string& campaign_id);
+   public:
+    // void SendLevelFiles(const HSteamNetConnection peer, const LevelInfo& level_info, const std::string& level_name);
+    // void SendCampaignFiles(HSteamNetConnection peer, const std::string& campaign_id);
     void SaveFile(FileTransfer file);
 };

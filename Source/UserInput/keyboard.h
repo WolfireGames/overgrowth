@@ -34,15 +34,14 @@
 // Class Definition
 //-----------------------------------------------------------------------------
 
-enum KeyboardInputModeFlag
-{
-    KIMF_NO                              = 0,
-    KIMF_MENU                            = 1UL << 0,
-    KIMF_PLAYING                         = 1UL << 1,
-    KIMF_LEVEL_EDITOR_GENERAL            = 1UL << 2,
-    KIMF_LEVEL_EDITOR_DIALOGUE_EDITOR    = 1UL << 3,
-    KIMF_GUI_GENERAL                     = 1UL << 4,
-    KIMF_ANY                             = 0x0FFFFFFF
+enum KeyboardInputModeFlag {
+    KIMF_NO = 0,
+    KIMF_MENU = 1UL << 0,
+    KIMF_PLAYING = 1UL << 1,
+    KIMF_LEVEL_EDITOR_GENERAL = 1UL << 2,
+    KIMF_LEVEL_EDITOR_DIALOGUE_EDITOR = 1UL << 3,
+    KIMF_GUI_GENERAL = 1UL << 4,
+    KIMF_ANY = 0x0FFFFFFF
 };
 
 const int SDLK_CTRL = 1000;
@@ -53,78 +52,74 @@ const int SDLK_ALT = 1003;
 struct KeyStatus {
     bool down;
     bool pressed;
-    KeyStatus():
-        down(false),
-        pressed(false)
-    {}
+    KeyStatus() : down(false),
+                  pressed(false) {}
 };
 
-struct InputModeStackElement
-{
+struct InputModeStackElement {
     InputModeStackElement();
 
     int32_t id;
     uint32_t mask;
 };
 
-class Keyboard
-{
-    private:    
-        uint32_t input_mode;            
-    public:
-        typedef std::map<SDL_Scancode, KeyStatus> KeyStatusMap;
-        KeyStatusMap keys;
+class Keyboard {
+   private:
+    uint32_t input_mode;
 
-        enum KeyComboFlags {
-            SHIFT = 0x10000000,
-            CTRL = 0x01000000,
-            GUI = 0x00100000
-        };
-        char key_queue[256];
-        int key_queue_length;
-        
-        static const size_t keycode_input_buffer_size = 16;
-        uint16_t keycode_input_buffer_sequence_counter;
-        struct KeyboardPress {
-            uint16_t s_id;
-            uint32_t keycode;
-            uint32_t scancode;
-            uint16_t mod;
-        };
-        KeyboardPress keycode_input_buffer[keycode_input_buffer_size];
-        size_t keycode_input_buffer_count;
-    
-        std::vector<KeyboardPress> GetKeyboardInputs();
-        SDL_Keysym last_key;
-        float last_key_delay;
-        bool polled;
+   public:
+    typedef std::map<SDL_Scancode, KeyStatus> KeyStatusMap;
+    KeyStatusMap keys;
 
-        Keyboard();
+    enum KeyComboFlags {
+        SHIFT = 0x10000000,
+        CTRL = 0x01000000,
+        GUI = 0x00100000
+    };
+    char key_queue[256];
+    int key_queue_length;
 
-        void addKeyQueue( SDL_Keysym which_key );
-        void addKeyCodeBufferItem( SDL_Keysym which_key );
-        void Update(float timestep);
+    static const size_t keycode_input_buffer_size = 16;
+    uint16_t keycode_input_buffer_sequence_counter;
+    struct KeyboardPress {
+        uint16_t s_id;
+        uint32_t keycode;
+        uint32_t scancode;
+        uint16_t mod;
+    };
+    KeyboardPress keycode_input_buffer[keycode_input_buffer_size];
+    size_t keycode_input_buffer_count;
 
-        void handleKeyDown( SDL_Keysym the_key );
-        void handleKeyDownFirst( SDL_Keysym the_key );
-        void handleKeyUp( SDL_Keysym the_key );
+    std::vector<KeyboardPress> GetKeyboardInputs();
+    SDL_Keysym last_key;
+    float last_key_delay;
+    bool polled;
 
-        bool isKeycodeDown(SDL_Keycode which_key, const uint32_t kimf ) const;
-        bool isScancodeDown(SDL_Scancode which_key, const uint32_t kimf) const;
+    Keyboard();
 
-        bool isKeycodeCombinationDown(int key_combo, SDL_Keycode which_key, const uint32_t kimf) const;
-        bool isScancodeCombinationDown(int key_combo, SDL_Scancode which_key, const uint32_t kimf) const;
+    void addKeyQueue(SDL_Keysym which_key);
+    void addKeyCodeBufferItem(SDL_Keysym which_key);
+    void Update(float timestep);
 
-        bool wasKeycodeCombinationPressed(int key_combo, SDL_Keycode which_key, const uint32_t kimf) const;
-        bool wasScancodeCombinationPressed(int key_combo, SDL_Scancode which_key, const uint32_t kimf) const;
+    void handleKeyDown(SDL_Keysym the_key);
+    void handleKeyDownFirst(SDL_Keysym the_key);
+    void handleKeyUp(SDL_Keysym the_key);
 
-        bool wasKeycodePressed(SDL_Keycode which_key,const uint32_t kimf) const;
-        bool wasScancodePressed(SDL_Scancode which_key,const uint32_t kimf) const;
+    bool isKeycodeDown(SDL_Keycode which_key, const uint32_t kimf) const;
+    bool isScancodeDown(SDL_Scancode which_key, const uint32_t kimf) const;
 
-        void clearKeyPresses();
-        void clearBasicKeyPresses();
+    bool isKeycodeCombinationDown(int key_combo, SDL_Keycode which_key, const uint32_t kimf) const;
+    bool isScancodeCombinationDown(int key_combo, SDL_Scancode which_key, const uint32_t kimf) const;
 
-        void SetMode( const uint32_t kimf );
-        uint32_t GetModes() const;
+    bool wasKeycodeCombinationPressed(int key_combo, SDL_Keycode which_key, const uint32_t kimf) const;
+    bool wasScancodeCombinationPressed(int key_combo, SDL_Scancode which_key, const uint32_t kimf) const;
 
+    bool wasKeycodePressed(SDL_Keycode which_key, const uint32_t kimf) const;
+    bool wasScancodePressed(SDL_Scancode which_key, const uint32_t kimf) const;
+
+    void clearKeyPresses();
+    void clearBasicKeyPresses();
+
+    void SetMode(const uint32_t kimf);
+    uint32_t GetModes() const;
 };

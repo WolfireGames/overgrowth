@@ -31,14 +31,14 @@
 
 using std::string;
 
-bool IsPathCaseCorrect(const string& input_path, string *correct_case){
+bool IsPathCaseCorrect(const string& input_path, string* correct_case) {
     char correct_case_buf[kPathSize];
     GetCaseCorrectPath(input_path.c_str(), correct_case_buf);
     *correct_case = correct_case_buf;
-    if(input_path.length() != correct_case->length()){
-        return true; // Something weird happened, don't bother the user with error messages
+    if (input_path.length() != correct_case->length()) {
+        return true;  // Something weird happened, don't bother the user with error messages
     }
-    if(input_path != *correct_case){
+    if (input_path != *correct_case) {
         return false;
     } else {
         return true;

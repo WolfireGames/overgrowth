@@ -22,15 +22,14 @@
 #include <execinfo.h>
 #include <memory.h>
 
-//mac os implementation borrowed from cocoadev
-uintptr_t *GetCallstack()
-{
-	void *backtraceFrames[128];
-	int frameCount = backtrace(&backtraceFrames[0], 128);
-	
-	uintptr_t *callstack = (uintptr_t *)OG_MALLOC(sizeof(uintptr_t)*(frameCount+1));
-	memcpy(callstack,backtraceFrames,sizeof(void*)*frameCount);
-	callstack[frameCount] = 0;
-	return callstack;
+// mac os implementation borrowed from cocoadev
+uintptr_t *GetCallstack() {
+    void *backtraceFrames[128];
+    int frameCount = backtrace(&backtraceFrames[0], 128);
+
+    uintptr_t *callstack = (uintptr_t *)OG_MALLOC(sizeof(uintptr_t) * (frameCount + 1));
+    memcpy(callstack, backtraceFrames, sizeof(void *) * frameCount);
+    callstack[frameCount] = 0;
+    return callstack;
 }
 #endif

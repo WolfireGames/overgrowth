@@ -26,22 +26,22 @@
 #include <string>
 #include <iostream>
 
-using std::string;
 using std::ostream;
+using std::string;
 
 struct ConnectionStatus {
-	int ms_ping;
-	float connection_quality_local;
-	float connection_quality_remote;
-	float out_packets_per_sec;
-	float out_bytes_per_sec;
-	float in_packets_per_sec;
-	float in_bytes_per_sec;
-	int send_rate_bytes_per_second;
-	int pending_unreliable;
-	int pending_reliable;
-	int sent_unacked_reliable;
-	int64_t usec_queue_time;
+    int ms_ping;
+    float connection_quality_local;
+    float connection_quality_remote;
+    float out_packets_per_sec;
+    float out_bytes_per_sec;
+    float in_packets_per_sec;
+    float in_bytes_per_sec;
+    int send_rate_bytes_per_second;
+    int pending_unreliable;
+    int pending_reliable;
+    int sent_unacked_reliable;
+    int64_t usec_queue_time;
 };
 
 enum class NetFrameworkConnectionState {

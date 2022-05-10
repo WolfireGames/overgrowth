@@ -26,57 +26,42 @@
 #include <Logging/logdata.h>
 #include <string>
 
-std::vector<Item> SpawnerListSeeker::SearchJSON( const Item & item, Json::Value& root )
-{
+std::vector<Item> SpawnerListSeeker::SearchJSON(const Item& item, Json::Value& root) {
     std::vector<Item> items;
 
     Json::Value spawner_tab = root["spawner_tab"];
     Json::Value ogda_type = root["ogda_type"];
     Json::Value objects = root["objects"];
 
-    if( spawner_tab.empty() )
-    {
+    if (spawner_tab.empty()) {
         LOGW << item << " is missing a spawner_tab value" << std::endl;
-    } 
+    }
 
-    if( ogda_type.isString() )
-    {
+    if (ogda_type.isString()) {
         std::string type_string = ogda_type.asString();
 
-        if( objects.isArray() )
-        {
-            for( int i = 0; i < objects.size(); i++ )
-            {
+        if (objects.isArray()) {
+            for (int i = 0; i < objects.size(); i++) {
                 Json::Value json_item = objects[i];
 
-                if( json_item.isArray() )
-                {
+                if (json_item.isArray()) {
                     Json::Value path = json_item[1];
 
-                    if( path.isString() )
-                    {
-                        std::string path_string = path.asString();  
-                        Item i = Item( item.input_folder, path_string, type_string, item.source );
+                    if (path.isString()) {
+                        std::string path_string = path.asString();
+                        Item i = Item(item.input_folder, path_string, type_string, item.source);
                         items.push_back(i);
+                    } else {
+                        LOGE << "Unexpected path value on index " << i << " in " << item << std::endl;
                     }
-                    else
-                    {
-                        LOGE << "Unexpected path value on index " << i << " in " << item << std::endl; 
-                    }
-                }
-                else
-                {
-                    LOGE << "Unexpected item element on index " << i << " " << item << std::endl; 
+                } else {
+                    LOGE << "Unexpected item element on index " << i << " " << item << std::endl;
                 }
             }
+        } else {
+            LOGE << "Malformed json file " << item << std::endl;
         }
-        else
-        {
-            LOGE << "Malformed json file " << item << std::endl; 
-        }
-    }
-    else
-    {
+    } else {
         LOGE << "Missing ogda_type value in " << item << std::endl;
     }
 

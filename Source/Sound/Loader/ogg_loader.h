@@ -34,22 +34,21 @@
 
 #include <string>
 
-class oggLoader : public baseLoader
-{
-private:
-    FILE*           m_ogg_file;
-    OggVorbis_File  m_ogg_stream;
-    vorbis_info*    m_vorbis_info;
+class oggLoader : public baseLoader {
+   private:
+    FILE* m_ogg_file;
+    OggVorbis_File m_ogg_stream;
+    vorbis_info* m_vorbis_info;
     vorbis_comment* m_vorbis_comment;
     std::string m_path;
     unsigned long m_channels;
     bool ended;
 
-public:
+   public:
     oggLoader(Path rel_path);
     ~oggLoader() override;
 
-    int stream_buffer_int16(char *buffer, int size) override;
+    int stream_buffer_int16(char* buffer, int size) override;
     unsigned long get_sample_count() override;
     unsigned long get_channels() override;
     int get_sample_rate() override;
@@ -57,5 +56,5 @@ public:
     bool is_at_end() override;
 
     int64_t get_pcm_pos() override;
-    void    set_pcm_pos( int64_t pos ) override;
+    void set_pcm_pos(int64_t pos) override;
 };

@@ -23,10 +23,10 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-enum AnimationClientFlags{
-    _ANM_MOBILE = (1<<0),
-    _ANM_MIRRORED = (1<<1),
-    _ANM_SWAP = (1<<2),
-    _ANM_SUPER_MOBILE = (1<<3),
-    _ANM_FROM_START = (1<<4)
+enum AnimationClientFlags {
+    _ANM_MOBILE = (1 << 0),
+    _ANM_MIRRORED = (1 << 1),
+    _ANM_SWAP = (1 << 2),
+    _ANM_SUPER_MOBILE = (1 << 3),
+    _ANM_FROM_START = (1 << 4)
 };

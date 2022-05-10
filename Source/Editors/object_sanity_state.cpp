@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: object_sanity_state.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -49,8 +49,8 @@ uint32_t ObjectSanityState::GetStateFlags() {
 
 uint32_t ObjectSanityState::GetErrorCount() {
     int count = 0;
-    for( int i = 0; i < 32; i++ ) {
-        if( state_flags & (1UL << i) ) {
+    for (int i = 0; i < 32; i++) {
+        if (state_flags & (1UL << i)) {
             count++;
         }
     }
@@ -60,25 +60,25 @@ uint32_t ObjectSanityState::GetErrorCount() {
 void ObjectSanityState::GetError(uint32_t errindex, char* outbuf, uint32_t size) {
     int index_count = -1;
     uint32_t curr_flag = 0;
-    for( int i = 0; i < 32; i++ ) {
-        if( state_flags & (1UL << i) ) {
-            index_count++; 
-            if( index_count == errindex ) {
+    for (int i = 0; i < 32; i++) {
+        if (state_flags & (1UL << i)) {
+            index_count++;
+            if (index_count == errindex) {
                 curr_flag = (1UL << i);
             }
         }
     }
-    
-    if( curr_flag == 0 ) {
+
+    if (curr_flag == 0) {
         FormatString(outbuf, size, "Out of bounds error index %d\n", errindex);
-    } else if( type == _placeholder_object ) {
-        if( curr_flag == kObjectSanity_PO_UnsetConnectID ) {
+    } else if (type == _placeholder_object) {
+        if (curr_flag == kObjectSanity_PO_UnsetConnectID) {
             FormatString(outbuf, size, "Connect ID is unset (no character tied to dialogue?)");
         } else {
             FormatString(outbuf, size, "Unknown error flag for _placeholder_object %x\n", curr_flag);
         }
-    } else if( type == _group ) {
-        switch( curr_flag ) {
+    } else if (type == _group) {
+        switch (curr_flag) {
             case kObjectSanity_G_NullChild:
                 FormatString(outbuf, size, "There is a child object which is a NULL pointer");
                 break;
@@ -91,12 +91,12 @@ void ObjectSanityState::GetError(uint32_t errindex, char* outbuf, uint32_t size)
             case kObjectSanity_G_ChildHasExternalConnection:
                 FormatString(outbuf, size, "There is a connection from inside the group to the outside world");
                 break;
-            default: 
+            default:
                 FormatString(outbuf, size, "Unknown error flag for _group %x\n", curr_flag);
                 break;
         }
-    } else if( type == _prefab ) {
-        switch( curr_flag ) {
+    } else if (type == _prefab) {
+        switch (curr_flag) {
             case kObjectSanity_G_NullChild:
                 FormatString(outbuf, size, "There is a child object which is a NULL pointer");
                 break;
@@ -109,12 +109,11 @@ void ObjectSanityState::GetError(uint32_t errindex, char* outbuf, uint32_t size)
             case kObjectSanity_G_ChildHasExternalConnection:
                 FormatString(outbuf, size, "There is a connection from inside the prefab to the outside world");
                 break;
-            default: 
+            default:
                 FormatString(outbuf, size, "Unknown error flag for _prefab %x\n", curr_flag);
                 break;
         }
-    } else if( curr_flag ) {
+    } else if (curr_flag) {
         FormatString(outbuf, size, "Unknown error flag %x\n", curr_flag);
     }
 }
-

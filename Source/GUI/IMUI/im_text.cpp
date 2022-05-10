@@ -1,8 +1,8 @@
 //-----------------------------------------------------------------------------
 //           Name: im_text.cpp
 //      Developer: Wolfire Games LLC
-//    Description: Text element class for creating adhoc GUIs as part of the 
-//                 UI tools  
+//    Description: Text element class for creating adhoc GUIs as part of the
+//                 UI tools
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,11 +31,9 @@
  * @brief  Constructor
  *
  */
-IMText::IMText() :
-    fontObjDirty(false),
-    fontObjInit(false)
-{
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
+IMText::IMText() : fontObjDirty(false),
+                   fontObjInit(false) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
 }
 
 /*******************************************************************************************/
@@ -45,10 +43,8 @@ IMText::IMText() :
  * @param _name Name for this object (incumbent on the programmer to make sure they're unique)
  *
  */
-IMText::IMText(std::string const& _name) :
-    IMElement(_name)
-{
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
+IMText::IMText(std::string const& _name) : IMElement(_name) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
 }
 
 /*******************************************************************************************/
@@ -72,13 +68,12 @@ std::string IMText::getElementTypeName() {
  * @param _color vec4 color rgba
  *
  */
-IMText::IMText(std::string const& _text, std::string const& _fontName, int _fontSize, vec4 _color ) {
-    
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
-    setText( _text );
-    setFontByName( _fontName, _fontSize );
-    setColor( _color );
+IMText::IMText(std::string const& _text, std::string const& _fontName, int _fontSize, vec4 _color) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
+    setText(_text);
+    setFontByName(_fontName, _fontSize);
+    setColor(_color);
 }
 
 /*******************************************************************************************/
@@ -89,24 +84,21 @@ IMText::IMText(std::string const& _text, std::string const& _fontName, int _font
  * @param _fontSetup Font parameter structure
  *
  */
-IMText::IMText( std::string const& _text, FontSetup _fontSetup )
-{
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
-    setText( _text );
-    setFont( _fontSetup );
-}
+IMText::IMText(std::string const& _text, FontSetup _fontSetup) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
 
+    setText(_text);
+    setFont(_fontSetup);
+}
 
 /*******************************************************************************************/
 /**
  * @brief  Copy constructor
  *
  */
-IMText::IMText( IMText const& other ) {
-    
-    IMrefCountTracker.addRefCountObject( getElementTypeName() );
-    
+IMText::IMText(IMText const& other) {
+    IMrefCountTracker.addRefCountObject(getElementTypeName());
+
     fontObjDirty = other.fontObjDirty;
     fontObjInit = other.fontObjInit;
     fontSetup = other.fontSetup;
@@ -115,55 +107,49 @@ IMText::IMText( IMText const& other ) {
     screenSize = other.screenSize;
 }
 
-
 /*******************************************************************************************/
 /**
  * @brief  Derives the various metrics for this text element
  *
  */
 void IMText::updateEngineTextObject() {
-    
     // only bother if we have text, an owner and we haven't done it yet
-    if( text != "" && owner != NULL && fontObjDirty ) {
-        
+    if (text != "" && owner != NULL && fontObjDirty) {
         // update the actual screen resize
-        screenFontSize = (int) (screenMetrics.GUItoScreenYScale * float(fontSetup.size));
-        
+        screenFontSize = (int)(screenMetrics.GUItoScreenYScale * float(fontSetup.size));
+
         // get a new text object
-		int flags = 0;
-		if(fontSetup.fontName == "edosz"){
-			flags = TextAtlas::kSmallLowercase;
-		}
-        imuiText = owner->IMGUI_IMUIContext->makeText( std::string("Data/Fonts/" + fontSetup.fontName + ".ttf"),
-                                                     screenFontSize, flags );
-        fontObjInit = true;
-        
-        // update its attributes
-        imuiText.setText( text );
-        
-        if( fontSetup.shadowed ) {
-            imuiText.setRenderFlags( TextAtlasRenderer::kTextShadow );
+        int flags = 0;
+        if (fontSetup.fontName == "edosz") {
+            flags = TextAtlas::kSmallLowercase;
         }
-        
-        imuiText.setRotation( fontSetup.rotation );
-        
+        imuiText = owner->IMGUI_IMUIContext->makeText(std::string("Data/Fonts/" + fontSetup.fontName + ".ttf"),
+                                                      screenFontSize, flags);
+        fontObjInit = true;
+
+        // update its attributes
+        imuiText.setText(text);
+
+        if (fontSetup.shadowed) {
+            imuiText.setRenderFlags(TextAtlasRenderer::kTextShadow);
+        }
+
+        imuiText.setRotation(fontSetup.rotation);
+
         // ask the engine for the text dimensions
         vec2 boundingBox = imuiText.getBoundingBoxDimensions();
-        
+
         screenSize.x() = boundingBox.x() + 0.5f;
         screenSize.y() = boundingBox.y() + 0.5f;
-        
-        vec2 newSize = vec2( (screenSize.x() / screenMetrics.GUItoScreenXScale) + 0.5f,
-                             (screenSize.y() / screenMetrics.GUItoScreenYScale) + 0.5f );
-        
-        setSize( newSize );
-        
+
+        vec2 newSize = vec2((screenSize.x() / screenMetrics.GUItoScreenXScale) + 0.5f,
+                            (screenSize.y() / screenMetrics.GUItoScreenYScale) + 0.5f);
+
+        setSize(newSize);
+
         fontObjDirty = false;
         onRelayout();
-        
     }
-    
-    
 }
 
 /*******************************************************************************************/
@@ -172,11 +158,9 @@ void IMText::updateEngineTextObject() {
  *
  */
 void IMText::doRelayout() {
-    
-    if( fontObjDirty ) {
+    if (fontObjDirty) {
         updateEngineTextObject();
     }
-    
 }
 
 /*******************************************************************************************/
@@ -184,7 +168,7 @@ void IMText::doRelayout() {
  * @brief  Do whatever is necessary when the resolution changes
  *
  */
-void IMText::doScreenResize()  {
+void IMText::doScreenResize() {
     screenFontSize = int(screenMetrics.GUItoScreenYScale * float(fontSetup.size));
     fontObjDirty = true;
 }
@@ -196,12 +180,11 @@ void IMText::doScreenResize()  {
  * @param _fontSetup font description object
  *
  */
-void IMText::setFont( FontSetup _fontSetup ) {
+void IMText::setFont(FontSetup _fontSetup) {
     fontSetup = _fontSetup;
-    setColor( fontSetup.color );
+    setColor(fontSetup.color);
     fontObjDirty = true;
 }
-
 
 /*******************************************************************************************/
 /**
@@ -211,7 +194,7 @@ void IMText::setFont( FontSetup _fontSetup ) {
  * @param _fontSize height of the font
  *
  */
-void IMText::setFontByName( std::string const& _fontName, int _fontSize ) {
+void IMText::setFontByName(std::string const& _fontName, int _fontSize) {
     fontSetup.fontName = _fontName;
     fontSetup.size = _fontSize;
     fontObjDirty = true;
@@ -224,7 +207,7 @@ void IMText::setFontByName( std::string const& _fontName, int _fontSize ) {
  * @param _text String for the text
  *
  */
-void IMText::setText( std::string const& _text ) {
+void IMText::setText(std::string const& _text) {
     text = _text;
     fontObjDirty = true;
 }
@@ -247,7 +230,7 @@ std::string IMText::getText() {
  * @param shadow true (default) if the text should have a shadow, false otherwise
  *
  */
-void IMText::setShadowed( bool shouldShadow ) {
+void IMText::setShadowed(bool shouldShadow) {
     fontSetup.shadowed = shouldShadow;
     fontObjDirty = true;
 }
@@ -259,7 +242,7 @@ void IMText::setShadowed( bool shouldShadow ) {
  * @param Rotation (in degrees)
  *
  */
-void IMText::setRotation( float _rotation ) {
+void IMText::setRotation(float _rotation) {
     fontSetup.rotation = _rotation;
     fontObjDirty = true;
 }
@@ -284,12 +267,11 @@ float IMText::getRotation() {
  * @param guistate The state of the GUI at this update
  *
  */
-void IMText::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
-    IMElement::update( delta, drawOffset, guistate );
-    
+void IMText::update(uint64_t delta, vec2 drawOffset, GUIState& guistate) {
+    IMElement::update(delta, drawOffset, guistate);
+
     // update the text object, if any
     updateEngineTextObject();
-    
 }
 
 /*******************************************************************************************/
@@ -301,50 +283,43 @@ void IMText::update( uint64_t delta, vec2 drawOffset, GUIState& guistate ) {
  * @param clipSize size of clipping region
  *
  */
-void IMText::render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize ) {
-    
+void IMText::render(vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize) {
     // Make sure we're supposed draw (and have something to draw)
-    if( show && text != "" && fontObjInit ) {
-        
-        vec2 GUIRenderPos = drawOffset + vec2( paddingL, paddingU ) + drawDisplacement;
-        
-        vec2 screenRenderPos = screenMetrics.GUIToScreen( GUIRenderPos );
-        
-        imuiText.setPosition( vec3( screenRenderPos.x(), screenRenderPos.y(), (float) getZOrdering() ) );
-        
-        if( isColorEffected ) {
-            imuiText.setColor( effectColor );
+    if (show && text != "" && fontObjInit) {
+        vec2 GUIRenderPos = drawOffset + vec2(paddingL, paddingU) + drawDisplacement;
+
+        vec2 screenRenderPos = screenMetrics.GUIToScreen(GUIRenderPos);
+
+        imuiText.setPosition(vec3(screenRenderPos.x(), screenRenderPos.y(), (float)getZOrdering()));
+
+        if (isColorEffected) {
+            imuiText.setColor(effectColor);
+        } else {
+            imuiText.setColor(color);
         }
-        else {
-            imuiText.setColor( color );
-        }
-        
-        if( shouldClip && currentClipSize.x() != UNDEFINEDSIZE && currentClipSize.y() != UNDEFINEDSIZE ) {
-            
-            vec2 adjustedClipPos = screenMetrics.GUIToScreen( currentClipPos + drawDisplacement );
-            
-            vec2 screenClipPos( vec2(adjustedClipPos.x(),
-                                     adjustedClipPos.y()) );
+
+        if (shouldClip && currentClipSize.x() != UNDEFINEDSIZE && currentClipSize.y() != UNDEFINEDSIZE) {
+            vec2 adjustedClipPos = screenMetrics.GUIToScreen(currentClipPos + drawDisplacement);
+
+            vec2 screenClipPos(vec2(adjustedClipPos.x(),
+                                    adjustedClipPos.y()));
             vec2 screenClipSize(vec2((currentClipSize.x() * screenMetrics.GUItoScreenXScale),
-                                     (currentClipSize.y() * screenMetrics.GUItoScreenYScale) ) );
-            
-            imuiText.setClipping( screenClipPos, screenClipSize );
-            
+                                     (currentClipSize.y() * screenMetrics.GUItoScreenYScale)));
+
+            imuiText.setClipping(screenClipPos, screenClipSize);
         }
-        
-        if( fontSetup.shadowed ) {
-            imuiText.setRenderFlags( TextAtlasRenderer::kTextShadow );
+
+        if (fontSetup.shadowed) {
+            imuiText.setRenderFlags(TextAtlasRenderer::kTextShadow);
         }
-        
-        if( owner != NULL ) {
-            owner->IMGUI_IMUIContext->queueText( imuiText );
+
+        if (owner != NULL) {
+            owner->IMGUI_IMUIContext->queueText(imuiText);
         }
-        
     }
-    
+
     // Call the superclass to make sure any element specific rendering is done
-    IMElement::render( drawOffset, currentClipPos, currentClipSize );
-    
+    IMElement::render(drawOffset, currentClipPos, currentClipSize);
 }
 
 /*******************************************************************************************/
@@ -353,9 +328,8 @@ void IMText::render( vec2 drawOffset, vec2 currentClipPos, vec2 currentClipSize 
  *
  */
 void IMText::clense() {
-    
 }
 
 IMText::~IMText() {
-    IMrefCountTracker.removeRefCountObject( getElementTypeName() );
+    IMrefCountTracker.removeRefCountObject(getElementTypeName());
 }

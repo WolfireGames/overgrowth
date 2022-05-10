@@ -26,21 +26,18 @@
 
 #include <Logging/logdata.h>
 
-std::vector<Item> HotspotSeeker::SearchXML( const Item & item, TiXmlDocument& doc )
-{
+std::vector<Item> HotspotSeeker::SearchXML(const Item& item, TiXmlDocument& doc) {
     std::vector<Item> items;
 
     TiXmlHandle hRoot(&doc);
-    
-    TiXmlElement *eElem = hRoot.FirstChildElement("Hotspot").FirstChildElement("BillboardColorMap").Element();
 
-    if( eElem )
-    {
+    TiXmlElement* eElem = hRoot.FirstChildElement("Hotspot").FirstChildElement("BillboardColorMap").Element();
+
+    if (eElem) {
         const char* billboard = eElem->GetText();
-         
-        if( billboard && strlen(billboard) > 0 )
-        {
-            items.push_back( Item( item.input_folder, billboard, "texture", item.source ));
+
+        if (billboard && strlen(billboard) > 0) {
+            items.push_back(Item(item.input_folder, billboard, "texture", item.source));
         }
     }
 

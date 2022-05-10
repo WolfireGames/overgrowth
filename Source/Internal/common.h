@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: common.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,9 +31,9 @@ float MoveTowards(float val, float target, float amount);
 
 inline void VFormatString(char* buf, int buf_size, const char* fmt, va_list args) {
     int val = vsnprintf(buf, buf_size, fmt, args);
-    if(val == -1 || val >= buf_size){
-        buf[buf_size-1] = '\0';
-        LOG_ASSERT(false); // Failed to format string
+    if (val == -1 || val >= buf_size) {
+        buf[buf_size - 1] = '\0';
+        LOG_ASSERT(false);  // Failed to format string
     }
 }
 

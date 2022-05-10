@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: scriptable_ui.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -38,17 +38,18 @@ struct ASData;
 class SaveFile;
 
 class ScriptableUI : public ModLoadingCallback {
-public:
+   public:
     typedef void (*NotificationCallback)(void*, const std::string&);
-private:
+
+   private:
     // These are pointers to minimize header includes
-    HUDImages *hud_images;
+    HUDImages* hud_images;
     void Dispose();
     void* callback_instance_;
     bool to_delete_;
     bool mod_activation_change_;
     NotificationCallback notification_callback_;
-    
+
     int currentWindowDims[2];
 
     struct {
@@ -64,17 +65,15 @@ private:
 
         ASFunctionHandle queue_basic_popup;
     } as_funcs;
-public:
-	ASContext *as_context;
-    ScriptableUI(void *callback_instance, NotificationCallback notification_callback)
-        :as_context(NULL), hud_images(NULL),
-        callback_instance_(callback_instance), to_delete_(false),
-        notification_callback_(notification_callback) 
-    {}
+
+   public:
+    ASContext* as_context;
+    ScriptableUI(void* callback_instance, NotificationCallback notification_callback)
+        : as_context(NULL), hud_images(NULL), callback_instance_(callback_instance), to_delete_(false), notification_callback_(notification_callback) {}
     ~ScriptableUI() override {
         Dispose();
     };
-    
+
     bool CanGoBack();
     void ScheduleDelete();
     bool IsDeleteScheduled();
@@ -84,9 +83,9 @@ public:
     void QueueBasicPopup(const std::string& title, const std::string& body);
     void SendCallback(const std::string& message);
 
-    void Reload(bool force=false);
+    void Reload(bool force = false);
 
-    void ModActivationChange( const ModInstance* mod ) override;
-    
+    void ModActivationChange(const ModInstance* mod) override;
+
     DISALLOW_COPY_AND_ASSIGN(ScriptableUI);
 };

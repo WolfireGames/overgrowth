@@ -29,9 +29,9 @@
 #include <vector>
 
 class LevelAssetPreloadParser : public XMLParserBase {
-public:
+   public:
     class Asset {
-    public:
+       public:
         Asset();
 
         std::string path;
@@ -42,7 +42,7 @@ public:
     };
 
     std::vector<Asset> assets;
-    uint32_t Load( const std::string& path ) override;
-    bool Save( const std::string& path ) override;
+    uint32_t Load(const std::string& path) override;
+    bool Save(const std::string& path) override;
     void Clear() override;
 };

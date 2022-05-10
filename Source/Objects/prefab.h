@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: prefab.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,7 +31,7 @@
 #include <Game/EntityDescription.h>
 
 class Prefab : public Group {
-public:
+   public:
     Prefab();
     bool prefab_locked;
     Path prefab_path;
@@ -41,9 +41,9 @@ public:
     bool Initialize() override;
     EntityType GetType() const override { return _prefab; }
 
-    void GetDisplayName(char* buf, int buf_size) override;
+    void GetDisplayName(char *buf, int buf_size) override;
 
-    bool SetFromDesc( const EntityDescription &desc ) override;
+    bool SetFromDesc(const EntityDescription &desc) override;
     void GetDesc(EntityDescription &desc) const override;
     void InfrequentUpdate() override;
 

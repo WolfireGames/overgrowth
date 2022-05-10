@@ -25,20 +25,19 @@
 #include <queue>
 #include <mutex>
 
-template<class T>
+template <class T>
 class ThreadSafeQueue {
-
     std::queue<T> messages;
     std::mutex mutex;
-public:
 
-    void Queue( const T &v ) {
+   public:
+    void Queue(const T &v) {
         mutex.lock();
         messages.push(v);
         mutex.unlock();
     }
 
-    T Pop( ) {
+    T Pop() {
         mutex.lock();
         T val = messages.front();
         messages.pop();
@@ -47,7 +46,7 @@ public:
         return val;
     }
 
-    size_t Count( ) {
+    size_t Count() {
         size_t c = 0;
         mutex.lock();
         c = messages.size();

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_connection_states.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //

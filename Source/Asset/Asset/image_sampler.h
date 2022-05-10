@@ -35,13 +35,14 @@
 
 #include <vector>
 
-class ImageSampler : public Asset {    
+class ImageSampler : public Asset {
     struct byte4 {
         unsigned char entries[4];
-        inline unsigned char& operator[](int which){return entries[which];}
+        inline unsigned char& operator[](int which) { return entries[which]; }
     };
-public:
-    ImageSampler( AssetManager* owner, uint32_t asset_id );    
+
+   public:
+    ImageSampler(AssetManager* owner, uint32_t asset_id);
 
     static AssetType GetType() { return IMAGE_SAMPLER_ASSET; }
     static const char* GetTypeName() { return "IMAGE_SAMPLER_ASSET"; }
@@ -59,22 +60,21 @@ public:
     bool GetCachePath(std::string* dst);
 
     AssetLoaderBase* NewLoader() override;
-    
+
     ModID modsource_;
 
-private:
+   private:
     static const int kImageSamplerCacheVersion = 2;
 
-    byte4 GetPixel( int x, int y ) const;
+    byte4 GetPixel(int x, int y) const;
     void LoadDataFromFIBitmap(FIBITMAP* image);
     vec4 GetInterpolatedColor(float x, float y) const;
     bool ReadCacheFile(const std::string& path, uint16_t checksum);
     void WriteCacheFile(const std::string& path);
 
     std::vector<byte4> pixels_;
-    int width_, height_; 
+    int width_, height_;
     uint16_t checksum_;
-
 };
 
 typedef AssetRef<ImageSampler> ImageSamplerRef;

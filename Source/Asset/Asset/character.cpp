@@ -43,31 +43,27 @@
 #include <map>
 #include <set>
 
-using std::string;
+using std::endl;
+using std::map;
 using std::ostringstream;
 using std::set;
+using std::string;
 using std::vector;
-using std::map;
-using std::endl;
 
-Character::Character( AssetManager* owner, uint32_t asset_id ) : AssetInfo(owner,asset_id)
-{
-
+Character::Character(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id) {
 }
 
 void Character::Reload() {
-    Load(path_,0x0);
+    Load(path_, 0x0);
 }
 
 void Character::ReportLoad() {
-
 }
 
-int Character::Load( const string &path, uint32_t load_flags ) {
+int Character::Load(const string& path, uint32_t load_flags) {
     TiXmlDocument doc;
-    
-    if( LoadXMLRetryable(doc, path, "Character") )
-    {
+
+    if (LoadXMLRetryable(doc, path, "Character")) {
         obj_path.clear();
         skeleton_path.clear();
         anim_paths.clear();
@@ -83,74 +79,74 @@ int Character::Load( const string &path, uint32_t load_flags ) {
         TiXmlHandle h_doc(&doc);
         TiXmlHandle h_root = h_doc.FirstChildElement();
         TiXmlElement* field = h_root.ToElement()->FirstChildElement();
-        for( ; field; field = field->NextSiblingElement()) {
+        for (; field; field = field->NextSiblingElement()) {
             string field_str(field->Value());
-            if(field_str == "appearance"){
+            if (field_str == "appearance") {
                 obj_path = field->Attribute("obj_path");
                 skeleton_path = field->Attribute("skeleton");
-                const char *fur_path_cstr = field->Attribute("fur");
-                if(fur_path_cstr){
+                const char* fur_path_cstr = field->Attribute("fur");
+                if (fur_path_cstr) {
                     fur_path = fur_path_cstr;
                 }
-                const char *morph_path_cstr = field->Attribute("morph");
-                if(morph_path_cstr){
+                const char* morph_path_cstr = field->Attribute("morph");
+                if (morph_path_cstr) {
                     morph_path = morph_path_cstr;
                 }
-                for(int i=0; i<4; ++i){
+                for (int i = 0; i < 4; ++i) {
                     ostringstream oss;
                     oss << "channel_" << i;
-                    const char *channel_cstr = field->Attribute(oss.str().c_str());
-                    if(channel_cstr){
+                    const char* channel_cstr = field->Attribute(oss.str().c_str());
+                    if (channel_cstr) {
                         channels[i] = channel_cstr;
                     }
                 }
                 field->QueryFloatAttribute("model_scale", &model_scale);
                 field->QueryFloatAttribute("default_scale", &default_scale);
-            } else if(field_str == "animations"){
+            } else if (field_str == "animations") {
                 TiXmlAttribute* attrib = field->FirstAttribute();
-                while(attrib){
+                while (attrib) {
                     anim_paths[attrib->Name()] = attrib->Value();
                     attrib = attrib->Next();
                 }
-            } else if(field_str == "attacks"){
+            } else if (field_str == "attacks") {
                 TiXmlAttribute* attrib = field->FirstAttribute();
-                while(attrib){
+                while (attrib) {
                     attack_paths[attrib->Name()] = attrib->Value();
                     attrib = attrib->Next();
                 }
-            } else if(field_str == "tags"){
+            } else if (field_str == "tags") {
                 TiXmlAttribute* attrib = field->FirstAttribute();
-                while(attrib){
+                while (attrib) {
                     tags[attrib->Name()] = attrib->Value();
                     attrib = attrib->Next();
                 }
-            } else if(field_str == "voice"){
+            } else if (field_str == "voice") {
                 voice_path = field->Attribute("path");
                 field->QueryFloatAttribute("pitch", &voice_pitch);
-            } else if(field_str == "team"){
+            } else if (field_str == "team") {
                 team.insert(field->GetText());
-            } else if(field_str == "clothing"){
+            } else if (field_str == "clothing") {
                 clothing_path = field->GetText();
-            } else if(field_str == "soundmod"){
+            } else if (field_str == "soundmod") {
                 sound_mod = field->GetText();
-            } else if(field_str == "morphs"){
+            } else if (field_str == "morphs") {
                 MorphInfo new_morph_info;
                 TiXmlElement* morph = field->FirstChildElement();
-                while(morph){
+                while (morph) {
                     const char* default_str = morph->Attribute("default");
-                    if(!default_str || strcmp(morph->Attribute("default"), "true") != 0){
+                    if (!default_str || strcmp(morph->Attribute("default"), "true") != 0) {
                         new_morph_info.label = morph->Value();
                         new_morph_info.num_steps = 1;
-                        morph->QueryIntAttribute("num_steps",&new_morph_info.num_steps);
+                        morph->QueryIntAttribute("num_steps", &new_morph_info.num_steps);
                         morph_info.push_back(new_morph_info);
                     }
                     vec3 start, end;
-                    if(morph->QueryFloatAttribute("start_x",&start[0]) == TIXML_SUCCESS){
-                        morph->QueryFloatAttribute("start_y",&start[1]);
-                        morph->QueryFloatAttribute("start_z",&start[2]);
-                        morph->QueryFloatAttribute("end_x",&end[0]);
-                        morph->QueryFloatAttribute("end_y",&end[1]);
-                        morph->QueryFloatAttribute("end_z",&end[2]);
+                    if (morph->QueryFloatAttribute("start_x", &start[0]) == TIXML_SUCCESS) {
+                        morph->QueryFloatAttribute("start_y", &start[1]);
+                        morph->QueryFloatAttribute("start_z", &start[2]);
+                        morph->QueryFloatAttribute("end_x", &end[0]);
+                        morph->QueryFloatAttribute("end_y", &end[1]);
+                        morph->QueryFloatAttribute("end_z", &end[2]);
                         MorphMetaInfo meta_info;
                         meta_info.label = morph->Value();
                         meta_info.start = start;
@@ -159,19 +155,17 @@ int Character::Load( const string &path, uint32_t load_flags ) {
                     }
                     morph = morph->NextSiblingElement();
                 }
-            } else if(field_str == "visemes"){
+            } else if (field_str == "visemes") {
                 TiXmlElement* viseme = field->FirstChildElement();
                 string viseme_morph;
-                while(viseme){
+                while (viseme) {
                     viseme_morph = viseme->GetText();
                     vis2morph[viseme->Value()] = viseme_morph;
                     viseme = viseme->NextSiblingElement();
                 }
             }
         }
-    }
-    else
-    {
+    } else {
         return kLoadErrorMissingFile;
     }
     return kLoadOk;
@@ -182,34 +176,33 @@ const char* Character::GetLoadErrorString() {
 }
 
 void Character::Unload() {
-
 }
 
-const string & Character::GetAnimPath( const string &action ) {
+const string& Character::GetAnimPath(const string& action) {
     return anim_paths[action];
 }
 
-const string & Character::GetTag( const string &action ) {
+const string& Character::GetTag(const string& action) {
     return tags[action];
 }
 
-const string & Character::GetObjPath() {
+const string& Character::GetObjPath() {
     return obj_path;
 }
 
-const string & Character::GetClothingPath() {
+const string& Character::GetClothingPath() {
     return clothing_path;
 }
 
-const string & Character::GetSkeletonPath() {
+const string& Character::GetSkeletonPath() {
     return skeleton_path;
 }
 
-const string & Character::GetAttackPath( const string &action ) {
+const string& Character::GetAttackPath(const string& action) {
     return attack_paths[action];
 }
 
-bool Character::IsOnTeam( const string &_team ) {
+bool Character::IsOnTeam(const string& _team) {
     /*
     LOGI << "Checking if " << _team << " is on team:" << endl;
     for(set<string>::const_iterator iter = team.begin();
@@ -229,7 +222,7 @@ bool Character::IsOnTeam( const string &_team ) {
     return (team.find(_team) != team.end());
 }
 
-const set<string> & Character::GetTeamSet() {
+const set<string>& Character::GetTeamSet() {
     return team;
 }
 
@@ -241,15 +234,15 @@ const vector<MorphInfo>& Character::GetMorphs() {
     return morph_info;
 }
 
-const map<string, string> & Character::GetVisemeMorphs() {
+const map<string, string>& Character::GetVisemeMorphs() {
     return vis2morph;
 }
 
-const string & Character::GetVoicePath() {
+const string& Character::GetVoicePath() {
     return voice_path;
 }
 
-const float & Character::GetVoicePitch() {
+const float& Character::GetVoicePitch() {
     return voice_pitch;
 }
 
@@ -257,50 +250,50 @@ float Character::GetHearing() {
     return 0.4f;
 }
 
-void Character::ReturnPaths( PathSet &path_set ) {
-    path_set.insert("character "+path_);
-    //ObjectFiles::Instance()->ReturnRef(obj_path);
+void Character::ReturnPaths(PathSet& path_set) {
+    path_set.insert("character " + path_);
+    // ObjectFiles::Instance()->ReturnRef(obj_path);
     ObjectFileRef ofr = Engine::Instance()->GetAssetManager()->LoadSync<ObjectFile>(obj_path);
     ofr->ReturnPaths(path_set);
-    path_set.insert("skeleton "+skeleton_path);
-    if(!clothing_path.empty()){
-        //Materials::Instance()->ReturnRef(clothing_path)->ReturnPaths(path_set);
+    path_set.insert("skeleton " + skeleton_path);
+    if (!clothing_path.empty()) {
+        // Materials::Instance()->ReturnRef(clothing_path)->ReturnPaths(path_set);
         Engine::Instance()->GetAssetManager()->LoadSync<Material>(clothing_path)->ReturnPaths(path_set);
     }
-    for(auto & info : morph_info){
-        if(info.num_steps == 1){
-            path_set.insert("morph "+GetMorphPath(ofr->model_name, info.label));
+    for (auto& info : morph_info) {
+        if (info.num_steps == 1) {
+            path_set.insert("morph " + GetMorphPath(ofr->model_name, info.label));
         } else {
-            for(int j=0; j<info.num_steps; ++j){
+            for (int j = 0; j < info.num_steps; ++j) {
                 ostringstream oss;
                 oss << info.label << j;
-                path_set.insert("morph "+GetMorphPath(ofr->model_name, oss.str()));
+                path_set.insert("morph " + GetMorphPath(ofr->model_name, oss.str()));
             }
         }
     }
-    for(auto & anim_path : anim_paths) {
+    for (auto& anim_path : anim_paths) {
         ReturnAnimationAssetRef(anim_path.second)->ReturnPaths(path_set);
     }
-    for(auto & attack_path : attack_paths) {
-        //Attacks::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
+    for (auto& attack_path : attack_paths) {
+        // Attacks::Instance()->ReturnRef(iter->second)->ReturnPaths(path_set);
         Engine::Instance()->GetAssetManager()->LoadSync<Attack>(attack_path.second)->ReturnPaths(path_set);
     }
-    if(!voice_path.empty()){
-        //VoiceFiles::Instance()->ReturnRef(voice_path)->ReturnPaths(path_set);
+    if (!voice_path.empty()) {
+        // VoiceFiles::Instance()->ReturnRef(voice_path)->ReturnPaths(path_set);
         Engine::Instance()->GetAssetManager()->LoadSync<VoiceFile>(voice_path)->ReturnPaths(path_set);
     }
 }
 
-const string & Character::GetFurPath() {
+const string& Character::GetFurPath() {
     return fur_path;
 }
 
-const string & Character::GetPermanentMorphPath() {
+const string& Character::GetPermanentMorphPath() {
     return morph_path;
 }
 
-const string & Character::GetChannel( int which ) const {
-    if(which < 0 || which > 3){
+const string& Character::GetChannel(int which) const {
+    if (which < 0 || which > 3) {
         FatalError("Error", "Can only check channels 0-3");
     }
     return channels[which];
@@ -314,9 +307,9 @@ float Character::GetDefaultScale() {
     return default_scale;
 }
 
-bool Character::GetMorphMeta(const string& label, vec3 & start, vec3 & end) {
-    for(auto & meta : morph_meta){
-        if(meta.label == label){
+bool Character::GetMorphMeta(const string& label, vec3& start, vec3& end) {
+    for (auto& meta : morph_meta) {
+        if (meta.label == label) {
             start = meta.start;
             end = meta.end;
             return true;

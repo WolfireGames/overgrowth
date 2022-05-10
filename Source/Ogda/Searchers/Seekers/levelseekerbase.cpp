@@ -26,17 +26,13 @@
 
 #include <Logging/logdata.h>
 
-std::vector<Item> LevelSeekerBase::SearchXML( const Item& item, TiXmlDocument& doc )
-{
+std::vector<Item> LevelSeekerBase::SearchXML(const Item& item, TiXmlDocument& doc) {
     TiXmlElement* eRoot = doc.RootElement();
     TiXmlHandle hRoot(eRoot);
-    
-    if( strcmp(eRoot->Value(), "Level") == 0 )
-    {
+
+    if (strcmp(eRoot->Value(), "Level") == 0) {
         return this->SearchLevelRoot(item, hRoot);
-    }
-    else
-    {
+    } else {
         TiXmlHandle root(&(doc));
         return this->SearchLevelRoot(item, root);
     }

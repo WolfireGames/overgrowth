@@ -38,9 +38,9 @@
 
 class AssetManager;
 
-enum {_hinge_joint = 0,
-      _amotor_joint = 1,
-      _fixed_joint = 2};
+enum { _hinge_joint = 0,
+       _amotor_joint = 1,
+       _fixed_joint = 2 };
 
 struct JointData {
     int type;
@@ -55,48 +55,49 @@ struct SimpleIKBone {
 };
 
 enum RiggingStage { _nothing = -1,
-_create_bones = 0, 
-_control_joints = 1,
-_animate = 2,
-_pose_weights = 3};
+                    _create_bones = 0,
+                    _control_joints = 1,
+                    _animate = 2,
+                    _pose_weights = 3 };
 
 struct SkeletonFileData {
-    std::vector<vec3> points; // Endpoints of bones
-    std::vector<int> bone_ends; // Indices into points array (2 per bone)
-    std::vector<int> hier_parents;  // The parent bone id of each bone (including connector bones)
-    std::vector<int> point_parents; // The parent point id of each point
-    std::vector<int> bone_parents; // Same as hier_parents? (why?)
-    std::vector<float> bone_mass; // Mass of each bone
-    std::vector<vec3> bone_com; // The center of mass of each bone
-    std::vector<mat4> bone_mats; // The initial matrix for each bone
-    std::vector<JointData> joints; // Physics info for each joint
+    std::vector<vec3> points;        // Endpoints of bones
+    std::vector<int> bone_ends;      // Indices into points array (2 per bone)
+    std::vector<int> hier_parents;   // The parent bone id of each bone (including connector bones)
+    std::vector<int> point_parents;  // The parent point id of each point
+    std::vector<int> bone_parents;   // Same as hier_parents? (why?)
+    std::vector<float> bone_mass;    // Mass of each bone
+    std::vector<vec3> bone_com;      // The center of mass of each bone
+    std::vector<mat4> bone_mats;     // The initial matrix for each bone
+    std::vector<JointData> joints;   // Physics info for each joint
     typedef ska::flat_hash_map<std::string, SimpleIKBone> IKBoneMap;
-    IKBoneMap simple_ik_bones; // labeled IK bone chains
-    std::vector<vec4> model_bone_weights; // For each vertex, the weight of the four attached bones
-    std::vector<vec4> model_bone_ids; // For each vertex, the id of the four attached bones
+    IKBoneMap simple_ik_bones;             // labeled IK bone chains
+    std::vector<vec4> model_bone_weights;  // For each vertex, the weight of the four attached bones
+    std::vector<vec4> model_bone_ids;      // For each vertex, the id of the four attached bones
     std::vector<int> symmetry;
     vec3 old_model_center;
-    RiggingStage rigging_stage; // At which rigging stage was this skeleton saved (obsolete)
+    RiggingStage rigging_stage;  // At which rigging stage was this skeleton saved (obsolete)
 };
 
 class SkeletonAsset : public Asset {
     SkeletonFileData data;
     unsigned short checksum_;
     std::string error_string;
-public:
+
+   public:
     SkeletonAsset(AssetManager* owner, uint32_t asset_id);
     ~SkeletonAsset() override;
 
     const SkeletonFileData& GetData();
-    unsigned short checksum() {return checksum_;}
+    unsigned short checksum() { return checksum_; }
 
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended();
     void Unload();
 
-    void Reload( );
+    void Reload();
     void ReportLoad() override;
     static AssetType GetType() { return SKELETON_ASSET; };
     static const char* GetTypeName() { return "SKELETON_ASSET"; }
@@ -106,4 +107,3 @@ public:
 };
 
 typedef AssetRef<SkeletonAsset> SkeletonAssetRef;
-

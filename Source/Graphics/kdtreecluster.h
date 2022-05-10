@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: kdtreecluster.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -38,7 +38,7 @@ struct KDNode {
     float plane_coord;
     ClusterInfo cluster_info;
     KDNode *child[2];
-    KDNode(const vec3 &_min_bounds, const vec3 &_max_bounds, std::vector<vec3> points, int depth=0);
-    ~KDNode();    
-    KDNode* GetLeaf( const vec3 &point );
+    KDNode(const vec3 &_min_bounds, const vec3 &_max_bounds, std::vector<vec3> points, int depth = 0);
+    ~KDNode();
+    KDNode *GetLeaf(const vec3 &point);
 };

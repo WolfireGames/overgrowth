@@ -24,12 +24,11 @@
 
 #include <xmmintrin.h>
 
-class simd_mat4
-{
-public:
+class simd_mat4 {
+   public:
     __m128 col[4];
 
-    void assign(const float* entries){
+    void assign(const float *entries) {
         col[0] = _mm_loadu_ps(&entries[0]);
         col[1] = _mm_loadu_ps(&entries[4]);
         col[2] = _mm_loadu_ps(&entries[8]);
@@ -46,15 +45,15 @@ public:
         row[3] = _mm_load_ps(&entries_rearranged[12]);*/
     }
 
-    simd_mat4& operator=(const simd_mat4 &other){
+    simd_mat4 &operator=(const simd_mat4 &other) {
         col[0] = other.col[0];
         col[1] = other.col[1];
         col[2] = other.col[2];
         col[3] = other.col[3];
         return *this;
     }
-    
-    simd_mat4 operator*(float val){
+
+    simd_mat4 operator*(float val) {
         __m128 _m_val = _mm_load1_ps(&val);
         simd_mat4 result;
         result.col[0] = _mm_mul_ps(col[0], _m_val);
@@ -64,7 +63,7 @@ public:
         return result;
     }
 
-    void operator+=(const simd_mat4 &other){
+    void operator+=(const simd_mat4 &other) {
         col[0] = _mm_add_ps(col[0], other.col[0]);
         col[1] = _mm_add_ps(col[1], other.col[1]);
         col[2] = _mm_add_ps(col[2], other.col[2]);
@@ -77,23 +76,23 @@ public:
 #else
         static float me[16] __attribute__((aligned(16)));
 #endif
-        
+
         _mm_store_ps(&me[0], col[0]);
         _mm_store_ps(&me[4], col[1]);
         _mm_store_ps(&me[8], col[2]);
         _mm_store_ps(&me[12], col[3]);
 
-        me[12] += me[0]*rhs[0] + me[4]*rhs[1] + me[8]*rhs[2];
-        me[13] += me[1]*rhs[0] + me[5]*rhs[1] + me[9]*rhs[2];
-        me[14] += me[2]*rhs[0] + me[6]*rhs[1] + me[10]*rhs[2];
+        me[12] += me[0] * rhs[0] + me[4] * rhs[1] + me[8] * rhs[2];
+        me[13] += me[1] * rhs[0] + me[5] * rhs[1] + me[9] * rhs[2];
+        me[14] += me[2] * rhs[0] + me[6] * rhs[1] + me[10] * rhs[2];
 
         col[0] = _mm_load_ps(&me[0]);
         col[1] = _mm_load_ps(&me[4]);
         col[2] = _mm_load_ps(&me[8]);
         col[3] = _mm_load_ps(&me[12]);
     }
-    
-    void ToVec4(float *vector1, float *vector2, float *vector3, float *vector4){
+
+    void ToVec4(float *vector1, float *vector2, float *vector3, float *vector4) {
 #ifdef _WIN32
         __declspec(align(16)) float entries[16];
 #else
@@ -133,9 +132,9 @@ public:
         _mm_store_ps(&me[8], col[2]);
         _mm_store_ps(&me[12], col[3]);
 
-        me[12] += me[0]*rhs[0] + me[4]*rhs[1] + me[8]*rhs[2];
-        me[13] += me[1]*rhs[0] + me[5]*rhs[1] + me[9]*rhs[2];
-        me[14] += me[2]*rhs[0] + me[6]*rhs[1] + me[10]*rhs[2];
+        me[12] += me[0] * rhs[0] + me[4] * rhs[1] + me[8] * rhs[2];
+        me[13] += me[1] * rhs[0] + me[5] * rhs[1] + me[9] * rhs[2];
+        me[14] += me[2] * rhs[0] + me[6] * rhs[1] + me[10] * rhs[2];
 
         vector1[0] = me[0];
         vector1[1] = me[4];

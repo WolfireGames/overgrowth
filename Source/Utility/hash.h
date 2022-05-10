@@ -20,7 +20,7 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 #include <Internal/integer.h>
 
 #include <string>
@@ -31,4 +31,4 @@ struct MurmurHash {
     std::string ToString();
 };
 
-MurmurHash GetFileHash( const char* file );
+MurmurHash GetFileHash(const char* file);

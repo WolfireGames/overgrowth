@@ -34,9 +34,8 @@
 
 class SteamworksUGCItem;
 
-
 class SteamworksUGC {
-private:
+   private:
     friend class Steamworks;
     SteamworksUGC();
 
@@ -44,20 +43,21 @@ private:
     // So if 120 mods are activated, 2 will be updated each frame when this is 60
     const static int MAX_UPDATE_FRAMES = 60;
     int update_item;
-public:
+
+   public:
     ~SteamworksUGC();
 
     void Update();
-    
-    UGCID TryUploadMod( ModID sid );
 
-    std::vector<SteamworksUGCItem*>::iterator LoadModIntoGame( PublishedFileId_t steamworks_id );
+    UGCID TryUploadMod(ModID sid);
 
-    std::vector<SteamworksUGCItem*>::iterator GetItem( PublishedFileId_t steamworks_id );
-    std::vector<SteamworksUGCItem*>::iterator GetItem( ModID sid );
-    std::vector<SteamworksUGCItem*>::iterator GetItem( UGCID id );
-    std::vector<SteamworksUGCItem*>::iterator GetItemBegin();
-    std::vector<SteamworksUGCItem*>::iterator GetItemEnd();
+    std::vector<SteamworksUGCItem *>::iterator LoadModIntoGame(PublishedFileId_t steamworks_id);
+
+    std::vector<SteamworksUGCItem *>::iterator GetItem(PublishedFileId_t steamworks_id);
+    std::vector<SteamworksUGCItem *>::iterator GetItem(ModID sid);
+    std::vector<SteamworksUGCItem *>::iterator GetItem(UGCID id);
+    std::vector<SteamworksUGCItem *>::iterator GetItemBegin();
+    std::vector<SteamworksUGCItem *>::iterator GetItemEnd();
 
     size_t SubscribedNotInstalledCount();
     size_t DownloadingCount();
@@ -67,25 +67,25 @@ public:
     float TotalDownloadProgress();
 
     bool WaitingForResults();
-   
+
     void QueryPersonalWorkshopItems();
     void QueryFavoritesWorkshopItems();
 
-    std::vector<SteamworksUGCItem*> items;
+    std::vector<SteamworksUGCItem *> items;
 
-    void OnUGCRemoteStoragePublishedFileSubscribed( RemoteStoragePublishedFileSubscribed_t *pCallback );
+    void OnUGCRemoteStoragePublishedFileSubscribed(RemoteStoragePublishedFileSubscribed_t *pCallback);
     CCallback<SteamworksUGC, RemoteStoragePublishedFileSubscribed_t, false> m_callRemoteStoragePublishedFileSubscribed;
 
-    void OnUGCRemoteStoragePublishedFileUnsubscribed( RemoteStoragePublishedFileUnsubscribed_t *pCallback );
+    void OnUGCRemoteStoragePublishedFileUnsubscribed(RemoteStoragePublishedFileUnsubscribed_t *pCallback);
     CCallback<SteamworksUGC, RemoteStoragePublishedFileUnsubscribed_t, false> m_callRemoteStoragePublishedFileUnsubscribed;
 
-    void OnUGCRemoteStoragePublishedFileDeleted( RemoteStoragePublishedFileDeleted_t *pCallback );
+    void OnUGCRemoteStoragePublishedFileDeleted(RemoteStoragePublishedFileDeleted_t *pCallback);
     CCallback<SteamworksUGC, RemoteStoragePublishedFileDeleted_t, false> m_callRemoteStoragePublishedFileDeleted;
 
-    void OnUGCSteamUGCQueryCompleted( SteamUGCQueryCompleted_t *pResult, bool failed );
+    void OnUGCSteamUGCQueryCompleted(SteamUGCQueryCompleted_t *pResult, bool failed);
     CCallResult<SteamworksUGC, SteamUGCQueryCompleted_t> m_callSteamUGCQueryCompleted;
 
-    void OnUGCSteamUGCQueryFavoritesCompleted( SteamUGCQueryCompleted_t *pResult, bool failed );
+    void OnUGCSteamUGCQueryFavoritesCompleted(SteamUGCQueryCompleted_t *pResult, bool failed);
     CCallResult<SteamworksUGC, SteamUGCQueryCompleted_t> m_callSteamUGCQueryFavoritesCompleted;
 };
 #endif

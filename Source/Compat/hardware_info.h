@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: hardware_info.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,6 +22,9 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-enum GLVendor {_unknown, _ati, _nvidia, _intel};
+enum GLVendor { _unknown,
+                _ati,
+                _nvidia,
+                _intel };
 
 unsigned GetDriverVersion(GLVendor vendor);

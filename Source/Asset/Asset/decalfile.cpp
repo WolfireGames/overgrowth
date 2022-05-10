@@ -39,17 +39,16 @@
 #include <map>
 #include <string>
 
-DecalFile::DecalFile( AssetManager* owner, uint32_t asset_id ) : AssetInfo( owner, asset_id ), sub_error(0) {
-
+DecalFile::DecalFile(AssetManager* owner, uint32_t asset_id) : AssetInfo(owner, asset_id), sub_error(0) {
 }
 
-int DecalFile::Load( const std::string &path, uint32_t load_flags ) {
+int DecalFile::Load(const std::string& path, uint32_t load_flags) {
     sub_error = 0;
     TiXmlDocument doc;
     char abs_path[kPathSize];
-    if(FindFilePath(path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths) == -1){
+    if (FindFilePath(path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths) == -1) {
         FatalError("Error", "Could not find decal file: %s", path.c_str());
-    } 
+    }
     doc = TiXmlDocument(abs_path);
     doc.LoadFile();
     special_type = 0;
@@ -69,49 +68,50 @@ int DecalFile::Load( const std::string &path, uint32_t load_flags ) {
 
     float val;
     if (XmlHelper::getNodeValue(doc, "DecalObject/SpecialType", val)) {
-        special_type = (int)(val+0.5f);
+        special_type = (int)(val + 0.5f);
     }
     return kLoadOk;
 }
 
 const char* DecalFile::GetLoadErrorString() {
-    switch(sub_error) {
-        case 0: return "";
-        case 1: return "Color map not found";
-        case 2: return "Normal map not found";
-        case 3: return "Shader file not found";
-        default: return "Undefined error";
+    switch (sub_error) {
+        case 0:
+            return "";
+        case 1:
+            return "Color map not found";
+        case 2:
+            return "Normal map not found";
+        case 3:
+            return "Shader file not found";
+        default:
+            return "Undefined error";
     }
 }
 
 void DecalFile::Unload() {
-
 }
-
 
 void DecalFile::Reload() {
     Load(path_, 0x0);
 }
 
 void DecalFile::ReportLoad() {
-
 }
 
-void DecalFile::ReturnPaths( PathSet& path_set ) {
-    path_set.insert("decal "+path_);
-    if(!color_map.empty()){
-        path_set.insert("texture "+color_map);
+void DecalFile::ReturnPaths(PathSet& path_set) {
+    path_set.insert("decal " + path_);
+    if (!color_map.empty()) {
+        path_set.insert("texture " + color_map);
     }
-    if(!normal_map.empty()){
-        path_set.insert("texture "+normal_map);
+    if (!normal_map.empty()) {
+        path_set.insert("texture " + normal_map);
     }
-    if(!shader_name.empty()){
-        path_set.insert("shader "+GetShaderPath(shader_name, Shaders::Instance()->shader_dir_path, _vertex));
-        path_set.insert("shader "+GetShaderPath(shader_name, Shaders::Instance()->shader_dir_path, _fragment));
+    if (!shader_name.empty()) {
+        path_set.insert("shader " + GetShaderPath(shader_name, Shaders::Instance()->shader_dir_path, _vertex));
+        path_set.insert("shader " + GetShaderPath(shader_name, Shaders::Instance()->shader_dir_path, _fragment));
     }
 }
 
 AssetLoaderBase* DecalFile::NewLoader() {
     return new FallbackAssetLoader<DecalFile>();
 }
-

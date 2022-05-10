@@ -33,10 +33,10 @@
 static ASContext* local_ctx = NULL;
 
 static CScriptArray* AS_GetArray(SavedLevel* save_file, const std::string& key) {
-    asIScriptContext *ctx = local_ctx->ctx;
-    asIScriptEngine *engine = ctx->GetEngine();
-    asITypeInfo *arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray *array = CScriptArray::Create(arrayType, (asUINT)0);
+    asIScriptContext* ctx = local_ctx->ctx;
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
 
     std::vector<std::string> source_arr = save_file->GetArray(key);
 
@@ -44,14 +44,14 @@ static CScriptArray* AS_GetArray(SavedLevel* save_file, const std::string& key) 
 
     std::vector<std::string>::iterator layerit = source_arr.begin();
 
-    for( ; layerit != source_arr.end(); layerit++ ) {
+    for (; layerit != source_arr.end(); layerit++) {
         array->InsertLast((void*)&(*layerit));
-    } 
+    }
 
-    return array; 
+    return array;
 }
 
-void AttachSaveFile( ASContext *ctx, SaveFile* save_file ) {
+void AttachSaveFile(ASContext* ctx, SaveFile* save_file) {
     local_ctx = ctx;
     ctx->RegisterObjectType("SavedLevel", 0, asOBJ_REF | asOBJ_NOCOUNT);
     ctx->RegisterObjectMethod(
@@ -63,7 +63,7 @@ void AttachSaveFile( ASContext *ctx, SaveFile* save_file ) {
         "SavedLevel",
         "const string& GetValue(const string &in key)",
         asMETHOD(SavedLevel, GetValue),
-        asCALL_THISCALL);   
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
         "SavedLevel",
@@ -110,12 +110,12 @@ void AttachSaveFile( ASContext *ctx, SaveFile* save_file ) {
         "SavedLevel",
         "int32 GetInt32Value(const string &in key)",
         asMETHOD(SavedLevel, GetInt32Value),
-        asCALL_THISCALL);   
+        asCALL_THISCALL);
     ctx->RegisterObjectMethod(
         "SavedLevel",
         "bool HasInt32Value(const string &in key)",
         asMETHOD(SavedLevel, HasInt32Value),
-        asCALL_THISCALL);   
+        asCALL_THISCALL);
 
     ctx->RegisterObjectMethod(
         "SavedLevel",
@@ -126,32 +126,32 @@ void AttachSaveFile( ASContext *ctx, SaveFile* save_file ) {
 
     ctx->RegisterObjectType("SaveFile", 0, asOBJ_REF | asOBJ_NOHANDLE);
     ctx->RegisterObjectMethod(
-        "SaveFile", 
+        "SaveFile",
         "SavedLevel& GetSavedLevel(const string &in name)",
         asMETHOD(SaveFile, GetSavedLevelDeprecated),
         asCALL_THISCALL);
     ctx->RegisterObjectMethod(
-        "SaveFile", 
+        "SaveFile",
         "SavedLevel& GetSave(const string campaign_id, const string save_category, const string save_name)",
         asMETHOD(SaveFile, GetSave),
         asCALL_THISCALL);
     ctx->RegisterObjectMethod(
-        "SaveFile", 
+        "SaveFile",
         "bool SaveExist(const string modsource_id, const string save_category, const string save_name)",
         asMETHOD(SaveFile, SaveExist),
         asCALL_THISCALL);
     ctx->RegisterObjectMethod(
-        "SaveFile", 
+        "SaveFile",
         "bool WriteInPlace()",
         asMETHOD(SaveFile, WriteInPlace),
         asCALL_THISCALL);
     ctx->RegisterObjectMethod(
-        "SaveFile", 
+        "SaveFile",
         "void QueueWriteInPlace()",
         asMETHOD(SaveFile, WriteInPlace),
         asCALL_THISCALL);
     ctx->RegisterObjectMethod(
-        "SaveFile", 
+        "SaveFile",
         "uint GetLoadedVersion()",
         asMETHOD(SaveFile, GetLoadedVersion),
         asCALL_THISCALL);

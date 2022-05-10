@@ -34,8 +34,7 @@
 
 #include <tinyxml.h>
 
-void SkyInfo::Print()
-{
+void SkyInfo::Print() {
     LOGI << "DomeTexture: " << dome_texture_path << std::endl;
     LOGI << "Sun angular rad: " << sun_angular_rad << std::endl;
     LOGI << "Sun color angle: " << sun_color_angle << std::endl;

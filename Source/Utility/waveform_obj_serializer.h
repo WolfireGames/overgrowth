@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: waveform_obj_serializer.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,7 +26,7 @@
 #include <string>
 #include <vector>
 
-using std::vector;
 using std::string;
+using std::vector;
 
 void SerializeToObj(const string& path, const vector<float>& vertices, const vector<uint32_t>& indices);

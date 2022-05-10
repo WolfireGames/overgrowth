@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: crashreport.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,4 +22,4 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-int RunWithCrashReport( int argc, char* argv[], int (*func) (int, char*[]));
+int RunWithCrashReport(int argc, char* argv[], int (*func)(int, char*[]));

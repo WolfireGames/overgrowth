@@ -26,8 +26,7 @@
 
 #include <Logging/logdata.h>
 
-std::vector<Item> DecalSeeker::SearchXML( const Item& item, TiXmlDocument& doc )
-{
+std::vector<Item> DecalSeeker::SearchXML(const Item& item, TiXmlDocument& doc) {
     std::vector<Item> items;
 
     TiXmlHandle root(&doc);
@@ -35,39 +34,27 @@ std::vector<Item> DecalSeeker::SearchXML( const Item& item, TiXmlDocument& doc )
     TiXmlElement* eColormap = root.FirstChildElement("DecalObject").FirstChildElement("ColorMap").Element();
     TiXmlElement* eNormalmap = root.FirstChildElement("DecalObject").FirstChildElement("NormalMap").Element();
 
-    if( eColormap )
-    {
+    if (eColormap) {
         const char* colormap = eColormap->GetText();
 
-        if( colormap && strlen( colormap ) > 0 )
-        {
-            items.push_back(Item(item.input_folder,colormap,"texture",item.source));
-        } 
-        else
-        {
+        if (colormap && strlen(colormap) > 0) {
+            items.push_back(Item(item.input_folder, colormap, "texture", item.source));
+        } else {
             LOGE << "ColorMap text missing" << std::endl;
         }
-    }
-    else
-    {
+    } else {
         LOGE << "ColorMap element missing in Decal" << std::endl;
     }
 
-    if( eNormalmap )
-    {
+    if (eNormalmap) {
         const char* normalmap = eNormalmap->GetText();
 
-        if( normalmap && strlen( normalmap ) > 0 )
-        {
-            items.push_back(Item(item.input_folder, normalmap,"texture",item.source));
-        }
-        else
-        {
+        if (normalmap && strlen(normalmap) > 0) {
+            items.push_back(Item(item.input_folder, normalmap, "texture", item.source));
+        } else {
             LOGE << "NormalMap text missing" << std::endl;
         }
-    }
-    else
-    {
+    } else {
         LOGE << "NormalMap element missing in Decal" << std::endl;
     }
 

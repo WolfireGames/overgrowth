@@ -34,53 +34,52 @@
 #include <Objects/group.h>
 
 #include <Sound/sound.h>
-#include <Asset/Asset//ambientsounds.h>
+#include <Asset/Asset/ambientsounds.h>
 #include <Main/scenegraph.h>
 
 #include <tinyxml.h>
 
 //-----------------------------------------------------------------------------
-//Functions
+// Functions
 //-----------------------------------------------------------------------------
 
 bool AmbientSoundObject::Initialize() {
-    if(as_ref->GetSoundType() == _continuous){
+    if (as_ref->GetSoundType() == _continuous) {
         SoundPlayInfo spi;
         spi.path = as_ref->GetPath();
         spi.looping = true;
         spi.position = GetTranslation();
         spi.occlusion_position = spi.position;
         sound_handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
-        Engine::Instance()->GetSound()->Play(sound_handle,spi);
+        Engine::Instance()->GetSound()->Play(sound_handle, spi);
     }
     return true;
 }
 
-AmbientSoundObject::AmbientSoundObject():
-    sound_handle(0)
-{
+AmbientSoundObject::AmbientSoundObject() : sound_handle(0) {
     box_.dims = vec3(1.0f);
 }
 
 AmbientSoundObject::~AmbientSoundObject() {
 }
 
-bool AmbientSoundObject::SetFromDesc( const EntityDescription& desc ){
+bool AmbientSoundObject::SetFromDesc(const EntityDescription& desc) {
     bool ret = Object::SetFromDesc(desc);
-    if( ret ) {
-        for(const auto & field : desc.fields){
-            switch(field.type){
+    if (ret) {
+        for (const auto& field : desc.fields) {
+            switch (field.type) {
                 case EDF_FILE_PATH: {
                     std::string type_file;
                     field.ReadString(&type_file);
-                    if(!as_ref.valid() || as_ref->path_ != obj_file){
-                        //as_ref = AmbientSounds::Instance()->ReturnRef(type_file);
+                    if (!as_ref.valid() || as_ref->path_ != obj_file) {
+                        // as_ref = AmbientSounds::Instance()->ReturnRef(type_file);
                         as_ref = Engine::Instance()->GetAssetManager()->LoadSync<AmbientSound>(type_file);
-                        if(as_ref->GetSoundType() == _occasional){
+                        if (as_ref->GetSoundType() == _occasional) {
                             delay = as_ref->GetDelayNoLower();
                         }
                     }
-                    break;}
+                    break;
+                }
             }
         }
     }
@@ -89,7 +88,7 @@ bool AmbientSoundObject::SetFromDesc( const EntityDescription& desc ){
 
 void AmbientSoundObject::Moved(Object::MoveType type) {
     Object::Moved(type);
-    if(type & kTranslate && scenegraph_){
+    if (type & kTranslate && scenegraph_) {
         Engine::Instance()->GetSound()->SetPosition(sound_handle, GetTranslation());
     }
 }
@@ -98,16 +97,16 @@ bool AmbientSoundObject::InCameraRange() {
     const float _threshold_distance = 10.0f;
     const float _threshold_distance_squared = square(_threshold_distance);
 
-    const float dist_sqrd = 
+    const float dist_sqrd =
         distance_squared(ActiveCameras::Get()->GetPos(), GetTranslation());
     return dist_sqrd < _threshold_distance_squared;
 }
 
-void AmbientSoundObject::Update(float timestep){
-    if(as_ref->GetSoundType() == _occasional && InCameraRange()){
+void AmbientSoundObject::Update(float timestep) {
+    if (as_ref->GetSoundType() == _occasional && InCameraRange()) {
         delay -= timestep;
-        if(delay <= 0.0f){
-            //SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(as_ref->GetPath());
+        if (delay <= 0.0f) {
+            // SoundGroupRef sgr = SoundGroups::Instance()->ReturnRef(as_ref->GetPath());
             SoundGroupRef sgr = Engine::Instance()->GetAssetManager()->LoadSync<SoundGroup>(as_ref->GetPath());
             SoundGroupPlayInfo sgpi(*sgr, GetTranslation());
             unsigned long handle = Engine::Instance()->GetSound()->CreateHandle(__FUNCTION__);
@@ -117,28 +116,25 @@ void AmbientSoundObject::Update(float timestep){
     }
 }
 
-void AmbientSoundObject::Draw()
-{
+void AmbientSoundObject::Draw() {
     /*ppolist::iterator iter = connections.begin();
     for(;iter != connections.end(); ++iter){
-        DebugDraw::Instance()->AddLine(position, 
-                                       (*iter)->position, 
+        DebugDraw::Instance()->AddLine(position,
+                                       (*iter)->position,
                                        vec4(1.0f),
                                        _delete_on_draw);
     }*/
 }
 
-void AmbientSoundObject::Copied()
-{
+void AmbientSoundObject::Copied() {
     sound_handle = 0;
 }
 
-void AmbientSoundObject::GetDesc(EntityDescription &desc) const {
+void AmbientSoundObject::GetDesc(EntityDescription& desc) const {
     Object::GetDesc(desc);
     desc.AddString(EDF_FILE_PATH, as_ref->path_);
 }
 
-const std::string & AmbientSoundObject::GetPath()
-{
+const std::string& AmbientSoundObject::GetPath() {
     return as_ref->path_;
 }

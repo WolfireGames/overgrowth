@@ -22,17 +22,18 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-template<class T, int cap>
+template <class T, int cap>
 class fixed_array {
     size_t s;
     T values[cap];
-public:
+
+   public:
     fixed_array() {
         s = 0;
     }
 
     size_t size() {
-            return s;
+        return s;
     }
 
     size_t capacity() {
@@ -43,10 +44,10 @@ public:
         return values[index];
     }
 
-    int push_back( const T& v ) {
-        if( s < cap ) {
-            values[s++] = v; 
-            return s-1;
+    int push_back(const T& v) {
+        if (s < cap) {
+            values[s++] = v;
+            return s - 1;
         }
         return -1;
     }

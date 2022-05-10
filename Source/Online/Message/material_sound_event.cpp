@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: material_sound_event.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -26,51 +26,51 @@
 #include <Online/online.h>
 
 namespace OnlineMessages {
-    MaterialSoundEvent::MaterialSoundEvent(ObjectID object_id, const string& ev, const vec3& pos, float gain) :
-        OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
-        event_name(ev), pos(pos), gain(gain)
-    {
-        this->object_id = Online::Instance()->GetOriginalID(object_id);
-    }
+MaterialSoundEvent::MaterialSoundEvent(ObjectID object_id, const string& ev, const vec3& pos, float gain) : OnlineMessageBase(OnlineMessageCategory::LEVEL_TRANSIENT),
+                                                                                                            event_name(ev),
+                                                                                                            pos(pos),
+                                                                                                            gain(gain) {
+    this->object_id = Online::Instance()->GetOriginalID(object_id);
+}
 
-    binn* MaterialSoundEvent::Serialize(void* object) {
-        MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
+binn* MaterialSoundEvent::Serialize(void* object) {
+    MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
 
-        binn* l = binn_object();
+    binn* l = binn_object();
 
-        binn_object_set_int32(l, "id", mse->object_id);
-        binn_object_set_std_string(l, "event", mse->event_name);
-        binn_object_set_vec3(l, "pos", mse->pos);
-        binn_object_set_float(l, "gain", mse->gain);
+    binn_object_set_int32(l, "id", mse->object_id);
+    binn_object_set_std_string(l, "event", mse->event_name);
+    binn_object_set_vec3(l, "pos", mse->pos);
+    binn_object_set_float(l, "gain", mse->gain);
 
-        return l;
-    }
+    return l;
+}
 
-    void MaterialSoundEvent::Deserialize(void* object, binn* l) {
-        MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
+void MaterialSoundEvent::Deserialize(void* object, binn* l) {
+    MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
 
-        binn_object_get_int32(l, "id", &mse->object_id);
-        binn_object_get_std_string(l, "event", &mse->event_name);
-        binn_object_get_vec3(l, "pos", &mse->pos);
-        binn_object_get_float(l, "gain", &mse->gain);
-    }
+    binn_object_get_int32(l, "id", &mse->object_id);
+    binn_object_get_std_string(l, "event", &mse->event_name);
+    binn_object_get_vec3(l, "pos", &mse->pos);
+    binn_object_get_float(l, "gain", &mse->gain);
+}
 
-    void MaterialSoundEvent::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
-        MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
-        ObjectID object_id = Online::Instance()->GetObjectID(mse->object_id);
+void MaterialSoundEvent::Execute(const OnlineMessageRef& ref, void* object, PeerID peer) {
+    MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
+    ObjectID object_id = Online::Instance()->GetObjectID(mse->object_id);
 
-        SceneGraph* sg = Engine::Instance()->GetSceneGraph();
+    SceneGraph* sg = Engine::Instance()->GetSceneGraph();
 
-        if(sg != nullptr) {
-        }
-    }
-
-    void* MaterialSoundEvent::Construct(void* mem) {
-        return new(mem) MaterialSoundEvent(-1, "", vec3(), 0.0f);
-    }
-
-    void MaterialSoundEvent::Destroy(void* object) {
-        MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
-        mse->~MaterialSoundEvent();
+    if (sg != nullptr) {
     }
 }
+
+void* MaterialSoundEvent::Construct(void* mem) {
+    return new (mem) MaterialSoundEvent(-1, "", vec3(), 0.0f);
+}
+
+void MaterialSoundEvent::Destroy(void* object) {
+    MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(object);
+    mse->~MaterialSoundEvent();
+}
+}  // namespace OnlineMessages

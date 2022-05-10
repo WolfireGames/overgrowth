@@ -31,20 +31,18 @@ class Item;
 
 typedef std::pair<const char*, const char*> attribpair;
 
-class AttributeScanner
-{
-public:
-static void Do(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlElement *eElem, 
-    const std::vector<attribpair>& attribs, 
-    const std::vector<const char*>& attribs_ignore);
+class AttributeScanner {
+   public:
+    static void Do(
+        std::vector<Item>& items,
+        const Item& item,
+        TiXmlElement* eElem,
+        const std::vector<attribpair>& attribs,
+        const std::vector<const char*>& attribs_ignore);
 
-static void DoAllSame(
-    std::vector<Item>& items, 
-    const Item& item, 
-    TiXmlElement *eElem,
-    std::string type );
+    static void DoAllSame(
+        std::vector<Item>& items,
+        const Item& item,
+        TiXmlElement* eElem,
+        std::string type);
 };
-

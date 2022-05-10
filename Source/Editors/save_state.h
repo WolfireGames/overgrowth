@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: save_state.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,19 +28,20 @@
 #include <list>
 
 namespace ChunkType {
-    enum ChunkType {
-        LEVEL,
-        SKY_EDITOR,
-        OBJECT,
-        GROUP
-    };
+enum ChunkType {
+    LEVEL,
+    SKY_EDITOR,
+    OBJECT,
+    GROUP
+};
 }
 
 struct SavedChunk {
-private:
+   private:
     static unsigned global_chunk_id_counter;
     unsigned global_chunk_id;
-public:
+
+   public:
     SavedChunk();
     int state_id;
     ChunkType::ChunkType type;
@@ -52,15 +53,15 @@ public:
 // StateHistory stores all of the saved state chunks, as well as information
 // about where we are in the undo/redo timeline
 class StateHistory {
-public:
+   public:
     std::list<SavedChunk> chunks;
     int current_state;
     int start_state;
     int num_states;
-    
+
     void clear();
 
-    StateHistory(){clear();}
+    StateHistory() { clear(); }
 
     std::list<SavedChunk>::iterator GetCurrentChunk();
 };

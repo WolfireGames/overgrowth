@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pong.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -28,44 +28,41 @@
 extern Timer game_timer;
 
 namespace OnlineMessages {
-    Pong::Pong(uint32_t ping_id) :
-        OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
-        ping_id(ping_id)
-    {
+Pong::Pong(uint32_t ping_id) : OnlineMessageBase(OnlineMessageCategory::TRANSIENT),
+                               ping_id(ping_id) {
+}
 
-    }
+binn* Pong::Serialize(void* object) {
+    Pong* p = static_cast<Pong*>(object);
+    binn* l = binn_object();
 
-    binn* Pong::Serialize(void* object) {
-        Pong *p = static_cast<Pong*>(object);
-        binn* l = binn_object();
+    binn_object_set_uint32(l, "id", p->ping_id);
 
-        binn_object_set_uint32(l, "id", p->ping_id);
+    return l;
+}
 
-        return l;
-    }
+void Pong::Deserialize(void* object, binn* l) {
+    Pong* p = static_cast<Pong*>(object);
 
-    void Pong::Deserialize(void* object, binn* l) {
-        Pong *p = static_cast<Pong*>(object);
+    binn_object_get_uint32(l, "id", &p->ping_id);
+}
 
-        binn_object_get_uint32(l, "id", &p->ping_id);
-    }
+void Pong::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
+    Pong* p = static_cast<Pong*>(object);
+    Online* online = Online::Instance();
 
-    void Pong::Execute(const OnlineMessageRef& ref, void* object, PeerID from) {
-        Pong* p = static_cast<Pong*>(object);
-        Online* online = Online::Instance();
-
-        Peer* peer = online->GetPeerFromID(from);
-        if(peer != nullptr && online->online_session->last_ping_id == p->ping_id) {
-            peer->current_ping_delta = game_timer.wall_time - online->online_session->last_ping_time;
-        }
-    }
-
-    void* Pong::Construct(void* mem) {
-        return new(mem) Pong(std::numeric_limits<uint32_t>::max());
-    }
-
-    void Pong::Destroy(void* object) {
-        Pong *p = static_cast<Pong*>(object);
-        p->~Pong();
+    Peer* peer = online->GetPeerFromID(from);
+    if (peer != nullptr && online->online_session->last_ping_id == p->ping_id) {
+        peer->current_ping_delta = game_timer.wall_time - online->online_session->last_ping_time;
     }
 }
+
+void* Pong::Construct(void* mem) {
+    return new (mem) Pong(std::numeric_limits<uint32_t>::max());
+}
+
+void Pong::Destroy(void* object) {
+    Pong* p = static_cast<Pong*>(object);
+    p->~Pong();
+}
+}  // namespace OnlineMessages

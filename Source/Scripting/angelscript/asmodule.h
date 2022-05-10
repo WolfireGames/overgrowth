@@ -118,7 +118,7 @@ enum AppObjectType {
     _ao_IMPulseAlpha,
     _ao_IMPulseBorderAlpha,
     _ao_IMMouseOverMove,
-	_ao_IMMouseOverScale,
+    _ao_IMMouseOverScale,
     _ao_IMMouseOverShowBorder,
     _ao_IMMouseOverPulseColor,
     _ao_IMMouseOverPulseBorder,
@@ -150,7 +150,7 @@ struct VarStorage {
     void* var;
     VarStorage();
     void destroy();
-    std::string GetString(unsigned depth=0);
+    std::string GetString(unsigned depth = 0);
 };
 
 struct ScriptObjectInstance {
@@ -158,8 +158,8 @@ struct ScriptObjectInstance {
     void destroy();
     uintptr_t ptr;
     bool reconstructed;
-    bool from_script_obj_value; //This means there's a value version of this app object that all handles should re-refer to.
-    asIScriptObject* new_ptr; //New value generated
+    bool from_script_obj_value;  // This means there's a value version of this app object that all handles should re-refer to.
+    asIScriptObject* new_ptr;    // New value generated
     VarStorage var;
 };
 
@@ -178,7 +178,8 @@ struct AppObjectHandle {
     void destroy();
 };
 
-enum TemplateObjectType {_to_array, _to_unknown};
+enum TemplateObjectType { _to_array,
+                          _to_unknown };
 
 struct TemplateObject {
     TemplateObjectType type;
@@ -189,11 +190,11 @@ struct TemplateObject {
 };
 
 struct ScriptObject {
-    uintptr_t orig_ptr; //Original ptr.
+    uintptr_t orig_ptr;  // Original ptr.
     std::string type_name;
     std::string name_space;
     std::list<VarStorage> storage;
-    void Populate( asIScriptObject * obj, std::list<ScriptObjectInstance>& handle_var_list,  asIScriptModule *module );
+    void Populate(asIScriptObject* obj, std::list<ScriptObjectInstance>& handle_var_list, asIScriptModule* module);
     void destroy();
 };
 
@@ -205,10 +206,10 @@ struct ScriptObjectInstanceHandleRemap {
 };
 
 class ASModule {
-    asIScriptModule *module_;
+    asIScriptModule* module_;
     const ScriptFile* script_file_ptr_;
 
-	std::map<void*, void*> fast_var_ptr_map;
+    std::map<void*, void*> fast_var_ptr_map;
     std::map<std::string, asIScriptFunction*> func_map_;
     Path script_path_;
     std::list<VarStorage> saved_vars_;
@@ -220,10 +221,9 @@ class ASModule {
     ASModule(const ASModule&);
     ASModule& operator=(const ASModule&);
 
-public:
+   public:
     ASModule()
-        : active_angelscript_error_string(NULL)
-     {}
+        : active_angelscript_error_string(NULL) {}
     ~ASModule();
 
     void SetErrorStringDestination(std::string* error_string);
@@ -240,14 +240,14 @@ public:
     void PrintAllTypes();
     void LogGlobalVars();
     void PrintScriptClassVars(asIScriptObject* obj);
-    void GetGlobalVars(std::list<VarStorage> &storage,std::list<ScriptObjectInstance>& handle_var_list);
+    void GetGlobalVars(std::list<VarStorage>& storage, std::list<ScriptObjectInstance>& handle_var_list);
     void SaveGlobalVars();
     void LoadGlobalVars();
-    void LoadVar(ValueParent var_type, void* parent_ptr, int parent_index, const VarStorage &vs, void *ptr, std::list<ScriptObjectInstance>& handle_var_list, std::list<ScriptObjectInstanceHandleRemap>& app_obj_handle_offset, asIScriptModule* module);
-    asIScriptFunction* GetFunctionID( const std::string &function_name );
-	void *GetVarPtr(const char* name);
-	void *GetVarPtrCache(const char* name); // Only use if passing fixed const char*, not converted from string
-    int CompileScriptFromText(const std::string &text);
+    void LoadVar(ValueParent var_type, void* parent_ptr, int parent_index, const VarStorage& vs, void* ptr, std::list<ScriptObjectInstance>& handle_var_list, std::list<ScriptObjectInstanceHandleRemap>& app_obj_handle_offset, asIScriptModule* module);
+    asIScriptFunction* GetFunctionID(const std::string& function_name);
+    void* GetVarPtr(const char* name);
+    void* GetVarPtrCache(const char* name);  // Only use if passing fixed const char*, not converted from string
+    int CompileScriptFromText(const std::string& text);
 };
 
 const char* AppObjectTypeString(enum AppObjectType aot);

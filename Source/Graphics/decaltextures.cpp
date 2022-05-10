@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: decaltextures.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -35,44 +35,34 @@
 
 bool kUseDecalNormals = false;
 
-//We define this because windows is missing log2
-double Log2( double n )  
-{  
-    // log(n)/log(2) is log2.  
-    return log( n ) / log( 2 );  
+// We define this because windows is missing log2
+double Log2(double n) {
+    // log(n)/log(2) is log2.
+    return log(n) / log(2);
 }
 
-
-DecalTexture::DecalTexture()
-{
-
+DecalTexture::DecalTexture() {
 }
 
-DecalTexture::~DecalTexture()
-{
+DecalTexture::~DecalTexture() {
     DecalTextures* dt = DecalTextures::Instance();
 
-    if( dt->initialized )
-    {
-        if(colornode_ref.valid())
-            dt->colornodetree->FreeNode( colornode_ref );
-        if(normalnode_ref.valid())
-            dt->normalnodetree->FreeNode( normalnode_ref );
+    if (dt->initialized) {
+        if (colornode_ref.valid())
+            dt->colornodetree->FreeNode(colornode_ref);
+        if (normalnode_ref.valid())
+            dt->normalnodetree->FreeNode(normalnode_ref);
     }
 }
 
-DecalTextures::DecalTextures() : 
-colornodetree(NULL),
-normalnodetree(NULL),
-coloratlas(NULL),
-normalatlas(NULL),
-initialized(false)
-{
-
+DecalTextures::DecalTextures() : colornodetree(NULL),
+                                 normalnodetree(NULL),
+                                 coloratlas(NULL),
+                                 normalatlas(NULL),
+                                 initialized(false) {
 }
 
-DecalTextures::~DecalTextures() 
-{
+DecalTextures::~DecalTextures() {
     delete colornodetree;
     colornodetree = NULL;
     delete normalnodetree;
@@ -84,18 +74,17 @@ DecalTextures::~DecalTextures()
     initialized = false;
 }
 
-void DecalTextures::Init()
-{
+void DecalTextures::Init() {
     kUseDecalNormals = config["decal_normals"].toNumber<bool>();
     int s = GetGLMaxTextureSize();
-    s = (int)std::pow(2.0,(int)std::min((int)Log2(s),13));
+    s = (int)std::pow(2.0, (int)std::min((int)Log2(s), 13));
 
-    s = s/Graphics::Instance()->config_.texture_reduction_factor();
+    s = s / Graphics::Instance()->config_.texture_reduction_factor();
 
-    ivec2 dim(s,s);
+    ivec2 dim(s, s);
     PROFILER_ENTER(g_profiler_ctx, "Create AtlasNodeTrees");
-    colornodetree = new AtlasNodeTree(dim,32);
-    normalnodetree = new AtlasNodeTree(dim,32);
+    colornodetree = new AtlasNodeTree(dim, 32);
+    normalnodetree = new AtlasNodeTree(dim, 32);
     PROFILER_LEAVE(g_profiler_ctx);
     PROFILER_ENTER(g_profiler_ctx, "Create Texture Atlases");
     coloratlas = new TextureAtlas(*colornodetree, TextureData::sRGB);
@@ -106,45 +95,39 @@ void DecalTextures::Init()
     initialized = true;
 }
 
-void DecalTextures::Draw()
-{
+void DecalTextures::Draw() {
     coloratlas->Draw();
     if (kUseDecalNormals) {
-		normalatlas->Draw();
-	}
+        normalatlas->Draw();
+    }
 }
 
 static DecalTextures* instance = NULL;
 
-DecalTextures* DecalTextures::Instance()
-{
-    if( instance == NULL )
-    {
+DecalTextures* DecalTextures::Instance() {
+    if (instance == NULL) {
         instance = new DecalTextures();
-    } 
+    }
 
     return instance;
 }
 
-void DecalTextures::Dispose()
-{
+void DecalTextures::Dispose() {
     delete instance;
     instance = NULL;
 }
 
-void DecalTextures::Clear()
-{
+void DecalTextures::Clear() {
     colornodetree->Clear();
     normalnodetree->Clear();
 }
 
-RC_DecalTexture DecalTextures::allocateTexture( std::string color, std::string norm )
-{
-    //This will, thankfully, not go straight into VRAM.
+RC_DecalTexture DecalTextures::allocateTexture(std::string color, std::string norm) {
+    // This will, thankfully, not go straight into VRAM.
     RC_DecalTexture rc_dt;
 
-    TextureAssetRef color_tex =  Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>( color  );
-    TextureAssetRef normal_tex = Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>( norm );
+    TextureAssetRef color_tex = Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>(color);
+    TextureAssetRef normal_tex = Engine::Instance()->GetAssetManager()->LoadSync<TextureAsset>(norm);
 
     // we put these in a compressed atlas so they must be compressed
     if (!Textures::Instance()->IsCompressed(color_tex)) {
@@ -161,18 +144,15 @@ RC_DecalTexture DecalTextures::allocateTexture( std::string color, std::string n
     }
 
     int reduction_factor = Graphics::Instance()->config_.texture_reduction_factor();
-    ivec2 color_tex_dim = ivec2(Textures::Instance()->getWidth(color_tex),Textures::Instance()->getWidth(color_tex)) / reduction_factor;
-    ivec2 normal_tex_dim = ivec2(Textures::Instance()->getHeight(normal_tex),Textures::Instance()->getHeight(normal_tex)) / reduction_factor;
+    ivec2 color_tex_dim = ivec2(Textures::Instance()->getWidth(color_tex), Textures::Instance()->getWidth(color_tex)) / reduction_factor;
+    ivec2 normal_tex_dim = ivec2(Textures::Instance()->getHeight(normal_tex), Textures::Instance()->getHeight(normal_tex)) / reduction_factor;
 
     {
         rc_dt->colornode_ref = colornodetree->RetrieveNode(color_tex_dim);
 
-        if( rc_dt->colornode_ref.valid() )
-        {
-            rc_dt->color_texture_ref = coloratlas->SetTextureToNode(color,rc_dt->colornode_ref);
-        }
-        else
-        {
+        if (rc_dt->colornode_ref.valid()) {
+            rc_dt->color_texture_ref = coloratlas->SetTextureToNode(color, rc_dt->colornode_ref);
+        } else {
             LOGE << "Unable to allocate atlas space for decal color." << std::endl;
         }
     }
@@ -180,12 +160,9 @@ RC_DecalTexture DecalTextures::allocateTexture( std::string color, std::string n
     {
         rc_dt->normalnode_ref = normalnodetree->RetrieveNode(normal_tex_dim);
 
-        if( rc_dt->normalnode_ref.valid() )
-        {
+        if (rc_dt->normalnode_ref.valid()) {
             rc_dt->normal_texture_ref = normalatlas->SetTextureToNode(norm, rc_dt->normalnode_ref);
-        }
-        else
-        {
+        } else {
             LOGE << "Unable to allocate atlas space for decal normals." << std::endl;
         }
     }

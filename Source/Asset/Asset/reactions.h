@@ -32,23 +32,23 @@ class Reaction : public AssetInfo {
     std::vector<std::string> anim_paths;
     int mirrored;
 
-public:
-    Reaction( AssetManager* owner, uint32_t asset_id );
+   public:
+    Reaction(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return REACTION_ASSET; }
     static const char* GetTypeName() { return "REACTION_ASSET"; }
     static bool AssetWarning() { return true; }
 
     int IsMirrored();
-    const std::string &GetAnimPath(float severity);
+    const std::string& GetAnimPath(float severity);
     int sub_error;
-    int Load(const std::string &path, uint32_t load_flags);
+    int Load(const std::string& path, uint32_t load_flags);
     const char* GetLoadErrorString();
     const char* GetLoadErrorStringExtended() { return ""; }
     void Unload();
 
     void Reload();
     void ReportLoad() override;
-    void ReturnPaths(PathSet &path_set) override;
+    void ReturnPaths(PathSet& path_set) override;
 
     AssetLoaderBase* NewLoader() override;
 };

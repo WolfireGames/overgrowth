@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: pcs_assign_player_id.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,17 +25,17 @@
 #include "online_message_base.h"
 
 namespace OnlineMessages {
-    class PCSAssignPlayerID : public OnlineMessageBase {
-    public:
-        PlayerID player_id;
+class PCSAssignPlayerID : public OnlineMessageBase {
+   public:
+    PlayerID player_id;
 
-    public:
-        PCSAssignPlayerID(PlayerID player_id);
+   public:
+    PCSAssignPlayerID(PlayerID player_id);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* source);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
-        static void* Construct(void* mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* source);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID from);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

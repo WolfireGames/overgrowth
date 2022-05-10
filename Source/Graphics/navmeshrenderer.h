@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: navmeshrenderer.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,23 +27,23 @@
 
 class NavMesh;
 
-//Note that this renderer only renders the state which the nav-mesh was in when it was last set. 
-//The data will be reloaded if updated_nav_mesh_ flag is set to true.
+// Note that this renderer only renders the state which the nav-mesh was in when it was last set.
+// The data will be reloaded if updated_nav_mesh_ flag is set to true.
 
 class NavMeshRenderer {
-public:
+   public:
     NavMeshRenderer();
     ~NavMeshRenderer();
-    void LoadNavMesh( const NavMesh* _navmesh );
+    void LoadNavMesh(const NavMesh* _navmesh);
     void Draw();
-   
-    void SetCollisionMeshVisible( bool v );
-    void SetNavMeshVisible( bool v );
+
+    void SetCollisionMeshVisible(bool v);
+    void SetNavMeshVisible(bool v);
 
     bool IsCollisionMeshVisible();
     bool IsNavMeshVisible();
 
-private:
+   private:
     void DrawCollision();
     void DrawNavMesh();
 

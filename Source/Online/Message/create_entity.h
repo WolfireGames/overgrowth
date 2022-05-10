@@ -37,19 +37,19 @@
 using std::string;
 
 namespace OnlineMessages {
-    class CreateEntity : public OnlineMessageBase {
-    private:
-        string path;
-        vec3 pos;
-        ObjectID entity_object_id;
+class CreateEntity : public OnlineMessageBase {
+   private:
+    string path;
+    vec3 pos;
+    ObjectID entity_object_id;
 
-    public:
-        CreateEntity(const string& path, const vec3& pos, ObjectID entity_object_id);
+   public:
+    CreateEntity(const string& path, const vec3& pos, ObjectID entity_object_id);
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

@@ -23,10 +23,8 @@
 
 #include <Logging/loghandler.h>
 
-LogHandler::LogHandler()
-{
+LogHandler::LogHandler() {
 }
 
-LogHandler::~LogHandler()
-{
+LogHandler::~LogHandler() {
 }

@@ -28,29 +28,28 @@
 #include <vector>
 
 class Possession {
-public:
-	ObjectID avatar;
-	int controller_id;
-	int camera_id;
-	bool is_local;
+   public:
+    ObjectID avatar;
+    int controller_id;
+    int camera_id;
+    bool is_local;
 
-	Possession(ObjectID avatar, int controller_id, int camera_id, bool is_local) : avatar(avatar), controller_id(controller_id), camera_id(camera_id), is_local(is_local) {};
+    Possession(ObjectID avatar, int controller_id, int camera_id, bool is_local) : avatar(avatar), controller_id(controller_id), camera_id(camera_id), is_local(is_local){};
 };
 
-
-//The AvatarControlManager dynamically changes player avatars control states base on requested possesions and engine state.
-//This is done because the player characters can get AI possesion when switching into an editor state, or other non-game states.
-//But needs to correctly revert to the possesor on demand, both local and online.
+// The AvatarControlManager dynamically changes player avatars control states base on requested possesions and engine state.
+// This is done because the player characters can get AI possesion when switching into an editor state, or other non-game states.
+// But needs to correctly revert to the possesor on demand, both local and online.
 class AvatarControlManager {
-private:
-	//std::vector<std::pair<ObjectID, int>> possesions;
+   private:
+    // std::vector<std::pair<ObjectID, int>> possesions;
 
-	//Get a list of what controller input controlsw what player avatar.
-	std::vector<Possession> GeneratePossessionList();
+    // Get a list of what controller input controlsw what player avatar.
+    std::vector<Possession> GeneratePossessionList();
 
-	std::vector<ObjectID> GetUnpossessedAvatars();
-	
-public:
-	//void DefinePlayerPossesion(ObjectID avatar, int controller_id);
-	void Update();
+    std::vector<ObjectID> GetUnpossessedAvatars();
+
+   public:
+    // void DefinePlayerPossesion(ObjectID avatar, int controller_id);
+    void Update();
 };

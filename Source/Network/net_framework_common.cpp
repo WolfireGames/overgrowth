@@ -23,18 +23,25 @@
 #include "net_framework_common.h"
 
 string to_string(const NetFrameworkConnectionState& state) {
-    switch(state) {
-        case NetFrameworkConnectionState::Unknown: return "Unknown";
-        case NetFrameworkConnectionState::Connecting: return "Connecting";
-        case NetFrameworkConnectionState::ClosedByPeer: return "ClosedByPeer";
-        case NetFrameworkConnectionState::ProblemDetectedLocally: return "ProblemDetectedLocally";
-        case NetFrameworkConnectionState::FindingRoute: return "FindingRoute";
-        case NetFrameworkConnectionState::Connected: return "Connected";
-        default: return "Unknown Default";
+    switch (state) {
+        case NetFrameworkConnectionState::Unknown:
+            return "Unknown";
+        case NetFrameworkConnectionState::Connecting:
+            return "Connecting";
+        case NetFrameworkConnectionState::ClosedByPeer:
+            return "ClosedByPeer";
+        case NetFrameworkConnectionState::ProblemDetectedLocally:
+            return "ProblemDetectedLocally";
+        case NetFrameworkConnectionState::FindingRoute:
+            return "FindingRoute";
+        case NetFrameworkConnectionState::Connected:
+            return "Connected";
+        default:
+            return "Unknown Default";
     }
 }
 
-std::ostream& operator<<( std::ostream& out, const NetFrameworkConnectionState& in ) {
+std::ostream& operator<<(std::ostream& out, const NetFrameworkConnectionState& in) {
     out << to_string(in);
     return out;
 }

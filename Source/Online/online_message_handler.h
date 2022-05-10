@@ -35,14 +35,14 @@
 #include <map>
 #include <mutex>
 
-using std::tuple;
-using std::size_t;
 using std::array;
+using std::endl;
+using std::get;
+using std::lock_guard;
 using std::map;
 using std::mutex;
-using std::lock_guard;
-using std::get;
-using std::endl;
+using std::size_t;
+using std::tuple;
 
 /*
     This is a template hack that allows us to calculate a static
@@ -61,13 +61,12 @@ struct Index<T, tuple<U, Types...>> {
     static const size_t value = 1 + Index<T, tuple<Types...>>::value;
 };
 
-template<typename... Messages>
+template <typename... Messages>
 class OnlineMessageHandlerTemplate {
-
-public:
+   public:
     static const int COUNT = sizeof...(Messages);
 
-private:
+   private:
     uint32_t message_id_counter = 1;
 
     void* block_allocator_memory;
@@ -78,13 +77,13 @@ private:
     map<OnlineMessageID, tuple<uint32_t, OnlineMessageType, void*>> messages;
 
     array<size_t, sizeof...(Messages)> sizes = {{(sizeof(Messages))...}};
-    array<binn* (*)(void*),sizeof...(Messages)> serialize_functions = {{(&Messages::Serialize)...}};
+    array<binn* (*)(void*), sizeof...(Messages)> serialize_functions = {{(&Messages::Serialize)...}};
     array<void (*)(void*, binn*), sizeof...(Messages)> deserialize_functions = {{(&Messages::Deserialize)...}};
     array<void (*)(const OnlineMessageRef&, void*, PeerID), sizeof...(Messages)> execute_functions = {{(&Messages::Execute)...}};
     array<void* (*)(void*), sizeof...(Messages)> construct_functions = {{(&Messages::Construct)...}};
     array<void (*)(void*), sizeof...(Messages)> destruct_functions = {{(&Messages::Destroy)...}};
 
-public:
+   public:
     OnlineMessageHandlerTemplate() {
         int block_size = 64;
         int block_count = 1024 * 16;
@@ -101,27 +100,28 @@ public:
 
     void ForceRemoveAllMessages() {
         message_lock.lock();
-        for(auto& v : messages) {
+        for (auto& v : messages) {
             get<0>(v.second) = 0;
-        } 
+        }
         message_lock.unlock();
 
         FreeUnreferencedMessages();
     }
 
     void FreeUnreferencedMessages() {
-        while(StepFreeUnreferencedMessage()) { }
+        while (StepFreeUnreferencedMessage()) {
+        }
     }
 
     bool StepFreeUnreferencedMessage() {
-        OnlineMessageID remove_message = 0;  
+        OnlineMessageID remove_message = 0;
         OnlineMessageType remove_message_type = 0;
         void* remove_message_ptr = nullptr;
         bool ret_value = false;
 
         message_lock.lock();
-        for(auto& v : messages) {
-            if(get<0>(v.second) <= 0) {
+        for (auto& v : messages) {
+            if (get<0>(v.second) <= 0) {
                 remove_message = v.first;
                 remove_message_type = get<1>(v.second);
                 remove_message_ptr = get<2>(v.second);
@@ -129,7 +129,7 @@ public:
             }
         }
 
-        if(remove_message != 0) {
+        if (remove_message != 0) {
             destruct_functions[remove_message_type](remove_message_ptr);
             block_allocator_lock.lock();
             block_allocator.Free(get<2>(messages[remove_message]));
@@ -143,7 +143,7 @@ public:
         return ret_value;
     }
 
-    template<typename Message, typename... VArgs>
+    template <typename Message, typename... VArgs>
     OnlineMessageRef Create(VArgs... args) {
         block_allocator_lock.lock();
         void* memory = block_allocator.Alloc(sizeof(Message));
@@ -153,27 +153,27 @@ public:
         OnlineMessageID message_id = message_id_counter;
         message_id_counter++;
 
-        Message* message = new(memory) Message(args...);
+        Message* message = new (memory) Message(args...);
 
-        //Set this to 1, so we do an initial Aquire on the object, to prevent it from being 
-        //deleted while we create the reference.
-        if(message != nullptr) {
+        // Set this to 1, so we do an initial Aquire on the object, to prevent it from being
+        // deleted while we create the reference.
+        if (message != nullptr) {
             messages[message_id] = std::tuple<unsigned int, short unsigned int, void*>(1, GetMessageType<Message>(), message);
         } else {
             LOGF << "Got a nullptr when trying to create a message, this is a program killer" << endl;
         }
         message_lock.unlock();
 
-        //This constructor will call Acquire on the message id, requiring a lock.
+        // This constructor will call Acquire on the message id, requiring a lock.
         OnlineMessageRef message_ref(message_id);
 
-        //Release the initial acquire, making the message_ref the only reference holder.
+        // Release the initial acquire, making the message_ref the only reference holder.
         Release(message_id);
 
         return message_ref;
     }
 
-    //Return a const ref so we do a move up, and not an unecessary copy.
+    // Return a const ref so we do a move up, and not an unecessary copy.
     OnlineMessageRef Create(OnlineMessageType message_type) {
         block_allocator_lock.lock();
         void* memory = block_allocator.Alloc(sizes[message_type]);
@@ -185,9 +185,9 @@ public:
 
         void* message = construct_functions[message_type](memory);
 
-        //Set this to 1, so we do an initial Aquire on the object, to prevent it from being 
-        //deleted while we create the reference.
-        if(message != nullptr) {
+        // Set this to 1, so we do an initial Aquire on the object, to prevent it from being
+        // deleted while we create the reference.
+        if (message != nullptr) {
             messages[message_id] = std::tuple<unsigned int, short unsigned int, void*>(1, message_type, message);
         } else {
             LOGF << "Got a nullptr when trying to create a message, this is a program killer" << endl;
@@ -195,18 +195,18 @@ public:
 
         message_lock.unlock();
 
-        //This constructor will call Acquire on the message id, requiring a lock.
+        // This constructor will call Acquire on the message id, requiring a lock.
         OnlineMessageRef message_ref(message_id);
 
-        //Release the initial acquire, making the message_ref the only reference holder.
+        // Release the initial acquire, making the message_ref the only reference holder.
         Release(message_id);
 
         return message_ref;
     }
 
-    template<typename Message>
+    template <typename Message>
     OnlineMessageType GetMessageType() {
-        return Index<Message,tuple<Messages...>>::value;
+        return Index<Message, tuple<Messages...>>::value;
     }
 
     /*
@@ -217,11 +217,11 @@ public:
     */
 
     void Release(OnlineMessageID message_id) {
-        //We can optimize the Acquire/Release here by keeping better track of id allocation
-        //and pre-creating an array that holds reference counts, rather than using a map.
+        // We can optimize the Acquire/Release here by keeping better track of id allocation
+        // and pre-creating an array that holds reference counts, rather than using a map.
         lock_guard<mutex> lg(message_lock);
         auto message = messages.find(message_id);
-        if(message != messages.end()) {
+        if (message != messages.end()) {
             get<0>(message->second)--;
         }
     }
@@ -229,7 +229,7 @@ public:
     void Acquire(OnlineMessageID message_id) {
         lock_guard<mutex> lg(message_lock);
         auto message = messages.find(message_id);
-        if(message != messages.end()) {
+        if (message != messages.end()) {
             get<0>(message->second)++;
         }
     }
@@ -239,7 +239,7 @@ public:
         auto message = messages.find(message_ref.GetID());
         message_lock.unlock();
 
-        if(message != messages.end()) {
+        if (message != messages.end()) {
             return serialize_functions[get<1>(message->second)](get<2>(message->second));
         }
         return binn_object();
@@ -252,7 +252,7 @@ public:
         auto message = messages.find(message_ref.GetID());
         message_lock.unlock();
 
-        if(message != messages.end()) {
+        if (message != messages.end()) {
             deserialize_functions[message_type](get<2>(message->second), l);
         }
 
@@ -260,22 +260,22 @@ public:
     }
 
     void Execute(const OnlineMessageRef& message_ref, PeerID from) {
-        //We can optimize away this messages de-reference by storing the pointer and type in OnlineMessageRef,
-        //which could potentially be a speed-boost. The tradeoff is that the size of OnlineMessageRef would increase.
-        //same optimization is applicable to Deserialize, Serialize and Destroy.
+        // We can optimize away this messages de-reference by storing the pointer and type in OnlineMessageRef,
+        // which could potentially be a speed-boost. The tradeoff is that the size of OnlineMessageRef would increase.
+        // same optimization is applicable to Deserialize, Serialize and Destroy.
         message_lock.lock();
         auto message = messages.find(message_ref.GetID());
         message_lock.unlock();
 
-        if(message != messages.end()) {
+        if (message != messages.end()) {
             execute_functions[get<1>(message->second)](message_ref, get<2>(message->second), from);
         }
     }
 
     OnlineMessageType GetMessageType(const OnlineMessageRef& message_ref) {
         lock_guard<mutex> lg(message_lock);
-        auto message = messages.find(message_ref.GetID()); 
-        if(message != messages.end()) {
+        auto message = messages.find(message_ref.GetID());
+        if (message != messages.end()) {
             return get<1>(message->second);
         }
 
@@ -284,10 +284,10 @@ public:
 
     void* GetMessageData(const OnlineMessageRef& message_ref) {
         message_lock.lock();
-        auto message = messages.find(message_ref.GetID()); 
+        auto message = messages.find(message_ref.GetID());
         message_lock.unlock();
 
-        if(message != messages.end()) {
+        if (message != messages.end()) {
             return get<2>(message->second);
         } else {
             return nullptr;

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: online_client_connection_manager.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //

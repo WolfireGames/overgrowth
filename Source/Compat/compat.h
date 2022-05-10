@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: compat.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -27,32 +27,32 @@
 
 std::string GetAbsPath(const char* full_rel_path);
 int initWriteDir(char* writedir, int kPathBufferSize);
-void chdirToBasePath(char *argv0);
-void WorkingDir(std::string *dir);
-void ShortenWindowsPath(std::string &str);
+void chdirToBasePath(char* argv0);
+void WorkingDir(std::string* dir);
+void ShortenWindowsPath(std::string& str);
 void caseCorrect(char* path);
-std::string caseCorrect(const std::string & path );
-std::vector<std::string>& getSubdirectories( const char *basepath, std::vector<std::string>& mods  );
-std::vector<std::string>& getDeepManifest( const char *basepath, const char* prefix, std::vector<std::string>& files );
-bool fileExist( const char *path );
-bool fileReadable( const char *path );
+std::string caseCorrect(const std::string& path);
+std::vector<std::string>& getSubdirectories(const char* basepath, std::vector<std::string>& mods);
+std::vector<std::string>& getDeepManifest(const char* basepath, const char* prefix, std::vector<std::string>& files);
+bool fileExist(const char* path);
+bool fileReadable(const char* path);
 
-int os_copyfile( const char *source, const char *dest );
-int os_movefile( const char *source, const char *dest );
-int os_deletefile( const char *path );
-int os_createfile( const char *path );
-int os_fileexists( const char *path );
+int os_copyfile(const char* source, const char* dest);
+int os_movefile(const char* source, const char* dest);
+int os_deletefile(const char* path);
+int os_createfile(const char* path);
+int os_fileexists(const char* path);
 
-std::string dumpIntoFile( const void* buf, size_t nbyte );
+std::string dumpIntoFile(const void* buf, size_t nbyte);
 
-bool isFile( const char* path );
+bool isFile(const char* path);
 
 bool checkFileAccess(const char* path);
 void createParentDirs(const char* abs_path);
-bool areSame(const char* path1, const char* path2 );
+bool areSame(const char* path1, const char* path2);
 
 #include <Compat/platform.h>
-#if PLATFORM_UNIX == 1  //This is shared on mac and linux.
+#if PLATFORM_UNIX == 1  // This is shared on mac and linux.
 #include <Compat/UNIX/unix_compat.h>
 #endif
 

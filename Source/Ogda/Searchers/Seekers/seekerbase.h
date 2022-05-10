@@ -20,7 +20,7 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include <vector>
 #include <Ogda/item.h>
@@ -28,9 +28,8 @@
 class JobHandler;
 class Item;
 
-class SeekerBase
-{
-public:
-    virtual std::vector<Item> Search(const Item& item ) = 0;
+class SeekerBase {
+   public:
+    virtual std::vector<Item> Search(const Item& item) = 0;
     virtual const char* GetName() = 0;
 };

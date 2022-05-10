@@ -29,32 +29,31 @@
 #include <Main/engine.h>
 #include <Logging/logdata.h>
 
-LevelInfoAsset::LevelInfoAsset( AssetManager* owner, uint32_t asset_id ) : Asset(owner,asset_id) {
-
+LevelInfoAsset::LevelInfoAsset(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id) {
 }
 
-int LevelInfoAsset::Load( const std::string &_path, uint32_t load_flags ) {
-    path = _path; 
+int LevelInfoAsset::Load(const std::string& _path, uint32_t load_flags) {
+    path = _path;
     Path p = FindFilePath(path);
-    if( p.isValid() ) {
-        std::string level_info_cache_path_string = GenerateParallelPath("Data/Levels", "Data/LevelInfo", "_linfo.xml", p );
+    if (p.isValid()) {
+        std::string level_info_cache_path_string = GenerateParallelPath("Data/Levels", "Data/LevelInfo", "_linfo.xml", p);
 
         Path level_info_cache_path = FindFilePath(level_info_cache_path_string);
 
-        if( level_info_cache_path.isValid() ) {
+        if (level_info_cache_path.isValid()) {
             FileHashAssetRef level_hash = Engine::Instance()->GetAssetManager()->LoadSync<FileHashAsset>(path);
-            if( levelparser.Load(level_info_cache_path.GetAbsPathStr()) ) {
-                if( levelparser.hash == level_hash->hash.ToString() ) {
+            if (levelparser.Load(level_info_cache_path.GetAbsPathStr())) {
+                if (levelparser.hash == level_hash->hash.ToString()) {
                     return kLoadOk;
                 }
             }
         }
 
-        if( levelparser.Load(p.GetAbsPathStr()) ) {
-            std::string savepath = AssemblePath(GetWritePath(p.GetModsource()),level_info_cache_path_string);
+        if (levelparser.Load(p.GetAbsPathStr())) {
+            std::string savepath = AssemblePath(GetWritePath(p.GetModsource()), level_info_cache_path_string);
             LOGI << "Saving a cached version of LevelInfoAsset to " << savepath << std::endl;
             levelparser.Save(savepath);
-            
+
             return kLoadOk;
         } else {
             return kLoadErrorGeneralFileError;
@@ -65,7 +64,6 @@ int LevelInfoAsset::Load( const std::string &_path, uint32_t load_flags ) {
 }
 
 void LevelInfoAsset::ReportLoad() {
-    
 }
 
 AssetLoaderBase* LevelInfoAsset::NewLoader() {
@@ -73,7 +71,7 @@ AssetLoaderBase* LevelInfoAsset::NewLoader() {
 }
 
 const std::string LevelInfoAsset::GetLevelName() {
-    if( levelparser.name.empty() == true ) { 
+    if (levelparser.name.empty() == true) {
         return SplitPathFileName(path).second;
     } else {
         return levelparser.name;
@@ -85,5 +83,5 @@ const std::string& LevelInfoAsset::GetLoadingScreenImage() {
 }
 
 void LevelInfoAsset::Unload() {
-    levelparser.Clear(); 
+    levelparser.Clear();
 }

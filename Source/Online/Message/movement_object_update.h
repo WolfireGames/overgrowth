@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: movement_object_update.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -29,24 +29,24 @@
 #include <Objects/movementobject.h>
 
 namespace OnlineMessages {
-    class MovementObjectUpdate : public OnlineMessageBase {
-    public:
-        float timestamp; // needed, but maybe uint64 bit instead?
-        CommonObjectID identifier;
+class MovementObjectUpdate : public OnlineMessageBase {
+   public:
+    float timestamp;  // needed, but maybe uint64 bit instead?
+    CommonObjectID identifier;
 
-        vec3 position; // needed for client side culling, either send this or disable culling
-        vec3 velocity;
-        vec3 facing; // Needed for correct facing for audio listener
-        RiggedObjectFrame rigged_body_frame;
+    vec3 position;  // needed for client side culling, either send this or disable culling
+    vec3 velocity;
+    vec3 facing;  // Needed for correct facing for audio listener
+    RiggedObjectFrame rigged_body_frame;
 
-    public:
-        MovementObjectUpdate(MovementObject* mo);
-        MovementObjectUpdate();
+   public:
+    MovementObjectUpdate(MovementObject* mo);
+    MovementObjectUpdate();
 
-        static binn* Serialize(void* object);
-        static void Deserialize(void* object, binn* l);
-        static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
-        static void* Construct(void *mem);
-        static void Destroy(void* object);
-    };
-}
+    static binn* Serialize(void* object);
+    static void Deserialize(void* object, binn* l);
+    static void Execute(const OnlineMessageRef& ref, void* object, PeerID peer);
+    static void* Construct(void* mem);
+    static void Destroy(void* object);
+};
+}  // namespace OnlineMessages

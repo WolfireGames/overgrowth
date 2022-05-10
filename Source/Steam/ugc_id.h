@@ -29,14 +29,14 @@
 #include <ostream>
 
 struct UGCID {
-    UGCID( );
-    UGCID( int id ); 
+    UGCID();
+    UGCID(int id);
     int id;
 
     bool Valid();
 
-    bool operator==( const UGCID& other ) const;
-    bool operator!=( const UGCID& other ) const;
+    bool operator==(const UGCID& other) const;
+    bool operator!=(const UGCID& other) const;
 };
 
-std::ostream& operator<<(std::ostream& os, const UGCID &mi );
+std::ostream& operator<<(std::ostream& os, const UGCID& mi);

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: message.h
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,4 +22,5 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-enum MessageType {_plant_movement_msg, _editor_msg};
+enum MessageType { _plant_movement_msg,
+                   _editor_msg };

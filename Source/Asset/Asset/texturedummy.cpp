@@ -25,7 +25,7 @@
 
 #include "Asset/AssetLoader/fallbackassetloader.h"
 
-TextureDummy::TextureDummy( AssetManager* owner, uint32_t asset_id ) : Asset(owner, asset_id) {
+TextureDummy::TextureDummy(AssetManager* owner, uint32_t asset_id) : Asset(owner, asset_id) {
 }
 
 AssetLoaderBase* TextureDummy::NewLoader() {

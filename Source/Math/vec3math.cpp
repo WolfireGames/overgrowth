@@ -26,18 +26,18 @@
 
 #include <cmath>
 
-float length( const vec3 &vec ) {
+float length(const vec3 &vec) {
     return sqrtf(length_squared(vec));
 }
 
-float xz_length( const vec3 &vec ) {
+float xz_length(const vec3 &vec) {
     return sqrtf(xz_length_squared(vec));
 }
 
 vec3 normalize(const vec3 &vec) {
     float length_squared_val = length_squared(vec);
-    if(length_squared_val == 0.0f){
+    if (length_squared_val == 0.0f) {
         return vec3(0.0f);
     }
-    return vec/sqrtf(length_squared_val);
+    return vec / sqrtf(length_squared_val);
 }

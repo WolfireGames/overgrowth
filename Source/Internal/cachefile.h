@@ -29,15 +29,15 @@
 #include <cstdio>
 
 namespace CacheFile {
-    bool CheckForCache(const std::string &path, const std::string &suffix, std::string *load_path, uint16_t *checksum);
-    bool CheckForCache(const std::string &path, const std::string &suffix, std::string *load_path, ModID *load_modsource, uint16_t *checksum);
-    
-    class ScopedFileCloser {
-    public:
-        ScopedFileCloser(FILE* file):file_(file){}
-        ~ScopedFileCloser(){fclose(file_);}
+bool CheckForCache(const std::string &path, const std::string &suffix, std::string *load_path, uint16_t *checksum);
+bool CheckForCache(const std::string &path, const std::string &suffix, std::string *load_path, ModID *load_modsource, uint16_t *checksum);
 
-    private:
-        FILE* file_;
-    };
-}
+class ScopedFileCloser {
+   public:
+    ScopedFileCloser(FILE *file) : file_(file) {}
+    ~ScopedFileCloser() { fclose(file_); }
+
+   private:
+    FILE *file_;
+};
+}  // namespace CacheFile

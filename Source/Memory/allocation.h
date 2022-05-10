@@ -20,7 +20,7 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-#pragma once 
+#pragma once
 
 #include <Memory/stack_allocator.h>
 #include <Memory/block_allocator.h>
@@ -39,39 +39,40 @@ const char* OgMallocTypeString(uint8_t type);
 
 #define OG_MALLOC_TYPE_COUNT 5
 
-#define OG_MALLOC(size) og_malloc(size,OG_MALLOC_GEN)
+#define OG_MALLOC(size) og_malloc(size, OG_MALLOC_GEN)
 #define OG_FREE(pointer) og_free(pointer)
 
-void* og_malloc(size_t size, uint8_t source_id );
+void* og_malloc(size_t size, uint8_t source_id);
 void og_free(void* ptr);
 
-#if MONITOR_MEMORY 
+#if MONITOR_MEMORY
 uint32_t GetAndResetMallocAllocationCount();
 uint64_t GetCurrentTotalMallocAllocation(int index);
 size_t GetCurrentNumberOfMallocAllocations();
 #endif
 
 class Allocation {
-public:
+   public:
     Allocation();
 
     void Init();
     void Dispose();
-    
+
     StackAllocator stack;
-    //BlockAllocator block; 
-    //ThreadSafeBlockAllocator ts_block;
-private:
+    // BlockAllocator block;
+    // ThreadSafeBlockAllocator ts_block;
+   private:
     void* mem_block_stack_allocator;
-    //void* mem_block_block_allocator;
+    // void* mem_block_block_allocator;
 };
 
 class StackMem {
-private:
+   private:
     void* v;
     StackMem(StackMem& other);
-public:
-    StackMem(void *ptr);
+
+   public:
+    StackMem(void* ptr);
     ~StackMem();
     void* ptr();
 };

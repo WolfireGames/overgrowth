@@ -42,4 +42,4 @@ static const char* paths[kNumAssets] = {
     "Data/Models/engine/light_point.obj",
 };
 
-} // namespace "HardcodedPaths"
+}  // namespace HardcodedPaths

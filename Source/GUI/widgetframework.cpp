@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: widgetframework.cpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -31,26 +31,25 @@
 
 NativeLoadingText native_loading_text;
 
-void AddLoadingText( const std::string &text ) {
+void AddLoadingText(const std::string& text) {
     native_loading_text.AddLine(text.c_str());
     LOGI << text.c_str() << std::endl;
 }
 
 void NativeLoadingText::AddLine(const char* msg) {
-	buf_mutex.lock();
+    buf_mutex.lock();
     // Shift all lines up
-    for(int i=kMaxLines*kMaxCharPerLine-1, index=(kMaxLines-1)*kMaxCharPerLine-1; 
-        i>=kMaxCharPerLine;)
-    {
+    for (int i = kMaxLines * kMaxCharPerLine - 1, index = (kMaxLines - 1) * kMaxCharPerLine - 1;
+         i >= kMaxCharPerLine;) {
         buf[i--] = buf[index--];
     }
     // Add new line
     snprintf(buf, kMaxCharPerLine, "%s", msg);
-	buf_mutex.unlock();
+    buf_mutex.unlock();
 }
 
 void NativeLoadingText::Clear() {
-	buf_mutex.lock();
+    buf_mutex.lock();
     memset(buf, 0, sizeof(buf));
-	buf_mutex.unlock();
+    buf_mutex.unlock();
 };
