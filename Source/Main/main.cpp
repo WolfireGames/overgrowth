@@ -52,9 +52,6 @@
 #if ENABLE_FPU_SIGNALS == 1
 #include <fenv.h>
 #endif
-#ifdef UNIT_TESTS
-#include <UnitTests/testmain.h>
-#endif
 #include <sstream>
 
 extern Config config;

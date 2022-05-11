@@ -24,11 +24,11 @@
 #include <Utility/strings.h>
 #include <Utility/serialize.h>
 
+#include <gtest/gtest.h>
+
 #include <cmath>
 #include <cstdlib>
 #include <set>
-
-#include <gtest/gtest.h>
 
 static uint32_t hexflip(uint32_t v) {
     char str[9];

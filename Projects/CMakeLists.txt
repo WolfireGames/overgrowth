@@ -365,9 +365,9 @@ IF(LINUX)
 
     #-no-strict-aliasing for the sake of angelscript
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-strict-aliasing")
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -rdynamic -g -fno-omit-frame-pointer") #We add G because we want to be able to debug the coredump
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -rdynamic -fno-omit-frame-pointer")
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -rdynamic -fno-omit-frame-pointer")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g -fno-omit-frame-pointer") #We add G because we want to be able to debug the coredump
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -fno-omit-frame-pointer")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer")
 
 ENDIF()
 
@@ -882,8 +882,6 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
         COMPILE_FLAGS "-w"
     )
 ENDIF()
-
-ADD_DEFINITIONS(-DUNIT_TESTS)
 
 SET(OVERGROWTH_INTERNAL_SRCS
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_StereoProjection.cpp
