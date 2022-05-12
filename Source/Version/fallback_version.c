@@ -20,8 +20,8 @@
 //   limitations under the License.
 //
 //-----------------------------------------------------------------------------
-extern const int phoenix_build_id=-1;
-const char* phoenix_platform="Unknown";
-const char* phoenix_arch="Unknown";
-const char* phoenix_git_version_string="Unknown";
-const char* phoenix_build_timestamp="0000-00-00 00:00:00 UTC";
+extern const int phoenix_build_id = -1;
+const char* phoenix_platform = "Unknown";
+const char* phoenix_arch = "Unknown";
+const char* phoenix_git_version_string = "Unknown";
+const char* phoenix_build_timestamp = "0000-00-00 00:00:00 UTC";

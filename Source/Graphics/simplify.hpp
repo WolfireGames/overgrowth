@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: simplify.hpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -34,9 +34,9 @@
 using std::vector;
 
 namespace WOLFIRE_SIMPLIFY {
-    void CalculateQuadrics(vector<glm::mat4> *quadrics, const vector<float> &vertices, const vector<int> &vert_indices);
-    bool SimplifyMorphLOD( const SimplifyModelInput &model_input, MorphModel* lod, ParentRecordListVec* vert_parents, ParentRecordListVec* tex_parents, int lod_levels );
-    bool SimplifySimpleModel(const Model& input, Model* output, int edge_target, bool include_tex);
-    bool Process( const Model &model, SimplifyModel& processed_model, vector<HalfEdge>& half_edges, bool include_tex);
-    float CalculateError(float* pos, int edge[2], const vector<float> &vertices, const vector<glm::mat4> &quadrics, const int edge_tc[]);
-}
+void CalculateQuadrics(vector<glm::mat4>* quadrics, const vector<float>& vertices, const vector<int>& vert_indices);
+bool SimplifyMorphLOD(const SimplifyModelInput& model_input, MorphModel* lod, ParentRecordListVec* vert_parents, ParentRecordListVec* tex_parents, int lod_levels);
+bool SimplifySimpleModel(const Model& input, Model* output, int edge_target, bool include_tex);
+bool Process(const Model& model, SimplifyModel& processed_model, vector<HalfEdge>& half_edges, bool include_tex);
+float CalculateError(float* pos, int edge[2], const vector<float>& vertices, const vector<glm::mat4>& quadrics, const int edge_tc[]);
+}  // namespace WOLFIRE_SIMPLIFY

@@ -30,20 +30,20 @@
 #include <vector>
 
 namespace ImageExport {
-    struct CubemapFace {
-        std::vector<unsigned char> pixels;
-    };
-    struct CubemapMipLevel {
-        CubemapFace faces[6];
-    };
-    struct CubemapMipmaps {
-        std::vector<CubemapMipLevel> mips;
-    };
+struct CubemapFace {
+    std::vector<unsigned char> pixels;
+};
+struct CubemapMipLevel {
+    CubemapFace faces[6];
+};
+struct CubemapMipmaps {
+    std::vector<CubemapMipLevel> mips;
+};
 
-    void SaveJPEG(const char* abs_path, unsigned char *data, unsigned long width, unsigned long height);
-    void SavePNG(const char *file_path, unsigned char *data, unsigned long width, unsigned long height, unsigned short levels = 0);
-    void SavePNGTransparent(const char *file_path, unsigned char *data, unsigned long width, unsigned long height, unsigned short levels = 0);
-    void SavePNGofGrayscaleFloats(const char *file_path, std::vector<float>& data, unsigned long width, unsigned long height);
-    std::string FindEmptySequentialFile(const char* filename, const char* suffix);
-    void ScaleImageUp(const unsigned char *data, int levels, unsigned long *width, unsigned long *height, std::vector<unsigned char> *new_data);
-}
+void SaveJPEG(const char *abs_path, unsigned char *data, unsigned long width, unsigned long height);
+void SavePNG(const char *file_path, unsigned char *data, unsigned long width, unsigned long height, unsigned short levels = 0);
+void SavePNGTransparent(const char *file_path, unsigned char *data, unsigned long width, unsigned long height, unsigned short levels = 0);
+void SavePNGofGrayscaleFloats(const char *file_path, std::vector<float> &data, unsigned long width, unsigned long height);
+std::string FindEmptySequentialFile(const char *filename, const char *suffix);
+void ScaleImageUp(const unsigned char *data, int levels, unsigned long *width, unsigned long *height, std::vector<unsigned char> *new_data);
+}  // namespace ImageExport

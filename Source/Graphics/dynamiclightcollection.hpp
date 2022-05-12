@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------
 //           Name: dynamiclightcollection.hpp
 //      Developer: Wolfire Games LLC
-//    Description: 
+//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -37,20 +37,18 @@ struct DynamicLight {
     // for ShaderLight which is the GPU data struct
 };
 
-
 // when you want to add spot lights, DO NOT change DynamicLight
 // add new DynamicSpotLight since they need different data and are processed differently
 // also DynamicLight should be renamed to DynamicPointLight to clarify its meaning
-
 
 class BulletWorld;
 class SceneGraph;
 
 class DynamicLightCollection {
-public:
+   public:
     DynamicLightCollection();
-	~DynamicLightCollection();
-    int AddLight(const vec3& pos, const vec3 &color, float radius);
+    ~DynamicLightCollection();
+    int AddLight(const vec3& pos, const vec3& color, float radius);
     bool MoveLight(int id, const vec3& pos);
     bool DeleteLight(int id);
     void Draw(BulletWorld& bw);
@@ -58,7 +56,7 @@ public:
     void Dispose();
     DynamicLight* GetLightFromID(int id);
 
-private:
+   private:
     std::vector<DynamicLight> dynamic_lights;
     int next_id;
 
