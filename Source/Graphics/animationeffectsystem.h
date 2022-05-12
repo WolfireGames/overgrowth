@@ -23,12 +23,8 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-class TheoraVideoManager;
-
 class AnimationEffectSystem {
    public:
-    TheoraVideoManager* mgr;
-
     AnimationEffectSystem();
     ~AnimationEffectSystem();
     void Dispose();

@@ -35,10 +35,6 @@
 using std::string;
 using std::vector;
 
-class TheoraVideoClip;
-class TheoraMemoryFileDataSource;
-class AssetManager;
-
 class AnimationEffect : public Asset {
    public:
     string video_path;
@@ -73,8 +69,6 @@ class AnimationEffectReader {
     float time;
     AnimationEffectRef ae_ref;
     bool use_theora;
-    TheoraVideoClip* clip;
-    TheoraMemoryFileDataSource* clip_mem;
     TextureRef clip_tex;
 
    public:
