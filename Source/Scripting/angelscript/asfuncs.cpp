@@ -65,6 +65,7 @@
 #include <Internal/modloading.h>
 #include <Internal/message.h>
 #include <Internal/varstring.h>
+#include <Internal/locale.h>
 
 #include <Online/online.h>
 #include <Online/online_utility.h>
@@ -7615,4 +7616,61 @@ void AttachStorage(ASContext* context) {
     context->RegisterGlobalFunction("void StorageSetInt32(string index, int value)", asFUNCTION(ASStorageSetInt32), asCALL_CDECL);
     context->RegisterGlobalFunction("bool StorageHasInt32(string index)", asFUNCTION(ASStorageHasInt32), asCALL_CDECL);
     context->RegisterGlobalFunction("int StorageGetInt32(string index)", asFUNCTION(ASStorageGetInt32), asCALL_CDECL);
+}
+
+
+static CScriptArray* ASGetLocaleShortcodes() {
+    auto& locales = GetLocales();
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
+    array->Reserve(locales.size());
+
+    for (auto& locale : locales) {
+        // InsertLast doesn't actually do anything but copy from the pointer,
+        // so a const_cast would be fine, but maybe an update to AS could change
+        // that
+        std::string str = locale.first;
+        array->InsertLast(&str);
+    }
+
+    return array;
+}
+
+static CScriptArray* ASGetLocaleNames() {
+    auto& locales = GetLocales();
+    asIScriptContext* ctx = asGetActiveContext();
+    asIScriptEngine* engine = ctx->GetEngine();
+    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
+    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
+    array->Reserve(locales.size());
+
+    for (auto& locale : locales) {
+        // InsertLast doesn't actually do anything but copy from the pointer,
+        // so a const_cast would be fine, but maybe an update to AS could change
+        // that
+        std::string str = locale.second;
+        array->InsertLast(&str);
+    }
+
+    return array;
+}
+
+static std::string ASGetLocalizedLevelName(const std::string& shortcode, const std::string& path) {
+    auto& localized_levels = GetLocalizedLevelMaps();
+    auto loc_it = localized_levels.find(shortcode);
+    if (loc_it != localized_levels.end()) {
+        auto it = loc_it->second.find("Data/Levels/" + path);
+        if (it != loc_it->second.end()) {
+            return it->second.name;
+        }
+    }
+    return "";
+}
+
+void AttachLocale(ASContext* context) {
+    context->RegisterGlobalFunction("array<string>@ GetLocaleShortcodes()", asFUNCTION(ASGetLocaleShortcodes), asCALL_CDECL);
+    context->RegisterGlobalFunction("array<string>@ GetLocaleNames()", asFUNCTION(ASGetLocaleNames), asCALL_CDECL);
+    context->RegisterGlobalFunction("string GetLocalizedLevelName(const string &in locale_shortcode, const string &in path)", asFUNCTION(ASGetLocalizedLevelName), asCALL_CDECL);
 }
