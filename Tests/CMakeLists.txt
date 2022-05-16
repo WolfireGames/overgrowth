@@ -40,6 +40,9 @@ add_executable(OvergrowthTests
     atlas_test.cpp
     #modloading_test.cpp
     string_test.cpp
+    vec2_test.cpp
+    vec3_test.cpp
+    vec4_test.cpp
     ${TEST_SRCS})
 
 target_link_libraries(OvergrowthTests 
