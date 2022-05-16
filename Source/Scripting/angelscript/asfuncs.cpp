@@ -7618,7 +7618,6 @@ void AttachStorage(ASContext* context) {
     context->RegisterGlobalFunction("int StorageGetInt32(string index)", asFUNCTION(ASStorageGetInt32), asCALL_CDECL);
 }
 
-
 static CScriptArray* ASGetLocaleShortcodes() {
     auto& locales = GetLocales();
     asIScriptContext* ctx = asGetActiveContext();

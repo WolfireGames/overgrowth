@@ -80,7 +80,7 @@ void AttachModding(ASContext *context);
 void AttachStorage(ASContext *context);
 void AttachDebug(ASContext *context);
 void AttachOnline(ASContext *context);
-void AttachLocale(ASContext* context);
+void AttachLocale(ASContext *context);
 
 void ReloadConfigValues();
 void SetSettingsToPreset(std::string preset_name);
