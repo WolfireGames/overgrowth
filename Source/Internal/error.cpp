@@ -29,7 +29,6 @@
 
 #include <UserInput/input.h>
 #include <Logging/logdata.h>
-#include <Graphics/graphics.h>
 #include <Threading/thread_sanity.h>
 #include <Compat/os_dialogs.h>
 #include <Compat/platform.h>
