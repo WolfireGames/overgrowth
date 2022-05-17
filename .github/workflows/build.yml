@@ -34,7 +34,7 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones speed things up
       - name: cmake configure
-        run: cmake -S ./Projects -B ./Build -DBUILD_TESTING=ON
+        run: cmake -S ./Projects -B ./Build -DOG_BUILD_TESTING=ON
       - name: compile with cmake
         run: cmake --build ./Build --verbose -j4
       - name: test with ctest
@@ -55,7 +55,7 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones speed things up
       - name: cmake configure
-        run: cmake -S ./Projects -B ./Build -DBUILD_TESTING=ON
+        run: cmake -S ./Projects -B ./Build -DOG_BUILD_TESTING=ON
       - name: compile with cmake
         run: cmake --build ./Build
       - name: test with ctest
@@ -69,7 +69,7 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones speed things up
       - name: cmake configure
-        run: cmake -S ./Projects -B ./Build -DBUILD_TESTING=ON
+        run: cmake -S ./Projects -B ./Build -DOG_BUILD_TESTING=ON
       - name: compile with cmake
         run: cmake --build ./Build
       - name: test with ctest
