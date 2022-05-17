@@ -529,7 +529,7 @@ const char* GetDataPath(int i) {
 }
 
 string GetWritePath(const ModID& id) {
-#if defined(OGDA) || defined(OG_WORKER)
+#if defined(OGDA) || defined(OG_WORKER) || defined(OG_TESTING)
     return string(write_path);
 #else
     if (id.Valid()) {
@@ -988,7 +988,7 @@ void ClearCache(bool dry_run) {
     }
 
     vector<ModID> modids;
-#if !(defined(OGDA) || defined(OG_WORKER))
+#if !(defined(OGDA) || defined(OG_WORKER) || defined(OG_TESTING))
     modids = ModLoading::Instance().GetModsSid();
 #endif
     modids.push_back(CoreGameModID);

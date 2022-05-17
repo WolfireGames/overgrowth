@@ -1,7 +1,0 @@
----
-title: Copyright
-desc: BSD license, almost no restrictions
-in_menu: true
----
-
-{include_file: {filename: ../../LICENSE}}

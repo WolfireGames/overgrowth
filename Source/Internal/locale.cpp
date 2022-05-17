@@ -23,21 +23,17 @@
 #include "locale.h"
 
 #include <Utility/strings.h>
-#include <Scripting/angelscript/add_on/scriptarray/scriptarray.h>
 
-#include <map>
-#include <string>
-
-typedef std::map<std::string, std::string> LocaleMap;
 static LocaleMap locales;
-
-struct LevelLocalizationData {
-    std::string name;
-    std::string loading_tip;
-};
-typedef std::map<std::string, LevelLocalizationData> MapDataMap;  // Maps level path -> per-level data
-typedef std::map<std::string, MapDataMap> LocalizedLevelMap;      // Maps locale shortcode -> map of level data
 static LocalizedLevelMap localized_levels;
+
+const LocaleMap& GetLocales() {
+    return locales;
+}
+
+const LocalizedLevelMap& GetLocalizedLevelMaps() {
+    return localized_levels;
+}
 
 void ClearLocale() {
     localized_levels.clear();
@@ -69,57 +65,4 @@ const char* GetLevelTip(const char* shortcode, const char* level) {
         }
     }
     return NULL;
-}
-
-static CScriptArray* ASGetLocaleShortcodes() {
-    asIScriptContext* ctx = asGetActiveContext();
-    asIScriptEngine* engine = ctx->GetEngine();
-    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
-    array->Reserve(locales.size());
-
-    for (auto& locale : locales) {
-        // InsertLast doesn't actually do anything but copy from the pointer,
-        // so a const_cast would be fine, but maybe an update to AS could change
-        // that
-        std::string str = locale.first;
-        array->InsertLast(&str);
-    }
-
-    return array;
-}
-
-static CScriptArray* ASGetLocaleNames() {
-    asIScriptContext* ctx = asGetActiveContext();
-    asIScriptEngine* engine = ctx->GetEngine();
-    asITypeInfo* arrayType = engine->GetTypeInfoById(engine->GetTypeIdByDecl("array<string>"));
-    CScriptArray* array = CScriptArray::Create(arrayType, (asUINT)0);
-    array->Reserve(locales.size());
-
-    for (auto& locale : locales) {
-        // InsertLast doesn't actually do anything but copy from the pointer,
-        // so a const_cast would be fine, but maybe an update to AS could change
-        // that
-        std::string str = locale.second;
-        array->InsertLast(&str);
-    }
-
-    return array;
-}
-
-static std::string ASGetLevelName(const std::string& shortcode, const std::string& path) {
-    LocalizedLevelMap::iterator loc_it = localized_levels.find(shortcode);
-    if (loc_it != localized_levels.end()) {
-        MapDataMap::iterator it = loc_it->second.find("Data/Levels/" + path);
-        if (it != loc_it->second.end()) {
-            return it->second.name;
-        }
-    }
-    return "";
-}
-
-void AttachLocale(ASContext* context) {
-    context->RegisterGlobalFunction("array<string>@ GetLocaleShortcodes()", asFUNCTION(ASGetLocaleShortcodes), asCALL_CDECL);
-    context->RegisterGlobalFunction("array<string>@ GetLocaleNames()", asFUNCTION(ASGetLocaleNames), asCALL_CDECL);
-    context->RegisterGlobalFunction("string GetLocalizedLevelName(const string &in locale_shortcode, const string &in path)", asFUNCTION(ASGetLevelName), asCALL_CDECL);
 }

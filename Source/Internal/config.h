@@ -22,9 +22,6 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
-#include <Graphics/textures.h>
-#include <Graphics/camera.h>
-
 #include <Internal/datemodified.h>
 #include <Math/vec2math.h>
 
@@ -34,6 +31,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <vector>
 
 /**
  * The StringVariant class is a simple string-based variant implementation that allows

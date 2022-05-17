@@ -23,8 +23,20 @@
 #pragma once
 
 #include <vector>
+#include <string>
+#include <map>
 
-#include <Scripting/angelscript/ascontext.h>
+typedef std::map<std::string, std::string> LocaleMap;
+
+struct LevelLocalizationData {
+    std::string name;
+    std::string loading_tip;
+};
+typedef std::map<std::string, LevelLocalizationData> MapDataMap;  // Maps level path -> per-level data
+typedef std::map<std::string, MapDataMap> LocalizedLevelMap;      // Maps locale shortcode -> map of level data
+
+const LocaleMap& GetLocales();
+const LocalizedLevelMap& GetLocalizedLevelMaps();
 
 void ClearLocale();
 
@@ -33,5 +45,3 @@ void AddLevelName(const char* shortcode, const char* level, const char* name);
 void AddLevelTip(const char* shortcode, const char* level, const char* tip);
 
 const char* GetLevelTip(const char* shortcode, const char* level);
-
-void AttachLocale(ASContext* context);
