@@ -34,7 +34,7 @@ set(TEST_SRCS
     ${SRCDIR}/Utility/serialize.cpp
     ${SRCDIR}/Utility/strings.h
     ${SRCDIR}/Utility/strings.cpp
-    ${SRCDIR}/Version/fallback_version.c
+    ${SRCDIR}/Version/git_version.cpp
     ${SRCDIR}/Version/version.h
     ${SRCDIR}/Version/version.cpp)
 
