@@ -1,3 +1,7 @@
+# GoogleTest settings
+set(BUILD_GMOCK OFF)
+set(INSTALL_GTEST OFF)
+set(gtest_force_shared_crt ON)
 ADD_SUBDIRECTORY(../Libraries/googletest-1.11.0 googletest)
 
 set(SRCDIR "${CMAKE_SOURCE_DIR}/../Source")
