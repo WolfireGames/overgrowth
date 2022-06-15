@@ -32,7 +32,7 @@ inline uint64_t GetTimestamp() {
         asm volatile ( "lfence" ::: "memory" ); //Fence memory load to everything is executed up to this point.
         asm volatile ( "rdtsc\n" : "=a" (rax), "=d" (rdx) : : );
         return ((uint64_t)rdx << 32) + rax;
-#else
+#elif defined(__e2k__)
         uint64_t clk;
 #pragma asm_inline
         __asm__ ( "rrd %%clkr, %0" : "=r" (clk));
