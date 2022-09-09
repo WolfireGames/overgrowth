@@ -115,9 +115,9 @@ int ImageSampler::Load(const std::string& path, uint32_t load_flags) {
 
         int n = 0;
         // Tell stb_image that we want 4 components (RGBA)
-        stbi_uc* data = stbi_load(abs_path, &width_, &width_, &n, 4);
+        stbi_uc* data = stbi_load(abs_path, &width_, &height_, &n, 4);
 
-        if (data == nullptr || n != 4) {
+        if (data == nullptr) {
             return kLoadErrorGeneralFileError;
         }
 

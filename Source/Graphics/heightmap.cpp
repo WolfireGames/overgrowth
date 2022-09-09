@@ -118,7 +118,7 @@ bool HeightmapImage::LoadData(const std::string& rel_path, HMScale scaled) {
             float x_scale = img_width / (float)width_;
             float z_scale = img_height / (float)depth_;
 
-            if (num_comp != 1) {                    // monochrome texture
+            if (num_comp == 1) {                    // monochrome texture
                 for (int z = 0; z < depth_; z++) {  // flipped
                     float* bits = &data[((int)(z * z_scale)) * img_height];
                     for (int x = 0; x < width_; x++) {
