@@ -113,10 +113,11 @@ void ZipFile::AddFile(const std::string& src_file_path,
     }
 
     {
-        FILE* file;
+        FILE* file = nullptr;
         file = FOPEN_FUNC(src_file_path.c_str(), "rb");
         if (file == NULL) {
             FatalError("Error", "Could not open file: %s", src_file_path.c_str());
+            return;
         }
 
         int size_read = 0;
@@ -188,7 +189,7 @@ struct ExpandedZipEntry {
     unsigned size;
 };
 
-ExpandedZipFile::ExpandedZipFile() : buf(NULL), filename_buf(NULL), entries(NULL) {}
+ExpandedZipFile::ExpandedZipFile() : buf(NULL), filename_buf(NULL), entries(NULL), num_entries(NULL) {}
 
 ExpandedZipFile::~ExpandedZipFile() {
     Dispose();
@@ -395,12 +396,17 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
         unsigned entry_id = 0;
         unsigned data_offset = 0;
         unsigned filename_offset = 0;
-        ScopedBuffer scoped_buf(size_buf);
+        ScopedBuffer scoped_buf(size_buf); // raw malloc scoped to be less dangerous
         unzGoToFirstFile(uf);
         do {
+            int result;
             char filename_buf[256];
+
             unz_file_info file_info;
-            unzGetCurrentFileInfo(uf, &file_info, filename_buf, 256, NULL, 0, NULL, 0);
+            result = unzGetCurrentFileInfo(uf, &file_info, filename_buf, 256, NULL, 0, NULL, 0);
+            if (result != UNZ_OK) {
+                FatalError("Error", "Unable to get zip file info (Error code: %d)", result);
+            }
             if (file_info.size_filename > 256) {
                 FatalError("Error", "Zip file contains filename with length greater than 256");
             }
@@ -409,12 +415,23 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
             expanded_zip_file.SetFilename(filename_offset, filename_buf, file_info.size_filename + 1);
             filename_offset += file_info.size_filename + 1;
 
-            unzOpenCurrentFile(uf);
+            /*LOGI << file_info.version << std::endl;
+            LOGI << file_info.uncompressed_size << std::endl;
+            LOGI << filename_buf << std::endl;*/
+
+            result = unzOpenCurrentFile(uf);
+            if (result != UNZ_OK) {
+                FatalError("Error", "Unable to open current zipped file (Error code: %d)", result);
+                // TODO: get better user errors instead of codes
+            }
+
             int bytes_read = 0;
             do {
                 bytes_read = unzReadCurrentFile(uf, scoped_buf.ptr, size_buf);
+                LOGI << bytes_read << std::endl; // failure
                 if (bytes_read < 0) {
-                    FatalError("Error", "Error reading from UnZip file");
+                    FatalError("Error", "Error reading from UnZip file (Error code: %d)", bytes_read);
+                    // TODO: get better user errors instead of codes
                 } else if (bytes_read > 0) {
                     expanded_zip_file.SetData(data_offset, (char*)scoped_buf.ptr, bytes_read);
                     data_offset += bytes_read;
@@ -426,6 +443,8 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
             unzCloseCurrentFile(uf);
         } while (unzGoToNextFile(uf) == UNZ_OK);
     }
+    // Don't forget to clean up afterwards!
+    unzClose(uf);
 }
 
 void UnZip(const std::string& zip_file_path,

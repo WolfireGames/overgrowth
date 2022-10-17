@@ -92,9 +92,12 @@ bool HeightmapImage::LoadData(const std::string& rel_path, HMScale scaled) {
     FindFilePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths, true, NULL, &modsource);
     modsource_ = modsource;
 
-    // Tell stb_image that we want 4 components (RGBA)
+    // Tell stb to load with positive Y instead of negative Y
+    // FIXME: find a permanent home for this
+    stbi_set_flip_vertically_on_load(true);
+
     int img_width = 0, img_height = 0, num_comp = 0;
-    float* data = stbi_loadf(abs_path, &img_width, &img_height, &num_comp, 0);
+    unsigned short* data = stbi_load_16(abs_path, &img_width, &img_height, &num_comp, 0);
 
     if (data == NULL) {
         FatalError("Error", "Could not load heightmap: %s", rel_path.c_str());
@@ -118,11 +121,12 @@ bool HeightmapImage::LoadData(const std::string& rel_path, HMScale scaled) {
             float x_scale = img_width / (float)width_;
             float z_scale = img_height / (float)depth_;
 
-            if (num_comp != 1) {                    // monochrome texture
+            if (num_comp == 1) {                    // monochrome texture
                 for (int z = 0; z < depth_; z++) {  // flipped
-                    float* bits = &data[((int)(z * z_scale)) * img_height];
+                    unsigned short* bits = &data[((int)(z * z_scale)) * img_height];
                     for (int x = 0; x < width_; x++) {
-                        height_data_[x + (((depth_ - 1) - z) * width_)] = (bits[(int)(x * x_scale)] * 65535.0f) / scale_factor;
+                        // Convert unsigned shorts to floats
+                        height_data_[x + (((depth_ - 1) - z) * width_)] = (float)(bits[(int)(x * x_scale)]) / scale_factor;
                     }
                 }
             } else {

@@ -566,15 +566,15 @@ void NavMesh::Save(const string& level_name, const Path& level_path) {
 
     string nav_path = GenerateParallelPath("Data/Levels", "Data/LevelNavmeshes", ".nav", level_path);
 
-    if (config["allow_game_dir_save"].toBool() == false) {
+    if (config["allow_game_dir_save"].toBool() == false) { // change save location to user directory
         nav_path = AssemblePath(GetWritePath(level_path.GetModsource()), nav_path);
     }
 
-    char zip_path[kPathSize];
+    char zip_path[kPathSize]; // Path of the outermost file
     FormatString(zip_path, kPathSize, "%s.zip", nav_path.c_str());
 
-    char in_zip_file_name[kPathSize];
-    FormatString(in_zip_file_name, kPathSize, "%s.zip", level_name.c_str());
+    char in_zip_file_name[kPathSize]; // Name of the file inside the outermost zip file
+    FormatString(in_zip_file_name, kPathSize, "%s.nav", level_name.c_str()); // used to be .zip
 
     LOGI << "Saving nav mesh to " << zip_path << endl;
 
@@ -582,18 +582,22 @@ void NavMesh::Save(const string& level_name, const Path& level_path) {
 
     CreateParentDirs(temp_navmesh_path);
 
+    // Save the .NAV file to the Temp directory
     sample_tile_mesh_.Save(temp_navmesh_path.c_str());
 
     CreateParentDirs(zip_path);
 
+    // Copy the .NAV file from the Temp directory and save to the Zip file as 'level_name.zip' (why .zip?)
     Zip(temp_navmesh_path, string(zip_path), in_zip_file_name, _YES_OVERWRITE);
 
+    // Write the .OBJ file to the LevelNavmeshes directory
     if (!vertices_.empty() && !faces_.empty()) {
         char model_path[kPathSize];
         FormatString(model_path, kPathSize, "%s.obj", nav_path.c_str());
         WriteObj(model_path, vertices_, faces_);
     }
 
+    // Write the .XML file to the LevelNavmeshes directory
     char meta_path[kPathSize];
     FormatString(meta_path, kPathSize, "%s.xml", nav_path.c_str());
 
@@ -751,6 +755,7 @@ bool NavMesh::Load(const string& level_name, const Path& level_path) {
 
 bool NavMesh::LoadFromAbs(const Path& level_path, const char* abs_meta_path, const char* abs_model_path, const char* abs_nav_path, const char* abs_zip_path, bool has_zip) {
     {
+        // Load the XML file
         PROFILER_ZONE(g_profiler_ctx, "Loading XML file");
         TiXmlDocument doc(abs_meta_path);
         doc.LoadFile();
@@ -835,10 +840,13 @@ bool NavMesh::LoadFromAbs(const Path& level_path, const char* abs_meta_path, con
         PROFILER_ZONE(g_profiler_ctx, "handleMeshChanged");
         sample_tile_mesh_.handleMeshChanged(&geom_);
     }
+    
     {
-        if (has_zip) {
+        if (has_zip) { // Attempt to load data from the zip file
             ExpandedZipFile ezf;
-            UnZip(abs_zip_path, ezf);
+            UnZip(abs_zip_path, ezf); 
+
+            LOGI << "success!" << std::endl;
 
             if (ezf.GetNumEntries() == 1) {
                 const char* filename;
