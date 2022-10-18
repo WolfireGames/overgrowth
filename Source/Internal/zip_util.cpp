@@ -396,7 +396,7 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
         unsigned entry_id = 0;
         unsigned data_offset = 0;
         unsigned filename_offset = 0;
-        ScopedBuffer scoped_buf(size_buf); // raw malloc scoped to be less dangerous
+        ScopedBuffer scoped_buf(size_buf); // Raw malloc temp data scoped to be less dangerous
         unzGoToFirstFile(uf);
         do {
             int result;
@@ -409,15 +409,15 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
             }
             if (file_info.size_filename > 256) {
                 FatalError("Error", "Zip file contains filename with length greater than 256");
+                // TODO: get better user errors instead of codes
             }
             expanded_zip_file.SetEntry(entry_id, filename_offset, data_offset, file_info.uncompressed_size);
             ++entry_id;
             expanded_zip_file.SetFilename(filename_offset, filename_buf, file_info.size_filename + 1);
             filename_offset += file_info.size_filename + 1;
 
-            /*LOGI << file_info.version << std::endl;
-            LOGI << file_info.uncompressed_size << std::endl;
-            LOGI << filename_buf << std::endl;*/
+            LOGI << uf << std::endl;
+            LOGI << scoped_buf.ptr << std::endl;
 
             result = unzOpenCurrentFile(uf);
             if (result != UNZ_OK) {
@@ -428,7 +428,6 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
             int bytes_read = 0;
             do {
                 bytes_read = unzReadCurrentFile(uf, scoped_buf.ptr, size_buf);
-                LOGI << bytes_read << std::endl; // failure
                 if (bytes_read < 0) {
                     FatalError("Error", "Error reading from UnZip file (Error code: %d)", bytes_read);
                     // TODO: get better user errors instead of codes

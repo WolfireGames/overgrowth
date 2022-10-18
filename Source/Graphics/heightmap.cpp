@@ -92,12 +92,8 @@ bool HeightmapImage::LoadData(const std::string& rel_path, HMScale scaled) {
     FindFilePath(rel_path.c_str(), abs_path, kPathSize, kDataPaths | kModPaths, true, NULL, &modsource);
     modsource_ = modsource;
 
-    // Tell stb to load with positive Y instead of negative Y
-    // FIXME: find a permanent home for this
-    stbi_set_flip_vertically_on_load(true);
-
     int img_width = 0, img_height = 0, num_comp = 0;
-    unsigned short* data = stbi_load_16(abs_path, &img_width, &img_height, &num_comp, 0);
+    stbi_us* data = stbi_load_16(abs_path, &img_width, &img_height, &num_comp, 0);
 
     if (data == NULL) {
         FatalError("Error", "Could not load heightmap: %s", rel_path.c_str());
@@ -123,7 +119,7 @@ bool HeightmapImage::LoadData(const std::string& rel_path, HMScale scaled) {
 
             if (num_comp == 1) {                    // monochrome texture
                 for (int z = 0; z < depth_; z++) {  // flipped
-                    unsigned short* bits = &data[((int)(z * z_scale)) * img_height];
+                    stbi_us* bits = &data[((int)(z * z_scale)) * img_height];
                     for (int x = 0; x < width_; x++) {
                         // Convert unsigned shorts to floats
                         height_data_[x + (((depth_ - 1) - z) * width_)] = (float)(bits[(int)(x * x_scale)]) / scale_factor;

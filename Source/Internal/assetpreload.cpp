@@ -26,6 +26,7 @@
 #include <Internal/filesystem.h>
 #include <Internal/path.h>
 
+#include <Images/stbimage_wrapper.h>
 #include <XML/Parsers/levelassetspreloadparser.h>
 
 #include <cstring>
@@ -45,6 +46,11 @@ AssetPreload& AssetPreload::Instance() {
 }
 
 void AssetPreload::Initialize() {
+    // Before we load any assets (in preload or otherwise):
+    // We set stb_image to flip images vertically to load them how Overgrowth expects (positive Y)
+    stbi_set_flip_vertically_on_load(true);
+    
+    // Now we can finish preloading
     Reload();
 }
 

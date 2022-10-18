@@ -1586,6 +1586,7 @@ extern int ZEXPORT unzOpenCurrentFile3 (unzFile file, int* method,
         pfile_in_zip_read_info->stream_initialised=Z_DEFLATED;
       else
       {
+        //printf("%d\n", err);
         TRYFREE(pfile_in_zip_read_info);
         return err;
       }
