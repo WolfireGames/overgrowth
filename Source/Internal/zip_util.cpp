@@ -416,8 +416,10 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
             expanded_zip_file.SetFilename(filename_offset, filename_buf, file_info.size_filename + 1);
             filename_offset += file_info.size_filename + 1;
 
-            LOGI << uf << std::endl;
-            LOGI << scoped_buf.ptr << std::endl;
+            /*
+            LOGI << ZLIB_VERSION << std::endl;
+            LOGI << zlibVersion() << std::endl;
+            */
 
             result = unzOpenCurrentFile(uf);
             if (result != UNZ_OK) {
@@ -442,8 +444,6 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
             unzCloseCurrentFile(uf);
         } while (unzGoToNextFile(uf) == UNZ_OK);
     }
-    // Don't forget to clean up afterwards!
-    unzClose(uf);
 }
 
 void UnZip(const std::string& zip_file_path,
