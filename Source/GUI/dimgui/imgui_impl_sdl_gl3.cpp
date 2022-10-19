@@ -415,7 +415,8 @@ void ImGui_ImplSdlGL3_NewFrame(SDL_Window* window, bool ignore_mouse) {
     // Setup time step
     uint32_t time = SDL_GetTicks();
     double current_time = time / 1000.0;
-    io.DeltaTime = g_Time > 0.0 ? (float)(current_time - g_Time) : (float)(1.0f / 60.0f);
+    // If the time between frames is greater than 0, use that difference; otherwise default to 60fps
+    io.DeltaTime = (current_time - g_Time) > 0.0 ? (float)(current_time - g_Time) : (float)(1.0f / 60.0f);
     g_Time = current_time;
 
     if (ignore_mouse) {
