@@ -347,16 +347,26 @@ void UnZipFile::Extract(const std::string& in_zip_file_path, const std::string& 
 }
 
 void UnZipFile::PrintInfo() {
+    int err;  // TODO: get better user errors instead of codes
     unz_global_info global_info;
-    unzGetGlobalInfo(uf, &global_info);
+    err = unzGetGlobalInfo(uf, &global_info);
+    if (err != UNZ_OK) {
+        FatalError("Unzip Error", "Unable to get global archive info (Error Code: %d)", err);
+    }
     LOGI << global_info.number_entry << " files." << std::endl;
 
-    unzGoToFirstFile(uf);
+    err = unzGoToFirstFile(uf);
+    if (err != UNZ_OK) {
+        FatalError("Unzip Error", "Unable to go to first file in archive (Error Code: %d)", err);
+    }
 
     do {
         unz_file_info file_info;
         char name[256];
-        unzGetCurrentFileInfo(uf, &file_info, name, 256, NULL, 0, NULL, 0);
+        err = unzGetCurrentFileInfo(uf, &file_info, name, 256, NULL, 0, NULL, 0);
+        if (err != UNZ_OK) {
+            FatalError("Unzip Error", "Unable to get current file info (Error Code: %d)", err);
+        }
         LOGI << "\t" << name << std::endl;
         LOGI << "\t\tdosDate: " << file_info.dosDate << std::endl;
         LOGI << "\t\tcrc: " << file_info.crc << std::endl;
@@ -368,11 +378,15 @@ void UnZipFile::PrintInfo() {
 }
 
 void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
+    int err;  // TODO: get better user errors instead of codes
     expanded_zip_file.Dispose();
 
     {  // Allocate memory for the zip file entries
         unz_global_info global_info;
-        unzGetGlobalInfo(uf, &global_info);
+        err = unzGetGlobalInfo(uf, &global_info);
+        if (err != UNZ_OK) {
+            FatalError("Unzip Error", "Unable to get global archive info (Error Code: %d)", err);
+        }
         expanded_zip_file.ResizeEntries(global_info.number_entry);
     }
 
@@ -380,10 +394,16 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
         unsigned total_size = 0;
         unsigned total_filename_size = 0;
 
-        unzGoToFirstFile(uf);
+        err = unzGoToFirstFile(uf);
+        if (err != UNZ_OK) {
+            FatalError("Unzip Error", "Unable to go to first file in archive (Error Code: %d)", err);
+        }
         do {
             unz_file_info file_info;
-            unzGetCurrentFileInfo(uf, &file_info, NULL, 0, NULL, 0, NULL, 0);
+            err = unzGetCurrentFileInfo(uf, &file_info, NULL, 0, NULL, 0, NULL, 0);
+            if (err != UNZ_OK) {
+                FatalError("Unzip Error", "Unable to get current file info (Error Code: %d)", err);
+            }
             total_size += file_info.uncompressed_size + 1;  // Extra room for '\0'
             total_filename_size += file_info.size_filename + 1;
         } while (unzGoToNextFile(uf) == UNZ_OK);
@@ -397,51 +417,52 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
         unsigned data_offset = 0;
         unsigned filename_offset = 0;
         ScopedBuffer scoped_buf(size_buf); // Raw malloc temp data scoped to be less dangerous
-        unzGoToFirstFile(uf);
+
+        err = unzGoToFirstFile(uf);
+        if (err != UNZ_OK) {
+            FatalError("Unzip Error", "Unable to go to first file in archive (Error Code: %d)", err);
+        }
         do {
-            int result;
             char filename_buf[256];
 
             unz_file_info file_info;
-            result = unzGetCurrentFileInfo(uf, &file_info, filename_buf, 256, NULL, 0, NULL, 0);
-            if (result != UNZ_OK) {
-                FatalError("Error", "Unable to get zip file info (Error code: %d)", result);
+            err = unzGetCurrentFileInfo(uf, &file_info, filename_buf, 256, NULL, 0, NULL, 0);
+            if (err != UNZ_OK) {
+                FatalError("Unzip Error", "Unable to get zip file info (Error code: %d)", err);
             }
             if (file_info.size_filename > 256) {
-                FatalError("Error", "Zip file contains filename with length greater than 256");
-                // TODO: get better user errors instead of codes
+                FatalError("Unzip Error", "Zip file contains filename with length greater than 256");
             }
+
             expanded_zip_file.SetEntry(entry_id, filename_offset, data_offset, file_info.uncompressed_size);
             ++entry_id;
             expanded_zip_file.SetFilename(filename_offset, filename_buf, file_info.size_filename + 1);
             filename_offset += file_info.size_filename + 1;
 
-            /*
-            LOGI << ZLIB_VERSION << std::endl;
-            LOGI << zlibVersion() << std::endl;
-            */
-
-            result = unzOpenCurrentFile(uf);
-            if (result != UNZ_OK) {
-                FatalError("Error", "Unable to open current zipped file (Error code: %d)", result);
-                // TODO: get better user errors instead of codes
+            err = unzOpenCurrentFile(uf);
+            if (err != UNZ_OK) {
+                FatalError("Unzip Error", "Unable to open current zipped file (Error code: %d)", err);
             }
 
             int bytes_read = 0;
             do {
                 bytes_read = unzReadCurrentFile(uf, scoped_buf.ptr, size_buf);
                 if (bytes_read < 0) {
-                    FatalError("Error", "Error reading from UnZip file (Error code: %d)", bytes_read);
-                    // TODO: get better user errors instead of codes
+                    FatalError("Unzip Error", "Error reading from current zipped file (Error code: %d)", bytes_read);
                 } else if (bytes_read > 0) {
                     expanded_zip_file.SetData(data_offset, (char*)scoped_buf.ptr, bytes_read);
                     data_offset += bytes_read;
                 }
             } while (bytes_read > 0);
+
             char zero = '\0';
             expanded_zip_file.SetData(data_offset, &zero, 1);
             ++data_offset;
-            unzCloseCurrentFile(uf);
+            
+            err = unzCloseCurrentFile(uf);
+            if (err != UNZ_OK) {
+                FatalError("Unzip Error", "Unable to close current file (Error Code: %d)", err);
+            }
         } while (unzGoToNextFile(uf) == UNZ_OK);
     }
 }
