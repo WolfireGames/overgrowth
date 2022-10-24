@@ -119,7 +119,7 @@ int ImageSampler::Load(const std::string& path, uint32_t load_flags) {
 
         // stbi will always ensure that the total output channels will match the specified (4); 'n' will contain the source images' channels
         // So we only need to throw an error if the data doesn't exist, it's format is guaranteed
-        if (data == nullptr) { // || n != 4
+        if (data == nullptr) {  // || n != 4
             return kLoadErrorGeneralFileError;
         }
 

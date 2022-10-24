@@ -312,7 +312,7 @@ void Object::GetDesc(EntityDescription &desc) const {
 
 void Object::ReceiveObjectMessage(OBJECT_MSG::Type type, ...) {
     va_list args;
-    va_start(args, type); // FIXME: this is kinda grotesque; there's gotta be a better way!
+    va_start(args, type);
     ReceiveObjectMessageVAList(type, args);
     va_end(args);
 }

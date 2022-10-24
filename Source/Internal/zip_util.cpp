@@ -416,7 +416,7 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
         unsigned entry_id = 0;
         unsigned data_offset = 0;
         unsigned filename_offset = 0;
-        ScopedBuffer scoped_buf(size_buf); // Raw malloc temp data scoped to be less dangerous
+        ScopedBuffer scoped_buf(size_buf);  // Raw malloc temp data scoped to be less dangerous
 
         err = unzGoToFirstFile(uf);
         if (err != UNZ_OK) {
@@ -458,7 +458,7 @@ void UnZipFile::ExtractAll(ExpandedZipFile& expanded_zip_file) {
             char zero = '\0';
             expanded_zip_file.SetData(data_offset, &zero, 1);
             ++data_offset;
-            
+
             err = unzCloseCurrentFile(uf);
             if (err != UNZ_OK) {
                 FatalError("Unzip Error", "Unable to close current file (Error Code: %d)", err);

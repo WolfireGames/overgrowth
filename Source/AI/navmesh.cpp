@@ -566,15 +566,15 @@ void NavMesh::Save(const string& level_name, const Path& level_path) {
 
     string nav_path = GenerateParallelPath("Data/Levels", "Data/LevelNavmeshes", ".nav", level_path);
 
-    if (config["allow_game_dir_save"].toBool() == false) { // change save location to user directory
+    if (config["allow_game_dir_save"].toBool() == false) {  // change save location to user directory
         nav_path = AssemblePath(GetWritePath(level_path.GetModsource()), nav_path);
     }
 
-    char zip_path[kPathSize]; // Path of the outermost file
+    char zip_path[kPathSize];  // Path of the outermost file
     FormatString(zip_path, kPathSize, "%s.zip", nav_path.c_str());
 
-    char in_zip_file_name[kPathSize]; // Name of the file inside the outermost zip file
-    FormatString(in_zip_file_name, kPathSize, "%s.nav", level_name.c_str()); // used to be .zip
+    char in_zip_file_name[kPathSize];                                         // Name of the file inside the outermost zip file
+    FormatString(in_zip_file_name, kPathSize, "%s.nav", level_name.c_str());  // used to be .zip
 
     LOGI << "Saving nav mesh to " << zip_path << endl;
 
@@ -840,11 +840,11 @@ bool NavMesh::LoadFromAbs(const Path& level_path, const char* abs_meta_path, con
         PROFILER_ZONE(g_profiler_ctx, "handleMeshChanged");
         sample_tile_mesh_.handleMeshChanged(&geom_);
     }
-    
+
     {
-        if (has_zip) { // Attempt to load data from the zip file
+        if (has_zip) {  // Attempt to load data from the zip file
             ExpandedZipFile ezf;
-            UnZip(abs_zip_path, ezf); 
+            UnZip(abs_zip_path, ezf);
 
             LOGI << "success!" << std::endl;
 
