@@ -115,9 +115,11 @@ int ImageSampler::Load(const std::string& path, uint32_t load_flags) {
 
         int n = 0;
         // Tell stb_image that we want 4 components (RGBA)
-        stbi_uc* data = stbi_load(abs_path, &width_, &width_, &n, 4);
+        stbi_uc* data = stbi_load(abs_path, &width_, &height_, &n, 4);
 
-        if (data == nullptr || n != 4) {
+        // stbi will always ensure that the total output channels will match the specified (4); 'n' will contain the source images' channels
+        // So we only need to throw an error if the data doesn't exist, it's format is guaranteed
+        if (data == nullptr) {  // || n != 4
             return kLoadErrorGeneralFileError;
         }
 
@@ -139,7 +141,7 @@ const char* ImageSampler::GetLoadErrorString() {
         case 0:
             return "";
         default:
-            return "Unknown error";
+            return stbi_failure_reason();
     }
 }
 

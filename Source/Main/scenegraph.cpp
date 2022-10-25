@@ -1624,7 +1624,8 @@ void SceneGraph::SendMessageToAllObjects(OBJECT_MSG::Type type) {
     // passing way past the end. Likely because objects_ is sometimes changed as a result of this call.
     // This solution means that most objects get called, some might not if they are first destroyed.
     // New objects will also be called assuming they are added last to the list.
-    for (auto obj : objects_) {
+    for (unsigned int i = 0; i < objects_.size(); i++) {
+        Object* obj = objects_[i];
         if (obj) {
             obj->ReceiveObjectMessage(type);
         } else {
@@ -1634,11 +1635,14 @@ void SceneGraph::SendMessageToAllObjects(OBJECT_MSG::Type type) {
 }
 
 void SceneGraph::SendScriptMessageToAllObjects(std::string& msg) {
-    for (auto obj : objects_) {
+    // For consistency, I'm going to also make this a simple loop in case the same iterator problems affect
+    // This function as well.
+    for (unsigned int i = 0; i < objects_.size(); i++) {
+        Object* obj = objects_[i];
         if (obj) {
             obj->ReceiveObjectMessage(OBJECT_MSG::SCRIPT, &msg);
         } else {
-            LOGE << "One of the objects is NULL when trying to SendMessageToAllObjects." << std::endl;
+            LOGE << "One of the objects is NULL when trying to SendScriptMessageToAllObjects." << std::endl;
         }
     }
 }
