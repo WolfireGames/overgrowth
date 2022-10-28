@@ -1931,7 +1931,7 @@ bool SceneGraph::AddDynamicDecal(DecalObject* decal) {
     if (nearest_obj) {
         scale = nearest_obj->GetScale();
         float other_radius = min(scale.x(), min(scale.y(), scale.z()));
-        float other_radius_sq = other_radius * other_radius;
+        other_radius_sq = other_radius * other_radius;
     }
     if (nearest_dist_sq > my_radius_sq && nearest_dist_sq > other_radius_sq) {
         if (ActorsEditor_AddEntity(this, decal, NULL, false)) {

@@ -331,9 +331,7 @@ void PlaceholderObject::GetDisplayName(char* buf, int buf_size) {
 ObjectSanityState PlaceholderObject::GetSanity() {
     uint32_t sanity_flags = 0;
     if (special_type_ == kPlayerConnect && connect_id_ == -1) {
-        if (connect_id_ == -1) {
-            sanity_flags |= kObjectSanity_PO_UnsetConnectID;
-        }
+        sanity_flags |= kObjectSanity_PO_UnsetConnectID;
     }
     return ObjectSanityState(GetType(), GetID(), sanity_flags);
 }
