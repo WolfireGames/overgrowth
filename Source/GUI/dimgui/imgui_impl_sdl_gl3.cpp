@@ -123,7 +123,7 @@ void ImGui_ImplSdlGL3_RenderDrawLists(ImDrawData* draw_data) {
 
     for (int n = 0; n < draw_data->CmdListsCount; n++) {
         const ImDrawList* cmd_list = draw_data->CmdLists[n];
-        const ImDrawIdx* idx_buffer_offset = 0;  // Start at the beginning of the element list, has to be a pointer but otherwise normal integer offset
+        ImDrawIdx idx_buffer_offset = 0;  // Amount of indices to skip until next drawn element
 
         glBindBuffer(GL_ARRAY_BUFFER, g_VboHandle);
         glBufferData(GL_ARRAY_BUFFER, (GLsizeiptr)cmd_list->VtxBuffer.Size * sizeof(ImDrawVert), (GLvoid*)cmd_list->VtxBuffer.Data, GL_STREAM_DRAW);
@@ -138,9 +138,9 @@ void ImGui_ImplSdlGL3_RenderDrawLists(ImDrawData* draw_data) {
             } else {
                 glBindTexture(GL_TEXTURE_2D, (GLuint)(intptr_t)pcmd->TextureId);
                 glScissor((int)pcmd->ClipRect.x, (int)(fb_height - pcmd->ClipRect.w), (int)(pcmd->ClipRect.z - pcmd->ClipRect.x), (int)(pcmd->ClipRect.w - pcmd->ClipRect.y));
-                glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, sizeof(ImDrawIdx) == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT, idx_buffer_offset);
+                glDrawElements(GL_TRIANGLES, (GLsizei)pcmd->ElemCount, sizeof(ImDrawIdx) == 2 ? GL_UNSIGNED_SHORT : GL_UNSIGNED_INT, (void*)(idx_buffer_offset * sizeof(ImDrawIdx)));
             }
-            idx_buffer_offset += pcmd->ElemCount;  // Offset the rendering call by the number of elements rendered
+            idx_buffer_offset += pcmd->ElemCount;
         }
     }
 
