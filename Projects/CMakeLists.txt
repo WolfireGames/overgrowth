@@ -269,7 +269,7 @@ set(ZSTD_BUILD_STATIC ON)
 set(ZSTD_BUILD_SHARED Off)
 ADD_SUBDIRECTORY(../Libraries/zstd-1.5.0/build/cmake zstd)
 IF(WIN32)
-    # Make sure freetype uses the precompiled 1.27 binary
+    # Make sure freetype uses the precompiled 1.2.7 binary
     SET(FT_REQUIRE_ZLIB ON)
     GET_FILENAME_COMPONENT(ZLIB_INCLUDE "../Libraries/zlib1.2.7/include" ABSOLUTE)
     GET_FILENAME_COMPONENT(ZLIB_LIBRARY "../Libraries/zlib1.2.7/lib/x64/zlib.lib" ABSOLUTE)
