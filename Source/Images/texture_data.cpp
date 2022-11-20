@@ -280,38 +280,40 @@ void TextureData::GetUncompressedData(unsigned char *data) {
         // In both `terrain.cpp` and `textures.cpp`, both uses of this function imply that the only valid data format
         // expected is BGRA_8. Otherwise, one would expect the function signature to also return a `numBits` or similar.
         // Therefore, I'll proclaim `imageBits` obsolete, and comment out the lesser bit depths and the conditional.
-        //int imageBits = 32;
+        // int imageBits = 32;
 
-        //int bytesPerPixel = imageBits / 8;
+        // int bytesPerPixel = imageBits / 8;
         int imageWidth = m_crnTex.get_width();
         int imageHeight = m_crnTex.get_height();
 
-        //int heightDataSize = imageWidth * imageHeight;
-        //int imageDataSize = heightDataSize * bytesPerPixel;
+        // int heightDataSize = imageWidth * imageHeight;
+        // int imageDataSize = heightDataSize * bytesPerPixel;
 
         image_u8 image;
         image_u8 *pImg = m_crnTex.get_level_image(0, 0, image);
 
-        //if (imageBits == 8) {
-        //    for (int y = 0; y < imageHeight; y++) {
-        //        color_quad_u8 *bits = pImg->get_scanline(y);
-        //        for (int x = 0; x < imageWidth; x++) {
-        //            int curr_index = x + y * imageWidth;
-        //            data[curr_index] = bits[x].a;
-        //        }
-        //    }
-        //} else if (imageBits == 24) {
-        //    for (int y = 0; y < imageHeight; y++) {
-        //        color_quad_u8 *bits = pImg->get_scanline(y);
-        //        for (int x = 0; x < imageWidth; x++) {
-        //            int curr_index = x + y * imageWidth;
-        //            data[4 * curr_index] = bits[x].b;
-        //            data[4 * curr_index + 1] = bits[x].g;
-        //            data[4 * curr_index + 2] = bits[x].r;
-        //            data[4 * curr_index + 3] = 255;
-        //        }
-        //    }
-        //} else if (imageBits == 32) {
+        /*
+        if (imageBits == 8) {
+            for (int y = 0; y < imageHeight; y++) {
+                color_quad_u8 *bits = pImg->get_scanline(y);
+                for (int x = 0; x < imageWidth; x++) {
+                    int curr_index = x + y * imageWidth;
+                    data[curr_index] = bits[x].a;
+                }
+            }
+        } else if (imageBits == 24) {
+            for (int y = 0; y < imageHeight; y++) {
+                color_quad_u8 *bits = pImg->get_scanline(y);
+                for (int x = 0; x < imageWidth; x++) {
+                    int curr_index = x + y * imageWidth;
+                    data[4 * curr_index] = bits[x].b;
+                    data[4 * curr_index + 1] = bits[x].g;
+                    data[4 * curr_index + 2] = bits[x].r;
+                    data[4 * curr_index + 3] = 255;
+                }
+            }
+        } else if (imageBits == 32) {
+        */
 
         for (int y = 0; y < imageHeight; y++) {
             color_quad_u8 *bits = pImg->get_scanline(y);
