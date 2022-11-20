@@ -845,7 +845,7 @@ bool NavMesh::LoadFromAbs(const Path& level_path, const char* abs_meta_path, con
         if (has_zip) {  // Attempt to load data from the zip file
             ExpandedZipFile ezf;
             UnZip(abs_zip_path, ezf);
-            
+
             if (ezf.GetNumEntries() == 1) {
                 const char* filename;
                 const char* data;
