@@ -325,7 +325,7 @@ void TextureData::GetUncompressedData(unsigned char *data) {
                 data[4 * curr_index + 3] = bits[x].a;
             }
         }
-        
+
         // TODO: what is this?
         /*
         } else if (m_nImageBits == 96) {
