@@ -13,7 +13,7 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 #-----------------------------------------------------------------------------
-CMAKE_MINIMUM_REQUIRED(VERSION 3.5) #Version of cmake in steam-runtime
+CMAKE_MINIMUM_REQUIRED(VERSION 3.11) #Version of cmake in steam-runtime
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -50,6 +50,7 @@ OPTION(GL_TIMING_QUERY "Build with ARB_timing_query support used for timing Open
 OPTION(GL_INTEL_TIMING "Build with ARB_performance_query support used for timing OpenGL performance specifically on intel GPU's" OFF)
 OPTION(BUILD_OGDA "Build OGDA" ON)
 OPTION(BUILD_OVERGROWTH "Build the main game" ON)
+OPTION(OG_BUILD_TESTING "Build unittests for the source" OFF)
 OPTION(MONITOR_MEMORY "Monitor memory usage and make avaiable ingame" Off)
 OPTION(OPEN_CONSOLE "Open a console on startup on windows" On)
 OPTION(FORCE_OPENGL_ERROR_CHECKING "Force OpenGL error checking in Release" Off)
@@ -371,9 +372,9 @@ IF(LINUX)
 
     #-no-strict-aliasing for the sake of angelscript
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-strict-aliasing")
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -rdynamic -g -fno-omit-frame-pointer") #We add G because we want to be able to debug the coredump
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -rdynamic -fno-omit-frame-pointer")
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -rdynamic -fno-omit-frame-pointer")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -g -fno-omit-frame-pointer") #We add G because we want to be able to debug the coredump
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -fno-omit-frame-pointer")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fno-omit-frame-pointer")
 
 ENDIF()
 
@@ -602,7 +603,6 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/tinyxml
     ${LIBDIR}/nvapi
     ${LIBDIR}/tclap/include
-    ${LIBDIR}/tut-framework/include
     ${LIBDIR}/recastnavigation/Recast/Include
     ${LIBDIR}/recastnavigation/Detour/Include
     ${LIBDIR}/recastnavigation/DetourTileCache/Include
@@ -889,8 +889,6 @@ IF(LINUX AND BUILD_OGDA) #Making Ogda linux only for now.
         COMPILE_FLAGS "-w"
     )
 ENDIF()
-
-ADD_DEFINITIONS(-DUNIT_TESTS)
 
 SET(OVERGROWTH_INTERNAL_SRCS
     ${LIBDIR}/ovr_sdk_win_1.12.0_public/OculusSDK/LibOVR/Src/OVR_StereoProjection.cpp
@@ -1197,10 +1195,6 @@ IF(BUILD_OVERGROWTH)
     target_add_grouped_source(Overgrowth Steam)
     target_add_grouped_source(Overgrowth Online)
     target_add_grouped_source(Overgrowth Online/Message)
-
-    # TODO: Make another target called "DeployRelease" that doesn't include UNIT_TESTS
-    target_add_grouped_source(Overgrowth UnitTests)
-
     target_add_grouped_script(Overgrowth Scripts)
     target_add_grouped_script(Overgrowth "Scripts/hotspots")
     target_add_grouped_shaders(Overgrowth "GLSL") 
@@ -1461,6 +1455,11 @@ IF(BUILD_OVERGROWTH)
         SET_TARGET_PROPERTIES(Overgrowth PROPERTIES LINK_FLAGS "-F${LIBDIR}/libvorbis-1.3.6/include")
         #SET_TARGET_PROPERTIES(Overgrowth PROPERTIES LINK_FLAGS "-F${CMAKE_SOURCE_DIR}/../MacInterfaces")
     ENDIF()
+ENDIF()
+
+IF(OG_BUILD_TESTING)
+    enable_testing()
+    add_subdirectory(../Tests tests)
 ENDIF()
 
 IF(APPLE)

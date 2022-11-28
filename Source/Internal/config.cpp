@@ -31,6 +31,9 @@
 #include <Logging/logdata.h>
 #include <Main/engine.h>
 
+#include <Graphics/textures.h>
+#include <Graphics/camera.h>
+
 #include <vector>
 #include <algorithm>
 #include <iostream>

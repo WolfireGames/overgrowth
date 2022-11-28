@@ -52,9 +52,6 @@
 #if ENABLE_FPU_SIGNALS == 1
 #include <fenv.h>
 #endif
-#ifdef UNIT_TESTS
-#include <UnitTests/testmain.h>
-#endif
 #include <sstream>
 
 extern Config config;
@@ -434,10 +431,6 @@ int main(int argc, char* argv[]) {
             LogSystem::RegisterLogHandler(level, &consoleHandler);
             ret = DDSConvertMain(argc, argv, overloadedWriteDir.c_str(), overloadedWorkingDir.c_str());
             LogSystem::DeregisterLogHandler(&consoleHandler);
-#ifdef UNIT_TESTS
-        } else if (runUnitTests.getValue()) {
-            ret = RunUnitTests();
-#endif
         } else {
             LogSystem::RegisterLogHandler(level, &consoleHandler);
             LogSystem::RegisterLogHandler(level, &ram_handler);
