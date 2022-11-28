@@ -4113,7 +4113,8 @@ static void UpdateShadowCascades(SceneGraph* scenegraph) {
         {  // Perform per-frame, per-camera functions, like character LOD and spawning grass
             PROFILER_GPU_ZONE(g_profiler_ctx, "Pre-draw camera");
             float predraw_time = game_timer.GetRenderTime();
-            for (auto obj : scenegraph->objects_) {
+            for (int i = 0; i < scenegraph->objects_.size(); i++) {
+                auto obj = scenegraph->objects_[i];
                 if (!obj->parent) {
                     obj->PreDrawCamera(predraw_time);
                 }
