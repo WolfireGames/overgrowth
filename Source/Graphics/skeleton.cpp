@@ -154,7 +154,7 @@ void Skeleton::SetGravity(bool enable) {
             if (!physics_bone.bullet_object) {
                 continue;
             }
-            physics_bone.bullet_object->SetGravity(true);
+            physics_bone.bullet_object->SetGravity(false);
             // physics_bones[i].bullet_object->SetDamping(1.0f);
         }
     }

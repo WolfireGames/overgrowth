@@ -60,7 +60,7 @@ NavmeshHintObject::NavmeshHintObject() {
         };
 
     for (int i = 0; i < 8; i++) {
-        for (int k = i; k < 8; k++) {
+        for (int k = i + 1; k < 8; k++) {
             if (i != k) {
                 if (
                     corners[i][0] == corners[k][0] ||

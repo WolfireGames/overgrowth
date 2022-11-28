@@ -125,11 +125,11 @@ ASContext::ASContext(const char *name, const ASData &as_data) : scenegraph(as_da
 
     // Create a context that will execute the script.
     ctx = engine->CreateContext();
-    ctx->SetUserData(this, 0);
     if (ctx == 0) {
         FatalError("Error", "Failed to create the context.");
         return;
     }
+    ctx->SetUserData(this, 0);
 
     if (asdebugger_enabled) {
         dbg.SetEngine(engine);

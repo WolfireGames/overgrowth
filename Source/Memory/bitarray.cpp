@@ -64,21 +64,21 @@ bool Bitarray::GetBit(size_t index) {
     size_t p = index / 64;
     size_t i = index % 64;
 
-    return (arr[p] & (1UL << i));
+    return (arr[p] & (1ULL << i));
 }
 
 void Bitarray::SetBit(size_t index) {
     size_t p = index / 64;
     size_t i = index % 64;
 
-    arr[p] |= (1UL << i);
+    arr[p] |= (1ULL << i);
 }
 
 void Bitarray::FreeBit(size_t index) {
     size_t p = index / 64;
     size_t i = index % 64;
 
-    arr[p] &= ~(1UL << i);
+    arr[p] &= ~(1ULL << i);
 }
 
 void Bitarray::SetBits(size_t index, size_t count) {

@@ -277,18 +277,22 @@ bool TextureData::EnsureInRAM() {
 void TextureData::GetUncompressedData(unsigned char *data) {
     if (is_loaded) {
         pixel_format format = m_crnTex.get_format();
-        int imageBits = 32;
+        // In both `terrain.cpp` and `textures.cpp`, both uses of this function imply that the only valid data format
+        // expected is BGRA_8. Otherwise, one would expect the function signature to also return a `numBits` or similar.
+        // Therefore, I'll proclaim `imageBits` obsolete, and comment out the lesser bit depths and the conditional.
+        // int imageBits = 32;
 
-        int bytesPerPixel = imageBits / 8;
+        // int bytesPerPixel = imageBits / 8;
         int imageWidth = m_crnTex.get_width();
         int imageHeight = m_crnTex.get_height();
 
-        int heightDataSize = imageWidth * imageHeight;
-        int imageDataSize = heightDataSize * bytesPerPixel;
+        // int heightDataSize = imageWidth * imageHeight;
+        // int imageDataSize = heightDataSize * bytesPerPixel;
 
         image_u8 image;
         image_u8 *pImg = m_crnTex.get_level_image(0, 0, image);
 
+        /*
         if (imageBits == 8) {
             for (int y = 0; y < imageHeight; y++) {
                 color_quad_u8 *bits = pImg->get_scanline(y);
@@ -309,19 +313,22 @@ void TextureData::GetUncompressedData(unsigned char *data) {
                 }
             }
         } else if (imageBits == 32) {
-            for (int y = 0; y < imageHeight; y++) {
-                color_quad_u8 *bits = pImg->get_scanline(y);
-                for (int x = 0; x < imageWidth; x++) {
-                    int curr_index = x + y * imageWidth;
-                    data[4 * curr_index] = bits[x].b;
-                    data[4 * curr_index + 1] = bits[x].g;
-                    data[4 * curr_index + 2] = bits[x].r;
-                    data[4 * curr_index + 3] = bits[x].a;
-                }
+        */
+
+        for (int y = 0; y < imageHeight; y++) {
+            color_quad_u8 *bits = pImg->get_scanline(y);
+            for (int x = 0; x < imageWidth; x++) {
+                int curr_index = x + y * imageWidth;
+                data[4 * curr_index] = bits[x].b;
+                data[4 * curr_index + 1] = bits[x].g;
+                data[4 * curr_index + 2] = bits[x].r;
+                data[4 * curr_index + 3] = bits[x].a;
             }
-            // TODO: what is this?
-            /*
-            } else if (m_nImageBits == 96) {
+        }
+
+        // TODO: what is this?
+        /*
+        } else if (m_nImageBits == 96) {
             for(int y = 0; y < m_nImageHeight; y++) {
             BYTE *bits = FreeImage_GetScanLine(image, y);
             for(int x = 0; x < m_nImageWidth; x++) {
@@ -336,9 +343,8 @@ void TextureData::GetUncompressedData(unsigned char *data) {
             m_nImageData[4*curr_index+2] = (unsigned char)(min(1.0f, pixelf[0]) * 255.0f);
             m_nImageData[4*curr_index+3] = 255;
             bits += bytesPerPixel;
-            }
-            */
         }
+        */
     } else {
         LOGE << "Unable to load LoadUncompressedData from texturedata, data is unloaded " << endl;
     }
