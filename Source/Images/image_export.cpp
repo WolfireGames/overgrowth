@@ -118,11 +118,11 @@ void ImageExport::SavePNG(const char *file_path, unsigned char *data, unsigned l
     createfile(file_path);
     std::string short_path(file_path);
     ShortenWindowsPath(short_path);
-    if (!stbi_write_png(short_path.c_str(), width, height, 3, scaled_data.data(), width * 4)) {
+    if (!stbi_write_png(short_path.c_str(), width, height, 4, scaled_data.data(), width * 4)) {
         DisplayError("Error", "Problem exporting .png file");
     }
 #else
-    if (!stbi_write_png(file_path, width, height, 3, scaled_data.data(), width * 4)) {
+    if (!stbi_write_png(file_path, width, height, 4, scaled_data.data(), width * 4)) {
         DisplayError("Error", "Problem exporting .png file");
     }
 #endif
