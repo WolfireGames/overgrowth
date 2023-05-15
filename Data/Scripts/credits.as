@@ -120,6 +120,7 @@ void Initialize() {
 	addToTextScroll( "Programming", true);
 	addToTextScroll( "Brian Cronin");
 	addToTextScroll( "David Rosen");
+	addToTextScroll( "David Lyhed Danielsson");
 	addToTextScroll( "Gyrth McMulin");
 	addToTextScroll( "Jeffrey Rosen");
 	addToTextScroll( "John Graham");
