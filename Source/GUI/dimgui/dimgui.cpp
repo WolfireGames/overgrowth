@@ -2842,7 +2842,7 @@ Max Danielsson\nJosh Goheen\nJohn Graham\nPhillip Isola\nTuro Lamminen\n\
 Tapio Liukkonen\nRyan Mapa\nBrendan Mauro\nGyrth McMulin\nMerlyn Morgan-Graham\n\
 Tuomas Narvainen\nJillian Ogle\n\
 Lukas Orsvarn\nConstance Paige\nWes Platt\nTim Pratt\nAnton Riehl\nDavid Rosen\nJeffrey Rosen\nAubrey Serr\nCarl Söyseth\n\
-Mark Stockton\nMikko Tarmia");
+Mark Stockton\nMikko Tarmia\nDavid Lyhed Danielsson");
                     ImGui::EndMenu();
                 }
 
