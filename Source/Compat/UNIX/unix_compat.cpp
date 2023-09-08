@@ -331,13 +331,24 @@ static bool caseCorrectInner(char* path, char* pathEnd) {
 void caseCorrect(char* path) {
     if(*path == '\0')
         return;
+
+    char* pathEnd;
+    {
+        /* '\' -> '/' conversion */
+        char* current = path;
+        while(*current != '\0') {
+            if(*current == '\\')
+                *current = '/';
+            ++current;
+        }
+        pathEnd = current;
+    }
     if(access(path, F_OK) == 0)
         return;
     if(errno != ENOENT)
         return;
 
     bool restoreSlash = false;
-    char* pathEnd = path + strlen(path);
     if(*(pathEnd - 1) == '/') {
         /* path ends with a slash; to simplify handling things, remove it temporarily */
         --pathEnd;
