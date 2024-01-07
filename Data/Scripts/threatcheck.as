@@ -33,18 +33,6 @@ int GetPlayerCharacterID() {
     return -1;
 }
 
-array<int> GetControlledCharacterIDs() {
-    array<int> ids;
-    int num = GetNumCharacters();
-    for(int i=0; i<num; ++i){
-        MovementObject@ char = ReadCharacter(i);
-        if(char.controlled){
-            ids.insertLast(i);
-        }
-    }
-    return ids;
-}
-
 int NumActivelyHostileThreats() {
     int player_id = GetPlayerCharacterID();
     if(player_id == -1){
