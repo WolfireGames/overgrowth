@@ -55,8 +55,8 @@ int move_dist = 12;
 int move_dir = 1;
 IMMouseOverMove move_button_text( move_time, vec2(move_dist * move_dir, 0), inQuartTween );
 IMMouseOverMove move_button_background( move_time, vec2(move_dist * move_dir, 0), inQuartTween );
-IMMouseOverSound button_hover_sound("Data/Sounds/footstep_mud.xml");
-IMSoundOnClick button_press_sound("Data/Sounds/hit/hit_hard.xml");
+IMMouseOverSound button_hover_sound("Data/Sounds/ui/ui_hover.xml");
+IMSoundOnClick button_press_sound("Data/Sounds/ui/ui_click.xml");
 
 IMMouseOverScale mouseover_scale( move_time, 50.0f, inQuartTween );
 IMMouseOverScale mouseover_scale_background( move_time, 50.0f, inQuartTween );
