@@ -26,8 +26,12 @@ enum ParticleType {
     _smoke = 0, 
     _falling_water = 1,
     _foggy = 2,
-    _dripping_water = 3,
-    _dripping_water_lower = 4
+    _dusty = 3,
+    _dripping_water = 4,
+    _dripping_water_lower = 5,
+    _rain_splash = 6,
+    _firefly = 7,
+    _eyeflare = 8
 };
 
 int particle_type;
@@ -44,12 +48,20 @@ void SetParameters() {
         particle_type = _smoke;
     } else if(type_string == "Foggy"){
         particle_type = _foggy;
+    } else if(type_string == "Dusty"){
+        particle_type = _dusty;
     } else if(type_string == "Falling Water"){
         particle_type = _falling_water;
+    } else if(type_string == "Rain Splash"){
+        particle_type = _rain_splash;
+    } else if(type_string == "Firefly"){
+        particle_type = _firefly;
     } else if(type_string == "Dripping Water"){
         particle_type = _dripping_water;
     } else if(type_string == "Dripping Water Lower"){
         particle_type = _dripping_water_lower;
+    } else if(type_string == "Eyeflare"){
+        particle_type = _eyeflare;
 	}
 }
 
@@ -77,7 +89,17 @@ void PreDraw(float curr_game_time) {
                     offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
                     uint32 id = MakeParticle("Data/Particles/smoke_ambient.xml", pos + Mult(rotation, offset), vec3(0.0f), vec3(1.0f));
                 }
+			}
                 delay += 0.4f;
+            if(particle_type == _rain_splash){
+                for(int i=0; i<1; ++i){
+                    vec3 offset;
+                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
+                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
+                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
+                    uint32 id = MakeParticle("Data/Particles/rainsplash.xml", pos + Mult(rotation, offset), vec3(0.0f), vec3(1.0f));
+                }
+                delay += -0.3f;
             }
                     if(particle_type == _foggy){
                 for(int i=0; i<1; ++i){
@@ -88,6 +110,16 @@ void PreDraw(float curr_game_time) {
                     uint32 id = MakeParticle("Data/Particles/smoke_foggy.xml", pos + Mult(rotation, offset), vec3(0.0f), vec3(1.0f));
                 }
                 delay += 0.4f;
+            }
+                    if(particle_type == _dusty){
+                for(int i=0; i<1; ++i){
+                    vec3 offset;
+                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
+                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
+                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
+                    uint32 id = MakeParticle("Data/Particles/ambientdust.xml", pos + Mult(rotation, offset), vec3(0.0f), vec3(1.0f));
+                }
+                delay += 1.0f;
             }
             if(particle_type == _falling_water){
                 for(int i=0; i<1; ++i){
@@ -129,6 +161,28 @@ void PreDraw(float curr_game_time) {
                     uint32 id = MakeParticle("Data/Particles/rainsmall.xml", pos + Mult(rotation, offset), vel * 2.0, vec3(1.0f));
                 }
                 delay += 0.6f;
+            }
+            if(particle_type == _firefly ){
+                for(int i=0; i<1; ++i){
+                    vec3 offset;
+                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
+                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
+                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
+                    vec3 vel = rotation * vec3(0,0,0);
+                    uint32 id = MakeParticle("Data/Particles/firefly.xml", pos + Mult(rotation, offset), vel * 2.0, vec3(1.0f));
+                }
+                delay += 1.6f;
+            }
+            if(particle_type == _eyeflare ){
+                for(int i=0; i<1; ++i){
+                    vec3 offset;
+                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
+                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
+                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
+                    vec3 vel = rotation * vec3(0,0,0);
+                    uint32 id = MakeParticle("Data/Particles/eyeflare.xml", pos + Mult(rotation, offset), vel * 2.0, vec3(1.0f));
+                }
+                delay += RangedRandomFloat(1.4, 4);
             }
         }
         if(delay < -1.0){
