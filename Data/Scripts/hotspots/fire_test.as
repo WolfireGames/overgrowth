@@ -207,7 +207,9 @@ void PreDraw(float curr_game_time) {
         }
         if(sound_handle == -1){
             if(!level.WaitingForInput()){
-                sound_handle = PlaySoundLoopAtLocation("Data/Sounds/fire/campfire_loop.wav",pos,0.0f);
+                if(params.GetInt("Campfire Sound") == 1){
+                    sound_handle = PlaySoundLoopAtLocation("Data/Sounds/fire/campfire_loop.wav",pos,0.0f);
+                }
                 sound_start_time = curr_game_time;
             }
         } else {
@@ -261,6 +263,7 @@ void SetParameters() {
     params.AddFloatSlider("Light Amplify",1.0f,"min:0,max:20,step:0.1");
     params.AddFloatSlider("Light Distance",2.0f,"min:0,max:100,step:0.1");
     params.AddInt("Fire Ribbons",4);
+    params.AddIntCheckbox("Campfire Sound", true);
     params.AddIntCheckbox("Ignite Characters", true);
     num_ribbons = max(0, min(500, params.GetInt("Fire Ribbons")));
     hotspot.SetCollisionEnabled(params.GetInt("Ignite Characters") == 1);
