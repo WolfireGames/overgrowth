@@ -488,21 +488,30 @@ float UnLinearizeDepth(float result) {
     #if defined(TEST_CLOUDS_2)
         // From drift on shadertoy - https://www.shadertoy.com/view/4tdSWr
         const float cloudscale = 1.1;
-        const float speed = cloud_speed*0.1;
+        const float speed = cloud_speed * 0.1;
         const float clouddark = 0.5;
         const float cloudlight = 0.3;
-        const vec3 cloudtint = vec3(1.1, 1.1, 0.9);
 
         #if defined(MORECLOUDS)
             const float cloudcover = 0.8;
+        #elif defined(OURUIN_EVENING)
+            const float cloudcover = 1.0;
         #else
             const float cloudcover = 0.2;
         #endif
 
         const float cloudalpha = 8.0;
         const float skytint = 0.5;
-        const vec3 skycolour1 = vec3(0.2, 0.4, 0.6);
-        const vec3 skycolour2 = vec3(0.4, 0.7, 1.0);
+
+        #if defined(OURUIN_EVENING)
+            const vec3 skycolour1 = vec3(0.1, 0.1, 0.1);
+            const vec3 skycolour2 = vec3(0.1, 0.1, 0.1);
+
+        #else
+            const vec3 cloudtint = vec3(1.1, 1.1, 0.9);
+            const vec3 skycolour1 = vec3(0.2, 0.4, 0.6);
+            const vec3 skycolour2 = vec3(0.4, 0.7, 1.0);
+        #endif
 
         const mat2 m = mat2( 1.6,  1.2, -1.2,  1.6 );
 
@@ -1216,7 +1225,7 @@ void main() {
 
         //#define ASH
         //#define RAIN
-        #if defined(ASH) || defined(SANDSTORM) || (defined(SNOW) && defined(MED))
+        #if defined(ASH) || defined(SANDSTORM) || (defined(SNOW) && defined(MED) || defined(EMBERS))
             int type = instance_id%83;
         #endif
 
@@ -1238,10 +1247,38 @@ void main() {
                 }
             } else {
                 out_color.xyz = vec3(0.0,0.0,0.0);
-                float height = world_vert.y + 22;
-                float volcano_lit = pow(max(0.0, (1.0-height*0.1)), 4.0);
-                out_color.xyz += vec3(0.5,0.1,0.0)*volcano_lit;
+                #if !defined(ASH_DISABLE_VOLCANO_LIGHTING)
+                    float height = world_vert.y + 22;
+                    float volcano_lit = pow(max(0.0, (1.0-height*0.1)), 4.0);
+                    out_color.xyz += vec3(0.5,0.1,0.0)*volcano_lit;
+                #endif
                 fade_dist = 10.0;
+                #if defined(ASH_DARKER_INDOOR_SMOKE)
+                    out_color.a += 0.25;
+                    fade_dist = 2.0;
+                #endif
+                #if defined(ASH_EVEN_DARKER_INDOOR_SMOKE)
+                    out_color.a += 0.125;
+                    fade_dist = 10.0;
+                #endif
+            }
+        #elif defined(EMBERS)
+            if(type >= 1 && type < 3){
+                out_color.xyz = vec3(0.1);
+                out_color.a = min(1.0, out_color.a);
+            } else if (type == 0){
+                float height = world_vert.y - cam_pos.y - 0.0;
+                out_color.xyz = mix(vec4(1.0, 0.5, 0.0, 1.0) * 50.0, vec4(2.0), clamp(height * 1.0, 0.0, 1.0)).xyz;
+                out_color.a = 1.0 - (min(4.0, height) / 4.0);
+
+                if(out_color.a > 1.0){
+                    out_color.xyz *= out_color.a;
+                    out_color.a = 1.0;
+                }
+
+            } else {
+                out_color.xyz = vec3(0.0,0.0,0.0);
+                out_color.a = 0.005;
             }
         #elif defined(SANDSTORM)
             if(type < 3){
@@ -1331,7 +1368,9 @@ void main() {
             color = mix(color, textureLod(tex1,normal, mix(pow(blur, 2.0), 1.0, fogness*0.5+0.5) * 5.0).xyz, min(1.0, blur * 4.0));
         #endif
 
-        color.xyz *= tint;
+        #if !defined(OURUIN_EVENING)
+            color.xyz *= tint;
+        #endif
         //vec3 tint = vec3(1.0, 0.0, 0.0);
         //color *= tint;
         out_color = vec4(color,1.0);
@@ -1506,7 +1545,19 @@ void main() {
                 vec3 skycolour = mix(skycolour2, skycolour1, normalized.y);
             #endif
 
-            vec3 cloudcolour = cloudtint * clamp((clouddark + cloudlight*c), 0.0, 1.0);
+            #if defined(OURUIN_EVENING)
+                // Apply the tint to the skybox texture as well.
+                skycolour *= tint;
+                // The sun direction is used to create a light and a dark side.
+                float sun_direction = dot(ws_light, normalized);
+                // Make the clouds darker on the other side of the sky.
+                float sun_colour  = max(0.0, -sun_direction);
+                // Remove colour from the clouds when reaching the dark side.
+                vec3 cloud_coloured = mix(tint, vec3(0.0), sun_colour);
+                vec3 cloudcolour = cloud_coloured * clamp((clouddark + cloudlight*c), 0.0, 1.0);
+            #else
+                vec3 cloudcolour = cloudtint * clamp((clouddark + cloudlight*c), 0.0, 1.0);
+            #endif
 
             f = cloudcover + cloudalpha*f*r;
 
@@ -1522,7 +1573,18 @@ void main() {
                 float mix_amount = max(normalized.y, 0.0);
             #endif
 
-            out_color = mix(out_color, vec4( result * 0.5, 1.0 ), mix_amount);  // Clouds
+            #if defined(OURUIN_EVENING)
+                float direct_sun_light = max(0.0, (sun_direction + 1.0) / 2.0) * 1.0;
+                // Apply an exponential tween to the sun direction so the brightness ramps up.
+                direct_sun_light = direct_sun_light == 0.0 ? 0.0 : pow(2.0, 10.0 * direct_sun_light - 10.0);
+                // Add a lot of sky brightness when 
+                direct_sun_light *= 10.0;
+                // Make sure the added brightness does not go negative.
+                direct_sun_light = max(0.5, direct_sun_light);
+                out_color = mix(out_color, vec4( result * direct_sun_light, 1.0 ), mix_amount);  // Clouds
+            #else
+                out_color = mix(out_color, vec4( result * 0.5, 1.0 ), mix_amount);  // Clouds
+            #endif
             // out_color = vec4(vec3((old_uv.x > 0.0) == (old_uv.y > 0.0)), 1.0);  // Quadrants black/white
             // out_color = vec4(vec3((int(floor(old_uv.x)) % 2 == 0) == (int(floor(old_uv.y)) % 2 == 0)), 1.0);  // Checkerboard
         #endif

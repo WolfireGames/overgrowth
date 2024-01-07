@@ -526,15 +526,22 @@ void main() {
         float size = 0.005 * (sin(instance_id*1.327)*0.5+1.0);
         float max_dist = 16.13;
 
-        #ifdef ASH
+        #if defined(ASH) || defined(EMBERS)
 
             int type = instance_id % 83;
 
             if(type == 0){
-                max_dist *= 2.0;
-                size *= 4.0;
-                fall_speed = -2.0;
-                speed = 0.3;
+                #if defined(EMBERS)
+                    max_dist *= 2.0;
+                    size *= 2.0;
+                    fall_speed = -3.0;
+                    speed = 0.8;
+                #else
+                    max_dist *= 2.0;
+                    size *= 4.0;
+                    fall_speed = -2.0;
+                    speed = 0.3;
+                #endif
             } else if(type >= 1 && type < 3){
                 max_dist *= 2.0;
                 size *= 4.0;
@@ -544,6 +551,14 @@ void main() {
                 fall_speed = -0.5;
                 speed = 0.1;
                 size *= 80.0;
+                #if defined(ASH_DARKER_INDOOR_SMOKE)
+                    size *= 3;
+                    fall_speed = -1.0;
+                #endif
+                #if defined(ASH_EVEN_DARKER_INDOOR_SMOKE)
+                    size *= 9;
+                    fall_speed = -2.0;
+                #endif
             }
 
         #elif defined(SANDSTORM)
@@ -670,7 +685,7 @@ void main() {
 
         dist = distance(pos, cam_pos);
 
-        #ifdef ASH
+        #if defined(ASH) || defined(EMBERS)
 
             if(type == 0){
                 float max_spark_dist = 16.0;
