@@ -49,7 +49,6 @@ string tutorial = "";
 bool fall_death = false;
 int roll_count = 0;
 float dialogue_stop_time = 0.0;
-int saved_attacker_id = 0;
 
 int num_hit_on_ground = 0;
 int num_strikes = 0;
@@ -188,6 +187,7 @@ float body_bob_freq = 0.0f;
 float body_bob_time_offset;
 
 // Parameter values
+float p_idlesway;
 float p_aggression;
 float p_ground_aggression;
 float p_damage_multiplier;
@@ -1209,8 +1209,6 @@ void HitByItem(string material, vec3 point, int id, int type) {
     // Take damage from item impact
     float force_len = length(force);
     level.SendMessage("item_hit " + this_mo.getID());
-
-	attacked_by_id = io.last_held_char_id_;
 
     if(this_mo.controlled) {
         if(tutorial == "stealth") {
@@ -2503,8 +2501,8 @@ void UpdateMouth(const Timestep &in ts) {
 }
 
 bool was_controlled = false;
-bool was_editor_mode = false; 
-void Update(int num_frames) {   
+bool was_editor_mode = false;
+void Update(int num_frames) {
     if(frozen && !this_mo.controlled) {
         if(knocked_out != _dead) {
             Timestep ts(time_step, num_frames);
@@ -2538,7 +2536,7 @@ void Update(int num_frames) {
         if(knocked_out == _awake) {
             bool use_keyboard = (max(last_mouse_event_time, last_keyboard_event_time) > last_controller_event_time);
 
-            if(!dialogue_control && note_request_time > time - 0.1) {
+            if(!dialogue_control && note_request_time > max(0.0, time - 0.1)) {
                 if(CanPlayDialogue() == 1) {
                     level.SendMessage("screen_message " + "Press " + GetStringDescriptionForBinding(use_keyboard ? "key" : "gamepad_0", "attack") + " to read");
                 }
@@ -5193,7 +5191,7 @@ int WasHit(string type, string attack_path, vec3 dir, vec3 pos, int attacker_id,
     }
 
     attack_getter2.Load(attack_path);
-	attacked_by_id = attacker_id;
+
     if(knife_layer_id != -1) {
         this_mo.rigged_object().anim_client().RemoveLayer(knife_layer_id, 4.0f);
     }
@@ -5717,6 +5715,10 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
         block_stunned = 1.0;
     }
 
+    if(permanent_health <= -0.5f && knocked_out == _dead && !this_mo.controlled) {
+        level.SendMessage("enemy_overkilled");
+    }
+
     ReceiveMessage("notice " + attacker_id);
 
     if(this_mo.controlled && (state == _ragdoll_state || state == _ground_state) && knocked_out == _awake) {
@@ -5738,6 +5740,10 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
             (attack_getter2.GetHeight() == _high && duck_amount >= 0.5f) ||
             (attack_getter2.GetHeight() == _low && !on_ground)) {
         level.SendMessage("dodged " + this_mo.getID() + " " + attacker_id);
+        if(this_mo.controlled) {
+            level.SendMessage("player_dodged");
+        }
+
         return _miss;
     }
 
@@ -5745,6 +5751,7 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
 
     if(this_mo.controlled) {
         camera_shake += 1.0f;  // Shake camera if player is hit
+        level.SendMessage("player_damaged");
     }
 
     if(tether_id != attacker_id) {
@@ -5957,6 +5964,11 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
                 }
 
                 TakeSharpDamage(sharp_damage * attack_damage_mult, pos, attacker_id, true);
+                if(this_mo.controlled) {
+                    level.SendMessage("player_took_sharp_damage");
+                 } else {
+                    level.SendMessage("enemy_took_sharp_damage");
+                 }
             }
         }
 
@@ -6059,6 +6071,10 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
             }
 
             level.SendMessage("knocked_over " + this_mo.getID() + " " + attacker_id);
+            if(this_mo.controlled) {
+                level.SendMessage("player_knocked_over");
+            }
+
 
             if(knocked_out == _dead && old_knocked_out != _dead) {
                 PlaySoundGroup("Data/Sounds/hit/hit_hard.xml", pos, sound_priority);
@@ -6352,6 +6368,18 @@ void SetKnockedOut(int val) {
         
         if(!this_mo.controlled) {
             AchievementEvent("enemy_died");
+            level.SendMessage("enemy_died");
+
+            array<int> player_ids = GetPlayerCharacterIDs();
+            if(player_ids.size() != 0) {
+                MovementObject@ player_char = ReadCharacterID(player_ids[0]);
+
+                const float kDistanceThreshold = 10.0 * 10.0;
+
+                if(distance_squared(this_mo.position, player_char.position) < kDistanceThreshold * 9){
+                            level.SendMessage("enemy_killed");
+                }
+            }
         }
     }
 
@@ -6361,6 +6389,7 @@ void SetKnockedOut(int val) {
 
         if(!this_mo.controlled) {
             AchievementEvent("enemy_ko");
+            level.SendMessage("enemy_ko");
         }
     }
 
@@ -6433,6 +6462,9 @@ void ReceiveMessage(string msg) {
         RecoverHealth();
     } else if(token == "full_revive") {
         Recover();
+    } else if(token == "knockout") {
+        SetKnockedOut(_unconscious);
+        Ragdoll(_RGDL_FALL);
     } else if(token == "fall_death") {
         fall_death = true;
     } else if(token == "tutorial") {
@@ -6810,9 +6842,15 @@ void CharacterDefeated() {
         const float kDistanceThreshold = 10.0 * 10.0;
 
         if(zone_killed == 0) {
+            if(!this_mo.controlled && distance_squared(this_mo.position, player_char.position) < kDistanceThreshold * 9) {
+               level.SendMessage("enemy_eliminated");
+            }
             if(this_mo.controlled || (IsAggro() == 1 && num_threats == 0 && distance_squared(this_mo.position, player_char.position) < kDistanceThreshold)) {
                 TimedSlowMotion(0.1f, 0.7f, 0.05f);
             }
+        } else if(!this_mo.controlled && distance_squared(this_mo.position, player_char.position) < kDistanceThreshold * 9) {
+            level.SendMessage("enemy_zone_killed");
+            level.SendMessage("enemy_eliminated");
         }
     }
 }
@@ -6825,8 +6863,10 @@ void TakeDamage(float how_much) {
 
     if(this_mo.controlled) {
         AchievementEventFloat("player_damage", how_much);
+        level.SendMessage("player_damage" + how_much);
     } else {
         AchievementEventFloat("ai_damage", how_much);
+        level.SendMessage("ai_damage" + how_much);
     }
 
     HandleAIEvent(_damaged);
@@ -6869,6 +6909,7 @@ void TakeBloodDamage(float how_much) {
 
     if(this_mo.controlled) {
         AchievementEventFloat("player_blood_loss", how_much);
+        level.SendMessage("player_blood_loss" + how_much);
     }
 
     HandleAIEvent(_damaged);
@@ -6939,6 +6980,8 @@ void AttachWeapon(int which) {
         this_mo.AttachItemToSlot(which, _at_grip, mirror);
         HandleEditorAttachment(which, _at_grip, mirror);
     }
+
+    level.SendMessage("character_item_pickup " + this_mo.getID() + " " + which);
 }
 
 void HandleEditorAttachment(int which, int attachment_type, bool mirror) {
@@ -7279,6 +7322,7 @@ void HandleAnimationCombatEvent(const string &in event, const vec3 &in world_pos
     if(event == "golimp") {
         if(this_mo.controlled) {
             AchievementEvent("player_was_hit");
+            level.SendMessage("player_was_hit");
         }
 
         if(state == _hit_reaction_state && hit_reaction_thrown) {
@@ -7855,8 +7899,10 @@ void UpdateGroundAttackControls(const Timestep &in ts) {
     } else if(attack_id != -1) {
         if(this_mo.controlled) {
             AchievementEvent("player_attacked");
+            level.SendMessage("player_attacked");
         } else {
             AchievementEvent("ai_attacked");
+            level.SendMessage("ai_attacked");
         }
 
         ++num_strikes;
@@ -7908,6 +7954,7 @@ void UpdateGroundAttackControls(const Timestep &in ts) {
         } else {
             if(this_mo.controlled) {
                 AchievementEvent("player_attacked");
+                level.SendMessage("player_attacked");
             }
 
             breath_speed += 2.0f;
@@ -8436,6 +8483,7 @@ void GetVisibleCharacters(uint16 flags, array<int> &visible_characters) {
 
     for(uint i = 0; i < nearby_characters.size(); ++i) {
         if(this_mo.getID() != nearby_characters[i] &&
+                MovementObjectExists(nearby_characters[i]) &&
                 !ReadCharacterID(nearby_characters[i]).static_char &&
                 VisibilityCheck(head_pos, ReadCharacterID(nearby_characters[i]))) {
             visible_characters.push_back(nearby_characters[i]);
@@ -9984,6 +10032,7 @@ void WakeUp(int how) {
     } else if(how == _wake_roll) {
         if(this_mo.controlled) {
             AchievementEvent("player_wake_roll");
+            level.SendMessage("player_wake_roll");
         }
 
         SetOnGround(true);
@@ -14477,7 +14526,7 @@ void FinalAnimationMatrixUpdate(int num_frames) {
 
     vec3 body_offset(0.0f);
 
-    if(idle_stance_amount > 0.0f && !sitting && !asleep) {
+    if(idle_stance_amount > 0.0f && !sitting && !asleep && p_idlesway != 0.0f) {
         vec3 left_foot = (key_transforms[kLeftLegKey] * inv_skeleton_bind_transforms[ik_chain_elements[ik_chain_start_index[kLeftLegIK]]]).origin;
         vec3 right_foot = (key_transforms[kRightLegKey] * inv_skeleton_bind_transforms[ik_chain_elements[ik_chain_start_index[kRightLegIK]]]).origin;
 
@@ -14493,7 +14542,7 @@ void FinalAnimationMatrixUpdate(int num_frames) {
         com_offset_vel += (target_com_offset - com_offset) * 5.0f * time_step * num_frames;
         com_offset += com_offset_vel * time_step * num_frames;
         vec3 target_com = (right_foot - left_foot) * com_offset.x + this_mo.GetFacing() * com_offset.z;
-        float body_shift_amount = idle_stance_amount;
+        float body_shift_amount = idle_stance_amount * p_idlesway;
 
         if(dialogue_control) {
             body_shift_amount = 1.0;
@@ -14506,7 +14555,7 @@ void FinalAnimationMatrixUpdate(int num_frames) {
         vec3 axis = right_foot - left_foot;
         axis = vec3(axis.z, 0.0f, -axis.x);
         axis = normalize(axis);
-        quaternion rotate_x(vec4(axis.x, axis.y, axis.z, com_offset.x * 0.25f * body_shift_amount));
+        quaternion rotate_x(vec4(axis.x, axis.y, axis.z, com_offset.x * 0.25f * body_shift_amount * p_idlesway));
         key_transforms[kChestKey].rotation = rotate_x * key_transforms[kChestKey].rotation;
         key_transforms[kHipKey].rotation = rotate_x * key_transforms[kHipKey].rotation;
         key_transforms[kHeadKey].origin -= key_transforms[kChestKey].origin;
@@ -15479,6 +15528,9 @@ void SetParameters() {
     params.AddIntSlider("Knockout Shield", 0, "min:0,max:10");
     max_ko_shield = max(0, params.GetInt("Knockout Shield"));
     ko_shield = max_ko_shield;
+
+    params.AddFloatSlider("Idle Sway", 1, "min:0,max:2,step:0.1,text_mult:100");
+    p_idlesway = min(2.0f, max(0.0f, params.GetFloat("Idle Sway")));
 
     params.AddFloatSlider("Aggression", 0.5, "min:0,max:1,step:0.1,text_mult:100");
     p_aggression = min(1.0f, max(0.0f, params.GetFloat("Aggression")));
