@@ -168,7 +168,7 @@ void ReceiveMessage(string msg) {
     } else if(token == "manual_reset"){
         level.SendMessage("reset");
     } else if(token == "reset"){
-        Log(warning,"Level script received \"reset\"");
+        Log(info,"Level script received \"reset\"");
         dialogue.Init();
         dialogue_queue.resize(0);
         tutorial_opac = 0.0;
@@ -229,6 +229,9 @@ void ReceiveMessage(string msg) {
     } else if(token == "start_dialogue"){
         token_iter.FindNextToken(msg);
         dialogue_queue.push_back(token_iter.GetToken(msg));
+        if(fade_out_end == -1.0f){
+            dialogue.UpdatedQueue();
+        }
     } else if(token == "start_dialogue_fade"){
         token_iter.FindNextToken(msg);
         dialogue_queue.push_back(token_iter.GetToken(msg));
@@ -238,6 +241,8 @@ void ReceiveMessage(string msg) {
             fade_out_end = the_time+fade_time;
             fade_in_start = the_time+fade_time;
             fade_in_end = the_time+fade_time*2.0f;
+        } else {
+            dialogue.UpdatedQueue(); // Don't fade if we are resetting
         }
     } else if(token == "open_menu") {
         if(!has_gui){
