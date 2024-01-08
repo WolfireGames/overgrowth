@@ -260,11 +260,16 @@ void DrawEditor() {
     new_connection_object_id_input_was_focused = object_id_input_is_focused;
 
     ImGui_SameLine();
-    ImGui_BeginDisabled(!new_connection_object_id_valid_is_valid);
+    if(!new_connection_object_id_valid_is_valid) {
+      ImGui_PushStyleVar(ImGuiStyleVar_Enabled, false);
+      ImGui_PushStyleVar(ImGuiStyleVar_Alpha, 0.5);
+    }
     if(ImGui_Button("Connect")) {
       connect_triggered = true;
     }
-    ImGui_EndDisabled();
+    if(!new_connection_object_id_valid_is_valid) {
+      ImGui_PopStyleVar(2);
+    }
 
     if(!new_connection_object_id_valid_is_valid && !new_connection_object_id_input.isEmpty()) {
       int new_connection_object_id = atoi(new_connection_object_id_input);
