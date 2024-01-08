@@ -703,7 +703,11 @@ TargetHistory target_history;
 
 void Startle() {
     startled = true;
-    startle_time = 1.0f;
+        if(params.HasParam("Startle Modifier")) {
+            startle_time = 1.0f * params.GetFloat("Startle Modifier");
+        } else {
+            startle_time = 1.0f;
+    }
 }
 
 void Notice(int character_id) {
@@ -1476,6 +1480,7 @@ void UpdateBrain(const Timestep &in ts) {
         if(startle_time <= 0.0f) {
             startled = false;
             AchievementEvent("enemy_alerted");
+            level.SendMessage("enemy_alerted");
         }
     }
 
