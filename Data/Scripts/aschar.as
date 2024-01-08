@@ -26,6 +26,7 @@
 #include "aschar_aux.as"
 #include "aircontrols.as"
 #include "aircontrols_params.as"
+#include "tween.as"
 
 enum WalkDir {
     WALK_BACKWARDS,
@@ -551,6 +552,55 @@ class PredictPathOutput {
     vec3 end_pos;
     vec3 normal;
 };
+
+class DialogueMorph {
+    bool morphing = false;
+    string morph_name;
+    float start_value;
+    float end_value;
+    float morph_speed;
+    int tween_type;
+
+    float timer = 0.0f;
+    float morph_value = 0.0f;
+
+    DialogueMorph(string _morph_name){
+        morph_name = _morph_name;
+        morph_value = 0.0f;
+        // Make sure the morph targets are set to zero by default.
+        this_mo.rigged_object().SetMorphTargetWeight(morph_name, morph_value, 1.0f);
+    }
+
+    void SetMorphTarget(float target_value, float duration, string tween_name){
+        // Use the current morph value as a starting point. It doesn't matter if it's 0.0f, 1.0f or halfway somewhere.
+        start_value = morph_value;
+        end_value = target_value;
+        tween_type = GetTweenType(tween_name);
+        timer = 0.0f;
+        // Make sure speed calculation doesn't divide by zero.
+        morph_speed = 1.0f / max(0.001, duration);
+        morphing = true;
+    }
+
+    void Update(){
+        // Skip setting the morph target when the target has been reached.
+        if(!morphing){return;}
+
+        timer += time_step * morph_speed;
+        // Apply the tween on the timer that goes from 0.0 - 1.0.
+        float tweened_timer = ApplyTween(timer, tween_type);
+        // The morph value is stored in this class and can be used again with the next target value.
+        morph_value = mix(start_value, end_value, tweened_timer);
+        this_mo.rigged_object().SetMorphTargetWeight(morph_name, morph_value, 1.0f);
+
+        // Once the target has been reached, stop updating this morph target.
+        if(timer >= 1.0){
+            morphing = false;
+        }
+    }
+}
+
+array<DialogueMorph@> dialogue_morphs;
 
 // the main timer of the script, used whenever anything has to know how much time has passed since something else happened.
 float time = 0;
@@ -6494,6 +6544,27 @@ void ReceiveMessage(string msg) {
         } else {
             Log(error, "Couldn't find file \"" + token + "\"");
         }
+    } else if(token == "set_morph_target") {
+        token_iter.FindNextToken(msg);
+        string morph_name = token_iter.GetToken(msg);
+
+        token_iter.FindNextToken(msg);
+        float target_value = atof(token_iter.GetToken(msg));
+
+        token_iter.FindNextToken(msg);
+        float duration = atof(token_iter.GetToken(msg));
+
+        token_iter.FindNextToken(msg);
+        string tween_name = token_iter.GetToken(msg);
+
+        for(uint i = 0; i < dialogue_morphs.size(); i++){
+            if(dialogue_morphs[i].morph_name == morph_name){
+                // Find the correct morph target by name and set the target value.
+                dialogue_morphs[i].SetMorphTarget(target_value, duration, tween_name);
+                break;
+            }
+        }
+
     } else if(token == "set_eye_dir") {
         // Get params
         token_iter.FindNextToken(msg);
@@ -11479,6 +11550,7 @@ void PostReset() {
     target_rotation2 = 0;
     cam_rotation = target_rotation;
     cam_rotation2 = target_rotation2;
+    SetupDialogueMorphs();
 
     if(this_mo.controlled) {
         SetCameraFromFacing();
@@ -14851,7 +14923,31 @@ void FinalAnimationMatrixUpdate(int num_frames) {
     UpdateEyeLook();
     LeaveTelemetryZone();
 
+    UpdateDialogueMorph();
+
     LeaveTelemetryZone();
+}
+
+void SetupDialogueMorphs(){
+    dialogue_morphs.resize(0);
+
+    dialogue_morphs.insertLast(DialogueMorph("afraid"));
+    dialogue_morphs.insertLast(DialogueMorph("angry"));
+    dialogue_morphs.insertLast(DialogueMorph("diss"));
+    dialogue_morphs.insertLast(DialogueMorph("frown"));
+    dialogue_morphs.insertLast(DialogueMorph("mouth_open"));
+    dialogue_morphs.insertLast(DialogueMorph("sad"));
+    dialogue_morphs.insertLast(DialogueMorph("kidding"));
+    dialogue_morphs.insertLast(DialogueMorph("shocked"));
+    dialogue_morphs.insertLast(DialogueMorph("shock"));
+    dialogue_morphs.insertLast(DialogueMorph("smile"));
+    dialogue_morphs.insertLast(DialogueMorph("think"));
+}
+
+void UpdateDialogueMorph(){
+    for(uint i = 0; i < dialogue_morphs.size(); i++){
+        dialogue_morphs[i].Update();
+    }
 }
 
 void DoChestIK(float chest_tilt_offset, float angle_threshold, float torso_damping, float torso_stiffness, int num_frames) {

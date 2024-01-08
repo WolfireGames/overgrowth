@@ -164,7 +164,8 @@ enum ObjCommands {
     kSetCamControl,
     kSetAnimation,
     kSay,
-    kFadeToBlack
+    kFadeToBlack,
+    kSetMorphTarget
 };
 
 class ScriptElement {
@@ -185,6 +186,7 @@ class CharRecord {
     int last_eye;
     int last_torso;
     int last_anim;
+    int last_morph;
 
     CharRecord() {
         last_pos = -1;
@@ -192,6 +194,7 @@ class CharRecord {
         last_eye = -1;
         last_torso = -1;
         last_anim = -1;
+        last_morph = -1;
     }
 };
 
@@ -379,6 +382,10 @@ class Dialogue {
                     int which_char = atoi(strings[i].params[0]);
                     char_record[which_char-1].last_anim = i;
                     break;}
+                case kSetMorphTarget:{
+                    int which_char = atoi(strings[i].params[0]);
+                    char_record[which_char-1].last_morph = i;
+                    break;}
                 }
             }
             if(last_cam_update != -1){
@@ -399,6 +406,9 @@ class Dialogue {
                 }
                 if(char_record[i].last_eye != -1){
                     strings[char_record[i].last_eye].record_locked = true;
+                }
+                if(char_record[i].last_morph != -1){
+                    strings[char_record[i].last_morph].record_locked = true;
                 }
             }
             for(int i=0; i<num_lines; ++i){
@@ -586,6 +596,9 @@ class Dialogue {
             break;
         case kSetAnimation:
             str = "send_character_message "+params[0]+" \"set_animation \\\""+params[1]+"\\\"\"";
+            break;
+        case kSetMorphTarget:
+            str = "send_character_message "+params[0]+" \"set_morph_target "+params[1]+" "+params[2]+" "+params[3]+" "+params[4]+"\"";
             break;
         case kFadeToBlack:
             str = "fade_to_black "+params[0];
@@ -1512,6 +1525,16 @@ class Dialogue {
         } else if(token == "set_animation"){
             se.obj_command = kSetAnimation;
             const int kNumParams = 1;
+            int old_param_size = se.params.size();
+            int new_param_size = old_param_size+kNumParams;
+            se.params.resize(new_param_size);
+            for(int i=old_param_size; i<new_param_size; ++i){
+                token_iter.FindNextToken(msg);
+                se.params[i] = token_iter.GetToken(msg);
+            }
+        } else if(token == "set_morph_target"){
+            se.obj_command = kSetMorphTarget;
+            const int kNumParams = 4;
             int old_param_size = se.params.size();
             int new_param_size = old_param_size+kNumParams;
             se.params.resize(new_param_size);
