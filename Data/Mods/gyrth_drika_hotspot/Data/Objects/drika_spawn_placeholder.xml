@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<Object>
+    <Model>Data/Models/drika_spawn_placeholder.obj</Model>
+    <ColorMap>Data/Textures/Characters/IGF_Turner/IGF_Turner_color.tga</ColorMap>
+    <NormalMap>Data/Textures/Characters/IGF_Turner/IGF_Turner_normal.tga</NormalMap>
+    <PaletteMap label_red="Cloth"
+                label_green="Rope"
+                label_blue="Fur">
+        Data/Textures/Characters/IGF_Turner/IGF_Turner_palette.tga
+    </PaletteMap>
+    <ShaderName>cubemapobjchar</ShaderName>
+</Object>

@@ -21,6 +21,7 @@ _git_version.inc
 Data/short_version
 Data/Mods/*
 !Data/Mods/wolfire_*
+!Data/Mods/gyrth_drika_hotspot
 !Data/Mods/example_tcp_socket_mod/
 !Data/Mods/example_mod
 !Data/Mods/therium

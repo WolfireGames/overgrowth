@@ -1,0 +1,17 @@
+<? xml version="1.0" ?>
+<Mod>
+    <Id>drika-hotspot</Id>
+    <Name>Drika Hotspot</Name>
+    <Category>Item Pack</Category>
+    <Version>0.1.0</Version>
+    <Author>Gyrth McMulin</Author>
+    <Thumbnail>Data/Images/drika_hotspot_thumb.jpg</Thumbnail>
+    <PreviewImage>Data/Images/drika_hotspot_full.jpg</PreviewImage>
+    <Description>Drika Hotspot or DHS for short is a tool that allows users to create scripts with a GUI. Every DHS executes it's functions from top to bottom making it easy to trigger events based on one or more conditions. For example opening a door when a character steps in front of it.</Description>
+    <Tag>Core</Tag>
+    <Tag>Scripting</Tag>
+    <SupportedVersion>*</SupportedVersion>
+    <NeedsRestart>false</NeedsRestart>
+	<Item category="Hotspot" title="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail="Data/Textures/drika_hotspot.png" />
+	<LevelHookFile>Data/Scripts/drika_controller.as</LevelHookFile>
+</Mod>

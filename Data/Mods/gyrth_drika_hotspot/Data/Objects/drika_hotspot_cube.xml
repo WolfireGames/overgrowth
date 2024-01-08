@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/drika_hotspot_cube.obj</Model>
+	<ColorMap>Data/Textures/Objects/ink/feather_c.tga</ColorMap>
+	<NormalMap>Data/Textures/diffusebump.tga</NormalMap>
+	<ShaderName>cubemapalpha</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

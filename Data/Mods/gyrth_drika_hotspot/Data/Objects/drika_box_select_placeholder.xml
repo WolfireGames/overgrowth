@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/drika_box_select_cube.obj</Model>
+	<ColorMap>Data/Textures/white.tga</ColorMap>
+	<NormalMap>Data/Textures/diffusebump.tga</NormalMap>
+	<ShaderName>drika_placeholder</ShaderName>
+    <flags no_collision = "true" double_sided = "true"/>
+</Object>
