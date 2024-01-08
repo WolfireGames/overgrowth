@@ -809,11 +809,11 @@ void Update() {
                         level.SendMessage("tutorial "+"If you catch on fire, you can roll to put yourself out."+respawn);
                         break;
                     case _hint_roll_stand:
-                        level.SendMessage("tutorial "+"When knocked down, press "+GetStringDescriptionForBinding(use_keyboard?"key":"gamepad_0", "crouch")+" to roll to your feet"+respawn);
+                        level.SendMessage("tutorial "+"When knocked down, press "+GetStringDescriptionForBinding(use_keyboard?"key":"gamepad_0", "crouch")+" to roll to your feet."+respawn);
                         //level.SendMessage("tutorial "+"When knocked down, you can still block attacks by pressing "+GetStringDescriptionForBinding(use_keyboard?"key":"gamepad_0", "grab")+" just before impact"+respawn);
                         break;
                     case _hint_vary_attacks:
-                        level.SendMessage("tutorial "+"Mix up your attacks to get through enemy defenses"+respawn);
+                        level.SendMessage("tutorial "+"Mix up your attacks to get through enemy defenses."+respawn);
                         break;
                     case _hint_stealth:
                         level.SendMessage("tutorial Sometimes sneak attacks are much easier than direct combat."+respawn);
