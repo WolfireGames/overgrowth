@@ -5381,6 +5381,10 @@ int BlockedAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
 
     if(attack_getter2.GetFleshUnblockable() == 0) {
         level.SendMessage("active_blocked " + this_mo.getID() + " " + attacker_id);
+        if(this_mo.controlled) {
+            level.SendMessage("player_active_blocked");
+            level.SendMessage("player_gainedpoint");
+        }
         sound = "Data/Sounds/hit/hit_block.xml";
         MakeParticle("Data/Particles/impactfast.xml", pos, vec3(0.0f));
         MakeParticle("Data/Particles/impactslow.xml", pos, vec3(0.0f));
@@ -5742,6 +5746,7 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
         level.SendMessage("dodged " + this_mo.getID() + " " + attacker_id);
         if(this_mo.controlled) {
             level.SendMessage("player_dodged");
+            level.SendMessage("player_gainedpoint");
         }
 
         return _miss;
@@ -5752,6 +5757,11 @@ int HitByAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id, float a
     if(this_mo.controlled) {
         camera_shake += 1.0f;  // Shake camera if player is hit
         level.SendMessage("player_damaged");
+        level.SendMessage("player_lostpoint");
+    }
+    if(!this_mo.controlled) {
+        level.SendMessage("ai_damaged");
+        level.SendMessage("ai_lostpoint");
     }
 
     if(tether_id != attacker_id) {
@@ -6864,6 +6874,7 @@ void TakeDamage(float how_much) {
     if(this_mo.controlled) {
         AchievementEventFloat("player_damage", how_much);
         level.SendMessage("player_damage" + how_much);
+        level.SendMessage("player_lostpoint");
     } else {
         AchievementEventFloat("ai_damage", how_much);
         level.SendMessage("ai_damage" + how_much);
@@ -7323,6 +7334,7 @@ void HandleAnimationCombatEvent(const string &in event, const vec3 &in world_pos
         if(this_mo.controlled) {
             AchievementEvent("player_was_hit");
             level.SendMessage("player_was_hit");
+            level.SendMessage("player_lostpoint");
         }
 
         if(state == _hit_reaction_state && hit_reaction_thrown) {
@@ -9908,6 +9920,9 @@ void UpdateHitReaction(const Timestep &in ts) {
 
     if(this_mo.rigged_object().GetStatusKeyValue("escape")>=1.0f && WantsToCounterThrow() && !block_reaction_anim_set) {
         level.SendMessage("character_throw_escape " + this_mo.getID() + " " + target_id);
+        if(this_mo.controlled) {
+            level.SendMessage("player_gainedpoint");
+        }
         this_mo.SwapAnimation(attack_getter2.GetThrownCounterAnimPath());
         this_mo.rigged_object().anim_client().SetAnimationCallback("void EndHitReaction()");
         string sound = "Data/Sounds/weapon_foley/swoosh/weapon_whoos_big.xml";
