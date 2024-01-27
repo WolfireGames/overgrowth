@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/soft_archFIXED.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plastic_shine_less_shiny.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/wool_c.png" normalpath="Data/Custom/FnB/Textures/wool_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=10 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/wool_c.png" normalpath="Data/Custom/FnB/Textures/wool_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=10 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/wool_c.png" normalpath="Data/Custom/FnB/Textures/wool_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=10 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/wool_c.png" normalpath="Data/Custom/FnB/Textures/wool_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=7 />
+  	
+    </DetailMaps>
+
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/cloth_leather.xml</MaterialPath>
+</Object>

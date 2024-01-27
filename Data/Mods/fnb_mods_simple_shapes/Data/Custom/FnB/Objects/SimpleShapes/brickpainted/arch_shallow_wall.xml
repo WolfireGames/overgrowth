@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/arch_shallow_wall.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plainest_white_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/brick_painted_c.png" normalpath="Data/Custom/FnB/Textures/brick_painted_n.png" materialpath="Data/Materials/rock.xml" scale=1.4 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/brick_painted_c.png" normalpath="Data/Custom/FnB/Textures/brick_painted_n.png" materialpath="Data/Materials/rock.xml" scale=1.4 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/brick_painted_c.png" normalpath="Data/Custom/FnB/Textures/brick_painted_n.png" materialpath="Data/Materials/rock.xml" scale=1.4 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/brick_painted_c.png" normalpath="Data/Custom/FnB/Textures/brick_painted_n.png" materialpath="Data/Materials/rock.xml" scale=1.4 />
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

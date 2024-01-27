@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/tapered_pole.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plain_white_less_shiny_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/slate_tile_c.png" normalpath="Data/Custom/FnB/Textures/slate_tile_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/slate_tile_c.png" normalpath="Data/Custom/FnB/Textures/slate_tile_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/slate_tile_c.png" normalpath="Data/Custom/FnB/Textures/slate_tile_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/slate_tile_c.png" normalpath="Data/Custom/FnB/Textures/slate_tile_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

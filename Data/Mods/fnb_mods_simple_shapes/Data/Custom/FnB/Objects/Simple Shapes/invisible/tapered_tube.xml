@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+ 
+	<Model>Data/Custom/FnB/Models/tapered_tube.obj</Model>
+	<ColorMap>Data/Textures/wall3_color.tga</ColorMap>
+	<NormalMap>Data/Textures/wall3_normal_height.tga</NormalMap>
+	<ShaderName>envobject #INVISIBLE</ShaderName>
+</Object>

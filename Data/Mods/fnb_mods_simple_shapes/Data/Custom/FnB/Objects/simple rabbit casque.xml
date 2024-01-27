@@ -1,0 +1,127 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="0.643861" t1="2.2317" t2="-2.58925" s0="0.344081" s1="0.223083" s2="0.225985" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="93" version="1">
+        <parameters />
+        <EnvObject t0="0.649127" t1="2.18034" t2="-2.58925" s0="0.0243056" s1="0.0314669" s2="0.0189988" q0="0.0920791" q1="-0.0180854" q2="0.976922" q3="0.191879" euler_x="0" euler_y="-0.187953" euler_z="2.75371" id="54" color_r="0.780392" color_g="0.725306" color_b="0.67634" overbright="7.96" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.518363" t1="2.1792" t2="-2.56913" s0="0.0153793" s1="0.043225" s2="0.0587342" q0="0.00178921" q1="0.0839324" q2="-0.320907" q3="0.943383" euler_x="-0.0511704" euler_y="0.160193" euler_z="-0.659884" id="55" color_r="0.780392" color_g="0.725306" color_b="0.67634" overbright="7.96" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.670572" t1="2.23363" t2="-2.5893" s0="0.0862556" s1="0.102998" s2="0.066603" q0="0.0879499" q1="-0.0156679" q2="0.977577" q3="0.190689" euler_x="0.00295618" euler_y="-0.178883" euler_z="2.75604" id="56" color_r="1" color_g="0.99999" color_b="0.99999" overbright="1.412" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/bowl.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.670234" t1="2.23412" t2="-2.5916" s0="0.0245366" s1="0.0383863" s2="0.0269989" q0="-0.680028" q1="0.196974" q2="-0.0726312" q3="0.702486" euler_x="-1.57331" euler_y="0.178913" euler_z="-0.385413" id="66" color_r="0.780392" color_g="0.725306" color_b="0.67634" overbright="7.96" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/half_ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.671693" t1="2.22955" t2="-2.58943" s0="0.079289" s1="0.078812" s2="0.0627025" q0="0.0798916" q1="-0.0149834" q2="0.971419" q3="0.223019" euler_x="0.00661155" euler_y="-0.162615" euler_z="2.68971" id="53" color_r="0.909804" color_g="0.736888" color_b="0.488797" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/paddingsmall/bowl.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.576269" t1="2.26741" t2="-2.57448" s0="0.00815683" s1="0.0183529" s2="0.0183529" q0="-0.0325123" q1="0.0769358" q2="-0.47467" q3="0.876192" euler_x="-0.131096" euler_y="0.104144" euler_z="-0.999805" id="57" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.55928" t1="2.24893" t2="-2.57255" s0="0.00815683" s1="0.0183529" s2="0.0183529" q0="0.188879" q1="0.700244" q2="-0.641538" q3="-0.249825" euler_x="-1.62316" euler_y="-0.107739" euler_z="2.51242" id="58" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.545484" t1="2.22584" t2="-2.57217" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.0691385" q1="0.658878" q2="-0.718718" q3="-0.211055" euler_x="-1.44627" euler_y="-0.179702" euler_z="2.72905" id="59" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.594514" t1="2.28153" t2="-2.57609" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.232676" q1="0.592626" q2="-0.683519" q3="-0.357013" euler_x="-1.37926" euler_y="-0.105267" euler_z="2.26575" id="60" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.614526" t1="2.29194" t2="-2.57953" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.321264" q1="0.540048" q2="-0.646626" q3="-0.432449" euler_x="-1.35865" euler_y="-0.0516334" euler_z="2.00437" id="61" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.636769" t1="2.29824" t2="-2.58195" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.609334" q1="0.486744" q2="-0.38736" q3="0.491675" euler_x="-1.78894" euler_y="0.00657587" euler_z="-1.34276" id="62" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.660221" t1="2.29984" t2="-2.58613" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.458316" q1="0.429095" q2="-0.557927" q3="-0.542717" euler_x="-1.35731" euler_y="0.0456763" euler_z="1.5616" id="63" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.683062" t1="2.29623" t2="-2.58984" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.566544" q1="0.361506" q2="-0.4676" q3="-0.574188" euler_x="-1.47332" euler_y="0.11494" euler_z="1.26261" id="64" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.707168" t1="2.28591" t2="-2.59455" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.411327" q1="0.639371" q2="-0.593419" q3="0.264325" euler_x="-1.72922" euler_y="-0.150745" euler_z="-2.12689" id="65" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.728364" t1="2.26934" t2="-2.59897" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.445145" q1="0.885713" q2="-0.128572" q3="-0.0288083" euler_x="-2.9352" euler_y="-0.166263" euler_z="-2.22743" id="67" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.745354" t1="2.24665" t2="-2.60318" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.31732" q1="0.915154" q2="-0.248494" q3="0.00752828" euler_x="-2.6586" euler_y="-0.144426" euler_z="-2.50969" id="68" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.75656" t1="2.2193" t2="-2.60711" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.178318" q1="0.882249" q2="-0.433509" q3="-0.043678" euler_x="-2.26227" euler_y="-0.233799" euler_z="-2.85309" id="69" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.760682" t1="2.19235" t2="-2.60967" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.0936769" q1="0.82489" q2="-0.533491" q3="-0.161765" euler_x="-1.98974" euler_y="-0.375598" euler_z="3.12218" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.759654" t1="2.16427" t2="-2.61065" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.033321" q1="0.685301" q2="-0.719568" q3="-0.107119" euler_x="-1.51111" euler_y="-0.196023" euler_z="3.03076" id="71" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.752641" t1="2.13989" t2="-2.61148" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.0862413" q1="0.656858" q2="-0.723962" q3="-0.192302" euler_x="-1.44727" euler_y="-0.128109" euler_z="2.73556" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.745654" t1="2.14136" t2="-2.63023" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.0386645" q1="0.661366" q2="-0.674959" q3="-0.324854" euler_x="-1.43088" euler_y="-0.502809" euler_z="2.68365" id="73" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.726558" t1="2.14914" t2="-2.65462" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.636754" q1="0.182878" q2="-0.465073" q3="0.587203" euler_x="1.36234" euler_y="0.939134" euler_z="-0.559259" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.703731" t1="2.15919" t2="-2.66926" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.611949" q1="0.253807" q2="-0.528576" q3="0.530762" euler_x="1.26064" euler_y="1.15885" euler_z="-0.675829" id="75" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.677614" t1="2.16851" t2="-2.6769" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.567477" q1="0.341862" q2="-0.601528" q3="0.44639" euler_x="0.662615" euler_y="1.41517" euler_z="-1.29245" id="76" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.650353" t1="2.17954" t2="-2.6782" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.54207" q1="0.380868" q2="-0.63139" q3="0.403046" euler_x="-0.345568" euler_y="1.44055" euler_z="-2.30926" id="77" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.620216" t1="2.19243" t2="-2.67227" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.447974" q1="0.488077" q2="-0.703032" q3="0.258545" euler_x="-1.30821" euler_y="1.08064" euler_z="2.98426" id="78" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.593652" t1="2.20296" t2="-2.66" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.523736" q1="0.40571" q2="-0.199014" q3="-0.722145" euler_x="1.36822" euler_y="-0.918059" euler_z="-0.228428" id="79" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.571053" t1="2.21229" t2="-2.64162" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.376302" q1="0.545249" q2="-0.731995" q3="0.159011" euler_x="-1.39262" euler_y="0.810022" euler_z="2.88112" id="80" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.552655" t1="2.21935" t2="-2.61456" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.60377" q1="0.272694" q2="-0.025502" q3="-0.748632" euler_x="1.43436" euler_y="-0.454585" euler_z="-0.329966" id="81" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.543109" t1="2.22249" t2="-2.58346" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.163397" q1="0.679688" q2="-0.694981" q3="-0.168307" euler_x="-1.54814" euler_y="-0.00167583" euler_z="2.66803" id="82" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.546414" t1="2.2212" t2="-2.55868" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.0859104" q1="0.59402" q2="-0.741811" q3="-0.299124" euler_x="-1.27962" euler_y="-0.229934" euler_z="2.54647" id="83" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.559543" t1="2.21704" t2="-2.53739" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.326468" q1="-0.00117326" q2="-0.923069" q3="-0.203375" euler_x="0.169866" euler_y="-0.646289" euler_z="2.65087" id="84" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.581318" t1="2.20757" t2="-2.51638" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.621263" q1="0.230069" q2="-0.507758" q3="0.55071" euler_x="1.30599" euler_y="1.08501" euler_z="-0.625534" id="85" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.606812" t1="2.197" t2="-2.50456" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.589985" q1="0.301359" q2="-0.568855" q3="0.487345" euler_x="1.08634" euler_y="1.3053" euler_z="-0.860082" id="86" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.634355" t1="2.18612" t2="-2.50013" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.370363" q1="0.5493" q2="-0.415125" q3="-0.623516" euler_x="0.0474105" euler_y="-1.44815" euler_z="1.13285" id="87" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.664746" t1="2.1739" t2="-2.50259" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.401968" q1="0.526613" q2="-0.37781" q3="-0.646808" euler_x="0.784875" euler_y="-1.3972" euler_z="0.388174" id="88" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.690198" t1="2.16363" t2="-2.51084" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.477072" q1="0.459676" q2="-0.685848" q3="0.301186" euler_x="-1.2287" euler_y="1.19795" euler_z="3.07164" id="89" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.71639" t1="2.15218" t2="-2.5268" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.424372" q1="0.508732" q2="-0.714481" q3="0.224982" euler_x="-1.34664" euler_y="0.988721" euler_z="2.9396" id="90" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.737021" t1="2.14366" t2="-2.54916" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="-0.568632" q1="0.339938" q2="-0.110929" q3="-0.740807" euler_x="1.41282" euler_y="-0.681311" euler_z="-0.290177" id="91" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.751917" t1="2.1374" t2="-2.58684" s0="0.0105133" s1="0.0183521" s2="0.0183525" q0="0.139081" q1="0.647732" q2="-0.737142" q3="-0.133123" euler_x="-1.44822" euler_y="0.032594" euler_z="2.75543" id="92" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/poly.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

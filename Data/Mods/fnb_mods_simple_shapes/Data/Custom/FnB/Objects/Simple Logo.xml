@@ -1,0 +1,271 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-19.9672" t1="-6.60932" t2="-1.67918" s0="77.6713" s1="41.5414" s2="4.52082" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" version="1">
+        <parameters />
+        <EnvObject t0="9.43309" t1="7.80169" t2="-2.11495" s0="1.11496" s1="1.11495" s2="1.67858" q0="-0.588486" q1="0.392026" q2="-0.392025" q3="0.588485" euler_x="-1.5708" euler_y="0" euler_z="-1.1753" id="4" color_r="0.000953479" color_g="0.066346" color_b="0.121569" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/shinymetalsmall/half_ring.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="8.34894" t1="-1.47643" t2="-2.10251" s0="1.11496" s1="1.13135" s2="1.6362" q0="-0.402907" q1="-0.58109" q2="0.58109" q3="0.402907" euler_x="-1.5708" euler_y="0" euler_z="1.92908" id="22" color_r="0.000953479" color_g="0.066346" color_b="0.121569" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/shinymetalsmall/half_ring.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="2.82" t2="-2.0793" s0="0.745647" s1="0.873389" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="97" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="4.56769" t2="-2.07931" s0="0.745647" s1="0.874106" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="98" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="6.3161" t2="-2.07931" s0="0.745647" s1="0.874106" s2="0.5265" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="99" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-28.3889" t1="6.2795" t2="-2.07976" s0="0.949251" s1="0.948792" s2="0.949758" q0="-0.5" q1="-0.499999" q2="0.5" q3="0.499999" euler_x="-1.57079" euler_y="0" euler_z="1.57079" id="100" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/horse_shoe.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="8.0646" t2="-2.07931" s0="0.745647" s1="0.874106" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="9.81311" t2="-2.07933" s0="0.745647" s1="0.874576" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="102" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="1.0733" t2="-2.0793" s0="0.745647" s1="0.873389" s2="0.5265" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="103" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="-0.673498" t2="-2.0793" s0="0.745647" s1="0.873389" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="104" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="-2.42021" t2="-2.07929" s0="0.745647" s1="0.873389" s2="0.5265" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="105" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9845" t1="-4.40406" t2="-2.07928" s0="0.745647" s1="1.1105" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="106" color_r="0.603922" color_g="0.384587" color_b="0.149204" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/mediumplanks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-12.854" t1="-4.11391" t2="-2.12526" s0="0.906817" s1="0.908973" s2="0.513793" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="38" color_r="0.588235" color_g="0.571497" color_b="0.535179" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-19.5792" t1="2.58149" t2="-2.12525" s0="3.16826" s1="1.36648" s2="2.11217" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="39" color_r="1" color_g="0.964121" color_b="0.886275" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-16.2793" t1="2.8148" t2="-2.12435" s0="3.16824" s1="1.38724" s2="2.08524" q0="-0.97941" q1="-0.201883" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0.40656" id="44" color_r="1" color_g="0.964121" color_b="0.886275" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-6.14664" t1="2.585" t2="-2.12648" s0="3.16826" s1="1.36519" s2="2.11217" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="46" color_r="1" color_g="0.964121" color_b="0.886275" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-9.43773" t1="2.8147" t2="-2.12444" s0="3.16826" s1="1.38617" s2="2.09761" q0="-0.20138" q1="-0.979513" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="2.73606" id="47" color_r="1" color_g="0.964121" color_b="0.886275" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.3567" t1="-23.8569" t2="-2.06969" s0="1.15738" s1="0.771587" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="114" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.3567" t1="-21.5423" t2="-2.06969" s0="1.15738" s1="0.771587" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="115" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.3567" t1="-19.2277" t2="-2.0697" s0="1.15738" s1="0.771587" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="116" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.3567" t1="-16.9128" t2="-2.06968" s0="1.15738" s1="0.771587" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="117" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.3567" t1="-14.5994" t2="-2.06967" s0="1.15738" s1="0.771587" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="118" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.3567" t1="-12.2854" t2="-2.06971" s0="1.15738" s1="0.771587" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="119" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.3562" t1="-9.9723" t2="-2.06972" s0="1.15738" s1="0.771587" s2="1.15713" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="120" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-40.6708" t1="-9.88995" t2="-2.06976" s0="1.15738" s1="0.771587" s2="1.0748" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="121" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-42.9846" t1="-9.88995" t2="-2.06976" s0="1.15738" s1="0.771587" s2="1.0748" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="122" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.2163" t1="-9.88996" t2="-2.06974" s0="1.07474" s1="0.771587" s2="1.0748" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="123" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-40.6713" t1="-23.934" t2="-2.0697" s0="1.15738" s1="0.771587" s2="1.0803" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="124" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-42.9851" t1="-23.934" t2="-2.0697" s0="1.15738" s1="0.771587" s2="1.0803" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="125" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.2171" t1="-23.934" t2="-2.06968" s0="1.07474" s1="0.771587" s2="1.0803" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="126" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-40.6713" t1="-16.9355" t2="-2.06968" s0="1.15738" s1="0.771587" s2="1.06367" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="127" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-42.9851" t1="-16.9355" t2="-2.06968" s0="1.15738" s1="0.771587" s2="1.06367" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="128" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.2166" t1="-16.9355" t2="-2.06967" s0="1.07474" s1="0.771587" s2="1.06367" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="129" color_r="0.870588" color_g="0.497249" color_b="0.29361" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="1.2737" t2="-1.85824" s0="1.11226" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="48" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-36.066" t1="-4.64932" t2="-1.85829" s0="1.11418" s1="0.785767" s2="0.863047" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="51" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.326" t1="-4.64932" t2="-1.85829" s0="1.14587" s1="0.785767" s2="0.863046" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="53" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-40.3503" t1="-4.64932" t2="-1.85827" s0="0.879019" s1="0.785767" s2="0.863047" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="54" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-42.0413" t1="-4.64932" t2="-1.85827" s0="0.812314" s1="0.785767" s2="0.863047" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="56" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="-0.984366" t2="-1.85824" s0="1.14587" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="57" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="-3.00871" t2="-1.85826" s0="0.879019" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="73" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="-4.69965" t2="-1.85826" s0="0.812314" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="74" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="9.37121" t2="-1.85826" s0="1.31197" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="76" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="6.9134" t2="-1.85825" s0="1.14587" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="77" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="4.88899" t2="-1.85826" s0="0.879019" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="78" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.091" t1="3.19809" t2="-1.85826" s0="0.812314" s1="0.785767" s2="0.861008" q0="-0.499999" q1="-0.5" q2="-0.499999" q3="-0.5" euler_x="1.57079" euler_y="0" euler_z="1.57079" id="79" color_r="0.972549" color_g="0.314177" color_b="0.205952" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.4864" t1="-4.35951" t2="-2.11653" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="55" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.4864" t1="-2.04497" t2="-2.11653" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="58" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.4864" t1="0.269697" t2="-2.11654" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="59" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.4864" t1="2.5846" t2="-2.11654" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="60" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.4864" t1="4.8979" t2="-2.11654" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="61" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.4864" t1="7.212" t2="-2.11654" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="62" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-45.4859" t1="9.52509" t2="-2.11652" s0="1.15738" s1="1.15738" s2="1.15713" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="63" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-47.8005" t1="9.52509" t2="-2.11652" s0="1.15738" s1="1.15738" s2="1.15713" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="64" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-50.1143" t1="9.52509" t2="-2.11652" s0="1.15738" s1="1.15738" s2="1.15713" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="65" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-52.4287" t1="9.52509" t2="-2.11652" s0="1.15738" s1="1.15738" s2="1.15713" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="66" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-47.801" t1="-4.35951" t2="-2.11653" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="67" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-50.1148" t1="-4.35951" t2="-2.11653" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="68" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-52.4295" t1="-4.35951" t2="-2.11653" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="69" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-47.801" t1="2.5846" t2="-2.11654" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="70" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-50.1148" t1="2.5846" t2="-2.11654" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="71" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-52.429" t1="2.5846" t2="-2.11654" s0="1.15738" s1="1.15738" s2="1.15738" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="72" color_r="0.513726" color_g="0.507682" color_b="0.507682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/highrise/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.544081" t1="-5.13236" t2="-2.10864" s0="2.64376" s1="3.0015" s2="0.863282" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="29" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/platform.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.506891" t1="10.3197" t2="-2.10404" s0="2.64376" s1="3.0015" s2="0.855486" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="34" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/platform.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.564688" t1="-4.24033" t2="-2.10158" s0="0.869021" s1="1.14651" s2="0.634424" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.564688" t1="-1.94813" t2="-2.10158" s0="0.869021" s1="1.14651" s2="0.634424" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="88" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.564688" t1="0.343893" t2="-2.10157" s0="0.869021" s1="1.14651" s2="0.634424" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="89" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.564671" t1="2.636" t2="-2.10155" s0="0.869021" s1="1.14651" s2="0.634424" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="90" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.564671" t1="4.92859" t2="-2.10155" s0="0.869021" s1="1.14651" s2="0.634424" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.564671" t1="7.2214" t2="-2.10155" s0="0.869021" s1="1.14651" s2="0.634424" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="92" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.564671" t1="9.51288" t2="-2.10152" s0="0.869021" s1="1.14651" s2="0.634424" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="93" color_r="0.485889" color_g="0.698039" color_b="0.358601" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwoodpaint/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-16.6947" t2="-2.07937" s0="0.833875" s1="0.873389" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="83" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-14.947" t2="-2.07935" s0="0.833875" s1="0.874106" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="85" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-13.1986" t2="-2.07938" s0="0.833875" s1="0.874106" s2="0.5265" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="96" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-31.9758" t1="-13.2352" t2="-2.07983" s0="0.949251" s1="0.948792" s2="0.949758" q0="-0.5" q1="-0.499999" q2="0.5" q3="0.499999" euler_x="-1.57079" euler_y="0" euler_z="1.57079" id="107" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/horse_shoe.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-11.4501" t2="-2.07936" s0="0.833875" s1="0.874106" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="108" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-9.7016" t2="-2.07938" s0="0.833875" s1="0.874576" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="109" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-18.4414" t2="-2.07937" s0="0.833875" s1="0.873389" s2="0.5265" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="110" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-20.1882" t2="-2.07934" s0="0.833875" s1="0.873389" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="111" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-21.9349" t2="-2.07933" s0="0.833875" s1="0.873389" s2="0.5265" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="112" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-27.4831" t1="-23.9187" t2="-2.07937" s0="0.833875" s1="1.1105" s2="0.5265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="113" color_r="0.843137" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plastic/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="12.5451" t1="-20.8034" t2="-2.48255" s0="1.11496" s1="1.11495" s2="1.67858" q0="-0.376794" q1="-0.598352" q2="0.598352" q3="0.376794" euler_x="-1.5708" euler_y="0" euler_z="2.01762" id="52" color_r="0.278739" color_g="0.368318" color_b="0.490196" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/slatetile/half_ring.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.1518" t1="-11.4818" t2="-2.47011" s0="1.11496" s1="1.13135" s2="1.6362" q0="0.591238" q1="-0.387862" q2="0.387862" q3="-0.591239" euler_x="-1.5708" euler_y="0" euler_z="-1.16119" id="75" color_r="0.278739" color_g="0.368318" color_b="0.490196" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/slatetile/half_ring.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-52.3359" t1="-12.2325" t2="-2.09261" s0="1.08739" s1="1.08738" s2="1.63707" q0="-0.588486" q1="0.392026" q2="-0.392025" q3="0.588485" euler_x="-1.5708" euler_y="0" euler_z="-1.1753" id="132" color_r="0.596078" color_g="0.523145" color_b="0.437124" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/half_ring.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-53.3933" t1="-21.2811" t2="-2.08046" s0="1.08739" s1="1.10338" s2="1.59574" q0="-0.402907" q1="-0.58109" q2="0.58109" q3="0.402907" euler_x="-1.5708" euler_y="0" euler_z="1.92908" id="133" color_r="0.596078" color_g="0.523145" color_b="0.437124" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/half_ring.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="4.3844" t1="-16.9249" t2="-2.02352" s0="3.70011" s1="6.0259" s2="3.47347" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" color_r="0" color_g="0.0745578" color_b="0.121569" overbright="7000" type_file="Data/Custom/FnB/Objects/Simple Shapes/hologram/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-5.19073" t1="-16.9191" t2="-2.0235" s0="3.70011" s1="6.0259" s2="3.47347" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="80" color_r="0" color_g="0.0745578" color_b="0.121569" overbright="7000" type_file="Data/Custom/FnB/Objects/Simple Shapes/hologram/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.463963" t1="-16.8172" t2="-2.01536" s0="3.63604" s1="4.16385" s2="3.42881" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="81" color_r="0" color_g="0.0745578" color_b="0.121569" overbright="7000" type_file="Data/Custom/FnB/Objects/Simple Shapes/hologram/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-16.9891" t1="-17.1804" t2="-1.67918" s0="6.52263" s1="6.58367" s2="1.89893" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetalrough/triangle.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

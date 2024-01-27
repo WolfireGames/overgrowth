@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/basics/smooth_sphere.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/rough_metal_c.png</ColorMap>
+	<NormalMap>Data/Custom/FnB/Textures/armormetal_normals/sphere_rough_n.png</NormalMap>
+
+	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
+	<ShaderName>cubemapobj</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/half_tapered_rectangle.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/gray_metal_c.png</ColorMap>
+	<NormalMap>Data/Custom/FnB/Textures/armormetal_normals/half_tapered_rectangle_chipped_n.png</NormalMap>
+
+	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
+	<ShaderName>cubemapobj</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

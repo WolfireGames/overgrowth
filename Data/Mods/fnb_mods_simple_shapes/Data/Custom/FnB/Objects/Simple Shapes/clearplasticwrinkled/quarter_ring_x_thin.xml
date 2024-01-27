@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/quarter_ring_x_thin.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/glass.png</ColorMap>
+	<NormalMap>Data/Custom/FnB/Textures/blank_n_least_shiny.png</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/wrinkled_plastic_c.png" normalpath="Data/Custom/FnB/Textures/wrinkled_plastic_n.png" materialpath="Data/Materials/rock.xml" scale=16 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/wrinkled_plastic_c.png" normalpath="Data/Custom/FnB/Textures/wrinkled_plastic_n.png" materialpath="Data/Materials/rock.xml" scale=10 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/wrinkled_plastic_c.png" normalpath="Data/Custom/FnB/Textures/wrinkled_plastic_n.png" materialpath="Data/Materials/rock.xml" scale=10 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/wrinkled_plastic_c.png" normalpath="Data/Custom/FnB/Textures/wrinkled_plastic_n.png" materialpath="Data/Materials/rock.xml" scale=16 />
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC #ALPHA</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

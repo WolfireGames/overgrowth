@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<material>
+    <events>
+        <leftrunstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <rightrunstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <leftwallstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <rightwallstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <leftwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <rightwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/footstep_mud_sneak.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/footstep_mud_sneak.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/footstep_mud_sneak.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/footstep_mud_sneak.xml" attached="true"/>
+        <land soundgroup="Data/Custom/FnB/Sounds/mud_bodyfall_hit.xml" attached="true"/>
+        <land_soft soundgroup="Data/Custom/FnB/Sounds/mud_bodyfall_hit.xml" attached="true"/>
+        <land_slide soundgroup="Data/Custom/FnB/Sounds/mud_bodyfall_hit.xml" attached="true"/>
+        <slide soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <kick soundgroup="Data/Custom/FnB/Sounds/mud_bodyfall_hit.xml" attached="true"/>
+        <sweep soundgroup="Data/Custom/FnB/Sounds/mud_sweep.xml" attached="true"/>
+        <jump soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <roll soundgroup="Data/Custom/FnB/Sounds/mud_roll.xml" attached="true"/>
+        <edge_grab soundgroup="Data/Sounds/footstep_mud_sneak.xml" attached="true"/>
+        <edge_crawl soundgroup="Data/Sounds/footstep_mud_sneak.xml" attached="true"/>
+        <bodyfall soundgroup="Data/Custom/FnB/Sounds/mud_bodyfall_hit.xml" attached="true"/>
+        <weapon_drop_light soundgroup="Data/Sounds/footstep_mud_sneak.xml" attached="true"/>
+        <weapon_drop_medium soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <weapon_drop_heavy soundgroup="Data/Custom/FnB/Sounds/mud_bodyfall_hit.xml" attached="true"/>
+        <blood_spatter soundgroup="Data/Sounds/blood/spatter_hard.xml"/>
+        <blood_drip soundgroup="Data/Sounds/blood/drip_lowpass.xml"/>
+    </events>
+	<physics hardness = "0.4" friction = "0.4" sharp_penetration = "1.0"/>
+</material>

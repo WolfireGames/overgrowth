@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/half_tapered_tube.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/basic_white_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Textures/Buildings/detail_textures/tight_bricks_c.tga" normalpath="Data/Custom/FnB/Textures/tight_bricks_n.png" materialpath="Data/Materials/rock.xml" scale=1 />
+	<DetailMap colorpath="Data/Textures/Buildings/detail_textures/tight_bricks_c.tga" normalpath="Data/Custom/FnB/Textures/tight_bricks_n.png" materialpath="Data/Materials/rock.xml" scale=1 />
+     <DetailMap colorpath="Data/Textures/Buildings/detail_textures/smooth_rock_c.tga" normalpath="Data/Textures/Buildings/detail_textures/smooth_rock_n.tga" materialpath="Data/Materials/rock.xml" scale=2 />
+     	<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/layered_rock.tga" normalpath="Data/Textures/Terrain/DetailTextures/layered_rock_normal.tga" materialpath="Data/Materials/rock.xml" scale=1 />
+  	
+    </DetailMaps>
+
+    <ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+</Object>

@@ -1,0 +1,169 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-0.521523" t1="2.77161" t2="1.42665" s0="1.21906" s1="1.2427" s2="0.0646226" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="152" version="1">
+        <parameters />
+        <EnvObject t0="-0.517224" t1="2.78599" t2="1.42606" s0="0.524684" s1="0.524684" s2="-0.00359449" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="153" color_r="0.162123" color_g="0.168627" color_b="0.11837" overbright="120" type_file="Data/Custom/FnB/Objects/Simple Shapes/oldblownglass/cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.0169043" t1="2.48755" t2="1.42541" s0="0.0390184" s1="0.0383222" s2="0.0294289" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="154" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.0169042" t1="3.01155" t2="1.42534" s0="0.0390185" s1="0.0507029" s2="0.02945" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="155" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-1.05121" t1="2.4999" t2="1.42538" s0="0.0390184" s1="0.0404205" s2="0.0294663" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="156" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-1.05121" t1="3.02384" t2="1.42556" s0="0.0390185" s1="0.0485934" s2="0.0284831" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="157" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.796311" t1="3.32028" t2="1.42551" s0="0.0390185" s1="0.0446371" s2="0.0295364" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="158" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.254491" t1="3.32028" t2="1.42548" s0="0.0390184" s1="0.0473898" s2="0.0294332" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="159" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.787797" t1="2.24689" t2="1.4255" s0="0.0585277" s1="0.046019" s2="0.0295974" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="160" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.246002" t1="2.2469" t2="1.42544" s0="0.0585277" s1="0.0459766" s2="0.0295974" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="161" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.301748" t1="2.76079" t2="1.4253" s0="0.0251073" s1="0.0287422" s2="0.0250435" q0="0.0982386" q1="-0.70025" q2="0.70025" q3="-0.098238" euler_x="-1.5708" euler_y="0" euler_z="-2.86283" id="162" color_r="0.00595156" color_g="0.0077297" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.300982" t1="2.98486" t2="1.4253" s0="0.0246097" s1="0.0286626" s2="0.0246736" q0="-0.0613562" q1="-0.70444" q2="0.70444" q3="0.0613565" euler_x="-1.5708" euler_y="0" euler_z="2.96783" id="163" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.0795453" t1="2.98333" t2="1.42533" s0="0.0248585" s1="0.029453" s2="0.0247534" q0="-0.240955" q1="0.664786" q2="-0.664786" q3="0.240955" euler_x="-1.5708" euler_y="0" euler_z="-2.44614" id="164" color_r="0.0117647" color_g="0.00745614" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.0799065" t1="3.20773" t2="1.42523" s0="0.0246097" s1="0.0290146" s2="0.0246736" q0="-0.562282" q1="-0.428765" q2="0.428765" q3="0.562282" euler_x="-1.5708" euler_y="0" euler_z="1.30296" id="165" color_r="0.0117647" color_g="0.00745614" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.300876" t1="3.20694" t2="1.42541" s0="0.0246097" s1="0.029119" s2="0.0246736" q0="-0.0650585" q1="0.704107" q2="-0.704107" q3="0.0650591" euler_x="-1.5708" euler_y="0" euler_z="-2.95732" id="166" color_r="0.0116963" color_g="0.0117647" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.52293" t1="3.20393" t2="1.42521" s0="0.0246097" s1="0.0289914" s2="0.0246736" q0="-0.298515" q1="-0.641006" q2="0.641006" q3="0.298515" euler_x="-1.5708" euler_y="0" euler_z="2.26993" id="167" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.523797" t1="2.98409" t2="1.42533" s0="0.0247647" s1="0.0294531" s2="0.0248065" q0="-0.456936" q1="-0.539638" q2="0.539638" q3="0.456936" euler_x="-1.5708" euler_y="0" euler_z="1.73639" id="168" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.744472" t1="3.20366" t2="1.42541" s0="0.0246097" s1="0.029119" s2="0.0246736" q0="-0.347285" q1="-0.615949" q2="0.615949" q3="0.347285" euler_x="-1.5708" euler_y="0" euler_z="2.11481" id="169" color_r="0.00595156" color_g="0.0077297" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.966753" t1="2.98363" t2="1.42533" s0="0.025086" s1="0.029453" s2="0.0247401" q0="-0.562676" q1="0.428247" q2="-0.428246" q3="0.562677" euler_x="-1.5708" euler_y="0" euler_z="-1.30112" id="170" color_r="0.0117647" color_g="0.00745614" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.745889" t1="2.98401" t2="1.4253" s0="0.0243867" s1="0.0286626" s2="0.0245785" q0="-0.447391" q1="0.547578" q2="-0.547578" q3="0.447391" euler_x="-1.5708" euler_y="0" euler_z="-1.77151" id="171" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.969627" t1="3.20685" t2="1.42522" s0="0.0245696" s1="0.0289914" s2="0.0248079" q0="-0.358543" q1="0.609464" q2="-0.609465" q3="0.358543" euler_x="-1.5708" euler_y="0" euler_z="-2.07806" id="172" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.746574" t1="2.76036" t2="1.42541" s0="0.0249907" s1="0.029119" s2="0.0249166" q0="-0.50349" q1="0.496486" q2="-0.496485" q3="0.50349" euler_x="-1.5708" euler_y="0" euler_z="-1.55679" id="173" color_r="0.0116963" color_g="0.0117647" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.969739" t1="2.7605" t2="1.42522" s0="0.0246097" s1="0.0289914" s2="0.0246736" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="174" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.52363" t1="2.76067" t2="1.42521" s0="0.0244724" s1="0.0289914" s2="0.0245078" q0="-0.689379" q1="0.157342" q2="-0.157341" q3="0.689379" euler_x="-1.5708" euler_y="0" euler_z="-0.448786" id="175" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.523257" t1="2.53751" t2="1.42522" s0="0.0251501" s1="0.029072" s2="0.0251531" q0="-0.387005" q1="0.5918" q2="-0.5918" q3="0.387005" euler_x="-1.5708" euler_y="0" euler_z="-1.98331" id="176" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.746" t1="2.53751" t2="1.4253" s0="0.0246097" s1="0.0286626" s2="0.0246736" q0="-0.44291" q1="0.551208" q2="-0.551208" q3="0.44291" euler_x="-1.5708" euler_y="0" euler_z="-1.78782" id="177" color_r="0.00595156" color_g="0.0077297" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.963733" t1="2.54125" t2="1.42533" s0="0.0246097" s1="0.029453" s2="0.0246736" q0="-0.326145" q1="0.627399" q2="-0.627399" q3="0.326145" euler_x="-1.5708" euler_y="0" euler_z="-2.18281" id="178" color_r="0.0116963" color_g="0.0117647" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.301326" t1="2.53789" t2="1.4253" s0="0.0246097" s1="0.0286626" s2="0.0246736" q0="-0.159837" q1="-0.688805" q2="0.688805" q3="0.159836" euler_x="-1.5708" euler_y="0" euler_z="2.68557" id="179" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.0800044" t1="2.76222" t2="1.42522" s0="0.0243828" s1="0.0289914" s2="0.0242736" q0="-0.662976" q1="0.245891" q2="-0.245891" q3="0.662977" euler_x="-1.5708" euler_y="0" euler_z="-0.710323" id="180" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.0823147" t1="2.53835" t2="1.42533" s0="0.0246097" s1="0.029453" s2="0.0246736" q0="-0.240074" q1="0.665105" q2="-0.665105" q3="0.240074" euler_x="-1.5708" euler_y="0" euler_z="-2.44879" id="181" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.524003" t1="2.31752" t2="1.42522" s0="0.0244735" s1="0.0289914" s2="0.0243405" q0="-0.237839" q1="-0.665907" q2="0.665907" q3="0.237839" euler_x="-1.5708" euler_y="0" euler_z="2.45551" id="182" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.301293" t1="2.31816" t2="1.42541" s0="0.0247654" s1="0.029119" s2="0.025219" q0="-0.407812" q1="-0.577659" q2="0.577659" q3="0.407812" euler_x="-1.5708" euler_y="0" euler_z="1.91215" id="183" color_r="0.0116963" color_g="0.0117647" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.0798611" t1="2.31747" t2="1.42522" s0="0.0244641" s1="0.0289914" s2="0.0245451" q0="-0.422237" q1="0.5672" q2="-0.5672" q3="0.422238" euler_x="-1.5708" euler_y="0" euler_z="-1.86175" id="184" color_r="0.0117647" color_g="0.00745614" color_b="0.00595156" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.0482343" t1="3.05845" t2="1.42666" s0="0.0913949" s1="0.218093" s2="0.0913948" q0="0" q1="-0.707106" q2="0" q3="-0.707107" euler_x="0" euler_y="1.56976" euler_z="0" id="185" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.0482343" t1="2.5073" t2="1.42666" s0="0.0913948" s1="0.215264" s2="0.0913948" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="186" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.217952" t1="2.21668" t2="1.42666" s0="0.0913948" s1="0.218093" s2="0.0913948" q0="-0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-0.308053" euler_y="1.56914" euler_z="0.0624188" id="187" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.795038" t1="2.21668" t2="1.42665" s0="0.0913948" s1="0.234558" s2="0.0913948" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="188" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.817127" t1="3.35241" t2="1.42665" s0="0.0913948" s1="0.218093" s2="0.0913948" q0="0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="0.321751" euler_y="1.5691" euler_z="0" id="189" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.240095" t1="3.35241" t2="1.42664" s0="0.0913949" s1="0.234515" s2="0.0913948" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="190" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-1.08331" t1="3.05798" t2="1.42664" s0="0.0913948" s1="0.218093" s2="0.0913948" q0="0" q1="-0.707106" q2="0" q3="-0.707107" euler_x="0" euler_y="1.56976" euler_z="0" id="191" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-1.08331" t1="2.50683" t2="1.42664" s0="0.0913948" s1="0.215264" s2="0.0913948" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="192" color_r="0.686275" color_g="0.308295" color_b="0.161476" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/wornwood/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.804765" t1="3.10142" t2="1.42552" s0="0.0260124" s1="0.0446371" s2="0.0295364" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="193" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.260635" t1="3.10138" t2="1.42548" s0="0.0260124" s1="0.0477822" s2="0.0294332" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="194" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.804778" t1="2.87764" t2="1.42551" s0="0.0260124" s1="0.0446371" s2="0.0295364" q0="-0.707106" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="195" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.260654" t1="2.8776" t2="1.42548" s0="0.0260124" s1="0.0477822" s2="0.0294332" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="196" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.804617" t1="2.65519" t2="1.42551" s0="0.0260124" s1="0.0446371" s2="0.0295364" q0="0.707107" q1="0.707106" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.57079" id="197" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.260493" t1="2.65515" t2="1.42548" s0="0.0260124" s1="0.0477822" s2="0.0294332" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="198" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.799021" t1="2.43288" t2="1.42551" s0="0.0260124" s1="0.0446371" s2="0.0295364" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="199" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.254896" t1="2.43284" t2="1.42548" s0="0.0260124" s1="0.0477822" s2="0.0294332" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="200" color_r="0.0117647" color_g="0.0117646" color_b="0.0117646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.966775" t1="2.31673" t2="1.42522" s0="0.0246097" s1="0.0289914" s2="0.0246736" q0="-0.395279" q1="-0.586306" q2="0.586306" q3="0.39528" euler_x="-1.5708" euler_y="0" euler_z="1.95521" id="201" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-0.744672" t1="2.31771" t2="1.42541" s0="0.0249271" s1="0.029119" s2="0.0247874" q0="-0.233504" q1="0.66744" q2="-0.66744" q3="0.233504" euler_x="-1.5708" euler_y="0" euler_z="-2.46851" id="202" color_r="0.00595156" color_g="0.00595156" color_b="0.0117647" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/rustedmetal/ringthin.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="-0.539734" t1="2.78292" t2="1.42893" s0="1.10471" s1="0.00383509" s2="1.10821" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="203" type_file="Data/Custom/FnB/Objects/Decals/Scratches.xml" color_r="0.356863" color_g="0.338777" color_b="0.317678" overbright="50">
+            <parameters />
+        </Decal>
+        <Decal t0="-0.527369" t1="2.78977" t2="1.42615" s0="1.10471" s1="-0.00762164" s2="1.10821" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="204" type_file="Data/Custom/FnB/Objects/Decals/Scratches.xml" color_r="0.0392157" color_g="0.0356455" color_b="0.0315263" overbright="500">
+            <parameters />
+        </Decal>
+        <Decal t0="-0.51555" t1="2.79517" t2="1.42691" s0="1.19638" s1="0.00570879" s2="1.17889" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="205" type_file="Data/Custom/FnB/Objects/Decals/Spatter.xml" color_r="0.482353" color_g="0.416247" color_b="0.28752" overbright="50">
+            <parameters />
+        </Decal>
+        <Decal t0="-0.51601" t1="2.79851" t2="1.42211" s0="1.19638" s1="0.00570824" s2="1.17889" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="206" type_file="Data/Custom/FnB/Objects/Decals/Spatter.xml" color_r="0.0196078" color_g="0.0131636" color_b="0.000615148" overbright="50">
+            <parameters />
+        </Decal>
+    </Group>
+</ActorObjects>

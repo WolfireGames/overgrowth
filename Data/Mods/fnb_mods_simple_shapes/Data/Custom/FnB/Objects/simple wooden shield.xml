@@ -1,0 +1,103 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="1.89442" t1="1.45117" t2="4.09115" s0="0.537137" s1="0.537841" s2="0.14007" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" version="1">
+        <parameters />
+        <EnvObject t0="1.89614" t1="1.44964" t2="4.08284" s0="0.260802" s1="0.0772747" s2="0.260802" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="222" color_r="0.109804" color_g="0.0700161" color_b="0.043491" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/smallplanks2/disk_edged.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.7882" t1="1.51088" t2="4.05252" s0="0.0260123" s1="0.0191627" s2="0.0260123" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="446" color_r="0.372549" color_g="0.372545" color_b="0.372545" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/shinymetalsmall/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.78805" t1="1.40291" t2="4.05187" s0="0.0260123" s1="0.0191627" s2="0.0260123" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="447" color_r="0.372549" color_g="0.372545" color_b="0.372545" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/shinymetalsmall/pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.78799" t1="1.45667" t2="4.03532" s0="0.10191" s1="0.10191" s2="0.057852" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="445" color_r="0.211765" color_g="0.139372" color_b="0.0913495" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leatherplatesmall/post_round.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.98075" t1="1.45476" t2="4.06477" s0="0.0338223" s1="0.0215517" s2="0.0138057" q0="0.000650167" q1="7.34329e-005" q2="0.710939" q3="0.703254" euler_x="0.00101888" euler_y="-0.000821175" euler_z="1.58166" id="454" color_r="0.192157" color_g="0.075985" color_b="0.0354171" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/tube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.89551" t1="1.4471" t2="4.1185" s0="0.0608745" s1="0.0627085" s2="0.0608745" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="455" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/shinymetalsmall/half_sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.89584" t1="1.44859" t2="4.08505" s0="0.10026" s1="0.0680629" s2="0.10026" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="456" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/shinymetalsmall/disk.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.89648" t1="1.53343" t2="4.09196" s0="0.00377615" s1="0.00377615" s2="0.00193769" q0="0" q1="0" q2="0.99556" q3="0.0941326" euler_x="0" euler_y="0" euler_z="2.95305" id="457" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.98074" t1="1.4475" t2="4.09197" s0="0.00377615" s1="0.00377615" s2="0.00193769" q0="0" q1="0" q2="0.824136" q3="0.566392" euler_x="0" euler_y="0" euler_z="1.93735" id="458" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.89583" t1="1.36283" t2="4.09197" s0="0.00377615" s1="0.00377616" s2="0.00193769" q0="0" q1="0" q2="0.383322" q3="0.923615" euler_x="0" euler_y="0" euler_z="0.786781" id="459" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.81104" t1="1.44768" t2="4.09197" s0="0.00377615" s1="0.00377616" s2="0.00193769" q0="0" q1="0" q2="-0.349543" q3="0.93692" euler_x="0" euler_y="0" euler_z="-0.714166" id="460" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.95554" t1="1.5073" t2="4.09206" s0="0.00377615" s1="0.00377615" s2="0.00193769" q0="0" q1="0" q2="-0.793577" q3="0.60847" euler_x="0" euler_y="0" euler_z="-1.83333" id="461" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.83562" t1="1.50757" t2="4.09231" s0="0.00377615" s1="0.00377615" s2="0.00193769" q0="0" q1="0" q2="0.991375" q3="0.131054" euler_x="0" euler_y="0" euler_z="2.87873" id="462" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.95752" t1="1.39028" t2="4.09197" s0="0.00377616" s1="0.00377616" s2="0.00193769" q0="0" q1="0" q2="-0.995405" q3="0.0957532" euler_x="0" euler_y="0" euler_z="-2.94979" id="463" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.83446" t1="1.38877" t2="4.09197" s0="0.00377615" s1="0.00377615" s2="0.00193769" q0="0" q1="0" q2="0.945429" q3="0.325827" euler_x="0" euler_y="0" euler_z="2.47782" id="464" color_r="0.076709" color_g="0.120507" color_b="0.168627" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.89442" t1="1.45117" t2="4.08265" s0="0.056697" s1="0.0849148" s2="0.056697" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="2" color_r="0.321569" color_g="0.20073" color_b="0.0933179" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/leather/ring_x_thin.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.8942" t1="1.70673" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825751" q0="0" q1="0" q2="-0.793577" q3="0.60847" euler_x="0" euler_y="0" euler_z="-1.83333" id="3" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="2.1494" t1="1.44508" t2="4.09201" s0="0.00362074" s1="0.00362074" s2="0.000825752" q0="0" q1="0" q2="-0.976452" q3="-0.215736" euler_x="0" euler_y="0" euler_z="2.7067" id="4" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.6382" t1="1.44987" t2="4.09201" s0="0.00362074" s1="0.00362074" s2="0.000825752" q0="0" q1="0" q2="-0.976452" q3="-0.215736" euler_x="0" euler_y="0" euler_z="2.7067" id="5" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.8942" t1="1.19612" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825751" q0="0" q1="0" q2="-0.101791" q3="0.994806" euler_x="0" euler_y="0" euler_z="-0.203936" id="6" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="2.0746" t1="1.63168" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.966021" q3="0.258465" euler_x="0" euler_y="0" euler_z="-2.61873" id="9" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="2.07004" t1="1.2662" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.819565" q3="-0.572986" euler_x="0" euler_y="0" euler_z="1.9213" id="10" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.71195" t1="1.63107" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.819565" q3="-0.572986" euler_x="0" euler_y="0" euler_z="1.9213" id="11" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.71354" t1="1.27061" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825751" q0="0" q1="0" q2="-0.474739" q3="0.880127" euler_x="0" euler_y="0" euler_z="-0.989334" id="12" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.98981" t1="1.68799" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.895098" q3="0.445869" euler_x="0" euler_y="0" euler_z="-2.2173" id="13" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="2.1284" t1="1.34979" t2="4.09201" s0="0.00362074" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.917347" q3="-0.398088" euler_x="0" euler_y="0" euler_z="2.32273" id="14" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.65622" t1="1.54574" t2="4.09201" s0="0.00362074" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.917347" q3="-0.398088" euler_x="0" euler_y="0" euler_z="2.32273" id="15" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.79853" t1="1.21456" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825751" q0="0" q1="0" q2="-0.289739" q3="0.957106" euler_x="0" euler_y="0" euler_z="-0.587908" id="16" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="2.12896" t1="1.55082" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.997589" q3="0.0693905" euler_x="0" euler_y="0" euler_z="-3.0027" id="17" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.98781" t1="1.21367" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.695176" q3="-0.718839" euler_x="0" euler_y="0" euler_z="1.53733" id="18" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.79249" t1="1.68611" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825752" q0="0" q1="0" q2="-0.695176" q3="-0.718839" euler_x="0" euler_y="0" euler_z="1.53733" id="19" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.65893" t1="1.3513" t2="4.09201" s0="0.00362073" s1="0.00362073" s2="0.000825751" q0="0" q1="0" q2="-0.633952" q3="0.773372" euler_x="0" euler_y="0" euler_z="-1.37331" id="20" color_r="0.239216" color_g="0.2087" color_b="0.165106" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/shinymetalsmall/sphere.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

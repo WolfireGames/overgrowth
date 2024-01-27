@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/long_radious_wall.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/basic_white_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+<DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/medieval_mixed_cobble_c.png" normalpath="Data/Custom/FnB/Textures/medieval_mixed_cobble_n.png" materialpath="Data/Materials/rock.xml" scale=1.3 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/medieval_mixed_cobble_c.png" normalpath="Data/Custom/FnB/Textures/medieval_mixed_cobble_n.png" materialpath="Data/Materials/rock.xml" scale=1.3 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/medieval_mixed_cobble_c.png" normalpath="Data/Custom/FnB/Textures/medieval_mixed_cobble_n.png" materialpath="Data/Materials/rock.xml" scale=1.3 />
+     	<DetailMap colorpath="Data/Textures/Buildings/detail_textures/roof_ceramic_c.tga" normalpath="Data/Textures/Buildings/detail_textures/roof_ceramic_n.tga" materialpath="Data/Materials/rock.xml" scale=1.3 />
+
+</DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+
+</Object>

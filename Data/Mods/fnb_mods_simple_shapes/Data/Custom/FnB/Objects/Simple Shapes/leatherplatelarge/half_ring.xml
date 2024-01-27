@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/half_ring.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plainest_white_least_shiny_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/leather_armor_c.tga" normalpath="Data/Custom/FnB/Textures/leather_armor_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=6 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/leather_armor_c.tga" normalpath="Data/Custom/FnB/Textures/leather_armor_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=6 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/leather_armor_c.tga" normalpath="Data/Custom/FnB/Textures/leather_armor_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=6 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/leather_armor_c.tga" normalpath="Data/Custom/FnB/Textures/leather_armor_n.png" materialpath="Data/Materials/cloth_leather.xml" scale=6 />
+  	
+    </DetailMaps>
+
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/cloth_leather.xml</MaterialPath>
+</Object>

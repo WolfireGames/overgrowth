@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/quarter_disk.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plainer_white_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/high_rise_c.png" normalpath="Data/Custom/FnB/Textures/high_rise_n.png" materialpath="Data/Materials/default.xml" scale=0.9 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/high_rise_c.png" normalpath="Data/Custom/FnB/Textures/high_rise_n.png" materialpath="Data/Materials/default.xml" scale=0.9 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/high_rise_c.png" normalpath="Data/Custom/FnB/Textures/high_rise_n.png" materialpath="Data/Materials/default.xml" scale=0.9 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/high_rise_c.png" normalpath="Data/Custom/FnB/Textures/high_rise_n.png" materialpath="Data/Materials/default.xml" scale=0.9 />
+
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

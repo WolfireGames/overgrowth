@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<DecalObject>
+	<ColorMap>Data/Custom/FnB/Textures/arial_plus.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_n.tga</NormalMap>
+	<ShaderName>decal</ShaderName>
+</DecalObject>

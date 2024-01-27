@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/tube_lowpoly.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/blank_more_shiny_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+<DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/cobble_round_c.png" normalpath="Data/Custom/FnB/Textures/cobble_round_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/cobble_round_c.png" normalpath="Data/Custom/FnB/Textures/cobble_round_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/cobble_round_c.png" normalpath="Data/Custom/FnB/Textures/cobble_round_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+     	 <DetailMap colorpath="Data/Custom/FnB/Textures/cobble_round_c.png" normalpath="Data/Custom/FnB/Textures/cobble_round_n.png" materialpath="Data/Materials/rock.xml" scale=3 />
+
+</DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+
+</Object>

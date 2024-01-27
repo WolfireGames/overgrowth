@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/torusthin_lowpoly.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plain_gray_rough_less_shiny_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/studded_metal_c.png" normalpath="Data/Custom/FnB/Textures/studded_metal_n.png" materialpath="Data/Materials/rock.xml" scale=5 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/studded_metal_c.png" normalpath="Data/Custom/FnB/Textures/studded_metal_n.png" materialpath="Data/Materials/rock.xml" scale=5 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/studded_metal_c.png" normalpath="Data/Custom/FnB/Textures/studded_metal_n.png" materialpath="Data/Materials/rock.xml" scale=5 />
+     	<DetailMap colorpath="Data/Textures/Buildings/detail_textures/gray_metal_c.tga" normalpath="Data/Custom/FnB/Textures/gray_metal_n.png" materialpath="Data/Materials/rock.xml" scale=6 />
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

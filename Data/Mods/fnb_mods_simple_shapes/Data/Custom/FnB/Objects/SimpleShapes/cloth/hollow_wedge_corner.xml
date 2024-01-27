@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/hollow_wedge_corner.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plain_white_less_shiny_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/cloth_c.png" normalpath="Data/Custom/FnB/Textures/cloth_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=6 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/cloth_c.png" normalpath="Data/Custom/FnB/Textures/cloth_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=9 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/cloth_c.png" normalpath="Data/Custom/FnB/Textures/cloth_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=7 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/cloth_c.png" normalpath="Data/Custom/FnB/Textures/cloth_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=9 />
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/rock.xml</MaterialPath>
+</Object>

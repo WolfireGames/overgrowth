@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <EnvObject t0="-0.349411" t1="1.00053" t2="-0.0675163" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" color_r="1.0" color_g="1.0" color_b="1.0" overbright="1500" type_file="Data/Custom/FnB/Objects/Simple Shapes/void/half_sphere.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>

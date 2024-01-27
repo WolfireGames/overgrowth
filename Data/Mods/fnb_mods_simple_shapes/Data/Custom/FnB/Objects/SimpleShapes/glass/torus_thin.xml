@@ -1,0 +1,8 @@
+	<?xml version="1.0" ?>
+<Object>
+    <flags no_collision = "false" transparent = "true" double_sided = "false" dynamic = "true"/>
+	<Model>Data/Custom/FnB/Models/torusthin.obj</Model>
+	<ColorMap>Data/Textures/ps_clouds_nocompress.tga</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<ShaderName>envobject #TANGENT #WATER</ShaderName>
+</Object>

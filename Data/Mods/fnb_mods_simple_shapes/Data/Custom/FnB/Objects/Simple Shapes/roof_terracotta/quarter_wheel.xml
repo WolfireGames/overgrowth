@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/quarter_wheel.obj</Model>
+	<ColorMap>Data/Textures/basic_blue_white_c.tga</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/roof_terracotta_c.png" normalpath="Data/Custom/FnB/Textures/roof_terracotta_n.png" materialpath="Data/Materials/rock.xml" scale=2.3 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/roof_terracotta_c.png" normalpath="Data/Custom/FnB/Textures/roof_terracotta_n.png" materialpath="Data/Materials/rock.xml" scale=2.3 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/roof_terracotta_c.png" normalpath="Data/Custom/FnB/Textures/roof_terracotta_n.png" materialpath="Data/Materials/rock.xml" scale=2.3 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/roof_terracotta_c.png" normalpath="Data/Custom/FnB/Textures/roof_terracotta_n.png" materialpath="Data/Materials/rock.xml" scale=2.3 />
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

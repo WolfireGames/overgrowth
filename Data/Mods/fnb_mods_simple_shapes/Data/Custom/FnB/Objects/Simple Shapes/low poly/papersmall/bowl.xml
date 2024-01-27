@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/bowl_lowpoly.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/plainest_white_least_shiny_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+<DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/paper_c.png" normalpath="Data/Custom/FnB/Textures/paper_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=15 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/paper_c.png" normalpath="Data/Custom/FnB/Textures/paper_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=15 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/paper_c.png" normalpath="Data/Custom/FnB/Textures/paper_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=15 />
+     	 <DetailMap colorpath="Data/Custom/FnB/Textures/paper_c.png" normalpath="Data/Custom/FnB/Textures/paper_n.png" materialpath="Data/Materials/cloth_fabric.xml" scale=15 />
+
+</DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+	<MaterialPath>Data/Materials/cloth_fabric.xml</MaterialPath>
+
+</Object>

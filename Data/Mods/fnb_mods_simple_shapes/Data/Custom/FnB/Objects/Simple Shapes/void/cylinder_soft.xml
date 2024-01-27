@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/basics/soft_cylinder.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/black_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/black_c.png" normalpath="Data/Custom/FnB/Textures/blank_n.png" materialpath="Data/Materials/rock.xml" scale=2 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/black_c.png" normalpath="Data/Custom/FnB/Textures/blank_n.png" materialpath="Data/Materials/rock.xml" scale=1 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/black_c.png" normalpath="Data/Custom/FnB/Textures/blank_n.png" materialpath="Data/Materials/rock.xml" scale=2 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/black_c.png" normalpath="Data/Custom/FnB/Textures/blank_n.png" materialpath="Data/Materials/rock.xml" scale=2 />
+  	
+    </DetailMaps>
+
+	<ShaderName>detailmap4tangent</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

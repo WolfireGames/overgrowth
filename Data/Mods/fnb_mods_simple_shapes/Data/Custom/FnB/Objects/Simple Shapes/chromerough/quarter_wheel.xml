@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/quarter_wheel.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/chrome_c.png</ColorMap>
+	<NormalMap>Data/Custom/FnB/Textures/blank_n.png</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+	<DetailMap colorpath="Data/Custom/FnB/Textures/blank_white_c.png" normalpath="Data/Custom/FnB/Textures/rough_metal_n.png" materialpath="Data/Materials/rock.xml" scale=7 />
+	<DetailMap colorpath="Data/Custom/FnB/Textures/blank_white_c.png" normalpath="Data/Custom/FnB/Textures/rough_metal_n.png" materialpath="Data/Materials/rock.xml" scale=2.5 />
+     <DetailMap colorpath="Data/Custom/FnB/Textures/blank_white_c.png" normalpath="Data/Custom/FnB/Textures/rough_metal_n.png" materialpath="Data/Materials/rock.xml" scale=7 />
+     	<DetailMap colorpath="Data/Custom/FnB/Textures/blank_white_c.png" normalpath="Data/Custom/FnB/Textures/rough_metal_n.png" materialpath="Data/Materials/rock.xml" scale=2.5 />
+  	
+    </DetailMaps>
+
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+     <MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>
