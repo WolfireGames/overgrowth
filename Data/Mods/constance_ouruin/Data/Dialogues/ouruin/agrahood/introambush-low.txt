@@ -1,0 +1,61 @@
+#name "IntroAmbush-Low"
+#participants 5
+send_character_message 4 "set_torso_target 273.027 -41.741 -7.52944 0"
+set_character_pos 4 273.488 -41.2127 -7.71001 -125
+send_character_message 4 "set_animation \"Data/Animations/r_dialogue_kneelfist.anm\""
+send_character_message 4 "set_eye_dir 261.078 -46.5118 4.99243 1"
+send_character_message 4 "set_head_target 259.612 -46.0777 7.64051 1"
+set_character_pos 3 255.933 -48.1554 -5.09555 -84
+send_character_message 3 "set_eye_dir 256.938 -47.771 3.23764 1"
+set_character_pos 2 257.256 -48.2155 -1.36672 -90
+send_character_message 2 "set_eye_dir 257.417 -47.5168 3.832 1"
+send_character_message 1 "set_torso_target 257.363 -47.7057 8.0537 0"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.6 0.6 0.6
+set_dialogue_voice 2 4
+set_character_pos 1 257.371 -48.2799 9.01088 90
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 259.523 -47.2867 3.96925 1"
+send_character_message 1 "set_head_target 259.523 -46.8586 5.55876 0.91595"
+set_cam 259.486 -47.8568 9.64012 3.84 66.59 -0.64 43.0662
+say 1 "Ghost" "..."
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 253.196 -47.0814 5.11729 0.709831"
+send_character_message 1 "set_head_target 256.555 -46.6086 5.84457 0.91595"
+say 1 "Ghost" "(Something's not right... [wait 0.15]I feel like I'm being watched.)"
+send_character_message 4 "set_eye_dir 259.439 -47.0711 6.71108 1"
+send_character_message 4 "set_head_target 259.514 -47.032 7.34246 1"
+send_character_message 1 "set_torso_target 257.8 -47.5728 7.97975 0.585486"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 262.632 -45.2922 3.48401 1"
+send_character_message 1 "set_head_target 258.799 -45.9657 5.2339 0.91595"
+set_cam 255.737 -47.9543 10.1197 12.16 -48.6 -0.46 25.6547
+say 1 "Ghost" "[wait 0.1].[wait 0.1].[wait 0.1]."
+send_character_message 3 "set_animation \"Data/Animations/r_crossarms_idle.anm\""
+send_character_message 1 "set_eye_dir 257.254 -47.369 1.06961 0.632217"
+send_character_message 1 "set_head_target 257.338 -47.5148 4.82537 0.91595"
+send_character_message 1 "set_torso_target 257.8 -47.5728 7.97975 0"
+send_character_message 4 "set_head_target 258.851 -47.1601 6.35913 1"
+send_character_message 4 "set_eye_dir 260.281 -45.5704 4.27596 1"
+say 3 "????" "Halt! [wait 0.15]You may go no further, [wait 0.1]Black Hand!"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 2 "set_head_target 257.278 -47.7781 2.14196 1"
+send_character_message 2 "set_torso_target 257.373 -48.0122 0.406226 0"
+set_cam 257.997 -47.4944 12.4854 -1.59 7.27 0.02 19.4329
+say 2 "???" "Get on the ground and lie down with your paws behind your head! [wait 0.1]This is an order!"
+send_character_message 2 "set_animation \"Data/Animations/r_actionidlethreat.anm\""
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_jeer.anm\""
+send_character_message 3 "set_head_target 256.508 -47.8355 3.26501 1"
+say 3 "????" "Failure to comply will result in immediate subjugation! [wait 0.15]Lie down, [wait 0.1]now!"
+send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
+send_character_message 2 "set_head_target 257.195 -47.5435 2.26545 1"
+send_character_message 3 "set_head_target 256.725 -48.1062 3.27777 1"
+send_character_message 1 "set_eye_dir 259.63 -47.7478 13.2976 0.545752"
+send_character_message 1 "set_torso_target 258.251 -48.3506 7.57004 1"
+send_character_message 1 "set_head_target 260.465 -47.1207 7.47184 0.91595"
+say 1 "Ghost" "Empry soldiers, [wait 0.1]huh...[wait 0.1]? [wait 0.1]Guess those gate guards were paid off..."
+send_level_message "disable 6837"
+send_level_message "disable 6838"
+send_level_message "disable 6841"
+send_level_message "dialogue_done"

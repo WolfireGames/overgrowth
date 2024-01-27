@@ -1,0 +1,40 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-10.2962" t1="-17.0236" t2="-21.9525" s0="0.823745" s1="3.82166" s2="0.823744" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4288" version="1">
+        <parameters />
+        <Group t0="-10.2962" t1="-18.5167" t2="-21.9525" s0="0.813745" s1="0.825344" s2="0.813745" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4286" version="1">
+            <parameters />
+            <Decal t0="-10.2962" t1="-18.7707" t2="-21.9525" s0="0.734722" s1="0.307429" s2="0.734722" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4276" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
+                <parameters />
+            </Decal>
+            <EnvObject t0="-10.4411" t1="-18.5119" t2="-21.9374" s0="0.0500059" s1="0.0266959" s2="0.0266958" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="4277" color_r="0.239216" color_g="0.54353" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-10.3677" t1="-18.5119" t2="-22.0672" s0="0.050007" s1="0.0266964" s2="0.0266964" q0="-0.353553" q1="-0.353553" q2="0.612372" q3="0.612372" euler_x="-1.0472" euler_y="0" euler_z="1.57079" id="4278" color_r="0.239216" color_g="0.54353" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-10.1549" t1="-18.5119" t2="-21.9374" s0="0.0500071" s1="0.0266965" s2="0.0266965" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="4279" color_r="0.239216" color_g="0.54353" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-10.2278" t1="-18.5119" t2="-22.0736" s0="0.0500051" s1="0.0266954" s2="0.0266954" q0="-0.351834" q1="0.351834" q2="-0.613362" q3="0.613362" euler_x="-1.04159" euler_y="0" euler_z="-1.5708" id="4280" color_r="0.239216" color_g="0.54353" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-10.2264" t1="-18.5116" t2="-21.8216" s0="0.0501329" s1="0.0266992" s2="0.0240826" q0="-0.356984" q1="0.356984" q2="0.610379" q3="-0.610379" euler_x="1.05842" euler_y="0" euler_z="-1.5708" id="4281" color_r="0.239216" color_g="0.54353" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-10.3692" t1="-18.5116" t2="-21.8191" s0="0.0501342" s1="0.0267027" s2="0.0236177" q0="-0.362321" q1="-0.362321" q2="-0.607226" q3="-0.607226" euler_x="1.07595" euler_y="0" euler_z="1.5708" id="4282" color_r="0.239216" color_g="0.54353" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                <parameters />
+            </EnvObject>
+            <Decal t0="-10.2962" t1="-18.2559" t2="-21.9525" s0="0.803746" s1="0.293656" s2="0.803746" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4285" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-10.3053" t1="-18.5103" t2="-21.944" s0="0.403697" s1="0.391844" s2="0.402859" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4284" type_file="Data/Objects/Decals/light_square.xml" color_r="0" color_g="0.494117" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+        </Group>
+        <EnvObject t0="-10.2992" t1="-16.9823" t2="-21.9463" s0="0.351509" s1="0.351509" s2="0.351509" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4287" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArenaPBR/HangingLamp_1.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

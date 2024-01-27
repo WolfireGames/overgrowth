@@ -1,0 +1,34 @@
+<?xml version="2.0" ?>
+<Type>prefab</Type>
+<Prefab>
+    <Group t0="28.2882" t1="-46.2572" t2="1.85628" s0="0.151785" s1="0.147501" s2="0.151788" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="0" version="1">
+        <parameters />
+        <Decal t0="28.2895" t1="-46.2868" t2="1.85455" s0="0.134036" s1="0.0782949" s2="0.134036" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.160784" color_g="0.160783" color_b="0.160783" overbright="0">
+            <parameters />
+        </Decal>
+        <Group t0="28.2882" t1="-46.2473" t2="1.85628" s0="0.141786" s1="0.117674" s2="0.141788" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" version="1">
+            <parameters />
+            <Group t0="28.2882" t1="-46.2473" t2="1.85628" s0="0.131788" s1="0.107672" s2="0.131788" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" version="1">
+                <parameters />
+                <EnvObject t0="28.2882" t1="-46.2473" t2="1.85628" s0="0.725936" s1="0.678764" s2="0.725936" q0="0" q1="-0.575806" q2="0" q3="0.817587" euler_x="0" euler_y="-1.22718" euler_z="0" id="4" color_r="0.639216" color_g="0.656468" color_b="1" overbright="3.926" type_file="Data/Objects/Environment/SmallProps/BottleShort.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <EnvObject t0="28.2882" t1="-46.1978" t2="1.85643" s0="0.0202219" s1="0.0323506" s2="0.0202219" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/disk.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="28.288" t1="-46.2036" t2="1.85618" s0="0.58153" s1="0.10159" s2="0.587944" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="0.196078" color_b="0.839216" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Ball_01.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="28.2658" t1="-46.2144" t2="1.88475" s0="0.0477399" s1="0.0150402" s2="0.0477449" q0="-0.261423" q1="-0.139178" q2="-0.214655" q3="0.930705" euler_x="-0.47769" euler_y="-0.380407" euler_z="-0.359656" id="7" color_r="1" color_g="0.196078" color_b="0.196078" overbright="0" type_file="Data/Objects/therium/rope/dangeling rope.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="28.2616" t1="-46.215" t2="1.88073" s0="0.0477514" s1="0.0178914" s2="0.0477485" q0="0.167854" q1="-0.16626" q2="-0.916971" q3="-0.321477" euler_x="0.218212" euler_y="0.427648" euler_z="2.51476" id="8" color_r="1" color_g="0.196078" color_b="0.196078" overbright="0" type_file="Data/Objects/therium/rope/dangeling rope.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Decal t0="28.2873" t1="-46.2487" t2="1.88427" s0="0.0660647" s1="0.0376742" s2="0.0628159" q0="0.00300828" q1="-0.707101" q2="-0.707101" q3="-0.00300828" euler_x="1.5708" euler_y="0.00850873" euler_z="3.14159" id="9" type_file="Data/Objects/Decals/runes/rune_food.xml" color_r="0.999992" color_g="1" color_b="0.99999" overbright="0">
+        <parameters />
+    </Decal>
+</Prefab>

@@ -1,0 +1,42 @@
+#name "Guards"
+#participants 5
+send_character_message 1 "set_eye_dir 165.528 -47.2491 -7.01205 0.738761"
+set_cam 165.365 -47.5871 -4.98381 0 41.62 0 21.328
+set_character_pos 4 175.388 -48.0232 -29.5286 -120
+set_character_pos 3 173.487 -48.0232 -31.8905 -90
+set_character_pos 2 171.407 -48.0232 -26.4614 -30
+send_character_message 4 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 4 "set_eye_dir 173.115 -47.0311 -26.2226 1"
+send_character_message 4 "set_head_target 172.225 -47.2076 -27.1573 1"
+send_character_message 3 "set_eye_dir 173.739 -46.9087 -23.0203 1"
+send_character_message 3 "set_head_target 173.564 -46.8697 -21.1586 1"
+send_character_message 2 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_eye_dir 173.766 -46.7201 -20.4433 1"
+send_character_message 2 "set_head_target 173.314 -47.3506 -29.8845 1"
+send_character_message 1 "set_head_target 171.506 -45.9077 -9.93533 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_character_pos 1 164.083 -48.2559 -6.23761 16
+send_level_message "part1_complete"
+send_level_message "begin_tense"
+send_level_message "enable 11405"
+send_level_message "enable 11404"
+send_level_message "enable 11403"
+send_level_message "enable 11079"
+send_level_message "disable 13823"
+send_level_message "enable 13789"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 2.0 1.0"
+say 1 "Ghost" "What the hell...[wait 0.5]?"
+set_cam 175.33 -47.3003 -1.87546 0 9.86 0 27.0783
+send_level_message "set_camera_dof 0.3 7.0 7.0 0.5 29.0 5.0"
+say 1 "Ghost" "Guards are coming. [wait 0.5]Full squad, [wait 0.3]sounds like. [wait 0.5]How am I gonna handle this?"
+send_character_message 1 "set_head_target 169.36 -46.5916 -13.1005 1"
+set_cam 162.931 -47.7694 -3.6196 0 -34.21 0 56.0105
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 15.0 3.0"
+say 1 "Ghost" "They're practically marching over here."
+send_level_message "disable 11405"
+send_level_message "disable 11404"
+send_level_message "disable 11403"
+send_level_message "disable 11079"
+send_level_message "enable 13320"
+send_level_message "disable 13714"

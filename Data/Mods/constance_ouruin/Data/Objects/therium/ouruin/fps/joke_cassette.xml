@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	    <Model>Data/Models/therium/ouruin/fps/cassette_tape.obj</Model>
+		<ColorMap>Data/Textures/ouruin/fps/joke_cassette_c.tga</ColorMap>
+		<NormalMap>Data/Textures/ouruin/fps/joke_cassette_n.tga</NormalMap>
+		<ShaderName>envobject #TANGENT</ShaderName>
+		<GroundOffset>0.5</GroundOffset>
+</Object>

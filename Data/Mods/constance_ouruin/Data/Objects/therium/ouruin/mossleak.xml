@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<DecalObject>
+    <ColorMap>Data/Textures/ouruin/mossleak_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/mossleak_n.tga</NormalMap>
+	<ShaderName>decal</ShaderName>
+</DecalObject>

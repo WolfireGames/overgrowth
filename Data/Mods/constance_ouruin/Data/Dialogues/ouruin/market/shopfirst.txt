@@ -1,0 +1,35 @@
+#name "ShopFirst"
+#participants 3
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 30.2981 -45.8515 3.60272 1"
+set_character_pos 1 29.4133 -46.6304 2.83447 -150
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 29.6442 -45.7343 4.53542 1"
+send_character_message 1 "set_torso_target 29.1125 -46.4159 3.50564 3.06666e-05"
+send_character_message 1 "set_head_target 28.9061 -45.6753 3.9802 1"
+set_cam 28.3838 -45.921 1.47687 0 -152.36 0 34.7352
+set_character_pos 2 29.693 -46.6161 5.3928 98
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+say 2 "Nedis" "...[wait 0.1]Been a while since I saw you 'round, [wait 0.05]Ghost. [wait 0.15]Donny told me you'd visit."
+send_character_message 2 "set_head_target 29.8994 -45.9142 3.59647 1"
+send_character_message 1 "set_eye_dir 28.2942 -45.6511 1.07213 1"
+send_character_message 1 "set_head_target 27.2092 -45.5762 2.64584 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "I can't promise it'll be for long. [wait 0.1]Got places to be."
+send_character_message 1 "set_eye_dir 29.2626 -45.876 3.85317 1"
+send_character_message 1 "set_torso_target 28.5765 -46.3101 3.06779 1"
+send_character_message 1 "set_head_target 27.8331 -45.8714 3.38281 1"
+send_character_message 2 "set_head_target 29.5002 -46.0815 3.69684 1"
+say 2 "Nedis" "This stock ain't much, [wait 0.1]but once I get a decent return on it I'll be able to move out of these streets..."
+set_cam 29.3172 -45.9625 3.76804 0 11.49 0 71.6702
+set_character_pos 1 29.6315 -46.6304 2.23831 120
+send_character_message 1 "set_eye_dir 28.7133 -45.0775 0.260352 1"
+send_character_message 1 "set_torso_target 28.6104 -46.0027 3.21319 0"
+send_character_message 1 "set_head_target 29.0699 -45.4697 0.658643 1"
+send_character_message 2 "set_head_target 29.4998 -45.7837 2.57348 0"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_wait.anm\""
+say 2 "Nedis" "I've also got some leads for you, [wait 0.1]if you're interested. [wait 0.15]Otherwise, [wait 0.1]feel free to spend some coin..."
+send_level_message "dialogue_done"

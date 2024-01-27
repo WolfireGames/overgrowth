@@ -1,0 +1,10 @@
+#name "From-UpperMoritz"
+#participants 2
+set_character_pos 1 2.41746 -9.19274 -24.9027 0
+send_character_message 1 "set_eye_dir 5.30829 -8.49278 -25.5262 1"
+send_character_message 1 "set_torso_target 1.91057 -8.75934 -24.3614 0"
+send_character_message 1 "set_head_target 5.10222 -7.9652 -25.6785 1"
+set_cam 0.543247 -7.89485 -24.1406 -12.85 -75.76 0.11 76.294
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "..."

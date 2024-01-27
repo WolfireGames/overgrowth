@@ -1,0 +1,29 @@
+#name "GaraKnife"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.68 0.52 0.15
+set_dialogue_voice 2 16
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_eye_dir 204.557 -46.7356 -11.3418 0"
+send_character_message 2 "set_head_target 203.872 -46.6374 -10.746 1"
+set_character_pos 1 202.808 -47.9084 -11.5932 8
+send_character_message 1 "set_eye_dir 204.856 -47.0189 -11.939 1"
+send_character_message 1 "set_head_target 205.102 -47.1486 -12.1032 1"
+set_cam 203.96 -46.065 -11.1036 -33.79 -60 0 33.0914
+send_character_message 2 "set_animation \"Data/Animations/gara_idle.anm\""
+set_character_pos 2 205.08 -47.2278 -11.5296 -150
+send_level_message "set_camera_dof 0.0 5.0 10.0 1.9 2.5 0.7"
+say 1 "Ghost" "Hey, [wait 0.3]Gara; [wait 0.5]Mind if I borrow that knife?"
+send_character_message 1 "set_eye_dir 204.898 -46.6213 -11.4672 1"
+send_character_message 1 "set_head_target 204.816 -46.8335 -11.45 1"
+send_character_message 2 "set_torso_target 204.529 -47.1096 -11.2518 0.999887"
+send_character_message 2 "set_head_target 203.948 -46.9726 -10.678 1"
+say 2 "Gara" "Sorry, [wait 0.3]Ghost, [wait 0.5]but I need this. [wait 0.5]I can't pack a punch like you can."
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+send_character_message 2 "set_head_target 203.818 -46.5795 -10.8349 1"
+send_character_message 2 "set_torso_target 204.529 -47.1096 -11.2518 0"
+send_character_message 1 "set_head_target 204.857 -46.4126 -11.4902 1"
+set_cam 201.724 -47.2911 -10.5304 0 -62.06 0 81.5349
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 6.0 2.0"
+say 1 "Ghost" "No problem... [wait 0.5]Take care."

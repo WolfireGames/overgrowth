@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/fps/m1911_slide_open.obj</Model>
+	<ColorMap>Data/Textures/ouruin/fps/m1911_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/fps/m1911_n.tga</NormalMap>
+	<ShaderName>envobject #METALNESS_PBR #TANGENT</ShaderName>
+	<MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

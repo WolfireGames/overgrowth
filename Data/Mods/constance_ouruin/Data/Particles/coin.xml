@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<particle>
+    <textures color_map = "Data/Textures/particles/coin.tga" 
+              shader = "envobject #PARTICLE"/>
+    <stretch velocity_axis = "false" speed_stretch = "false" min_squash = "false"/>
+    <size min = "0.1" max = "0.1"/>
+    <color red =   "1.0"
+           green = "1.0"
+           blue =  "1.0"
+           alpha = "1.0"/>
+    <behavior inertia="1.0" gravity="1.5" wind="0.1" size_decay_rate="0.01" opacity_decay_rate="0.04"/>
+</particle>

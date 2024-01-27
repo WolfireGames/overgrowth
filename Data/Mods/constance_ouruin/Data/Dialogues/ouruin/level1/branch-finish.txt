@@ -1,0 +1,70 @@
+#name "Branch-Finish"
+#participants 3
+set_character_pos 2 184.441 -48.0571 77.0871 -90
+send_character_message 2 "set_animation \"Data/Animations/branch_idle.anm\""
+send_character_message 2 "set_head_target 184.421 -47.1865 78.9856 1"
+set_character_pos 1 184.462 -48.0733 78.7587 90
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 184.436 -47.2119 77.4244 1"
+send_character_message 1 "set_torso_target 184.846 -47.6966 77.9918 0"
+send_character_message 1 "set_head_target 184.384 -47.154 77.3555 1"
+set_cam 183.55 -47.2926 79.3206 0 -23.15 0 28.5432
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 1 0.7
+set_dialogue_voice 2 3
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+send_level_message "enable 14680"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 5.0 2.0"
+say 2 "Branch" "Greetings, [wait 0.3]dear boy -- [wait 0.5]Have you fetched my artifact?"
+send_character_message 2 "set_torso_target 184.38 -47.455 78.1075 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_head_target 185.359 -47.3085 78.6198 1"
+send_character_message 1 "set_head_target 185.809 -47.4884 78.1298 1"
+say 1 "Ghost" "Yeah. [wait 0.5]I think... [wait 0.5]This is it, [wait 0.3]right?"
+send_character_message 2 "set_animation \"Data/Animations/branch_hips.anm\""
+set_cam 186.833 -47.2463 79.1884 -20.58 8.86 0 28.5432
+send_character_message 1 "set_eye_dir 188.196 -47.0846 78.7445 1"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_head_target 187.396 -47.2319 78.9815 1"
+send_character_message 2 "set_head_target 186.714 -47.7206 78.1214 1"
+set_character_pos 1 186.052 -48.0732 79.5351 15
+send_character_message 2 "set_torso_target 188.602 -47.3047 78.1933 0"
+set_character_pos 2 188.324 -48.0571 78.6049 150
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 1.3 0.5"
+say 2 "Branch" "That it is! [wait 0.5]I'm surprised it's in such good shape... [wait 0.5]I'd have expected the savages here to at least chip the tail!"
+set_character_pos 2 188.332 -48.0571 78.6099 150
+set_character_pos 1 186.09 -48.0732 79.5072 15
+send_character_message 1 "set_head_target 187.418 -47.2031 78.9842 1"
+send_character_message 2 "set_torso_target 187.752 -46.8487 78.1265 1"
+send_character_message 2 "set_animation \"Data/Animations/branch_fist.anm\""
+send_character_message 2 "set_head_target 186.359 -47.324 79.3319 1"
+set_cam 183.973 -47.3329 81.2971 0 -53.37 0 14.5679
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 5.0 1.0"
+say 2 "Branch" "I believe you've earned yourself some armaments -- [wait 0.5]And I don't mean just the sword."
+send_character_message 2 "set_torso_target 187.752 -46.7261 78.1265 0.967647"
+send_character_message 2 "set_head_target 186.464 -47.1794 79.4172 1"
+send_character_message 1 "set_head_target 187.977 -47.0347 78.6483 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handneck.anm\""
+say 1 "Ghost" "What, [wait 0.3]the book? [wait 0.5]How would a book help me kill someone...[wait 0.5]?"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 187.935 -47.2528 78.7168 1"
+send_character_message 2 "set_torso_target 187.752 -46.7261 78.1265 0"
+send_character_message 2 "set_animation \"Data/Animations/branch_idle.anm\""
+say 2 "Branch" "...[wait 0.5]Nevermind. [wait 0.5]I suppose you're still an ouruinian."
+send_character_message 2 "set_head_target 186.938 -47.6999 77.9992 1"
+send_character_message 1 "set_head_target 187.991 -47.072 78.7214 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Can't help it."
+set_character_pos 1 186.09 -48.0732 79.5072 60
+send_character_message 1 "set_eye_dir 187.157 -47.8525 77.8295 1"
+send_character_message 1 "set_head_target 187.055 -47.8728 77.7126 1"
+set_cam 187.032 -45.796 79.8884 -44.09 4.28 -7.18 21.6304
+send_character_message 2 "set_head_target 187.318 -47.1424 78.6242 1"
+set_character_pos 2 187.722 -48.058 75.8513 -60
+say 3 "Ghost" "I should read a bit of this, [wait 0.3]just to see if it's something Bijou would like..."
+send_character_message 1 "set_eye_dir 187.603 -46.9956 79.532 1"
+send_character_message 1 "set_head_target 186.919 -47.6255 77.7499 1"
+set_cam 188.401 -47.4951 77.4125 0 132.91 0 37.5733
+say 3 "Ghost" "Or, [wait 0.3]I can just leave the book behind for now, [wait 0.3]and take the sword with me."

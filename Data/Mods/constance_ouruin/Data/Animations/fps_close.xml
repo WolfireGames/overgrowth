@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<SyncedAnimationGroup>
+	<CoordLabel>aim_close_center</CoordLabel>
+	<Animations>
+		<Animation path="Data/Animations/fps_close_up.anm" coord="1.0"/>
+		<Animation path="Data/Animations/fps_close_forward.anm" coord="0.0"/>
+		<Animation path="Data/Animations/fps_close_down.anm" coord="-1.0"/>
+	</Animations>
+	<Overshoot>true</Overshoot>
+</SyncedAnimationGroup>

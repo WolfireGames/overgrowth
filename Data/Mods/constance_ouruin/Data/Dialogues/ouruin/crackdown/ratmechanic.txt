@@ -1,0 +1,37 @@
+#name "RattyMechanical"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.11 0.05 0.4
+set_dialogue_voice 2 4
+set_character_pos 2 209.132 -47.5222 -225.752 -90
+send_character_message 2 "set_animation \"Data/Animations/ratty_sit.anm\""
+send_character_message 2 "set_eye_dir 208.752 -47.6819 -225.716 1"
+send_character_message 2 "set_head_target 208.714 -47.2503 -224.784 1"
+set_character_pos 1 210.293 -47.6501 -223.239 120
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+send_character_message 1 "set_eye_dir 209.113 -47.5688 -225.537 1"
+send_character_message 1 "set_torso_target 210.275 -47.1103 -224.222 0"
+send_character_message 1 "set_head_target 209.287 -47.5081 -225.264 1"
+set_cam 210.415 -46.9469 -220.32 -6.99 10.22 0 38.6118
+say 1 "Ghost" "You mentioned you had disassembled a mechanical object. [wait 0.2]How'd you learn how to do that?"
+say 2 "Rat" "I wish it never happened. [wait 0.2]Doing it ruined my life."
+say 1 "Ghost" "Yeah, [wait 0.1]me too. [wait 0.2]I just wanted to know more..."
+say 1 "Ghost" "How'd you know it was mechanical? [wait 0.2]And how'd you know how to take it apart?"
+say 2 "Rat" "[wait 0.2].[wait 0.2].[wait 0.2]."
+say 2 "Rat" "I was born in [wait 0.2]Arliss. [wait 0.2]My first family was raised in [wait 0.3]a sweatshop."
+say 2 "Rat" "We were forced by iron cats to [wait 0.2]assemble and [wait 0.1]repair [wait 0.1]clocks. [wait 0.2]The cats couldn't do it because [wait 0.1]their paws and claws [wait 0.1]were too big. [wait 0.2]Too clumsy. [wait 0.2]So they trained us to do everything."
+say 2 "Rat" "The clocks were [wait 0.1]sometimes big, [wait 0.1]and sometimes small. [wait 0.2]They made us assemble mechanisms [wait 0.1]so small, [wait 0.1]they could fit into [wait 0.2]a watch you can carry. [wait 0.2]My wrists hurt."
+say 2 "Rat" "[wait 0.1]A fight broke out. [wait 0.2]Mama was being overworked. [wait 0.2]She [wait 0.1]snapped, [wait 0.2]and tore an iron cat apart."
+say 2 "Rat" "I didn't realise [wait 0.1]the iron cats were just [wait 0.3]wearing armor. [wait 0.2]It was [wait 0.2]yowling flesh underneath. [wait 0.2]They could be killed."
+say 2 "Rat" "I escaped. [wait 0.2]I didn't hurt anything. [wait 0.2]I ran out into the mesa. [wait 0.4]I don't know what happened to the family."
+say 2 "Rat" "[wait 0.2].[wait 0.2].[wait 0.2]."
+say 2 "Rat" "I had to learn how to [wait 0.1]hunt to [wait 0.1]survive. [wait 0.2]All I could find were [wait 0.1]bugs. [wait 0.2]I got so hungry, [wait 0.1]I thought about [wait 0.1]returning to the workshop. [wait 0.2]I didn't."
+say 2 "Rat" "[wait 0.3]I managed. [wait 0.3]I was alone. [wait 0.2]I left Arliss."
+say 1 "Ghost" "And you came to Ouruin?"
+say 2 "Rat" "It's [wait 0.1]cold [wait 0.1]and wet [wait 0.1]here. I'm [wait 0.1]still glad I left."
+say 1 "Ghost" "[wait 0.2]Tough choice."
+say 2 "Rat" "You wouldn't understand."
+say 1 "Ghost" "..."
+say 1 "Ghost" "I think you'd be surprised."
+say 2 "Rat" "[wait 0.2].[wait 0.2].[wait 0.2]."

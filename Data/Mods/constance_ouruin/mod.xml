@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<Mod>
+    <Id>const-ouruin</Id> 
+	
+    <Name>Scar of Ouruin</Name> 
+
+    <Category>Campaign</Category>
+
+    <Thumbnail>Data/Images/ouruin/thumb.jpg</Thumbnail>
+    <PreviewImage>Data/Images/ouruin/full.jpg</PreviewImage>
+    
+    <Description>A city that never stops weeping...</Description>
+    <Version>1.0.0</Version>
+    <Author>Constance</Author>
+    
+    <Tag>Core</Tag>
+
+    <SupportedVersion>*</SupportedVersion>
+
+    <NeedsRestart>false</NeedsRestart>
+
+    <Level title="Ouruin Testing" thumbnail="Textures/example_level_pack/campaign_thumbnails/Clearing.jpg">t/testselect.xml</Level>
+
+    <Campaign title="Scar of Ouruin" thumbnail="Images/ouruin/thumb.jpg" menu_script="standard_campaign_menu.as" main_script="linear_campaign.as">
+        <Level id="level_1" title="Rainfall" thumbnail="Textures/ouruin/campaign_thumbnails/prologue.jpg">ouruin/prologue.xml</Level>
+        <Level id="level_2" title="Drowned Streets" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/level1_explore.xml</Level>
+        <Level id="level_3" title="Black Market" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/market.xml</Level>
+        <Level id="level_4" title="Depot" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/depot.xml</Level>
+        <Level id="level_5" title="Faas' Sanctuary" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/level1_dart.xml</Level>
+        <Level id="level_6" title="Crackdown" thumbnail="Textures/ouruin/campaign_thumbnails/level1.jpg">ouruin/level1.xml</Level>
+        <Level id="level_7" title="Fractured Home" thumbnail="Textures/ouruin/campaign_thumbnails/level2.jpg">ouruin/level2.xml</Level>
+        <Level id="level_8" title="Waterfront Escape" thumbnail="Textures/ouruin/campaign_thumbnails/level3.jpg">ouruin/level3.xml</Level>
+        <Level id="level_9" title="Cinderian Ship" thumbnail="Textures/ouruin/campaign_thumbnails/level4.jpg">ouruin/level4.xml</Level>
+    </Campaign>
+<!--	<Level title="Donatas Wave" thumbnail="Textures/ouruin/campaign_thumbnails/level1.jpg">ouruin/donataswave.xml</Level> -->
+    <Item category="Hotspot" title="Random Citizen" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail="Data/UI/spawner/thumbs/Hotspot/reset_icon.png"/>
+	<Item category="Hotspot" title="FPS Hotspot" path="Data/Objects/Hotspots/fps_hotspot.xml" thumbnail="Data/UI/spawner/thumbs/Hotspot/load_icon.png"/>
+</Mod>

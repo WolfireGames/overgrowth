@@ -1,0 +1,62 @@
+#name "IntroAmbush-High"
+#participants 5
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 3 "set_head_target 256.213 -47.5373 -2.0649 1"
+send_character_message 2 "set_head_target 257.171 -47.4496 0.134359 0"
+send_character_message 4 "set_torso_target 273.027 -41.741 -7.52944 0"
+set_character_pos 4 273.488 -41.2127 -7.71001 -125
+send_character_message 4 "set_animation \"Data/Animations/r_dialogue_kneelfist.anm\""
+send_character_message 4 "set_eye_dir 261.078 -46.5118 4.99243 1"
+send_character_message 4 "set_head_target 259.612 -46.0777 7.6405 1"
+set_character_pos 3 255.933 -48.1554 -5.09555 -84
+send_character_message 3 "set_eye_dir 256.938 -47.771 3.23764 1"
+set_character_pos 2 257.256 -48.2155 -1.36672 -90
+send_character_message 2 "set_eye_dir 257.417 -47.5168 3.832 1"
+send_character_message 1 "set_torso_target 257.363 -47.7057 8.0537 0.000235796"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.6 0.6 0.6
+set_dialogue_voice 2 4
+set_character_pos 1 257.371 -48.2799 9.01088 90
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 259.523 -47.2867 3.96925 1"
+send_character_message 1 "set_head_target 259.523 -46.8585 5.55874 0.91595"
+set_cam 259.481 -47.8625 9.63594 3.84 66.59 -0.64 43.0662
+say 1 "Ghost" "..."
+send_character_message 1 "set_torso_target 257.363 -47.7057 8.0537 0.000235796"
+send_character_message 4 "set_head_target 259.612 -46.0777 7.6405 1"
+send_character_message 1 "set_eye_dir 252.038 -46.7524 4.56281 1"
+send_character_message 1 "set_head_target 253.959 -46.3581 6.44183 0.91595"
+say 1 "Ghost" "(Something's not right... [wait 0.15]It's too quiet out here.)"
+send_character_message 2 "set_head_target 257.167 -47.4526 0.152257 0"
+send_character_message 2 "set_torso_target 256.954 -47.8571 -0.421463 0.159652"
+send_character_message 1 "set_eye_dir 260.848 -46.8821 4.97259 0.696477"
+send_character_message 1 "set_head_target 254.777 -47.055 6.15253 0.91595"
+set_cam 256.029 -47.9504 9.94848 13.6 -47.46 0 24.0991
+say 1 "Ghost" "[wait 0.1].[wait 0.1].[wait 0.1].[wait 0.1]!"
+send_character_message 1 "set_torso_target 257.713 -47.6462 7.95456 1"
+send_character_message 4 "set_head_target 258.399 -47.2857 7.77356 1"
+send_character_message 1 "set_head_target 260.204 -45.7262 5.44998 0.91595"
+say 1 "Ghost" "Oh, [wait 0.1]great..."
+send_character_message 4 "set_head_target 257.746 -47.0894 3.42831 1"
+send_character_message 1 "set_eye_dir 257.191 -47.5726 3.18859 0.696477"
+send_character_message 1 "set_head_target 256.984 -47.204 4.45614 0.91595"
+say 2 "???" "Black hand! [wait 0.15]Put your paws in the air and slowly step forwards!"
+send_character_message 2 "set_head_target 257.287 -47.5217 1.08332 1"
+send_character_message 2 "set_torso_target 256.662 -48.5311 -0.234581 1"
+send_character_message 2 "set_animation \"Data/Animations/lanterntouch_lethal.anm\""
+send_character_message 1 "set_torso_target 257.713 -47.6462 7.9545 0"
+set_cam 258.226 -47.5915 12.1773 -2.02 10.58 0 32.3301
+say 2 "???" "Failure to comply will result in immediate subjugation, [wait 0.1]and potentially death! [wait 0.15]You cannot resist!"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidlethreat.anm\""
+send_character_message 1 "set_head_target 257.289 -47.9553 3.81203 0.91595"
+send_character_message 2 "set_head_target 257.272 -47.6678 1.91035 1"
+send_character_message 3 "set_head_target 256.336 -47.8338 -1.17371 1"
+send_character_message 3 "set_animation \"Data/Animations/r_combatidle2.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_combatidle.anm\""
+send_character_message 2 "set_torso_target 256.662 -48.5311 -0.234588 0"
+say 1 "Ghost" "Just what I needed... [wait 0.15]Hope Bijou doesn't see any bruises on me."
+send_level_message "disable 6837"
+send_level_message "disable 6838"
+send_level_message "disable 6841"
+send_level_message "dialogue_done"

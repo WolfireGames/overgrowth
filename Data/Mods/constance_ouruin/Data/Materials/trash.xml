@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<material>
+    <events>
+        <leftrunstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_run.xml" attached="true"/>
+        <rightrunstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_run.xml" attached="true"/>
+        <leftwallstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_wallrun.xml" attached="true"/>
+        <rightwallstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_wallrun.xml" attached="true"/>
+        <leftwalkstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_walk.xml" attached="true"/>
+        <rightwalkstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_walk.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_crouchwalk.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_crouchwalk.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_crouchwalk.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_crouchwalk.xml" attached="true"/>
+        <land soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_jump_land.xml" attached="true"/>
+        <land_soft soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_jump_land.xml" attached="true"/>
+        <land_slide soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_jump_land.xml" attached="true"/>
+        <slide soundgroup="Data/Sounds/rocks_foley/slide_rocks_short.xml" attached="true"/>
+        <kick soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_kick.xml" attached="true"/>
+        <sweep soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_sweep.xml" attached="true"/>
+        <jump soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_jump.xml" attached="true"/>
+        <roll soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_roll.xml" attached="true"/>
+        <edge_grab soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_crouchwalk.xml" attached="true"/>
+        <edge_crawl soundgroup="Data/Sounds/rocks_foley/fs_light_rocks_crouchwalk.xml" attached="true"/>
+        <bodyfall soundgroup="Data/Sounds/rocks_foley/bf_rocks.xml" attached="true"/>
+        <bodyfall_light soundgroup="Data/Sounds/rocks_foley/bf_rocks_light.xml" attached="true"/>
+        <bodyfall_medium soundgroup="Data/Sounds/rocks_foley/bf_rocks_medium.xml" attached="true"/>
+        <bodyfall_heavy soundgroup="Data/Sounds/rocks_foley/bf_rocks_heavy.xml" attached="true"/>
+        <weapon_drop_light soundgroup="Data/Sounds/weapon_foley/impact/weapon_drop_light_gravel.xml" attached="true"/>
+        <weapon_drop_medium soundgroup="Data/Sounds/weapon_foley/impact/weapon_drop_medium_gravel.xml" attached="true"/>
+        <weapon_drop_heavy soundgroup="Data/Sounds/weapon_foley/impact/weapon_drop_heavy_gravel.xml" attached="true"/>
+        <blood_spatter soundgroup="Data/Sounds/blood/spatter_hard.xml"/>
+        <blood_drip soundgroup="Data/Sounds/blood/drip_lowpass.xml"/>
+    </events>	
+	<events mod="soft">
+        <weapon_drop_light soundgroup="Data/Sounds/weapon_foley/impact/soft_bag_on_hard.xml" attached="true"/>
+        <weapon_drop_medium soundgroup="Data/Sounds/weapon_foley/impact/soft_bag_on_hard.xml" attached="true"/>
+        <weapon_drop_heavy soundgroup="Data/Sounds/weapon_foley/impact/soft_bag_on_hard.xml" attached="true"/>
+    </events>
+    <events mod="heavy">
+        <leftrunstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_run.xml" attached="true"/>
+        <rightrunstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_run.xml" attached="true"/>
+        <leftwalkstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_walk.xml" attached="true"/>
+        <rightwalkstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_walk.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_crouchwalk.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_crouchwalk.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_crouchwalk.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_crouchwalk.xml" attached="true"/>
+        <land soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_jump_land.xml" attached="true"/>
+        <land_soft soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_jump_land.xml" attached="true"/>
+        <land_slide soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_jump_land.xml" attached="true"/>
+        <kick soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_kick.xml" attached="true"/>
+        <sweep soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_sweep.xml" attached="true"/>
+        <jump soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_jump.xml" attached="true"/>
+        <roll soundgroup="Data/Sounds/rocks_foley/fs_heavy_rocks_roll.xml" attached="true"/>
+    </events>
+	<physics hardness = "0.8" friction = "1.0" sharp_penetration = "0.5"/>
+</material>

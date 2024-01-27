@@ -1,0 +1,28 @@
+#name "PatriEnter"
+#participants 3
+send_character_message 1 "set_head_target 37.0682 -51.9344 -56.3062 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_idle.anm\""
+send_character_message 2 "set_eye_dir 38.2647 -51.8224 -56.1699 1"
+send_character_message 2 "set_head_target 38.3454 -51.8285 -56.1535 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 37.1209 -51.9318 -56.3011 1"
+set_cam 40.6209 -51.8691 -54.7705 -2.88 62.79 0.01 21.2676
+set_character_pos 1 38.4573 -52.6756 -56.2353 180
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.4 0.05 0.05
+set_dialogue_voice 2 2
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 5.0 7.0"
+send_character_message 2 "set_morph_target smile 0.3 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0.0 0.3 outExpo"
+send_character_message 2 "set_morph_target sad 0.0 0.3 outExpo"
+say 1 "Ghost" "Hey, [wait 0.1]I'd like to enter the Black Market."
+send_character_message 1 "set_eye_dir 37.2294 -51.3669 -53.019 1"
+send_character_message 1 "set_head_target 37.4587 -51.9975 -55.3868 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_animation \"Data/Animations/patri_fist.anm\""
+send_character_message 2 "set_eye_dir 36.0749 -51.1521 -52.2631 1"
+send_character_message 2 "set_head_target 38.2834 -51.7636 -54.8142 1"
+send_character_message 2 "set_morph_target smile 0.0 0.3 outExpo"
+say 2 "Patri" "No problem, [wait 0.1]Ghost!"
+send_level_message "dialogue_done"

@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<character>
+		<appearance obj_path = "Data/Objects/therium/characters/ghostobj.xml"
+								skeleton = "Data/Skeletons/r_raider_rabbit.xml"
+								channel_0 = "fur"
+								channel_1 = "cloth"
+								channel_2 = "cloth"
+								channel_3 = "cloth"/>
+		<animations idle = "Data/Animations/r_idle.xml"
+								jump = "Data/Animations/r_jump.xml"
+								roll = "Data/Animations/r_roll.xml"
+								movement = "Data/Animations/r_movement.xml"
+								wall = "Data/Animations/r_wall.xml"
+								ledge = "Data/Animations/r_ledge.anm"
+								medrightblock = "Data/Animations/r_activeblockmedright.anm"
+								medleftblock = "Data/Animations/r_activeblockmedleft.anm"
+								highrightblock = "Data/Animations/r_activeblockhighright.anm"
+								highleftblock = "Data/Animations/r_activeblockhighleft.anm"
+								lowrightblock = "Data/Animations/r_activeblocklowright.anm"
+								lowleftblock = "Data/Animations/r_activeblocklowleft.anm"
+								blockflinch = "Data/Animations/r_activeblockflinch.anm"/>
+		<attacks moving_close = "Data/Attacks/jab.xml"
+						 stationary_close = "Data/Attacks/kneestrike.xml"
+						 moving = "Data/Attacks/roundhouse.xml"
+						 stationary = "Data/Attacks/frontkick.xml"
+						 moving_low = "Data/Attacks/soccerkick.xml"
+						 low = "Data/Attacks/sweep.xml"
+						 air = "Data/Attacks/legcannon.xml" />
+		<morphs>
+				<fist_l num_steps = "4"/>
+				<fist_r num_steps = "4"/>
+				<mouth_open />
+				<ah />
+				<wink_l />
+				<wink_r />
+				<look_u start_x = "-0.051090" start_y = "-0.089534" start_z = "1.385782"
+									end_x = "-0.144999"   end_y = "-0.150649"   end_z = "1.512119"/>
+				<look_d start_x = "-0.057255" start_y = "-0.080944" start_z = "1.368231"
+									end_x = "-0.198165"   end_y = "-0.095008"   end_z = "1.276246"/>
+				<look_f start_x = "-0.051429" start_y = "-0.095395" start_z = "1.370212"
+									end_x = "-0.105613"   end_y = "-0.253392"   end_z = "1.329008"/>
+				<look_b start_x = "-0.054025" start_y = "-0.073152" start_z = "1.378693"
+									end_x = "-0.145430"   end_y = "0.007798"   end_z = "1.427045"/>
+				<look_c default = "true"
+								start_x = "-0.053636" start_y = "-0.089294" start_z = "1.373101"
+									end_x = "-0.195882"   end_y = "-0.176846"   end_z = "1.331897"/>
+
+		</morphs>
+		<visemes>
+		</visemes>
+		<soundmod>heavy</soundmod>
+		<tags species = "rabbit"/>
+		<team>FPS</team>
+		<voice path = "Data/Sounds/voice/rabbit2.xml"
+					 pitch = "1.0"/>
+		<clothing>Data/Materials/cloth_leather.xml</clothing>
+ </character>

@@ -1,0 +1,31 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="38.4457" t1="-40.7423" t2="1.92683" s0="0.80018" s1="0.800136" s2="1.80012" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2572" version="1">
+        <parameters />
+        <Hotspot name="] for +100p" t0="38.4457" t1="-40.7423" t2="2.42683" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2570" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="0" />
+                <parameter name="Run in EditorMode" type="int" val="1" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;]&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;100&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;ai_sound&quot;:false,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:6,&quot;gain&quot;:0.23999999463558197,&quot;max_range&quot;:5,&quot;placeholder_id&quot;:2573,&quot;play_sound_method&quot;:5,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/FistImpact.xml&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="20" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot name="[ for -100p" t0="38.4457" t1="-40.7423" t2="1.42683" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2571" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="0" />
+                <parameter name="Run in EditorMode" type="int" val="1" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;[&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;-100&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;ai_sound&quot;:false,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:6,&quot;gain&quot;:0.23999999463558197,&quot;max_range&quot;:5,&quot;placeholder_id&quot;:2574,&quot;play_sound_method&quot;:5,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/FistImpact.xml&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="20" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Group>
+</ActorObjects>

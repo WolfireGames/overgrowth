@@ -1,0 +1,26 @@
+#name "DartGreet"
+#participants 3
+send_level_message "enable 5483"
+send_level_message "enable 5490"
+send_level_message "enable 12176"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_head_target -43.9229 -39.6009 -68.1678 1"
+set_cam -44.575 -40.213 -64.2952 5.6 -16.17 0.02 26.8056
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+send_character_message 1 "set_eye_dir -43.9291 -39.6333 -67.9018 1"
+set_character_pos 1 -43.905 -40.7569 -65.8317 90
+send_character_message 2 "set_head_target -43.8909 -39.9595 -65.9251 1"
+send_character_message 2 "set_eye_dir -43.9881 -39.8559 -65.9076 1"
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+set_character_pos 2 -43.9281 -40.6042 -68.1903 -73
+say 2 "Dart" "This one notices you are still here. [wait 0.15]What ails you, [wait 0.1]friend?"
+send_character_message 2 "set_eye_dir -43.9881 -39.8559 -65.9076 0.838846"
+send_character_message 2 "set_head_target -43.9853 -39.8151 -65.8897 1"
+send_character_message 1 "set_head_target -43.9229 -39.8609 -68.1525 1"
+say 1 "Ghost" "Well..."
+send_level_message "dart_choice"

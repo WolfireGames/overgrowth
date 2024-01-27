@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<particle>
+    <textures color_map = "Data/Textures/eyeflare_c.tga" 
+              shader = "envobject #PARTICLE #GLOW"
+              soft_shader = "envobject #PARTICLE #GLOW"/>
+    <size min = "0.3" max = "0.6"/>
+    <color red =   "1.0"
+           green = "1.0"
+           blue =  "1.0"
+           alpha_min = "0.85" alpha_max = "1.2"/>
+    <behavior inertia="0.0" gravity="0.0" wind="0.0" size_decay_rate="8" opacity_decay_rate="0.2"/>
+</particle>

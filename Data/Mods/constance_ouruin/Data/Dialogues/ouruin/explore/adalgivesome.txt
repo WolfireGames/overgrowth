@@ -1,0 +1,42 @@
+#name "AdalGiveSome"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.4 0.9
+set_dialogue_voice 2 9
+set_cam 109.795 -51.7555 46.0466 -8.29 -14.12 0 41.9014
+set_character_pos 2 110.746 -52.6143 45.5415 120
+send_character_message 2 "set_eye_dir 110.059 -51.7802 44.6747 1"
+send_character_message 2 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 0.00307292"
+send_character_message 2 "set_head_target 110.232 -51.826 44.3902 1"
+set_character_pos 1 109.964 -52.6171 44.5603 -41
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 1 "set_eye_dir 110.655 -51.694 45.4705 1"
+send_character_message 1 "set_torso_target 110.445 -51.535 45.2749 0.999864"
+send_character_message 1 "set_head_target 110.74 -51.6347 45.5012 1"
+say 1 "Ghost" "I found my way into the depot and stole some coin back for you. [wait 0.15]Couldn't find your purse, [wait 0.1]though... [wait 0.2]I hope that's alright."
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 0.00307292"
+set_cam 109.904 -51.7158 42.8684 -5.14 -169.78 0 24.7428
+send_character_message 2 "set_eye_dir 110.353 -52.1665 45.2688 0.633181"
+send_character_message 2 "set_head_target 110.17 -52.1245 44.9884 1"
+send_character_message 1 "set_eye_dir 110.726 -51.839 45.4508 1"
+send_character_message 1 "set_head_target 110.731 -51.8117 45.5392 1"
+send_character_message 1 "set_torso_target 110.345 -52.1272 45.1847 0.997582"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_animation \"Data/Animations/ghost_coins.anm\""
+say 2 "Adal" "[wait 0.1]Th-[wait 0.15]Thank you, [wait 0.1]Ghost, [wait 0.1]but... [wait 0.2]What if they find out...[wait 0.1]?"
+send_character_message 2 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 110.292 -51.7096 45.9052 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 2 "set_eye_dir 110.133 -51.8517 44.7804 0.653582"
+send_character_message 2 "set_torso_target 110.59 -52.2653 44.692 1"
+send_character_message 2 "set_head_target 110.261 -52.0561 44.6437 1"
+say 1 "Ghost" "They have no way of tracing it back to you, [wait 0.1]I promise. [wait 0.15]I made sure of it."
+send_character_message 1 "set_torso_target 110.345 -52.1272 45.1847 0"
+send_character_message 1 "set_head_target 110.633 -51.6131 45.6277 1"
+send_character_message 2 "set_eye_dir 109.64 -51.8735 45.0425 0.773322"
+send_character_message 2 "set_torso_target 110.59 -52.2653 44.692 0"
+send_character_message 2 "set_head_target 109.879 -52.0085 45.0289 1"
+say 2 "Adal" "...[wait 0.1]Okay. [wait 0.1]Thank you for the gift... [wait 0.15]And I'm sorry I won't be able to repay you."
+send_level_message "dialogue_done"

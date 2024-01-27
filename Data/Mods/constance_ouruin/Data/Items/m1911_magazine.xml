@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<item>
+    <type>misc</type>
+    <appearance obj_path = "Data/Objects/m1911_magazine.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/fps_grip.anm"
+		  hands = "1"/>
+    <sheathe ik_attach = "hip"
+          anim = "Data/Animations/r_dogweaponsheathed.anm"/>
+    <physics mass = "0.5 kg"/>
+    <points>
+        <pommel x="0" y="-0.083" z="0"/>
+        <guard x="0" y="0.12" z="0"/>
+        <tip x="0" y="0.4" z="0"/>
+    </points>
+    <lines>
+        <metal start="pommel" end="guard"/>
+        <metal start="guard" end="tip"/>
+    </lines>
+    <label>knife</label>
+    <anim_override idle = "Data/Animations/r_knifestancerear.xml"
+                   movement = "Data/Animations/r_movement_knife.xml"
+                   blockflinch = "Data/Animations/r_activeblockflinchknives.anm"/>
+    <attack_override moving = "Data/Attacks/knifeslash.xml"
+                     moving_close = "Data/Attacks/knifeslash.xml"
+                     stationary = "Data/Attacks/knifeslash.xml"
+                     stationary_close = "Data/Attacks/knifeslash.xml"/>
+    <range multiply = "0.8"/>
+</item>

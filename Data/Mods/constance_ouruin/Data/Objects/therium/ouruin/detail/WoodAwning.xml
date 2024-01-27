@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	    <Model>Data/Models/therium/ouruin/detail/WoodAwning.obj</Model>
+		<ColorMap>Data/Textures/ouruin/detail/WoodAwning_C.tga</ColorMap>
+		<NormalMap>Data/Textures/ouruin/detail/WoodAwning_N.tga</NormalMap>
+		<ShaderName>envobject #TANGENT</ShaderName>
+		<GroundOffset>0.5</GroundOffset>
+</Object>

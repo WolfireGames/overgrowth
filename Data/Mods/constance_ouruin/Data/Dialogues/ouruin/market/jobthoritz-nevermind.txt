@@ -1,0 +1,28 @@
+#name "JobThoritz-Nevermind"
+#participants 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.5745 -45.9023 3.87606 1"
+set_character_pos 1 29.5416 -46.6146 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_eye_dir 27.1159 -44.864 3.37673 1"
+send_character_message 1 "set_torso_target 28.4192 -46.1107 3.1588 0"
+send_character_message 1 "set_head_target 27.822 -45.3705 3.68087 1"
+set_cam 28.3507 -45.9978 1.75324 0 -147.13 0 42.7209
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+say 1 "Ghost" "I don't usually turn down easy money, [wait 0.1]but I'm strapped for time today."
+send_character_message 1 "set_eye_dir 29.6756 -45.8683 4.73839 1"
+send_character_message 1 "set_head_target 28.7591 -45.6973 3.82177 1"
+send_character_message 2 "set_head_target 30.2895 -45.7658 4.72399 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
+say 2 "Nedis" "Understandable. [wait 0.2]Feel free to leave it for someone else to do."
+send_character_message 2 "set_torso_target 30.1701 -46.3862 4.3254 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 29.6935 -45.7566 4.8608 1"
+send_character_message 1 "set_head_target 29.0839 -45.7531 4.13767 1"
+send_character_message 2 "set_head_target 29.5871 -46.1583 3.49826 1"
+say 2 "Nedis" "Maybe a different job is more worth your time...[wait 0.1]?"
+send_level_message "dialogue_done"

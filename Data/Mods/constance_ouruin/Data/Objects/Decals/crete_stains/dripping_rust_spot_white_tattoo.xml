@@ -1,0 +1,8 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<DecalObject>
+	<ColorMap>Data/Textures/Decals/crete/dripping_rust_white_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Decals/crete/dripping_rust_n.tga</NormalMap>
+	<ShaderName>decal</ShaderName>
+	<SpecialType>14</SpecialType>
+</DecalObject>

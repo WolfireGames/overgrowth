@@ -1,0 +1,49 @@
+#name "AdalGiveHalf"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.4 0.9
+set_dialogue_voice 2 9
+set_cam 109.795 -51.7554 46.0466 -8.29 -14.12 0 41.9014
+set_character_pos 2 110.746 -52.6143 45.5415 120
+send_character_message 2 "set_eye_dir 110.059 -51.7802 44.6747 1"
+send_character_message 2 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 0"
+send_character_message 2 "set_head_target 110.234 -51.8252 44.3887 1"
+set_character_pos 1 109.964 -52.6171 44.5603 -41
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 1 "set_eye_dir 110.655 -51.694 45.4705 1"
+send_character_message 1 "set_torso_target 110.445 -51.535 45.2749 1"
+send_character_message 1 "set_head_target 110.739 -51.6307 45.5018 1"
+say 1 "Ghost" "Hey, [wait 0.1]I got my way into the depot you said those snakes were hiding out. [wait 0.15]Managed to grab this and get out."
+send_character_message 1 "set_torso_target 110.445 -51.535 45.2749 0"
+send_character_message 1 "set_head_target 110.657 -51.9312 45.6165 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+set_cam 112.963 -51.1584 45.1668 -21.42 89.21 0 41.9014
+send_character_message 2 "set_eye_dir 110.229 -52.1698 45.421 1"
+send_character_message 2 "set_head_target 110.37 -52.0711 44.9868 1"
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 0"
+send_character_message 2 "set_animation \"Data/Animations/ghost_coins.anm\""
+say 2 "Adal" "...[wait 0.15]I--[wait 0.1]I see... [wait 0.15]Looks like half of it's gone. [wait 0.15]I guess they kept some for themselves, [wait 0.1]huh...?"
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 0"
+send_character_message 2 "set_head_target 110.21 -51.8657 44.8951 1"
+send_character_message 1 "set_eye_dir 110.703 -51.5311 45.4471 1"
+send_character_message 1 "set_head_target 110.44 -52.2771 45.6326 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_torso_target 110.728 -52.1482 45.3352 1"
+say 1 "Ghost" "That's unfortunate... [wait 0.2]I hope it's still enough."
+send_character_message 1 "set_torso_target 110.728 -52.1482 45.3352 0.999907"
+send_character_message 2 "set_torso_target 110.42 -51.9496 44.9474 0"
+send_character_message 1 "set_head_target 110.451 -52.042 45.7459 1"
+send_character_message 1 "set_eye_dir 110.793 -51.7918 45.5146 1"
+send_character_message 2 "set_eye_dir 113.786 -51.8234 45.8 0.782047"
+send_character_message 2 "set_head_target 110.914 -52.0717 43.755 1"
+send_character_message 2 "set_animation \"Data/Animations/r_actionidle.anm\""
+say 2 "Adal" "It's better than nothing, [wait 0.1]for sure."
+send_character_message 2 "set_torso_target 110.568 -52.2238 44.9306 1"
+send_character_message 2 "set_eye_dir 110.079 -51.7532 44.6776 0.782047"
+send_character_message 2 "set_head_target 110.692 -52.2794 44.0434 1"
+send_character_message 1 "set_head_target 110.523 -51.897 45.694 1"
+send_character_message 1 "set_torso_target 110.728 -52.1482 45.3352 0"
+say 2 "Adal" "Thank you for the gift, [wait 0.1]Ghost. [wait 0.15]It was very thoughtful of you."
+send_level_message "dialogue_done"

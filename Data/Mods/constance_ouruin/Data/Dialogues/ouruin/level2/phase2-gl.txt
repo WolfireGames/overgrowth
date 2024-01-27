@@ -1,0 +1,64 @@
+#name "Phase2-GL"
+#participants 3
+send_character_message 2 "set_torso_target -47.2146 -3.22309 3.57681 0"
+send_character_message 1 "set_torso_target -29.7265 -3.16623 -4.64685 0"
+send_character_message 2 "set_eye_dir -29.1212 -3.37314 -2.96464 1"
+send_character_message 2 "set_head_target -28.869 -3.37406 -2.789 1"
+send_character_message 1 "set_eye_dir -30.0005 -2.73083 -4.52706 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.65 0.8 0.9
+set_dialogue_voice 2 1
+set_cam -27.5435 -3.95709 -1.65962 13.63 45.17 0 32.7895
+set_character_pos 1 -29.5167 -3.53815 -3.71915 120
+set_character_pos 2 -29.9752 -3.51092 -4.54705 -62
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 4.5 3.0"
+send_character_message 1 "set_animation \"Data/Animations/staggerback_lie.anm\""
+send_character_message 2 "set_animation \"Data/Animations/donatas_suckerpunch.anm\""
+say 1 "Ghost" "...[wait 0.15]Damn it!"
+send_character_message 1 "set_head_target -29.6017 -3.08566 -4.15018 0.402059"
+send_character_message 1 "set_eye_dir -29.8602 -2.82548 -4.2716 1"
+send_character_message 2 "set_torso_target -30.457 -3.15057 -3.63467 0"
+send_character_message 1 "set_torso_target -28.7407 -3.61238 -3.36262 0"
+send_character_message 2 "set_head_target -28.9098 -3.53215 -2.84784 1"
+send_character_message 2 "set_animation \"Data/Animations/donatas_combattalk.anm\""
+say 2 "Donatas" "Are you done?"
+send_character_message 2 "set_torso_target -30.457 -3.15068 -3.63514 0"
+send_character_message 2 "set_head_target -28.9354 -3.46557 -2.85427 1"
+send_character_message 1 "set_eye_dir -28.7861 -3.92158 -3.33269 0"
+send_character_message 1 "set_head_target -28.8332 -3.81813 -3.80584 1"
+say 1 "Ghost" "..."
+send_character_message 2 "set_torso_target -29.797 -2.94767 -3.71588 1"
+set_cam -29.1541 -2.81562 -1.03894 -6.71 3.74 0 41.1787
+send_character_message 2 "set_head_target -29.1147 -2.93371 -2.99486 1"
+send_character_message 1 "set_animation \"Data/Animations/staggerback_up.anm\""
+send_character_message 1 "set_head_target -29.919 -2.74846 -4.38155 0.404021"
+send_character_message 1 "set_eye_dir -29.9344 -2.86529 -4.43967 1"
+say 1 "Ghost" "No. [wait 0.15]I'm not."
+send_character_message 1 "set_head_target -29.9156 -2.89336 -4.41101 1"
+send_character_message 2 "set_torso_target -29.797 -2.94767 -3.71588 8.1867e-05"
+send_character_message 2 "set_head_target -29.063 -2.83694 -3.02413 1"
+send_character_message 1 "set_animation \"Data/Animations/staggerback_combatpose.anm\""
+say 1 "Ghost" "You're going to have to try harder than that...[wait 0.15]!"
+send_character_message 2 "set_torso_target -29.7674 -3.43062 -3.56064 0.866303"
+send_character_message 2 "set_eye_dir -29.6903 -3.19221 -3.93198 0"
+send_character_message 2 "set_head_target -30.1395 -3.55162 -2.71095 1"
+set_cam -28.5259 -2.8971 -4.00788 0 74.08 0 32.8693
+send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
+set_character_pos 1 -28.8083 -3.53816 -2.03731 113
+say 2 "Donatas" "..."
+send_character_message 2 "set_torso_target -29.7674 -3.43062 -3.56064 0"
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatidle.anm\""
+send_character_message 2 "set_head_target -28.8819 -3.13528 -2.40623 1"
+send_character_message 2 "set_eye_dir -29.2847 -3.05144 -2.98347 0.895163"
+say 2 "Donatas" "[wait 0.1]I'll kick you down as many times as I have to."
+send_character_message 1 "set_eye_dir -29.8473 -2.79587 -4.1694 1"
+send_character_message 1 "set_animation \"Data/Animations/r_combatidlethreat.anm\""
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatidlethreat.anm\""
+send_character_message 2 "set_head_target -28.879 -3.0162 -2.36015 1"
+send_character_message 1 "set_head_target -29.8625 -2.86044 -4.40845 1"
+set_cam -29.527 -3.20103 -0.0292375 0 -8.69 0 62.884
+say 1 "Ghost" "Likewise, [wait 0.1]rat!"
+send_level_message "make_all_aware"
+send_level_message "phase3begins"
+send_level_message "fight_begins"

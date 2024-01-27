@@ -1,0 +1,27 @@
+#name "GunkTalk"
+#participants 5
+set_cam 6.67923 1.53346 20.1045 0 54.43 0 65.2699
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 5.43345 1.70114 18.6153 1"
+send_character_message 2 "set_eye_dir 5.37405 1.82581 18.5515 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0"
+send_character_message 1 "set_eye_dir 3.85215 1.88896 17.9772 1"
+send_character_message 1 "set_head_target 3.89048 1.94619 18.0356 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 2 "Gunk" "I hope all is well, [wait 0.1]now. [wait 0.15]Did you need anything?""
+send_level_message "gunk_choices"

@@ -1,0 +1,27 @@
+#name "AdalMeet"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_voice 2 11
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 2
+say 2 "Yuiek" "Hey, [wait 0.1]just got done counting. [wait 0.15]Dumb doe was carrying 500p!"
+
+say 3 "Amet" "Yeah. [wait 0.15]That's... [wait 0.2]Good."
+
+say 2 "Yuiek" "Somethin' up? [wait 0.15]This is our biggest spot yet, [wait 0.1]but you don't sound all too happy about it."
+
+say 3 "Amet" "Just doing the math, [wait 0.1]is all, [wait 0.2]like..."
+
+say 3 "Amet" "How much of that will the Snakes cut from us? [wait 0.15]How much will we need to spend?"
+
+say 3 "Amet" "How much will even be left over for the House? [wait 0.15]After this and all else, [wait 0.1]will they truly take us back?"
+
+say 2 "Yuiek" "...[wait 0.2]I don't know. [wait 0.15]But our hands cannot remain idle. [wait 0.1]We just have to keep the chisel in motion."
+
+say 3 "Amet" "I have a feeling it won't be so easy..."
+
+say 1 "Ghost" "(...[wait 0.15]Been a long time since I've seen 'em. [wait 0.2]Looks like they haven't changed a bit.)"
+
+say 1 "Ghost" "(Adal's coinpurse must be stashed somewhere 'round here...)"
+send_level_message "dialogue_done"

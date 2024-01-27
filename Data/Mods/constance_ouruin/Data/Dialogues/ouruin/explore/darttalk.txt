@@ -1,0 +1,20 @@
+#name "DartTalk"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+set_character_pos 2 -33.5393 -40.7371 -64.9707 0
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0.767093"
+send_character_message 2 "set_head_target -30.4922 -39.8027 -64.9659 1"
+set_character_pos 1 -30.2524 -40.5866 -64.8993 -180
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir -33.3949 -39.6933 -65.0243 1"
+send_character_message 1 "set_torso_target -29.3845 -40.0883 -64.6678 0"
+send_character_message 1 "set_head_target -32.3357 -39.7804 -65.0578 1"
+set_cam -26.6053 -39.9376 -65.6438 0 98.65 0 13.9631
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+say 2 "Dart" "What brings you here, [wait 0.1]friend[wait 0.1]?"
+send_level_message "dart_choices"

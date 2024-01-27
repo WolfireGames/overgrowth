@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data\Models\Environments\SmallProps\Rope\MSH_Rope_Straight.obj</Model>
+	<ColorMap>Data\Textures\Environments\SmallProps\Rope\rope_hd_color.tga</ColorMap>
+	<NormalMap>Data\Textures\Environments\SmallProps\Rope\rope_hd_normal.tga</NormalMap>
+	    <WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	    <DetailMaps>
+		<DetailMap colorpath="Data/Textures/DetailTextures/ropefiber_color.tga" normalpath="Data/Textures/DetailTextures/ropefiber_normal.tga" materialpath="Data/Materials/cloth_leather.xml" /> 
+		<DetailMap colorpath="Data/Textures/DetailTextures/ropefiber_color.tga" normalpath="Data/Textures/DetailTextures/ropefiber_normal.tga" materialpath="Data/Materials/cloth_leather.xml" /> 
+		<DetailMap colorpath="Data/Textures/DetailTextures/ropefiber_color.tga" normalpath="Data/Textures/DetailTextures/ropefiber_normal.tga" materialpath="Data/Materials/cloth_leather.xml" /> 
+		<DetailMap colorpath="Data/Textures/DetailTextures/ropefiber_color.tga" normalpath="Data/Textures/DetailTextures/ropefiber_normal.tga" materialpath="Data/Materials/cloth_leather.xml" /> 
+	    </DetailMaps>
+	    
+	    <ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #WHY_DOES_THIS_WORK</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

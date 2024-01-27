@@ -1,0 +1,289 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>testlevel</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/purple.tga_converted.dds</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="6.57899" t1="6.39558" t2="-10.0213" s0="1" s1="1" s2="1" q0="0.046398" q1="-0.941541" q2="0.145467" q3="0.300313" euler_x="-2.83502" euler_y="-0.617517" euler_z="-3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="0.0637199" t1="0" t2="0.0402193" s0="5.93628" s1="1" s2="5.95978" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0.838845" color_g="0.652918" color_b="0.956863" overbright="8.755" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="0.18229" t1="2.41504" t2="-4.35037" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/IGF_Characters/IGF_TurnerActor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="turner" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <ItemObject t0="2.15537" t1="2.79117" t2="0.954878" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" type_file="Data/Objects/therium/Weapons/khoensword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="1.63168" t1="2.79117" t2="1.0466" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" type_file="Data/Items/gear/dogtools/dogtoolawl.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="1.24925" t1="2.79117" t2="1.06534" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" type_file="Data/Items/Bastard.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="2.49706" t1="2.79117" t2="0.959872" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/therium/Weapons/rabies_bloody.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.899167" t1="2.79117" t2="0.8453" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" type_file="Data/Items/MainGauche.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.679986" t1="2.79117" t2="0.789891" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8" type_file="Data/Items/cat_weapons/cat_rapier_scabbard.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.228895" t1="2.79117" t2="0.796045" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" type_file="Data/Items/Rapier.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-0.13738" t1="2.79117" t2="0.91276" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" type_file="Data/Items/gear/dogtools/dogtoolchisel.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="2.87249" t1="2.79117" t2="-0.550375" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" type_file="Data/Items/DogWeapons/DogBroadSword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="2.4801" t1="2.79117" t2="-0.45643" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" type_file="Data/Items/DogWeapons/DogGlaive.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="1.75783" t1="2.79117" t2="-0.625896" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" type_file="Data/Items/DogWeapons/DogHammer.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.435812" t1="2.79117" t2="-0.273269" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" type_file="Data/Items/DogWeapons/DogKnife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-0.604901" t1="2.79117" t2="0.192926" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Items/DogWeapons/DogSpear.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="3.46461" t1="2.79117" t2="1.11036" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" type_file="Data/Items/flint_knife_c2.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="3.30176" t1="2.79117" t2="2.27459" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Items/flint_knife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="2.48353" t1="2.79117" t2="2.85001" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" type_file="Data/Items/gear/dogtools/dogtoolhammer.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="1.74154" t1="2.79117" t2="2.9578" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="19" type_file="Data/Items/gear/rabbit_gear/large_bag.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="1.0921" t1="2.79117" t2="2.62785" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" type_file="Data/Items/gear/rabbit_gear/large_wood_plate.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.26419" t1="2.79117" t2="2.57657" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" type_file="Data/Items/macuahuitl_metal.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-0.571283" t1="2.79117" t2="2.30359" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" type_file="Data/Items/gear/rabbit_gear/medium_bags.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-0.198671" t1="2.79117" t2="2.36523" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" type_file="Data/Items/macuahuitl_glass.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="1.64637" t1="2.79117" t2="3.80974" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" type_file="Data/Items/DogWeapons/RabbitCatcher.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.946813" t1="2.79117" t2="3.8196" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" type_file="Data/Items/rabbit_weapons/rabbit_knife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.363073" t1="2.79117" t2="3.37706" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" type_file="Data/Items/rabbit_weapons/rabbit_throwing_knife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-0.279396" t1="2.79117" t2="3.60009" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="27" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="-0.897302" t1="2.79117" t2="2.78663" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="28" type_file="Data/Items/rat_weapons/rat_machete.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="2.21064" t1="2.79117" t2="3.78524" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="29" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="3.26518" t1="2.79117" t2="3.52373" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="30" type_file="Data/Items/stick.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="4.21762" t1="2.79117" t2="3.75093" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="31" type_file="Data/Prototypes/Weapons/FlintKnife_Item.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <EnvObject t0="-10.8782" t1="0" t2="0.540219" s0="4.9408" s1="1" s2="5.95978" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="35" color_r="0.898039" color_g="0.832203" color_b="0.0986082" overbright="8.755" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ItemObject name="Data/Items/Bastard.xml" t0="-9.37155" t1="1.1" t2="-1.49757" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="36" type_file="Data/Items/Bastard.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Weapon XML Path" type="string" val="Data/Items/Bastard.xml" />
+        </parameters>
+    </ItemObject>
+    <ItemObject name="Data/Items/DogWeapons/DogGlaive.xml" t0="-10.4574" t1="2.16284" t2="-0.610745" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="37" type_file="Data/Items/DogWeapons/DogGlaive.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Weapon XML Path" type="string" val="Data/Items/DogWeapons/DogGlaive.xml" />
+        </parameters>
+    </ItemObject>
+    <ItemObject name="Data/Items/DogWeapons/DogKnife.xml" t0="-10.7312" t1="1.1" t2="-1.36783" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="38" type_file="Data/Items/DogWeapons/DogKnife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Weapon XML Path" type="string" val="Data/Items/DogWeapons/DogKnife.xml" />
+        </parameters>
+    </ItemObject>
+    <ItemObject name="Data/Items/DogWeapons/DogBroadSword.xml" t0="-12.3003" t1="1.1" t2="0.266858" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="39" type_file="Data/Items/DogWeapons/DogBroadSword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Weapon XML Path" type="string" val="Data/Items/DogWeapons/DogBroadSword.xml" />
+        </parameters>
+    </ItemObject>
+    <ActorObject t0="-9.92298" t1="2" t2="3.45364" s0="1" s1="1" s2="1" q0="0" q1="0.948696" q2="0" q3="0.316189" euler_x="3.14159" euler_y="0.643419" euler_z="3.14159" id="40" type_file="Data/Objects/characters/rabbits/female_rabbit_2_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="turner" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="1" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="2" red="1" green="1" blue="1" />
+            <Color label="Spots" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <Hotspot t0="-4.15769" t1="3.90508" t2="5.67085" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="44" type_file="Data/Objects/weapon-tracker/Hotspots/weapon-tracker-hotspot.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Khoen Bloody Sword (weapon)" path="Data/Objects/therium/Weapons/rabies_bloody.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Khoen Sword (weapon)" path="Data/Objects/therium/Weapons/khoensword.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Weapon Toolbox" path="Data/Objects/therium/Prefabs/weapontoolbox.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
+    <SpawnerItem display_name="Dog Backbone (invis)" path="Data/Items/collectable/dogbackboneinvis.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Awl" path="Data/Items/gear/dogtools/dogtoolawl.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/chisel.png" />
+    <SpawnerItem display_name="Cat Gauche" path="Data/Items/MainGauche.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wcatknife.png" />
+    <SpawnerItem display_name="Cat Rapier Scabbard" path="Data/Items/cat_weapons/cat_rapier_scabbard.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Cat Rapier" path="Data/Items/Rapier.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wcatsword.png" />
+    <SpawnerItem display_name="Chisel" path="Data/Items/gear/dogtools/dogtoolchisel.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wedge.png" />
+    <SpawnerItem display_name="Dog Backbone" path="Data/Items/collectable/dogbackbone.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/backbone.png" />
+    <SpawnerItem display_name="Dog Hammer" path="Data/Items/DogWeapons/DogHammer.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/whammer.png" />
+    <SpawnerItem display_name="Dog Spear" path="Data/Items/DogWeapons/DogSpear.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wspear.png" />
+    <SpawnerItem display_name="Flint Knife C Two" path="Data/Items/flint_knife_c2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Flint Knife" path="Data/Items/flint_knife.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Hammer" path="Data/Items/gear/dogtools/dogtoolhammer.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/hammertool.png" />
+    <SpawnerItem display_name="Large Bag" path="Data/Items/gear/rabbit_gear/large_bag.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Wood Plate" path="Data/Items/gear/rabbit_gear/large_wood_plate.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Macuahuitl Metal" path="Data/Items/macuahuitl_metal.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/macahuitl_m.png" />
+    <SpawnerItem display_name="Macuahuitl Glass" path="Data/Items/macuahuitl_glass.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/macahuitl_g.png" />
+    <SpawnerItem display_name="Medium Bags" path="Data/Items/gear/rabbit_gear/medium_bags.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rabbit Catcher" path="Data/Items/DogWeapons/RabbitCatcher.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wcatcher.png" />
+    <SpawnerItem display_name="Rabbit Knife" path="Data/Items/rabbit_weapons/rabbit_knife.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rabbit Throwing Knife" path="Data/Items/rabbit_weapons/rabbit_throwing_knife.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Rat Machete" path="Data/Items/rat_weapons/rat_machete.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Staff" path="Data/Items/staffbasic.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Stick" path="Data/Items/stick.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Stone Knife (weapon)" path="Data/Prototypes/Weapons/FlintKnife_Item.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Bastard Sword" path="Data/Items/Bastard.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword2.png" />
+    <SpawnerItem display_name="Dog Glaive" path="Data/Items/DogWeapons/DogGlaive.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wglaive.png" />
+    <SpawnerItem display_name="Dog Knife" path="Data/Items/DogWeapons/DogKnife.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wknife.png" />
+    <SpawnerItem display_name="Dog Broad Sword" path="Data/Items/DogWeapons/DogBroadSword.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword1.png" />
+    <SpawnerItem display_name="Female Rabbit Average" path="Data/Objects/characters/rabbits/female_rabbit_2_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/female_rabbit_2_actor.png" />
+    <SpawnerItem display_name="weapon-tracker-hotspot" path="Data/Objects/weapon-tracker/Hotspots/weapon-tracker-hotspot.xml" thumbnail_path="" />
+</RecentItems>

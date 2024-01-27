@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<SyncedAnimationGroup>
+	<CoordLabel>aim_distance</CoordLabel>
+	<Animations>
+		<Animation path="Data/Animations/fps_close.xml" coord="0.0"/>
+		<Animation path="Data/Animations/fps_far.xml" coord="1.0"/>
+	</Animations>
+	<Overshoot>true</Overshoot>
+</SyncedAnimationGroup>

@@ -1,0 +1,15 @@
+#name "ToHighRoad"
+#participants 2
+set_character_pos 1 220.371 -48.0561 -176.098 0
+send_character_message 1 "set_eye_dir 225.006 -46.6549 -176.064 1"
+send_character_message 1 "set_head_target 222.898 -46.4753 -176.124 1"
+set_cam 218.099 -47.9927 -177.603 8.95 -108.38 0 58.2046
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.52 0.95
+set_dialogue_voice 2 8
+say 2 "Ghost" "(Since everything's been locked and boarded up, [wait 0.1]this route is my best shot home...)"
+send_character_message 1 "set_eye_dir 216.39 -46.7927 -177.034 1"
+send_character_message 1 "set_head_target 222.056 -47.4114 -177.877 1"
+say 2 "Ghost" "(Do I have everything taken care of, [wait 0.1]here?)"
+send_level_message "dialogue_done"

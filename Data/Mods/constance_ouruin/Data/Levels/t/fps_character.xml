@@ -1,0 +1,476 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>fps_character</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.374514" r1="0.588231" r2="0.716745" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-5.62567" t1="3.31408" t2="1.54352" s0="1" s1="1" s2="1" q0="0.119787" q1="-0.49086" q2="0.0683506" q3="0.860253" euler_x="0.276714" euler_y="-1.03704" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="0" t1="0" t2="0" s0="6" s1="1" s2="6" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject name="Player" t0="5.02852" t1="2.09171" t2="0.366808" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostspawn.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="-6.08918" t1="3.22634" t2="-2.93703" s0="4.27602" s1="4.27602" s2="4.27602" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="-12.9917" t1="2.01441" t2="-0.948708" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="4" type_file="Data/Objects/characters/cats/ouranian_hand_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="0" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="cat" />
+            <parameter name="Startle Modifier" type="string" val=".1" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="shootmen" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="4" />
+        </Connections>
+        <ItemConnections>
+            <ItemConnection id="16" type="0" mirrored="0" attachment="" />
+        </ItemConnections>
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <EnvObject t0="-8.41774" t1="2.85279" t2="-4.06367" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="8" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-15.8908" t1="4.71174" t2="-0.968923" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;shootmen&quot;,&quot;identifier_known_target&quot;:&quot;player&quot;,&quot;identifier_type&quot;:2,&quot;identifier_type_known_target&quot;:2,&quot;state_check&quot;:3,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ai_goal&quot;:14,&quot;function&quot;:35,&quot;identifier&quot;:&quot;shootmen&quot;,&quot;identifier_ai_target&quot;:-1,&quot;identifier_type&quot;:2,&quot;identifier_type_ai_target&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <ReflectionCaptureObject t0="1.06998" t1="3.34335" t2="-0.511878" s0="0.48742" s1="0.48742" s2="0.48742" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" gicoeff00="0.250916" gicoeff01="0.169678" gicoeff02="0.117096" gicoeff03="0.197723" gicoeff04="0.151154" gicoeff05="0.121246" gicoeff06="0.287354" gicoeff07="0.178619" gicoeff08="0.108856" gicoeff09="0.117432" gicoeff10="0.0962524" gicoeff11="0.0827179" gicoeff12="0.274353" gicoeff13="0.195465" gicoeff14="0.141846" gicoeff15="0.181946" gicoeff16="0.132111" gicoeff17="0.101517">
+        <parameters>
+            <parameter name="Global" type="string" val="1" />
+        </parameters>
+    </ReflectionCaptureObject>
+    <EnvObject t0="-17.573" t1="2.71442" t2="1.38042" s0="5.0625" s1="5.0625" s2="5.0625" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="15" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/m1911.xml">
+        <parameters />
+    </EnvObject>
+    <ItemObject t0="-12.3627" t1="1.712" t2="-3.04879" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" type_file="Data/Items/m1911.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <EnvObject t0="14.4457" t1="-4.98618" t2="-0.43895" s0="5.08224" s1="1" s2="5.31495" q0="0" q1="0" q2="-0.157058" q3="0.987589" euler_x="0" euler_y="0" euler_z="-0.315422" id="17" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-32.6184" t1="-0.497309" t2="-31.6612" s0="15.4909" s1="15.4909" s2="15.4909" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="19" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-6.32121" t1="12.4966" t2="3.71916" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" type_file="Data/Objects/Hotspots/fps_hotspot.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-28.6566" t1="3.74469" t2="-21.6467" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="21" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6566" t1="3.74468" t2="-28.5413" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="22" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-51.6056" t1="-0.497236" t2="18.5311" s0="15.4909" s1="15.4909" s2="15.4909" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="23" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.5696" t1="3.74468" t2="-15.4295" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="24" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.5696" t1="3.74468" t2="-22.3241" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="25" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-34.4444" t1="7.18992" t2="-25.1123" s0="0.599389" s1="2.47504" s2="1.72707" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="26" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.5696" t1="3.74468" t2="-22.3241" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="27" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-11.1638" t1="5.96533" t2="-18.673" s0="0.46175" s1="8.97624" s2="6.98315" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="29" version="1">
+        <parameters />
+        <EnvObject t0="-11.1638" t1="3.74468" t2="-18.673" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="28" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-11.1638" t1="8.18599" t2="-18.673" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="52" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-7.8991" t1="3.74467" t2="-25.8734" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="31" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.8991" t1="3.74467" t2="-32.7374" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="32" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-11.1639" t1="3.74453" t2="-36.3149" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="33" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-23.803" t1="1.99094" t2="-30.9742" s0="1.10156" s1="0.804628" s2="1.42287" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="34" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-24.215" t1="3.74187" t2="-38.4098" s0="2.32462" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="35" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-14.8093" t1="3.74187" t2="-39.5627" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="36" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-11.8182" t1="-1.98559" t2="-1.33947" s0="5.08224" s1="1" s2="5.31495" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="37" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-24.8287" t1="3.7276" t2="-0.985015" s0="3.4638" s1="3.10946" s2="5.49863" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="38" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-18.4526" t1="3.7508" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="39" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-25.3514" t1="3.75081" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="40" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-32.2811" t1="3.75081" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="41" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6598" t1="2.73919" t2="-16.2327" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="42" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/window_wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6566" t1="3.74469" t2="-10.8832" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="43" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6566" t1="7.4695" t2="-16.3674" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="44" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6465" t1="7.82243" t2="-36.1255" s0="1.74695" s1="2.16235" s2="1.74695" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="45" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6566" t1="8.18599" t2="-21.6467" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="46" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6566" t1="8.18599" t2="-28.5413" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="47" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.5696" t1="8.18599" t2="-15.4295" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="48" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.5696" t1="8.18599" t2="-22.3241" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="49" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-31.0908" t1="5.89021" t2="-25.1126" s0="2.28708" s1="1.79846" s2="1.74695" q0="0.707107" q1="0.707106" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.57079" id="50" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.5696" t1="8.18599" t2="-22.3241" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="51" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.8991" t1="8.18598" t2="-25.8734" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="55" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.8991" t1="8.18598" t2="-32.7374" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="56" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-11.1639" t1="8.18584" t2="-36.3149" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="57" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-24.215" t1="8.18318" t2="-38.4098" s0="2.32462" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="58" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-14.8093" t1="8.18317" t2="-39.5627" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="59" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-18.4526" t1="8.19211" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="60" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-25.3514" t1="8.19212" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="61" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-32.2811" t1="8.19212" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="62" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6598" t1="7.1805" t2="-16.2327" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="63" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/window_wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6566" t1="8.18599" t2="-10.8832" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="64" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6566" t1="11.9108" t2="-16.3674" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="65" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-39.1694" t1="5.97177" t2="-42.8365" s0="6.98315" s1="8.97686" s2="0.461756" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="69" version="1">
+        <parameters />
+        <EnvObject t0="-39.1694" t1="3.75081" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="67" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-39.1694" t1="8.19273" t2="-42.8365" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="68" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-22.8377" t1="0.267177" t2="-34.482" s0="0.588538" s1="0.804628" s2="1.71035" q0="-0.382683" q1="0" q2="0" q3="0.92388" euler_x="-0.785397" euler_y="0" euler_z="0" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-30.8467" t1="4.03235" t2="-29.5605" s0="0.177051" s1="1.6273" s2="2.13651" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="71" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-38.3017" t1="2.42134" t2="-29.5074" s0="1.34764" s1="0.658358" s2="2.11193" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-38.5001" t1="5.97178" t2="-25.1213" s0="7.09068" s1="8.97686" s2="0.461756" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="75" version="1">
+        <parameters />
+        <EnvObject t0="-38.5001" t1="3.75082" t2="-25.1213" s0="1.77385" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="73" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.5001" t1="8.19274" t2="-25.1213" s0="1.77385" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="74" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-34.0906" t1="1.85629" t2="-32.2104" s0="1.74695" s1="1.74695" s2="1.74695" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="76" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-36.9579" t1="5.97175" t2="-39.2383" s0="6.98315" s1="8.97686" s2="0.461756" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="79" version="1">
+        <parameters />
+        <EnvObject t0="-36.958" t1="3.75079" t2="-39.2383" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="0.707106" q3="0" euler_x="3.14159" euler_y="-1.56955" euler_z="0" id="77" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-36.9579" t1="8.19271" t2="-39.2383" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="0.707106" q3="0" euler_x="3.14159" euler_y="-1.56955" euler_z="0" id="78" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-32.2037" t1="2.436" t2="-28.4985" s0="0.567708" s1="0.414677" s2="0.733297" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="94" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6466" t1="2.07825" t2="-35.4828" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="0.707106" q3="0" euler_x="3.14159" euler_y="-1.56955" euler_z="0" id="95" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-36.9579" t1="5.97175" t2="-32.3058" s0="6.98315" s1="8.97686" s2="0.461756" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="98" version="1">
+        <parameters />
+        <EnvObject t0="-36.958" t1="3.75079" t2="-32.3058" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="0.707106" q3="0" euler_x="3.14159" euler_y="-1.56955" euler_z="0" id="96" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-36.9579" t1="8.19271" t2="-32.3058" s0="1.74695" s1="1.74695" s2="1.74695" q0="0.707107" q1="0" q2="0.707106" q3="0" euler_x="3.14159" euler_y="-1.56955" euler_z="0" id="97" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-39.7558" t1="2.38186" t2="-25.3418" s0="1.34764" s1="0.671163" s2="2.11193" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="99" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.6612" t1="8.85907" t2="-32.8164" s0="0.429094" s1="1.16365" s2="1.74695" q0="0.707106" q1="0" q2="0.707106" q3="0" euler_x="0" euler_y="-1.5687" euler_z="0" id="100" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-47.064" t1="5.97178" t2="-25.1213" s0="7.09068" s1="8.97686" s2="0.461756" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="126" version="1">
+        <parameters />
+        <EnvObject t0="-47.064" t1="3.75082" t2="-25.1213" s0="1.77385" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="122" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-47.064" t1="8.19274" t2="-25.1213" s0="1.77385" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="124" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-42.7565" t1="8.85907" t2="-25.1843" s0="0.429094" s1="1.16365" s2="1.74695" q0="0" q1="0" q2="0.999999" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="127" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-37.0595" t1="4.04592" t2="-19.4479" s0="0.177051" s1="0.354833" s2="1.62807" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="128" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-36.2549" t1="2.40743" t2="-16.1581" s0="0.689971" s1="0.671163" s2="0.938638" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="129" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-41.2928" t1="4.04592" t2="-16.0712" s0="0.177051" s1="0.354833" s2="1.62807" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="130" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-11.1639" t1="5.96519" t2="-22.3242" s0="6.98315" s1="8.97624" s2="0.461748" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="131" version="1">
+        <parameters />
+        <EnvObject t0="-11.1639" t1="3.74453" t2="-22.3242" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="30" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-11.1639" t1="8.18584" t2="-22.3242" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="54" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-18.1152" t1="5.96518" t2="-27.9596" s0="6.98315" s1="8.97624" s2="0.461748" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="134" version="1">
+        <parameters />
+        <EnvObject t0="-18.1152" t1="3.74453" t2="-27.9596" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="132" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-18.1152" t1="8.18584" t2="-27.9596" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="133" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-15.0234" t1="4.04577" t2="-30.8655" s0="0.17705" s1="0.691119" s2="1.37523" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="146" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-19.3675" t1="4.04592" t2="-32.0204" s0="0.177051" s1="0.770849" s2="0.496998" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-25.0107" t1="5.96518" t2="-27.9596" s0="6.98315" s1="8.97624" s2="0.461748" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="151" version="1">
+        <parameters />
+        <EnvObject t0="-25.0107" t1="3.74453" t2="-27.9596" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="149" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-25.0107" t1="8.18584" t2="-27.9596" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="150" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-15.2688" t1="5.90184" t2="-27.9596" s0="6.91827" s1="8.89285" s2="0.457458" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="153" version="1">
+        <parameters />
+        <EnvObject t0="-15.2688" t1="3.70182" t2="-27.9596" s0="1.73072" s1="1.73072" s2="1.73072" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="53" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-15.2688" t1="8.10186" t2="-27.9596" s0="1.73072" s1="1.73072" s2="1.73072" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="152" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-6.31057" t1="5.96518" t2="-27.9596" s0="6.98315" s1="8.97624" s2="0.461748" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="156" version="1">
+        <parameters />
+        <EnvObject t0="-6.31057" t1="3.74453" t2="-27.9596" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="154" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-6.31057" t1="8.18584" t2="-27.9596" s0="1.74695" s1="1.74695" s2="1.74695" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="155" color_r="0.654902" color_g="0.292689" color_b="0.274802" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/modernbricks/wall.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-13.6113" t1="2.57647" t2="-28.5958" s0="0.24877" s1="0.379241" s2="0.21422" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="157" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-13.6113" t1="2.57647" t2="-33.0347" s0="0.24877" s1="0.379241" s2="0.21422" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="158" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-16.414" t1="2.57647" t2="-28.5958" s0="0.24877" s1="0.379241" s2="0.21422" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="159" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-16.414" t1="2.57647" t2="-33.0347" s0="0.24877" s1="0.379241" s2="0.21422" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="160" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteBlockStandard.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="fps_character_actor.xml" path="Data/Characters/fps_character_actor.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Dog Knife" path="Data/Items/DogWeapons/DogKnife.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wknife.png" />
+    <SpawnerItem display_name="Crete Block Standard" path="Data/Objects/Crete/CreteBlockStandard.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/CreteBlockStandard.png" />
+    <SpawnerItem display_name="m1911_slide_open.xml" path="Data/Objects/m1911_slide_open.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="m1911_magazine.xml" path="Data/Objects/m1911_magazine.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fps_level.xml" path="Data/Objects/Hotspots/fps_level.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wooden Sign Short Board" path="Data/Objects/Buildings/shops/sign_short_board.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/sign_short_board.png" />
+    <SpawnerItem display_name="Ouranian Hand Cat" path="Data/Objects/characters/cats/ouranian_hand_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/ouranian_hand_actor.png" />
+    <SpawnerItem display_name="Default Turner" path="Data/Objects/IGF_Characters/IGF_TurnerActor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/IGF_TurnerActor.png" />
+    <SpawnerItem display_name="Ghost" path="Data/Objects/therium/IGF_Characters/ghostspawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
+    <SpawnerItem display_name="Global Reflection" path="Data/Objects/global_reflection_capture.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="m1911.xml" path="Data/Objects/m1911.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="m1911.xml" path="Data/Items/m1911.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>

@@ -1,0 +1,66 @@
+#name "DartTalk"
+#participants 3
+send_level_message "enable 5483"
+send_level_message "enable 5490"
+send_level_message "enable 12176"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_head_target -43.9229 -39.6009 -68.1678 1"
+set_cam -45.4764 -40.4318 -64.1056 5.43 -30.49 -1.36 34.8777
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+send_character_message 1 "set_eye_dir -43.9291 -39.6333 -67.9018 1"
+set_character_pos 1 -43.905 -40.7569 -65.8317 90
+send_character_message 2 "set_head_target -43.8909 -39.9595 -65.9251 1"
+send_character_message 2 "set_eye_dir -43.9881 -39.8559 -65.9076 1"
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+set_character_pos 2 -43.9281 -40.6042 -68.1903 -73
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 20.0 10.0"
+say 1 "Ghost" "I was just wondering..."
+send_character_message 1 "set_head_target -44.1191 -39.9877 -67.7227 1"
+set_cam -44.4449 -39.9628 -66.9751 0 -148.15 0 32.006
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 3.0 0.5"
+say 1 "Ghost" "Where are you from? [wait 0.1]You're obviously Arlissian, [wait 0.1]but..."
+send_character_message 2 "set_eye_dir -43.6368 -39.7162 -67.5363 0.53782"
+send_character_message 2 "set_head_target -43.2568 -39.7911 -66.6091 1"
+set_cam -44.5305 -39.8479 -65.6102 0 -13.93 0 24.7797
+say 2 "Dart" "[wait 0.15]Hmm..."
+send_character_message 2 "set_head_target -43.0055 -39.4206 -66.7978 1"
+send_character_message 2 "set_eye_dir -43.6368 -39.7162 -67.5363 0.397009"
+say 2 "Dart" "This one cannot freely divulge."
+send_character_message 1 "set_head_target -44.1089 -39.9916 -67.7196 1"
+send_character_message 2 "set_eye_dir -43.6367 -39.7162 -67.5364 1"
+send_character_message 2 "set_head_target -44.1568 -39.7793 -66.6413 1"
+say 2 "Dart" "It would put this one in danger."
+send_character_message 1 "set_eye_dir -43.9291 -39.6333 -67.9018 0.749173"
+set_cam -44.55 -40.016 -69.4612 -1.83 -162.94 0.07 22.7308
+send_character_message 2 "set_head_target -43.8724 -40.0979 -65.9056 1"
+send_character_message 1 "set_head_target -42.5811 -40.1408 -67.8334 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 5.0 1.0"
+say 1 "Ghost" "...[wait 0.15]Ah."
+send_character_message 1 "set_eye_dir -43.9291 -39.6333 -67.9018 1"
+send_character_message 1 "set_head_target -42.6878 -40.2238 -67.8787 1"
+send_character_message 2 "set_animation \"Data/Animations/dart_crosshand.anm\""
+say 2 "Dart" "However... [wait 0.15]A dear friend can be trusted, [wait 0.1]right...?"
+send_character_message 2 "set_eye_dir -43.6367 -39.7162 -67.5364 0.630718"
+send_character_message 2 "set_head_target -43.8715 -39.9403 -65.9271 1"
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+set_cam -43.273 -40.0462 -65.9822 5.5 18.43 0 26.4027
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 4.0 0.1"
+say 2 "Dart" "...[wait 0.15]Since you are a dear friend, [wait 0.1]this one will allow you to purchase this information."
+send_character_message 1 "set_head_target -44.1105 -40.1905 -67.18 1"
+set_cam -45.9602 -40.5457 -65.5164 10.48 -73.29 0 26.4027
+say 1 "Ghost" "And for how much, [wait 0.1]buddy?"
+send_character_message 2 "set_eye_dir -43.6367 -39.7162 -67.5364 0.84496"
+send_character_message 2 "set_head_target -43.9334 -40.1542 -65.9017 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target -44.0172 -39.8546 -67.4643 1"
+set_cam -43.3982 -40.209 -64.1838 5.42 11.92 -0.13 20.5688
+say 2 "Dart" "[wait 0.1]It would be 1,000 petals."
+send_character_message 1 "set_head_target -43.9025 -40.0601 -66.5307 1"
+say 1 "Ghost" "..."
+send_level_message "dart_buy"

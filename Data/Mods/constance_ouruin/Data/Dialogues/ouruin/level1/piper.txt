@@ -1,0 +1,45 @@
+#name "Piper"
+#participants 3
+set_character_pos 2 59.5987 -52.6397 1.65713 180
+send_character_message 2 "set_animation \"Data/Animations/dialogue_leaning_back_onwall.anm\""
+send_character_message 2 "set_eye_dir 58.7187 -51.9151 0.532564 1"
+send_character_message 2 "set_torso_target 58.9486 -52.0486 1.72041 0"
+send_character_message 2 "set_head_target 58.505 -51.9267 0.408464 1"
+set_character_pos 1 58.4037 -52.6521 0.29917 -17
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 59.5784 -51.8359 1.55253 1"
+send_character_message 1 "set_torso_target 59.3881 -52.2672 0.562107 0"
+send_character_message 1 "set_head_target 59.5145 -51.8602 1.5508 1"
+set_cam 56.3316 -52.0094 -0.694271 0 -121.02 0 22.7886
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.43 0.35 0.21
+say 2 "Piper" "What's goin' on, [wait 0.3]Ghost?"
+send_character_message 1 "set_head_target 59.4697 -52.0299 1.42851 1"
+send_character_message 2 "set_head_target 58.48 -51.9918 0.500498 1"
+say 1 "Ghost" "Hey -- [wait 0.5]I was just wondering..."
+set_cam 56.3316 -52.0094 -0.694271 0 -121.02 0 22.7886
+send_character_message 2 "set_head_target 58.6018 -51.9068 0.398303 1"
+send_character_message 1 "set_head_target 59.6004 -51.721 1.63868 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Do you know where the old gallery is?"
+set_cam 56.3316 -52.0094 -0.694271 0 -121.02 0 22.7886
+send_character_message 1 "set_head_target 59.5738 -51.8284 1.60783 1"
+send_character_message 2 "set_head_target 58.5824 -51.7991 0.450721 1"
+say 2 "Piper" "'Course I do! [wait 0.5]My great grandfather had to carry the stones used for its construction all the way there, [wait 0.3]from the Harvestlands..."
+send_character_message 1 "set_eye_dir 60.1774 -50.9819 -1.60852 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 60.7261 -50.8664 -1.67039 1"
+send_character_message 2 "set_head_target 59.5467 -51.5447 -0.565439 1"
+set_cam 48.4964 -52.1503 -1.74027 4.38 -91.27 0 44.2534
+send_level_message "set_camera_dof 0.3 5.0 10.0 0.5 20.0 10.0"
+say 2 "Piper" "You'll wanna cut through that fence, [wait 0.3]right there, [wait 0.3]then head northwest."
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 59.5431 -51.8096 1.55701 1"
+send_character_message 1 "set_head_target 59.5798 -51.8084 1.6047 1"
+send_character_message 2 "set_head_target 58.4584 -51.87 0.313445 1"
+say 2 "Piper" "...[wait 0.5]you'll have to cross a whole lot of rubble, [wait 0.3]though..."
+send_character_message 1 "set_eye_dir 59.5431 -51.8096 1.55701 0"
+send_character_message 1 "set_head_target 59.5431 -52.0329 1.5407 1"
+send_character_message 2 "set_head_target 58.4384 -51.759 0.441563 1"
+say 1 "Ghost" "Thanks -- [wait 0.5]and say hi to Flute for me, [wait 0.3]too."

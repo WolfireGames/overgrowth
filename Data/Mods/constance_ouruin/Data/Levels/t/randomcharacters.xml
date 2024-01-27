@@ -1,0 +1,394 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>randomcharacters</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="#SHADOW_POINT_LIGHTS #TEST_CLOUDS_2 #OURUIN_EVENING #CLOUDS_DO_NOT_TINT_SKY" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="#EMBERS" />
+    <parameter name="HDR Black point" type="float" val="0.12346" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="1.48148" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="2" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="160, 50, 0" />
+</LevelScriptParameters>
+<NavMeshParameters generate="false" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.0713703</SunAngularRad>
+    <SunColorAngle>123.298</SunColorAngle>
+    <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="42.8979" t1="4.62665" t2="43.5415" s0="1" s1="1" s2="1" q0="0.0321401" q1="-0.81476" q2="0.045374" q3="0.577125" euler_x="-3.03033" euler_y="-1.2326" euler_z="-3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="11.5686" t1="-0.0248509" t2="-6.47974" s0="226.126" s1="0.970191" s2="236.083" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject name="Ghost" t0="3.77055" t1="1.58664" t2="-2.05237" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <Hotspot t0="5.44617" t1="1.45405" t2="3.82317" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-2.95216" t1="1.45405" t2="6.69224" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="9.71838" t1="0.00491333" t2="-7.92836" s0="50.0402" s1="0.999985" s2="63.1228" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="32.4327" t1="1.45405" t2="-4.35533" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="10.9301" t1="1.45405" t2="15.1279" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="1.70056" t1="1.45405" t2="21.1944" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-0.923441" t1="1.45405" t2="11.7544" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="15.9539" t1="1.45405" t2="11.6563" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-9.91891" t1="1.45405" t2="19.4529" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-12.8719" t1="1.45405" t2="10.1304" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-19.3212" t1="1.45405" t2="16.3272" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.14875" t1="1.45405" t2="25.151" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <PlaceholderObject t0="6.04371" t1="1.63475" t2="-3.16353" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="empty" />
+            <parameter name="DisplayName" type="string" val="Unnamed" />
+            <parameter name="NumParticipants" type="string" val="1" />
+            <parameter name="obj_1" type="int" val="27" />
+        </parameters>
+        <Connections>
+            <Connection id="26" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="6.04371" t1="2.33475" t2="-3.16353" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="27" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+    </PlaceholderObject>
+    <Hotspot t0="19.3366" t1="1.45405" t2="21.6911" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="32" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="20.1077" t1="1.45405" t2="-18.2825" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="35" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="30.3176" t1="1.45405" t2="-14.3184" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="36" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="38.1683" t1="1.45405" t2="-43.5802" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="37" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="20.517" t1="1.45405" t2="-7.90302" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="39" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="29.2137" t1="1.45405" t2="11.0489" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="40" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="45" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="39.314" t1="1.45405" t2="16.5077" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="46" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="29.0894" t1="1.45405" t2="30.7781" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="47" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.47463" t1="1.45405" t2="-15.0522" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="48" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-9.06816" t1="1.45405" t2="-22.8088" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-19.9459" t1="1.45405" t2="-5.56853" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-7.10491" t1="1.45405" t2="-5.34817" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="51" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-27.3966" t1="1.45405" t2="-24.6554" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="52" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-18.9606" t1="1.45405" t2="-42.8674" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="53" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="6.58505" t1="1.45405" t2="-35.5296" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="54" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="24.2161" t1="1.45405" t2="-31.7215" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="55" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="39.4519" t1="1.45405" t2="-23.8094" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="61" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="43.0815" t1="1.45405" t2="-6.5339" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="62" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="64" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="65" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="66" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="17.6701" t1="1.45405" t2="-50.7063" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="67" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="30.2546" t1="1.45405" t2="-39.2764" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="68" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="1.99826" t1="1.45405" t2="-48.1252" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="69" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="71" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-2.06029" t1="1.45405" t2="-14.7629" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="72" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="20.1726" t1="1.45405" t2="-0.0472832" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="73" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Decal t0="36.618" t1="3.21793" t2="53.1515" s0="3.79029" s1="3.79029" s2="3.79029" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="74" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0">
+        <parameters />
+    </Decal>
+    <Hotspot t0="-6.65958" t1="1.45405" t2="-38.0991" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="75" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-1.73436" t1="1.45405" t2="-28.0992" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="76" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="13.2899" t1="1.45405" t2="-25.3546" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="77" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="36.3647" t1="1.71816" t2="52.9851" s0="11.4604" s1="11.4604" s2="11.4604" q0="0" q1="0.906534" q2="0" q3="0.422133" euler_x="3.14159" euler_y="0.871594" euler_z="3.14159" id="78" color_r="1" color_g="0.56547" color_b="0" overbright="6.841" type_file="Data/Objects/Environment/camp/fire_wood_hot.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="34.3053" t1="1.45405" t2="3.52535" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="82" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="21.2314" t1="1.45405" t2="6.35321" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="83" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="8.18768" t1="1.45405" t2="9.68058" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="84" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-9.02783" t1="1.45405" t2="31.8563" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="85" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="9.33612" t1="1.45405" t2="33.0601" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="86" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="19.9499" t1="1.45405" t2="38.9872" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" type_file="Data/Objects/Hotspots/random_citizen.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="36.5103" t1="2.09831" t2="53.0904" s0="0.357971" s1="0.357971" s2="0.357971" q0="0" q1="0" q2="-1" q3="0.000545621" euler_x="0" euler_y="0" euler_z="-3.1405" id="93" type_file="Data/Objects/Hotspots/fire_test.xml">
+        <parameters>
+            <parameter name="Fire Ribbons" type="int" val="4" />
+            <parameter name="Ignite Characters" type="int" val="1" />
+            <parameter name="Light Amplify" type="float" val="1" />
+            <parameter name="Light Distance" type="float" val="2" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="96" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot name="Boost" t0="7.01643" t1="3.90777" t2="-6.12666" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="98" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;function&quot;:26,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:12,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;use_prompt&quot;:false},{&quot;add_velocity&quot;:true,&quot;apply_multiplier_x&quot;:true,&quot;apply_multiplier_y&quot;:true,&quot;apply_multiplier_z&quot;:true,&quot;function&quot;:24,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;set_velocity_mode&quot;:2,&quot;velocity_magnitude&quot;:4.9999995231628418,&quot;velocity_multiplier&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject name="Set Velocity Helper" t0="3.77055" t1="1.58664" t2="-2.05237" s0="0.964286" s1="0.964286" s2="0.964286" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="99" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="107" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Set Velocity Helper" t0="7.01643" t1="5.90777" t2="-6.12666" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="109" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="random_citizen.xml" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fire Wood Hot" path="Data/Objects/Environment/camp/fire_wood_hot.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood_hot.png" />
+    <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
+</RecentItems>

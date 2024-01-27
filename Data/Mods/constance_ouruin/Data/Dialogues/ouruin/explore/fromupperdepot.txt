@@ -1,0 +1,11 @@
+#name "FromUpperDepot"
+#participants 2
+set_character_pos 1 160.012 -31.4591 54.4799 -90
+send_character_message 1 "set_eye_dir 161.787 -30.228 58.8687 1"
+send_character_message 1 "set_torso_target 160.853 -31.0257 54.9475 0"
+send_character_message 1 "set_head_target 160.735 -30.2939 57.9335 1"
+set_cam 150.147 -27.752 50.1848 -12.19 -125.85 0 67.5395
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Back on Moritz Block..."
+send_level_message "dialogue_done"

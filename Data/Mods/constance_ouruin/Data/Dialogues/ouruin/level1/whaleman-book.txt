@@ -1,0 +1,29 @@
+#name "Whaleman-Book"
+#participants 2
+set_character_pos 1 187.317 -48.0486 78.3878 120
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 187.099 -47.8851 77.7322 1"
+send_character_message 1 "set_torso_target 188.715 -47.6144 79.602 0"
+send_character_message 1 "set_head_target 187.099 -47.8676 77.706 1"
+set_cam 188.57 -45.6686 79.4375 -44.3 44.85 0 15.3171
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Damn... [wait 0.5]Is his handwriting always this... [wait 0.5]elaborate?"
+send_character_message 1 "set_head_target 187.097 -47.8685 77.7072 1"
+send_character_message 1 "set_eye_dir 187.047 -47.7349 77.7615 0.688153"
+set_cam 188.99 -47.6905 75.6 3.21 141.93 0 17.1503
+send_character_message 1 "set_animation \"Data/Animations/leanovertable.anm\""
+say 1 "Ghost" "...[wait 0.5]Wait, [wait 0.3]this is written in those canine runes."
+send_character_message 1 "set_head_target 187.103 -47.8682 77.6543 1"
+send_character_message 1 "set_eye_dir 187.047 -47.7349 77.7615 1"
+say 1 "Ghost" "...[wait 0.3]Now it's Lugarian..."
+send_character_message 1 "set_head_target 187.094 -47.879 77.7797 1"
+send_character_message 1 "set_eye_dir 187.047 -47.7349 77.7615 0.518458"
+say 1 "Ghost" "And now he wrote it in Lugarian Simplified..."
+send_character_message 1 "set_eye_dir 187.001 -47.7251 77.6317 1"
+send_character_message 1 "set_head_target 187.014 -47.8022 77.6777 1"
+say 1 "Ghost" "Finally -- [wait 0.5]he translated it to Common, [wait 0.3]too."
+send_character_message 1 "set_eye_dir 187.107 -47.7514 77.7446 0.841956"
+send_character_message 1 "set_head_target 187.106 -47.8206 77.72 1"
+say 1 "Ghost" "We'll see if this is something Bijou would like..."
+send_level_message "whaleman_book_start"

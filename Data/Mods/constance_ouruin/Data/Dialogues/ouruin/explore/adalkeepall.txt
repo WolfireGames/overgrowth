@@ -1,0 +1,32 @@
+#name "AdalKeepAll"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.4 0.9
+set_dialogue_voice 2 9
+set_cam 109.692 -52.1651 46.3069 5.31 -14.12 0 41.9014
+set_character_pos 2 110.746 -52.6143 45.5415 120
+send_character_message 2 "set_eye_dir 110.059 -51.7802 44.6747 1"
+send_character_message 2 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 0"
+send_character_message 2 "set_head_target 110.234 -51.8252 44.3887 1"
+set_character_pos 1 109.964 -52.6171 44.5603 -41
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 1 "set_eye_dir 110.655 -51.694 45.4705 0.911819"
+send_character_message 1 "set_torso_target 110.445 -51.535 45.2749 1"
+send_character_message 1 "set_head_target 110.722 -51.7741 45.5066 1"
+say 1 "Ghost" "I went and shook down the Depot snakes, [wait 0.1]but I couldn't find where they hid your coin. [wait 0.15]I'm sorry, [wait 0.1]Adal."
+send_character_message 2 "set_eye_dir 110.02 -51.7229 44.6397 1"
+send_character_message 2 "set_head_target 110.144 -51.7284 44.71 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_armcheck.anm\""
+send_character_message 1 "set_head_target 110.782 -51.7864 45.4719 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_torso_target 110.445 -51.535 45.2749 0"
+set_cam 108.201 -52.169 43.9144 4.72 -117.18 0 30.7515
+say 2 "Adal" "Oh, [wait 0.1]you didn't have to go through all that...! [wait 0.15]Thank you... [wait 0.2]I just don't have any way to repay you."
+send_character_message 2 "set_torso_target 110.568 -52.2122 44.7557 1"
+send_character_message 2 "set_eye_dir 109.682 -51.6031 44.7276 0.808892"
+send_character_message 2 "set_head_target 110.481 -51.8675 44.5721 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+say 2 "Adal" "But I really appreciate the effort, [wait 0.1]Ghost. [wait 0.15]I'm glad someone here's looking out for me..."
+send_level_message "dialogue_done"

@@ -1,0 +1,112 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>ouruinbricks</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="16.3521" t1="2.99259" t2="-42.8776" s0="1" s1="1" s2="1" q0="0.0463714" q1="0.433288" q2="-0.0223299" q3="0.899785" euler_x="0.102981" euler_y="0.897551" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="0" t1="0" t2="0" s0="6" s1="1" s2="6" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="11.4059" t1="1.81446" t2="1.86147" s0="2.25" s1="2.25" s2="2.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Cpathfloor_bricks.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="13.6685" t1="-4.61161" t2="20.9615" s0="2.88387" s1="2.88387" s2="2.88387" q0="0.181064" q1="0.0807957" q2="-0.74022" q3="-0.642462" euler_x="-0.365179" euler_y="0.164986" euler_z="1.68143" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/granite_vine_rocks/granite_vine_boulder_overgrown_detailed.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="85.7429" t1="-0.724621" t2="-102.704" s0="86.4976" s1="2.25" s2="86.4976" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Cpathfloor_bricks.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="19.501" t1="2.48547" t2="-52.2183" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" type_file="Data/Objects/IGF_Characters/IGF_TurnerActor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="turner" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Cloth" channel="0" red="1" green="1" blue="1" />
+            <Color label="Rope" channel="1" red="1" green="1" blue="1" />
+            <Color label="Fur" channel="2" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Cpathfloor_bricks.xml" path="Data/Objects/therium/Cpathfloor_bricks.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wolf_Den_Test.xml" path="Data/Objects/terrain/Wolf_Den_Test/Wolf_Den_Test.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Cliff Rock 04 Lichen" path="Data/Objects/Environment/Cliffs/CliffRock_04_lichen.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Cliff_Rock_04.png" />
+    <SpawnerItem display_name="Medium Lichen Rock" path="Data/Objects/Environment/Rocks/medium_lichen_rock.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/medium_lichen_rock.png" />
+    <SpawnerItem display_name="Granite Rock Vine Boulder Overgrown Detailed" path="Data/Objects/Environment/Rocks/granite_vine_rocks/granite_vine_boulder_overgrown_detailed.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/granite_vine_boulder_overgrown_detailed.png" />
+</RecentItems>

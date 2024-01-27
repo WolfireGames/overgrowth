@@ -1,0 +1,18 @@
+#name "Investigate-Towers"
+#participants 2
+send_character_message 1 "set_torso_target -47.6927 30.5936 -13.3598 0"
+send_character_message 1 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 1 "set_eye_dir -43.3696 29.1011 -8.35471 1"
+send_character_message 1 "set_head_target -44.1966 29.9679 -8.57888 1"
+set_cam -48.9057 32.7448 -9.0819 -32.16 -88.79 0.15 67.2704
+set_character_pos 1 -46.8205 30.9273 -9.80545 -14
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+send_level_message "phase1_begin"
+send_level_message "investigated"
+say 3 "Ghost" "(Down there is where Bijou and I sleep... [wait 0.15]I should get down there and look for her."
+send_character_message 1 "set_eye_dir -46.71 30.5943 -9.32672 0.706687"
+send_character_message 1 "set_head_target -46.2825 30.5066 -8.30482 1"
+say 3 "Ghost" "(I hope she's alright...)"

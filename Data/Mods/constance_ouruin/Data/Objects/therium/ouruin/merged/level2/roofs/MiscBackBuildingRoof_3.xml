@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/merged/level2/roofs/MiscBackBuildingRoof_3.obj</Model>
+	<ColorMap>Data/Textures/Buildings/Roofs/RoofTerracotta/RoofTerracotta_Color.tga</ColorMap>
+	<NormalMap>Data/Textures/Buildings/Roofs/RoofTerracotta/RoofTerracotta_Normal.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
+	<ShaderName>cubemapobj</ShaderName>
+</Object>

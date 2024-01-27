@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<DecalObject>
+    <ColorMap>Data/Textures/ouruin/waterstain_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/waterstain_n.tga</NormalMap>
+	<ShaderName>decal</ShaderName>
+</DecalObject>

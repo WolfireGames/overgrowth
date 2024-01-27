@@ -1,0 +1,19 @@
+#name "Intro"
+#participants 2
+set_character_pos 1 3.94391 -6.63259 11.9121 90
+send_character_message 1 "set_animation \"Data/Animations/r_halfwoundedidle.anm\""
+send_character_message 1 "set_eye_dir 4.66223 -5.50962 7.45381 0.795718"
+send_character_message 1 "set_torso_target 4.73626 -6.18985 9.17633 0"
+send_character_message 1 "set_head_target 6.17453 -5.80182 8.86263 1"
+set_cam 2.91476 -6.26441 13.6498 0 -17.09 0 52.0772
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_level_message "enable 656"
+send_level_message "music_layer_override -2"
+say 1 "Ghost" "...[wait 0.5]This place seems empty enough..."
+send_character_message 1 "set_eye_dir 3.79601 -5.5199 7.70452 1"
+send_character_message 1 "set_torso_target 3.9376 -6.18741 10.7581 1"
+send_character_message 1 "set_animation \"Data/Animations/r_halfwoundedarmed.anm\""
+send_character_message 1 "set_head_target 2.39716 -5.34696 7.93169 1"
+say 1 "Ghost" "I should look for a place to hide..."
+send_level_message "disable 656"

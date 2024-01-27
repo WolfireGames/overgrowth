@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<DecalObject>
+	<ColorMap>Data/Textures/Decals/Cliffs/T_CliffDecal_03_Color.tga</ColorMap>
+	<NormalMap>Data/Textures/Decals/Cliffs/T_CliffDecal_03_Normal.tga</NormalMap>
+	<ShaderName>decal</ShaderName>
+</DecalObject>

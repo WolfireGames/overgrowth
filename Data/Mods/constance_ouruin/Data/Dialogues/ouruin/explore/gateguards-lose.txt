@@ -1,0 +1,56 @@
+#name "GateGuards-Lose"
+#participants 4
+set_character_pos 1 258.955 -48.2297 38.6084 90
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_kneeling_low.anm\""
+send_character_message 1 "set_eye_dir 258.592 -47.2815 27.9374 1"
+send_character_message 1 "set_torso_target 259.895 -47.7724 31.1206 0"
+send_character_message 1 "set_head_target 258.063 -47.2623 28.1255 1"
+send_character_message 2 "set_animation \"Data/Animations/d_actionidle.anm\""
+set_character_pos 2 258.026 -48.2119 34.3983 -81
+set_character_pos 3 259.628 -48.2148 34.4173 -98
+send_character_message 3 "set_torso_target 259.909 -47.3779 29.4133 0"
+send_character_message 1 "set_head_target 258.998 -48.3288 36.2533 0"
+send_character_message 2 "set_head_target 258.572 -48.0591 37.1641 1"
+send_character_message 3 "set_head_target 259.177 -48.0869 36.9451 1"
+set_cam 260.234 -47.9902 36.8265 -13.92 135.06 0 42.9628
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 1 1
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.5 0.5 0.5
+set_dialogue_voice 3 3
+say 1 "Ghost" "[wait 0.3]Ugh... [wait 0.15]Fine, [wait 0.1]you win..."
+send_character_message 3 "set_eye_dir 259.776 -46.549 33.6728 0.347363"
+send_character_message 3 "set_head_target 259.133 -48.1252 36.9533 1"
+send_character_message 2 "set_head_target 258.85 -47.9539 37.119 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target 259.137 -48.667 37.4168 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_kneelfist.anm\""
+set_cam 259.118 -47.9912 40.0051 1.78 2.99 -0.11 33.0945
+say 2 "???" "Just as expected. [wait 0.15]What were you thinking, [wait 0.1]exactly?"
+send_character_message 3 "set_head_target 258.566 -48.2741 36.4484 1"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_facepalm.anm\""
+send_character_message 3 "set_eye_dir 259.776 -46.549 33.6728 0"
+send_character_message 1 "set_head_target 259.109 -48.128 36.8782 1"
+say 3 "????" "That's the problem with you rabbits: [wait 0.1]You're always compensating!"
+send_character_message 3 "set_torso_target 258.981 -47.4069 35.8567 1"
+send_character_message 1 "set_torso_target 258.847 -47.731 38.3076 0"
+send_character_message 3 "set_head_target 258.202 -47.2364 35.7784 1"
+send_character_message 3 "set_animation \"Data/Animations/d_actionidle.anm\""
+send_character_message 1 "set_head_target 258.615 -47.8602 36.8291 1"
+send_character_message 2 "set_head_target 258.689 -47.6944 37.2487 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+say 2 "???" "Next time, [wait 0.1]bring the coin, [wait 0.1]moron."
+send_character_message 3 "set_head_target 258.202 -47.2364 35.7784 0"
+send_character_message 3 "set_torso_target 258.981 -47.4069 35.8567 0"
+send_character_message 2 "set_head_target 258.689 -47.6944 37.2487 0"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 2 "set_animation \"Data/Animations/d_actionidle.anm\""
+send_character_message 1 "set_eye_dir 257.751 -47.6548 37.4777 0.610908"
+send_character_message 3 "set_eye_dir 260.274 -47.0891 27.8848 1"
+send_character_message 1 "set_head_target 258.309 -48.6173 37.4863 1"
+set_cam 257.179 -48.3124 38.4062 5.4 -85.81 0 33.0945
+set_character_pos 3 260.109 -48.2148 27.6307 -98
+set_character_pos 2 257.797 -48.2407 27.6343 -81
+say 1 "Ghost" "...[wait 0.3]*sigh*..."
+send_level_message "dialogue_done"

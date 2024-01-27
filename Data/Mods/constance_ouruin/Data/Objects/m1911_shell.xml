@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/m1911_shell.obj</Model>
+	<ColorMap>Data/Textures/m1911_c.png</ColorMap>
+	<NormalMap>Data/Textures/m1911_n.png</NormalMap>
+	<ShaderName>envobject</ShaderName>
+	<MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>

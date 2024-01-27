@@ -1,0 +1,19 @@
+#name "RattyGoodbye"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.11 0.05 0.4
+set_dialogue_voice 2 4
+set_character_pos 2 209.132 -47.5222 -225.752 -90
+send_character_message 2 "set_animation \"Data/Animations/ratty_sit.anm\""
+send_character_message 2 "set_eye_dir 208.752 -47.6819 -225.716 1"
+send_character_message 2 "set_head_target 208.714 -47.2503 -224.784 1"
+set_character_pos 1 210.293 -47.6501 -223.239 120
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 209.113 -47.5688 -225.537 1"
+send_character_message 1 "set_torso_target 210.275 -47.1103 -224.222 0"
+send_character_message 1 "set_head_target 209.287 -47.5081 -225.264 1"
+set_cam 210.415 -46.9469 -220.32 -6.99 10.22 0 38.6118
+say 1 "Ghost" "I think I should leave you alone, [wait 0.1]now. [wait 0.2]Goodbye."
+say 2 "Rat" "..."
+send_level_message "dialogue_done"

@@ -1,0 +1,110 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>terraintest</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<Terrain>
+    <Heightmap>Data/Textures/Terrain/fart_h.png</Heightmap>
+    <ShaderExtra></ShaderExtra>
+    <DetailMap></DetailMap>
+    <ColorMap>Data/Textures/Terrain/fart_c.png</ColorMap>
+    <WeightMap>Data/Textures/Terrain/fart_w.png</WeightMap>
+    <DetailMaps>
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/grass.tga" normalpath="Data/Textures/Terrain/DetailTextures/grass_normal.png" materialpath="Data/Materials/grass.xml" />
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/grass_stones_c.tga" normalpath="Data/Textures/Terrain/DetailTextures/grass_stones_n.tga" materialpath="Data/Materials/gravel.xml" />
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/dirt.tga" normalpath="Data/Textures/Terrain/DetailTextures/dirt_normal.png" materialpath="Data/Materials/dirt.xml" />
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/rubble_rocks_c.tga" normalpath="Data/Textures/Terrain/DetailTextures/rubble_rocks_n.tga" materialpath="Data/Materials/rocks.xml" />
+    </DetailMaps>
+    <DetailObjects>
+        <DetailObject obj_path="Data/Objects/Plants/Groundcover/Grass/tall_wild_grass.xml" weight_path="Data/Textures/Terrain/fart_grass.tga" normal_conform="0.5" density="4" min_embed="0.2" max_embed="0.4" min_scale="0.4" max_scale="0.6" view_distance="35" jitter_degrees="10" overbright="0" />
+        <DetailObject obj_path="Data/Objects/Plants/Groundcover/Grass/tall_wild_grass.xml" weight_path="Data/Textures/Terrain/fart_tallgrass.tga" normal_conform="0.5" density="6" min_embed="0" max_embed="0.4" min_scale="0.7" max_scale="1" view_distance="30" jitter_degrees="10" overbright="0" />
+    </DetailObjects>
+</Terrain>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds>
+    <Ambient path="Data/Sounds/ambient/amb_grassfield_loop" />
+</AmbientSounds>
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="HDR Black point" type="float" val="0.07186" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.98204" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="-101" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="false" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/blue4_painted.tga</DomeTexture>
+    <SunAngularRad>0.0894411</SunAngularRad>
+    <SunColorAngle>32.8151</SunColorAngle>
+    <RayToSun r0="-0.173339" r1="0.57425" r2="0.800119" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-46.3616" t1="-65.7367" t2="124.967" s0="1" s1="1" s2="1" q0="-0.0117362" q1="0.938475" q2="-0.0320498" q3="-0.343656" euler_x="-3.07332" euler_y="-0.702041" euler_z="-3.14159" id="1">
+        <parameters />
+    </CameraObject>
+    <ActorObject t0="-52.6698" t1="-64.4796" t2="122.113" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/IGF_Characters/IGF_TurnerActor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="turner" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Cloth" channel="0" red="1" green="1" blue="1" />
+            <Color label="Rope" channel="1" red="1" green="1" blue="1" />
+            <Color label="Fur" channel="2" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+</ActorObjects>
+<RecentItems />

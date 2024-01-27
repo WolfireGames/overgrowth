@@ -1,0 +1,55 @@
+#name "GunkCivilWar1"
+#participants 5
+set_cam 4.82553 1.50182 17.6822 13.65 -147.98 2.73 32.195
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 5.43345 1.70114 18.6153 1"
+send_character_message 2 "set_eye_dir 5.37405 1.82581 18.5515 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.7705 1.35041 18.4258 1"
+send_character_message 1 "set_eye_dir 3.85215 1.88896 17.9772 0.810103"
+send_character_message 1 "set_head_target 3.67799 1.56236 18.0941 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 1 "Ghost" "I've heard a lot about your people taking the fight to the Empry. [wait 0.2]How do you feel about it?"
+send_character_message 2 "set_torso_target 4.49983 1.38713 18.1801 1"
+send_character_message 2 "set_eye_dir 4.62221 1.30247 17.226 0.561402"
+send_character_message 2 "set_head_target 5.17125 1.7868 17.6462 1"
+set_cam 4.38894 2.56644 18.7264 -32.69 44.13 11.88 40.0435
+say 2 "Gunk" "...[wait 0.3]At first, [wait 0.1]all I wanted was a peaceful solution. [wait 0.15]But it didn't take long for our chances of peace to dissolve."
+send_character_message 2 "set_eye_dir 4.57094 2.5541 17.1377 1"
+send_character_message 2 "set_torso_target 4.46002 1.56888 18.1539 1"
+send_character_message 2 "set_head_target 5.12029 2.03412 17.5881 1"
+say 2 "Gunk" "One day, [wait 0.1]a cinderian wandered into our parts of the outskirts, [wait 0.1]drunk. [wait 0.2]They [wait 0.1]assaulted one of our young, [wait 0.3]and took her life."
+send_character_message 2 "set_eye_dir 5.1915 1.88034 18.6233 0.520575"
+send_character_message 2 "set_head_target 5.23551 1.70673 18.2223 1"
+send_character_message 2 "set_torso_target 4.46045 1.56912 18.1541 7.21216e-06"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_fist.anm\""
+say 2 "Gunk" "The authorities did nothing. [wait 0.3]They left us with no choice."
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 2 "set_eye_dir 5.39084 1.82133 18.5045 0.759282"
+send_character_message 2 "set_torso_target 4.32094 2.13296 18.3054 1"
+send_character_message 2 "set_head_target 5.34085 2.16814 18.5238 1"
+say 2 "Gunk" "Mark my words, [wait 0.15]Ghost. [wait 0.2]Their cruelty will not be overlooked."
+send_character_message 1 "set_eye_dir 5.07826 0.975299 17.4725 0.810103"
+send_character_message 1 "set_head_target 4.13492 1.41863 17.5155 1"
+send_character_message 1 "set_torso_target 4.77045 1.35042 18.4258 0"
+set_cam 2.57771 1.34323 18.0869 7.39 -90.63 7.72 35.6298
+send_character_message 2 "set_eye_dir 5.23328 1.67593 18.5744 0.901372"
+send_character_message 2 "set_head_target 5.2801 2.38882 18.3268 1"
+send_character_message 2 "set_torso_target 5.02674 1.98939 18.6595 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+say 1 "Ghost" "...[wait 0.3]Hm..."
+send_level_message "dialogue_done"

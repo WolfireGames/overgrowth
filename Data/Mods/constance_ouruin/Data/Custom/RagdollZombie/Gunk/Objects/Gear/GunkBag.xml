@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/RagdollZombie/Gunk/Models/Gear/GunkBag.obj</Model>
+	<ColorMap>Data/Custom/RagdollZombie/Gunk/Textures/Gear/GunkBag_Diffuse.tga</ColorMap>
+	<NormalMap>Data/Custom/RagdollZombie/Gunk/Textures/Gear/GunkBag_Normal.tga</NormalMap>
+	<ShaderName>cubemapobjchar</ShaderName>
+</Object>

@@ -1,0 +1,19 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-76.2036" t1="4.62197" t2="-28.5226" s0="9.21042" s1="9.60579" s2="1.40242" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7346" version="1">
+        <parameters />
+        <EnvObject t0="-76.1944" t1="3.56941" t2="-28.7039" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7342" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_gate.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-72.654" t1="3.654" t2="-28.3561" s0="0.395416" s1="0.276082" s2="0.339313" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="7343" color_r="0.161769" color_g="0.168902" color_b="0.262745" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-76.2036" t1="8.16946" t2="-28.5962" s0="0.474943" s1="0.324467" s2="0.478421" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="7344" color_r="0.161769" color_g="0.168902" color_b="0.262745" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-79.7259" t1="3.654" t2="-28.3561" s0="0.395416" s1="0.276082" s2="0.339313" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="7345" color_r="0.161769" color_g="0.168902" color_b="0.262745" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

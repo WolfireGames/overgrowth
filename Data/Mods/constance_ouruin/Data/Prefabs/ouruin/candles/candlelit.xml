@@ -1,0 +1,16 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="2.53939" t1="-9.10376" t2="-23.5981" s0="0.2822" s1="0.281708" s2="0.276438" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5189" version="1">
+        <parameters />
+        <EnvObject t0="2.53939" t1="-9.12637" t2="-23.5981" s0="0.288864" s1="0.413165" s2="0.288864" q0="0" q1="0.817422" q2="0" q3="-0.576042" euler_x="3.14159" euler_y="-1.22776" euler_z="3.14159" id="5186" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/candle.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="2.53919" t1="-9.10376" t2="-23.6026" s0="0.159581" s1="0.271708" s2="0.159581" q0="0" q1="0.526743" q2="0" q3="0.850027" euler_x="0" euler_y="1.10953" euler_z="0" id="5187" type_file="Data/Objects/Decals/light_round.xml" color_r="1" color_g="0.327372" color_b="0" overbright="1.977">
+            <parameters />
+        </Decal>
+        <EnvObject t0="2.53899" t1="-9.02257" t2="-23.5976" s0="0.00154182" s1="0.00418964" s2="0.0014176" q0="0" q1="0.526743" q2="0" q3="0.850027" euler_x="0" euler_y="1.10953" euler_z="0" id="5188" color_r="1" color_g="0.327372" color_b="0" overbright="100" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

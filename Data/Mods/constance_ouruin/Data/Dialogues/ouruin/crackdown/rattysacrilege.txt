@@ -1,0 +1,32 @@
+#name "RattySacrilege"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.11 0.05 0.4
+set_dialogue_voice 2 4
+set_character_pos 2 209.132 -47.5222 -225.752 -90
+send_character_message 2 "set_animation \"Data/Animations/ratty_sit.anm\""
+send_character_message 2 "set_eye_dir 208.752 -47.6819 -225.716 1"
+send_character_message 2 "set_head_target 208.673 -47.7061 -224.127 1"
+set_character_pos 1 210.293 -47.6501 -223.239 120
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 1 "set_eye_dir 209.113 -47.5688 -225.537 1"
+send_character_message 1 "set_torso_target 210.275 -47.1103 -224.222 0"
+send_character_message 1 "set_head_target 209.287 -47.5081 -225.264 1"
+set_cam 210.415 -46.9469 -220.32 -6.99 10.22 0 38.6118
+say 1 "Ghost" "You said the other rats hate you because of... [wait 0.3]Sacrilege?"
+say 2 "Rat" "..."
+say 1 "Ghost" "It's okay if you don't want to tell me. [wait 0.2]I can leave you alone, [wait 0.1]if you want."
+say 2 "Rat" "..."
+say 2 "Rat" "I was a lone survivor of a [wait 0.1]purged nest under these streets. [wait 0.3]I had to find a new family."
+say 2 "Rat" "It was [wait 0.1]hard. [wait 0.3]Families think [wait 0.1]lone survivors are [wait 0.1]bad luck. [wait 0.2]Too much outside stink. [wait 0.1]Curse carrier, [wait 0.1]they call me."
+say 2 "Rat" "One family [wait 0.1]let me in. [wait 0.2]Knew I was bad luck. [wait 0.3]Accepted me, anyways."
+say 2 "Rat" "One day, [wait 0.1]rabbit attacked nest. [wait 0.2]I said something to them, [wait 0.1]so it might leave. [wait 0.2]It didn't work. [wait 0.2]The nest [wait 0.1]didn't like that. [wait 0.2]We killed the rabbit, [wait 0.1]anyways."
+say 1 "Ghost" "Was that the sacrilege?"
+say 2 "Rat" "That came later. [wait 0.3]They had a mechanical object on a shelf. [wait 0.2]It wasn't being used, [wait 0.1]so I took it apart to [wait 0.1]look at it."
+say 2 "Rat" "I [wait 0.2]didn't know it was [wait 0.3]an icon. [wait 0.2]They [wait 0.2]called me [wait 0.3]heretic. [wait 0.2]I ran."
+say 2 "Rat" "[wait 0.2].[wait 0.2].[wait 0.2]."
+say 1 "Ghost" "That's terrible. [wait 0.2]I'm sorry that happened."
+say 2 "Rat" "...[wait 0.2]No rabbit has [wait 0.2]said sorry to me."
+say 1 "Ghost" "It must be difficult, [wait 0.15]surviving out here on your own."
+say 2 "Rat" "[wait 0.2]It's... [wait 0.3]Really bad. [wait 0.3]I wish this was just a nightmare."

@@ -1,0 +1,1131 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>lethalitytest</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121362" r1="0.0620508" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="7.06626" t1="8.78038" t2="12.8134" s0="1" s1="1" s2="1" q0="0.156719" q1="-0.780528" q2="0.216455" q3="0.565122" euler_x="-2.60055" euler_y="-1.25334" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="-13.5982" t1="-166.433" t2="-0.0358095" s0="19.7526" s1="167.431" s2="18.9063" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject name="Generic Enemy" t0="7.67094" t1="1.46983" t2="31.3737" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/characters/raider_rabbit_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="0" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Lore" type="string" val="Gabriel Ratsass" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <ActorObject name="Ghost" t0="4.14848e-05" t1="1.49854" t2="3.5" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/characters/rabbot_actor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1.40845" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="0.781" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="0.36" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="6" />
+        </Connections>
+        <ItemConnections>
+            <ItemConnection id="12" type="1" mirrored="0" attachment="" />
+        </ItemConnections>
+        <Palette />
+    </ActorObject>
+    <ItemObject t0="-2.5271" t1="1.0989" t2="-5.72466" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="12" type_file="Data/Items/DogWeapons/DogSword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <EnvObject t0="22.6653" t1="-9.97359" t2="-6.36735" s0="17.6038" s1="1.70441" s2="12.6199" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="3.46757" t1="-166.437" t2="37.5041" s0="36.8199" s1="167.431" s2="18.9015" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="3.46779" t1="-166.437" t2="-36.7673" s0="36.8199" s1="167.431" s2="18.9015" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="28.3357" t1="-166.431" t2="-0.0406732" s0="11.971" s1="167.431" s2="18.9063" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="19" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="10.7975" t1="-4.95683" t2="-1.08028" s0="2.97554" s1="2.57335" s2="2.91408" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" type_file="Data/Objects/Hotspots/wet_cube.xml">
+        <parameters>
+            <parameter name="Water Fog" type="float" val="1" />
+            <parameter name="Wave Density" type="float" val="0.184" />
+            <parameter name="Wave Height" type="float" val="0.034" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="11.3935" t1="-4.44879" t2="-7.70451" s0="5.45709" s1="5.44339" s2="0.943277" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="11.3933" t1="-164.114" t2="5.62751" s0="5.45709" s1="165.112" s2="0.943277" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot name="Debug Text" t0="-0.559113" t1="10.246" t2="-8.50333" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="1" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;251&quot;,&quot;ui_function&quot;:0},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;252&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[23,320],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_explore_eliminations_current: {ouruin_explore_eliminations_current} .. [{ouruin_explore_eliminations_stored}]\nouruin_explore_kills_current: {ouruin_explore_kills_current} .. [{ouruin_explore_kills_stored}]\nouruin_explore_overkills_current: {ouruin_explore_overkills_current} .. [{ouruin_explore_overkills_stored}]\nouruin_explore_zonekills_current: {ouruin_explore_zonekills_current} .. [{ouruin_explore_zonekills_stored}]\nouruin_explore_throatscut_current: {ouruin_explore_throatscut_current} .. [{ouruin_explore_throatscut_stored}]\n==\nouruin_explore_eliminations: {ouruin_explore_eliminations} .. ({ouruin_explore_eliminations_points})\nouruin_explore_kills: {ouruin_explore_kills} .. ({ouruin_explore_kills_points})\nouruin_explore_overkills: {ouruin_explore_overkills} .. ({ouruin_explore_overkills_points})\nouruin_explore_zonekills: {ouruin_explore_zonekills} .. ({ouruin_explore_zonekills_points})\nouruin_explore_throatscut: {ouruin_explore_throatscut} .. ({ouruin_explore_throatscut_points})\nouruin_explore_lethality: {ouruin_explore_lethality} .. ({ouruin_explore_lethality_points})\n==\nouruin_explore_enemy_49_status: {ouruin_explore_enemy_49_status}&quot;,&quot;ui_element_identifier&quot;:&quot;253&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;update_lethality&quot;},{&quot;function&quot;:7,&quot;line&quot;:1}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot name="Explore Lethality" t0="-8.62652" t1="7.16542" t2="45.1551" s0="0.666666" s1="0.666666" s2="0.666666" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="27" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="0" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Set current counts to 0&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_explore_eliminations_current&quot;,&quot;ouruin_explore_kills_current&quot;,&quot;ouruin_explore_zonekills_current&quot;,&quot;ouruin_explore_overkills_current&quot;,&quot;ouruin_explore_throatscut_current&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]},{&quot;display_comment&quot;:&quot;Add stored counts&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_explore_eliminations_current&quot;,&quot;ouruin_explore_kills_current&quot;,&quot;ouruin_explore_zonekills_current&quot;,&quot;ouruin_explore_overkills_current&quot;,&quot;ouruin_explore_throatscut_current&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_explore_eliminations&quot;,&quot;ouruin_explore_kills_stored&quot;,&quot;ouruin_explore_zonekills_stored&quot;,&quot;ouruin_explore_overkills_stored&quot;,&quot;ouruin_explore_throatscut_stored&quot;]},{&quot;display_comment&quot;:&quot;Wait to store new lethality counts&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;lethality_store&quot;},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_explore_eliminations_stored&quot;,&quot;ouruin_explore_kills_stored&quot;,&quot;ouruin_explore_zonekills_stored&quot;,&quot;ouruin_explore_overkills_stored&quot;,&quot;ouruin_explore_throatscut_stored&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_explore_eliminations_current&quot;,&quot;ouruin_explore_kills_current&quot;,&quot;ouruin_explore_zonekills_current&quot;,&quot;ouruin_explore_overkills_current&quot;,&quot;ouruin_explore_throatscut_current&quot;]},{&quot;function&quot;:7,&quot;line&quot;:4},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-7.1055" t1="0.872771" t2="32.1178" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="28" color_r="1" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/disk_edged.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="11.23" t1="-2.46442" t2="-13.8107" s0="10.9885" s1="4.00978" s2="12.2737" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="29" version="1">
+        <parameters />
+        <Hotspot t0="11.4171" t1="-2.46442" t2="-13.7449" s0="2.65106" s1="1" s2="2.92516" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" type_file="Data/Objects/Hotspots/lava_kill.xml">
+            <parameters />
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <EnvObject t0="11.1174" t1="-0.595863" t2="-13.8107" s0="0.412967" s1="0.412967" s2="0.412967" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/MagmaArena/MagmaFloor.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-8.6055" t1="0.813308" t2="45.1178" s0="2.25" s1="2.25" s2="2.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="31" color_r="0" color_g="1" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/disk_edged.xml">
+        <parameters />
+    </EnvObject>
+    <ItemObject t0="-2.3038" t1="1.09874" t2="-6.45853" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="35" type_file="Data/Items/DogWeapons/DogKnife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ItemObject t0="0.112445" t1="8.59355" t2="19.9758" s0="1" s1="1" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="40" type_file="Data/Items/DogWeapons/DogHammer.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <Hotspot name="Checkpoint Store" t0="-7.10875" t1="1.74597" t2="32.0963" s0="0.44381" s1="0.44381" s2="0.44381" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="41" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;external_hotspot&quot;:false,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;lethality_store&quot;},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-11.1055" t1="0.872771" t2="35.1178" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="42" color_r="1" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/disk_edged.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot name="Checkpoint Store" t0="-11.1087" t1="1.74597" t2="35.0963" s0="0.44381" s1="0.44381" s2="0.44381" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="43" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;external_hotspot&quot;:false,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;lethality_store&quot;},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <ActorObject name="Generic Enemy" t0="5.469" t1="1.46983" t2="36.0118" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="44" type_file="Data/Objects/characters/raider_rabbit_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="0" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Lore" type="string" val="Gibus Cordon" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="44" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <EnvObject t0="-7.1055" t1="0.872771" t2="38.1178" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="45" color_r="1" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/disk_edged.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot name="Checkpoint Store" t0="-7.10875" t1="1.74597" t2="38.0963" s0="0.44381" s1="0.44381" s2="0.44381" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="46" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;external_hotspot&quot;:false,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;lethality_store&quot;},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot name="Explore Tally" t0="-8.62193" t1="2.35325" t2="45.1278" s0="0.665715" s1="0.665715" s2="0.665715" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="47" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;external_hotspot&quot;:false,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;},{&quot;display_comment&quot;:&quot;== TALLY POINTS&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Take current counts and add them to level totals&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[1,1,1,1,1],&quot;parameters&quot;:[&quot;ouruin_explore_eliminations&quot;,&quot;ouruin_explore_kills&quot;,&quot;ouruin_explore_zonekills&quot;,&quot;ouruin_explore_overkills&quot;,&quot;ouruin_explore_throatscut&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_explore_eliminations_current&quot;,&quot;ouruin_explore_kills_current&quot;,&quot;ouruin_explore_zonekills_current&quot;,&quot;ouruin_explore_overkills_current&quot;,&quot;ouruin_explore_throatscut_current&quot;]},{&quot;display_comment&quot;:&quot;Add all totals to points&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[1,1,1,1,1],&quot;parameters&quot;:[&quot;ouruin_explore_eliminations_points&quot;,&quot;ouruin_explore_kills_points&quot;,&quot;ouruin_explore_zonekills_points&quot;,&quot;ouruin_explore_overkills_points&quot;,&quot;ouruin_explore_throatscut_points&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_explore_eliminations&quot;,&quot;ouruin_explore_kills&quot;,&quot;ouruin_explore_zonekills&quot;,&quot;ouruin_explore_overkills&quot;,&quot;ouruin_explore_throatscut&quot;]},{&quot;display_comment&quot;:&quot;Multiply points&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[5,5,5,5,5],&quot;parameters&quot;:[&quot;ouruin_explore_eliminations_points&quot;,&quot;ouruin_explore_kills_points&quot;,&quot;ouruin_explore_zonekills_points&quot;,&quot;ouruin_explore_overkills_points&quot;,&quot;ouruin_explore_throatscut_points&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1.000&quot;,&quot;8.000&quot;,&quot;2.000&quot;,&quot;2.000&quot;,&quot;4.000&quot;]},{&quot;display_comment&quot;:&quot;Add all points to level points total&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_explore_lethality_points&quot;,&quot;ouruin_explore_lethality_points&quot;,&quot;ouruin_explore_lethality_points&quot;,&quot;ouruin_explore_lethality_points&quot;,&quot;ouruin_explore_lethality_points&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_explore_eliminations_points&quot;,&quot;ouruin_explore_kills_points&quot;,&quot;ouruin_explore_zonekills_points&quot;,&quot;ouruin_explore_overkills_points&quot;,&quot;ouruin_explore_throatscut_points&quot;]},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <ActorObject name="Generic Enemy" t0="8.36532" t1="1.46983" t2="41.778" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="48" type_file="Data/Objects/characters/raider_rabbit_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="0" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Lore" type="string" val="Gibby Soulsake" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="48" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <ActorObject name="Generic Enemy" t0="0" t1="1.46992" t2="20" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" type_file="Data/Objects/characters/raider_rabbit_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="0" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Lore" type="string" val="Giblet Noor" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="49" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <ActorObject name="Generic Enemy" t0="-0.143754" t1="1.46983" t2="36.0118" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" type_file="Data/Objects/characters/raider_rabbit_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="0" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Lore" type="string" val="Goldie Lemon" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <ActorObject name="Generic Enemy" t0="2.75256" t1="1.46983" t2="41.778" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="51" type_file="Data/Objects/characters/raider_rabbit_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="0" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Lore" type="string" val="Garfunkel" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <Hotspot t0="-13.1979" t1="4.12326" t2="45.4764" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="54" type_file="Data/Objects/Hotspots/ouruin_level.xml">
+        <parameters>
+            <parameter name="level_name" type="string" val="explore" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-19.1357" t1="9.64663" t2="3.50783" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="55" type_file="Data/Objects/stat-tracker/Hotspots/stat-tracker-hotspot.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot name="Press ] to Reset" t0="-16.0362" t1="3.06473" t2="-11.5244" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="56" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;]&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_explore_eliminations_current&quot;,&quot;ouruin_explore_kills_current&quot;,&quot;ouruin_explore_overkills_current&quot;,&quot;ouruin_explore_zonekills_current&quot;,&quot;ouruin_explore_throatscut_current&quot;,&quot;ouruin_explore_kills_stored&quot;,&quot;ouruin_explore_eliminations_stored&quot;,&quot;ouruin_explore_overkills_stored&quot;,&quot;ouruin_explore_zonekills_stored&quot;,&quot;ouruin_explore_throatscut_stored&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]},{&quot;ai_sound&quot;:false,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;placeholder_id&quot;:57,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/lugaru/consolefail_quiet.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;reset&quot;}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject name="Play Sound Helper" t0="0.350296" t1="5.05706" t2="-18.1377" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="57" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <NavmeshHintObject t0="11.0191" t1="0.260445" t2="0.552198" s0="11.1607" s1="1.52337" s2="37.9789" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="58">
+        <parameters />
+    </NavmeshHintObject>
+    <EnvObject t0="22.6654" t1="-100.557" t2="12.1925" s0="17.6038" s1="1.70441" s2="12.6199" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="59" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="0" t1="0.5" t2="5" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="76" version="1">
+        <parameters />
+        <EnvObject t0="-0.000317097" t1="0.679009" t2="0.0326481" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="60" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.5" t2="9" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="63" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="9.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="61" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="8.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="62" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="7" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="66" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="7.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="64" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="6.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="65" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="69" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="5.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="67" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="4.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="68" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="3" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="72" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="3.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="2.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="71" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.499999" t2="1" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="75" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.499999" t2="1.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="73" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.499999" t2="0.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="74" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="0" t1="0.500002" t2="15" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="94" version="1">
+        <parameters />
+        <EnvObject t0="-0.000317097" t1="0.679011" t2="10.0326" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="78" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.500002" t2="19" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="81" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="19.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="79" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="18.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="80" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="17" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="84" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="17.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="82" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="16.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="83" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="15" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="15.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="85" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="14.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="86" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="13" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="90" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="13.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="88" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="12.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="89" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500001" t2="11" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="93" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500001" t2="11.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500001" t2="10.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="92" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="0" t1="0.5" t2="-15" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="112" version="1">
+        <parameters />
+        <EnvObject t0="-0.000317097" t1="0.679009" t2="-19.9674" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="96" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.5" t2="-11" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="99" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-10.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="97" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-11.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="98" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-13" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="102" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-12.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-13.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-15" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="105" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-14.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="103" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-15.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="104" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-17" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="108" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-16.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="106" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-17.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="107" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.499999" t2="-19" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="111" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.499999" t2="-18.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="109" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.499999" t2="-19.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="110" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="0" t1="0.500002" t2="-5" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="129" version="1">
+        <parameters />
+        <EnvObject t0="-0.000317097" t1="0.679011" t2="-9.96735" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="113" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.500002" t2="-1" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="116" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-0.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="114" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-1.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="115" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-3" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="119" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-2.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="117" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-3.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="118" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="122" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-4.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="120" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-5.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="121" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-7" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="125" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-6.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="123" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-7.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="124" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500001" t2="-9" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="128" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500001" t2="-8.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="126" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500001" t2="-9.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="127" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="2" t1="0.5" t2="-19.5" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="155" version="1">
+        <parameters />
+        <EnvObject t0="1.99968" t1="0.679009" t2="-24.4674" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="154" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="2" t1="0.5" t2="-15.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="143" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.5" t2="-15" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.5" t2="-16" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="140" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.5" t2="-17.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="144" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.5" t2="-17" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="141" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.5" t2="-18" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="142" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.5" t2="-19.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="147" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.5" t2="-19" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="145" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.5" t2="-20" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="146" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.5" t2="-21.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="150" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.5" t2="-21" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.5" t2="-22" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="149" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.499999" t2="-23.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="153" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.499999" t2="-23" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="151" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.499999" t2="-24" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="152" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="2" t1="0.500008" t2="-29.5" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="172" version="1">
+        <parameters />
+        <EnvObject t0="1.99968" t1="0.679018" t2="-34.4673" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="156" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="2" t1="0.500009" t2="-25.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="159" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.500009" t2="-25" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="157" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.500009" t2="-26" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="158" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.500009" t2="-27.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="162" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.500009" t2="-27" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="160" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.500009" t2="-28" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="161" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.500008" t2="-29.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="165" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.500008" t2="-29" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="163" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.500008" t2="-30" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="164" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.500008" t2="-31.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="168" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.500008" t2="-31" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="166" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.500008" t2="-32" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="167" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="2" t1="0.500008" t2="-33.5" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="171" version="1">
+            <parameters />
+            <EnvObject t0="2" t1="0.500008" t2="-33" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="169" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2" t1="0.500008" t2="-34" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="170" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="0" t1="0.5" t2="-35" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="180" version="1">
+        <parameters />
+        <EnvObject t0="-0.000317097" t1="0.679009" t2="-39.9674" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="130" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.5" t2="-31" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="133" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-30.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="131" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-31.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="132" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-33" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="136" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-32.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="134" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-33.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="135" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-35" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="173" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-34.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="137" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-35.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="138" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-37" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="176" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.5" t2="-36.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="174" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-37.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="175" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.499999" t2="-39" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="179" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.499999" t2="-38.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="177" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.499999" t2="-39.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="178" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="0" t1="0.500002" t2="-25" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="197" version="1">
+        <parameters />
+        <EnvObject t0="-0.000317097" t1="0.679011" t2="-29.9674" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="181" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.500002" t2="-21" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="184" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-20.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="182" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-21.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="183" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-23" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="187" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-22.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="185" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-23.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="186" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-25" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="190" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-24.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="188" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-25.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="189" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-27" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="193" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500002" t2="-26.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="191" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-27.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="192" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500001" t2="-29" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="196" version="1">
+            <parameters />
+            <EnvObject t0="0" t1="0.500001" t2="-28.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="194" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500001" t2="-29.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="195" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="0" t1="0.5" t2="-55" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="214" version="1">
+        <parameters />
+        <EnvObject t0="-0.000316143" t1="0.679009" t2="-59.9674" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="198" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.5" t2="-51" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="201" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.5" t2="-50.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="199" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-51.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="200" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-53" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="204" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.5" t2="-52.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="202" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-53.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="203" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-55" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="207" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.5" t2="-54.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="205" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-55.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="206" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.5" t2="-57" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="210" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.5" t2="-56.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="208" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.5" t2="-57.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="209" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.499999" t2="-59" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="213" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.499999" t2="-58.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="211" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.499999" t2="-59.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="212" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <Group t0="0" t1="0.500002" t2="-45" s0="1.02" s1="1.02" s2="10.02" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="231" version="1">
+        <parameters />
+        <EnvObject t0="-0.000316143" t1="0.679011" t2="-49.9674" s0="0.249988" s1="0.248809" s2="0.248809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="215" color_r="0.999998" color_g="0.99999" color_b="1" overbright="3.431" type_file="Data/Custom/FnB/Objects/Simple Shapes/marble/wall.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="0" t1="0.500002" t2="-41" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="218" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.500002" t2="-40.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="216" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-41.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="217" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-43" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="221" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.500002" t2="-42.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="219" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-43.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="220" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-45" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="224" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.500002" t2="-44.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="222" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-45.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="223" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500002" t2="-47" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="227" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.500002" t2="-46.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="225" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500002" t2="-47.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="226" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="0" t1="0.500001" t2="-49" s0="1.01" s1="1.01" s2="2.01" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="230" version="1">
+            <parameters />
+            <EnvObject t0="1.19209e-06" t1="0.500001" t2="-48.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="228" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="0" t1="0.500001" t2="-49.5" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="229" color_r="0.478431" color_g="0.478427" color_b="0.478427" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaintile/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Janner" path="Data/Objects/characters/dogs/janner/janner_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/janner.png" />
+    <SpawnerItem display_name="Dog Broad Sword" path="Data/Items/DogWeapons/DogBroadSword.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword1.png" />
+    <SpawnerItem display_name="Water Hotspot" path="Data/Objects/Hotspots/wet_cube.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
+    <SpawnerItem display_name="Dog Sword" path="Data/Items/DogWeapons/DogSword.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword.png" />
+    <SpawnerItem display_name="Rabbot" path="Data/Objects/characters/rabbot_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/rabbot_actor.png" />
+    <SpawnerItem display_name="Lava Kill Hotspot" path="Data/Objects/Hotspots/lava_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
+    <SpawnerItem display_name="MagmaFloor.xml" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="debugtext.xml" path="Data/Prefabs/ouruin/debugtext.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Raider Rabbit" path="Data/Objects/characters/raider_rabbit_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/raider_rabbit_actor.png" />
+    <SpawnerItem display_name="Dog Knife" path="Data/Items/DogWeapons/DogKnife.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wknife.png" />
+    <SpawnerItem display_name="ouruin_level.xml" path="Data/Objects/Hotspots/ouruin_level.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="stat-tracker-hotspot.xml" path="Data/Objects/stat-tracker/Hotspots/stat-tracker-hotspot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Nav Hint" path="Data/Objects/navmesh/navmesh_hint.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Dog Spear" path="Data/Items/DogWeapons/DogSpear.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wspear.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Hammer" path="Data/Items/gear/dogtools/dogtoolhammer.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/hammertool.png" />
+    <SpawnerItem display_name="Dog Hammer" path="Data/Items/DogWeapons/DogHammer.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/whammer.png" />
+</RecentItems>

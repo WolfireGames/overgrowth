@@ -1,0 +1,22 @@
+#name "UnlockShortcut"
+#participants 2
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+set_character_pos 1 114.256 -44.0808 -7.06652 180
+send_character_message 1 "set_eye_dir 112.278 -43.2419 -7.05701 1"
+send_character_message 1 "set_torso_target 115.195 -43.6474 -6.74122 0"
+send_character_message 1 "set_head_target 112.362 -42.4423 -7.07315 1"
+set_cam 116.698 -44.1498 -8.78658 13.68 115.49 0 56.221
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.52 0.95
+set_dialogue_voice 2 8
+say 2 "Ghost" "(...[wait 0.1]This board seems loose. [wait 0.2]If I just push a bit...)"
+send_character_message 1 "set_head_target 112.357 -43.5068 -6.55886 1"
+send_character_message 1 "set_animation \"Data/Animations/lanterntouch_timid.anm\""
+set_cam 111.925 -43.2335 -7.04776 -5.97 -90 0 35.0018
+send_level_message "push"
+say 2 "Ghost" "([wait 0.2].[wait 0.2].[wait 0.2].)"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 1 "set_head_target 112.617 -43.4386 -6.39297 1"
+say 2 "Ghost" "(There we go... [wait 0.15]A path back into Moritz. [wait 0.2]I won't have to bother with the gate guards, [wait 0.1]anymore..."
+send_level_message "dialogue_done"

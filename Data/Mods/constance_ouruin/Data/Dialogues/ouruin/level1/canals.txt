@@ -1,0 +1,48 @@
+#name "Canals"
+#participants 3
+set_character_pos 2 -90.3747 -58.5782 21.6942 120
+send_character_message 1 "set_eye_dir -90.5597 -57.738 21.499 1"
+send_character_message 1 "set_head_target -90.7283 -57.8468 21.6418 1"
+send_character_message 2 "set_eye_dir -90.7812 -57.9214 21.3466 1"
+send_character_message 2 "set_torso_target -90.6799 -58.3029 20.7372 0"
+send_character_message 2 "set_head_target -90.8942 -57.8049 20.8955 0.992316"
+send_character_message 2 "set_animation \"Data/Animations/timek_fish.anm\""
+set_character_pos 1 -91.9618 -58.8859 22.3183 48
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.9 1.0 0.5
+set_dialogue_voice 2 5
+set_cam -88.6766 -57.7363 19.8152 -5.6 130.49 0 21.731
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 10.0 10.0"
+say 1 "Ghost" "Timek, [wait 0.3]that you?"
+send_character_message 1 "set_head_target -90.7283 -57.8468 21.6418 1"
+send_character_message 2 "set_head_target -90.6584 -57.7246 20.8181 0.0124673"
+say 2 "Timek" "That it is."
+send_character_message 2 "set_eye_dir -90.632 -57.8517 21.5052 1"
+send_character_message 1 "set_head_target -90.6832 -57.9727 21.6446 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+say 1 "Ghost" "Still looking for gutter fish?"
+send_character_message 2 "set_head_target -90.8742 -57.7328 20.9077 1"
+say 2 "Timek" "Wish I could say no. [wait 0.5]I'd honestly be okay with starving."
+send_character_message 2 "set_head_target -90.6611 -57.7366 20.812 1"
+send_character_message 1 "set_head_target -90.6423 -57.64 21.8053 1"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+set_cam -93.5929 -58.3639 22.428 5.22 -78.79 -0.01 28.2362
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 4.0 1.0"
+say 1 "Ghost" "I suppose you could just snatch someone off the streets. [wait 0.5]That'd be a pretty tasty meal, [wait 0.3]eh?"
+send_character_message 2 "set_eye_dir -90.632 -57.8517 21.5052 1"
+send_character_message 1 "set_head_target -90.6423 -57.64 21.8053 0.990708"
+send_character_message 2 "set_head_target -90.7259 -57.695 20.9704 0.976965"
+say 2 "Timek" "Ghost, [wait 0.3]you keep taunting me like that and I'll...!"
+send_character_message 1 "set_eye_dir -90.5597 -57.738 21.499 0"
+send_character_message 1 "set_head_target -90.6423 -57.64 21.8053 0.129669"
+set_cam -88.7933 -58.2122 19.0844 0 141.19 0 31.3465
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_2handneck.anm\""
+send_character_message 2 "set_head_target -90.7194 -57.7864 20.9253 0.998154"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 20.0 10.0"
+say 1 "Ghost" "All bark and no bite and you know it, [wait 0.3]Timmy."
+send_character_message 1 "set_eye_dir -90.5597 -57.738 21.499 1"
+send_character_message 1 "set_head_target -90.6423 -57.64 21.8053 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+send_character_message 2 "set_head_target -90.6642 -57.7917 20.9064 0"
+say 2 "Timek" "[wait 0.3]Ugh..."

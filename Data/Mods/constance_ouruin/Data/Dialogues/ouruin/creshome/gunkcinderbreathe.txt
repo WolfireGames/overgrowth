@@ -1,0 +1,66 @@
+#name "GunkCinderbreathe"
+#participants 5
+set_cam 4.5469 1.52519 19.5016 7.94 -50.05 0 49.4358
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 5.43406 1.70401 18.6145 1"
+send_character_message 2 "set_eye_dir 5.37405 1.82581 18.5515 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0"
+send_character_message 1 "set_eye_dir 4.05188 2.04916 19.5657 1"
+send_character_message 1 "set_head_target 3.64389 1.668 18.2911 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 1 "Ghost" "You said something about the cinderian's plight being connected to your cause. [wait 0.15]What did you mean by that?"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 5.41392 2.17575 18.5493 1"
+send_character_message 1 "set_eye_dir 4.21774 1.81734 18.1559 1"
+send_character_message 1 "set_head_target 3.63918 1.86267 18.1149 1"
+set_cam 6.27941 1.92614 19.2769 -5.59 58.37 0 28.3955
+say 2 "Gunk" "In truth, [wait 0.1]the Cinderbreathe citzen and the Cinderblood is spurned in equal measure. [wait 0.15]We starve, toil and die in the southern dunes for the Empry's sake, [wait 0.1]and yet we stand divided thanks to its lies."
+set_cam 6.27786 1.92195 19.2766 -5.59 58.37 0 28.3955
+send_character_message 2 "set_head_target 5.39645 1.86483 18.76 1"
+send_character_message 1 "set_head_target 3.7447 1.78965 18.011 1"
+say 1 "Ghost" "Is it not true that Ouruin was flooded because of your people?"
+send_character_message 2 "set_eye_dir 4.17671 1.32224 18.4518 1"
+send_character_message 1 "set_head_target 3.69939 2.09416 17.9625 1"
+send_character_message 2 "set_head_target 5.55779 1.62341 18.5594 1"
+say 2 "Gunk" "I suppose it is true, [wait 0.1]in a way. [wait 0.2]But the Empry lies about how the dam broke: [wait 0.15]It was the cinderians' weapons that caused the water to come crashing forth."
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross_hand.anm\""
+send_character_message 2 "set_head_target 5.82331 2.1624 17.7592 1"
+send_character_message 2 "set_eye_dir 5.44952 1.82156 18.6391 1"
+say 2 "Gunk" "We were only fighting to reclaim our home, [wait 0.1]never to destroy it. [wait 0.2]Yet the Empry's High Council was plenty eager to set off explosives so close to their people..."
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 5.80409 1.66836 17.9598 1"
+set_cam 2.73774 2.01107 17.8123 -6.42 -98.8 -0.27 36.307
+send_character_message 1 "set_head_target 4.24346 1.75645 16.9902 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+say 1 "Ghost" "There was a lot that happened that day, [wait 0.1]and a lot of different stories. [wait 0.2]There's no way you could prove yours is true."
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_fist.anm\""
+send_character_message 2 "set_head_target 5.5751 1.60939 18.6045 1"
+send_character_message 1 "set_head_target 4.17631 1.92934 17.068 1"
+send_character_message 1 "set_eye_dir 4.09281 1.62052 18.7479 1"
+say 2 "Gunk" "That is when the Empry is most powerful... [wait 0.2]When the mixing pot of perspective and opinion is muddied, [wait 0.1]the strongest hand wins. [wait 0.2]Unite under one banner of truth, [wait 0.1]and the many will have a chance."
+send_character_message 2 "set_head_target 5.59097 2.04626 18.8269 1"
+send_character_message 1 "set_eye_dir 3.89254 1.90646 17.9314 0.905064"
+send_character_message 1 "set_head_target 4.3832 1.54877 16.799 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Some say times like these are when Arliss is at its most powerful, [wait 0.1]too."
+send_character_message 2 "set_head_target 5.53274 1.49793 18.5992 1"
+send_character_message 1 "set_eye_dir 3.83766 1.9563 17.8963 1"
+send_character_message 1 "set_head_target 4.32547 1.42313 16.8302 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+say 2 "Gunk" "All the more reason for us to gather together."
+send_level_message "dialogue_done"

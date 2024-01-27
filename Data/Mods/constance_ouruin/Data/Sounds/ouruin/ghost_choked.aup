@@ -1,0 +1,85 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="ghost_choked_data" version="1.3.0" audacityversion="2.4.2" sel0="0.1726061593" sel1="0.1726061593" vpos="0" h="0.0000000000" zoom="811.0950419719" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="cloth_fabric_choke_move_3" isSelected="0" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.71081633" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="24579">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808a9b.au" len="24579" min="-0.316864" max="0.25351" rms="0.024942"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="voice_bunny_exertion_impact_1" isSelected="1" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="0.398107" pan="0.0" colorindex="0">
+		<waveclip offset="0.59827664" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="7750">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808b93.au" len="7750" min="-0.596971" max="0.472477" rms="0.106974"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="cloth_leather_idle_breath_in_2" isSelected="0" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="1.13467120" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="44403">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808453.au" len="44403" min="-0.043243" max="0.063049" rms="0.00646"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="cloth_leather_choke_grab_2" isSelected="0" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.46208617" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="11919">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808494.au" len="11919" min="-0.854401" max="0.805725" rms="0.095505"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fs_light_concrete_crouchwalk_3" isSelected="0" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="0.354813" pan="0.0" colorindex="0">
+		<waveclip offset="0.21698413" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="14589">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808e21.au" len="14589" min="-0.253448" max="0.238098" rms="0.02466"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fs_light_concrete_crouchwalk_4" isSelected="0" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="0.354813" pan="0.0" colorindex="0">
+		<waveclip offset="0.37480726" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="15135">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808d26.au" len="15135" min="-0.42749" max="0.390961" rms="0.032285"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="cloth_fabric_run_5" isSelected="0" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.48700680" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="13732">
+				<waveblock start="0">
+					<simpleblockfile filename="e080854e.au" len="13732" min="-0.078522" max="0.078644" rms="0.014353"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fs_light_concrete_sweep_1" isSelected="0" height="96" minimized="0" channel="2" linked="0" mute="0" solo="0" rate="44100" gain="0.398107" pan="0.0" colorindex="0">
+		<waveclip offset="0.42784580" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="13429">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808868.au" len="13429" min="-0.65506" max="0.702667" rms="0.096756"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

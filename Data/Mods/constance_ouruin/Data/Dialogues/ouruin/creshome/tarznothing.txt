@@ -1,0 +1,29 @@
+#name "TarzNothing"
+#participants 3
+send_character_message 2 "set_eye_dir -3.71357 1.68857 1.78952 1"
+send_character_message 2 "set_head_target -4.25992 1.22001 0.512442 0"
+set_character_pos 1 -3.82967 1.04988 3.35458 90
+send_character_message 1 "set_eye_dir -3.76044 1.86017 0.180832 1"
+send_character_message 1 "set_head_target -3.71505 2.01942 0.607961 1"
+send_character_message 2 "set_animation \"Data/Animations/tarz_bother.anm\""
+set_character_pos 2 -3.681 1.073 0.006 -97
+set_cam -4.53512 1.65681 4.49768 0 -17.35 0 59.9577
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.7 0.3 0.1
+set_dialogue_voice 2 2
+send_level_message "enable 1510"
+say 2 "Tarz" "What do you think you're doing? [wait 0.15]Keep your distance, [wait 0.1]scum!"
+send_character_message 2 "set_eye_dir -3.71752 1.69561 1.18423 0.682062"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcheck.anm\""
+send_character_message 1 "set_head_target -3.72709 1.81663 0.56215 1"
+send_character_message 2 "set_head_target -4.34374 1.59271 0.65106 0"
+say 1 "Ghost" "Hey, [wait 0.1]now. [wait 0.15]I'm not looking to trouble you."
+send_character_message 1 "set_head_target -3.77686 1.93629 0.282689 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_eye_dir -3.71752 1.69561 1.18423 1"
+send_character_message 2 "set_head_target -4.49261 1.35957 0.532498 0"
+send_character_message 2 "set_animation \"Data/Animations/tarz_frombother.anm\""
+say 2 "Tarz" "If you want conversation, [wait 0.1]try Gunk. [wait 0.15]He's more willing to put up with your kind."
+send_level_message "disable 1510"
+send_level_message "dialogue_done"

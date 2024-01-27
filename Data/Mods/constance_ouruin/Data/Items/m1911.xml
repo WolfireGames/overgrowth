@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<item>
+    <type>weapon</type>
+    <appearance obj_path = "Data/Objects/m1911.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/fps_grip.anm"
+		  hands = "1.5"/>
+    <sheathe ik_attach = "hip"
+          anim = "Data/Animations/r_dogweaponsheathed.anm"/>
+    <physics mass = "0.5 kg"/>
+    <points>
+        <barrel_begin x="-0.04" y="0.067" z="0.0"/>
+        <barrel_end x="-0.23" y="0.067" z="0.0"/>
+        <magazine_begin x="-0.066" y="-0.051" z="0.0"/>
+        <magazine_end x="-0.066" y="0.058" z="0.0"/>
+        <shell_begin x="-0.1" y="0.06" z="0.0"/>
+        <shell_end x="-0.14" y="0.06" z="0.0"/>
+    </points>
+    <lines>
+        <metal start="barrel_begin" end="barrel_end"/>
+        <metal start="magazine_begin" end="magazine_end"/>
+        <metal start="shell_begin" end="shell_end"/>
+    </lines>
+    <label>knife</label>
+    <anim_override idle = "Data/Animations/r_knifestancerear.xml"
+                   movement = "Data/Animations/r_movement_knife.xml"
+                   blockflinch = "Data/Animations/r_activeblockflinchknives.anm"/>
+    <attack_override moving = "Data/Attacks/knifeslash.xml"
+                     moving_close = "Data/Attacks/knifeslash.xml"
+                     stationary = "Data/Attacks/knifeslash.xml"
+                     stationary_close = "Data/Attacks/knifeslash.xml"/>
+    <range multiply = "1000000.8"/>
+    <range multiply = "1000000.8"/>
+</item>

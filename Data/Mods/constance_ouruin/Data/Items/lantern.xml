@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<item>
+    <type>misc</type>
+    <appearance obj_path = "Data/Objects/therium/lanternnoshine.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/r_ratsackgrip.anm"/>
+    <sheathe ik_attach = "hip"
+          anim = "Data/Animations/r_ratsacksheathed.anm"/>
+    <physics mass = "0.6 kg"/>
+</item>

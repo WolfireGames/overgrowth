@@ -1,0 +1,25 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="316.906" t1="31.593" t2="67.4255" s0="0.401632" s1="0.693243" s2="0.313986" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="463" version="1">
+        <parameters />
+        <EnvObject t0="316.765" t1="31.3061" t2="67.5193" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="218" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Roll.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="316.951" t1="31.3053" t2="67.5208" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="413" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Roll_Open.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="316.761" t1="31.6312" t2="67.5289" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="415" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="316.893" t1="31.5315" t2="67.4108" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="460" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_2.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="317.036" t1="31.4723" t2="67.4458" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="461" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_3.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="316.982" t1="31.847" t2="67.4893" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="462" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Stump.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

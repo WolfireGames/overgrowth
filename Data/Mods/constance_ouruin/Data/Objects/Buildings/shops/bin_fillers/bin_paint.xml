@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/shops/shop_bin_filler.obj</Model>
+	<ColorMap>Data/Textures/white.tga</ColorMap>
+	<NormalMap>Data/Textures/diffusebump.tga</NormalMap>
+    <MaterialPath>Data/Materials/wood.xml</MaterialPath>
+	<ShaderName>cubemapobj</ShaderName>
+</Object>

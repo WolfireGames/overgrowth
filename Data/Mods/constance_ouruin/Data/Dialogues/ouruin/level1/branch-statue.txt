@@ -1,0 +1,18 @@
+#name "Branch-Statue"
+#participants 2
+set_character_pos 1 98.9042 -53.4961 -56.6923 107
+send_character_message 1 "set_eye_dir 98.4892 -53.282 -57.4835 1"
+send_character_message 1 "set_torso_target 98.5903 -53.4677 -57.6657 1"
+send_character_message 1 "set_head_target 98.3162 -53.3533 -57.7824 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_cam 97.2292 -53.4242 -58.2167 7.57 -122.96 0 40.0886
+send_level_message "set_camera_dof 0.0 5.0 15.0 0.5 3.0 1.0"
+say 1 "Ghost" "Hmmm... [wait 0.5]This must be the statue Branch was talking about."
+send_character_message 1 "set_head_target 98.3063 -53.379 -57.4882 1"
+send_character_message 1 "set_eye_dir 98.3616 -53.2506 -57.5501 1"
+send_character_message 1 "set_animation \"Data/Animations/r_crouch_sad.anm\""
+send_character_message 1 "set_torso_target 98.8254 -53.2066 -57.5111 0"
+set_cam 97.8243 -53.3557 -57.236 3.78 -107.01 0.01 33.4589
+send_level_message "disable 14397"
+say 1 "Ghost" "I should bring this back to Branch..."

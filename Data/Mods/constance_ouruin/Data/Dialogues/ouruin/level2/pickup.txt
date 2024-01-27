@@ -1,0 +1,13 @@
+#name "Pickup"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_character_pos 1 7.06783 0.525644 -18.8345 17
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+send_character_message 1 "set_eye_dir 7.8459 0.972359 -19.1785 1"
+send_character_message 1 "set_head_target 7.8949 0.92161 -19.222 1"
+set_cam 5.91264 1.75992 -19.1322 -23.44 -91.86 -3.56 25.3035
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 2.2 1.0"
+send_level_message "enable 3931"
+say 1 "Ghost" "This thing's only good for cutting vegetables. [wait 0.5]Would break the moment I stabbed someone with it."
+send_level_message "disable 3931"

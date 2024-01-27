@@ -1,0 +1,67 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="238.219" t1="10.0162" t2="-104.164" s0="0.193105" s1="0.142471" s2="0.272955" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1358" version="1">
+        <parameters />
+        <Group t0="238.219" t1="10.0176" t2="-104.169" s0="0.201854" s1="0.12961" s2="0.152783" q0="0" q1="-0.648096" q2="0" q3="0.761558" euler_x="0" euler_y="-1.41016" euler_z="0" id="1207" version="1">
+            <parameters />
+            <Decal t0="238.193" t1="9.98111" t2="-104.101" s0="0.0124628" s1="0.00388717" s2="0.0124661" q0="0.140063" q1="-0.522722" q2="0.217645" q3="-0.812264" euler_x="-0.832276" euler_y="0.907893" euler_z="-0.948374" id="1135" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.208" t1="9.9706" t2="-104.198" s0="0.00950267" s1="0.00133341" s2="0.00950267" q0="0" q1="0.991212" q2="0" q3="0.132274" euler_x="3.14159" euler_y="0.265325" euler_z="3.14159" id="1144" type_file="Data/Objects/Decals/blooddropsplat.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.185" t1="9.97001" t2="-104.081" s0="0.0131025" s1="0.0240011" s2="0.00960519" q0="0.49237" q1="0.150715" q2="0.0870148" q3="-0.852809" euler_x="-1.0472" euler_y="-0.349842" euler_z="1.14206e-06" id="1147" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.270588" color_g="0.270586" color_b="0.270586" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.235" t1="10.0517" t2="-104.216" s0="0.0513557" s1="0.0513557" s2="0.0513557" q0="0" q1="-0.398393" q2="0" q3="-0.917214" euler_x="0" euler_y="0.819527" euler_z="0" id="1192" type_file="Data/Objects/Decals/light_round.xml" color_r="1" color_g="0.329412" color_b="0" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.218" t1="9.9706" t2="-104.203" s0="0.0225702" s1="0.00316704" s2="0.0225702" q0="0" q1="0.926482" q2="0" q3="-0.376338" euler_x="3.14159" euler_y="-0.771681" euler_z="3.14159" id="1193" type_file="Data/Objects/Decals/blooddropsplat.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.241" t1="10.0514" t2="-104.215" s0="0.032506" s1="0.032506" s2="0.032506" q0="0.492005" q1="0.154232" q2="0.0890461" q3="-0.85218" euler_x="-1.04719" euler_y="-0.358093" euler_z="0" id="1194" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <EnvObject t0="238.223" t1="9.96631" t2="-104.184" s0="0.0301401" s1="0.0296383" s2="0.0773195" q0="0" q1="-0.178095" q2="0" q3="0.984013" euler_x="0" euler_y="-0.3581" euler_z="0" id="1195" color_r="0.611765" color_g="0.485093" color_b="0.400646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwood/platform.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="238.194" t1="9.97321" t2="-104.106" s0="0.029896" s1="0.0294004" s2="0.0226862" q0="0.254681" q1="0.172023" q2="0.0460932" q3="-0.950483" euler_x="-0.523597" euler_y="-0.358092" euler_z="0" id="1196" color_r="0.611765" color_g="0.485093" color_b="0.400646" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/indoorwood/platform.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="238.208" t1="10.0062" t2="-104.141" s0="0.000486633" s1="0.012814" s2="0.000486688" q0="0.492007" q1="0.154232" q2="0.0890465" q3="-0.85218" euler_x="-1.0472" euler_y="-0.358094" euler_z="0" id="1197" color_r="0.196078" color_g="0.105344" color_b="0.105344" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/cloth/octagon_tall.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="238.235" t1="10.0504" t2="-104.214" s0="0.00561987" s1="0.00897014" s2="0.00562125" q0="0.492007" q1="0.154232" q2="0.0890465" q3="-0.85218" euler_x="-1.0472" euler_y="-0.358094" euler_z="0" id="1198" color_r="1" color_g="0.329412" color_b="0" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaster/cylinder_soft.xml">
+                <parameters />
+            </EnvObject>
+            <Decal t0="238.241" t1="10.0514" t2="-104.215" s0="0.032506" s1="0.032506" s2="0.032506" q0="-0.254681" q1="0.172023" q2="-0.0460931" q3="-0.950483" euler_x="0.523597" euler_y="-0.358092" euler_z="0" id="1199" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.241" t1="10.0514" t2="-104.215" s0="0.032506" s1="0.032506" s2="0.032506" q0="-0.950483" q1="-0.0460931" q2="-0.172023" q3="0.254681" euler_x="-2.61799" euler_y="-0.358092" euler_z="0" id="1200" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.241" t1="10.0514" t2="-104.215" s0="0.032506" s1="0.032506" s2="0.032506" q0="-0.0584477" q1="0.301725" q2="-0.704686" q3="-0.639499" euler_x="-0.407885" euler_y="-0.487343" euler_z="1.77045" id="1201" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.241" t1="10.0514" t2="-104.215" s0="0.032506" s1="0.032506" s2="0.032506" q0="0.301726" q1="0.0584477" q2="-0.6395" q3="0.704686" euler_x="0.407887" euler_y="0.487346" euler_z="-1.37113" id="1202" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.232" t1="9.97491" t2="-104.211" s0="0.0616325" s1="0.00864824" s2="0.0616325" q0="0" q1="0.178093" q2="0" q3="-0.984012" euler_x="0" euler_y="-0.358096" euler_z="0" id="1203" type_file="Data/Objects/Decals/blooddropsplat.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.242" t1="9.96711" t2="-104.195" s0="0.0852532" s1="0.0119627" s2="0.0852532" q0="0" q1="0.996719" q2="0" q3="-0.0809197" euler_x="3.14159" euler_y="-0.162016" euler_z="3.14159" id="1204" type_file="Data/Objects/Decals/blooddropsplat.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.212" t1="9.9706" t2="-104.181" s0="0.0515162" s1="0.00711288" s2="0.0695033" q0="0" q1="0.172682" q2="0" q3="0.984977" euler_x="0" euler_y="0.347104" euler_z="0" id="1205" type_file="Data/Objects/Decals/blooddropsplat.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="238.236" t1="9.97821" t2="-104.223" s0="0.0389494" s1="0.00642113" s2="0.0420916" q0="0" q1="-0.797708" q2="0" q3="0.603043" euler_x="3.14159" euler_y="-1.29462" euler_z="3.14159" id="1206" type_file="Data/Objects/Decals/blooddropsplat.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+        </Group>
+        <Decal t0="238.217" t1="9.95908" t2="-104.164" s0="0.0897694" s1="0.0182908" s2="0.247203" q0="0" q1="-0.182236" q2="0" q3="0.983255" euler_x="0" euler_y="-0.36652" euler_z="0" id="1285" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.0941176" color_g="0.0941167" color_b="0.0941167" overbright="0">
+            <parameters />
+        </Decal>
+    </Group>
+</ActorObjects>

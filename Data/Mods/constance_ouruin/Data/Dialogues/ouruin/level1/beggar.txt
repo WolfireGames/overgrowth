@@ -1,0 +1,23 @@
+#name "Beggar"
+#participants 3
+set_cam 171.972 -48.6566 -205.461 -5.03 78 0 19.4866
+send_character_message 2 "set_animation \"Data/Animations/joker_offer.anm\""
+send_character_message 2 "set_eye_dir 163.852 -49.1629 -207.916 1"
+send_character_message 2 "set_head_target 168.275 -48.9804 -206.387 1"
+send_character_message 1 "set_eye_dir 166.169 -49.0997 -207.072 1"
+send_character_message 1 "set_torso_target 169.481 -49.1837 -206.3 0.0298867"
+send_character_message 1 "set_head_target 163.434 -49.1517 -207.889 1"
+set_character_pos 1 169.886 -49.5403 -205.756 163
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+send_level_message "enable 13792"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 20.0 10.0"
+say 2 "???" "[wait 0.3]..."
+send_character_message 1 "set_head_target 163.833 -49.5705 -207.582 1"
+set_cam 169.287 -48.926 -207.506 0 -167.71 0 25.5818
+say 3 "Ghost" "Typical squatter. [wait 0.5]Probably on the same level as a rat--[wait 0.5]Talk to them and you'll end up with iron in your ribs."
+send_character_message 1 "set_torso_target 168.937 -49.1342 -206.089 1"
+send_character_message 1 "set_eye_dir 169.608 -48.5356 -202.04 1"
+send_character_message 1 "set_head_target 168.506 -48.6626 -204.279 1"
+say 3 "Ghost" "Common sight down here."
+send_level_message "disable 13792"

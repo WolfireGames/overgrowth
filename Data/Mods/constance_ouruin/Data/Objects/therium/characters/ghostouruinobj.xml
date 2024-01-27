@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Characters/raider_rabbit/raider_rabbit.obj</Model>
+	<ColorMap>Data/Textures/Characters/ghost/ghostouruin.tga</ColorMap>
+	<NormalMap>Data/Textures/Characters/raider_rabbit/raider_rabbit_n.tga</NormalMap>
+	<ShaderName>cubemapobjchar</ShaderName>
+</Object>

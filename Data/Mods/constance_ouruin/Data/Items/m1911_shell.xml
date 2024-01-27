@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<item>
+	<type>misc</type>
+	<appearance obj_path = "Data/Objects/m1911_shell.xml"/>
+	<grip ik_attach = "rightarm" anim = "Data/Animations/r_gripspine.anm"/>
+	<sheathe ik_attach = "hip" anim = "Data/Animations/r_sheathedspine.anm"/>
+	<physics mass = "0.01 kg"/>
+</item>

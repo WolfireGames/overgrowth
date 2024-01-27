@@ -1,0 +1,17 @@
+#name "PatriTalk"
+#participants 3
+send_character_message 1 "set_head_target 37.0682 -51.9344 -56.3062 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_idle.anm\""
+send_character_message 2 "set_eye_dir 38.2647 -51.8224 -56.1699 1"
+send_character_message 2 "set_head_target 38.3454 -51.8285 -56.1535 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 37.1209 -51.9318 -56.3011 1"
+set_cam 40.6209 -51.8691 -54.7705 -2.88 62.79 0.01 21.2676
+set_character_pos 1 38.4573 -52.6756 -56.2353 180
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.4 0.05 0.05
+set_dialogue_voice 2 2
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 5.0 7.0"
+say 2 "Patri" "What'cha up to?"
+send_level_message "dialogue_done"

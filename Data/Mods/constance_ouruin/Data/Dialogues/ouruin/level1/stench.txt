@@ -1,0 +1,21 @@
+#name "Stench"
+#participants 2
+set_character_pos 1 169.7 -34.7325 32.7367 -177
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_glance.anm\""
+send_character_message 1 "set_eye_dir 166.012 -33.4807 32.8899 1"
+send_character_message 1 "set_head_target 167.153 -33.6757 32.906 0.426358"
+set_cam 173.885 -34.1295 34.2622 0 76.77 0 21.2045
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Ugh... [wait 0.5]this stench..."
+send_character_message 1 "set_eye_dir 168.315 -34.1901 32.7244 0.714647"
+send_character_message 1 "set_head_target 167.551 -34.169 32.5008 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "This is the stink of a rat."
+send_character_message 1 "set_eye_dir 168.367 -34.4472 32.6892 1"
+send_character_message 1 "set_head_target 167.103 -33.8709 32.8704 1"
+set_cam 167.881 -34.0454 31.1805 0 -131.73 0 15.1188
+say 1 "Ghost" "Somebody probably boarded this place up to keep 'em from getting out. [wait 0.5]They'll starve eventually."
+send_character_message 1 "set_head_target 166.945 -34.4019 32.8366 1"
+send_character_message 1 "set_eye_dir 167.623 -33.9979 33.0246 1"
+say 1 "Ghost" "Takes a long while, [wait 0.3]but the vermin'll die eventually."

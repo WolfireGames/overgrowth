@@ -1,0 +1,32 @@
+#name "JobThoritz"
+#participants 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 30.3499 -45.9983 4.14704 1"
+set_character_pos 1 29.5416 -46.6306 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 29.6398 -45.7663 4.67931 1"
+send_character_message 1 "set_torso_target 28.4202 -46.1127 3.16302 0"
+send_character_message 1 "set_head_target 29.6567 -45.8048 4.80356 1"
+set_cam 30.126 -45.6618 1.80951 -7.33 164.26 0 37.2634
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+say 2 "Nedis" "This one is easy, [wait 0.1]Ghost. [wait 0.15]All you have to do is deliver a letter."
+send_character_message 1 "set_head_target 29.6567 -45.8048 4.80356 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_gesture.anm\""
+send_character_message 2 "set_head_target 29.5138 -45.9529 3.61615 1"
+say 2 "Nedis" "You won't even have to leave the neighborhood for this one... [wait 0.15]Just take it over to Thoritz."
+send_character_message 1 "set_torso_target 28.4202 -46.1127 3.16302 0"
+send_character_message 2 "set_head_target 29.538 -45.7676 3.26228 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 1 "set_head_target 28.9039 -45.9187 3.93196 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+say 1 "Ghost" "Thoritz? [wait 0.2]Yeah, [wait 0.1]I know 'em... [wait 0.15]They're a friend of mine, [wait 0.1]down by the depot vaults."
+send_character_message 1 "set_torso_target 29.0659 -46.1679 3.82652 1"
+send_character_message 1 "set_head_target 29.3804 -45.6686 4.86875 1"
+send_character_message 2 "set_head_target 28.4908 -45.6601 3.81951 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
+say 2 "Nedis" "Good. [wait 0.2]That should make this all the easier... [wait 0.15]Ready to run this over?"
+send_level_message "dialogue_done"

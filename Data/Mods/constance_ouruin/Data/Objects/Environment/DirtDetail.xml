@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/FnB/Models/cube.obj</Model>
+	<ColorMap>Data/Custom/FnB/Textures/basic_white_c.png</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_white_n.tga</NormalMap>
+	<WeightMap>Data/Textures/blank_random_w.tga</WeightMap>
+
+	   <DetailMaps>
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/dirt_rocks.tga" normalpath="Data/Textures/Terrain/DetailTextures/dirt_rocks_normal.tga" materialpath="Data/Materials/dirtyrock.xml" scale=0.75/>
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/dirt_rubble.tga" normalpath="Data/Textures/Terrain/DetailTextures/dirt_rubble_normal.tga" materialpath="Data/Materials/rocks.xml" scale=0.75/>
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/dirt.tga" normalpath="Data/Textures/Terrain/DetailTextures/dirt_normal.png" materialpath="Data/Materials/dirt.xml" scale=0.75/>
+        <DetailMap colorpath="Data/Textures/Terrain/DetailTextures/dirt.tga" normalpath="Data/Textures/Terrain/DetailTextures/dirt_normal.png" materialpath="Data/Materials/dirt.xml" scale=0.75/>
+  	
+    </DetailMaps>
+
+	<ShaderName>detailmap4tangent</ShaderName>
+     <MaterialPath>Data/Materials/dirt.xml</MaterialPath>
+</Object>

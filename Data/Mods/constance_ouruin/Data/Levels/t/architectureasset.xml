@@ -1,0 +1,177 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>architectureasset</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/blue3.tga</DomeTexture>
+    <SunAngularRad>0.147949</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="-0.0188119" r1="0.760412" r2="0.649169" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="4.99965" t1="10.4122" t2="7.85868" s0="1" s1="1" s2="1" q0="0.130473" q1="-0.277685" q2="0.0380969" q3="0.951008" euler_x="0.272687" euler_y="-0.568184" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="45.2717" t1="0.000555038" t2="-10.751" s0="92.8342" s1="1" s2="70.7418" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.52829" t1="5.3288" t2="-21.0819" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="2" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinArch.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="11.4635" t1="7.87496" t2="-24.8516" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="12.2321" t1="16.6733" t2="-23.4886" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="25.6097" t1="7.75384" t2="-24.6333" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube_Interior.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="25.5685" t1="18.8594" t2="-25.5188" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube_Interior.xml">
+        <parameters />
+    </EnvObject>
+    <DynamicLightObject t0="25.5228" t1="17.8915" t2="-25.6071" s0="35.6661" s1="35.6661" s2="35.6661" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" color_r="1" color_g="0.99999" color_b="0.99999" overbright="20.904">
+        <parameters />
+    </DynamicLightObject>
+    <EnvObject t0="-21.9659" t1="6.8475" t2="-20.5788" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="8" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinWall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-13.8319" t1="7.02555" t2="-20.6145" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinPillar.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="-0.706129" t1="1.29883" t2="3.87432" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" type_file="Data/Objects/therium/IGF_Characters/ghostspawn.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="10" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="-5.39539" t1="1.57617" t2="-7.2102" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="14" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.84182" t1="1.53295" t2="-7.21885" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Pathmarker.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="49.9291" t1="3.87584" t2="-19.5732" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="17" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinArch.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="59.9236" t1="5.57328" t2="-22.0863" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="60.436" t1="11.4388" t2="-21.1777" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="19" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="69.3544" t1="5.49253" t2="-21.9408" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube_Interior.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="69.327" t1="12.8962" t2="-22.5311" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinCube_Interior.xml">
+        <parameters />
+    </EnvObject>
+    <DynamicLightObject t0="69.2965" t1="12.251" t2="-22.59" s0="23.7774" s1="23.7774" s2="23.7774" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" color_r="1" color_g="0.99999" color_b="0.99999" overbright="20.904">
+        <parameters />
+    </DynamicLightObject>
+    <EnvObject t0="37.6374" t1="4.88831" t2="-19.2378" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinWall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="43.06" t1="5.007" t2="-19.2616" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinPillar.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="11.3203" t1="1.49368" t2="-7.24594" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Pathtrim.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-19.63" t1="4.63263" t2="-6.88277" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/WoodAwning.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="52.9305" t1="1.37317" t2="-9.7858" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="29" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="59.7553" t1="1.34436" t2="-9.79157" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="30" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Pathmarker.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="64.0742" t1="1.31817" t2="-9.80963" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="31" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Pathtrim.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="43.4408" t1="3.41081" t2="-9.56751" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="32" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/WoodAwning.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="OuruinArch.xml" path="Data/Objects/therium/ouruin/architecture/OuruinArch.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="OuruinCube.xml" path="Data/Objects/therium/ouruin/architecture/OuruinCube.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="OuruinCube_Interior.xml" path="Data/Objects/therium/ouruin/architecture/OuruinCube_Interior.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Dynamic Light" path="Data/Objects/default_light.xml" thumbnail_path="" />
+    <SpawnerItem display_name="OuruinWall.xml" path="Data/Objects/therium/ouruin/architecture/OuruinWall.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="OuruinPillar.xml" path="Data/Objects/therium/ouruin/architecture/OuruinPillar.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Ghost" path="Data/Objects/therium/IGF_Characters/ghostspawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
+    <SpawnerItem display_name="Citycenter.xml" path="Data/Objects/therium/ouruin/detail/Citycenter.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Pathmarker.xml" path="Data/Objects/therium/ouruin/detail/Pathmarker.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Pathtrim.xml" path="Data/Objects/therium/ouruin/detail/Pathtrim.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="WoodAwning.xml" path="Data/Objects/therium/ouruin/detail/WoodAwning.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>

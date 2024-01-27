@@ -1,0 +1,46 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="275.814" t1="-45.1013" t2="6.09184" s0="6.23376" s1="6.9888" s2="4.28726" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9063" version="1">
+        <parameters />
+        <Group t0="277.127" t1="-43.8637" t2="6.09184" s0="3.59832" s1="4.50345" s2="4.27726" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9057" version="1">
+            <parameters />
+            <Group t0="276.467" t1="-41.7706" t2="6.08684" s0="2.2694" s1="0.30734" s2="4.18659" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9050" version="1">
+                <parameters />
+                <EnvObject t0="276.466" t1="-41.7728" t2="6.09584" s0="2.01534" s1="2.01534" s2="3.80815" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="8122" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="275.439" t1="-41.7694" t2="6.09485" s0="1.24191" s1="1.36914" s2="1.07572" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="8531" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="277.495" t1="-41.7694" t2="6.09485" s0="1.24191" s1="1.36914" s2="1.07572" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="8947" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="276.466" t1="-41.7706" t2="4.11784" s0="1.03424" s1="0.82119" s2="1.57277" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="9046" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="276.466" t1="-41.7706" t2="8.05584" s0="1.03424" s1="0.82119" s2="1.57277" q0="0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="9047" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <EnvObject t0="277.562" t1="-43.9732" t2="6.09184" s0="4.67929" s1="3.375" s2="3.375" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0" euler_y="-1.57045" euler_z="0" id="9051" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_post_a.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="275.576" t1="-45.2427" t2="6.12274" s0="5.74743" s1="6.69607" s2="3.4198" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9062" version="1">
+            <parameters />
+            <EnvObject t0="275.453" t1="-46.922" t2="6.12274" s0="0.50948" s1="0.343587" s2="0.480063" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="9058" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/terraces/cat_stairs.xml">
+                <parameters />
+            </EnvObject>
+            <Group t0="277.52" t1="-43.8241" t2="6.09184" s0="1.84783" s1="3.84889" s2="2.79621" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9061" version="1">
+                <parameters />
+                <EnvObject t0="277.52" t1="-43.8241" t2="6.09184" s0="0.415854" s1="0.415854" s2="0.415854" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="9059" color_r="0.392157" color_g="0.392153" color_b="0.392153" overbright="0" type_file="Data/Objects/Buildings/cat_town/large_door.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="277.248" t1="-44.4585" t2="6.11683" s0="0.615175" s1="0.863462" s2="0.592934" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="9060" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+        </Group>
+    </Group>
+</ActorObjects>

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Characters/cats/male_cat/male_cat.obj</Model>
+	<ColorMap>Data/Textures/Characters/dart/dart_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Characters/cats/female_cat/female_cat_n.tga</NormalMap>
+
+	<PaletteMap 
+		label_red="Leather" 
+		label_green="Fur" 
+		label_blue="Leather Insets"
+		label_alpha="Fur Spots">
+        	Data/Textures/Characters/cats/female_cat/female_cat_m.tga
+    	</PaletteMap>
+	
+	
+	<ShaderName>cubemapobjchar</ShaderName>
+</Object>

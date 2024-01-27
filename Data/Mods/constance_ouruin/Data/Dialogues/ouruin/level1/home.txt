@@ -1,0 +1,11 @@
+#name "Home"
+#participants 2
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+set_character_pos 1 115.651 -44.0954 -7.20432 0
+send_character_message 1 "set_head_target 123.551 -42.6677 -7.28048 1"
+set_cam 112.995 -43.4987 -6.52832 1.64 -83.36 -0.09 60.8603
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 30.0 10.0"
+say 1 "Ghost" "This is the way into Agra Hood, [wait 0.1]and home... [wait 0.2]I should only continue if I'm ready."
+send_level_message "dialogue_done"

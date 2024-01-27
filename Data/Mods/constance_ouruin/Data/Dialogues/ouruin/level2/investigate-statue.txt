@@ -1,0 +1,17 @@
+#name "Investigate-Statue"
+#participants 2
+send_character_message 1 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 1 "set_eye_dir 36.9975 27.349 -17.5973 1"
+send_character_message 1 "set_head_target 34.3479 26.1624 -15.5812 1"
+set_cam 43.0794 31.9651 -18.4352 -34.26 102.01 0.28 67.2704
+set_character_pos 1 40.933 29.9745 -18.4454 -164
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+send_level_message "phase1_begin"
+send_level_message "investigated"
+say 3 "Ghost" "(Down there is where Bijou and I sleep... [wait 0.15]I should get down there and look for her."
+send_character_message 1 "set_eye_dir 40.9244 29.6655 -17.5828 0.792998"
+send_character_message 1 "set_head_target 37.7503 28.2569 -13.5662 1"
+say 3 "Ghost" "(I hope she's alright...)"

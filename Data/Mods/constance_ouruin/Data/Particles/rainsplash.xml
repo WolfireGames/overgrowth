@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<particle>
+    <textures color_map = "Data/Textures/particles/rainsplash_c.tga" 
+              normal_map = "Data/Textures/particles/rainsplash_n.tga"
+              shader = "envobject #PARTICLE"
+              soft_shader = "envobject #PARTICLE"/>
+    <size min = "0.05" max = "0.14"/>
+    <rotation val = "0.0"/>
+    <color red =   "1.0"
+           green = "1.0"
+           blue =  "1.0"
+           alpha = "1.0"/>
+    <behavior inertia="0.999" gravity="2.0" wind="0.0" size_decay_rate="1" opacity_decay_rate="0.0"/>
+    <no_rotation />
+</particle>

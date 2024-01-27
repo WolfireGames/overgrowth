@@ -1,0 +1,28 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="205.675" t1="-38.9354" t2="-118.972" s0="3.7414" s1="3.11197" s2="1.79016" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12334" version="1">
+        <parameters />
+        <EnvObject t0="206.945" t1="-39.946" t2="-118.977" s0="1.23927" s1="1.23927" s2="1.23927" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="12326" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="205.808" t1="-39.8915" t2="-118.969" s0="1.22752" s1="1.23927" s2="1.23927" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="12327" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="205.046" t1="-39.5525" t2="-118.985" s0="1.24983" s1="1.23927" s2="1.36692" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="12328" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="205.129" t1="-38.4211" t2="-118.967" s0="2.64039" s1="2.07327" s2="1.76975" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12333" version="1">
+            <parameters />
+            <EnvObject t0="204.561" t1="-38.8736" t2="-118.954" s0="1.23598" s1="1.32309" s2="1.5547" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="12329" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="204.755" t1="-37.9298" t2="-118.969" s0="1.23927" s1="1.23927" s2="1.23927" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="12330" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="205.849" t1="-38.9123" t2="-118.977" s0="1.23927" s1="1.23927" s2="1.23927" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="12331" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+</ActorObjects>

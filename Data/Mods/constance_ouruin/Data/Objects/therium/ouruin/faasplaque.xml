@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<DecalObject>
+    <ColorMap>Data/Textures/ouruin/faasplaque_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/faasplaque_n.tga</NormalMap>
+	<ShaderName>decal</ShaderName>
+</DecalObject>

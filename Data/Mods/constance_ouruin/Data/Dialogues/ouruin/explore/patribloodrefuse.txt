@@ -1,0 +1,49 @@
+#name "PatriBloodRefuse"
+#participants 3
+send_character_message 1 "set_torso_target 37.5616 -52.4801 -56.7523 1"
+send_character_message 1 "set_head_target 37.1749 -52.4515 -57.0999 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_idle.anm\""
+send_character_message 2 "set_eye_dir 38.2647 -51.8224 -56.1699 1"
+send_character_message 2 "set_head_target 38.3492 -51.7533 -56.1879 1"
+send_character_message 1 "set_animation \"Data/Animations/lanterntouch_lethal.anm\""
+send_character_message 1 "set_eye_dir 37.1209 -51.9318 -56.3011 1"
+set_cam 36.0865 -51.9887 -55.7955 0 -69.42 0 38.5507
+set_character_pos 1 38.4573 -52.6509 -56.2353 180
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.4 0.05 0.05
+set_dialogue_voice 2 2
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 5.0 7.0"
+send_character_message 2 "set_morph_target smile 0.0 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0.0 0.3 outExpo"
+send_character_message 2 "set_morph_target sad 0.0 0.3 outExpo"
+say 1 "Ghost" "Leave me out of this. [wait 0.2]If you know what's good for you, [wait 0.15]you'll leave them alone, too."
+send_character_message 1 "set_torso_target 37.4652 -52.3634 -56.4692 1"
+send_character_message 2 "set_eye_dir 38.2647 -51.8224 -56.1699 0.666019"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 37.1521 -52.2072 -56.9515 1"
+send_character_message 2 "set_head_target 38.5438 -51.7116 -55.8351 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_shrug.anm\""
+say 2 "Patri" "What, [wait 0.1]worried I'll get stung? [wait 0.15]They have a lot more to worry about than I do."
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_torso_target 37.4652 -52.3634 -56.4692 0.184365"
+send_character_message 1 "set_eye_dir 37.1269 -51.9244 -56.1948 1"
+send_character_message 1 "set_head_target 37.353 -51.9016 -57.5678 1"
+send_character_message 2 "set_eye_dir 36.5248 -50.8506 -52.5456 0.478581"
+send_character_message 2 "set_head_target 38.2497 -51.967 -55.4858 1"
+say 1 "Ghost" "This is stupid, [wait 0.1]Patri. [wait 0.15]You're liable to get killed."
+send_character_message 1 "set_torso_target 37.4583 -52.3486 -56.2502 1"
+send_character_message 1 "set_head_target 37.3155 -52.1395 -57.4697 1"
+send_character_message 2 "set_eye_dir 38.3268 -51.8435 -56.2567 0.319423"
+send_character_message 2 "set_head_target 38.5469 -51.668 -56.2352 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_gesture.anm\""
+say 2 "Patri" "It's just two of 'em, [wait 0.1]with one wounded. [wait 0.15]That's nothing! [wait 0.15]Given they're out fighting a war, [wait 0.1]I'm willing to bet they don't have a leg to stand on here."
+send_character_message 2 "set_head_target 38.4357 -52.0491 -56.204 1"
+say 2 "Patri" "But hey, [wait 0.1]if you change your mind, [wait 0.1]you know where to go. [wait 0.2]You found them, after all... [wait 0.15]Just keep in mind, [wait 0.1]I won't wait for you forever."
+say 2 "Patri" "If this is the last thing I do, [wait 0.1]I'd be fine with that. [wait 0.2]Otherwise, [wait 0.1]I'll see you later, [wait 0.15]Ghost."
+say 3 "Ghost" "[wait 0.1].[wait 0.1].[wait 0.1]."
+say 3 "Ghost" "([wait 0.2]There she goes...)"
+say 3 "Ghost" "(Let's just hope it doesn't end poorly.)"
+send_level_message "dialogue_done"

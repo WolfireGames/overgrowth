@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<character>
+    <appearance obj_path = "Data/Custom/RagdollZombie/Gunk/Objects/GunkScars.xml"
+                skeleton = "Data/Custom/RagdollZombie/Gunk/Skeletons/r_gunkscars.xml"
+		morph = "Data/Custom/RagdollZombie/Gunk/Models/Scars/Gunk_onearm.obj"
+                 fur = "Data/Custom/RagdollZombie/Gunk/Models/Gunk_Fur.obj"/>
+    <animations idle = "Data/Animations/r_idle.xml"
+                jump = "Data/Animations/r_jump.xml"
+                roll = "Data/Animations/r_roll.xml"
+                movement = "Data/Animations/r_movement.xml"
+                wall = "Data/Animations/r_wall.xml"
+                ledge = "Data/Animations/r_ledge.anm"
+                medrightblock = "Data/Animations/r_activeblockmedright.anm"
+                medleftblock = "Data/Animations/r_activeblockmedleft.anm"
+                highrightblock = "Data/Animations/r_activeblockhighright.anm"
+                highleftblock = "Data/Animations/r_activeblockhighleft.anm"
+                lowrightblock = "Data/Animations/r_activeblocklowright.anm"
+                lowleftblock = "Data/Animations/r_activeblocklowleft.anm"
+                blockflinch = "Data/Animations/r_activeblockflinch.anm"/>
+    <attacks moving_close = "Data/Attacks/jab.xml"
+             stationary_close = "Data/Attacks/kneestrike.xml"
+             moving = "Data/Attacks/roundhouse.xml"
+             stationary = "Data/Attacks/frontkick.xml"
+             moving_low = "Data/Attacks/soccerkick.xml"
+             low = "Data/Attacks/sweep.xml"
+             air = "Data/Attacks/legcannon.xml" />
+    <team>gunk</team>
+<morphs>
+        <fist_r num_steps = "4"/>
+        <mouth_open />
+        <ah />
+        <oh />
+        <w />
+        <wink_r />
+        <wink_l />
+        <look_b_r />
+        <look_d_r />
+        <look_u_r />
+        <look_f_r />
+        <look_b_l />
+        <look_d_l />
+        <look_u_l />
+        <look_f_l />
+        <look_u default = "true"
+                start_x = "-0.055444" start_y = "-0.092826" start_z = "1.390891"
+                  end_x = "-0.15717"   end_y = "-0.138465"   end_z = "1.510174"/>
+        <look_d default = "true"
+                start_x = "-0.058061" start_y = "-0.089115" start_z = "1.374993"
+                  end_x = "-0.191988"   end_y = "-0.134754"   end_z = "1.293506"/>
+        <look_f default = "true"
+                start_x = "-0.052573" start_y = "-0.100731" start_z = "1.37957"
+                  end_x = "-0.068339"   end_y = "-0.263165"   end_z = "1.384696"/>
+        <look_b default = "true"
+                start_x = "-0.057343" start_y = "-0.076993" start_z = "1.38639"
+                  end_x = "-0.204715"   end_y = "-0.017682"   end_z = "1.424117"/>
+        <look_c default = "true"
+                start_x = "-0.059373" start_y = "-0.091148" start_z = "1.384939"
+                  end_x = "-0.211536"   end_y = "-0.136788"   end_z = "1.422666"/>
+    </morphs>
+    <visemes>
+        <AH>ah</AH>
+        <AO>oh</AO>
+        <EH>ah</EH>
+        <IY>ah</IY>
+        <r>w</r>
+        <l>ah</l>
+        <w>w</w>
+        <n>ah</n>
+    </visemes>
+    <voice path = "Data/Sounds/voice/rabbit2.xml"
+           pitch = "1.0"/>
+    <clothing>Data/Materials/cloth_fabric.xml</clothing>
+    <tags species = "rabbit"/>
+ </character>

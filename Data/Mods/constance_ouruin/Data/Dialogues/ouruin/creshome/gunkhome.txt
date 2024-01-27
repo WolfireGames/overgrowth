@@ -1,0 +1,69 @@
+#name "GunkHome"
+#participants 5
+set_cam 2.91309 1.6451 16.8765 2.83 -138.11 1.48 65.2699
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 5.60601 2.13676 18.5322 1"
+send_character_message 2 "set_eye_dir 5.37405 1.82581 18.5515 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0"
+send_character_message 1 "set_eye_dir 3.85215 1.88896 17.9772 1"
+send_character_message 1 "set_head_target 3.93278 1.4775 18.8028 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 1 "Ghost" "You said this land was your home, [wait 0.15]before the outskirts ever existed. [wait 0.2]How long have your people been on Preuwyn?"
+send_character_message 1 "set_head_target 3.88102 1.53582 18.7512 1"
+send_character_message 2 "set_head_target 5.47997 1.88063 18.7014 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_hand.anm\""
+say 2 "Gunk" "Longer than you could ever imagine. [wait 0.2]We've lost count of the generations."
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_eye_dir 3.8174 1.33645 18.6887 0.78447"
+send_character_message 2 "set_head_target 5.72424 2.15973 18.8016 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_thoughthip.anm\""
+set_cam 5.02341 1.13687 16.8807 17.96 126.13 0.85 39.0636
+send_character_message 1 "set_head_target 3.9004 1.68927 18.8604 1"
+say 2 "Gunk" "My father once said that we shaped the land just as it shaped us... [wait 0.2]That we influenced its design from the very moment we were born here. [wait 0.15]Our presence molded each other, [wait 0.1]from the very beginning."
+send_character_message 1 "set_head_target 3.91441 1.67955 18.8476 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 6.04987e-06"
+send_character_message 2 "set_eye_dir 4.76891 2.98591 17.0252 1"
+send_character_message 2 "set_head_target 5.75272 2.14531 18.3135 1"
+say 2 "Gunk" "We've left many a scar on this earth, [wait 0.1]and in turn it has left many scars on our people. [wait 0.15]But we always find a way to persist."
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_eye_dir 4.83012 1.71239 18.5365 1"
+send_character_message 2 "set_head_target 5.62584 1.85886 18.1139 1"
+set_cam 6.06783 0.926184 19.3972 8.61 48.32 1.09 50.6007
+say 1 "Ghost" "So this war you're waging with the Cinderbreathe..."
+send_character_message 2 "set_eye_dir 5.31878 1.85766 18.5845 0.689019"
+send_character_message 2 "set_head_target 5.35721 1.52951 18.5816 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_handchest.anm\""
+say 2 "Gunk" "They've stolen everything from us. [wait 0.2]Our land, [wait 0.1]our name, [wait 0.1]our lives, [wait 0.1]our homes..."
+send_character_message 2 "set_eye_dir 5.31878 1.85766 18.5845 1"
+send_character_message 2 "set_head_target 5.57499 2.32568 18.1081 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_fist.anm\""
+say 2 "Gunk" "The Empry is just another force to quell. [wait 0.2]I see it no different than fighting a pack of wolves."
+send_character_message 1 "set_eye_dir 3.85052 1.88897 17.9786 0.823079"
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 2 "set_head_target 5.59406 1.93499 18.5192 1"
+send_character_message 1 "set_head_target 4.26154 1.98578 17.0511 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+set_cam 2.03189 2.19281 19.765 -16.62 -54.45 4.38 61.8484
+say 1 "Ghost" "Hm... [wait 0.3]I suppose there are many in your family who wish to drive us into extinction, [wait 0.1]too?"
+send_character_message 1 "set_eye_dir 3.70042 1.77182 17.9182 1"
+send_character_message 1 "set_head_target 4.0923 1.76158 17.2315 1"
+send_character_message 2 "set_eye_dir 4.83003 1.20465 16.3715 0.785257"
+send_character_message 2 "set_head_target 5.28161 1.47831 17.4862 1"
+send_character_message 2 "set_torso_target 4.24464 1.37663 18.3027 1"
+say 2 "Gunk" "[wait 0.3]For that... [wait 0.2]I cannot speak on my peoples' behalf."
+send_level_message "dialogue_done"

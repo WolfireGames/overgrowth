@@ -1,0 +1,38 @@
+#name "DartWin"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+set_character_pos 2 -30.7393 -40.585 -64.9174 0
+send_character_message 2 "set_eye_dir -30.3791 -39.7118 -65.4639 1"
+send_character_message 2 "set_head_target -28.7149 -39.788 -64.8648 1"
+set_character_pos 1 -28.7063 -40.5853 -64.898 -180
+send_character_message 1 "set_animation \"Data/Animations/r_halfwoundedarmed.anm\""
+send_character_message 1 "set_eye_dir -33.3949 -39.6933 -65.0243 1"
+send_character_message 1 "set_torso_target -29.3845 -40.0883 -64.6678 0"
+send_character_message 1 "set_head_target -30.932 -39.6213 -65.0114 1"
+set_cam -27.4363 -39.8641 -65.9433 -7.19 116.51 -1.01 57.6873
+send_character_message 2 "set_animation \"Data/Animations/dart_challenge3.anm\""
+send_character_message 2 "equip_item 16691"
+send_character_message 2 "set_morph_target smile 0.4 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0 0.3 outExpo"
+send_character_message 2 "set_morph_target diss 0.2 0.3 outExpo"
+say 1 "Ghost" "[wait 0.1]...[wait 0.2]Damn. [wait 0.2]You're not bad."
+send_character_message 1 "set_animation \"Data/Animations/ghostsword_idle.anm\""
+send_character_message 1 "set_head_target -30.9082 -39.5639 -64.9866 1"
+send_character_message 2 "set_head_target -28.917 -39.0391 -63.6735 1"
+send_character_message 2 "set_morph_target diss 0.8 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0.8 0.3 outExpo"
+say 2 "Dart" "Like there was any other outcome..."
+send_character_message 2 "set_head_target -29.0015 -39.7902 -64.9217 1"
+send_character_message 2 "set_animation \"Data/Animations/dart_challenge2.anm\""
+send_character_message 2 "set_morph_target diss 0.5 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0.0 0.3 outExpo"
+say 2 "Dart" "Let me know if this one ever feels like losing again. [wait 0.2]It's been too long since I stomped a greenpaw."
+send_character_message 2 "set_morph_target diss 0.0 0.3 outExpo"
+send_character_message 2 "empty_hands"
+set_character_pos 2 -33.5393 -40.7371 -64.9707 0
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""

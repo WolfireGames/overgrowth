@@ -1,0 +1,73 @@
+#name "Phase2-DL"
+#participants 3
+set_cam -28.5983 -2.06234 -3.54085 -35.84 150.62 0 43.9236
+send_character_message 2 "set_animation \"Data/Animations/wallbreak.anm\""
+send_character_message 1 "set_head_target -22.8625 1.36288 -1.25502 0.0276113"
+set_character_pos 1 -21.9474 0.79929 -1.19025 -180
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.65 0.8 0.9
+set_dialogue_voice 2 1
+send_level_message "disable 3912"
+send_level_message "disable 3999"
+send_level_message "disable 4060"
+send_level_message "enable 4033"
+send_level_message "enable 4014"
+send_level_message "set_camera_dof 0.3 5.0 10.0 0.3 20.0 10.0"
+set_character_pos 2 -29.6888 -3.4133 -1.35731 0
+say 2 "Donatas" "[wait 0.5]..."
+send_character_message 1 "set_torso_target -25.5963 -0.282531 -1.46476 1"
+send_character_message 2 "set_torso_target -29.4327 -3.65766 -1.27514 1"
+send_character_message 2 "set_head_target -25.284 0.242008 -0.90629 1"
+send_character_message 2 "set_animation \"Data/Animations/wallbreak_getup.anm\""
+set_cam -31.9108 -4.04476 -1.19142 32.25 -86.27 1.12 22.2225
+send_character_message 1 "set_eye_dir -29.1955 -3.31792 -1.27975 1"
+send_character_message 1 "set_head_target -30.1208 -2.70465 -1.52476 1"
+set_character_pos 1 -24.4261 0.741433 -1.0896 -170
+send_level_message "set_camera_dof 0.3 7.0 2.0 0.3 20.0 10.0"
+send_level_message "enable 3999"
+set_character_pos 2 -30.3066 -3.4133 -1.35731 0
+say 1 "Ghost" "Is this how you want it?"
+send_character_message 1 "set_head_target -30.1182 -2.70465 -1.52257 1"
+send_character_message 1 "set_torso_target -25.5957 -0.283952 -1.46615 1"
+send_character_message 2 "set_eye_dir -29.0736 -3.75548 -1.48956 0"
+send_character_message 2 "set_head_target -29.5129 -3.84393 -1.12498 1"
+set_cam -29.7749 -3.43467 0.711118 -0.32 21.25 -0.01 17.0135
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 3.0 1.0"
+say 2 "Donatas" "[wait 0.5]I never wanted to lie to you..."
+send_character_message 1 "set_torso_target -25.0358 0.153077 -1.21847 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+set_cam -27.5789 -1.65348 -1.62405 40.8 -101.07 -1.22 17.0869
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 20.0 10.0"
+say 1 "Ghost" "You could lie about anything else. [wait 0.5]I don't care."
+send_character_message 1 "set_animation \"Data/Animations/ghost_accuse.anm\""
+send_character_message 2 "set_head_target -29.5193 -3.83263 -1.12335 1"
+send_character_message 2 "set_torso_target -29.3001 -3.1736 -1.06364 0.962996"
+send_character_message 1 "set_eye_dir -29.1955 -3.31792 -1.27975 0.559453"
+send_character_message 1 "set_head_target -29.6523 -2.80625 -0.777899 1"
+send_character_message 1 "set_torso_target -25.3277 0.652936 -1.86355 1"
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatcrouch.anm\""
+say 1 "Ghost" "But what you're lying about... [wait 0.5]is far too important."
+send_character_message 1 "set_torso_target -29.0853 -3.75626 -1.74268 0"
+send_character_message 1 "set_head_target -29.8835 -3.1878 -1.41235 0"
+set_character_pos 1 -28.2451 -3.52594 -1.11697 168
+send_character_message 1 "set_animation \"Data/Animations/fallandland.anm\""
+send_character_message 1 "set_eye_dir -29.9222 -3.27289 -1.24143 1"
+send_character_message 2 "set_eye_dir -29.2919 -3.15878 -1.1096 1"
+send_character_message 2 "set_head_target -28.9902 -3.41253 -1.3011 1"
+send_character_message 2 "set_torso_target -29.3001 -3.1736 -1.06364 0"
+set_cam -26.884 -3.82756 -2.83027 8.57 122.55 0 25.6632
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 6.0 1.0"
+send_level_message "enable 4060"
+say 2 "Donatas" "I don't know where she is...[wait 0.3]!"
+set_cam -26.6163 -2.95214 -1.85712 1.22 105.6 -0.37 52.2902
+send_character_message 1 "set_head_target -30.0278 -2.66134 -1.37126 1"
+send_character_message 2 "set_head_target -28.4629 -2.78271 -1.09647 1"
+send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatidle.anm\""
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 6.0 3.0"
+send_level_message "disable 3999"
+send_level_message "disable 4033"
+send_level_message "disable 4060"
+say 1 "Ghost" "More lies. [wait 0.5]I'll wipe them out of your mouth."
+send_level_message "make_all_aware"

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<SyncedAnimationGroup>
+	<CoordLabel>aim_far_horizontal</CoordLabel>
+	<Animations>
+		<Animation path="Data/Animations/fps_far_left.xml" coord="1.0"/>
+		<Animation path="Data/Animations/fps_far_center.xml" coord="0.0"/>
+		<Animation path="Data/Animations/fps_far_right.xml" coord="-1.0"/>
+	</Animations>
+	<Overshoot>true</Overshoot>
+</SyncedAnimationGroup>

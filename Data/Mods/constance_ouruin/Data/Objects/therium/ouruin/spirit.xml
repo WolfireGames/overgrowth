@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/spirit.obj</Model>
+	<ColorMap>Data/Textures/ouruin/spirit/spirit1_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/spirit/spirit1_n.tga</NormalMap>
+	<ShaderName>envobject #TANGENT</ShaderName>
+</Object>

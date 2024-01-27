@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/shops/shop_tarp.obj</Model>
+	<ColorMap>Data/Textures/ouruin/netting_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/netting_n.tga</NormalMap>
+    <MaterialPath>Data/Materials/cloth_fabric.xml</MaterialPath>
+	<ShaderName>cubemapalpha</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

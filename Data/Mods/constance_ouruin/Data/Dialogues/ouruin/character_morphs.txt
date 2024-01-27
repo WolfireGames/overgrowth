@@ -1,0 +1,123 @@
+To apply any of these morphs in the vanilla dialogue editor, just type
+
+send_character_message [participant] "set_morph_target [morph] [amount] [time] [tween]"
+
+For example (for easy copy/paste):
+
+send_character_message 0 "set_morph_target smile 0 0.3 outExpo"
+
+
+For a list of tweens you can use, consult https://easings.net/
+
+== RABBITS ==
+
+-= Turner =-
+afraid
+angry
+sad
+shocked
+smile
+think
+
+-= Male Rabbit =-
+afraid
+angry
+diss
+frown
+sad
+shock
+smile
+
+-= Female Rabbit =-
+afraid
+angry
+frown
+sad
+shock
+smile
+
+-= Guard =-
+afraid
+angry
+diss
+frown
+smile
+sneer
+sniff
+
+-= Raider Rabbit =-
+afraid
+angry
+diss
+frown
+kidding
+sad
+shock
+smile
+think
+
+-= Civilian =-
+afraid
+angry
+diss
+sad
+smile
+
+..
+
+== CATS ==
+These morphs are interchangeable for any cat model, save for the unfinished naked calico.
+
+afraid
+angry
+diss
+sad
+smile
+
+..
+
+== DOGS ==
+
+-= Light Armored Dog =-
+afraid
+angry
+diss
+frown
+sad
+smile
+
+-= Dog Soldier / Akita Dog =-
+afraid
+angry
+diss
+frown
+smile
+
+-= Janner =-
+afraid
+angry
+diss
+sad
+smile
+
+..
+
+== RATS ==
+These morphs are interchangeable for any rat model.
+
+-= Rats =-
+frown
+smile
+
+..
+
+== WOLVES ==
+These morphs are interchangeable for any wolf model.
+
+-= Wolves =-
+afraid
+angry
+diss
+sad
+smile
+snarl

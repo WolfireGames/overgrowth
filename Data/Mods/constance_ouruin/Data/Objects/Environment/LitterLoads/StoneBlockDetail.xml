@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Environments/LitterLoads/StoneBlock.obj</Model>
+	<ColorMap>Data/Textures/Environments/LitterLoads/LitterLoads_Color_White.tga</ColorMap>
+	<NormalMap>Data/Textures/Environments/LitterLoads/LitterLoads_Normal.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
+	<ShaderName>cubemapobj</ShaderName>
+</Object>

@@ -1,0 +1,73 @@
+#name "GunkOuruin"
+#participants 5
+set_cam 4.99661 2.04799 17.2543 -12.43 119.32 -3.39 43.814
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_thoughthip.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 5.54829 1.88496 17.898 1"
+send_character_message 2 "set_eye_dir 4.4883 1.34187 17.6607 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0"
+send_character_message 1 "set_eye_dir 3.85215 1.88896 17.9772 1"
+send_character_message 1 "set_head_target 3.89048 1.94619 18.0356 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 2 "Gunk" "It must be hard living here. [wait 0.2]Things seem... Scarce."
+send_character_message 1 "set_eye_dir 4.87086 1.19017 19.2387 1"
+send_character_message 1 "set_torso_target 4.72471 1.10287 18.6321 1"
+send_character_message 1 "set_head_target 4.25513 1.66615 19.3503 1"
+send_character_message 2 "set_head_target 5.63684 1.58821 18.2859 1"
+set_cam 2.14246 1.68869 16.4283 0.67 -130.05 3 31.8164
+say 1 "Ghost" "People don't come to these streets to live. [wait 0.15]They just end up here one way or another, [wait 0.1]broken and hopeless..."
+set_cam 2.14337 1.68515 16.4275 0.67 -130.05 3 31.8164
+send_character_message 1 "set_torso_target 4.72597 1.10285 18.6306 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 2.80142e-06"
+send_character_message 2 "set_head_target 5.65919 1.79438 18.3117 1"
+send_character_message 1 "set_eye_dir 4.2748 1.33855 19.5803 0.563938"
+send_character_message 1 "set_head_target 4.32134 2.08863 19.7235 1"
+say 1 "Ghost" "Everyone wants to go back to how things used to be."
+send_character_message 1 "set_torso_target 4.85176 1.51945 18.5553 1"
+send_character_message 1 "set_eye_dir 4.01768 1.87727 17.9921 1"
+send_character_message 1 "set_head_target 4.12841 1.77495 19.2635 1"
+send_character_message 2 "set_head_target 6.14803 2.40753 17.7688 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_hand.anm\""
+send_character_message 2 "set_torso_target 4.50038 1.36462 18.0782 1"
+say 2 "Gunk" "For me... [wait 0.2]The outskirts were difficult. [wait 0.2]Vulnerable. [wait 0.15]But the people around me made it home, [wait 0.1]no matter what happened."
+send_character_message 1 "set_eye_dir 4.51266 1.07601 18.7802 1"
+send_character_message 1 "set_head_target 4.25643 1.65566 19.4997 1"
+send_character_message 1 "set_torso_target 4.8296 1.35311 18.493 1"
+send_character_message 2 "set_head_target 5.8684 1.81411 17.9998 1"
+send_character_message 2 "set_torso_target 4.69097 1.00446 18.1085 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+say 1 "Ghost" "[wait 0.3]Ouruin was like that, [wait 0.1]too, [wait 0.15]before the flood."
+send_character_message 1 "set_torso_target 4.77615 1.35965 18.6514 1"
+send_character_message 1 "set_head_target 3.8547 1.895 19.0094 1"
+send_character_message 2 "set_eye_dir 3.87679 1.17607 17.9412 0.476361"
+send_character_message 2 "set_head_target 5.5498 2.21722 18.8716 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_handchest.anm\""
+set_cam 6.2624 3.61043 16.0745 -36.57 142.54 -0.35 53.1914
+say 2 "Gunk" "May this city receive the support it needs..."
+send_character_message 2 "set_eye_dir 5.46198 1.85336 18.5207 1"
+send_character_message 2 "set_head_target 5.53413 1.9706 18.7046 1"
+send_character_message 1 "set_eye_dir 5.57147 0.830662 17.162 1"
+send_character_message 1 "set_head_target 4.60651 2.08686 16.6916 1"
+send_character_message 1 "set_torso_target 4.80364 1.28806 18.2035 0.927052"
+say 1 "Ghost" "I'm afraid that's not up to us."
+send_character_message 1 "set_torso_target 4.68639 1.41374 18.3565 1"
+send_character_message 1 "set_eye_dir 3.88569 1.85568 17.8869 1"
+send_character_message 1 "set_head_target 4.48864 1.81755 17.3982 1"
+send_character_message 2 "set_head_target 5.54962 1.74775 18.6229 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+say 2 "Gunk" "Then we must hope."
+send_level_message "dialogue_done"

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Prototypes/OG/Models/CourtyardGrass_2.obj</Model>
+	<ColorMap>Data/Prototypes/OG/Textures/CourtyardSand_Color.tga</ColorMap>
+	<NormalMap>Data/Prototypes/OG/Textures/CourtyardGrass_Norm.tga</NormalMap>
+	<WeightMap>Data/Prototypes/OG/Textures/CourtyardGrass_Weights.tga</WeightMap>
+	<DetailMaps>
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/Blank_Color.tga" normalpath="Data/Prototypes/DetailTextures/Blank_Norm.tga" materialpath="Data/Materials/sand.xml" />
+		<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/sandwaves.tga" normalpath="Data/Textures/Terrain/DetailTextures/sandwaves_normal.tga" materialpath="Data/Materials/sand.xml" />
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/Dirt_Color.tga" normalpath="Data/Prototypes/DetailTextures/Dirt_Norm.tga" materialpath="Data/Materials/sand.xml" />
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/CliffRock_Color.tga" normalpath="Data/Prototypes/DetailTextures/CliffRock_Norm.tga" materialpath="Data/Materials/sand.xml" />
+	</DetailMaps>
+	<MaterialPath>Data/Materials/sand.xml</MaterialPath>
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT</ShaderName>
+</Object> 

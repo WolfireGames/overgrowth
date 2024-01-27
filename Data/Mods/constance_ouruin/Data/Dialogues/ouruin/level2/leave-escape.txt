@@ -1,0 +1,15 @@
+#name "Leave-Escape"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_character_pos 1 -81.3515 0.517952 -126.738 180
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_worriedpose_2.anm\""
+send_character_message 1 "set_eye_dir -83.068 1.29293 -126.759 1"
+send_character_message 1 "set_head_target -83.1659 1.48374 -126.632 1"
+set_cam -78.9323 1.0528 -129.174 0 131.07 0 38.9192
+say 1 "Ghost" "Got nowhere else to go... [wait 0.15]My best bet is getting back to Moritz, [wait 0.1]and escaping through the waterway."
+send_character_message 1 "set_torso_target -82.2832 0.349331 -126.951 1"
+send_character_message 1 "set_eye_dir -81.6026 0.247969 -128.253 0.386645"
+send_character_message 1 "set_head_target -82.5558 1.07923 -127.488 1"
+say 1 "Ghost" "Just hope this plan works... [wait 0.15]I've got nothing better."
+send_level_message "dialogue_done"

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	    <Model>Data/Models/therium/ouruin/letter.obj</Model>
+		<ColorMap>Data/Textures/ouruin/letter_thoritz_c.tga</ColorMap>
+		<NormalMap>Data/Textures/ouruin/letter_n.tga</NormalMap>
+		<ShaderName>envobject</ShaderName>
+</Object>

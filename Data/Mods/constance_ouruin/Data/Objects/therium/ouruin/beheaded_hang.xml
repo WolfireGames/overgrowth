@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/beheadedhang.obj</Model>
+	<ColorMap>Data/Textures/Characters/rabbits/male_rabbit_1/male_rabbit_1_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Characters/rabbits/male_rabbit_1/male_rabbit_1_n.tga</NormalMap>
+	<ShaderName>cubemapobjchar</ShaderName>
+	<flags no_collision = "true"/>
+</Object>

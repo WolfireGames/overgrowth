@@ -1,0 +1,22 @@
+#name "ValerianTalk"
+#participants 4
+set_character_pos 3 25.1748 -49.1447 -26.8028 -150
+send_character_message 3 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 3 "set_eye_dir 23.6872 -51.3676 -24.5004 1"
+send_character_message 3 "set_torso_target 24.6483 -50.0122 -26.4824 0"
+send_character_message 3 "set_head_target 22.8277 -51.1694 -25.066 1"
+set_character_pos 2 24.2298 -52.6273 -27.8442 -90
+send_character_message 2 "set_animation \"Data/Animations/dialogue_leaning_back_onwall.anm\""
+send_character_message 2 "set_head_target 23.2872 -51.9352 -23.9774 1"
+set_character_pos 1 23.3049 -52.5977 -23.7258 91
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 24.1931 -51.6496 -26.161 1"
+send_character_message 1 "set_torso_target 24.2618 -52.1639 -23.7649 0"
+send_character_message 1 "set_head_target 23.9433 -51.7401 -26.5219 1"
+set_cam 22.226 -52.7625 -22.899 17.73 -35.03 0 71.4304
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.3 0.9 0.6
+set_dialogue_color 3 0.8 0.4 0.6
+say 2 "Toker" "Well? [wait 0.2]Whaddya want, [wait 0.1]pipsqueak?"
+send_level_message "dealers_talk"

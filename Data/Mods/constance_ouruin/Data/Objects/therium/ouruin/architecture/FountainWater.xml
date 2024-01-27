@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+    <flags no_collision = "true" transparent = "true" double_sided = "true" dynamic = "true"/>
+	<Model>Data/Models/therium/ouruin/architecture/FountainWater.obj</Model>
+	<ColorMap>Data/Textures/ps_clouds_nocompress.tga</ColorMap>
+	<NormalMap>Data/Textures/water_foam.jpg</NormalMap>
+	<ShaderName>envobject #TANGENT #WATER</ShaderName>
+</Object>

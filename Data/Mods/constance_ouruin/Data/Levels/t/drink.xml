@@ -1,0 +1,227 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>drink</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="5.98684" t1="9.14564" t2="-10.7263" s0="1" s1="1" s2="1" q0="0.0241321" q1="-0.95512" q2="0.0812021" q3="0.283849" euler_x="-2.97197" euler_y="-0.577749" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="0" t1="0" t2="0" s0="6" s1="1" s2="6" q0="-6.84857e-05" q1="-0.000250816" q2="2.45296e-05" q3="1" euler_x="-0.000136984" euler_y="-0.000501629" euler_z="4.90935e-05" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject name="Ghost" t0="0.0155899" t1="1.47985" t2="-1.74522" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+        <EnvObjectAttachments>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="11" num_connections="1" m0="0.631073" m1="0.763927" m2="0.134769" m3="0" m4="-0.00121909" m5="-0.172756" m6="0.984964" m7="0" m8="0.775722" m9="-0.621749" m10="-0.10809" m11="0" m12="0.574959" m13="0.0297934" m14="0.0287588" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="11" num_connections="1" m0="0.942981" m1="-0.32804" m2="-0.0563679" m3="0" m4="-0.00121991" m5="-0.172756" m6="0.984965" m7="0" m8="-0.332845" m9="-0.928734" m10="-0.163306" m11="0" m12="0.575216" m13="0.0374334" m14="-0.0142673" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="11" num_connections="1" m0="0.631073" m1="0.763927" m2="0.134769" m3="0" m4="-0.00121909" m5="-0.172756" m6="0.984964" m7="0" m8="0.775722" m9="-0.621749" m10="-0.10809" m11="0" m12="0.575311" m13="0.0287576" m14="0.0344663" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="0" num_connections="1" m0="0.86197" m1="-0.0156701" m2="-0.506716" m3="0" m4="0.0164469" m5="0.99986" m6="-0.0029429" m7="0" m8="0.506692" m9="-0.00579721" m10="0.862108" m11="0" m12="-1.10628" m13="0.191262" m14="0.476816" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="0" num_connections="1" m0="0.977313" m1="-0.01669" m2="-0.211142" m3="0" m4="0.0164395" m5="0.999861" m6="-0.00294179" m7="0" m8="0.211162" m9="-0.00059603" m10="0.977451" m11="0" m12="0.29608" m13="0.210669" m14="1.64994" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="0" num_connections="1" m0="0.97615" m1="-0.0154222" m2="0.216547" m3="0" m4="0.0164495" m5="0.99986" m6="-0.00294219" m7="0" m8="-0.216472" m9="0.00643411" m10="0.976268" m11="0" m12="1.37693" m13="0.195879" m14="0.429917" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="0" num_connections="1" m0="0.52927" m1="-0.0112031" m2="-0.848379" m3="0" m4="0.0164469" m5="0.99986" m6="-0.0029429" m7="0" m8="0.848294" m9="-0.0123956" m10="0.529381" m11="0" m12="0.630882" m13="0.158072" m14="-1.09079" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="0" num_connections="1" m0="-0.690091" m1="0.00922136" m2="-0.723664" m3="0" m4="0.0164468" m5="0.99986" m6="-0.00294293" m7="0" m8="0.723535" m9="-0.0139328" m10="-0.690146" m11="0" m12="-0.775461" m13="0.181762" m14="-0.901286" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+        </EnvObjectAttachments>
+        <EnvObject name="Hand Tonic Rope" s0="0.58153" s1="0.10159" s2="0.587944" id="21" color_r="1" color_g="0.196078" color_b="0.839216" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Ball_01.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Hand Tonic" s0="0.725936" s1="0.678764" s2="0.725936" id="18" color_r="0.639216" color_g="0.656468" color_b="1" overbright="3.926" type_file="Data/Objects/Environment/SmallProps/BottleShort.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Hand Tonic Lid" s0="0.0202219" s1="0.0323506" s2="0.0202219" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/disk.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Camera Hook 5" s0="0.0400264" s1="0.0400264" s2="0.0400264" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Camera Hook 1" s0="0.0400264" s1="0.0400264" s2="0.0400264" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Camera Hook 2" s0="0.0400264" s1="0.0400264" s2="0.0400264" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Camera Hook 3" s0="0.0400264" s1="0.0400264" s2="0.0400264" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Camera Hook 4" s0="0.0400264" s1="0.0400264" s2="0.0400264" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
+            <parameters />
+        </EnvObject>
+    </ActorObject>
+    <Hotspot name="Drink" t0="3.31217" t1="7.98273" t2="0.69353" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="1" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hand Tonic&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hand Tonic Rope&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hand Tonic Lid&quot;,&quot;identifier_type&quot;:3},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;edosz&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;61&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;62&quot;,&quot;ui_function&quot;:0},{&quot;display_message&quot;:&quot;&quot;,&quot;font_path&quot;:&quot;Data/Fonts/Cella.ttf&quot;,&quot;font_size&quot;:7,&quot;function&quot;:20},{&quot;function&quot;:26,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:9,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:7,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;use_prompt&quot;:false},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:17,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;state_check&quot;:0},{&quot;animation_path&quot;:&quot;Data/Animations/r_actionidle_extended.anm&quot;,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:20,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;state_check&quot;:22},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:20,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;state_check&quot;:5},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:14,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;state_check&quot;:7},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:23,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;state_check&quot;:6},{&quot;display_comment&quot;:&quot;Warnings&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;position&quot;:[100,100],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Player is in Combat!&quot;,&quot;ui_element_identifier&quot;:&quot;63&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:0},{&quot;function&quot;:36,&quot;position&quot;:[100,100],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Player is dead!&quot;,&quot;ui_element_identifier&quot;:&quot;64&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:0},{&quot;function&quot;:36,&quot;position&quot;:[100,100],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Player is moving!&quot;,&quot;ui_element_identifier&quot;:&quot;65&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:0},{&quot;display_comment&quot;:&quot;- Start drinking&quot;,&quot;function&quot;:34},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_known_target&quot;:&quot;Camera Hook 1&quot;,&quot;identifier_type&quot;:4,&quot;identifier_type_known_target&quot;:3,&quot;proximity_distance&quot;:1,&quot;state_check&quot;:23},{&quot;function&quot;:7,&quot;line&quot;:34},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:28,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_known_target&quot;:&quot;Camera Hook 2&quot;,&quot;identifier_type&quot;:4,&quot;identifier_type_known_target&quot;:3,&quot;proximity_distance&quot;:1,&quot;state_check&quot;:23},{&quot;function&quot;:7,&quot;line&quot;:36},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:30,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_known_target&quot;:&quot;Camera Hook 3&quot;,&quot;identifier_type&quot;:4,&quot;identifier_type_known_target&quot;:3,&quot;proximity_distance&quot;:1,&quot;state_check&quot;:23},{&quot;function&quot;:7,&quot;line&quot;:38},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:32,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_known_target&quot;:&quot;Camera Hook 4&quot;,&quot;identifier_type&quot;:4,&quot;identifier_type_known_target&quot;:3,&quot;proximity_distance&quot;:1,&quot;state_check&quot;:23},{&quot;function&quot;:7,&quot;line&quot;:40},{&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:false,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:2,&quot;identifier_known_target&quot;:&quot;Camera Hook 5&quot;,&quot;identifier_type&quot;:4,&quot;identifier_type_known_target&quot;:3,&quot;proximity_distance&quot;:1,&quot;state_check&quot;:23},{&quot;function&quot;:7,&quot;line&quot;:42},{&quot;display_comment&quot;:&quot;Camera Hook 1&quot;,&quot;function&quot;:34},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:2,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:true,&quot;enable_move_with_target&quot;:true,&quot;function&quot;:33,&quot;identifier_look_at_target&quot;:2,&quot;identifier_move_with_target&quot;:&quot;Camera Hook 1&quot;,&quot;identifier_type_look_at_target&quot;:4,&quot;identifier_type_move_with_target&quot;:3,&quot;target_camera_position&quot;:[6.676058292388916,10.256349563598633,4.1090149879455566],&quot;target_camera_rotation&quot;:[0,0,0],&quot;target_camera_zoom&quot;:90},{&quot;display_comment&quot;:&quot;Camera Hook 2&quot;,&quot;function&quot;:34},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:2,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:true,&quot;enable_move_with_target&quot;:true,&quot;function&quot;:33,&quot;identifier_look_at_target&quot;:2,&quot;identifier_move_with_target&quot;:&quot;Camera Hook 2&quot;,&quot;identifier_type_look_at_target&quot;:4,&quot;identifier_type_move_with_target&quot;:3,&quot;target_camera_position&quot;:[6.676058292388916,10.256349563598633,4.1090149879455566],&quot;target_camera_rotation&quot;:[0,0,0],&quot;target_camera_zoom&quot;:90},{&quot;display_comment&quot;:&quot;Camera Hook 3&quot;,&quot;function&quot;:34},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:2,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:true,&quot;enable_move_with_target&quot;:true,&quot;function&quot;:33,&quot;identifier_look_at_target&quot;:2,&quot;identifier_move_with_target&quot;:&quot;Camera Hook 3&quot;,&quot;identifier_type_look_at_target&quot;:4,&quot;identifier_type_move_with_target&quot;:3,&quot;target_camera_position&quot;:[6.676058292388916,10.256349563598633,4.1090149879455566],&quot;target_camera_rotation&quot;:[0,0,0],&quot;target_camera_zoom&quot;:90},{&quot;display_comment&quot;:&quot;Camera Hook 4&quot;,&quot;function&quot;:34},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:2,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:true,&quot;enable_move_with_target&quot;:true,&quot;function&quot;:33,&quot;identifier_look_at_target&quot;:2,&quot;identifier_move_with_target&quot;:&quot;Camera Hook 4&quot;,&quot;identifier_type_look_at_target&quot;:4,&quot;identifier_type_move_with_target&quot;:3,&quot;target_camera_position&quot;:[6.676058292388916,10.256349563598633,4.1090149879455566],&quot;target_camera_rotation&quot;:[0,0,0],&quot;target_camera_zoom&quot;:90},{&quot;display_comment&quot;:&quot;Camera Hook 5&quot;,&quot;function&quot;:34},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:2,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:true,&quot;enable_move_with_target&quot;:true,&quot;function&quot;:33,&quot;identifier_look_at_target&quot;:2,&quot;identifier_move_with_target&quot;:&quot;Camera Hook 5&quot;,&quot;identifier_type_look_at_target&quot;:4,&quot;identifier_type_move_with_target&quot;:3,&quot;target_camera_position&quot;:[6.676058292388916,10.256349563598633,4.1090149879455566],&quot;target_camera_rotation&quot;:[0,0,0],&quot;target_camera_zoom&quot;:90},{&quot;display_comment&quot;:&quot;Continue&quot;,&quot;function&quot;:34},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:true,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;target_actor_animation&quot;:&quot;Data/Animations/ghost_drink.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;duration&quot;:600,&quot;function&quot;:2},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hand Tonic&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hand Tonic Rope&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hand Tonic Lid&quot;,&quot;identifier_type&quot;:3},{&quot;duration&quot;:850,&quot;function&quot;:2},{&quot;display_message&quot;:&quot;lid removed&quot;,&quot;font_path&quot;:&quot;Data/Fonts/Cella.ttf&quot;,&quot;font_size&quot;:10,&quot;function&quot;:20},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hand Tonic Lid&quot;,&quot;identifier_type&quot;:3},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Heal!&quot;,&quot;function&quot;:34},{&quot;display_message&quot;:&quot;Healed!&quot;,&quot;font_path&quot;:&quot;Data/Fonts/Cella.ttf&quot;,&quot;font_size&quot;:34,&quot;function&quot;:20},{&quot;character_message_type&quot;:0,&quot;function&quot;:29,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;message&quot;:&quot;full_revive&quot;},{&quot;duration&quot;:3000,&quot;function&quot;:2},{&quot;dialogue_control&quot;:false,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-3.36112" t1="1.646" t2="0.0202346" s0="0.271491" s1="0.271491" s2="0.271491" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;billboard_type&quot;:0,&quot;billboard_update_type&quot;:4,&quot;function&quot;:31,&quot;image_color&quot;:[1,1,1,1],&quot;image_path&quot;:&quot;Data/Textures/ouruin/t2dev.png&quot;,&quot;image_size&quot;:1,&quot;overbright&quot;:0,&quot;placeholder_id&quot;:8},{&quot;external_hotspot&quot;:false,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;reference_string&quot;:&quot;&quot;},{&quot;amount&quot;:5,&quot;connect_particles&quot;:false,&quot;function&quot;:5,&quot;particle_path&quot;:&quot;Data/Particles/blooddrop.xml&quot;,&quot;placeholder_id&quot;:9,&quot;spread&quot;:5,&quot;tint&quot;:[1,1,1],&quot;use_blood_tint&quot;:true,&quot;velocity&quot;:0.85000002384185791},{&quot;amount&quot;:2,&quot;connect_particles&quot;:false,&quot;function&quot;:5,&quot;particle_path&quot;:&quot;Data/Particles/bloodspray.xml&quot;,&quot;placeholder_id&quot;:10,&quot;spread&quot;:1,&quot;tint&quot;:[1,1,1],&quot;use_blood_tint&quot;:true,&quot;velocity&quot;:0.24000006914138794},{&quot;amount&quot;:2,&quot;connect_particles&quot;:false,&quot;function&quot;:5,&quot;particle_path&quot;:&quot;Data/Particles/bloodsplat.xml&quot;,&quot;placeholder_id&quot;:11,&quot;spread&quot;:1,&quot;tint&quot;:[1,1,1],&quot;use_blood_tint&quot;:true,&quot;velocity&quot;:0.24000006914138794},{&quot;amount&quot;:1,&quot;connect_particles&quot;:false,&quot;function&quot;:5,&quot;particle_path&quot;:&quot;Data/Particles/bloodcloud.xml&quot;,&quot;placeholder_id&quot;:12,&quot;spread&quot;:1,&quot;tint&quot;:[1,1,1],&quot;use_blood_tint&quot;:true,&quot;velocity&quot;:0.24000006914138794},{&quot;character_option&quot;:45,&quot;damage_amount&quot;:0.40000000596046448,&quot;function&quot;:19,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;external_hotspot&quot;:false,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:1,&quot;identifier&quot;:2,&quot;identifier_type&quot;:4,&quot;reference_string&quot;:&quot;&quot;},{&quot;function&quot;:7,&quot;line&quot;:1}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject name="Billboard Helper" t0="-3.36112" t1="1.71006" t2="0.0202346" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Create Particle Helper" t0="-3.34146" t1="1.7502" t2="0.0202346" s0="0.371429" s1="0.371429" s2="0.371429" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="9" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Create Particle Helper" t0="-3.34146" t1="1.7502" t2="0.0202346" s0="0.284286" s1="0.284286" s2="0.284286" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Create Particle Helper" t0="-3.34146" t1="1.7502" t2="0.0202346" s0="0.284286" s1="0.284286" s2="0.284286" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="Create Particle Helper" t0="-3.34146" t1="1.7502" t2="0.0202346" s0="0.284286" s1="0.284286" s2="0.284286" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="1.97918" t1="1.91578" t2="-0.760003" s0="0.141786" s1="0.117601" s2="0.141788" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" version="1">
+        <parameters />
+        <Group t0="1.97918" t1="1.91578" t2="-0.760003" s0="0.131788" s1="0.107672" s2="0.131788" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" version="1">
+            <parameters />
+            <EnvObject t0="1.97918" t1="1.91578" t2="-0.760003" s0="0.725936" s1="0.678764" s2="0.725936" q0="0" q1="-0.575806" q2="0" q3="0.817587" euler_x="0" euler_y="-1.22718" euler_z="0" id="13" color_r="0.639216" color_g="0.656468" color_b="1" overbright="3.926" type_file="Data/Objects/Environment/SmallProps/BottleShort.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <EnvObject t0="1.97918" t1="1.96528" t2="-0.759802" s0="0.0202219" s1="0.0323506" s2="0.0202219" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/disk.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.97898" t1="1.95948" t2="-0.760103" s0="0.58153" s1="0.10159" s2="0.587944" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" color_r="1" color_g="0.196078" color_b="0.839216" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Ball_01.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="healtonic.xml" path="Data/Objects/therium/Prefabs/healtonic.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Placeholder" path="Data/Objects/placeholder/empty_placeholder.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Invisible Block" path="Data/Objects/invisibleblock.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/invisibleblock.png" />
+</RecentItems>

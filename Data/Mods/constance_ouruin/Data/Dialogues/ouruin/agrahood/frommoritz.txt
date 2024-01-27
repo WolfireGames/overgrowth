@@ -1,0 +1,11 @@
+#name "FromMoritz"
+#participants 2
+set_character_pos 1 259.101 -48.2543 15.3907 90
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+set_cam 260.797 -47.5101 17.9653 0 23.51 0 74.4795
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Here's Agra Hood..."
+send_level_message "disable 6837"
+send_level_message "disable 6838"
+send_level_message "disable 6841"

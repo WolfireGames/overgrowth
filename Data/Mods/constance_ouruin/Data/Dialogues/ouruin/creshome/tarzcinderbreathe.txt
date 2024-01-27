@@ -1,0 +1,38 @@
+#name "TarzCinderbreathe"
+#participants 3
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_eye_dir -3.71357 1.68857 1.78952 1"
+send_character_message 2 "set_head_target -4.25992 1.22001 0.512442 0"
+set_character_pos 1 -3.82967 1.04988 3.35458 90
+send_character_message 1 "set_eye_dir -3.76044 1.86017 0.180832 1"
+send_character_message 1 "set_head_target -3.77208 1.53639 0.131122 1"
+send_character_message 2 "set_animation \"Data/Animations/tarz_wall.anm\""
+set_character_pos 2 -3.681 1.073 0.006 -97
+set_cam -2.76367 1.64286 2.8359 4.96 111.77 1.85 43.4968
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.7 0.3 0.1
+set_dialogue_voice 2 2
+send_level_message "enable 1510"
+say 1 "Ghost" "Taking up arms against the cinderbreathe must've been a difficult choice."
+send_character_message 2 "set_eye_dir -4.08797 1.40164 0.907064 0.576391"
+send_character_message 2 "set_head_target -4.36027 1.22003 0.532111 1"
+set_cam -3.18686 2.09565 0.952647 -12.25 31.95 5.97 29.4278
+say 2 "Tarz" "It would've been... [wait 0.15]But we didn't have one. [wait 0.15]Our hand was forced."
+send_character_message 2 "set_eye_dir -4.08797 1.40164 0.907064 0.410862"
+send_character_message 2 "set_head_target -5.09341 1.46278 0.712494 1"
+say 2 "Tarz" "Before the tragedy, [wait 0.1]we were grappling with what to do. [wait 0.15]How to do it. [wait 0.1]If the risk was reasonable."
+send_character_message 2 "set_torso_target -4.69704 0.909731 0.706211 1"
+send_character_message 2 "set_head_target -4.28046 1.2795 1.36747 1"
+send_character_message 2 "set_eye_dir -4.08797 1.40164 0.907064 1"
+say 2 "Tarz" "We got our answer from the Cinderians before we could make ours. [wait 0.15]No reason to look back, now."
+send_character_message 2 "set_torso_target -4.79531 1.35027 0.76708 1"
+send_character_message 2 "set_eye_dir -4.08797 1.40164 0.907064 0.635404"
+send_character_message 2 "set_head_target -4.31879 1.4902 1.54417 1"
+send_character_message 1 "set_head_target -3.75367 2.00561 0.0406085 1"
+set_cam -5.37474 2.11976 4.67111 -14.09 -32.35 -0.42 56.7597
+say 1 "Ghost" "What was this tragedy...[wait 0.1]? [wait 0.2]What happened that was so terrible?"
+send_character_message 2 "set_head_target -4.31879 1.4902 1.54417 0"
+send_character_message 2 "set_torso_target -4.69704 0.909731 0.706211 0"
+say 2 "Tarz" "What the hell do you care? [wait 0.2]You aren't one of us... [wait 0.15]Telling you won't bring them back."
+send_level_message "dialogue_done"

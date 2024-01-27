@@ -1,0 +1,16 @@
+#name "End"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_character_message 1 "set_eye_dir 455.499 -55.3072 -175.546 1"
+send_character_message 1 "set_torso_target 455.742 -56.0673 -166.76 1"
+send_character_message 1 "set_head_target 455.631 -52.9159 -173.173 1"
+set_character_pos 1 455.487 -57.0055 -165.717 90
+set_cam 456.21 -56.6667 -162.748 3.58 6.53 0 42.3269
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 10.0 10.0"
+say 1 "Ghost" "Finally... [wait 0.5]I'm just a minute away from 'home'."
+send_character_message 1 "set_head_target 455.329 -54.7828 -173.013 1"
+send_character_message 1 "set_torso_target 455.742 -56.0673 -166.76 0"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+say 1 "Ghost" "I'll make it up to Donatas later. [wait 0.5]Maybe catch up to him in the eve."
+send_global_message "levelwin"

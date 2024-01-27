@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<particle>
+    <textures color_map = "Data/Textures/spark.tga" 
+              shader = "envobject #PARTICLE"
+              soft_shader = "envobject #PARTICLE"/>
+    <stretch velocity_axis = "true" speed_stretch = "true" min_squash = "true"/>
+    <size min = "0.2" max = "0.3"/>
+    <color red =   "1.0"
+           green = "1.0"
+           blue =  "1.0"
+           alpha = "1.0"/>
+    <behavior inertia="2.0" gravity="0.0" wind="0.0" size_decay_rate="0.0" opacity_decay_rate="0.0"/>
+    <!-- <collision decal="Data/Custom/gyrth/turret/Objects/bullet_hole.xml" decal_size_mult = "8.0" destroy="true"
+               character_collide="true" character_add_blood="true"/> -->
+    <!-- <quadratic_expansion speed="2.0"/>
+    <quadratic_dispersion persistence="1.0"/> -->
+</particle>

@@ -1,0 +1,14 @@
+#name "Moss"
+#participants 2
+send_character_message 1 "set_eye_dir 56.7112 -58.5197 75.6119 1"
+send_character_message 1 "set_head_target 56.6498 -58.5724 75.879 1"
+set_character_pos 1 56.6161 -57.8947 74.8119 -90
+send_character_message 1 "set_animation \"Data/Animations/r_crouch_sad.anm\""
+set_cam 54.4189 -57.4313 78.4402 -17.94 -41.81 0 61.1317
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Hey, [wait 0.3]some more common water moss. [wait 0.5]Nice..."
+send_character_message 1 "set_eye_dir 57.3675 -58.1174 77.9523 1"
+send_character_message 1 "set_head_target 57.1258 -57.886 77.1142 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+say 1 "Ghost" "I should bring Bijou here. [wait 0.5]We could make some tea from this, [wait 0.3]like we always do."

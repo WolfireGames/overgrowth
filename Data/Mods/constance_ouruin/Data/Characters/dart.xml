@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<character>
+    <appearance obj_path = "Data/Objects/therium/characters/dart.xml"
+                morph = "Data/Models/Characters/cats/male_cat/male_cat_gen_female.obj"
+                fur = "Data/Models/Characters/cats/male_cat/male_cat_fur_female.obj"
+                skeleton = "Data/Skeletons/r_male_cat.xml"
+                channel_0 = "cloth"
+                channel_1 = "fur"
+                channel_2 = "cloth"
+                channel_3 = "fur"
+                default_scale = "1.06"/>
+    <animations idle = "Data/Animations/r_idle2.xml"
+                jump = "Data/Animations/r_jump.xml"
+                roll = "Data/Animations/r_roll.xml"
+                movement = "Data/Animations/c_movement.xml"
+                wall = "Data/Animations/r_wall.xml"
+                ledge = "Data/Animations/r_ledge.anm"
+                medrightblock = "Data/Animations/r_activeblockmedright.anm"
+                medleftblock = "Data/Animations/r_activeblockmedleft.anm"
+                highrightblock = "Data/Animations/r_activeblockhighright.anm"
+                highleftblock = "Data/Animations/r_activeblockhighleft.anm"
+                lowrightblock = "Data/Animations/r_activeblocklowright.anm"
+                lowleftblock = "Data/Animations/r_activeblocklowleft.anm"
+                blockflinch = "Data/Animations/r_activeblockflinch.anm"/>
+    <attacks moving_close = "Data/Attacks/haymaker.xml"
+             stationary_close = "Data/Attacks/thrustpunch.xml"
+             moving = "Data/Attacks/spinkick.xml"
+             stationary = "Data/Attacks/frontkick.xml"
+             moving_low = "Data/Attacks/soccerkick.xml"
+             low = "Data/Attacks/sweep.xml"
+             air = "Data/Attacks/legcannon.xml" />
+    <morphs>
+    	<wink_r />
+    	<wink_l />
+    	<look_b_r />
+    	<look_d_r />
+    	<look_u_r />
+    	<look_f_r />
+    	<look_b_l />
+    	<look_d_l />
+    	<look_u_l />
+    	<look_f_l />
+        <fist_l num_steps = "4"/>
+        <fist_r num_steps = "4"/>
+        <mouth_open />
+        <ah />
+        <afraid />
+        <angry />
+        <smile />
+        <diss />
+        <sad />
+    </morphs>
+    <tags species = "cat"/>
+    <team>cat</team>
+    <voice path = "Data/Sounds/voice/cat.xml"
+           pitch = "1.3"/>
+ </character>

@@ -1,0 +1,40 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-30.0589" t1="-42.4494" t2="64.3268" s0="13.6809" s1="0.414297" s2="3.42042" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11813" version="1">
+        <parameters />
+        <EnvObject t0="-34.1237" t1="-42.4611" t2="63.5462" s0="1.50784" s1="2.66643" s2="4.55074" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="11341" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.3587" t1="-42.4549" t2="64.9842" s0="1.5591" s1="2.66644" s2="4.35514" q0="-0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="11342" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-29.3457" t1="-42.4591" t2="63.5722" s0="1.48804" s1="2.49222" s2="4.48947" q0="-0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="11345" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-29.4717" t1="-42.4605" t2="64.9932" s0="1.54368" s1="2.60907" s2="4.53322" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="11400" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-26.1067" t1="-42.4527" t2="64.3196" s0="2.00533" s1="1.51163" s2="4.40648" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="11404" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-36.7297" t1="-42.4498" t2="64.3302" s0="1.74945" s1="1.24885" s2="1.74167" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="11736" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-33.3352" t1="-42.4498" t2="62.7862" s0="1.74945" s1="2.49861" s2="1.74166" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="11781" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-26.6309" t1="-42.4496" t2="62.7862" s0="1.74945" s1="2.45949" s2="1.74167" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="11783" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-33.2572" t1="-42.4498" t2="65.8432" s0="1.74945" s1="2.45182" s2="1.74166" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="11801" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-26.5825" t1="-42.4494" t2="65.8432" s0="1.75254" s1="2.46503" s2="1.74167" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="11810" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-24.2157" t1="-42.4527" t2="64.3196" s0="2.00533" s1="1.51163" s2="4.40648" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="11812" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

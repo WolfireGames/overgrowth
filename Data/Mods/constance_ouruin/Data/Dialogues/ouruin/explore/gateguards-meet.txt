@@ -1,0 +1,68 @@
+#name "GateGuards-Meet"
+#participants 4
+set_character_pos 3 260.109 -48.2148 27.6307 -98
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 1"
+send_character_message 3 "set_torso_target 259.909 -47.3779 29.4133 1"
+send_character_message 3 "set_head_target 259.04 -47.3966 29.7376 1"
+send_character_message 2 "set_eye_dir 257.608 -46.4514 26.8978 1"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0496759"
+send_character_message 2 "set_head_target 258.566 -47.4721 29.4738 1"
+set_character_pos 1 258.955 -48.2838 29.9748 90
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 1 "set_eye_dir 258.592 -47.2815 27.9374 1"
+send_character_message 1 "set_torso_target 259.895 -47.7724 31.1206 0"
+send_character_message 1 "set_head_target 258.677 -47.0141 28.0149 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_shade.anm\""
+set_cam 260.722 -47.7842 31.1761 -1.41 32.38 0.11 70.9818
+set_character_pos 2 257.797 -48.2112 27.6343 -81
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 1 1
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.5 0.5 0.5
+set_dialogue_voice 3 3
+say 1 "Ghost" "Who the hell are you guys?"
+send_character_message 2 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 3 "set_torso_target 259.844 -47.3767 29.4109 0.998927"
+send_character_message 3 "set_head_target 258.805 -47.1751 28.8951 1"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 1"
+send_character_message 2 "set_head_target 258.747 -47.5667 29.4306 1"
+send_character_message 1 "set_eye_dir 258.142 -47.2232 27.9964 0.440197"
+send_character_message 1 "set_head_target 259.753 -46.7733 28.0459 1"
+say 2 "???" "Gatesmen. [wait 0.2]Want to cross into Agra hood, [wait 0.1]you'll have to pay the toll."
+send_character_message 1 "set_eye_dir 259.99 -47.0416 28.0016 1"
+send_character_message 1 "set_head_target 259.32 -47.3532 28.1727 1"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 3 "set_torso_target 259.75 -47.6251 29.5617 0"
+send_character_message 3 "set_head_target 259.227 -47.508 29.2206 1"
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 0.510177"
+say 3 "????" "The price is 250 petals. [wait 0.15]Pay up; [wait 0.1]You ain't gettin' no special treatment, [wait 0.05]boy."
+send_character_message 3 "set_head_target 259.197 -47.5402 29.2229 1"
+send_character_message 3 "set_torso_target 259.75 -47.6251 29.5617 0.0424805"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.999875"
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 0.82375"
+send_character_message 1 "set_eye_dir 259.894 -47.216 27.8626 0.747025"
+send_character_message 1 "set_head_target 260.486 -46.6073 28.026 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+say 1 "Ghost" "And what am I putting my money towards?"
+set_cam 261.518 -47.1465 28.4093 -2.41 71.42 0.25 30.5646
+send_character_message 1 "set_head_target 259.581 -47.0673 27.9719 1"
+send_character_message 3 "set_torso_target 259.681 -47.6061 29.5748 1"
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 1"
+send_character_message 3 "set_head_target 258.454 -47.2078 29.2358 1"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0133687"
+send_character_message 2 "set_head_target 257.144 -46.6279 29.0325 1"
+send_character_message 2 "set_animation \"Data/Animations/swordrelax2.anm\""
+say 2 "???" "If you really have to ask, [wait 0.1]you're not worth telling."
+send_character_message 2 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_torso_target 257.958 -47.3503 29.0947 0"
+send_character_message 2 "set_head_target 259.319 -46.9979 29.1524 1"
+send_character_message 1 "set_head_target 257.762 -46.6748 27.6827 1"
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 0.517465"
+send_character_message 3 "set_torso_target 259.989 -46.5888 29.57 1"
+send_character_message 3 "set_head_target 259.261 -47.4372 29.9543 1"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 3 "????" "Besides, [wait 0.1]you don't need to know. [wait 0.15]You just need to pay the toll, [wait 0.05]or start hoppin'."
+send_level_message "dialogue_done"

@@ -1,0 +1,12 @@
+#name "Breakfast"
+#participants 1
+set_cam 5.99208 1.94839 -17.3126 -21.44 -40.62 -0.01 20.9382
+set_character_pos 1 7.06783 0.525644 -18.8345 17
+send_character_message 1 "set_eye_dir 8.02089 0.949476 -19.2927 1"
+send_character_message 1 "set_head_target 8.00514 0.913117 -19.2527 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_level_message "enable 3931"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 3.0 2.0"
+say 1 "Ghost" "She made herself breakfast just fine this morning. [wait 0.5]Nothing was wrong."
+send_level_message "disable 3931"

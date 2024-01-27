@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+    <Model>Data/Models/Buildings/arena/arena_door_opened.obj</Model>
+    <ColorMap>Data/Textures/Buildings/arena/arena_door_c.tga</ColorMap>
+    <NormalMap>Data/Textures/Buildings/arena/arena_door_n.tga</NormalMap>
+    <ShaderName>cubemapobj</ShaderName>
+    <MaterialPath>Data/Materials/wood.xml</MaterialPath>
+</Object>

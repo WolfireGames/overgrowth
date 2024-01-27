@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data\Models\Environments\SmallProps\Rope\MSH_Rope_Clamp.obj</Model>
+	<ColorMap>Data\Textures\Environments\SmallProps\Rope\T_RopeSystem_01_Color.tga</ColorMap>
+	<NormalMap>Data\Textures\Environments\SmallProps\Rope\T_RopeSystem_01_Normal.tga</NormalMap>
+	<MaterialPath>Data/Materials/default.xml</MaterialPath>
+	<ShaderName>envobject #TANGENT #BASE_TANGENT</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

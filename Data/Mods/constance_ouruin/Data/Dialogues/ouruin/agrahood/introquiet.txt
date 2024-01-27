@@ -1,0 +1,17 @@
+#name "Intro-Quiet"
+#participants 2
+set_character_pos 1 259.101 -48.2799 15.3908 90
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_eye_dir 258.061 -46.8757 12.934 1"
+send_character_message 1 "set_head_target 258.499 -46.9657 13.551 0.91595"
+set_cam 260.703 -47.853 17.6178 7.38 31.98 -0.06 69.5344
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Here we are... [wait 0.1]Agra Hood is just over there."
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_glance.anm\""
+send_character_message 1 "set_head_target 258.893 -47.2958 13.7186 0"
+say 1 "Ghost" "...[wait 0.15]Something about this whole setup is strange... [wait 0.1]I should be on my guard."
+send_level_message "disable 6837"
+send_level_message "disable 6838"
+send_level_message "disable 6841"
+send_level_message "dialogue_done"

@@ -1,0 +1,60 @@
+#name "Banjo"
+#participants 3
+send_character_message 2 "set_head_target -61.1662 -38.2944 -14.4488 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir -61.2499 -38.3768 -16.6056 1"
+send_character_message 1 "set_head_target -61.208 -38.4631 -16.6635 1"
+set_cam -62.3317 -37.8001 -11.452 -11.35 -16.17 -0.29 19.0507
+set_character_pos 1 -61.1781 -39.0428 -14.1401 91
+set_character_pos 2 -61.2427 -38.9993 -16.7976 -90
+send_character_message 2 "set_animation \"Data/Animations/ques_idle.anm\""
+send_character_message 2 "set_eye_dir -61.4781 -38.419 -16.5733 0.770011"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.6 0.9 0.6
+set_dialogue_voice 2 14
+send_level_message "enable 11712"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 6.2 1.0"
+say 1 "Ghost" "Hey, [wait 0.3]kid. [wait 0.5]How's life here with Timek treating you?"
+send_character_message 2 "set_torso_target -61.1504 -38.6691 -15.8136 0.00510392"
+send_character_message 2 "set_eye_dir -61.4781 -38.419 -16.5733 0.612616"
+send_character_message 2 "set_head_target -60.8278 -38.6114 -14.5507 1"
+set_cam -61.1285 -37.7525 -15.0221 -31.29 -2.26 1.01 37.2764
+send_level_message "set_camera_dof 0.0 5.0 10.0 2.8 2.85 1.0"
+say 2 "Ques" "Not great. [wait 0.5]Not that it matters."
+send_character_message 1 "set_head_target -61.208 -38.4637 -16.6635 1"
+send_character_message 2 "set_torso_target -61.246 -39.007 -16.0956 1"
+send_character_message 2 "set_head_target -61.2371 -38.1656 -14.7099 1"
+send_character_message 2 "set_eye_dir -61.4781 -38.419 -16.5733 1"
+say 2 "Ques" "I'm finally getting to enough coin to make it to Ouran. [wait 0.5]Soon enough, [wait 0.3]I'll kiss these slums goodbye."
+send_character_message 1 "set_eye_dir -61.2499 -38.3768 -16.6056 0.671737"
+send_character_message 1 "set_head_target -61.208 -38.5802 -16.6635 1"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+set_cam -61.8643 -38.4395 -17.9103 -2.93 -159.59 0.04 33.1038
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 6.9 2.0"
+say 1 "Ghost" "You sure it's a good idea to travel to Ouran this close to the cicadan cycle?"
+send_character_message 2 "set_torso_target -61.246 -39.007 -16.0956 0"
+send_character_message 2 "set_head_target -61.2371 -37.9971 -14.7099 1"
+send_character_message 2 "set_animation \"Data/Animations/ques_hand.anm\""
+say 2 "Ques" "It'll be fine! [wait 0.5]By the time the cicadas sing, [wait 0.3]I'll be long gone."
+send_character_message 2 "set_animation \"Data/Animations/ques_idle.anm\""
+say 2 "Ques" "My parents back in Arliss set me up with a contact who should get me through just fine."
+send_character_message 1 "set_eye_dir -61.2499 -38.3768 -16.6056 1"
+send_character_message 1 "set_head_target -61.2659 -38.219 -16.657 1"
+send_character_message 1 "set_torso_target -61.1981 -38.2855 -15.0102 1"
+say 1 "Ghost" "You'll be cutting it awful close..."
+send_character_message 1 "set_head_target -61.246 -38.4349 -16.532 1"
+send_character_message 2 "set_head_target -61.2371 -38.675 -14.7099 1"
+send_character_message 2 "set_eye_dir -61.4781 -38.419 -16.5733 0"
+send_character_message 2 "set_torso_target -61.246 -39.007 -16.0956 1"
+set_cam -61.3545 -37.4872 -15.3685 -43.45 -11.69 1.65 32.0407
+send_level_message "set_camera_dof 0.0 5.0 10.0 2.8 2.6 1.0"
+say 2 "Ques" "It's the only chance I got. [wait 0.5]Can't stand this place."
+set_cam -62.1314 -38.5248 -12.9273 0 -26.26 0 53.3775
+send_character_message 2 "set_eye_dir -61.4781 -38.419 -16.5733 0.74958"
+send_character_message 2 "set_head_target -61.2371 -38.2048 -14.7099 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+send_character_message 1 "set_torso_target -61.1981 -38.2855 -15.0102 0"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 7.7 1.0"
+say 1 "Ghost" "If you say so. [wait 0.5]Just take care while you're still here -- [wait 0.5]Ouruin's no place for a kid."
+send_level_message "disable 11712"

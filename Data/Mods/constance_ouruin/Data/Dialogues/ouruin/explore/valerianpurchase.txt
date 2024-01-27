@@ -1,0 +1,74 @@
+#name "ValerianPurchase"
+#participants 4
+set_character_pos 3 25.1748 -49.1447 -26.8028 -150
+send_character_message 3 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 3 "set_eye_dir 23.6872 -51.3676 -24.5004 1"
+send_character_message 3 "set_torso_target 24.6483 -50.0122 -26.4824 0"
+send_character_message 3 "set_head_target 22.8277 -51.1694 -25.066 1"
+set_character_pos 2 24.2298 -52.6273 -27.8442 -90
+send_character_message 2 "set_animation \"Data/Animations/dialogue_leaning_back_onwall.anm\""
+send_character_message 2 "set_head_target 23.2872 -51.9352 -23.9774 1"
+set_character_pos 1 23.3049 -52.6683 -23.7258 91
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 24.2563 -51.2885 -27.5318 1"
+send_character_message 1 "set_torso_target 24.2618 -52.1639 -23.7649 0"
+send_character_message 1 "set_head_target 21.6009 -52.3989 -25.7617 1"
+set_cam 24.1703 -51.2633 -29.0471 -8.93 174.5 0.3 17.8056
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.3 0.9 0.6
+set_dialogue_color 3 0.8 0.4 0.6
+say 1 "Ghost" "You shouldn't judge a book by its cover, [wait 0.1]gentlemen. [wait 0.2]I was actually looking for some root."
+send_character_message 3 "set_eye_dir 23.7805 -51.5516 -23.7496 1"
+send_character_message 3 "set_head_target 23.2475 -50.8461 -25.7396 1"
+send_character_message 2 "set_torso_target 23.9658 -51.4989 -26.8613 1"
+send_character_message 2 "set_head_target 23.2872 -51.6509 -23.9774 1"
+set_cam 24.62 -47.4756 -25.0586 -53.1 -4.45 12.71 33.5255
+say 2 "Toker" "W-What? [wait 0.2]Really?"
+send_character_message 2 "set_torso_target 23.9658 -51.4989 -26.8613 0.999812"
+send_character_message 1 "set_eye_dir 24.1351 -51.698 -27.5602 1"
+send_character_message 2 "set_eye_dir 24.396 -51.1392 -28.7869 1"
+send_character_message 1 "set_head_target 23.9246 -51.6706 -26.3573 1"
+send_character_message 2 "set_head_target 23.3303 -51.6694 -23.9705 1"
+send_character_message 3 "set_head_target 24.0734 -50.9505 -24.2511 1"
+say 3 "Clynn" "Ooo, [wait 0.15]exotique! [wait 0.2]You truly do have taste!"
+send_character_message 2 "set_head_target 23.4056 -51.7776 -23.9265 1"
+send_character_message 1 "set_head_target 24.0934 -51.796 -27.2678 1"
+send_character_message 2 "set_torso_target 23.9658 -51.4989 -26.8613 0.999812"
+set_cam 23.584 -51.7754 -21.7255 -3.61 0.75 0.04 26.6791
+say 1 "Ghost" "A distinguished kind. [wait 0.2]Now, [wait 0.1]what's it worth?"
+set_cam 23.6255 -51.7733 -21.8923 -3.61 0.75 0.04 26.6791
+send_character_message 3 "set_head_target 24.0842 -50.9542 -24.2747 1"
+send_character_message 1 "set_torso_target 24.2601 -52.1656 -23.7649 0"
+send_character_message 2 "set_torso_target 23.9658 -51.4989 -26.8613 0"
+send_character_message 2 "set_eye_dir 24.366 -51.4434 -27.8265 0.610502"
+send_character_message 2 "set_head_target 23.3649 -51.9684 -23.9427 1"
+say 2 "Toker" "For a buck tooth like you? [wait 0.2]475 petals."
+send_character_message 2 "set_eye_dir 24.366 -51.4434 -27.8265 0.704643"
+send_character_message 2 "set_head_target 23.3649 -51.8756 -23.9427 1"
+send_character_message 1 "set_torso_target 23.4105 -51.6633 -24.3051 1"
+send_character_message 1 "set_head_target 23.8521 -51.3661 -26.5403 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+say 1 "Ghost" "[wait 0.2]Seriously? [wait 0.2]That's a ridiculous price!"
+send_character_message 2 "set_head_target 23.8301 -50.9564 -24.1202 1"
+send_character_message 3 "set_eye_dir 24.8265 -48.4958 -26.6367 1"
+send_character_message 3 "set_head_target 24.1943 -51.4183 -25.0523 1"
+set_cam 23.4343 -52.606 -27.4276 57.57 -85.15 5.71 52.325
+say 3 "Clynn" "Some would call a carrot muncher huffing tree bark similarly amusing, [wait 0.1]but you don't see us laughing about it!"
+send_character_message 2 "set_eye_dir 24.366 -51.4434 -27.8265 1"
+send_character_message 1 "set_head_target 23.8483 -51.3766 -26.5381 1"
+send_character_message 1 "set_torso_target 23.4105 -51.6633 -24.3051 0.97991"
+send_character_message 3 "set_eye_dir 24.3705 -51.4914 -27.7639 1"
+send_character_message 3 "set_head_target 24.0607 -50.1814 -26.0817 1"
+send_character_message 2 "set_head_target 24.7395 -49.7187 -26.3498 1"
+send_character_message 2 "set_torso_target 23.9658 -51.4989 -26.8613 1"
+say 2 "Toker" "Haha! [wait 0.2]Dead wrong, [wait 0.1]Clynn. [wait 0.2]That's hilarious!"
+send_character_message 1 "set_eye_dir 24.4334 -52.6475 -24.6973 0.523692"
+send_character_message 2 "set_eye_dir 24.366 -51.4434 -27.8265 1"
+send_character_message 1 "set_head_target 24.6712 -52.567 -25.14 1"
+send_character_message 1 "set_torso_target 23.4105 -51.6633 -24.3051 0"
+send_character_message 2 "set_head_target 23.3721 -52.0002 -24.2772 1"
+set_cam 23.7306 -52.1294 -21.7266 0 4.33 0 33.1628
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+say 1 "Ghost" "...[wait 0.2]Ugh..."
+send_level_message "dealers_talk"

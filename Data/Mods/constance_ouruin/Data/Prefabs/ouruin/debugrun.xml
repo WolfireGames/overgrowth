@@ -1,0 +1,16 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Hotspot name="Debug Run" t0="19.8722" t1="-44.6561" t2="63.114" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1054" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="1" />
+            <parameter name="Run in EditorMode" type="int" val="0" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:8,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;use_prompt&quot;:false},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/whoosh/hit_whoosh.xml&quot;,&quot;sound_type&quot;:0},{&quot;add_velocity&quot;:true,&quot;apply_multiplier_x&quot;:true,&quot;apply_multiplier_y&quot;:true,&quot;apply_multiplier_z&quot;:true,&quot;function&quot;:24,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;set_velocity_mode&quot;:2,&quot;velocity_magnitude&quot;:4.9999995231628418,&quot;velocity_multiplier&quot;:1.1999999284744263},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+</ActorObjects>

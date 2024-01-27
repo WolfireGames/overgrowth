@@ -1,0 +1,496 @@
+Variables for Scar of Ouruin that can be used to read or write progress related variables. This concerns DHS scripts.
+Define variable, its values and notes for each value.
+
+
+== GAME
+Gameplay related variables.
+
+ouruin_current_item
+	sparrow
+	talisman
+	tonic
+
+ouruin_current_weapon
+	nothing
+		This returns the player to being unarmed
+	shortsword
+	broadsword
+	spear
+	staff
+
+ouruin_current_sidearm
+	nothing
+		This returns the player to being unarmed
+	throwing
+	knife
+
+ouruin_player_event
+	Variable per-level. Used to dictate which dialogue or events should play
+
+ouruin_orb
+	0: Orb is not equipped
+	1: Orb is acquired
+	2: Orb has been equipped
+
+
+== WALLET
+Coin related variables. Tracks debt, coin earned and visual coin counting
+
+ouruin_petals_total
+	Total coin earned. Adds up every level currency variable for a total count of coin gained
+
+ouruin_petal_display
+	Possibly deprecated
+
+ouruin_petal_count
+	ouruin_petals_total, minus debts
+
+ouruin_previous_wallet
+	Previous wallet sum. Used when adding total
+
+ouruin_wallet_toadd
+	Amount of coin to be added to total upon acquisition
+
+ouruin_wallet_toadd_display
+	Total amount of coin to be added to total upon acquisition
+
+ouruin_wallet_wait
+	Whether the wallet should still be displayed on screen
+
+
+-- Debts
+
+ouruin_wallet_debts_total
+	Totals up all debts
+
+ouruin_root_debt
+	Valerian root purchase
+
+ouruin_dart_debt
+	Money given to Dart
+
+ouruin_shop_debt
+	Coin spent in the black market
+
+ouruin_shop_debug_cheat
+	Offsets the player's currency
+
+
+-- Level Coin Count
+Total coin found for each level.
+
+ouruin_explore_currency
+ouruin_market_currency
+ouruin_depot_currency
+ouruin_dart_currency
+ouruin_courtyard_currency
+ouruin_creshome_currency (Unused. Coin does not spawn in this level)
+ouruin_agra_currency
+ouruin_highroad_currency
+ouruin_lvl2_currency
+ouruin_lvl3_currency (Unused. Coin does not spawn in this level)
+ouruin_lvl4_currency (Unused. Coin does not spawn in this level)
+
+
+== LEVEL STATE
+Controls where the player spawns, and under what conditions the level loads.
+
+ouruin_intro_played
+	Global for every level. Is set upon transitioning to a new level
+
+ouruin_explore_state
+	0: Player is loading into Explore from the Prologue (prologue.xml)
+	1: Player is loading into Explore from the Market (market.xml)
+	2: Player is loading into Explore from the Depot (depot.xml)
+	3: Player is loading into Explore from Agra Hood (level1_a.xml)
+	4: Player is loading into Explore from Faas' Sanctuary (level1_dart.xml)
+	5: Player is loading into Explore from the Agra Hood shortcut (level1.xml)
+	6: Player is loading into Explore from the Upper Depot exit (depot.xml)
+
+	ouruin_agra_shortcut
+		0: Shortcut not unlocked
+		1: Shortcut unlocked
+	
+	ouruin_gateguards_fleed
+		0: Default state
+		1: Player has fleed, and gate guards are walking back
+
+ouruin_market_state
+	0: Player is loading into Market from Explore (level1_explore.xml)
+	1: Player is loading into Market from the Warrens (warrens.xml)
+
+ouruin_depot_state
+	0: Player is loading into Depot from Explore (level1_explore.xml)
+	1: Player is loading into Depot from the Warrens (warrens.xml)
+	2: Player is loading into Depot from the uppper Explore entrance (level1_explore)
+
+ouruin_warrens_state
+	0: Player is loading into Nui Warrens from Market (market.xml)
+	1: Player is loading into Nui Warrens from Depot (depot.xml)
+
+ouruin_agra_state
+	0: Player is loading into Agra Hood from Explore (level1_explore.xml)'s Gate Guards
+	1: Player is loading into Agra Hood from Explore (level1_explore.xml)'s shortcut
+	2: Player is loading into Agra Hood from High Road (level1_b.xml)
+	3: Player is loading into Agra Hood from the Speakeasy (speakeasy.xml)
+
+	ouruin_agra_checkpoint
+		0: Player is at the Moritz Gate
+		1: Player is at the collapsed bell tower
+		2: Player is at the agra shortcut
+		3: Player is in the eastern fountain alley
+		4: Player is in the sunken square alley
+		5: Player is south of the sunken square alley
+		6: Player is north of the sunken square alley
+		7: Player is at the high road entrance
+	
+	ouruin_agra_ambush
+		0: Ambush is not prepared
+		1: Ambush is prepared, weak
+		2: Ambush is prepared, strong
+		3: Ambush party has been taken out
+		4: Ambush party has been bypassed
+
+ouruin_highroad_state
+	0: Player is loading into High Road from Agra Hood (level1_a.xml)
+	1: Player is loading into High Road from Cres Home (creshome.xml)
+
+	ouruin_highroad_checkpoint
+		0: Player is in the room leading to Agra
+		1: Player is on the tall pipes between the road and Agra
+		2: Player is at Cres' Home
+		3: Player is inbetween the waterfront and the road
+		4: Player is in the waterfront interior
+
+ouruin_courtyard_state
+	0: Player is loading into Courtyard
+
+	ouruin_match_blocked
+	ouruin_match_kills
+	ouruin_match_hits
+	ouruin_match_wins
+	ouruin_match_losses
+
+	-- Suffixes
+		_current: The amount Ghost has at this moment
+		_score: Saved high score
+		_streak: Value to show for broken streaks
+
+	ouruin_match_mode
+		0: Non-combat
+		1: Solo duel
+	
+	ouruin_match_weapons
+		_ghost: Player's selected weapon
+		_opponent: Opponent's selected weapon
+	
+	ouruin_match_active
+		0: Inactive
+		1: Active
+
+ouruin_lvl2_state
+	0: Player is loading into Fractured Home from Crackdown (level1.xml) for the first time
+	1: Player is loading into Fractured Home from Donatas Fight (level2_fight.xml) and onwards
+	2: Player has watched the initial Guards cutscene.
+
+	ouruin_lvl2_investigate
+		0: Player has not reached home
+		1: Player has reached home
+	
+	ouruin_lvl2_checkpoint
+		0: Player is at the mud pit
+
+ouruin_lvl3_state
+	0: Player is loading into Waterfront Escape from Fractured Home (level2.xml) as Ghost
+	1: Player is loading into Waterfront Escape as Donatas
+
+ouruin_lvl4_state
+	0: Player is loading into Cinderian Ship from Waterfront Escape (level3.xml) as Ghost
+	1: Player is loading into Cinderian Ship as Donatas
+
+	ouruin_lvl4_phase
+		0: Player has just entered
+		1: Encounter cutscene plays
+		2: Combat begins
+
+
+== LETHALITY
+At the end of every level, Ouruin adds up each elimination, kill and overkill. It also collects the names of each character.
+These variables are then tallied against every other levels' sums to calculate total eliminations, kills and overkills.
+
+Perfect Non-Lethal Stealth requires less than 1 lethality point.
+Non-Lethal Stealth requires less than 6 lethality points.
+Non-Lethal requires less than 32 lethality points.
+Lethal requires less than 60 lethality points.
+Full-Lethal requires more than 60 lethality points.
+Perfect Full-Lethal requires killing every single enemy in the game.
+Senseless Full-Lethal requires overkilling every single enemy in the game.
+
+-- Totals
+ouruin_total_eliminations
+ouruin_total_ko
+ouruin_total_kills
+ouruin_total_overkills
+ouruin_total_lethality
+
+-- Levels (Replace level with level name)
+ouruin_level_eliminations
+	Adds 1 lethality point
+ouruin_level_kills
+	Adds 8 lethality points
+ouruin_level_zonekills
+	Adds 2 lethality points. Incurred upon drowning, dying to spikes, or lava
+ouruin_level_overkills
+	Adds 2 lethality points per overkill. Maximum of 10 overkills per level. Multiple overkills can be achieved on the same character
+ouruin_level_throatscut
+	Adds 4 lethality points
+ouruin_level_lethality
+	Tallies up every lethality point, and decides a level's final lethality state (PNLS, NLS, NL, L, FL, PFL, SFL). Only set at the end of the level
+
+	-- Suffixes
+		_current: Count on this current level playthrough. Does not apply to ouruin_level_lethality
+		_stored: Added to _current. Modified on checkpoints, so counts from previous areas still apply. Does not apply to ouruin_level_lethality
+		_points: Only set at the end of the level. Points of lethality earned per variable
+
+...
+
+
+== QUESTS
+Multi-stage, complicated character quests. These have multiple endings depending on player choice.
+
+ouruin_branch_quest
+	0: Branch has not been talked to
+	1: Branch has been talked to
+	2: Player has found the whaleman statue
+	3: Player has talked to Branch and received their reward. Quest complete
+
+ouruin_lloyd_quest
+	0: Lloyd has not been talked to
+	1: Lloyd has been talked to
+	2: Player has discussed Lloyd's job
+	3: Player has accepted Lloyd's job offer
+	4: Player has entered the warrens
+	5: Player has stolen Branch's notes and escaped
+	6: Lloyd has paid the player. Quest complete!
+
+ouruin_dart_quest
+	0: Dart has not been met
+	1: Dart has been met
+	2: Dart has told Ghost about entry
+	3: Dart has been challenged
+	4: Dart has been beaten. Quest complete!
+	5: Player has given drug money to Dart
+
+ouruin_beggar_quest
+	0: Beggar has not been met
+	1: Beggar has been met
+	2: Beggar has talked about Dart
+
+ouruin_dart_quest_valerian
+	0: Dart has not asked Ghost for valerian root
+	1: Dart has asked Ghost for valerian root
+	2: Ghost has acquired valerian root
+	3: Dart has been given valerian root
+
+ouruin_dart_duel
+	0: Ghost cannot challenge
+	1: Dart can be challenged
+	2: Duel is underway
+
+ouruin_gunk_quest
+	0: Player has not talked to the bloods
+	1: Player has met Gunk
+	2: Player has donated medicine
+	3: Player has told Patri about the bloods
+	4: Player and Patri has forced the bloods out, peacefully. Quest complete, -5 bond points
+	5: Player and Patri has forced the bloods out, with violence. Quest complete, -20 bond points
+
+	ouruin_gunk_bond_total
+		Total Gunk Bond points.
+
+	ouruin_gunk_bond_talk
+		Increases by the amount of times you talk to Gunk
+
+	ouruin_gunk_donated_petals
+		Counts the amount of petals Gunk has received.
+
+	ouruin_gunk_donate_offer
+		Amount of petals the player selects to donate.
+
+	ouruin_gunk_bond_petals
+		Increases bond points for every 50 petals. Maximum of +20 bond points
+
+	ouruin_gunk_donated_medicine
+		0: Player has not donated medicine
+		1: Player has donated medicine. Adds +15 bond points
+
+	ouruin_tarz_talk
+		0: Tarz doesn't want to talk
+		1: Tarz will relent
+		2: Tarz has relented
+		3: Player has returned to Tarz
+
+ouruin_patri_quest
+	0: Player has not met Patri
+	1: Player has met Patri
+	2: Patri has been talked to enough to offer quest
+	3: Player can tell Patri about Bloods
+	4: Player has completed Gunk's quest. Quest complete!
+	5: Player has told Patri about the Cinderbloods
+	6: Player has found Patri. Quest complete!
+
+	ouruin_patri_talked
+		Number of times player has talked to Patri.
+
+ouruin_market_visited
+	0: Market has not yet been visited
+	1: Market has been visited
+
+ouruin_forten_quest
+	0: Player has not talked to Forten
+	1: Player has permission to enter gaggle room
+	2: Player can confront Forten
+	3: Player has investigated Depot
+	4: Player can talk to Nedis and/or Forten. Quest complete!
+
+	ouruin_forten_met	
+	ouruin_forten_storytold
+
+ouruin_nedis_quest
+	0: Player has not met Nedis
+	1: Player is not taking part in any job
+	2: Player is taking part in a job
+	3: Player is ready to collect reward
+
+	ouruin_nedis_jobsdone
+
+	ouruin_job_weapondelivery
+		-1: Reward accepted. Job complete!
+		0: Job available
+		1: Job accepted, weapon with Ghost
+		2: Weapon delivered, reward ready
+	
+	ouruin_job_thoritz
+		-1: Reward accepted. Job complete!
+		0: Job not active
+		1: Job accepted, letter with Ghost
+		2: Letter delivered and Snakes encountered, reward ready
+	
+	ouruin_job_speakeasy
+		-1: Reward accepted. Job complete!
+		0: Job not active
+		1: Job accepted
+		2: Ghost is in the speakeasy
+		3: Job complete, reward ready
+
+		ouruin_job_speakeasy_suspicion
+			0: Members trust Ghost
+			1: Members don't suspect Ghost
+			2: Members are wary
+			3: Members are suspicious of Ghost
+			4: Members are certain Ghost is a double agent
+		
+		ouruin_job_speakeasy_kills
+
+		ouruin_job_speakeasy_ratty
+			0: Unseen
+			1: Traces have been found
+			2: Ratty has been found, and let go
+			3: Ratty has been found, and revealed
+			4: Ratty has been found, and killed
+			5: Ratty has been found, and interrogated
+
+ouruin_ratty_quest
+	0: Player has not met Ratty
+	1: Player has met Ratty
+	2: Player has talked to Ratty
+
+	ouruin_ratty_bond
+
+
+ouruin_gateguards_met
+
+ouruin_gateguards_access
+
+ouruin_gateguards_ambushed
+
+ouruin_gateguards_fight
+	0: Not challenged
+	1: Fight in progress
+	2: Fight lost
+	3: Fight won
+	4: Fight abandoned
+
+ouruin_gateguards_fleed
+
+-- Dialogue
+Multi-stage dialogues/character quests. These are minor and require no player input beyond talking to the same characters multiple times.
+
+ouruin_talk_red
+	0: Red has not been talked to once
+	1: Player has returned from a different level once
+	2: Player has returned from a different level twice
+	3: Quest complete
+
+
+== MARKET
+Variables for the black market.
+
+ouruin_current_selected
+	Dictates which item the player is closest to
+
+ouruin_shop_jobaccepted
+	Last job accepted.
+
+ouruin_charms_inspected
+	Whether Ghost has looked at Nedis' bone charms
+
+ouruin_nedis_talked
+	Amount of times Nedis has been talked to
+
+ouruin_shop_indialogue
+	Whether Ghost is currently in dialogue or not
+
+-- Shop
+	0: Unbought
+	1: Bought
+	2: Equipped
+	3: Expended
+
+ouruin_shop_shortsword
+ouruin_shop_broadsword
+ouruin_shop_knife
+ouruin_shop_throwing
+ouruin_shop_spear
+ouruin_shop_staff
+ouruin_shop_sparrow
+ouruin_shop_talisman
+ouruin_shop_tonic
+ouruin_shop_armor
+
+
+
+== DONATAS FIGHT
+
+ouruin_lvl2_fire
+	Current phase of the fire engulfing the room
+
+ouruin_lvl2_fightphase
+	0: Phase 1
+	1: Phase 2
+	2: Phase 3
+	3: Finale
+
+ouruin_lvl2_lastwin
+	ghost
+	donatas
+
+
+
+== DIALOGUE
+Each variable is based off the dialogue file's name
+	0: Not talked to
+	1: Talked to
+
+-- Explore
+TBD

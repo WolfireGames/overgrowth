@@ -1,0 +1,17 @@
+#name "Investigate-FarStatue"
+#participants 2
+send_character_message 1 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 1 "set_eye_dir -0.779736 22.4751 -22.461 1"
+send_character_message 1 "set_head_target -0.994486 23.1425 -22.3208 1"
+set_cam -2.26107 29.9325 -30.6727 -39.07 -158 -3.28 67.2704
+set_character_pos 1 -0.421988 27.6187 -28.9632 -104
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+send_level_message "phase1_begin"
+send_level_message "investigated"
+say 3 "Ghost" "(Down there is where Bijou and I sleep... [wait 0.15]I should get down there and look for her."
+send_character_message 1 "set_eye_dir -0.971823 27.3491 -28.9269 0.646934"
+send_character_message 1 "set_head_target -2.15975 26.8375 -27.7257 1"
+say 3 "Ghost" "(I hope she's alright...)"

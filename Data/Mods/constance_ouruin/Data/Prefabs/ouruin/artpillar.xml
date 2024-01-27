@@ -1,0 +1,79 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-55.3511" t1="-5.61402" t2="-104.861" s0="3.19409" s1="12.0684" s2="3.1941" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12704" version="1">
+        <parameters />
+        <Decal t0="-55.3394" t1="-4.17009" t2="-103.587" s0="0.469598" s1="0.0317812" s2="0.513957" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="9430" type_file="Data/Objects/Decals/runes/rune_mountain.xml" color_r="0.258824" color_g="0.502976" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3432" t1="-3.20224" t2="-103.598" s0="0.99066" s1="0.154659" s2="0.902342" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="11618" type_file="Data/Objects/Decals/runes/rune_sun.xml" color_r="1" color_g="0.999998" color_b="0.99999" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3194" t1="-2.16053" t2="-103.876" s0="1.5" s1="0.898314" s2="1.5" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="11950" type_file="Data/Objects/Decals/runes/rune_rain.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3208" t1="-2.27564" t2="-103.923" s0="1.56027" s1="0.982704" s2="1.74859" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="12066" type_file="Data/Objects/Decals/runes/rune_rain.xml" color_r="0.258824" color_g="0.468097" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.4507" t1="-1.03041" t2="-103.772" s0="1.26613" s1="0.905505" s2="1.63703" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="12068" type_file="Data/Objects/Decals/runes/rune_clouds.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.2672" t1="-8.8102" t2="-103.846" s0="1.43031" s1="0.887966" s2="1.29392" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="12108" type_file="Data/Objects/Decals/runes/rune_tree.xml" color_r="0.388235" color_g="0.0380623" color_b="0.0380623" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3672" t1="-5.14924" t2="-103.629" s0="1.5" s1="0.139156" s2="1.5" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="12527" type_file="Data/Objects/Decals/runes/rune_hill.xml" color_r="0.607843" color_g="0.510111" color_b="0.119185" overbright="0">
+            <parameters />
+        </Decal>
+        <EnvObject t0="-55.3511" t1="-5.61403" t2="-104.861" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12577" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/architecture/OuruinPillar.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="-54.973" t1="-4.43376" t2="-103.587" s0="0.913693" s1="0.0618363" s2="1" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="12586" type_file="Data/Objects/Decals/runes/rune_mountain.xml" color_r="0.258824" color_g="0.3809" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3418" t1="-7.4842" t2="-103.884" s0="1.44535" s1="0.827683" s2="1.44535" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="12588" type_file="Data/Objects/Decals/runes/rune_stone.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.7081" t1="-4.43377" t2="-103.587" s0="0.913693" s1="0.0618363" s2="1" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="12600" type_file="Data/Objects/Decals/runes/rune_mountain.xml" color_r="0.258824" color_g="0.3809" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3455" t1="-3.2343" t2="-103.598" s0="1.30413" s1="0.187536" s2="1.10822" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="12707" type_file="Data/Objects/Decals/runes/rune_sun.xml" color_r="1" color_g="0.8" color_b="0" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3273" t1="-4.25185" t2="-103.575" s0="1.49454" s1="0.534768" s2="0.534768" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="12708" type_file="Data/Objects/Decals/runes/rune_wind.xml" color_r="0.32549" color_g="0.325487" color_b="0.325487" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.1628" t1="-0.870681" t2="-103.772" s0="-1.26613" s1="0.905505" s2="1.63703" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="12700" type_file="Data/Objects/Decals/runes/rune_clouds.xml" color_r="0.396078" color_g="0.396074" color_b="0.396074" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3605" t1="-5.38139" t2="-103.547" s0="0.776295" s1="0.0780378" s2="0.776295" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="9342" type_file="Data/Objects/Decals/signs/design_lock.xml" color_r="0.138347" color_g="0.678431" color_b="0.138347" overbright="0">
+            <parameters />
+        </Decal>
+        <Group t0="-55.353" t1="-6.24163" t2="-103.579" s0="1.79348" s1="1.2583" s2="0.189489" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12701" version="1">
+            <parameters />
+            <Decal t0="-55.817" t1="-6.04523" t2="-103.586" s0="0.855512" s1="0.165359" s2="0.855512" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="12541" type_file="Data/Objects/Decals/runes/rune_crete.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-55.4652" t1="-6.43645" t2="-103.572" s0="0.855512" s1="0.165359" s2="-0.855512" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="12585" type_file="Data/Objects/Decals/runes/rune_crete.xml" color_r="0.298039" color_g="0.298036" color_b="0.298036" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-54.8891" t1="-6.04523" t2="-103.586" s0="-0.855512" s1="0.165359" s2="0.855512" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="12628" type_file="Data/Objects/Decals/runes/rune_crete.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-55.2378" t1="-6.43802" t2="-103.586" s0="-0.855512" s1="0.165359" s2="-0.855512" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="12715" type_file="Data/Objects/Decals/runes/rune_crete.xml" color_r="0.298039" color_g="0.298036" color_b="0.298036" overbright="0">
+                <parameters />
+            </Decal>
+        </Group>
+        <Decal t0="-55.3171" t1="-8.79407" t2="-103.798" s0="1.08128" s1="0.704719" s2="1.31391" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="12716" type_file="Data/Objects/Decals/runes/rune_lake.xml" color_r="0.168627" color_g="0.00529027" color_b="0.00529027" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.3277" t1="-7.47658" t2="-103.897" s0="-1.628" s1="0.983548" s2="1.6276" q0="0.706297" q1="0.0338387" q2="0.0338389" q3="0.706297" euler_x="1.5708" euler_y="0" euler_z="0.0957472" id="12116" type_file="Data/Objects/Decals/runes/rune_stone.xml" color_r="0.607843" color_g="0.510111" color_b="0.119185" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-55.8285" t1="-6.83712" t2="-103.586" s0="0.855512" s1="0.165359" s2="0.855512" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="12076" type_file="Data/Objects/Decals/runes/rune_crete.xml" color_r="0.0558708" color_g="0.187707" color_b="0.678431" overbright="0">
+            <parameters />
+        </Decal>
+        <Decal t0="-54.8685" t1="-6.83712" t2="-103.586" s0="-0.856" s1="0.165359" s2="0.855512" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="9344" type_file="Data/Objects/Decals/runes/rune_crete.xml" color_r="0.0558708" color_g="0.187707" color_b="0.678431" overbright="0">
+            <parameters />
+        </Decal>
+    </Group>
+</ActorObjects>

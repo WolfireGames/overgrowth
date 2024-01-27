@@ -1,0 +1,55 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="0.948477" t1="2.55429" t2="9.77746" s0="1.15363" s1="3.02564" s2="1.93029" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1630" version="1">
+        <parameters />
+        <EnvObject t0="0.72125" t1="1.1192" t2="9.79207" s0="0.792939" s1="1" s2="0.789739" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="82" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_flagstone.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.982329" t1="2.9395" t2="9.77746" s0="3.1271" s1="3.1271" s2="3.1271" q0="0" q1="-0.832539" q2="0.553966" q3="0" euler_x="-1.96735" euler_y="0" euler_z="3.14159" id="83" color_r="0.399785" color_g="0.408666" color_b="0.52549" overbright="0" type_file="Data/Objects/Buildings/DrainSpout1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.21374" t1="1.19098" t2="9.0081" s0="1" s1="1" s2="1" q0="0" q1="-0.089512" q2="0" q3="0.995986" euler_x="0" euler_y="-0.179264" euler_z="0" id="103" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.68284" t1="1.18955" t2="9.02094" s0="1" s1="1" s2="1" q0="0" q1="0.0867142" q2="0" q3="0.996233" euler_x="0" euler_y="0.173646" euler_z="0" id="104" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.21377" t1="2.17094" t2="9.00812" s0="1" s1="1" s2="1" q0="0" q1="-0.089512" q2="0" q3="0.995986" euler_x="0" euler_y="-0.179264" euler_z="0" id="105" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.682867" t1="2.16951" t2="9.02096" s0="1" s1="1" s2="1" q0="0" q1="0.0867142" q2="0" q3="0.996233" euler_x="0" euler_y="0.173646" euler_z="0" id="106" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.721248" t1="1.1192" t2="9.31167" s0="0.792939" s1="1" s2="0.787724" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="107" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_flagstone.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.20337" t1="1.1192" t2="9.79269" s0="0.792939" s1="1" s2="0.787724" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="108" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_flagstone.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.20337" t1="1.1192" t2="9.31229" s0="0.792939" s1="1" s2="0.789739" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="109" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_flagstone.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.37518" t1="1.16019" t2="9.533" s0="1.42719" s1="1" s2="1" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="110" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.559607" t1="1.16019" t2="9.533" s0="1.42719" s1="1" s2="1" q0="0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="111" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.35199" t1="1.47715" t2="9.0168" s0="1.41488" s1="1" s2="1.22446" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="114" color_r="0.364706" color_g="0.344969" color_b="0.331811" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_floor_brick.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.35242" t1="1.88024" t2="9.01692" s0="1.41488" s1="1" s2="1.24189" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="115" color_r="0.364706" color_g="0.344969" color_b="0.331811" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_floor_brick.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.566895" t1="1.47715" t2="9.0168" s0="1.41488" s1="1" s2="1.22446" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="116" color_r="0.364706" color_g="0.344969" color_b="0.331811" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_floor_brick.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.567327" t1="1.88024" t2="9.01692" s0="1.41488" s1="1" s2="1.24189" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="117" color_r="0.364706" color_g="0.344969" color_b="0.331811" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_floor_brick.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="0.96833" t1="1.18516" t2="9.53046" s0="1.28493" s1="0.645464" s2="1.03834" q0="0" q1="-0.991519" q2="0" q3="0.129961" euler_x="3.14159" euler_y="-0.260659" euler_z="3.14159" id="127" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/fire_ash.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

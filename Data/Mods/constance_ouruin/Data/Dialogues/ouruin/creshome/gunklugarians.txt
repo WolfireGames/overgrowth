@@ -1,0 +1,59 @@
+#name "GunkLugarians"
+#participants 5
+set_cam 4.22087 1.75687 18.874 0 -75.23 0 38.0865
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 5.43345 1.70114 18.6153 1"
+send_character_message 2 "set_eye_dir 5.37405 1.82581 18.5515 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.92483 1.36319 18.3585 1"
+send_character_message 1 "set_eye_dir 3.92091 2.2176 17.9325 1"
+send_character_message 1 "set_head_target 3.7306 1.61936 18.1422 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 1 "Ghost" "You said something about Lugaru? [wait 0.2]What does Lugaru have to do with any of this?"
+send_character_message 2 "set_eye_dir 5.21444 3.17377 16.865 1"
+send_character_message 2 "set_torso_target 4.65504 1.67467 18.0695 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 5.7978 2.36892 16.6804 1"
+set_cam 5.46041 1.78446 18.8511 0 62.37 0 34.109
+say 2 "Gunk" "Long ago, [wait 0.1]we called ourselves the Cinderbreathe people. [wait 0.2]The first people to have visited our land were dogs, [wait 0.1]hailing from the east."
+send_character_message 2 "set_eye_dir 4.75233 2.52198 19.5699 1"
+send_character_message 2 "set_torso_target 4.70844 1.51054 18.1592 0.991264"
+send_character_message 2 "set_head_target 5.97008 1.86262 16.9693 1"
+say 2 "Gunk" "Our second round of visitors were the lugarians. [wait 0.2]We accepted them like we did the dogs, [wait 0.1]and bid them shelter in the harsh snow."
+send_character_message 2 "set_torso_target 4.70844 1.51054 18.1592 0"
+send_character_message 2 "set_head_target 5.59423 1.50986 17.8955 1"
+send_character_message 2 "set_eye_dir 3.28663 2.45069 19.8648 0.623398"
+say 2 "Gunk" "Then, [wait 0.1]they overpowered us. [wait 0.3]Outnumbered us. [wait 0.2]Their numbers kept growing, [wait 0.1]until the whole Cinderbreathe was more them than us."
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross_hand.anm\""
+send_character_message 2 "set_eye_dir 5.45574 1.89698 18.6938 1"
+send_character_message 2 "set_head_target 5.34661 1.84011 18.2042 1"
+say 2 "Gunk" "The line had already been drawn when they pushed us downhill and consigned us to servitude... [wait 0.3]Now, [wait 0.1]we work to erase that line completely."
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 5.30147 1.98627 18.3285 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_head_target 4.30334 1.52443 17.0642 1"
+send_character_message 1 "set_torso_target 4.92485 1.36318 18.3585 0"
+set_cam 2.31837 1.7252 18.2711 0 -82.39 0 46.2326
+say 1 "Ghost" "Only question is how you'll go about doing it."
+send_character_message 1 "set_eye_dir 3.79054 1.77849 17.9866 0.955008"
+send_character_message 1 "set_head_target 4.22008 1.72971 17.0797 1"
+send_character_message 2 "set_torso_target 4.65649 1.4139 18.2876 1"
+send_character_message 2 "set_eye_dir 3.70357 1.1199 19.2859 1"
+send_character_message 2 "set_head_target 4.82118 1.71192 19.0477 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_sigh.anm\""
+say 2 "Gunk" "I only wish for as little death as possible. [wait 0.2]There are better ways to equalize than to rot in the same earth."
+send_level_message "dialogue_done"

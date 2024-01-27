@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<Object>
+	    <Model>Data/Models/therium/ouruin/Moss1.obj</Model>
+		<ColorMap>Data/Textures/ouruin/Moss1_D.tga</ColorMap>
+		<NormalMap>Data/Textures/ouruin/Moss1_N.tga</NormalMap>
+	<TranslucencyMap>Data/Textures/ouruin/Moss1_translucency.tga</TranslucencyMap>
+	<WindMap>Data/Textures/ouruin/Moss1_translucency.tga</WindMap>
+	<ShaderName>plant</ShaderName>
+    <avg_color r="65" g="104" b="65"/>
+	<flags no_collision = "true"/>
+</Object>

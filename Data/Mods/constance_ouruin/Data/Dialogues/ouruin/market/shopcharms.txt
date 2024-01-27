@@ -1,0 +1,51 @@
+#name "ShopCharms"
+#participants 3
+set_character_pos 2 29.693 -46.6161 5.3928 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_torso_target 30.1136 -46.0106 4.81295 0"
+send_character_message 2 "set_head_target 30.202 -45.8488 3.42393 1"
+send_character_message 1 "set_animation \"Data/Animations/ghost_thoughtful_smooth.anm\""
+set_cam 27.9182 -46.2564 1.30375 11.25 -159.88 -0.29 44.5257
+set_character_pos 1 28.2695 -46.6309 2.72 90
+send_character_message 1 "set_eye_dir 27.6727 -46.2512 1.94287 0.601623"
+send_character_message 1 "set_torso_target 28.6973 -46.1769 2.22175 0.228924"
+send_character_message 1 "set_head_target 28.563 -45.8528 2.0793 0.751282"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+say 1 "Ghost" "What's up with this, [wait 0.1]uh... [wait 0.15]Jewelry?"
+send_character_message 1 "set_torso_target 28.6973 -46.1769 2.22175 0"
+send_character_message 1 "set_eye_dir 29.6161 -45.5467 2.39403 1"
+send_character_message 1 "set_head_target 28.9114 -45.7355 1.86271 1"
+send_character_message 2 "set_head_target 29.4146 -46.3108 2.99033 1"
+say 2 "Nedis" "Not quite. [wait 0.15]Those there are bone charms!"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 29.5472 -45.793 4.80269 1"
+send_character_message 1 "set_head_target 28.8903 -45.9267 3.99237 1"
+set_character_pos 1 28.7192 -46.6309 2.74674 -60
+set_cam 30.0621 -45.8631 3.51212 0 163.78 0 49.1582
+send_character_message 2 "set_head_target 30.6985 -45.8656 3.08577 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_gesture.anm\""
+say 2 "Nedis" "Well, [wait 0.1]usually bone... [wait 0.2]Sometimes, [wait 0.05]certain types of crete can do the trick, [wait 0.05]too... [wait 0.1]Not sure why."
+set_character_pos 1 28.7192 -46.6309 2.74674 -120
+send_character_message 1 "set_eye_dir 29.6858 -45.6621 4.79235 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 30.019 -46.2002 3.03151 1"
+set_cam 30.65 -45.5155 6.01504 -9.51 35.07 -1.15 27.2292
+say 1 "Ghost" "Ain't that stuff just nothin' but old tales spun by hermits and crazies?"
+send_character_message 2 "set_eye_dir 29.5402 -45.0522 5.67027 0.535197"
+send_character_message 2 "set_head_target 31.7807 -45.4216 3.5218 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
+send_character_message 1 "set_eye_dir 29.7717 -45.8706 4.80401 0.823515"
+send_character_message 1 "set_head_target 28.8075 -45.7987 4.05516 1"
+send_character_message 1 "set_torso_target 28.0004 -46.0079 3.62398 1"
+say 2 "Nedis" "I thought the same thing for a long, [wait 0.1]long time... [wait 0.2]Let's just say an open mind can give way to anything."
+send_character_message 1 "set_eye_dir 30.1751 -46.1977 3.10524 1"
+send_character_message 1 "set_head_target 28.9997 -45.9856 4.33053 1"
+send_character_message 1 "set_torso_target 29.1289 -46.0632 3.78607 0"
+send_character_message 2 "set_head_target 29.8717 -46.0664 3.40323 1"
+send_character_message 2 "set_eye_dir 29.5402 -45.0522 5.67027 1"
+say 2 "Nedis" "Believe it, [wait 0.1]don't believe it, [wait 0.1]I don't care. [wait 0.2]If you don't buy these, [wait 0.1]I'll keep usin' them... [wait 0.1]It's a win-win for me, [wait 0.05]heh."
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_wait.anm\""
+send_level_message "dialogue_done"

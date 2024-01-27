@@ -1,0 +1,90 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-6.34418" t1="-12.0824" t2="-348.386" s0="1.93486" s1="1.25769" s2="0.945059" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8516" version="1">
+        <parameters />
+        <Group t0="-6.34418" t1="-12.4197" t2="-348.386" s0="1.92486" s1="0.572981" s2="0.935049" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8116" version="1">
+            <parameters />
+            <EnvObject t0="-6.34418" t1="-12.4441" t2="-348.386" s0="0.462526" s1="0.257183" s2="0.957427" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7619" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+                <parameters />
+            </EnvObject>
+            <Group t0="-6.39738" t1="-12.1734" t2="-348.392" s0="1.75651" s1="0.0702951" s2="0.872396" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8112" version="1">
+                <parameters />
+                <ItemObject name="Ghost Shortsword Item" t0="-6.83838" t1="-12.1812" t2="-348.232" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="8106" type_file="Data/Items/cinderbreathe_weapons/cinderbreathesword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                    <parameters />
+                </ItemObject>
+                <ItemObject name="Ghost Broadsword Item" t0="-6.73888" t1="-12.1778" t2="-348.536" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="8107" type_file="Data/Items/cinderbreathe_weapons/cinderbreathebroadsword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                    <parameters />
+                </ItemObject>
+                <ItemObject name="Ghost Spear Item" t0="-6.44738" t1="-12.17" t2="-348.687" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="8108" type_file="Data/Items/cinderbreathe_weapons/cinderbreathespear.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                    <parameters />
+                </ItemObject>
+                <ItemObject name="Ghost Knife Item" t0="-7.02578" t1="-12.1716" t2="-348.367" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="8109" type_file="Data/Items/cinderbreathe_weapons/cinderbreatheknife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                    <parameters />
+                </ItemObject>
+                <ItemObject name="Ghost Throwing Item" t0="-7.02428" t1="-12.1762" t2="-348.061" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="8110" type_file="Data/Items/rabbit_weapons/rabbit_throwing_knife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                    <parameters />
+                </ItemObject>
+                <ItemObject name="Ghost Staff Item" t0="-6.39738" t1="-12.1689" t2="-348.798" s0="1.00014" s1="1.00014" s2="1.00014" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="8111" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                    <parameters />
+                </ItemObject>
+            </Group>
+        </Group>
+        <ActorObject name="Ghost Doll" t0="-5.79237" t1="-11.7549" t2="-348.222" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="8119" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="0">
+            <parameters>
+                <parameter name="Aggression" type="float" val="0.5" />
+                <parameter name="Attack Damage" type="float" val="1" />
+                <parameter name="Attack Knockback" type="float" val="1" />
+                <parameter name="Attack Speed" type="float" val="1" />
+                <parameter name="Block Follow-up" type="float" val="0.5" />
+                <parameter name="Block Skill" type="float" val="0.5" />
+                <parameter name="Cannot Be Disarmed" type="int" val="0" />
+                <parameter name="Character Scale" type="float" val="0.3" />
+                <parameter name="Damage Resistance" type="float" val="1" />
+                <parameter name="Ear Size" type="float" val="1" />
+                <parameter name="Fall Damage Multiplier" type="float" val="1" />
+                <parameter name="Fat" type="float" val="0.5" />
+                <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+                <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+                <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+                <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+                <parameter name="Focus FOV distance" type="float" val="100" />
+                <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+                <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+                <parameter name="Ground Aggression" type="float" val="0.5" />
+                <parameter name="Jump - Air Control" type="float" val="3" />
+                <parameter name="Jump - Initial Velocity" type="float" val="5" />
+                <parameter name="Jump - Jump Sustain" type="float" val="5" />
+                <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+                <parameter name="Knockout Shield" type="int" val="0" />
+                <parameter name="Left handed" type="int" val="0" />
+                <parameter name="Movement Speed" type="float" val="1" />
+                <parameter name="Muscle" type="float" val="0.5" />
+                <parameter name="No Look Around" type="int" val="1" />
+                <parameter name="Peripheral FOV distance" type="float" val="4" />
+                <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+                <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+                <parameter name="Species" type="string" val="rabbit" />
+                <parameter name="Static" type="int" val="1" />
+                <parameter name="Stick To Nav Mesh" type="int" val="0" />
+                <parameter name="Teams" type="string" val="player, Ghost" />
+                <parameter name="Throw Counter Probability" type="float" val="0.4" />
+                <parameter name="Throw Trainer" type="int" val="0" />
+                <parameter name="Weapon Catch Skill" type="float" val="1" />
+                <parameter name="Wearing Metal Armor" type="int" val="0" />
+            </parameters>
+            <Connections>
+                <Connection id="-1" />
+            </Connections>
+            <ItemConnections />
+            <Palette />
+        </ActorObject>
+        <PathPointObject t0="-5.73067" t1="-12.2078" t2="-348.219" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="8120" type_file="">
+            <parameters>
+                <parameter name="Type" type="string" val="Stand" />
+                <parameter name="Wait" type="float" val="0" />
+            </parameters>
+            <Connections />
+        </PathPointObject>
+    </Group>
+</ActorObjects>

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Environments/Rocks/BlockyStone.obj</Model>
+	<ColorMap>Data/Textures/Environments/Rocks/BlockyStone_Color.tga</ColorMap>
+	<NormalMap>Data/Textures/Environments/Rocks/BlockyStone_normal.tga</NormalMap>
+	<WeightMap>Data/Textures/Environments/Rocks/blocky_stone_w.tga</WeightMap>
+	
+   <DetailMaps>
+	<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/layered_rock.tga" normalpath="Data/Textures/Terrain/DetailTextures/layered_rock_normal.tga" materialpath="Data/Materials/rocks.xml" /> 
+   	<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/chipped_rock.tga" normalpath="Data/Textures/Terrain/DetailTextures/layered_rock_normal.tga" materialpath="Data/Materials/rocks.xml" />
+	<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/gray_rock.tga" normalpath="Data/Textures/Terrain/DetailTextures/gray_rock_normal.tga" materialpath="Data/Materials/rocks.xml" /> 
+	<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/dead_grass.tga" normalpath="Data/Textures/Terrain/DetailTextures/dead_grass_normal.tga" materialpath="Data/Materials/rocks.xml" />
+    	    
+</DetailMaps>
+
+	<ShaderName>detailmap4</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

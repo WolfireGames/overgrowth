@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Custom/RagdollZombie/Gunk/Models/Gear/Bandages/Bandage_Strip_1.obj</Model>
+	<ColorMap>Data/Custom/RagdollZombie/Gunk/Textures/Gear/Bandages/Bandages_Bloody_Diffuse.tga</ColorMap>
+	<NormalMap>Data/Custom/RagdollZombie/Gunk/Textures/Gear/Bandages/Bandages_Normals.tga</NormalMap>
+	<ShaderName>cubemapobjchar</ShaderName>
+</Object>

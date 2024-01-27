@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/shops/shop_tarp.obj</Model>
+	<ColorMap>Data/Textures/Buildings/shops/tarp_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Buildings/shops/tarp_n.tga</NormalMap>
+    <MaterialPath>Data/Materials/wood.xml</MaterialPath>
+	<ShaderName>cubemapobj</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

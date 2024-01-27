@@ -1,0 +1,16 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="205.088" t1="-40.1022" t2="-133.524" s0="2.31371" s1="2.07326" s2="1.79665" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="16128" version="1">
+        <parameters />
+        <EnvObject t0="204.531" t1="-40.5227" t2="-133.524" s0="1.27338" s1="1.23927" s2="1.23927" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="16382" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="204.551" t1="-39.6109" t2="-133.513" s0="1.23927" s1="1.23927" s2="1.23927" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="16385" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="205.644" t1="-40.5934" t2="-133.521" s0="1.23927" s1="1.23927" s2="1.23927" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="16386" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Stairs1.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/box.obj</Model>
+	<ColorMap>Data/Textures/cpathfloor_c.tga</ColorMap>
+	<NormalMap>Data/Textures/cpathfloor_n.tga</NormalMap>
+	<WeightMap>Data/Textures/cpathfloor_w.tga</WeightMap>
+    <DetailMaps>
+		<DetailMap colorpath="Data/Textures/Buildings/detail_textures/smooth_rock_c.tga" normalpath="Data/Textures/Buildings/detail_textures/smooth_rock_n.tga" materialpath="Data/Materials/rocks.xml"/>
+        <DetailMap colorpath="Data/Textures/Buildings/detail_textures/messy_brick_c.tga" normalpath="Data/Textures/Buildings/detail_textures/messy_brick_n.tga" materialpath="Data/Materials/rocks.xml"/>
+		<DetailMap colorpath="Data/Textures/Buildings/detail_textures/cat_cobbles_c.tga" normalpath="Data/Textures/Buildings/detail_textures/cat_cobbles_n.tga" materialpath="Data/Materials/rocks.xml"/>
+		<DetailMap colorpath="Data/Textures/Buildings/detail_textures/small_ornamentation_c.tga" normalpath="Data/Textures/Buildings/detail_textures/small_ornamentation_n.tga" materialpath="Data/Materials/rocks.xml"/>
+    </DetailMaps>
+	<DetailObjects>
+       	<DetailObject obj_path="Data/Objects/Environment/LitterLoads/StoneBlockDetail.xml" weight_path="Data/Textures/ouruin/cpathfloor_bricks.tga" normal_conform="1" density="0.025" min_embed="0.05" max_embed="0.2" min_scale="0.7" max_scale="0.9" view_distance="35" jitter_degrees="2" overbright="0.5" />
+   	</DetailObjects>
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #BASE_TANGENT #KEEP_SPEC</ShaderName>
+</Object>

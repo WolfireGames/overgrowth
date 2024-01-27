@@ -1,0 +1,29 @@
+#name "DartAskCondensed"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+set_character_pos 2 -33.5393 -40.7371 -64.9707 0
+set_character_pos 1 -30.2524 -40.5866 -64.8993 -180
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_torso_target -29.3845 -40.0883 -64.6678 0"
+send_character_message 1 "set_eye_dir -33.3949 -39.6933 -65.0243 1"
+send_character_message 1 "set_head_target -33.437 -39.7979 -64.8704 1"
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0.746146"
+send_character_message 2 "set_animation \"Data/Animations/dart_crosshand.anm\""
+send_character_message 2 "set_head_target -30.3992 -39.9827 -64.9382 1"
+send_character_message 2 "set_morph_target afraid 0.15 0.2 outExpo"
+send_level_message "set_camera_dof 0.3 5.0 3.0 0.5 7.0 1.5"
+set_cam -27.31 -39.5999 -65.3647 -3.36 96.23 0.11 11.7023
+say 2 "Dart" "I'll only let you through if you bring me some valerian root. [wait 0.2]Surely you can find some around this dump of a city..."
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 1"
+send_character_message 2 "set_head_target -30.4375 -39.8212 -64.9047 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+send_character_message 2 "set_morph_target sad 0.0 0.3 outExpo"
+send_character_message 2 "set_morph_target afraid 0 0.3 outExpo"
+say 1 "Ghost" "Alright... [wait 0.2]I'll think about it."
+send_level_message "dart_choices"

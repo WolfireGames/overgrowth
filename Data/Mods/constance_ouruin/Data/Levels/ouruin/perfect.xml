@@ -1,0 +1,631 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>perfect</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.121363" r1="0.062051" r2="0.990667" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-0.772328" t1="76.0881" t2="37.0516" s0="1" s1="1" s2="1" q0="0.00772658" q1="0.754066" q2="-0.656693" q3="0.00887224" euler_x="-1.70862" euler_y="0.0235307" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="-2.35474" t1="0.000328064" t2="41.869" s0="214.121" s1="0.999992" s2="195.523" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="3.26806" t1="3.49614" t2="-0.0680289" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="2" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="0.100213" t1="1.43486" t2="-1.27765" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" type_file="Data/Objects/therium/IGF_Characters/ghostspawn.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="3" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="-0.90388" t1="3.49626" t2="-5.90286" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="2.76807" t1="3.49619" t2="8.51207" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-2.52599" t1="3.4963" t2="8.5122" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="0.364345" t1="4.81044" t2="-2.71335" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" type_file="Data/Objects/Hotspots/fps_hotspot.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="2.76806" t1="3.49615" t2="17.1097" s0="1" s1="1" s2="1" q0="0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="9" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-2.526" t1="3.49626" t2="13.3908" s0="0.9995" s1="0.9995" s2="0.9995" q0="0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.02599" t1="3.49626" t2="-0.0678992" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="13" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="13.9929" t1="3.49634" t2="19.9765" s0="1" s1="1" s2="1" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="15" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="12.6102" t1="3.49634" t2="25.1081" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="17" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="19.9829" t1="3.49626" t2="20.3341" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="18" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="18.785" t1="3.49634" t2="28.0737" s0="1" s1="1" s2="1" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.1711" t1="3.49627" t2="32.2328" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="21" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.5403" t1="1.78968" t2="29.9384" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.5403" t1="1.78968" t2="32.1062" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0.15586" euler_y="1.56976" euler_z="-0.15586" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="17.0698" t1="3.49634" t2="33.4713" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-5.09077" t1="3.49631" t2="31.1449" s0="1" s1="1" s2="1" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-9.82115" t1="3.49601" t2="29.3027" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-11.136" t1="3.49619" t2="20.3863" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-5.11974" t1="3.49627" t2="16.007" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="29" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-2.52599" t1="3.49626" t2="23.7225" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="30" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.3722" t1="3.49628" t2="19.6938" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="31" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.3722" t1="3.49628" t2="24.8253" s0="1" s1="1" s2="1" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="32" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.67284" t1="3.49601" t2="22.0569" s0="1" s1="1" s2="1" q0="0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="33" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="20.5001" t1="3.49719" t2="45.4778" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="35" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="15.6017" t1="1.78968" t2="38.8673" s0="1" s1="1" s2="1" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="0.28195" euler_y="1.5697" euler_z="-0.368572" id="37" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="22.9924" t1="1.78358" t2="36.0801" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="39" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="22.2254" t1="1.78925" t2="36.8833" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0.0853131" euler_y="1.5696" euler_z="-0.0853131" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="23.8549" t1="3.31533" t2="42.8925" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="0.707106" euler_x="0" euler_y="0" euler_z="1.5708" id="43" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="32.4608" t1="3.31532" t2="42.8925" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707106" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="45" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-14.6074" t1="3.49619" t2="21.5695" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-17.6358" t1="3.49634" t2="26.3927" s0="1" s1="1" s2="1" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="47" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-12.8953" t1="1.78941" t2="30.5202" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0.15586" euler_y="1.56976" euler_z="-0.15586" id="48" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-19.6417" t1="1.78928" t2="32.0364" s0="1.06336" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-13.6406" t1="3.49636" t2="36.5049" s0="1" s1="1" s2="0.666667" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="50" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-18.7434" t1="1.78935" t2="35.336" s0="1" s1="1" s2="1" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="51" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-2.5989" t1="1.78968" t2="38.7693" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="52" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-2.5989" t1="1.78968" t2="38.7001" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="0.707107" q3="0" euler_x="0.231477" euler_y="-1.56982" euler_z="0.15586" id="53" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-8.50892" t1="3.49636" t2="41.3193" s0="1" s1="1" s2="1" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="54" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="25.3769" t1="1.78968" t2="20.6539" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="55" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="25.1231" t1="3.49635" t2="15.1185" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="56" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.10011" t1="3.49723" t2="37.8593" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="57" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.17382" t1="1.78968" t2="39.4005" s0="1" s1="1" s2="1" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="58" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-1.68301" t1="1.78968" t2="32.0364" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-0.440511" euler_y="1.56982" euler_z="-0.440511" id="59" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-4.95619" t1="1.78968" t2="44.8305" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.444084" euler_y="-1.56982" euler_z="0.444084" id="60" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.741773" t1="1.78967" t2="44.5066" s0="1" s1="1" s2="1" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="61" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-1.68301" t1="1.78968" t2="32.0364" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="62" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="9.13676" t1="1.78968" t2="39.3782" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0.15586" euler_y="1.56976" euler_z="-0.15586" id="63" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.86759" t1="1.78968" t2="45.1107" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="64" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="14.5435" t1="1.78968" t2="37.4114" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="65" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="26.4274" t1="3.49619" t2="28.3344" s0="1" s1="1" s2="1" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="66" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="28.2092" t1="1.78954" t2="22.4477" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-0.440511" euler_y="1.56982" euler_z="-0.440511" id="67" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.98999" t1="1.78968" t2="31.7912" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-0.440511" euler_y="1.56982" euler_z="-0.440511" id="68" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-44.7401" t1="7.28042" t2="39.0327" s0="2.20036" s1="0.488497" s2="5.0625" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="69" color_r="1" color_g="0" color_b="0" overbright="7.187" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/pillar.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-5.91363" t1="1.78968" t2="50.1545" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.438863" t1="1.78969" t2="50.1614" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="-1.5697" euler_z="0" id="71" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="0.875346" t1="1.78965" t2="50.2409" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-3.14159" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="16.4689" t1="1.79013" t2="47.1057" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="73" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-12.6672" t1="3.49626" t2="50.4758" s0="1" s1="0.78133" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="7.37991" t1="1.78853" t2="52.0628" s0="1" s1="1" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="75" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.02896" t1="1.78958" t2="55.4744" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.218669" euler_y="-1.56976" euler_z="0.218669" id="76" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.857581" t1="1.78958" t2="55.7412" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-3.14159" id="77" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-15.7321" t1="3.49626" t2="43.0567" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="78" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-15.4234" t1="3.49609" t2="45.9359" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="-3.14159" id="79" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-14.2574" t1="3.20452" t2="36.4696" s0="0.779956" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0" euler_y="1.5697" euler_z="0" id="80" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.8668" t1="3.49653" t2="28.3173" s0="1" s1="1" s2="1" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="85" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-28.622" t1="3.49653" t2="51.0511" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707106" euler_x="0" euler_y="0" euler_z="-1.5708" id="86" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-39.4942" t1="3.49653" t2="28.3173" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707106" q3="0.707106" euler_x="0" euler_y="0" euler_z="1.5708" id="87" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-40.4267" t1="3.49653" t2="51.0511" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707106" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="88" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-19.7689" t1="3.2048" t2="39.4829" s0="11.9407" s1="8.75601" s2="20.6376" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="89" version="1">
+        <parameters />
+        <EnvObject t0="-18.1766" t1="3.49634" t2="35.9083" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707106" euler_x="0" euler_y="0" euler_z="-1.5708" id="81" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-18.1766" t1="3.49634" t2="43.057" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707106" euler_x="0" euler_y="0" euler_z="-1.5708" id="83" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9443" t1="3.2048" t2="31.6784" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0" euler_y="1.5697" euler_z="0" id="82" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-23.9443" t1="3.2048" t2="47.2873" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="-0.0853131" euler_y="-1.5696" euler_z="0.0853131" id="84" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-48.3129" t1="3.2048" t2="39.4829" s0="11.9407" s1="8.75601" s2="20.6376" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-3.14159" id="94" version="1">
+        <parameters />
+        <EnvObject t0="-49.9053" t1="3.49634" t2="43.0575" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707106" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="90" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-49.9053" t1="3.49634" t2="35.9087" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707106" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="91" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-44.1375" t1="3.2048" t2="47.2873" s0="1" s1="1" s2="1" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="-0.0296185" euler_y="-1.56976" euler_z="-0.0296185" id="92" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-44.1375" t1="3.2048" t2="31.6784" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0.0566774" euler_y="1.5696" euler_z="0.0566774" id="93" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-38.8369" t1="3.7855" t2="34.3628" s0="3.39568" s1="5.9126" s2="3.39568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="97" version="1">
+        <parameters />
+        <EnvObject t0="-38.8369" t1="3.7855" t2="34.3628" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0.153343" euler_y="-1.5696" euler_z="-0.153343" id="95" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.8369" t1="3.7855" t2="34.3628" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.999999" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="96" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-33.9885" t1="3.78587" t2="34.3628" s0="3.39568" s1="5.9126" s2="3.39568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" version="1">
+        <parameters />
+        <EnvObject t0="-33.9885" t1="3.78587" t2="34.3628" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0.153343" euler_y="-1.5696" euler_z="-0.153343" id="98" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-33.9885" t1="3.78587" t2="34.3628" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.999999" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="99" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-29.2399" t1="3.7855" t2="34.3628" s0="3.39568" s1="5.9126" s2="3.39568" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-3.14159" id="103" version="1">
+        <parameters />
+        <EnvObject t0="-29.2399" t1="3.7855" t2="34.3628" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-0.177089" euler_y="1.5696" euler_z="-0.177089" id="101" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-29.2399" t1="3.7855" t2="34.3628" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0" q2="0.999999" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="102" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-38.8369" t1="3.78551" t2="44.7455" s0="3.39568" s1="5.9126" s2="3.39568" q0="1" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="106" version="1">
+        <parameters />
+        <EnvObject t0="-38.8369" t1="3.78551" t2="44.7455" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="-0.177089" euler_y="1.5696" euler_z="0.177089" id="104" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-38.8369" t1="3.78551" t2="44.7455" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0" q2="0" q3="0.999999" euler_x="0" euler_y="0" euler_z="0" id="105" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-33.9885" t1="3.78588" t2="44.7455" s0="3.39568" s1="5.9126" s2="3.39568" q0="1" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="109" version="1">
+        <parameters />
+        <EnvObject t0="-33.9885" t1="3.78588" t2="44.7455" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="-0.177089" euler_y="1.5696" euler_z="0.177089" id="107" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-33.9885" t1="3.78588" t2="44.7455" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0" q2="0" q3="0.999999" euler_x="0" euler_y="0" euler_z="0" id="108" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-29.2399" t1="3.78551" t2="44.7455" s0="3.39568" s1="5.9126" s2="3.39568" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="112" version="1">
+        <parameters />
+        <EnvObject t0="-29.2399" t1="3.78551" t2="44.7455" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0.229404" euler_y="-1.5697" euler_z="0.30184" id="110" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-29.2399" t1="3.78551" t2="44.7455" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="-0.999999" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-3.14159" id="111" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-31.5951" t1="3.49716" t2="52.3191" s0="1" s1="1" s2="1" q0="0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="113" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-36.4605" t1="3.49716" t2="52.3191" s0="1" s1="1" s2="1" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="114" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-31.5951" t1="3.49712" t2="27.0026" s0="1" s1="1" s2="1" q0="0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="115" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-36.4605" t1="3.49712" t2="27.0026" s0="1" s1="1" s2="1" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="116" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-28.6578" t1="3.78557" t2="39.4971" s0="9.40792" s1="5.91585" s2="3.5899" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="123" version="1">
+        <parameters />
+        <EnvObject t0="-28.6674" t1="3.49631" t2="39.4971" s0="1" s1="1" s2="1" q0="-0.707107" q1="-0.707106" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="117" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-31.6623" t1="3.78557" t2="39.5564" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="120" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-25.6533" t1="3.78556" t2="39.5564" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="121" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-39.4278" t1="3.78554" t2="39.4971" s0="9.45871" s1="5.91588" s2="3.5899" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="124" version="1">
+        <parameters />
+        <EnvObject t0="-39.3736" t1="3.49631" t2="39.4971" s0="1" s1="1" s2="1" q0="-0.707107" q1="-0.707106" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-36.3979" t1="3.78551" t2="39.5564" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="119" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-42.4577" t1="3.78556" t2="39.5563" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="122" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="6.78279" t1="1.78963" t2="48.2085" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.218669" euler_y="-1.56976" euler_z="0.218669" id="125" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.6869" t1="1.78968" t2="45.1107" s0="1" s1="1" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="126" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="12.3663" t1="1.7896" t2="46.3848" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="0.707107" q3="0" euler_x="0.289504" euler_y="-1.56976" euler_z="0.289504" id="127" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-5.36778" t1="1.78968" t2="32.2855" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-0.231477" euler_y="1.56976" euler_z="-0.231477" id="128" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-14.2574" t1="3.20451" t2="42.5747" s0="0.779956" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707106" euler_x="0.0430806" euler_y="1.5696" euler_z="0.0430806" id="129" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="32.4608" t1="3.31532" t2="30.9155" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707106" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="131" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="35.1126" t1="3.49619" t2="35.1532" s0="1" s1="1" s2="1" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="132" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="39.1621" t1="1.78357" t2="37.735" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="133" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="41.5911" t1="3.49619" t2="43.7354" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="134" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-33.9467" t1="3.78588" t2="22.4359" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0.999999" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-3.14159" id="135" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-27.8906" t1="3.49653" t2="21.5066" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="136" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.1073" t1="3.20452" t2="24.7637" s0="1.0893" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0" euler_y="1.5697" euler_z="0" id="137" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-6.42691" t1="1.78958" t2="56.8517" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="-0.165149" euler_y="1.56982" euler_z="-0.165149" id="138" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="35.005" t1="7.27124" t2="40.4109" s0="2.20036" s1="0.488497" s2="5.0625" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="139" color_r="1" color_g="0" color_b="0" overbright="7.187" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/pillar.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.34798" t1="1.78958" t2="56.9729" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="140" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-12.562" t1="1.78968" t2="51.5966" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="141" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-5.9308" t1="1.78968" t2="50.8169" s0="0.850758" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.444084" euler_y="-1.56982" euler_z="0.444084" id="142" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-1.94667" t1="3.49629" t2="62.2344" s0="1" s1="1" s2="1" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="143" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.66208" t1="3.49628" t2="62.2344" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="144" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-19.1055" t1="3.49629" t2="62.2344" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="145" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-10.4967" t1="3.49629" t2="62.2344" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="146" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-13.848" t1="3.49624" t2="59.861" s0="1" s1="0.93939" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="147" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.7844" t1="3.49628" t2="56.2965" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-18.9212" t1="1.78968" t2="52.7833" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="149" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-26.682" t1="3.49716" t2="58.7061" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="150" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-39.0324" t1="3.49717" t2="58.0619" s0="1" s1="1" s2="1" q0="0.707106" q1="0.707106" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="151" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-31.5949" t1="3.49683" t2="62.3472" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="152" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-6.22164" t1="3.49626" t2="67.0415" s0="34.5236" s1="5.0287" s2="3.58991" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="157" version="1">
+        <parameters />
+        <EnvObject t0="-1.9466" t1="3.49626" t2="67.0415" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="153" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.66215" t1="3.49626" t2="67.0415" s0="1" s1="1" s2="1" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="154" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-19.1054" t1="3.49627" t2="67.0415" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="155" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-10.4967" t1="3.49626" t2="67.0415" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="156" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="11.538" t1="3.49628" t2="59.6634" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="158" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="16.8257" t1="3.49629" t2="54.4453" s0="1" s1="1" s2="1.15253" q0="0" q1="0.707106" q2="0" q3="-0.707106" euler_x="-0.0390326" euler_y="-1.56946" euler_z="0.0390326" id="159" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="13.7513" t1="1.78853" t2="60.9157" s0="1" s1="1" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="160" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="19.9288" t1="3.49579" t2="60.9104" s0="1" s1="1" s2="1.31831" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="161" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-29.2656" t1="3.49628" t2="66.1137" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="162" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-26.682" t1="3.49716" t2="68.8334" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="163" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-6.04614" t1="3.49628" t2="71.8941" s0="34.875" s1="5.02913" s2="3.58993" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="168" version="1">
+        <parameters />
+        <EnvObject t0="-10.4967" t1="3.49628" t2="71.8941" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="164" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-19.1055" t1="3.49629" t2="71.8941" s0="1" s1="1" s2="1" q0="0.707106" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="165" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.83775" t1="3.49628" t2="71.8941" s0="1" s1="1.04016" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="166" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-1.94663" t1="3.49628" t2="71.8941" s0="1" s1="1" s2="1" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="167" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="-20.2912" t1="7.28042" t2="69.4714" s0="2.20036" s1="0.488497" s2="5.0625" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="169" color_r="1" color_g="0" color_b="0" overbright="7.187" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/pillar.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="-6.22167" t1="3.49627" t2="76.7447" s0="34.5236" s1="5.0287" s2="3.58991" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="174" version="1">
+        <parameters />
+        <EnvObject t0="-1.94663" t1="3.49627" t2="76.7447" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="170" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.66212" t1="3.49627" t2="76.7447" s0="1" s1="1" s2="1" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="171" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-19.1055" t1="3.49628" t2="76.7447" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="172" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-10.4967" t1="3.49627" t2="76.7447" s0="1" s1="1" s2="1" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="173" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="14.0113" t1="1.78853" t2="52.0628" s0="1" s1="1" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="175" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.246912" t1="1.78958" t2="60.6886" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-3.14159" id="176" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="41.5911" t1="3.4962" t2="52.2973" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="192" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="27.6091" t1="3.78587" t2="51.0624" s0="3.39568" s1="5.9126" s2="3.39568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="195" version="1">
+        <parameters />
+        <EnvObject t0="27.6091" t1="3.78587" t2="51.0624" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0.153343" euler_y="-1.5696" euler_z="-0.153343" id="193" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="27.6091" t1="3.78588" t2="51.0624" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.999999" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="194" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="35.0428" t1="1.78355" t2="46.7062" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="-1.5697" euler_z="0" id="196" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="35.0428" t1="1.78355" t2="55.6038" s0="1" s1="1" s2="1" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0.0853131" euler_y="1.5696" euler_z="-0.0853131" id="197" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="39.1621" t1="1.78357" t2="58.1991" s0="1" s1="1" s2="1" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="198" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="32.4243" t1="2.67593" t2="58.1991" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="199" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="20.5001" t1="3.49719" t2="57.4678" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="200" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="15.1113" t1="3.28434" t2="71.8936" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="202" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="19.9628" t1="3.78587" t2="65.3119" s0="3.39568" s1="5.9126" s2="3.39568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="204" version="1">
+        <parameters />
+        <EnvObject t0="19.9628" t1="3.78587" t2="65.3119" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0.153343" euler_y="-1.5696" euler_z="-0.153343" id="201" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="19.9628" t1="3.78587" t2="65.3119" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.999999" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="203" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="19.9628" t1="3.78587" t2="70.5999" s0="3.39568" s1="5.9126" s2="3.39568" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="207" version="1">
+        <parameters />
+        <EnvObject t0="19.9628" t1="3.78587" t2="70.5999" s0="0.675261" s1="0.675261" s2="0.675261" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0.153343" euler_y="-1.5696" euler_z="-0.153343" id="205" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="19.9628" t1="3.78587" t2="70.5999" s0="0.675261" s1="0.675261" s2="0.675261" q0="-0.999999" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="206" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="19.6864" t1="7.28042" t2="67.8958" s0="2.20036" s1="0.488497" s2="5.0625" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="208" color_r="1" color_g="0" color_b="0" overbright="7.187" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/pillar.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Crete Cube" path="Data/Objects/Crete/CreteCube.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/CreteCube.png" />
+    <SpawnerItem display_name="Ghost" path="Data/Objects/therium/IGF_Characters/ghostspawn.xml" thumbnail_path="Data/UI/thumbsnailsT2/ghost.png" />
+    <SpawnerItem display_name="fps_hotspot.xml" path="Data/Objects/Hotspots/fps_hotspot.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>

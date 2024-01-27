@@ -1,0 +1,26 @@
+#name "GateGuards-Lost"
+#participants 4
+set_character_pos 3 260.109 -48.2148 27.6307 -98
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 1"
+send_character_message 3 "set_torso_target 259.909 -47.3779 29.4133 1"
+send_character_message 3 "set_head_target 259.04 -47.3966 29.7376 1"
+send_character_message 2 "set_eye_dir 257.608 -46.4514 26.8978 1"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0496759"
+send_character_message 2 "set_head_target 258.566 -47.4721 29.4738 1"
+set_character_pos 1 258.955 -48.2838 29.9748 90
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 258.592 -47.2815 27.9374 1"
+send_character_message 1 "set_torso_target 259.895 -47.7724 31.1206 0"
+send_character_message 1 "set_head_target 258.677 -47.0141 28.0149 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+set_cam 260.722 -47.7842 31.1761 -1.41 32.38 0.11 70.9818
+set_character_pos 2 257.797 -48.2112 27.6343 -81
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 1 1
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.5 0.5 0.5
+set_dialogue_voice 3 3
+say 2 "???" "Ah, [wait 0.1]our favorite little failure. [wait 0.15]Back for more, [wait 0.1]or did you finally bring the coin?"
+send_level_message "dialogue_done"

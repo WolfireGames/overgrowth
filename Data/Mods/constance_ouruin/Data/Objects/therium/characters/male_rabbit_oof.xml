@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Characters/rabbits/male_rabbit/male_rabbit.obj</Model>
+	<ColorMap>Data/Textures/Characters/donatas/male_rabbit_booboo.tga</ColorMap>
+	<NormalMap>Data/Textures/Characters/rabbits/male_rabbit_3/male_rabbit_3_n.tga</NormalMap>
+
+	<PaletteMap 
+		label_red="Fur" 
+		label_green="Shirt" 
+		label_blue="Pants"
+		label_alpha="Spots">
+        	Data/Textures/Characters/rabbits/male_rabbit_3/male_rabbit_3_m.tga
+    	</PaletteMap>
+	
+	
+	<ShaderName>cubemapobjchar</ShaderName>
+</Object>

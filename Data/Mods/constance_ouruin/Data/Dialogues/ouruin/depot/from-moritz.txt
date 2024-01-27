@@ -1,0 +1,9 @@
+#name "From-Moritz"
+#participants 2
+set_character_pos 1 16.7461 -22.8955 -5.64679 96
+send_character_message 1 "set_eye_dir 15.9947 -21.7168 -10.7274 1"
+send_character_message 1 "set_head_target 15.2247 -21.1662 -11.8153 1"
+set_cam 17.8707 -22.4158 -3.47296 0 21.61 0 55.1901
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "..."

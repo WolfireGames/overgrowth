@@ -1,0 +1,17 @@
+#name "Tea"
+#participants 2
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_character_pos 1 -1.67564 2.28772 -6.51994 -78
+send_character_message 1 "set_eye_dir -1.38414 2.43146 -4.88129 0.660613"
+send_character_message 1 "set_head_target -1.32584 2.36735 -5.08277 1"
+set_cam 1.43509 2.74164 -1.28183 -2.17 35.67 0 18.9864
+send_level_message "enable 3925"
+send_level_message "set_camera_dof 0.3 5.0 10.0 0.8 8.0 3.0"
+say 1 "Ghost" "Just last night, [wait 0.3]I was with her..."
+send_character_message 1 "set_eye_dir 0.0513281 3.40592 -6.19118 1"
+send_character_message 1 "set_head_target -0.332401 3.13865 -5.82721 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+say 1 "Ghost" "She shouldn't have left my sight."
+send_level_message "disable 3925"

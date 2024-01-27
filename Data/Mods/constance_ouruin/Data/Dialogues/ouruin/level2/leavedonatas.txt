@@ -1,0 +1,17 @@
+#name "LeaveDonatas"
+#participants 2
+send_character_message 1 "set_animation \"Data/Animations/r_woundedidlearmed.anm\""
+send_character_message 1 "set_eye_dir -50.2249 0.975277 -7.17742 1"
+send_character_message 1 "set_head_target -51.1247 0.205456 -3.50086 1"
+set_cam -48.1348 -0.0955409 -6.1351 26.74 87.9 3.07 16.207
+set_character_pos 1 -53.0333 2.10162 -6.46219 -114
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+say 3 "Ghost" "..."
+send_character_message 1 "set_torso_target -53.9316 1.66181 -5.79784 1"
+send_character_message 1 "set_eye_dir -54.9609 1.75916 -5.54698 0"
+send_character_message 1 "set_head_target -56.2957 2.14206 -4.73884 1"
+say 3 "Ghost" "(...[wait 0.15]Time to get out of here...)"
+send_level_message "building_exit"

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Prototypes/OG/Models/ShipHullInterior.obj</Model>
+	<ColorMap>Data/Prototypes/OG/Textures/ShipHull_Color.tga</ColorMap>
+	<NormalMap>Data/Prototypes/OG/Textures/ShipHull_Norm.tga</NormalMap>
+	<WeightMap>Data/Prototypes/OG/Textures/ShipHull_Weights.tga</WeightMap>
+	<DetailMaps>
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/WoodGrainX_Color.tga" normalpath="Data/Prototypes/DetailTextures/WoodGrainX_Norm.tga" materialpath="Data/Materials/wood.xml" />
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/WoodPlanksY_Color.tga" normalpath="Data/Prototypes/DetailTextures/WoodPlanksY_Norm.tga" materialpath="Data/Materials/wood.xml" />
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/WoodPlanksX_Color.tga" normalpath="Data/Prototypes/DetailTextures/WoodPlanksX_Norm.tga" materialpath="Data/Materials/wood.xml" />
+		<DetailMap colorpath="Data/Prototypes/DetailTextures/WoodGrainY_Color.tga" normalpath="Data/Prototypes/DetailTextures/WoodGrainY_Norm.tga" materialpath="Data/Materials/wood.xml" />
+	</DetailMaps>
+	<ShaderName>envobject #DETAILMAP4 #TANGENT #KEEP_SPEC #BASE_TANGENT</ShaderName>
+    <MaterialPath>Data/Materials/wood.xml</MaterialPath>
+</Object>

@@ -1,0 +1,23 @@
+#name "Part3"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_character_message 1 "set_eye_dir 233.418 -46.4871 -175.503 1"
+send_character_message 1 "set_head_target 234.09 -46.0112 -174.671 1"
+set_character_pos 1 232.205 -46.7665 -174.574 0
+set_cam 234.552 -46.1378 -176.056 0 124.81 0 17.5911
+send_level_message "part2_complete"
+send_level_message "begin_tense"
+send_level_message "enable 12965"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 3.5 0.0"
+send_character_message 1 "empty_hands"
+send_level_message "disable 13320"
+send_level_message "enable 13714"
+say 1 "Ghost" "All these guards are complicating my way back home..."
+send_character_message 1 "set_torso_target 233.222 -46.0003 -174.421 1"
+send_character_message 1 "set_eye_dir 235.564 -44.2025 -173.967 1"
+send_character_message 1 "set_head_target 237.94 -43.6724 -173.469 1"
+set_cam 230.51 -46.6886 -175.339 16.69 -105.87 0 32.3925
+send_level_message "set_camera_dof 0.3 5.0 10.0 0.3 20.0 10.0"
+say 1 "Ghost" "I'll have to make my way through the high streets to evade them. [wait 0.5]I hope they haven't gotten to Bijou..."
+send_level_message "disable 12965"

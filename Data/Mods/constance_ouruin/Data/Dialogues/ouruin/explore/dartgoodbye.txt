@@ -1,0 +1,23 @@
+#name "DartGoodbye"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+set_character_pos 2 -33.5393 -40.7371 -64.9707 0
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0.767093"
+send_character_message 2 "set_head_target -30.4902 -39.8649 -64.9659 1"
+set_character_pos 1 -30.2524 -40.5866 -64.8993 -180
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir -33.3949 -39.6933 -65.0243 1"
+send_character_message 1 "set_torso_target -29.3845 -40.0883 -64.6678 0"
+send_character_message 1 "set_head_target -32.3358 -39.7804 -65.0578 1"
+set_cam -28.7672 -39.9495 -65.4498 -2.94 103.39 0.28 61.3761
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+say 1 "Ghost" "Good talkin' to 'ya, [wait 0.3]friend. [wait 0.5]I'll see you later."
+send_character_message 2 "set_head_target -30.6301 -40.3794 -64.8833 1"
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0"
+send_character_message 1 "set_head_target -33.5205 -39.7151 -64.9355 1"
+say 2 "Dart" "May your prints stay warm."

@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/saintfaas.obj</Model>
+	<ColorMap>Data/Textures/Characters/dogs/light_armored_dog/light_armored_dog_male_stone_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Characters/dogs/light_armored_dog/light_armored_dog_male_stone_n.tga</NormalMap>
+	<WeightMap>Data/Textures/Buildings/arena/arena_statue_standing_w.tga</WeightMap>
+	<DetailMaps>
+		<DetailMap colorpath="Data/Textures/Buildings/detail_textures/smooth_rock_c.tga" normalpath="Data/Textures/Buildings/detail_textures/smooth_rock_n.tga" materialpath="Data/Materials/rocks.xml" />
+        <DetailMap colorpath="Data/Textures/Buildings/detail_textures/tight_bricks_c.tga" normalpath="Data/Textures/Buildings/detail_textures/tight_bricks_n.tga" materialpath="Data/Materials/rocks.xml" />
+		<DetailMap colorpath="Data/Textures/Buildings/detail_textures/cat_cobbles_c.tga" normalpath="Data/Textures/Buildings/detail_textures/cat_cobbles_n.tga" materialpath="Data/Materials/rocks.xml" />
+		<DetailMap colorpath="Data/Textures/Buildings/detail_textures/gold_hexagons_c.tga" normalpath="Data/Textures/Buildings/detail_textures/gold_hexagons_n.tga" materialpath="Data/Materials/rocks.xml" />
+    </DetailMaps>
+	<ShaderName>detailmap4</ShaderName>
+</Object>

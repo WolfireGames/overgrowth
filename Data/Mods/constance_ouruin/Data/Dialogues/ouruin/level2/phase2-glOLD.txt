@@ -1,0 +1,66 @@
+#name "Phase2-GL"
+#participants 3
+send_character_message 2 "set_animation \"Data/Animations/donatas_highkick.anm\""
+set_cam -28.8002 -2.82312 0.222703 -26.72 41.29 -0.14 43.9236
+send_character_message 1 "set_animation \"Data/Animations/wallbreak.anm\""
+send_character_message 2 "set_head_target -22.8625 1.36288 -1.25502 0.0276113"
+set_character_pos 2 -21.9474 0.79929 -1.19025 -180
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.65 0.8 0.9
+set_dialogue_voice 2 1
+set_character_pos 1 -29.7923 -3.4133 -1.35731 0
+send_level_message "disable 3912"
+send_level_message "enable 4014"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 2.5 3.0"
+say 1 "Ghost" "[wait 0.5]..."
+set_character_pos 1 -30.3066 -3.4133 -1.35731 0
+send_character_message 2 "set_torso_target -25.5963 -0.282531 -1.46476 1"
+send_character_message 1 "set_torso_target -29.3462 -3.76197 -1.33077 1"
+send_character_message 1 "set_head_target -25.284 0.242008 -0.90629 1"
+send_character_message 1 "set_animation \"Data/Animations/wallbreak_getup.anm\""
+set_cam -31.9108 -4.04476 -1.19142 32.25 -86.27 1.12 22.2225
+send_character_message 2 "set_eye_dir -29.1955 -3.31792 -1.27975 1"
+send_character_message 2 "set_head_target -30.1208 -2.70465 -1.52476 1"
+set_character_pos 2 -24.4261 0.636702 -1.0896 -170
+send_level_message "set_camera_dof 0.5 5.0 4.0 0.3 20.0 10.0"
+say 1 "Ghost" "Agh... [wait 0.5]Bastard!"
+send_character_message 2 "set_animation \"Data/Animations/donatas_hand.anm\""
+send_character_message 2 "set_head_target -30.1182 -2.70465 -1.52257 1"
+send_character_message 2 "set_torso_target -25.5957 -0.283952 -1.46615 1"
+send_character_message 1 "set_eye_dir -29.0736 -3.75548 -1.48956 0"
+send_character_message 1 "set_head_target -29.5129 -3.84393 -1.12498 1"
+say 2 "Donatas" "We can talk this out, [wait 0.3]Amos!"
+send_character_message 1 "set_torso_target -29.3462 -3.76197 -1.33077 1"
+send_character_message 1 "set_eye_dir -25.0194 0.501725 -1.02872 1"
+send_character_message 1 "set_head_target -25.5896 -1.2883 -1.32723 1"
+send_character_message 2 "set_torso_target -25.0358 0.153077 -1.21847 1"
+set_cam -23.1082 2.67282 -1.29318 -40.66 93.4 -0.57 12.2528
+say 1 "Ghost" "Quit using that name, [wait 0.3]coward!"
+send_character_message 2 "set_animation \"Data/Animations/donatas_actionidle.anm\""
+send_character_message 1 "set_head_target -25.9082 -1.026 -1.23175 1"
+send_character_message 1 "set_torso_target -29.3001 -3.1736 -1.06364 0.962996"
+send_character_message 2 "set_eye_dir -29.1955 -3.31792 -1.27975 0.559453"
+send_character_message 2 "set_head_target -29.7737 -3.10329 -1.40609 1"
+send_character_message 2 "set_torso_target -25.0358 0.153077 -1.21847 0"
+say 2 "Donatas" "I'm not a coward! [wait 0.5]I don't know where she is!"
+send_character_message 2 "set_head_target -29.8835 -3.1878 -1.41235 1"
+send_character_message 2 "set_animation \"Data/Animations/fallandland.anm\""
+send_character_message 1 "set_animation \"Data/Animations/donatas_combatcrouch.anm\""
+set_character_pos 2 -28.2451 -3.52594 -1.11697 168
+send_character_message 2 "set_eye_dir -29.9222 -3.27289 -1.24143 1"
+send_character_message 1 "set_eye_dir -29.2919 -3.15878 -1.1096 0.739411"
+send_character_message 1 "set_head_target -28.9408 -3.29038 -1.25134 1"
+send_character_message 1 "set_torso_target -29.3001 -3.1736 -1.06364 0"
+set_cam -26.7748 -3.99325 -2.36047 14.71 112.32 0.53 16.1108
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 5.0 1.0"
+send_level_message "phase3_force_fire_enable"
+say 1 "Ghost" "More lies..."
+set_cam -32.1622 -3.00906 -0.277994 -1.24 -70.13 0.28 52.2902
+send_character_message 2 "set_head_target -30.0278 -2.66134 -1.37126 1"
+send_character_message 1 "set_head_target -28.4629 -2.78271 -1.09647 1"
+send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatidle.anm\""
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 20.0 10.0"
+say 1 "Ghost" "I'll wipe them out of your mouth."
+send_level_message "make_all_aware"

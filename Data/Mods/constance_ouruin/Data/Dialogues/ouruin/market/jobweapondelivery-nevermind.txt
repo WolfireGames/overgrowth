@@ -1,0 +1,22 @@
+#name "JobWeaponDelivery-Nevermind"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.2768 -45.9218 4.00765 1"
+set_character_pos 1 29.5416 -46.6306 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 27.1974 -44.6545 2.8224 0.764242"
+send_character_message 1 "set_torso_target 28.4192 -46.1107 3.1588 0"
+send_character_message 1 "set_head_target 29.0374 -46.1376 4.56645 1"
+set_cam 28.2809 -45.9256 3.36933 0 -81.32 0 42.8823
+say 1 "Ghost" "Sounds tedious... [wait 0.2]I prefer being light on my paws, [wait 0.1]anyways."
+send_character_message 1 "set_eye_dir 29.6385 -45.7828 4.39299 1"
+send_character_message 1 "set_head_target 29.539 -45.862 4.62709 1"
+send_character_message 2 "set_head_target 29.5664 -45.6612 3.59217 1"
+set_cam 28.8465 -45.8464 4.07546 0 -127.97 0 50.3476
+say 2 "Nedis" "No problem. [wait 0.2]Someone else will be sure to run it over, [wait 0.1]once the path isn't blocked."
+send_level_message "dialogue_done"

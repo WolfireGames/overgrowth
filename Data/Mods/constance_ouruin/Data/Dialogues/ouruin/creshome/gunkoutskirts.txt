@@ -1,0 +1,68 @@
+#name "GunkOutskirts"
+#participants 5
+set_cam 4.92586 1.91859 19.6597 -7.49 -26.45 0 43.3783
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 5.43345 1.70114 18.6153 1"
+send_character_message 2 "set_eye_dir 5.37405 1.82581 18.5515 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0"
+send_character_message 1 "set_eye_dir 3.85215 1.88896 17.9772 1"
+send_character_message 1 "set_head_target 4.43654 2.00033 17.0982 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 1 "Ghost" "What are the outskirts of Ouruin like? [wait 0.15]I've never been."
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0.00460538"
+send_character_message 1 "set_eye_dir 3.7525 1.93841 18.0193 1"
+send_character_message 1 "set_head_target 4.32594 1.74005 17.2604 1"
+send_character_message 2 "set_eye_dir 4.08812 1.34545 17.7482 0.649439"
+send_character_message 2 "set_head_target 4.65809 1.60321 18.7631 1"
+send_character_message 2 "set_torso_target 4.01928 1.56219 18.7478 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_thoughthip.anm\""
+set_cam 7.35508 1.70447 18.3014 0 92.43 0 31.7031
+say 2 "Gunk" "Difficult. [wait 0.2]Only marginally more dry than here, [wait 0.1]though I suppose the flooding has changed that."
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0.304607"
+send_character_message 1 "set_head_target 4.15807 1.6821 17.3728 1"
+send_character_message 2 "set_eye_dir 3.95556 2.9394 18.0561 0.722778"
+send_character_message 2 "set_head_target 4.56274 1.76049 18.8488 1"
+say 2 "Gunk" "I had to fight vermin for the chance to sleep in a warm, [wait 0.1]dry spot. [wait 0.15]I sometimes had to fight people, [wait 0.1]too."
+send_character_message 1 "set_torso_target 4.84179 1.37282 18.3335 1"
+send_character_message 2 "set_head_target 4.9142 1.86474 18.5808 1"
+send_character_message 2 "set_torso_target 4.26502 1.54552 18.6525 0.973535"
+send_character_message 1 "set_eye_dir 6.01256 2.4447 16.9095 1"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_head_target 5.40393 1.94989 16.7258 1"
+say 1 "Ghost" "Out here the vermin walks on two legs."
+send_character_message 1 "set_torso_target 4.84179 1.37282 18.3335 0"
+send_character_message 2 "set_eye_dir 4.35733 2.12036 19.3305 1"
+send_character_message 2 "set_head_target 5.0436 2.27854 16.9391 1"
+send_character_message 2 "set_torso_target 4.58244 1.58838 17.988 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_eye_dir 4.20759 1.86887 18.0892 1"
+send_character_message 1 "set_head_target 4.90699 1.71819 16.8565 1"
+say 2 "Gunk" "I suppose we all have something in common, [wait 0.1]then... [wait 0.2]All of us hiding, [wait 0.1]and shivering."
+send_character_message 2 "set_torso_target 4.5887 1.53422 18.1416 1"
+send_character_message 2 "set_head_target 5.44759 1.84205 17.179 1"
+send_character_message 1 "set_head_target 4.38882 1.62287 17.3098 1"
+send_character_message 1 "set_torso_target 4.88164 1.01627 18.5735 1"
+say 1 "Ghost" "Rats are a different story. [wait 0.2]They eat families whole and turn entire hoods into refuse and disease."
+send_character_message 1 "set_torso_target 4.80833 1.31183 18.5048 1"
+send_character_message 1 "set_head_target 4.32007 1.91816 17.4208 1"
+send_character_message 2 "set_eye_dir 4.35733 2.12036 19.3305 0"
+send_character_message 2 "set_head_target 5.55201 1.56955 17.3561 1"
+send_character_message 2 "set_torso_target 4.42035 1.97385 18.4222 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+say 2 "Gunk" "Sounds like the Empry."
+send_level_message "dialogue_done"

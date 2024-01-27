@@ -1,0 +1,91 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="314.471" t1="31.5563" t2="67.0887" s0="1.90838" s1="0.797521" s2="0.478704" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="485" version="1">
+        <parameters />
+        <Group t0="313.781" t1="31.5806" t2="67.1387" s0="0.518209" s1="0.73908" s2="0.368681" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="218" version="1">
+            <parameters />
+            <EnvObject t0="313.658" t1="31.2683" t2="67.2002" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="413" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Clean/Bandage_CLEAN_Roll.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="313.84" t1="31.2736" t2="67.1984" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="415" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Clean/Bandage_CLEAN_Roll_Open.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="313.577" t1="31.6749" t2="67.2021" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="460" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Clean/Bandage_CLEAN_Strip_1.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="313.766" t1="31.5504" t2="67.0967" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="461" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Clean/Bandage_CLEAN_Strip_2.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="313.969" t1="31.4182" t2="67.2056" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="462" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Clean/Bandage_CLEAN_Strip_3.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="313.932" t1="31.8254" t2="67.1246" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="463" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Clean/Bandage_CLEAN_Stump.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="314.294" t1="31.5291" t2="67.0412" s0="0.407766" s1="0.682672" s2="0.318357" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="464" version="1">
+            <parameters />
+            <EnvObject t0="314.207" t1="31.2528" t2="67.1236" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="465" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Dirty/Bandage_DIRTY_Roll.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.396" t1="31.2467" t2="67.1216" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="466" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Dirty/Bandage_DIRTY_Roll_Open.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.146" t1="31.5952" t2="67.1351" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="467" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Dirty/Bandage_DIRTY_Strip_1.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.271" t1="31.4813" t2="67.0243" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="468" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Dirty/Bandage_DIRTY_Strip_2.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.415" t1="31.4842" t2="67.0829" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="469" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Dirty/Bandage_DIRTY_Strip_3.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.363" t1="31.7658" t2="67.0924" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="470" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Dirty/Bandage_DIRTY_Stump.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="314.782" t1="31.5092" t2="67.0113" s0="0.401632" s1="0.693243" s2="0.313986" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="471" version="1">
+            <parameters />
+            <EnvObject t0="314.641" t1="31.2223" t2="67.1051" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="472" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Roll.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.827" t1="31.2215" t2="67.1066" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="473" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Roll_Open.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.637" t1="31.5474" t2="67.1147" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="474" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_1.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.769" t1="31.4477" t2="66.9966" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="475" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_2.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.912" t1="31.3885" t2="67.0316" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="476" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_3.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="314.858" t1="31.7632" t2="67.0751" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="477" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Stump.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="315.23" t1="31.5199" t2="67.0466" s0="0.379202" s1="0.702545" s2="0.327101" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="478" version="1">
+            <parameters />
+            <EnvObject t0="315.111" t1="31.23" t2="67.151" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="479" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/DirtyBloody/Bandage_DirtyBloody_Roll.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="315.315" t1="31.2275" t2="67.1371" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="480" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/DirtyBloody/Bandage_DirtyBloody_Open.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="315.095" t1="31.5959" t2="67.1534" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="481" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/DirtyBloody/Bandage_DirtyBloody_Strip_1.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="315.214" t1="31.4765" t2="67.0253" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="482" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/DirtyBloody/Bandage_DirtyBloody_Strip_2.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="315.348" t1="31.4663" t2="67.0886" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="483" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/DirtyBloody/Bandage_DirtyBloody_Strip_3.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="315.321" t1="31.7438" t2="67.0502" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="484" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/DirtyBloody/Bandage_DirtyBloody_Stump.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+</ActorObjects>

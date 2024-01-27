@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<particle>
+    <textures color_map = "Data/Textures/particles/candle_flame.tga"
+              shader = "envobject #PARTICLE"
+              soft_shader = "envobject #PARTICLE"/>
+    <size min = "0.05" max = "0.08"/>
+    <rotation val = "0.0"/>
+    <color red =   "5.5"
+           green = "5.0"
+           blue =  "4.0"
+           alpha = "1.0"/>
+    <behavior inertia="1" gravity="-0.001" wind="0.01" opacity_decay_rate="2.0"/>
+    <quadratic_expansion size="1.0"/>
+    <no_rotation />
+</particle>

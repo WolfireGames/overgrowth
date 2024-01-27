@@ -1,0 +1,5 @@
+#name "First"
+#participants 5
+set_cam 10.7739 -50.2608 -33.4224 0 0 0 90
+say 5 "" "[wait 1.0]"
+send_level_message "start_dialogue FirstIntro"

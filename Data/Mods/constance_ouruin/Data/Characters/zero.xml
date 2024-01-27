@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<character>
+    <appearance obj_path = "Data/Objects/therium/characters/zero.xml"
+	            fur = "Data/Models/Characters/rabbits/female_rabbit/female_rabbit_fur_2.obj"
+                skeleton = "Data/Skeletons/r_female_rabbit.xml"
+	            morph = "Data/Models/Characters/rabbits/female_rabbit/female_rabbit_gen_2.obj"
+                channel_0 = "fur"
+                channel_1 = "cloth"
+                channel_2 = "cloth"
+                channel_3 = "fur"/>
+    <animations idle = "Data/Animations/r_idle2.xml"
+                jump = "Data/Animations/r_jump.xml"
+                roll = "Data/Animations/r_roll.xml"
+                movement = "Data/Animations/r_movement.xml"
+                wall = "Data/Animations/r_wall.xml"
+                ledge = "Data/Animations/r_ledge.anm"
+                medrightblock = "Data/Animations/r_activeblockmedright.anm"
+                medleftblock = "Data/Animations/r_activeblockmedleft.anm"
+                highrightblock = "Data/Animations/r_activeblockhighright.anm"
+                highleftblock = "Data/Animations/r_activeblockhighleft.anm"
+                lowrightblock = "Data/Animations/r_activeblocklowright.anm"
+                lowleftblock = "Data/Animations/r_activeblocklowleft.anm"
+                blockflinch = "Data/Animations/r_activeblockflinch.anm"/>
+    <attacks moving_close = "Data/Attacks/haymaker.xml"
+             stationary_close = "Data/Attacks/thrustpunch.xml"
+             moving = "Data/Attacks/roundhouse.xml"
+             stationary = "Data/Attacks/frontkick.xml"
+             moving_low = "Data/Attacks/soccerkick.xml"
+             low = "Data/Attacks/sweep.xml"
+             air = "Data/Attacks/legcannon.xml" />
+    <team>zero</team>
+    <morphs>
+        <mouth_open />
+        <fist_l num_steps = "5"/>
+        <fist_r num_steps = "5"/>
+	    <wink_r />
+	    <wink_l />
+	    <look_b_r />
+        <look_d_r />
+        <look_u_r />
+        <look_f_r />
+        <look_b_l />
+        <look_d_l />
+        <look_u_l />
+        <look_f_l />
+	    <oh />
+        <angry />
+        <frown />
+        <sad />
+        <smile />
+        <shock />
+        <look_u default = "true"
+                start_x = "-0.0496174" start_y = "-0.0699988" start_z = "1.3888144"
+                  end_x = "-0.0598794"   end_y = "-0.0825552"   end_z = "1.4102006"/>
+        <look_d default = "true"
+                start_x = "-0.0597639" start_y = "-0.0602446" start_z = "1.3655717"
+                  end_x = "-0.0964457"   end_y = "-0.0637418"   end_z = "1.3585395"/>
+        <look_f default = "true"
+                start_x = "-0.0485294" start_y = "-0.0786012" start_z = "1.3670384"
+                  end_x = "-0.061709"   end_y = "-0.1119442"   end_z = "1.3621614"/>
+        <look_b default = "true"
+                start_x = "-0.0550869" start_y = "-0.0444001" start_z = "1.3897561"
+                  end_x = "-0.0869839"   end_y = "-0.0252577"   end_z = "1.4131784"/>
+        <look_c default = "true"
+                start_x = "-0.0567783" start_y = "-0.0665332" start_z = "1.377772"
+                  end_x = "-0.0835136"   end_y = "-0.0786619"   end_z = "1.3851531"/>
+	</morphs>
+    <voice path = "Data/Sounds/voice/rabbit2.xml"
+           pitch = "1.15"/>
+    <tags species = "rabbit"/>
+ </character>

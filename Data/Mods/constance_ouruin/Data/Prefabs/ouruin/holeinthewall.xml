@@ -1,0 +1,43 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group name="Hole in the wall" t0="-3.96265" t1="1.88807" t2="-0.453734" s0="0.262385" s1="0.475877" s2="0.171096" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1023" version="1">
+        <parameters />
+        <Decal t0="-3.96265" t1="1.88807" t2="-0.39606" s0="0.239337" s1="0.45908" s2="0.0190275" q0="-0.0259767" q1="0.00587204" q2="0.0139559" q3="0.999547" euler_x="-0.0517931" euler_y="0.0124641" euler_z="0.0275997" id="1020" type_file="Data/Objects/Decals/light_square.xml" color_r="1" color_g="0.899238" color_b="0.780392" overbright="0">
+            <parameters />
+        </Decal>
+        <Group t0="-3.98505" t1="1.93182" t2="-0.462101" s0="0.0854781" s1="0.184132" s2="0.144361" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1021" version="1">
+            <parameters />
+            <EnvObject t0="-3.98015" t1="1.96626" t2="-0.463918" s0="0.0261815" s1="0.0468009" s2="0.0610426" q0="-0.0421954" q1="0.011921" q2="0.0155701" q3="0.998916" euler_x="-0.0840535" euler_y="0.0251328" euler_z="0.0301145" id="1011" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-4.00052" t1="1.8924" t2="-0.459292" s0="0.0164827" s1="0.0436572" s2="0.0603302" q0="-0.0129781" q1="-0.0204383" q2="-0.99843" q3="0.050506" euler_x="0.0395272" euler_y="-0.0279836" euler_z="-3.04106" id="1012" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-3.98823" t1="1.89775" t2="-0.401644" s0="0.0131033" s1="0.0352477" s2="0.00174717" q0="0.0190422" q1="-0.0149518" q2="-0.149827" q3="-0.988415" euler_x="-0.0331896" euler_y="0.0352705" euler_z="0.30029" id="1013" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-3.98748" t1="1.94268" t2="-0.400416" s0="0.0254511" s1="0.0177327" s2="0.00310864" q0="0.165157" q1="0.98416" q2="0.0630976" q3="0.0132218" euler_x="3.01267" euler_y="0.00518273" euler_z="2.80873" id="1014" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-4.00031" t1="1.95618" t2="-0.430478" s0="0.01091" s1="0.0286873" s2="0.0294254" q0="0.0142627" q1="0.0129167" q2="0.194451" q3="-0.980728" euler_x="-0.0229653" euler_y="-0.0308872" euler_z="-0.391116" id="1015" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-3.98133" t1="1.9428" t2="-0.403773" s0="0.0121584" s1="0.0221794" s2="0.00228134" q0="0.0245624" q1="0.022022" q2="0.765877" q3="-0.642132" euler_x="0.00219245" euler_y="-0.0659534" euler_z="-1.74618" id="1016" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-3.96636" t1="1.884" t2="-0.440308" s0="0.0170389" s1="0.0169279" s2="0.0412745" q0="-0.0235375" q1="-0.00566959" q2="-0.682596" q3="0.730394" euler_x="-0.0266682" euler_y="-0.0404263" euler_z="-1.50263" id="1017" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-3.98771" t1="1.96271" t2="-0.40221" s0="0.0175542" s1="0.0266958" s2="0.00276106" q0="0.684125" q1="0.727898" q2="0.0152125" q3="0.0436345" euler_x="3.05958" euler_y="0.0427214" euler_z="1.63102" id="1018" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-3.98718" t1="1.88635" t2="-0.401189" s0="0.0135479" s1="0.018275" s2="0.00257606" q0="-0.0226278" q1="-0.00861096" q2="-0.769767" q3="0.637864" euler_x="-0.0156271" euler_y="-0.0458376" euler_z="-1.7573" id="1019" color_r="1" color_g="1" color_b="1" overbright="16.667" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/wedge_corner.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="-3.98475" t1="1.92437" t2="-0.411648" s0="0.0311105" s1="0.0750334" s2="0.0462669" q0="0.69343" q1="0.0167961" q2="0.00743376" q3="0.720294" euler_x="1.53304" euler_y="0.0138871" euler_z="0.0340127" id="1022" color_r="1" color_g="1" color_b="1" overbright="40.96" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/disk.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+</ActorObjects>

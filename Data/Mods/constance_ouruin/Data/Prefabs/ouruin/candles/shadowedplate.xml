@@ -1,0 +1,13 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="33.2573" t1="-37.8388" t2="28.4775" s0="0.823965" s1="0.0655458" s2="0.823965" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2528" version="1">
+        <parameters />
+        <EnvObject t0="33.2637" t1="-37.832" t2="28.4881" s0="1" s1="1" s2="1" q0="0" q1="-0.998136" q2="0" q3="0.0610263" euler_x="3.14159" euler_y="-0.122128" euler_z="3.14159" id="2526" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/plate.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="33.2573" t1="-37.8518" t2="28.4775" s0="0.813965" s1="0.0296593" s2="0.813965" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2527" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.054902" color_g="0.0549014" color_b="0.0549014" overbright="0">
+            <parameters />
+        </Decal>
+    </Group>
+</ActorObjects>

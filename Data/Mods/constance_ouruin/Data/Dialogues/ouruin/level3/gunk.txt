@@ -1,0 +1,76 @@
+#name "Gunk"
+#participants 3
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_crouch_sad.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_character_pos 2 176.379 -58.0836 166.04 -17
+send_character_message 2 "set_eye_dir 177.946 -57.709 163.801 1"
+send_character_message 2 "set_head_target 176.824 -57.8335 166.131 0"
+set_character_pos 1 178.333 -58.0978 162.609 -99
+send_character_message 1 "set_eye_dir 176.853 -57.8652 165.894 0.665678"
+send_character_message 1 "set_torso_target 178.107 -57.4983 163.215 1"
+send_character_message 1 "set_head_target 175.782 -57.463 164.253 1"
+set_cam 180.683 -58.105 165.5 8.25 41.38 0 19.9363
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 4.0 3.0"
+say 1 "Ghost" "Hey... [wait 0.5]You're a friend of Noster's, [wait 0.3]right?"
+send_character_message 2 "set_head_target 177.188 -58.1211 166.314 1"
+send_character_message 1 "set_head_target 176.681 -57.8244 165.713 1"
+set_cam 181.902 -57.1174 159.571 -6.54 135.83 0 18.809
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.7 70.0 15.0"
+say 2 "???" "Never heard the name."
+send_character_message 2 "set_head_target 177.219 -58.0888 166.322 1"
+send_character_message 2 "set_eye_dir 177.875 -57.505 163.485 1"
+send_character_message 1 "set_head_target 176.732 -57.988 165.833 1"
+say 1 "Ghost" "Figured that's what you'd say. [wait 0.5]It's just like him to help some Bloods..."
+send_character_message 2 "set_eye_dir 177.994 -57.3506 163.406 1"
+send_character_message 2 "set_head_target 177.225 -58.1041 166.319 1"
+send_character_message 1 "set_head_target 176.646 -57.7956 165.9 1"
+say 1 "Ghost" "Where are the rest of you? [wait 0.5]Running away from the opposition?"
+send_character_message 2 "set_torso_target 177.3 -58.6355 166.351 1"
+send_character_message 2 "set_eye_dir 177.65 -57.852 166.85 1"
+send_character_message 2 "set_head_target 177.644 -58.1813 166.375 1"
+say 2 "???" "Our business in this district is done. [wait 0.5]You need not worry. [wait 0.5]No harm will come to you, [wait 0.3]or your family."
+send_character_message 1 "set_eye_dir 176.853 -57.8652 165.894 0.426542"
+send_character_message 2 "set_head_target 177.465 -58.2962 166.608 1"
+set_cam 175.968 -58.0063 169.266 0.9 -14.81 0 18.809
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_jeer.anm\""
+send_character_message 1 "set_head_target 175.963 -58.0617 164.726 1"
+send_character_message 1 "set_torso_target 177.724 -57.9531 163.344 0"
+send_level_message "set_camera_dof 0.3 5.0 10.0 0.7 6.7 1.0"
+say 1 "Ghost" "Whatever you say, [wait 0.3]rat. [wait 0.5]You're lucky I can't drown you right now."
+send_character_message 2 "set_torso_target 177.3 -58.6355 166.351 0.999387"
+send_character_message 2 "set_head_target 177.562 -58.2763 166.65 1"
+send_character_message 2 "set_eye_dir 176.778 -58.362 167.553 0.877476"
+say 2 "???" "..."
+send_character_message 1 "set_head_target 176.836 -57.8018 165.2 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_torso_target 177.351 -58.642 166.295 0.993302"
+send_character_message 2 "set_eye_dir 177.527 -58.3893 166.06 0.557686"
+send_character_message 2 "set_head_target 177.615 -58.2968 166.548 1"
+set_cam 180.128 -58.1202 165.126 3.45 106.85 0.77 12.5537
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 20.0 10.0"
+say 2 "???" "On the other side of the waterfront, [wait 0.3]in the canal, [wait 0.3]is an empty ship."
+send_character_message 2 "set_head_target 177.649 -58.2605 166.526 1"
+send_character_message 2 "set_eye_dir 177.984 -57.4097 163.309 1"
+send_character_message 2 "set_torso_target 177.351 -58.642 166.295 0"
+say 2 "???" "If you seek refuge from the Cinderians, [wait 0.3]you can hold out within the cargo bay. [wait 0.5]Perhaps you can escape that way."
+send_character_message 1 "set_head_target 176.9 -57.821 165.557 1"
+send_character_message 1 "set_eye_dir 176.632 -57.7505 165.927 1"
+set_cam 174.995 -57.8923 163.192 7.95 -82.59 -0.49 12.0681
+say 1 "Ghost" "[wait 0.3]How do you know I'm...[wait 0.3]?"
+send_character_message 2 "set_eye_dir 176.997 -58.0063 166.297 0"
+send_character_message 2 "set_head_target 177.548 -58.4555 166.448 1"
+set_cam 175.71 -58.1683 169.422 4.98 -17.65 0 12.0681
+say 2 "???" "Any fellow fighter could see the glint in your eye."
+send_character_message 1 "set_torso_target 177.807 -57.9069 163.574 1"
+send_character_message 1 "set_head_target 176.821 -57.9029 165.559 1"
+send_character_message 2 "set_torso_target 177.351 -58.642 166.295 1"
+send_character_message 2 "set_head_target 177.709 -58.4306 166.481 1"
+send_character_message 2 "set_eye_dir 177.517 -57.9367 166.422 1"
+say 2 "???" "Good luck, [wait 0.3]friend. [wait 0.5]Spare them no quarter."
+send_character_message 2 "set_torso_target 177.351 -58.642 166.295 0"
+set_cam 180.78 -57.7916 161.295 0 128.15 0 44.6748
+say 1 "Ghost" "..."

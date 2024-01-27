@@ -1,0 +1,68 @@
+#name "Phase2-DL"
+#participants 3
+send_character_message 2 "set_torso_target -47.2146 -3.22309 3.57681 0"
+send_character_message 2 "set_torso_target -29.7265 -3.16623 -4.64685 0"
+send_character_message 1 "set_eye_dir -29.1212 -3.37314 -2.96464 1"
+send_character_message 1 "set_head_target -28.869 -3.37406 -2.789 1"
+send_character_message 2 "set_eye_dir -30.0005 -2.73083 -4.52706 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.65 0.8 0.9
+set_dialogue_voice 2 1
+set_cam -27.46 -3.93812 -1.89687 13.54 52.02 1.61 32.7895
+set_character_pos 2 -29.5167 -3.53815 -3.71915 120
+set_character_pos 1 -29.9752 -3.51092 -4.54705 -62
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 4.5 3.0"
+send_character_message 2 "set_animation \"Data/Animations/staggerback_lie.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_thrustpunch.anm\""
+say 2 "Donatas" "...[wait 0.3]Agh!"
+send_character_message 1 "set_eye_dir -29.0553 -3.42525 -3.01156 1"
+send_character_message 2 "set_head_target -29.6017 -3.08566 -4.15018 0.402002"
+send_character_message 2 "set_eye_dir -29.8602 -2.82548 -4.2716 1"
+send_character_message 1 "set_torso_target -30.457 -3.15057 -3.63467 0"
+send_character_message 2 "set_torso_target -28.7407 -3.61238 -3.36262 0"
+send_character_message 1 "set_head_target -28.9078 -3.53222 -2.8477 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+say 1 "Ghost" "I thought I could trust you, [wait 0.1]Donatas! [wait 0.2]How many years has it been?"
+send_character_message 2 "set_head_target -29.5993 -3.08566 -4.14859 1"
+send_character_message 1 "set_head_target -28.9115 -3.37768 -2.87194 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+say 1 "Ghost" "I thought you were the only sane person in this sinkhole!"
+send_character_message 2 "set_head_target -29.6755 -2.9082 -4.26497 1"
+send_character_message 1 "set_head_target -29.0056 -3.68729 -3.00369 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_jeer.anm\""
+say 1 "Ghost" "But no... [wait 0.2]You're just another one of those tailbiters that cares for nobody but themselves!"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target -29.2031 -3.09567 -3.1601 1"
+send_character_message 2 "set_torso_target -28.9625 -3.62818 -3.57771 0"
+send_character_message 1 "set_torso_target -29.6126 -4.82475 -2.83827 1"
+send_character_message 2 "set_eye_dir -29.7573 -2.86472 -4.00949 1"
+send_character_message 2 "set_head_target -29.9388 -2.92199 -4.39682 0.484653"
+set_cam -30.0854 -2.72995 -6.54413 -5.3 -170.71 1.82 29.5064
+send_character_message 2 "set_animation \"Data/Animations/staggerback_up.anm\""
+say 2 "Donatas" "..."
+send_character_message 2 "set_head_target -29.9127 -2.85815 -4.46862 1"
+send_character_message 2 "set_animation \"Data/Animations/staggerback_combatpose_donatas.anm\""
+send_character_message 2 "set_torso_target -28.6568 -3.55351 -3.25798 0"
+send_character_message 1 "set_torso_target -29.8306 -3.29092 -2.6538 0"
+send_character_message 1 "set_head_target -29.1767 -2.81919 -2.98594 1"
+send_character_message 2 "set_eye_dir -29.9344 -2.86529 -4.43967 1"
+say 2 "Donatas" "[wait 0.2]..."
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
+set_character_pos 2 -28.8083 -3.53816 -2.03731 113
+send_character_message 1 "set_torso_target -29.7777 -3.77268 -3.52921 0"
+send_character_message 1 "set_eye_dir -28.3253 -2.59394 -2.36496 1"
+send_character_message 1 "set_head_target -29.6013 -2.82102 -2.12243 1"
+set_cam -28.9137 -2.8647 -3.72658 0 54.73 0 40.1767
+say 1 "Ghost" "Still kicking, [wait 0.1]huh...?"
+send_character_message 2 "set_torso_target -28.2208 -3.69025 -2.96992 1"
+send_character_message 2 "set_head_target -30.0324 -2.92925 -4.40471 1"
+set_cam -31.4005 -3.10115 -5.22651 0 -129.36 0 67.2687
+send_character_message 1 "set_eye_dir -28.8464 -2.72639 -2.24588 1"
+send_character_message 1 "set_head_target -28.8547 -2.75038 -2.29273 1"
+send_character_message 1 "set_animation \"Data/Animations/r_combatidlethreat.anm\""
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatidlethreat.anm\""
+say 2 "Donatas" "You're going to have to give me a lot more than just that, [wait 0.2]Ghost."
+send_level_message "make_all_aware"
+send_level_message "fight_begins"

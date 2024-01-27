@@ -1,0 +1,21 @@
+#name "Weapons"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_character_message 1 "set_eye_dir 6.55154 0.889602 14.7037 0.705462"
+send_character_message 1 "set_torso_target 6.6333 0.790069 14.5763 0.999998"
+set_character_pos 1 7.45272 0.525628 14.8429 180
+send_character_message 1 "set_head_target 6.58581 0.893833 14.6671 1"
+set_cam 8.63632 1.88118 14.1527 -28 107.64 0.01 36.6799
+send_level_message "enable 4007"
+send_level_message "enable 4008"
+send_level_message "enable 4009"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 2.8 1.0"
+say 1 "Ghost" "The weapons... [wait 0.15]Where did they go!?"
+send_character_message 1 "set_eye_dir 7.48852 1.38612 12.9975 1"
+send_character_message 1 "set_head_target 6.61537 1.53796 13.9061 1"
+send_character_message 1 "set_torso_target 6.6333 0.790069 14.5763 0"
+say 1 "Ghost" "They didn't take the coin... [wait 0.15]The Empry must want me unarmed."
+send_level_message "disable 4007"
+send_level_message "disable 4008"
+send_level_message "disable 4009"

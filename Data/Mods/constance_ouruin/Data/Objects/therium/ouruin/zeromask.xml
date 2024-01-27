@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/zeromask.obj</Model>
+	<ColorMap>Data/Textures/ouruin/zeromask_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/zeromask_n.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemap</ShaderPath>
+    <ShaderName>envobject #TANGENT #METALNESS_PBR</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

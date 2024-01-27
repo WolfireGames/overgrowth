@@ -1,0 +1,41 @@
+#name "Intro"
+#participants 3
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_head_target -44.9344 -39.9873 -65.3972 1"
+set_cam -44.7449 -40.3458 -62.6097 0 -19.48 0 38.5206
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+send_level_message "enable 5483"
+send_level_message "enable 5490"
+send_level_message "enable 12176"
+send_character_message 1 "set_eye_dir -48.1366 -38.9908 -65.5381 1"
+set_character_pos 1 -43.3208 -40.7569 -65.0965 180
+send_character_message 2 "set_head_target -43.2315 -39.9054 -65.2041 1"
+send_character_message 2 "set_eye_dir -43.8956 -39.8321 -65.5397 1"
+send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+set_character_pos 2 -43.9281 -40.6042 -68.1903 -73
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.3 20.0 10.0"
+say 1 "Ghost" "Alright. [wait 0.2]Thanks again, [wait 0.1]Dart."
+send_character_message 2 "set_eye_dir -43.8956 -39.8321 -65.5397 0.647765"
+send_character_message 2 "set_head_target -43.3074 -40.1662 -65.2003 1"
+send_character_message 1 "set_eye_dir -45.7961 -39.6455 -66.5904 1"
+send_character_message 1 "set_head_target -45.2346 -40.1156 -65.9417 1"
+say 2 "Dart" "Anything for a dear friend."
+send_character_message 1 "set_head_target -44.7458 -40.0788 -66.4688 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_head_target -44.5673 -40.2947 -65.4645 1"
+send_character_message 2 "set_eye_dir -43.8956 -39.8321 -65.5397 0"
+say 2 "Dart" "This one will be here to partake of the root."
+send_character_message 1 "set_eye_dir -48.4605 -39.3071 -65.3062 1"
+send_character_message 1 "set_head_target -47.5252 -39.1101 -65.2943 1"
+set_cam -41.8551 -40.1316 -64.1867 0 76.02 0 53.9307
+send_level_message "set_camera_dof 0.3 5.0 10.0 0.3 20.0 10.0"
+say 1 "Ghost" "[wait 0.1]Time to make my way home, [wait 0.1]then..."
+send_level_message "disable 5483"
+send_level_message "disable 11701"
+send_level_message "disable 5490"
+send_level_message "disable 12176"

@@ -1,0 +1,40 @@
+#name "GateGuards-Pay"
+#participants 4
+set_character_pos 3 260.109 -48.2148 27.6307 -98
+send_character_message 3 "set_animation \"Data/Animations/d_actionidle.anm\""
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 1"
+send_character_message 3 "set_torso_target 259.906 -47.3807 29.3961 0"
+send_character_message 3 "set_head_target 259.038 -47.3966 29.7295 1"
+send_character_message 2 "set_eye_dir 257.608 -46.4514 26.8978 1"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0495069"
+send_character_message 2 "set_head_target 258.576 -47.4745 29.4719 1"
+set_character_pos 1 258.955 -48.2838 29.9748 90
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 260.14 -47.5023 28.2792 0.443795"
+send_character_message 1 "set_torso_target 259.895 -47.7724 31.1206 0"
+send_character_message 1 "set_head_target 258.676 -47.1263 28.5151 1"
+send_character_message 2 "set_animation \"Data/Animations/swordrelax.anm\""
+set_cam 259.897 -47.7053 28.9013 5.78 133.15 0.32 33.2453
+set_character_pos 2 257.797 -48.2112 27.6343 -81
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 1 1
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.5 0.5 0.5
+set_dialogue_voice 3 3
+say 1 "Ghost" "Here... [wait 0.2]250 petals, [wait 0.1]all accounted for."
+send_character_message 2 "set_animation \"Data/Animations/r_actionidle_yawn.anm\""
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0495069"
+send_character_message 3 "set_torso_target 259.544 -47.3414 29.2997 0.999424"
+send_character_message 3 "set_head_target 258.458 -47.0319 28.0079 1"
+send_character_message 2 "set_head_target 258.915 -47.6902 29.5547 1"
+set_cam 255.999 -47.2548 28.5563 0 -71.42 0 36.5545
+say 2 "???" "Lovely... [wait 0.1]Just fine."
+send_character_message 2 "set_torso_target 257.79 -47.3937 29.1403 1"
+send_character_message 2 "set_head_target 259.137 -47.3866 29.4026 1"
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 0.678168"
+send_character_message 3 "set_torso_target 259.544 -47.3414 29.2997 0"
+send_character_message 3 "set_head_target 259.011 -47.5067 29.9136 1"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+say 3 "????" "We'll let you through to Agra, [wait 0.1]now. [wait 0.15]Let us know and we'll raise the gate for you."
+send_level_message "dialogue_done"

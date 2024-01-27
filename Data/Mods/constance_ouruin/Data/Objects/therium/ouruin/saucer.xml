@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	    <Model>Data/Models/therium/ouruin/saucer.obj</Model>
+		<ColorMap>Data/Textures/ouruin/teacup_c.tga</ColorMap>
+		<NormalMap>Data/Textures/ouruin/teacup_n.tga</NormalMap>
+		<ShaderName>envobject #TANGENT</ShaderName>
+		<flags no_collision=true/>
+		<GroundOffset>0.5</GroundOffset>
+</Object>

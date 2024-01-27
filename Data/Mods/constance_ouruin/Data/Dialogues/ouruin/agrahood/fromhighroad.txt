@@ -1,0 +1,9 @@
+#name "FromHighRoad"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+set_character_pos 1 222.827 -48.1274 -175.915 180
+say 1 "Ghost" "Back in Agra Hood..."
+send_level_message "disable 6837"
+send_level_message "disable 6841"

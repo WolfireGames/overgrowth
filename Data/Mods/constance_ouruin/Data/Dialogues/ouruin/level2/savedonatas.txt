@@ -1,0 +1,17 @@
+#name "SaveDonatas"
+#participants 3
+send_character_message 1 "set_torso_target -44.9668 -2.87424 -5.25657 0.0478607"
+set_character_pos 1 -45.9516 -3.24887 -5.5556 0
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_character_message 1 "set_head_target -45.0676 -3.64655 -5.55909 1"
+send_character_message 1 "set_eye_dir -45.3187 -3.68023 -5.36571 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dragstancestand.anm\""
+set_cam -44.8325 -3.46683 -5.27063 32.11 81.92 5.01 57.0939
+send_level_message "set_camera_dof 0.0 5.0 10.0 1.0 5.0 5.0"
+say 1 "Ghost" "Come on, [wait 0.15]Donatas... [wait 0.2]I've got you..."
+send_character_message 1 "set_torso_target -45.6469 -4.23371 -5.36405 1"
+send_character_message 1 "set_eye_dir -46.3472 -1.51182 -3.26127 1"
+send_character_message 1 "set_head_target -45.5183 -2.99257 -4.44386 1"
+say 1 "Ghost" "I'll get you some place safe."
+send_level_message "dialogue_done"

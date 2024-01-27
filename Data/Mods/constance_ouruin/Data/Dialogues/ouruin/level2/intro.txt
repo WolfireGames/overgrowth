@@ -1,0 +1,9 @@
+#name "Intro"
+#participants 2
+send_character_message 1 "set_eye_dir -75.6505 2.43972 -127.901 1"
+send_character_message 1 "set_head_target -76.6569 1.12611 -127.233 1"
+set_cam -82.0746 1.25746 -129.003 -6.32 -141.57 -0.54 50.9681
+say 1 "Ghost" "[wait 0.15]It took a while, [wait 0.1]since I had to be careful, [wait 0.15]but I'm finally home..."
+send_character_message 1 "set_eye_dir -71.79 1.85159 -114.346 1"
+send_character_message 1 "set_head_target -73.6081 1.01275 -117.644 1"
+say 1 "Ghost" "Just up there is my home, [wait 0.15]but it might be worth checking that place out..."

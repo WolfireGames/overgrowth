@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<Actor>
+	<Character>Data/Characters/fps_character.xml</Character>
+	<ControlScript>fps_character.as</ControlScript>
+</Actor>

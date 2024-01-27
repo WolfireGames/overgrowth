@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Weapons/DogWeapons/DogKnife.obj</Model>
+	<ColorMap>Data/Textures/white.tga</ColorMap>
+	<NormalMap>Data/Textures/diffusebump.tga</NormalMap>
+	<ShaderName>envobject #TANGENT #NO_DECALS</ShaderName>
+</Object>

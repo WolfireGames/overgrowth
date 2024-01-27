@@ -1,0 +1,63 @@
+#name "PatriBloodAsk"
+#participants 3
+send_character_message 1 "set_head_target 37.0682 -51.9344 -56.3062 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_idle.anm\""
+send_character_message 2 "set_eye_dir 37.3412 -52.4728 -56.7691 0.533327"
+send_character_message 2 "set_head_target 38.1777 -52.1823 -56.8234 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 37.1209 -51.9318 -56.3011 1"
+set_cam 40.4733 -49.8519 -54.1281 -34.38 56.09 -0.04 42.051
+set_character_pos 1 38.4573 -52.6756 -56.2353 180
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.4 0.05 0.05
+set_dialogue_voice 2 2
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 5.0 7.0"
+send_character_message 2 "set_morph_target smile 0.0 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0.3 0.3 outExpo"
+send_character_message 2 "set_morph_target sad 0.3 0.3 outExpo"
+say 2 "Patri" "My skin's crawling at just the thought of those murderers, [wait 0.15]lurking anywhere 'round here..."
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target 37.0996 -52.1229 -56.211 1"
+send_character_message 2 "set_eye_dir 38.3092 -51.8241 -56.2101 0.671742"
+send_character_message 2 "set_head_target 38.2302 -52.0698 -56.7978 1"
+say 1 "Ghost" "I take it you're talking about the cinderbloods?"
+send_character_message 2 "set_eye_dir 38.2134 -52.1274 -55.4448 0.447785"
+send_character_message 2 "set_head_target 38.4182 -52.1955 -55.4339 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_lean.anm\""
+say 2 "Patri" "Yeah, [wait 0.1]the very bastards that flooded the streets and tore apart our way of life. [wait 0.15]I hope they and the cinderians rip each other to ribbons."
+send_character_message 2 "set_head_target 38.4056 -52.1992 -55.4311 1"
+send_character_message 2 "set_torso_target 37.819 -52.1671 -56.39 0"
+send_character_message 1 "set_torso_target 37.5209 -51.9661 -56.3725 0.996806"
+send_character_message 1 "set_eye_dir 36.8225 -51.1728 -54.4034 0.738756"
+send_character_message 1 "set_head_target 36.8635 -51.6965 -54.7558 1"
+say 1 "Ghost" "That day was chaotic... [wait 0.2]Were the bloods really the ones who flooded this district?"
+send_character_message 1 "set_torso_target 37.5209 -51.9661 -56.3725 0"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_head_target 36.8635 -51.6965 -54.7558 1"
+send_character_message 2 "set_eye_dir 37.7042 -52.5977 -57.0491 0.268315"
+send_character_message 2 "set_head_target 38.4403 -52.5931 -55.7794 1"
+send_character_message 2 "set_torso_target 37.9953 -52.9104 -56.4866 0.953607"
+set_cam 37.5592 -52.7059 -57.5692 21.67 155.88 0.01 44.8248
+send_character_message 2 "set_animation \"Data/Animations/patri_idle.anm\""
+say 2 "Patri" "No matter how it played out, [wait 0.1]they were at fault. [wait 0.2]They shouldn't have brought this city into their bloody tide at all... [wait 0.2]They killed kits, [wait 0.1]by Khyo."
+send_character_message 2 "set_eye_dir 38.1939 -51.8161 -56.2373 0.449729"
+send_character_message 1 "set_head_target 36.9156 -51.9542 -56.1176 1"
+send_character_message 2 "set_head_target 38.4224 -51.8268 -56.157 1"
+send_character_message 2 "set_animation \"Data/Animations/patri_fist.anm\""
+send_character_message 2 "set_torso_target 37.9846 -52.9242 -56.622 1"
+say 2 "Patri" "This city was never clean... [wait 0.2]But we didn't deserve this. [wait 0.15]Nobody deserved this."
+send_character_message 1 "set_torso_target 37.5216 -51.9679 -56.3749 0"
+send_character_message 2 "set_torso_target 37.9846 -52.9242 -56.622 0"
+send_character_message 1 "set_head_target 37.1158 -51.9111 -55.8415 1"
+send_character_message 1 "set_animation \"Data/Animations/ghost_thoughtful_smooth.anm\""
+set_cam 37.149 -51.1023 -57.2923 -29.28 -132.33 0 30.183
+send_character_message 2 "set_animation \"Data/Animations/patri_idle.anm\""
+say 1 "Ghost" "Hm[wait 0.1].[wait 0.1].[wait 0.1]."
+send_character_message 1 "set_torso_target 37.5611 -52.0255 -56.2288 1"
+send_character_message 1 "set_eye_dir 37.8059 -52.3768 -56.6374 0.738756"
+send_character_message 1 "set_head_target 37.1212 -51.9441 -56.1369 1"
+say 3 "Ghost" "(Should I tell Patri about the cinderbloods I met...[wait 0.1]? [wait 0.2]Something tells me they won't take it well.)
+send_level_message "dialogue_done"

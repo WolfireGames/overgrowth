@@ -1,0 +1,16 @@
+#name "CresHomeSuggest"
+#participants 2
+set_character_pos 1 351.087 -44.5424 -229.811 0
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 353.253 -43.6421 -229.566 1"
+send_character_message 1 "set_torso_target 352.026 -44.0771 -229.486 0"
+send_character_message 1 "set_head_target 353.2 -43.4077 -229.889 1"
+set_cam 344.808 -41.4958 -236.262 -15.02 -130.73 0 50.5081
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Here's where my old friend Cres lives... [wait 0.2]Decent pick for a place."
+send_character_message 1 "set_eye_dir 348.603 -43.1591 -232.025 1"
+send_character_message 1 "set_head_target 352.662 -44.1101 -231.053 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+say 1 "Ghost" "Maybe I should check in on them... [wait 0.15]See if they're handling the guard patrols alright."
+send_level_message "dialogue_done"

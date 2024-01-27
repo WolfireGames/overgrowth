@@ -1,0 +1,24 @@
+#name "ValerianBye"
+#participants 4
+set_character_pos 3 25.1748 -49.1447 -26.8028 -150
+send_character_message 3 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 3 "set_eye_dir 23.6872 -51.3676 -24.5004 1"
+send_character_message 3 "set_torso_target 24.6483 -50.0122 -26.4824 0"
+send_character_message 3 "set_head_target 23.557 -51.3855 -24.6576 1"
+set_character_pos 2 24.2298 -52.6273 -27.8442 -90
+send_character_message 2 "set_animation \"Data/Animations/dialogue_leaning_back_onwall.anm\""
+send_character_message 2 "set_head_target 23.2872 -51.9352 -23.9774 1"
+set_character_pos 1 23.3049 -52.5977 -23.7258 91
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 24.1931 -51.6496 -26.161 1"
+send_character_message 1 "set_torso_target 24.2618 -52.1639 -23.7649 0"
+send_character_message 1 "set_head_target 23.8067 -51.6243 -25.5471 1"
+set_cam 23.8474 -52.2312 -22.4054 0 6.42 0 86.979
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.3 0.9 0.6
+set_dialogue_color 3 0.8 0.4 0.6
+say 1 "Ghost" "It could not possibly be worth that much. [wait 0.2]You're just lying to me."
+say 3 "Clynn" "I think we're stereotyping you, [wait 0.1]actually."
+say 2 "Toker" "Well, [wait 0.1]come on. [wait 0.2]Y' gotta prove you ain't a snitch, [wait 0.1]so rate's extra!"
+say 1 "Ghost" "Whatever. [wait 0.2]I'm not going to waste any more of my time."

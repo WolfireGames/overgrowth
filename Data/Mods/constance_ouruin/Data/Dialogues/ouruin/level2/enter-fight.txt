@@ -1,0 +1,17 @@
+#name "Enter-Fight"
+#participants 2
+set_character_pos 1 -20.5498 0.830242 -1.21374 180
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_eye_dir -21.5472 1.8739 -1.29816 1"
+send_character_message 1 "set_torso_target -19.7438 1.2445 -0.935419 0"
+send_character_message 1 "set_head_target -24.5793 2.51688 -0.671842 1"
+set_cam -17.1491 1.09795 -2.06857 7.73 100.41 0.34 51.2154
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Bijou might be in here, [wait 0.1]hiding... [wait 0.15]I should check for her."
+send_character_message 1 "set_torso_target -21.3842 1.66274 -1.49058 1"
+send_character_message 1 "set_eye_dir -17.6607 2.02185 -2.3754 1"
+send_character_message 1 "set_head_target -21.4496 1.63902 -3.33125 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "I hope she's okay..."
+send_level_message "dialogue_done"

@@ -1,0 +1,60 @@
+#name "GaraStealth"
+#participants 3
+send_character_message 1 "set_eye_dir 203.837 -47.0291 -10.6494 1"
+send_character_message 2 "set_eye_dir 203.371 -46.4404 -10.6789 0"
+send_character_message 2 "set_head_target 203.239 -46.5278 -10.7153 1"
+send_character_message 1 "set_head_target 204.307 -46.6446 -11.0197 1"
+set_cam 198.624 -47.748 -7.73811 3.69 -63.09 0 23.4556
+set_character_pos 2 205.08 -47.2278 -11.5296 -150
+send_character_message 2 "set_animation \"Data/Animations/gara_idle.anm\""
+set_character_pos 1 200.912 -48.3091 -8.59996 37
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.68 0.52 0.15
+set_dialogue_voice 2 16
+send_level_message "enable 12601"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 8.0 3.0"
+say 2 "Gara" "Ghost... [wait 0.5]That you?"
+send_character_message 2 "set_head_target 202.737 -46.7362 -10.905 1"
+send_character_message 1 "set_head_target 204.409 -46.1326 -11.0643 1"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+say 1 "Ghost" "Hey, [wait 0.3]old friend."
+send_character_message 2 "set_head_target 202.784 -46.5286 -10.8426 1"
+send_character_message 2 "set_animation \"Data/Animations/gara_hand.anm\""
+set_cam 203.031 -46.921 -11.8301 2.86 -102.42 0 27.1221
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 3.0 3.0"
+say 2 "Gara" "Did you see the squad of soldiers march past just now?"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 199.911 -47.0196 -10.002 1"
+send_character_message 1 "set_head_target 201.007 -47.1609 -9.62301 1"
+send_character_message 2 "set_head_target 202.788 -46.7239 -10.9686 1"
+set_cam 206.667 -46.2795 -13.0636 -9.92 131.14 -0.22 11.3294
+send_character_message 2 "set_animation \"Data/Animations/gara_idle.anm\""
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 7.8 2.0"
+say 1 "Ghost" "Yeah... [wait 0.5]Looks like they're looking for something. Or someone."
+send_character_message 1 "set_eye_dir 204.5 -46.1696 -11.1568 1"
+send_character_message 1 "set_head_target 202.553 -47.4616 -9.32764 1"
+send_character_message 2 "set_torso_target 204.226 -47.2084 -11.0836 1"
+send_character_message 2 "set_head_target 202.899 -47.1069 -11.0166 1"
+say 2 "Gara" "There are tons of them out right now. [wait 0.5]Any idea why?"
+send_character_message 2 "set_torso_target 204.226 -47.2084 -11.0836 0"
+send_character_message 2 "set_head_target 202.901 -46.8689 -11.0205 1"
+send_character_message 1 "set_head_target 202.424 -46.9959 -9.4973 1"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+say 1 "Ghost" "No clue. [wait 0.5]They never come 'round here..."
+send_character_message 2 "set_head_target 202.972 -46.6836 -11.0046 1"
+set_cam 202.618 -46.7573 -11.3973 0 -88.52 0 18.4672
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 3.0 1.0"
+say 2 "Gara" "There are groups like that marching up and down the streets all over. [wait 0.5]Squads like that being sent during a lockdown can't be a coincidence."
+send_character_message 2 "set_head_target 202.972 -46.8759 -11.0046 1"
+send_character_message 2 "set_animation \"Data/Animations/gara_hand.anm\""
+say 2 "Gara" "Be careful on your way home, [wait 0.3]alright? [wait 0.5]Say hello to Bijou for me."
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+send_character_message 1 "set_head_target 204.589 -46.8406 -11.2619 1"
+send_character_message 1 "set_eye_dir 204.571 -46.7535 -11.2182 1"
+send_character_message 2 "set_head_target 203.061 -46.7018 -10.9525 1"
+send_character_message 2 "set_animation \"Data/Animations/gara_idle.anm\""
+set_cam 198.604 -47.708 -8.17194 0 -70.65 0 45.6394
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 10.0 4.0"
+say 1 "Ghost" "I will, [wait 0.3]Gara. [wait 0.5]Thanks."
+send_level_message "disable 12601"

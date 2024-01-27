@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Objects/coin/coin.obj</Model>
+	<ColorMap>Data/Textures/ouruin/medallion_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/medallion_n.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemap</ShaderPath>
+	<ShaderName>cubemap</ShaderName>
+    <flags no_collision = "true"/>
+</Object>

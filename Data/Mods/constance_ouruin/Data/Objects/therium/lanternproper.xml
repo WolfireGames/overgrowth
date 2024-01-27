@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/lamp.obj</Model>
+	<ColorMap>Data/Textures/Objects/lamp/lamp_c.tga</ColorMap>
+	<NormalMap>Data/Textures/diffusebump.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemap</ShaderPath>
+	<ShaderName>cubemap</ShaderName>
+</Object>

@@ -1,0 +1,17 @@
+#name "Jasmine"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.75 0.4 0.85
+set_dialogue_voice 2 3
+say 1 "Ghost" "Hey, [wait 0.1]Jasmine. [wait 0.15]Something wrong?"
+say 2 "Jasmine" "It's... [wait 0.3]Rats took and killed Jack two days ago, [wait 0.15]and I only just now heard."
+say 1 "Ghost" "Another? [wait 0.2]Damn..."
+say 2 "Jasmine" "It's getting harder and harder to cull the bastards. [wait 0.15]Just when I think we have a hold on them, more just keep showing up."
+say 2 "Jasmine" "Somewhere deep in the darkest reaches, [wait 0.1]out west. [wait 0.15]I swear, [wait 0.1]that's where the rats' nest must be located..."
+say 1 "Ghost" "And now that Jack's dead..."
+say 2 "Jasmine" "...[wait 0.2]I really don't know if we have enough manpower to take them down, [wait 0.1]now."
+say 1 "Ghost" "Ever thought of poisoning them? [wait 0.15]Some type of gas, [wait 0.1]maybe?"
+say 2 "Jasmine" "Too risky. [wait 0.15]Besides, [wait 0.1]too many would survive..."
+say 1 "Ghost" "Well... [wait 0.15]I'd help, [wait 0.1]but culling's just too damn risky."
+say 2 "Jasmine" "[wait 0.3]Jack would've agreed."

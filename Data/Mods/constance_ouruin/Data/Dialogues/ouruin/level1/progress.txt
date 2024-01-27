@@ -1,0 +1,28 @@
+#name "Progress"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+send_character_message 1 "set_eye_dir 359.615 -56.3825 -61.0953 1"
+send_character_message 1 "set_torso_target 355.402 -57.346 -61.4016 1"
+send_character_message 1 "set_head_target 359.965 -56.4772 -61.7931 1"
+set_cam 356.615 -56.7945 -60.7376 0 49.71 0 14.6949
+set_character_pos 1 354.865 -57.4675 -62.2155 -71
+send_level_message "part3_complete"
+send_level_message "begin_tense"
+send_level_message "enable 12962"
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 60.0 10.0"
+send_character_message 1 "empty_hands"
+say 1 "Ghost" "What are all these guards doing out here...[wait 0.3]?"
+set_cam 356.899 -56.8749 -61.167 0 66.02 0 30.5112
+send_character_message 1 "set_head_target 359.726 -56.974 -61.0787 1"
+send_character_message 1 "set_torso_target 355.048 -56.9382 -61.4516 1"
+say 1 "Ghost" "Usually they let this district rot."
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 1 "set_head_target 354.922 -56.9635 -61.1168 1"
+send_character_message 1 "set_torso_target 354.949 -56.9986 -61.1955 0"
+say 1 "Ghost" "Maybe I should've listened to Donatas. [wait 0.5]He's probably worried about me, [wait 0.3]seeing all these guys stalk around..."
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+send_character_message 1 "set_head_target 358.544 -56.4008 -61.3969 1"
+set_cam 349.469 -56.9106 -62.6835 0 -98.15 0 19.2164
+say 1 "Ghost" "Don't got money for a bribe. [wait 0.5]If I get caught, I'll just do what I do best.""
+send_level_message "disable 12962"

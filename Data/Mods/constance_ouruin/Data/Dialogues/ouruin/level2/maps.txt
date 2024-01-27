@@ -1,0 +1,12 @@
+#name "Maps"
+#participants 2
+send_character_message 1 "set_eye_dir 9.63332 1.62073 17.7968 1"
+send_character_message 1 "set_head_target 9.6411 1.77797 17.808 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_character_pos 1 9.33197 0.529697 16.3494 -82
+set_cam 9.88239 1.11584 14.7031 4.75 174.59 0.15 28.5318
+send_level_message "enable 3927"
+send_level_message "set_camera_dof 0.3 3.0 2.0 0.3 20.0 10.0"
+say 1 "Ghost" "She hasn't touched this corner. [wait 0.5]Never really has a reason to."
+send_level_message "disable 3927"

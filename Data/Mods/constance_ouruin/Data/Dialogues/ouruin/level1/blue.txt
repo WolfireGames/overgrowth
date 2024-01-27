@@ -1,0 +1,58 @@
+#name "Blue"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0 1
+set_dialogue_voice 3
+send_character_message 2 "set_head_target 179.069 -22.4417 20.0561 1"
+send_character_message 2 "set_animation \"Data/Animations/blue_idle.anm\""
+send_character_message 1 "set_head_target 177.587 -22.4214 19.5999 1"
+send_character_message 1 "set_torso_target 178.829 -22.7509 18.6687 0"
+send_character_message 1 "set_eye_dir 177.384 -22.4354 19.4383 1"
+set_character_pos 1 179.308 -23.1877 20.1456 150
+set_character_pos 2 176.802 -23.056 19.2953 -6
+set_cam 174.627 -22.4452 17.8423 0 -119.52 0 15.5272
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+say 2 "???" "Hey -- [wait 0.5]wait, [wait 0.3]you."
+send_character_message 2 "set_head_target 179.064 -22.3855 20.0988 1"
+send_character_message 1 "set_head_target 177.474 -22.17 19.5389 1"
+say 1 "Ghost" "Yeah? [wait 0.5]What is it?"
+send_character_message 2 "set_animation \"Data/Animations/blue_hands.anm\""
+send_character_message 2 "set_head_target 179.144 -22.1847 20.0138 1"
+send_character_message 1 "set_head_target 177.11 -22.3328 19.4233 1"
+set_cam 182.985 -22.3987 20.4626 -0.81 81.68 -0.01 12.616
+say 2 "???" "It's you... [wait 0.5]the Black Key, [wait 0.3]in the flesh...[wait 0.3]!"
+send_character_message 2 "set_torso_target 177.826 -22.6302 19.349 0.0747059"
+send_character_message 2 "set_head_target 179.144 -22.267 20.0134 1"
+send_character_message 1 "set_head_target 177.15 -22.5251 19.5221 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+say 1 "Ghost" "[wait 0.5]The what?"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_torso_target 177.826 -22.6302 19.349 0.182309"
+set_cam 179.046 -22.7956 20.2961 7.25 64.4 0 22.855
+send_character_message 2 "set_head_target 179.168 -22.4295 20.0899 1"
+send_character_message 2 "set_animation \"Data/Animations/blue_arms.anm\""
+say 2 "???" "My... [wait 0.8]It truly is you. [wait 0.5]It is an honour to be in your presence, [wait 0.8]assassin."
+send_character_message 2 "set_torso_target 177.826 -22.2929 19.349 1"
+send_character_message 2 "set_head_target 179.166 -22.1072 20.0991 1"
+say 2 "???" "I have little to say, [wait 0.3]I'm afraid. [wait 0.5]But if I may offer some advice..."
+send_character_message 2 "set_animation \"Data/Animations/blue_idle.anm\""
+send_character_message 2 "set_head_target 179.265 -22.4675 20.0804 1"
+say 2 "???" "Be wary of those who lead you astray. [wait 0.5]You are but a pawn in someone's game..."
+send_character_message 1 "set_head_target 177.15 -22.4813 19.5221 1"
+send_character_message 2 "set_torso_target 177.826 -22.3429 19.349 0.865889"
+send_character_message 2 "set_head_target 179.264 -22.2651 20.0797 1"
+say 2 "???" "It is only up to you to choose whose hand you obey."
+send_character_message 1 "set_head_target 177.15 -22.2455 19.5221 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 2 "set_torso_target 177.826 -22.3429 19.349 0"
+set_cam 174.621 -22.4308 17.9017 0 -118.41 0 14.4639
+say 1 "Ghost" "...[wait 0.8]What?"
+send_character_message 2 "set_head_target 179.207 -22.1487 20.2108 1"
+send_character_message 2 "set_animation \"Data/Animations/blue_arms.anm\""
+say 2 "???" "Farewell, [wait 0.3]Key. [wait 0.5]I pray we meet again, [wait 0.3]some day."
+send_character_message 2 "set_animation \"Data/Animations/blue_idle.anm\""
+send_character_message 1 "set_head_target 177.122 -22.5465 19.3003 1"
+send_character_message 2 "set_head_target 179.185 -22.3597 20.1388 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Whatever, [wait 0.3]jackass..."

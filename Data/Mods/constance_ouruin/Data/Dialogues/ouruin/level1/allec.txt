@@ -1,0 +1,59 @@
+#name "Allec"
+#participants 4
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_voice 2 6
+set_character_pos 3 141.365 -46.7748 -211.555 -90
+send_character_message 3 "set_animation \"Data/Animations/r_lean_on_well.anm\""
+send_character_message 3 "set_eye_dir 141.214 -45.9988 -208.006 1"
+set_character_pos 2 141.67 -46.7444 -208.383 -90
+send_character_message 2 "set_animation \"Data/Animations/r_crossarms_idle.anm\""
+send_character_message 2 "set_eye_dir 141.441 -45.834 -206.848 0.718214"
+send_character_message 2 "set_head_target 141.621 -45.7606 -206.469 1"
+set_character_pos 1 141.572 -46.7667 -205.681 90
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 141.683 -45.8129 -207.797 1"
+send_character_message 1 "set_torso_target 142.481 -46.2984 -204.404 0"
+send_character_message 1 "set_head_target 141.656 -45.5167 -208.168 1"
+set_cam 140.585 -46.04 -203.199 -0.45 -14.13 -0.16 25.1853
+say 1 "Ghost" "If it isn't my good friend Allec..."
+send_character_message 1 "set_head_target 141.631 -45.5604 -208.174 1"
+send_character_message 2 "set_head_target 141.615 -45.9906 -206.445 1"
+say 2 "Allec" "Another yellow-tail, [wait 0.3]here to suck more filth from the local pissing pond. [wait 0.5]What do you want?"
+send_character_message 1 "set_head_target 141.631 -45.4509 -208.174 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+say 1 "Ghost" "Conversation. [wait 0.5]A friendly one."
+send_character_message 1 "set_head_target 141.631 -45.7173 -208.174 1"
+send_character_message 2 "set_eye_dir 141.441 -45.834 -206.848 0.382314"
+send_character_message 2 "set_head_target 141.658 -46.2251 -206.043 1"
+say 2 "Allec" "It'll cost you."
+send_character_message 2 "set_torso_target 142.578 -46.1027 -208.038 0"
+send_character_message 1 "set_eye_dir 141.683 -45.8129 -207.797 0.610352"
+send_character_message 1 "set_head_target 141.634 -45.5858 -208.16 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+send_character_message 2 "set_head_target 141.658 -46.2207 -206.043 0.889288"
+set_cam 140.874 -45.2347 -210.791 -9.86 -167.87 0.92 16.193
+say 1 "Ghost" "Damn it, [wait 0.3]Allec, [wait 0.3]I just want to talk."
+send_character_message 1 "set_eye_dir 141.683 -45.8129 -207.797 0.423021"
+send_character_message 1 "set_head_target 141.681 -45.7877 -208.155 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_torso_target 141.537 -46.4726 -207.371 0.611808"
+send_character_message 2 "set_head_target 141.651 -45.9469 -206.045 0.889288"
+say 2 "Allec" "And I'm on the job."
+set_cam 142.408 -46.1583 -207.105 4.85 150.81 0 19.8625
+send_character_message 1 "set_head_target 141.783 -46.0805 -208.123 1"
+send_character_message 1 "set_eye_dir 141.683 -45.8129 -207.797 1"
+say 1 "Ghost" "Not for long. [wait 0.5]Guard patrols are on the sweep."
+send_character_message 2 "set_torso_target 141.512 -46.5258 -207.543 1"
+send_character_message 2 "set_head_target 141.614 -46.112 -206.033 1"
+send_character_message 2 "set_eye_dir 141.529 -45.9366 -206.466 1"
+set_cam 141.632 -46.083 -206.306 11.25 0.29 0 19.8625
+say 2 "Allec" "They are? [wait 0.5]They looking for someone?"
+send_character_message 1 "set_head_target 141.693 -45.6174 -208.215 1"
+set_cam 140.273 -46.1109 -202.949 0 -17.45 0 30.8375
+say 1 "Ghost" "Good bye, [wait 0.3]Allec."
+send_character_message 2 "set_eye_dir 141.529 -45.9366 -206.466 0.531271"
+send_character_message 2 "set_head_target 141.581 -45.9346 -206.041 1"
+send_character_message 1 "set_head_target 141.333 -45.8334 -208.123 1"
+send_character_message 2 "set_torso_target 141.512 -46.5258 -207.543 0"
+say 2 "Allec" "Bastard."

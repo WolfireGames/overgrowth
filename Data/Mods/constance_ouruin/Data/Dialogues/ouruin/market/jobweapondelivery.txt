@@ -1,0 +1,53 @@
+#name "JobWeaponDelivery"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_gesture.anm\""
+send_character_message 2 "set_head_target 29.4612 -45.783 3.18121 1"
+set_character_pos 1 29.5416 -46.6306 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 29.6398 -45.7663 4.67931 1"
+send_character_message 1 "set_torso_target 28.4265 -46.1105 3.15929 0"
+send_character_message 1 "set_head_target 29.6556 -45.7997 4.8054 1"
+set_cam 30.665 -45.8658 4.21573 0 122.96 0 52.3576
+say 2 "Nedis" "Ever noticed how Cinderian weapons' metal is darker and grittier than canine steel? [wait 0.1]That's 'cause ours are forged from a type of dark volcanic crete, [wait 0.1]most commonly found here in Preuwyn."
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 28.4963 -45.8609 3.40397 1"
+say 2 "Nedis" "The stuff those dogs use out in the east is much higher quality... [wait 0.15]Lasts a lot longer, [wait 0.1]but rusts worse. [wait 0.2]Not to mention it's much more expensive."
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
+send_character_message 2 "set_head_target 28.9937 -46.4931 3.33545 1"
+say 2 "Nedis" "Preuwynian dark crete is a whole lot more plentiful, [wait 0.1]thanks to whatever's up with the Therium. [wait 0.15]Crete seems to grow like wild down there... [wait 0.2]Real curious."
+send_character_message 2 "set_head_target 28.9937 -46.4931 3.33545 1"
+send_character_message 1 "set_eye_dir 29.6398 -45.7663 4.67931 0.676208"
+send_character_message 1 "set_torso_target 29.0813 -45.8704 3.77868 0.998394"
+send_character_message 1 "set_head_target 29.1315 -46.1474 4.20929 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+set_cam 30.3404 -45.582 6.04958 -8.22 22.31 0 33.2896
+say 1 "Ghost" "Is this relevant, [wait 0.1]or are you just rambling?"
+send_character_message 2 "set_eye_dir 30.1632 -45.8082 5.00486 0"
+send_character_message 2 "set_head_target 30.3955 -46.0837 4.362 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 1 "set_head_target 29.1537 -45.8954 4.27163 1"
+send_character_message 1 "set_eye_dir 29.6398 -45.7663 4.67931 1"
+say 2 "Nedis" "Right, [wait 0.1]right... [wait 0.2]I'll get to the point."
+send_character_message 1 "set_head_target 29.3937 -45.8273 4.34415 1"
+set_cam 28.9218 -45.8496 1.62817 0 -162.08 0 21.97
+send_character_message 1 "set_torso_target 29.0813 -45.8704 3.77868 0.0662934"
+send_character_message 2 "set_head_target 29.5661 -46.0187 3.66751 1"
+send_character_message 2 "set_eye_dir 30.1506 -45.802 5.00756 1"
+say 2 "Nedis" "I have a friend waiting on the bridge, [wait 0.1]in Saint Faas' Sanctuary. [wait 0.15]Pretty close by... [wait 0.2]Right behind this building, [wait 0.1]in fact."
+send_character_message 1 "set_head_target 29.4199 -45.8862 4.331 1"
+send_character_message 2 "set_eye_dir 30.1506 -45.802 5.0076 0.500705"
+send_character_message 2 "set_head_target 30.1818 -46.1644 4.14977 1"
+say 2 "Nedis" "Only problem is the garden's been locked down. [wait 0.2]Don't know by who... [wait 0.1]The only entrance from here's blocked and guarded by a talented Arlissian duelist named Dart."
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
+send_character_message 2 "set_eye_dir 30.1506 -45.802 5.00764 1"
+send_character_message 2 "set_head_target 29.7057 -45.6081 3.33697 1"
+send_character_message 1 "set_torso_target 29.0107 -46.2522 3.88507 1"
+send_character_message 1 "set_eye_dir 27.696 -45.3435 2.87908 0.754445"
+send_character_message 1 "set_head_target 28.6603 -45.7971 3.58601 1"
+say 2 "Nedis" "If you take this job, [wait 0.1]you're going to have to find a way into Saint Faas' Sanctuary. [wait 0.15]From there, [wait 0.1]delivery should be simple."
+send_level_message "dialogue_done"

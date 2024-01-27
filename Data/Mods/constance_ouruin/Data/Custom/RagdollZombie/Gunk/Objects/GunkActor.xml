@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<Actor>
+	<Character>Data\Custom\RagdollZombie\Gunk\Characters/gunk.xml</Character>
+    <ControlScript>enemycontrol.as</ControlScript>
+</Actor>

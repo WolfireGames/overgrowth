@@ -1,0 +1,22 @@
+#name "Intro-AfterFight"
+#participants 2
+set_character_pos 1 -82.5075 0.482331 -12.8077 -90
+send_character_message 1 "set_animation \"Data/Animations/ghost_thoughtful_smooth.anm\""
+send_character_message 1 "set_eye_dir -82.9392 0.511043 -11.6655 1"
+send_character_message 1 "set_torso_target -81.5706 0.97835 -12.4819 0"
+send_character_message 1 "set_head_target -82.2014 1.388 -10.7676 0.0325716"
+set_cam -84.7743 0.920006 -12.6657 6.6 -89.5 0 25.9941
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "Okay... [wait 0.15]I need to get out of here. [wait 0.1]Get somewhere safe."
+send_character_message 1 "set_eye_dir -83.231 -0.0334722 -13.4955 0.869427"
+send_character_message 1 "set_torso_target -82.4786 1.05675 -11.9456 0.999937"
+send_character_message 1 "set_head_target -82.1897 1.1883 -10.7381 1"
+say 1 "Ghost" "Then, [wait 0.1]I'll find Bijou, [wait 0.1]and we'll escape this city together. [wait 0.15]Don't know who to trust... [wait 0.1]But we can do it."
+send_character_message 1 "set_eye_dir -84.6044 4.84726 -10.0623 1"
+send_character_message 1 "set_head_target -83.482 2.63537 -10.3474 1"
+send_character_message 1 "set_torso_target -82.4788 1.05676 -11.9456 0"
+send_character_message 1 "set_animation \"Data/Animations/ghost_thoughtful_smooth_back.anm\""
+set_cam -81.1911 0.499153 -13.6126 31.8 133.66 -1.52 92.1483
+say 1 "Ghost" "You can do this, [wait 0.1]Ghost... [wait 0.15]Just gotta climb."
+send_level_message "dialogue_done"

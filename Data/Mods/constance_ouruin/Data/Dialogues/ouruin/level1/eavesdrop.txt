@@ -1,0 +1,24 @@
+#name "Eavesdrop"
+#participants 4
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_voice 2 5
+set_dialogue_voice 3 9
+say 2 "???" "Hahahahah--[wait 0.5]Was that you!?"
+say 1 "Ghost" "[wait 0.5]What?"
+say 2 "???" "You and your friend, [wait 0.3]didja scare those fat cats shitless?"
+say 1 "Ghost" "I'm not sure I know what you're talking about."
+say 2 "???" "If you say so, [wait 0.3]heheh!"
+say 3 "????" "Teiie ou' sondre, [wait 0.3]fuiot ou viin suupriot!"
+say 2 "???" "Hahah--[wait 0.5]Too true, [wait 0.3]Jewel!"
+say 1 "Ghost" "...[wait 0.5]What?"
+say 2 "???" "What, [wait 0.3]didn't you hear 'im?"
+say 2 "???" "He said you should'a kicked 'im in the shins as they ran!"
+say 2 "???" "Damn Arlissians should go back to the dunes they were born in, [wait 0.3]huh? [wait 0.5]Heheh!"
+say 3 "Jewel" "Fuiot disaae undot ittriae sondre, [wait 0.3]fuiot suupriot dot dirtclod!"
+say 2 "???" "Heheh, [wait 0.3]you tell 'im!"
+say 1 "Ghost" "[wait 0.5]Didn't he just call you a dirtclod...[wait 0.5]?"
+say 2 "???" "The hell's that?"
+say 1 "Ghost" "[wait 0.3]..."
+say 1 "Ghost" "You know what, [wait 0.3]I've got better things to do."
+say 2 "???" "Keep it up, [wait 0.3]guy! [wait 0.5]Make sure the Arliss never steps foot on our soil again!"

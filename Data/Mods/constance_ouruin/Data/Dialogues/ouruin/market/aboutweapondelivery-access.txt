@@ -1,0 +1,21 @@
+#name "AboutWeaponDelivery-Access"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.2768 -45.9218 4.00764 1"
+set_character_pos 1 29.5416 -46.6306 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 29.6398 -45.7663 4.67931 1"
+send_character_message 1 "set_torso_target 28.4192 -46.1107 3.1588 0"
+send_character_message 1 "set_head_target 29.6554 -45.8017 4.80628 1"
+set_cam 30.126 -45.6618 1.80951 -7.33 164.26 0 37.2634
+say 1 "Ghost" "Dart's already let me into Faas' Sanctuary; [wait 0.2]Took some work, [wait 0.1]though. [wait 0.15]Doubtful she'll let anyone else through."
+send_character_message 1 "set_head_target 29.6551 -45.7564 4.79265 1"
+send_character_message 2 "set_head_target 29.3863 -45.7556 3.89942 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_gesture.anm\""
+say 2 "Nedis" "Really, [wait 0.1]now? [wait 0.15]Sounds like you're the perfect fit for this job. [wait 0.1]All you'll need to do is run it over!"
+send_level_message "dialogue_done"

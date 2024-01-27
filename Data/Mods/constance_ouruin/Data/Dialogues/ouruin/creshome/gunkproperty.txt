@@ -1,0 +1,54 @@
+#name "GunkProperty"
+#participants 5
+set_cam 7.21976 4.89989 15.5613 -41.19 134.96 9.26 44.9449
+set_character_pos 1 5.59518 1.04237 18.6547 166
+set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 1.0 0.0 0.0
+set_dialogue_voice 2 6
+set_dialogue_color 3 0.7 0.3 0.1
+set_dialogue_voice 3 2
+send_character_message 2 "set_animation \"Data/Animations/gunk_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 4.78547 1.89923 19.6761 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0.0199111"
+send_character_message 2 "set_head_target 5.42969 1.99676 18.6615 1"
+send_character_message 2 "set_eye_dir 5.37405 1.82581 18.5515 1"
+send_character_message 1 "set_head_target 4.32719 1.41903 17.3952 1"
+send_character_message 1 "set_torso_target 4.93555 1.14819 18.3024 0"
+send_character_message 1 "set_eye_dir 3.85215 1.88896 17.9772 1"
+send_character_message 1 "set_head_target 3.43787 1.64646 17.9216 1"
+send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
+send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
+say 1 "Ghost" "You said you came here to search for something you had stashed out here. [wait 0.15]Did you find it?"
+send_character_message 1 "set_head_target 3.41699 1.61414 17.8847 1"
+send_character_message 2 "set_eye_dir 4.36728 2.80436 19.7508 0.722737"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 1"
+send_character_message 2 "set_head_target 5.13588 2.25404 19.3927 1"
+say 2 "Gunk" "We couldn't even get close. [wait 0.2]She was our guide through the city, [wait 0.1]and now we don't stand a chance."
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0.99999"
+send_character_message 2 "set_eye_dir 5.47335 1.86652 18.6487 1"
+send_character_message 2 "set_head_target 5.28413 1.62267 19.4882 1"
+send_character_message 1 "set_head_target 3.35641 1.98299 17.8675 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+say 1 "Ghost" "What was it? [wait 0.15]Something valuable?"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 5.4001 1.92646 19.2462 1"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+say 2 "Gunk" "We had kept a good deal of coin hidden in a secret spot... [wait 0.15]Where it's located, [wait 0.1]only she knows."
+send_character_message 1 "set_head_target 3.37659 1.91784 17.8638 1"
+send_character_message 2 "set_eye_dir 5.47335 1.86652 18.6487 0.73776"
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 1"
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross_hand.anm\""
+send_character_message 2 "set_head_target 6.15144 1.53768 17.6241 1"
+say 2 "Gunk" "We need every petal we can get, [wait 0.1]but not if this is the price..."
+send_character_message 2 "set_animation \"Data/Animations/gunk_dialogue_armcross.anm\""
+send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 0"
+send_character_message 2 "set_head_target 6.0927 1.86419 17.7543 1"
+send_character_message 1 "set_head_target 3.43506 1.79693 17.8141 1"
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+say 1 "Ghost" "The drowned streets drive a hard bargain."
+send_level_message "dialogue_done"

@@ -1,0 +1,31 @@
+#name "JobThoritz-Take"
+#participants 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.5897 -45.8555 3.91069 1"
+set_character_pos 1 29.5416 -46.6037 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_eye_dir 29.5643 -45.6574 4.72988 1"
+send_character_message 1 "set_torso_target 28.4192 -46.1107 3.1588 0"
+send_character_message 1 "set_head_target 29.6551 -46.0373 4.77551 1"
+set_cam 28.6495 -45.6892 3.50327 -13.55 -64.46 -0.65 45.9757
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+send_level_message "disable 2483"
+say 1 "Ghost" "I think I'll take the job."
+send_character_message 2 "set_eye_dir 29.6781 -45.1138 5.64835 0.692922"
+send_character_message 2 "set_head_target 29.5051 -45.9553 3.78964 1"
+set_cam 29.1091 -45.8864 4.00321 0 -144.28 0 55.6854
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_letter.anm\""
+send_level_message "enable 2686"
+say 2 "Nedis" "Good to hear, [wait 0.1]Ghost. [wait 0.2]Here's the letter..."
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_letter1.anm\""
+send_character_message 2 "set_head_target 30.1257 -46.0713 3.81013 1"
+send_character_message 2 "set_eye_dir 29.6781 -45.1138 5.64835 0.948695"
+send_level_message "letter_grab"
+send_level_message "disable 2686"
+say 2 "Nedis" "Now, [wait 0.1]is that all...[wait 0.1]?"
+send_level_message "disable 2686"
+send_level_message "dialogue_done"

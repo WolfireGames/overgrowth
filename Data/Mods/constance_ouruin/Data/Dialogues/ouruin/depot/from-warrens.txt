@@ -1,0 +1,10 @@
+#name "From-Warrens"
+#participants 2
+set_character_pos 1 6.59333 -19.6279 -35.4662 -90
+send_character_message 1 "set_eye_dir 6.52763 -19.2612 -33.1868 1"
+send_character_message 1 "set_torso_target 7.72164 -19.1966 -35.1538 0"
+send_character_message 1 "set_head_target 8.06576 -18.408 -29.9204 1"
+set_cam 5.52376 -19.2363 -36.786 0 -151.86 0 76.681
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "..."

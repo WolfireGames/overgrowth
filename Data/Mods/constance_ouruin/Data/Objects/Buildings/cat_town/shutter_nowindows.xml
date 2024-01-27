@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/cat_town/shutter_nowindows.obj</Model>
+	<ColorMap>Data/Textures/Buildings/cat_town/shutter_windows_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Buildings/cat_town/shutter_windows_n.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
+	<ShaderName>cubemapobj</ShaderName>
+</Object>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	    <Model>Data/Models/therium/ouruin/mountains/FarMountain2.obj</Model>
+		<ColorMap>Data/Textures/ouruin/mountains/FarMountain2_C.tga</ColorMap>
+		<NormalMap>Data/Textures/ouruin/mountains/FarMountain2_N.tga</NormalMap>
+		<ShaderName>envobject #TANGENT</ShaderName>
+		<GroundOffset>0.5</GroundOffset>
+</Object>

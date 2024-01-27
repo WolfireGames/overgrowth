@@ -1,0 +1,31 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="32.6235" t1="-41.8198" t2="11.2692" s0="1.47096" s1="3.97841" s2="2.86216" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2955" version="1">
+        <parameters />
+        <EnvObject t0="32.6019" t1="-43.2574" t2="11.2042" s0="0.222542" s1="0.231714" s2="0.292747" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="469" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="32.6235" t1="-41.3182" t2="11.2692" s0="1.46096" s1="2.9652" s2="2.85216" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="483" version="1">
+            <parameters />
+            <EnvObject t0="32.9862" t1="-41.6533" t2="12.2883" s0="0.117985" s1="0.189161" s2="0.150154" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="460" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="32.2625" t1="-41.6533" t2="12.2883" s0="0.117985" s1="-0.189161" s2="0.150154" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="461" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="32.9863" t1="-41.6533" t2="10.2403" s0="0.117985" s1="0.189161" s2="0.150154" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="463" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="32.2627" t1="-41.6533" t2="10.2403" s0="0.117985" s1="-0.189161" s2="0.150154" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="464" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="32.9842" t1="-40.2328" t2="11.2743" s0="0.146218" s1="0.189161" s2="0.150154" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="466" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="32.2607" t1="-40.2328" t2="11.2743" s0="0.146218" s1="-0.189161" s2="0.150154" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="467" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+</ActorObjects>
