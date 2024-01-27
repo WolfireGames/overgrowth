@@ -33,3 +33,4 @@ Data/LevelNavmeshes/**/*.obj
 tags
 *.swp
 .vscode/*
+*.blend?
