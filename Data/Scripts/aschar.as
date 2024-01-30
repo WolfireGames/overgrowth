@@ -3555,7 +3555,7 @@ void HandleSpecialKeyPresses() {
                              "recovery_time = 2.0f;");
             }
         }
-
+/*
         if(GetInputPressed(this_mo.controller_id, "debug_switch_to_combat_rabbit")) {
             int rand_int = rand() % 3;
 
@@ -3651,7 +3651,7 @@ void HandleSpecialKeyPresses() {
         if(GetInputPressed(this_mo.controller_id, "debug_switch_to_rabbot")) {
             SwitchCharacter("Data/Characters/rabbot.xml");
         }
-
+*/
         if(GetInputPressed(this_mo.controller_id, "debug_misc_action")) {
             const bool kTestIdleAntic = false;
 
