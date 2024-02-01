@@ -36,3 +36,4 @@ tags
 *.swp
 .vscode/*
 *.blend?
+.directory

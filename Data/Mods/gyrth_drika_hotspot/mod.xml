@@ -7,7 +7,7 @@
     <Author>Gyrth McMulin</Author>
     <Thumbnail>Data/Images/drika_hotspot_thumb.jpg</Thumbnail>
     <PreviewImage>Data/Images/drika_hotspot_full.jpg</PreviewImage>
-    <Description>Drika Hotspot or DHS for short is a tool that allows users to create scripts with a GUI. Every DHS executes it's functions from top to bottom making it easy to trigger events based on one or more conditions. For example opening a door when a character steps in front of it.</Description>
+    <Description>Drika Hotspot or DHS for short is a tool that allows users to create scripts with a GUI. Every DHS executes its functions from top to bottom making it easy to trigger events based on one or more conditions. For example opening a door when a character steps in front of it.</Description>
     <Tag>Core</Tag>
     <Tag>Scripting</Tag>
     <SupportedVersion>*</SupportedVersion>
