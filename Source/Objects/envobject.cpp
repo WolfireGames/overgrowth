@@ -109,6 +109,7 @@ extern bool g_debug_runtime_disable_env_object_pre_draw_camera;
 bool last_ofr_is_valid = false;
 std::string last_ofr_shader_name;
 int last_shader;
+bool last_enable_alpha_to_coverage = false;
 
 struct EnvObjectGLState {
     GLState gl_state;
@@ -504,9 +505,18 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
     }
     graphics->setGLState(gl_state);
 
-    if (graphics->use_sample_alpha_to_coverage && !transparent) {
-        glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+    if (graphics->use_sample_alpha_to_coverage) {
+        bool enable_alpha_to_coverage = !transparent;
+        if (last_enable_alpha_to_coverage != enable_alpha_to_coverage) {
+            if (enable_alpha_to_coverage) {
+                glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+            } else {
+                glDisable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+            }
+        }
+        last_enable_alpha_to_coverage = enable_alpha_to_coverage;
     }
+
     PROFILER_LEAVE(g_profiler_ctx);  // GL State
 
     static int ubo_batch_size_multiplier = 1;
@@ -894,8 +904,9 @@ void AfterDrawInstancesImpl() {
         }
     }
 
-    if (graphics->use_sample_alpha_to_coverage) {
+    if (graphics->use_sample_alpha_to_coverage && last_enable_alpha_to_coverage) {
         glDisable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+        last_enable_alpha_to_coverage = false;
     }
 }
 
