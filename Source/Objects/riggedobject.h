@@ -433,7 +433,6 @@ class RiggedObject : public Object {
     RiggedObject(const RiggedObject &other);
     RiggedObject &operator=(const RiggedObject &other);
 
-    const char *shader;
     const char *water_cube;
     const char *water_cube_expand;
 };
