@@ -82,6 +82,8 @@
 #include <cmath>
 #include <sstream>
 
+#define AVOID_DRAW_INSTANCES_CLEANUP_OVERHEAD
+
 extern Timer game_timer;
 extern char* global_shader_suffix;
 extern bool g_simple_shadows;
@@ -230,6 +232,7 @@ void EnvObject::Draw() {
     }
     last_ofr_is_valid = false;
     DrawInstances(instances, 1, proj_view_mat, prev_proj_view_mat, &shadow_matrix, cam_pos, Object::kFullDraw);
+    AfterDrawInstances();
     DrawDetailObjectInstances(instances, 1, Object::kFullDraw);
 }
 
@@ -442,6 +445,8 @@ static void SetupAttribPointers(bool shader_changed, Model* model, VBORingContai
         }
     }
 }
+
+void AfterDrawInstancesImpl();
 
 void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, const mat4& proj_view_matrix, const mat4& prev_proj_view_matrix, const std::vector<mat4>* shadow_matrix, const vec3& cam_pos, Object::DrawType type) {
     if (g_debug_runtime_disable_env_object_draw_instances) {
@@ -858,6 +863,26 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
         }
     }
 
+#if !defined(AVOID_DRAW_INSTANCES_CLEANUP_OVERHEAD)
+    AfterDrawInstancesImpl();
+#endif
+
+    last_ofr_is_valid = ofr.valid();
+    if (last_ofr_is_valid) {
+        last_ofr_shader_name = ofr->shader_name;
+    }
+}
+
+void EnvObject::AfterDrawInstances() {
+#if defined(AVOID_DRAW_INSTANCES_CLEANUP_OVERHEAD)
+    AfterDrawInstancesImpl();
+#endif
+}
+
+void AfterDrawInstancesImpl() {
+    Graphics* graphics = Graphics::Instance();
+    bool attrib_envobj_instancing = g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;
+
     graphics->ResetVertexAttribArrays();
     graphics->BindArrayVBO(0);
     graphics->BindElementVBO(0);
@@ -871,11 +896,6 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
 
     if (graphics->use_sample_alpha_to_coverage) {
         glDisable(GL_SAMPLE_ALPHA_TO_COVERAGE);
-    }
-
-    last_ofr_is_valid = ofr.valid();
-    if (last_ofr_is_valid) {
-        last_ofr_shader_name = ofr->shader_name;
     }
 }
 
@@ -971,6 +991,7 @@ void EnvObject::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_plan
     }
     last_ofr_is_valid = false;
     DrawInstances(instances, 1, proj_view_matrix, proj_view_matrix, &shadow_matrix, cam_pos, draw_type);
+    AfterDrawInstances();
 }
 
 void EnvObject::SetEnabled(bool val) {
