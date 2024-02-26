@@ -1534,6 +1534,10 @@ void RiggedObject::Load(const std::string& character_path, vec3 pos, SceneGraph*
     // ofc = ObjectFiles::Instance()->ReturnRef(char_ref->GetObjPath());
     ofc = Engine::Instance()->GetAssetManager()->LoadSync<ObjectFile>(char_ref->GetObjPath());
 
+    if (ofc->shader_name != "cubemapobjchar") {
+        shader = ofc->shader_name.c_str();
+    }
+
     Models* mi = Models::Instance();
     int the_model_id = mi->loadModel(ofc->model_name, _MDL_CENTER);
     model_id[0] = the_model_id;
