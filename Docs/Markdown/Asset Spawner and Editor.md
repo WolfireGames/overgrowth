@@ -7,7 +7,7 @@ So it would be really cool I think if all of that could be done from within the 
 
 Since objects are taken straight from their folders instead of being hard coded in, we can use a folder tree as a quick and easy way to filter objects. If you click one of the folders in the tree, all objects in that folder and all its sub-folders are displayed on the right side.
 
-![Mockup of browser](/item-spawner-editor-mockup.png)
+![Mockup of browser](img/item-spawner-editor-mockup.png)
 
 ## Structure
 There is a tab based interface like in the current spawner. Each tab is created by creating an XML file in a specific directory. This XML file specifies the following.
@@ -130,7 +130,7 @@ This eliminates the need to manually fill the spawn menu with items, which is an
 ### Editor mode
 In this mode you can see all tabs, including those that contain XML files that cannot be spawned, such as levels and particle XMLs. If you click an item in this mode a new window opens up for that item where you can edit the elements that have been specified in the settings for this tab. A button can be pressed to open up elements that have not been specified in that XML for editing, just in case you want to edit something that is very uncommon to edit.
 
-![mockup of xml editor](/xml-editor.png)
+![mockup of xml editor](img/xml-editor.png)
 
 ## Mod support
 It should be built with mods in mind, meaning it also looks for items in the same folders in mods as well. There should be a button in the browser that brings up a menu where you can choose what mods you want to display content from (including the main game).
