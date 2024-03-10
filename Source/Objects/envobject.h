@@ -148,6 +148,7 @@ class EnvObject : public Object {
     // Drawing
     void Draw() override;
     void DrawInstances(EnvObject **instance_array, int num_instances, const mat4 &proj_view_matrix, const mat4 &prev_proj_view_matrix, const std::vector<mat4> *shadow_matrix, const vec3 &cam_pos, Object::DrawType type);
+    static void AfterDrawInstances();
     bool HasDetailObjectSurfaces() const { return !detail_object_surfaces.empty(); }
     void DrawDetailObjectInstances(EnvObject **instance_array, int num_instances, Object::DrawType type);
     void PreDrawCamera(float curr_game_time) override;

@@ -82,6 +82,8 @@
 #include <cmath>
 #include <sstream>
 
+#define AVOID_DRAW_INSTANCES_CLEANUP_OVERHEAD
+
 extern Timer game_timer;
 extern char* global_shader_suffix;
 extern bool g_simple_shadows;
@@ -107,6 +109,7 @@ extern bool g_debug_runtime_disable_env_object_pre_draw_camera;
 bool last_ofr_is_valid = false;
 std::string last_ofr_shader_name;
 int last_shader;
+bool last_enable_alpha_to_coverage = false;
 
 struct EnvObjectGLState {
     GLState gl_state;
@@ -230,6 +233,7 @@ void EnvObject::Draw() {
     }
     last_ofr_is_valid = false;
     DrawInstances(instances, 1, proj_view_mat, prev_proj_view_mat, &shadow_matrix, cam_pos, Object::kFullDraw);
+    AfterDrawInstances();
     DrawDetailObjectInstances(instances, 1, Object::kFullDraw);
 }
 
@@ -443,6 +447,8 @@ static void SetupAttribPointers(bool shader_changed, Model* model, VBORingContai
     }
 }
 
+void AfterDrawInstancesImpl();
+
 void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, const mat4& proj_view_matrix, const mat4& prev_proj_view_matrix, const std::vector<mat4>* shadow_matrix, const vec3& cam_pos, Object::DrawType type) {
     if (g_debug_runtime_disable_env_object_draw_instances) {
         return;
@@ -499,9 +505,18 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
     }
     graphics->setGLState(gl_state);
 
-    if (graphics->use_sample_alpha_to_coverage && !transparent) {
-        glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+    if (graphics->use_sample_alpha_to_coverage) {
+        bool enable_alpha_to_coverage = !transparent;
+        if (last_enable_alpha_to_coverage != enable_alpha_to_coverage) {
+            if (enable_alpha_to_coverage) {
+                glEnable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+            } else {
+                glDisable(GL_SAMPLE_ALPHA_TO_COVERAGE);
+            }
+        }
+        last_enable_alpha_to_coverage = enable_alpha_to_coverage;
     }
+
     PROFILER_LEAVE(g_profiler_ctx);  // GL State
 
     static int ubo_batch_size_multiplier = 1;
@@ -858,6 +873,26 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
         }
     }
 
+#if !defined(AVOID_DRAW_INSTANCES_CLEANUP_OVERHEAD)
+    AfterDrawInstancesImpl();
+#endif
+
+    last_ofr_is_valid = ofr.valid();
+    if (last_ofr_is_valid) {
+        last_ofr_shader_name = ofr->shader_name;
+    }
+}
+
+void EnvObject::AfterDrawInstances() {
+#if defined(AVOID_DRAW_INSTANCES_CLEANUP_OVERHEAD)
+    AfterDrawInstancesImpl();
+#endif
+}
+
+void AfterDrawInstancesImpl() {
+    Graphics* graphics = Graphics::Instance();
+    bool attrib_envobj_instancing = g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;
+
     graphics->ResetVertexAttribArrays();
     graphics->BindArrayVBO(0);
     graphics->BindElementVBO(0);
@@ -869,13 +904,9 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
         }
     }
 
-    if (graphics->use_sample_alpha_to_coverage) {
+    if (graphics->use_sample_alpha_to_coverage && last_enable_alpha_to_coverage) {
         glDisable(GL_SAMPLE_ALPHA_TO_COVERAGE);
-    }
-
-    last_ofr_is_valid = ofr.valid();
-    if (last_ofr_is_valid) {
-        last_ofr_shader_name = ofr->shader_name;
+        last_enable_alpha_to_coverage = false;
     }
 }
 
@@ -971,6 +1002,7 @@ void EnvObject::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_plan
     }
     last_ofr_is_valid = false;
     DrawInstances(instances, 1, proj_view_matrix, proj_view_matrix, &shadow_matrix, cam_pos, draw_type);
+    AfterDrawInstances();
 }
 
 void EnvObject::SetEnabled(bool val) {
