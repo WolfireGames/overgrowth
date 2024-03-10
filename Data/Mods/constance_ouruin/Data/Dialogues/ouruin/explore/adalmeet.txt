@@ -33,7 +33,7 @@ send_character_message 1 "set_head_target 110.758 -51.7196 45.3777 1"
 send_character_message 2 "set_torso_target 110.625 -52.032 44.4836 1"
 send_character_message 2 "set_eye_dir 112.214 -51.5924 45.9177 1"
 send_character_message 2 "set_head_target 112.038 -51.5215 45.5809 1"
-say 2 "Adal" "Yeah, [wait 0.1]everything's fine. [wait 0.15]I just need to finish up with this work..."
+say 2 "Adal" "E-[wait 0.1]Everything's fine. [wait 0.15]I just need to finish up with this work..."
 send_character_message 1 "set_torso_target 110.537 -52.1338 45.0456 0"
 set_cam 110.225 -51.8737 46.166 0 4 0 30.7033
 send_character_message 2 "set_eye_dir 110.068 -51.7626 44.6235 1"

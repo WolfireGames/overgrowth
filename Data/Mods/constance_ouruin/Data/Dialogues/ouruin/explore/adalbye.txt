@@ -1,0 +1,18 @@
+#name "AdalBye"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.4 0.9
+set_dialogue_voice 2 9
+set_cam 107.934 -52.1063 44.4331 0 -104.34 0 72.1066
+set_character_pos 2 110.746 -52.6143 45.5415 120
+send_character_message 2 "set_eye_dir 110.059 -51.7802 44.6747 1"
+send_character_message 2 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 0"
+send_character_message 2 "set_head_target 110.237 -51.8214 44.3819 1"
+set_character_pos 1 109.964 -52.6171 44.5603 -41
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 107.654 -51.6501 45.1233 1"
+send_character_message 1 "set_torso_target 110.907 -52.23 44.8819 0"
+send_character_message 1 "set_head_target 109.881 -51.7344 45.4733 1"
+say 1 "Ghost" "I'll see you later, [wait 0.1]Adal. [wait 0.2]Have a good evening."

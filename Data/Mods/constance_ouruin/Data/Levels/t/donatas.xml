@@ -19,6 +19,7 @@
     <parameter name="Level Boundaries" type="string" val="1" />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
     <parameter name="Sky Brightness" type="string" val="1" />
     <parameter name="Sky Rotation" type="string" val="143" />
     <parameter name="Sky Tint" type="string" val="255, 255, 255" />
@@ -37,7 +38,7 @@
     <EnvObject t0="-42.9803" t1="35.9298" t2="111.989" s0="2.02081" s1="1" s2="3.30549" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
         <parameters />
     </EnvObject>
-    <CameraObject t0="-43.763" t1="41.6133" t2="132.633" s0="1" s1="1" s2="1" q0="0.0367506" q1="0.947769" q2="-0.118547" q3="0.293819" euler_x="-2.89273" euler_y="0.601231" euler_z="-3.14159" id="3">
+    <CameraObject t0="-43.7679" t1="41.6154" t2="132.626" s0="1" s1="1" s2="1" q0="0.0347213" q1="0.949148" q2="-0.112931" q3="0.291822" euler_x="-2.90474" euler_y="0.596568" euler_z="3.14159" id="3">
         <parameters />
     </CameraObject>
     <EnvObject t0="-43.1369" t1="36.0174" t2="107.512" s0="1.16523" s1="1" s2="1.0533" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" color_r="0.356863" color_g="0.356863" color_b="0.356863" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
@@ -106,13 +107,14 @@
             <parameter name="Focus FOV vertical" type="float" val="0.62834" />
             <parameter name="Ground Aggression" type="float" val="0.5" />
             <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
             <parameter name="Jump - Air Control" type="float" val="3" />
             <parameter name="Jump - Initial Velocity" type="float" val="5" />
             <parameter name="Jump - Jump Sustain" type="float" val="5" />
             <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
             <parameter name="Knockout Shield" type="int" val="2" />
             <parameter name="Left handed" type="int" val="0" />
-            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Movement Speed" type="float" val="0.03" />
             <parameter name="Muscle" type="float" val="0.5" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
@@ -204,6 +206,7 @@
             <parameter name="Focus FOV vertical" type="float" val="0.62834" />
             <parameter name="Ground Aggression" type="float" val="0.5" />
             <parameter name="Hearing Modifier" type="string" val="0" />
+            <parameter name="Idle Sway" type="float" val="1" />
             <parameter name="Jump - Air Control" type="float" val="3" />
             <parameter name="Jump - Initial Velocity" type="float" val="5" />
             <parameter name="Jump - Jump Sustain" type="float" val="5" />
@@ -431,6 +434,7 @@
             <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
             <parameter name="Focus FOV vertical" type="float" val="0.62834" />
             <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
             <parameter name="Jump - Air Control" type="float" val="3" />
             <parameter name="Jump - Initial Velocity" type="float" val="5" />
             <parameter name="Jump - Jump Sustain" type="float" val="5" />
@@ -702,7 +706,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <ActorObject t0="-36.5086" t1="39.1656" t2="146.879" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="98" type_file="Data/Characters/dummy_guard.xml" is_player="0">
+    <ActorObject t0="-36.5086" t1="39.1656" t2="146.879" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="98" type_file="Data/Characters/dummy_guard.xml" is_player="0">
         <parameters>
             <parameter name="Character Scale" type="float" val="1" />
             <parameter name="Teams" type="string" val="dummy" />

@@ -281,6 +281,21 @@ ouruin_dart_quest
 	4: Dart has been beaten. Quest complete!
 	5: Player has given drug money to Dart
 
+ouruin_adal_quest
+	0: Adal has not been met
+	1: Player has met Adal
+	2: Player has offered to help Adal
+	3: Player has given Adal all her funds. Quest complete
+	4: Player has given Adal half her funds. Quest complete
+	5: Player has given Adal some of her funds. Quest complete
+	6: Player has decided to keep all of her funds. Quest complete
+
+	ouruin_adal_depot
+		0: Depot has not been entered
+		1: Thieves encountered
+		2: Gold retrieved, Adal ready
+		3: Gold paid
+
 ouruin_beggar_quest
 	0: Beggar has not been met
 	1: Beggar has been met

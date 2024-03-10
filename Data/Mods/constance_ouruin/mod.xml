@@ -17,9 +17,11 @@
 
     <SupportedVersion>*</SupportedVersion>
 
+    <SupportsOnline>true</SupportsOnline>
+
     <NeedsRestart>false</NeedsRestart>
 
-    <Level title="Ouruin Testing" thumbnail="Textures/example_level_pack/campaign_thumbnails/Clearing.jpg">t/testselect.xml</Level>
+    <Level title="Ouruin Testing" thumbnail="Textures/ouruin/campaign_thumbnails/prologue.jpg">t/testselect.xml</Level>
 
     <Campaign title="Scar of Ouruin" thumbnail="Images/ouruin/thumb.jpg" menu_script="standard_campaign_menu.as" main_script="linear_campaign.as">
         <Level id="level_1" title="Rainfall" thumbnail="Textures/ouruin/campaign_thumbnails/prologue.jpg">ouruin/prologue.xml</Level>
@@ -33,6 +35,6 @@
         <Level id="level_9" title="Cinderian Ship" thumbnail="Textures/ouruin/campaign_thumbnails/level4.jpg">ouruin/level4.xml</Level>
     </Campaign>
 <!--	<Level title="Donatas Wave" thumbnail="Textures/ouruin/campaign_thumbnails/level1.jpg">ouruin/donataswave.xml</Level> -->
-    <Item category="Hotspot" title="Random Citizen" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail="Data/UI/spawner/thumbs/Hotspot/reset_icon.png"/>
-	<Item category="Hotspot" title="FPS Hotspot" path="Data/Objects/Hotspots/fps_hotspot.xml" thumbnail="Data/UI/spawner/thumbs/Hotspot/load_icon.png"/>
+<!--    <Item category="Hotspot" title="Random Citizen" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail="Data/UI/spawner/thumbs/Hotspot/reset_icon.png"/> -->
+<!--	<Item category="Hotspot" title="FPS Hotspot" path="Data/Objects/Hotspots/fps_hotspot.xml" thumbnail="Data/UI/spawner/thumbs/Hotspot/load_icon.png"/> -->
 </Mod>
