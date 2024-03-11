@@ -27,6 +27,8 @@
 #include <SDL_net.h>
 
 #include <map>
+#include <string>
+#include <vector>
 
 #define SOCKET_ID_INVALID 0xFFFFFFFF
 
