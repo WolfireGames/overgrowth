@@ -22,7 +22,7 @@ jobs:
           key: ${{ runner.os }}-dnfcache
       - name: Install pre-requisites
         run: dnf --assumeyes --setopt=install_weak_deps=False install
-              gcc-c++ cmake make /usr/bin/git java-11-openjdk-headless curl unzip
+              gcc-c++ cmake make /usr/bin/git java-17-openjdk-headless curl unzip
               'pkgconfig(gl)' 'pkgconfig(glu)'
               'pkgconfig(sdl2)' 'pkgconfig(SDL2_net)'
               'pkgconfig(gtk+-2.0)' 'pkgconfig(ogg)' 'pkgconfig(vorbis)'
