@@ -1,0 +1,21 @@
+#name "AdalWhere"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.4 0.9
+set_dialogue_voice 2 9
+set_cam 112.131 -51.7747 46.434 -1.99 52.74 0.04 14.7491
+set_character_pos 2 110.746 -52.6143 45.5415 120
+send_character_message 2 "set_eye_dir 110.059 -51.7802 44.6747 1"
+send_character_message 2 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 2 "set_torso_target 110.419 -51.9468 44.9465 1"
+send_character_message 2 "set_head_target 110.237 -51.8214 44.3819 1"
+set_character_pos 1 109.964 -52.6171 44.5603 -41
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 110.695 -51.7656 45.4713 1"
+send_character_message 1 "set_torso_target 110.907 -52.23 44.8819 0"
+send_character_message 1 "set_head_target 110.738 -51.9406 45.5024 1"
+say 1 "Ghost" "You said those snakes are holed out in the depot out on Moritz block, [wait 0.1]right...?"
+set_cam 156.914 -22.7006 128.715 -19.6 -23.42 -0.11 42.861
+say 2 "Adal" "Yeah. [wait 0.15]If you make your way by it, [wait 0.1]you should keep a look out."
+send_level_message "end_dialogue"
