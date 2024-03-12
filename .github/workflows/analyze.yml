@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: 'registry.fedoraproject.org/fedora:latest'
     env:
-      SONAR_SCANNER_VERSION: 4.7.0.2747
+      SONAR_SCANNER_VERSION: 5.0.1.3006
       SONAR_SERVER_URL: "https://sonarcloud.io"
       BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
     steps:
@@ -22,7 +22,7 @@ jobs:
           key: ${{ runner.os }}-dnfcache
       - name: Install pre-requisites
         run: dnf --assumeyes --setopt=install_weak_deps=False install
-              gcc-c++ cmake make /usr/bin/git java-11-openjdk-headless curl unzip
+              gcc-c++ cmake make /usr/bin/git java-17-openjdk-headless curl unzip
               'pkgconfig(gl)' 'pkgconfig(glu)'
               'pkgconfig(sdl2)' 'pkgconfig(SDL2_net)'
               'pkgconfig(gtk+-2.0)' 'pkgconfig(ogg)' 'pkgconfig(vorbis)'

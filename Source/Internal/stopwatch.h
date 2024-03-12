@@ -22,6 +22,7 @@
 //-----------------------------------------------------------------------------
 #pragma once
 
+#include <cstdint>
 #include <string>
 
 void BusyWaitMilliseconds(uint32_t how_many);
