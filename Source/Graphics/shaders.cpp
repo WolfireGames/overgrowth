@@ -100,7 +100,9 @@ enum Type {
     INCLUDE,
     UNKNOWN,
     PRAGMA,
-    VERSION
+    VERSION,
+    OG_VERSION_MAJOR,
+    OG_VERSION_MINOR,
 };
 }
 
@@ -157,6 +159,32 @@ static void ParsePreprocessorDirective(const char *text, int line_break, Preproc
         pd->data = buf;
         pd->type = PREPROC::VERSION;
     }
+    if (strcmp(buf, "og_version_major") == 0) {
+        int first_char = strlen("#og_version_major");
+        while (IsCharInString(text[first_char], " \t") && first_char < line_break) {
+            ++first_char;
+        }
+        int second_char = first_char;
+        while (!IsCharInString(text[second_char], " \t") && second_char < line_break) {
+            ++second_char;
+        }
+        CopySubString(&text[first_char], buf, "", min(BUF_SIZE - 1, second_char - first_char));
+        pd->data = buf;
+        pd->type = PREPROC::OG_VERSION_MAJOR;
+    }
+    if (strcmp(buf, "og_version_minor") == 0) {
+        int first_char = strlen("#og_version_minor");
+        while (IsCharInString(text[first_char], " \t") && first_char < line_break) {
+            ++first_char;
+        }
+        int second_char = first_char;
+        while (!IsCharInString(text[second_char], " \t") && second_char < line_break) {
+            ++second_char;
+        }
+        CopySubString(&text[first_char], buf, "", min(BUF_SIZE - 1, second_char - first_char));
+        pd->data = buf;
+        pd->type = PREPROC::OG_VERSION_MINOR;
+    }
     return;
 }
 
@@ -208,6 +236,8 @@ static void Preprocess(Shader *shader, ShaderType type, const std::vector<std::s
     }
 
     int version = -1;
+    int og_version_major = -1;
+    int og_version_minor = -1;
     int line_start = 0;
     for (int cursor = 0; text[cursor] != '\0'; ++cursor) {
         // Check each line one at a time
@@ -270,13 +300,25 @@ static void Preprocess(Shader *shader, ShaderType type, const std::vector<std::s
                         }
                         break;
                     case PREPROC::VERSION:
+                    case PREPROC::OG_VERSION_MAJOR:
+                    case PREPROC::OG_VERSION_MINOR:
                         // Comment out current version definition
                         // So we can add it later at the beginning
                         text.insert(line_start, "//");
                         cursor += 2;
                         text.insert(cursor, "\n");
                         cursor += 1;
-                        version = atoi(pd.data.c_str());
+                        switch (pd.type) {
+                            case PREPROC::VERSION:
+                                version = atoi(pd.data.c_str());
+                                break;
+                            case PREPROC::OG_VERSION_MAJOR:
+                                og_version_major = atoi(pd.data.c_str());
+                                break;
+                            case PREPROC::OG_VERSION_MINOR:
+                                og_version_minor = atoi(pd.data.c_str());
+                                break;
+                        }
                         break;
                 }
             }
@@ -328,7 +370,11 @@ static void Preprocess(Shader *shader, ShaderType type, const std::vector<std::s
         shader->blend_src = GL_SRC_ALPHA;
         shader->blend_dst = GL_ONE_MINUS_SRC_ALPHA;
     }
+
+    shader->og_version_major = og_version_major;
+    shader->og_version_minor = og_version_minor;
 }
+
 }  // namespace
 
 void Shaders::ReloadShader(int which, ShaderType type) {
@@ -688,6 +734,16 @@ bool Shaders::IsProgramTransparent(int which_program) {
 bool Shaders::DoesProgramUseTangent(int which_program) {
     return shaders[programs[which_program].shader_ids[_fragment]].use_tangent ||
            shaders[programs[which_program].shader_ids[_vertex]].use_tangent;
+}
+
+void Shaders::GetProgramOvergrowthVersion(int which_program, int &vertex_version_major, int &vertex_version_minor, int &fragment_version_major, int &fragment_version_minor) {
+    const Shader &vertex_shader = shaders[programs[which_program].shader_ids[_vertex]];
+    vertex_version_major = vertex_shader.og_version_major;
+    vertex_version_minor = vertex_shader.og_version_minor;
+
+    const Shader& fragment_shader = shaders[programs[which_program].shader_ids[_fragment]];
+    fragment_version_major = fragment_shader.og_version_major;
+    fragment_version_minor = fragment_shader.og_version_minor;
 }
 
 void Shaders::createProgram(int which_program) {

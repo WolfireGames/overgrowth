@@ -147,6 +147,8 @@ class Shader {
     bool particle;
     int blend_src;
     int blend_dst;
+    int og_version_major;
+    int og_version_minor;
     std::vector<std::string> definitions;
     std::vector<int64_t> include_modified;
     std::vector<std::string> include_files;
@@ -263,6 +265,7 @@ class Shaders {
     void SetUniformInt(const std::string& var_name, const int& data, ForceFlag force_flag = kNoForce);
     void SetUniformInt(GLint var_id, const int& data, ForceFlag force_flag = kNoForce);
     bool DoesProgramUseTangent(int which_program);
+    void GetProgramOvergrowthVersion(int which_program, int& vertex_version_major, int& vertex_version_minor, int& fragment_version_major, int& fragment_version_minor);
     void SetUniformMat4Array(const std::string& var_name, const std::vector<mat4>& transforms);
     void SetUniformMat4Array(GLint var_id, const std::vector<mat4>& transforms);
     GLint returnShaderAttrib(const std::string& name, int which);
