@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/chest.obj</Model>
+	<ColorMap>Data/Textures/chest_c.png</ColorMap>
+	<NormalMap>Data/Textures/chest_n.png</NormalMap>
+	<ShaderName>cubemapobj</ShaderName>
+</Object>

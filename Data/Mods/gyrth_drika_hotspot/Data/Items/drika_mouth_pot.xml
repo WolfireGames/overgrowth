@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<item>
+	<type>misc</type>
+	<appearance obj_path = "Data/Objects/Environment/pots/mouth_pot.xml"/>
+	<grip ik_attach = "rightarm"
+		  anim = "Data/Animations/r_dogweapongrip.anm"
+		  hands = "1"/>
+	<label></label>
+	<physics mass = "0.25 kg"/>
+	<anim_override idle = "Data/Animations/r_smallswordstancefront.xml"
+				   movement = "Data/Animations/r_movement_sword.xml"
+				   medleftblock = "Data/Animations/r_smallswordparryleft.anm"
+				   medrightblock = "Data/Animations/r_smallswordparryright.anm"
+				   highleftblock = "Data/Animations/r_smallswordparryhileft.anm"
+				   highrightblock = "Data/Animations/r_smallswordparryhiright.anm"
+				   lowleftblock = "Data/Animations/r_activeblocklowright.anm"
+				   lowrightblock = "Data/Animations/r_activeblocklowleft.anm"
+				   blockflinch = "Data/Animations/r_dogswordflinch.anm"/>
+	<attack_override stationary = "Data/Attacks/stickslashleft.xml"
+					 moving = "Data/Attacks/stickslashleft.xml"
+					 low = "Data/Attacks/stickslashleft.xml"
+					 moving_close = "Data/Attacks/stickslashleft.xml"
+					 stationary_close = "Data/Attacks/stickslashleft.xml"/>
+	<range multiply = "0.8"/>
+</item>

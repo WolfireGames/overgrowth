@@ -93,7 +93,6 @@ class DrikaAnimation : DrikaElement{
 
 		drika_element_type = drika_animation;
 		connection_types = {_movement_object, _env_object, _decal_object, _item_object, _hotspot_object, _group};
-		key_ids = GetJSONIntArray(params, "key_ids", {});
 		key_data = InterpAnimationData(GetJSONValueArray(params, "key_data", {}));
 		animation_type = animation_types(GetJSONInt(params, "animation_type", 3));
 		current_animation_type = animation_type;
@@ -118,7 +117,52 @@ class DrikaAnimation : DrikaElement{
 			target_select.identifier_type = cam;
 		}
 
+		RetrieveAnimationPlaceholders(params);
 		has_settings = true;
+	}
+
+	void RetrieveAnimationPlaceholders(JSONValue params){
+		if(animation_method != placeholder_method){return;}
+
+		array<int> input_key_ids = GetJSONIntArray(params, "key_ids", {});
+
+		for(uint i = 0; i < input_key_ids.size(); i++){
+			if(!ObjectExists(input_key_ids[i])){continue;}
+
+			Object@ key = ReadObjectFromID(input_key_ids[i]);
+			ScriptParams@ key_params = key.GetScriptParams();
+
+			if(key_params.HasParam("Owner")){
+				if(importing || duplicating_function || duplicating_hotspot || key_params.GetInt("Owner") != this_hotspot.GetID()){
+					// This key is NOT used by this hotspot, so duplicate it.
+					int new_key_id = CreateObject("Data/Objects/drika_hotspot_cube.xml", false);
+					key_ids.insertLast(new_key_id);
+					Object@ new_key = ReadObjectFromID(new_key_id);
+					new_key.SetName("Animation Key");
+					new_key.SetDeletable(true);
+					new_key.SetCopyable(true);
+					new_key.SetSelectable(false);
+					new_key.SetTranslatable(true);
+					new_key.SetScalable(true);
+					new_key.SetRotatable(true);
+					new_key.SetSelected(false);
+
+					new_key.SetScale(key.GetScale());
+					new_key.SetTranslation(key.GetTranslation());
+					new_key.SetRotation(key.GetRotation());
+				}else{
+					// This key is assigned to this hotspot, so keep using it.
+					key_ids.insertLast(input_key_ids[i]);
+					key.SetSelectable(false);
+					key.SetTranslatable(true);
+					key.SetScalable(true);
+					key.SetRotatable(true);
+					key.SetSelected(false);
+				}
+			}
+		}
+
+		WriteAnimationKeyParams();
 	}
 
 	JSONValue GetSaveData(){
@@ -182,6 +226,7 @@ class DrikaAnimation : DrikaElement{
 
 	void PostInit(){
 		target_select.PostInit();
+		Reset();
 	}
 
 	JSONValue GetCheckpointData(){
@@ -346,7 +391,7 @@ class DrikaAnimation : DrikaElement{
 
 	void ReceiveEditorMessage(array<string> messages){
 		if(animation_method == placeholder_method){
-			if(messages[0] == "added_object"){
+			if(messages[0] == "added_object" && !importing && !duplicating_function && !duplicating_hotspot){
 				int obj_id = atoi(messages[1]);
 				if(!ObjectExists(obj_id)){
 					return;
@@ -354,7 +399,7 @@ class DrikaAnimation : DrikaElement{
 				Object@ obj = ReadObjectFromID(obj_id);
 				ScriptParams@ obj_params = obj.GetScriptParams();
 				if(obj_params.HasParam("Owner")){
-					if(obj_params.GetInt("Owner") == this_hotspot.GetID()){
+					if(obj_params.GetInt("Owner") == this_hotspot.GetID() && key_ids.find(obj_id) == -1){
 						//The new object is a duplicated animation key of this animation.
 						key_ids.insertAt(obj_params.GetInt("Index") + 1, obj_id);
 						WriteAnimationKeyParams();
@@ -1038,7 +1083,7 @@ class DrikaAnimation : DrikaElement{
 		new_key.SetName("Animation Key");
 		new_key.SetDeletable(true);
 		new_key.SetCopyable(true);
-		new_key.SetSelectable(true);
+		new_key.SetSelectable(editing);
 		new_key.SetTranslatable(true);
 		new_key.SetScalable(true);
 		new_key.SetRotatable(true);

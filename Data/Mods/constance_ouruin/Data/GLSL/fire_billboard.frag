@@ -7,18 +7,28 @@ uniform vec3 cam_pos;
 uniform sampler2D tex1; // Fire noise texture.
 uniform sampler2D tex17; // Screen texture
 
-const int kMaxInstances = 100;
+#if !defined(ATTRIB_ENVOBJ_INSTANCING)
+	#if defined(UBO_BATCH_SIZE_8X)
+		const int kMaxInstances = 256 * 8;
+	#elif defined(UBO_BATCH_SIZE_4X)
+		const int kMaxInstances = 256 * 4;
+	#elif defined(UBO_BATCH_SIZE_2X)
+		const int kMaxInstances = 256 * 2;
+	#else
+		const int kMaxInstances = 256 * 1;
+	#endif
 
-struct Instance {
-    mat4 model_mat;
-    mat3 model_rotation_mat;
-    vec4 color_tint;
-    vec4 detail_scale;
-};
+	struct Instance {
+		vec3 model_scale;
+		vec4 model_rotation_quat;
+		vec4 color_tint;
+		vec4 detail_scale;  // TODO: DETAILMAP4 only?
+	};
 
-uniform InstanceInfo {
-    Instance instances[kMaxInstances];
-};
+	uniform InstanceInfo {
+		Instance instances[kMaxInstances];
+	};
+#endif
 
 uniform mat4 projection_view_mat;
 

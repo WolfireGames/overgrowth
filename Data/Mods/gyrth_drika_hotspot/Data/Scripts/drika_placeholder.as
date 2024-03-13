@@ -53,7 +53,7 @@ class DrikaPlaceholder{
 			cube_id = CreateObject(path, false);
 			@cube_object = ReadObjectFromID(cube_id);
 			cube_object.SetName(name);
-			cube_object.SetSelectable(true);
+			cube_object.SetSelectable(editing);
 			cube_object.SetTranslatable(true);
 			cube_object.SetScalable(true);
 			cube_object.SetRotatable(true);
@@ -242,8 +242,7 @@ class DrikaPlaceholder{
 				if(ObjectExists(cube_id)){
 					@cube_object = ReadObjectFromID(cube_id);
 					cube_object.SetName(name);
-					cube_object.SetSelectable(false);
-					cube_object.SetEnabled(false);
+					SetSelectable(false);
 				}else{
 					Create();
 				}
