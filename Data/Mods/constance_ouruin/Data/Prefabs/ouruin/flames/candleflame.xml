@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <EnvObject t0="38.9969" t1="-42.8291" t2="4.88033" s0="0.00497666" s1="0.0120304" s2="0.00497666" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2962" color_r="1" color_g="0.4" color_b="0" overbright="26.275" type_file="Data/Objects/fire_billboard_small.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>

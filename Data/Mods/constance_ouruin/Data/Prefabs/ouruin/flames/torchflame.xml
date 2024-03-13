@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <EnvObject t0="-4.2567" t1="-13.6901" t2="-2.52753" s0="0.105232" s1="0.199078" s2="0.105232" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6781" color_r="1" color_g="0.329412" color_b="0" overbright="10.784" type_file="Data/Objects/fire_billboard_dither.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
