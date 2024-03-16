@@ -116,14 +116,14 @@ license you like.
 #define JSON_CONFIG_H_INCLUDED
 
 /// If defined, indicates that json library is embedded in CppTL library.
-//# define JSON_IN_CPPTL 1
+// # define JSON_IN_CPPTL 1
 
 /// If defined, indicates that json may leverage CppTL library
-//#  define JSON_USE_CPPTL 1
+// #  define JSON_USE_CPPTL 1
 /// If defined, indicates that cpptl vector based map should be used instead of
 /// std::map
 /// as Value container.
-//#  define JSON_USE_CPPTL_SMALLMAP 1
+// #  define JSON_USE_CPPTL_SMALLMAP 1
 
 // If non-zero, the library uses exceptions to report bad input instead of C
 // assertion macros. The default is to use exceptions.
@@ -428,10 +428,10 @@ enum CommentPlacement {
     numberOfCommentPlacement
 };
 
-//# ifdef JSON_USE_CPPTL
-//   typedef CppTL::AnyEnumerator<const char *> EnumMemberNames;
-//   typedef CppTL::AnyEnumerator<const Value &> EnumValues;
-//# endif
+// # ifdef JSON_USE_CPPTL
+//    typedef CppTL::AnyEnumerator<const char *> EnumMemberNames;
+//    typedef CppTL::AnyEnumerator<const Value &> EnumValues;
+// # endif
 
 /** \brief Lightweight wrapper to tag static string.
  *
@@ -859,10 +859,10 @@ class JSON_API Value {
     /// \post if type() was nullValue, it remains nullValue
     Members getMemberNames() const;
 
-    //# ifdef JSON_USE_CPPTL
-    //      EnumMemberNames enumMemberNames() const;
-    //      EnumValues enumValues() const;
-    //# endif
+    // # ifdef JSON_USE_CPPTL
+    //       EnumMemberNames enumMemberNames() const;
+    //       EnumValues enumValues() const;
+    // # endif
 
     /// \deprecated Always pass len.
     JSONCPP_DEPRECATED("Use setComment(std::string const&) instead.")

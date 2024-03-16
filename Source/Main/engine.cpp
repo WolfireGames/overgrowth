@@ -144,12 +144,12 @@ extern char imgui_ini_path[kPathSize];
 extern bool asdebugger_enabled;
 extern bool asprofiler_enabled;
 
-//#define OpenVR
+// #define OpenVR
 #ifdef OpenVR
 #include "openvr.h"
 #endif
 
-//#define OculusVR
+// #define OculusVR
 #ifdef OculusVR
 #include "OVR_CAPI_GL.h"
 #include "Extras/OVR_Math.h"
@@ -394,7 +394,7 @@ const char* font_path = "Data/Fonts/Lato-Regular.ttf";
 // Functions
 //-----------------------------------------------------------------------------
 
-//#define USE_NVTX_PROFILER true
+// #define USE_NVTX_PROFILER true
 
 #ifdef OpenVR
 vr::IVRSystem* m_pHMD;

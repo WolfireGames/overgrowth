@@ -64,7 +64,7 @@
 
 // macro mess so we can turn APPID and APPREV into a string literal...
 #define MAKEBUILDVERSTRINGLITERAL2(id, rev) \
-#id ", Revision " #rev ", Built " __DATE__ " " __TIME__ ", by " COMPILER " version " __VERSION__
+    #id ", Revision " #rev ", Built " __DATE__ " " __TIME__ ", by " COMPILER " version " __VERSION__
 
 #define MAKEBUILDVERSTRINGLITERAL(id, rev) MAKEBUILDVERSTRINGLITERAL2(id, rev)
 

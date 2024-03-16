@@ -3306,7 +3306,7 @@ Value::Members Value::getMemberNames() const {
     return members;
 }
 //
-//# ifdef JSON_USE_CPPTL
+// # ifdef JSON_USE_CPPTL
 // EnumMemberNames
 // Value::enumMemberNames() const
 //{
@@ -3329,7 +3329,7 @@ Value::Members Value::getMemberNames() const {
 //   return EnumValues();
 //}
 //
-//# endif
+// # endif
 
 static bool IsIntegral(double d) {
     double integral_part;

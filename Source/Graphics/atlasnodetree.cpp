@@ -217,5 +217,5 @@ AtlasNodeTree::AtlasNodeTree(ivec2 dim, unsigned smallest_size) {
 }
 
 AtlasNodeTree::~AtlasNodeTree() {
-    delete[](data);
+    delete[] (data);
 }
