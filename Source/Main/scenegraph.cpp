@@ -574,8 +574,7 @@ static void UpdateShaderSuffix(SceneGraph* scenegraph, Object::DrawType object_d
 
     for (int length = strlen(shader_str[0]), i = 0;
          i < length && shader_str[0][0] == ' ';
-         ++i, shader_str[0]++)
-        ;
+         ++i, shader_str[0]++);
 
     FormatString(global_shader_suffix_storage, kGlobalShaderSuffixLen, "%s", shader_str[0]);
 }

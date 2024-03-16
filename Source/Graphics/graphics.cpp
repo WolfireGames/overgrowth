@@ -302,7 +302,7 @@ void Graphics::framebufferDepthTexture2D(TextureRef t, int mipmap_level) {
     CHECK_GL_ERROR();
 }
 
-//#pragma optimize("",off)
+// #pragma optimize("",off)
 void Graphics::framebufferColorTexture2D(TextureRef t, int mipmap_level) {
     /*if(Textures::Instance()->IsCompressed(t)){
         Textures::Instance()->Uncompress(t);
@@ -324,7 +324,7 @@ void Graphics::framebufferColorTexture2D(TextureRef t, int mipmap_level) {
     PROFILER_LEAVE(g_profiler_ctx);
     CHECK_GL_ERROR();
 }
-//#pragma optimize("",on)
+// #pragma optimize("",on)
 
 void Graphics::genRenderbuffers(GLuint* rb) {
     CHECK_GL_ERROR();

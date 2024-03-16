@@ -263,8 +263,8 @@ static int attrib_ids[kAttribIdCountVboInstancing];
 static void SetupAttribPointers(bool shader_changed, bool shader_is_v1_5_or_greater, Model* model, VBORingContainer& env_object_model_translation_instance_vbo, VBORingContainer& env_object_model_scale_instance_vbo, VBORingContainer& env_object_model_rotation_quat_instance_vbo, VBORingContainer& env_object_color_tint_instance_vbo, VBORingContainer& env_object_detail_scale_instance_vbo, Shaders* shaders, int the_shader, Graphics* graphics) {
     bool attrib_envobj_instancing = g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
     int attrib_count = shader_is_v1_5_or_greater
-        ? (attrib_envobj_instancing ? kAttribIdCountVboInstancing : kAttribIdCountUboInstancing)
-        : kAttribIdCountLegacyShader;
+                           ? (attrib_envobj_instancing ? kAttribIdCountVboInstancing : kAttribIdCountUboInstancing)
+                           : kAttribIdCountLegacyShader;
     if (shader_changed) {
         for (int i = 0; i < attrib_count; ++i) {
             const char* attrib_str;
@@ -732,8 +732,8 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
     bool shader_is_v1_5_or_greater = vertex_version_major >= 1 && vertex_version_minor >= 5 && fragment_version_major >= 1 && fragment_version_minor >= 5;
 
     int kBatchSize = shader_is_v1_5_or_greater
-        ? (256 * (!g_ubo_batch_multiplier_force_1x ? ubo_batch_size_multiplier : 1))
-        : 100;
+                         ? (256 * (!g_ubo_batch_multiplier_force_1x ? ubo_batch_size_multiplier : 1))
+                         : 100;
     const bool ignore_multiplier = true;
     static VBORingContainer env_object_model_translation_instance_vbo(sizeof(vec3) * kBatchSize * 16, kVBOFloat | kVBOStream, ignore_multiplier);
     static VBORingContainer env_object_model_scale_instance_vbo(sizeof(vec3) * kBatchSize * 15, kVBOFloat | kVBOStream, ignore_multiplier);
@@ -745,7 +745,7 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
     PROFILER_LEAVE(g_profiler_ctx);  // Setup
 
     bool attrib_envobj_instancing = shader_is_v1_5_or_greater &&
-        g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
+                                    g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
 
     int instance_block_index = shaders->GetUBOBindIndex(the_shader, "InstanceInfo");
     if (attrib_envobj_instancing || (unsigned)instance_block_index != GL_INVALID_INDEX) {
@@ -839,18 +839,18 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
                     } else {
                         // For legacy shaders
                         *model_mat = obj->transform_;
-                        if(plant_component && plant_component->IsActive()){
-                            if(!plant_component->IsPivotCalculated()){
+                        if (plant_component && plant_component->IsActive()) {
+                            if (!plant_component->IsPivotCalculated()) {
                                 plant_component->SetPivot(*scenegraph_->bullet_world_,
-                                    obj->sphere_center_, obj->sphere_radius_);
+                                                          obj->sphere_center_, obj->sphere_radius_);
                             }
-                            const vec3 &pivot = plant_component->GetPivot();
+                            const vec3& pivot = plant_component->GetPivot();
 
                             mat4 base_mat = obj->transform_;
                             vec3 base_trans = base_mat.GetTranslationPart();
-                            base_mat.SetTranslationPart(base_trans-pivot);
+                            base_mat.SetTranslationPart(base_trans - pivot);
                             mat4 transform = plant_component->GetTransform(obj->sphere_radius_) * base_mat;
-                            transform.AddTranslation(pivot-base_trans);
+                            transform.AddTranslation(pivot - base_trans);
                             transform.AddTranslation(base_trans);
                             *model_mat = transform;
                         }

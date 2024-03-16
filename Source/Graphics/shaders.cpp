@@ -741,7 +741,7 @@ void Shaders::GetProgramOvergrowthVersion(int which_program, int &vertex_version
     vertex_version_major = vertex_shader.og_version_major;
     vertex_version_minor = vertex_shader.og_version_minor;
 
-    const Shader& fragment_shader = shaders[programs[which_program].shader_ids[_fragment]];
+    const Shader &fragment_shader = shaders[programs[which_program].shader_ids[_fragment]];
     fragment_version_major = fragment_shader.og_version_major;
     fragment_version_minor = fragment_shader.og_version_minor;
 }
