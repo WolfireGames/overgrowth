@@ -95,8 +95,8 @@ extern bool shadow_cache_dirty;
 extern bool g_draw_collision;
 extern bool g_no_reflection_capture;
 extern bool g_make_invisible_visible;
-extern bool g_attrib_envobj_intancing_support;
-extern bool g_attrib_envobj_intancing_enabled;
+extern bool g_attrib_envobj_instancing_support;
+extern bool g_attrib_envobj_instancing_enabled;
 extern bool g_ubo_batch_multiplier_force_1x;
 
 extern bool g_debug_runtime_disable_env_object_draw;
@@ -261,7 +261,7 @@ const size_t kAttribIdCountLegacyShader = 6;
 static int attrib_ids[kAttribIdCountVboInstancing];
 
 static void SetupAttribPointers(bool shader_changed, bool shader_is_v1_5_or_greater, Model* model, VBORingContainer& env_object_model_translation_instance_vbo, VBORingContainer& env_object_model_scale_instance_vbo, VBORingContainer& env_object_model_rotation_quat_instance_vbo, VBORingContainer& env_object_color_tint_instance_vbo, VBORingContainer& env_object_detail_scale_instance_vbo, Shaders* shaders, int the_shader, Graphics* graphics) {
-    bool attrib_envobj_instancing = g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;
+    bool attrib_envobj_instancing = g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
     int attrib_count = shader_is_v1_5_or_greater
         ? (attrib_envobj_instancing ? kAttribIdCountVboInstancing : kAttribIdCountUboInstancing)
         : kAttribIdCountLegacyShader;
@@ -745,7 +745,7 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
     PROFILER_LEAVE(g_profiler_ctx);  // Setup
 
     bool attrib_envobj_instancing = shader_is_v1_5_or_greater &&
-        g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;  // TODO: Typo in these names
+        g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
 
     int instance_block_index = shaders->GetUBOBindIndex(the_shader, "InstanceInfo");
     if (attrib_envobj_instancing || (unsigned)instance_block_index != GL_INVALID_INDEX) {
@@ -964,7 +964,7 @@ void EnvObject::AfterDrawInstances() {
 
 void AfterDrawInstancesImpl() {
     Graphics* graphics = Graphics::Instance();
-    bool attrib_envobj_instancing = g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;
+    bool attrib_envobj_instancing = g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
 
     graphics->ResetVertexAttribArrays();
     graphics->BindArrayVBO(0);

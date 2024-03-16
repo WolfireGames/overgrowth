@@ -92,8 +92,8 @@ bool g_s3tc_dxt5_textures = true;
 bool g_opengl_callback_error_dialog = true;
 bool g_perform_occlusion_query = false;
 bool g_gamma_correct_final_output = true;
-bool g_attrib_envobj_intancing_support = false;
-bool g_attrib_envobj_intancing_enabled = true;
+bool g_attrib_envobj_instancing_support = false;
+bool g_attrib_envobj_instancing_enabled = true;
 bool g_ubo_batch_multiplier_force_1x = false;
 
 // Variables for turning off features at runtime for testing performance. Not backed by config, so as not to pollute it
@@ -195,7 +195,7 @@ void Graphics::SetParticleFieldSimple(bool val) {
 }
 
 void Graphics::setAttribEnvObjInstancing(bool val) {
-    g_attrib_envobj_intancing_enabled = val;
+    g_attrib_envobj_instancing_enabled = val;
 }
 
 void Graphics::PushViewport() {
@@ -1118,9 +1118,9 @@ void Graphics::InitScreen() {
         CHECK_GL_ERROR();
         // Determine what instanced array features are supported
         if (GLAD_GL_VERSION_3_3 || GLAD_GL_ARB_instanced_arrays) {
-            g_attrib_envobj_intancing_support = true;
+            g_attrib_envobj_instancing_support = true;
         } else {
-            g_attrib_envobj_intancing_support = false;
+            g_attrib_envobj_instancing_support = false;
         }
         ApplyVsync(config_.vSync());
         // Clear screen
@@ -1485,7 +1485,7 @@ void Graphics::SetFromConfig(const Config& config, bool dynamic) {
     setSimpleWater(config["simple_water"].toNumber<bool>());
     SetParticleFieldSimple(config["particle_field_simple"].toNumber<bool>());
     SetDetailObjectsReduced(config["detail_objects_reduced"].toNumber<bool>());
-    g_attrib_envobj_intancing_enabled = config["attrib_envobj_instancing"].toNumber<bool>();
+    g_attrib_envobj_instancing_enabled = config["attrib_envobj_instancing"].toNumber<bool>();
     g_perform_occlusion_query = config["occlusion_query"].toNumber<bool>();
     g_gamma_correct_final_output = config["gamma_correct_final_output"].toNumber<bool>();
 
