@@ -1087,7 +1087,7 @@ void Graphics::InitScreen() {
             FatalError("Error", "No support for S3TC DXT5 textures detected. This means either your GPU is too old to run the game, or your drivers are out-of-date");
         }
 
-        bool g_opengl_callback_error_dialog = config["opengl_callback_error_dialoge"].toNumber<bool>();
+        bool g_opengl_callback_error_dialog = config["opengl_callback_error_dialog"].toNumber<bool>();
 
         if (config["opengl_callback_errors"].toNumber<bool>()) {
             LOGI << "Activating OpenGL callback errors, [opengl_callback_errors]" << std::endl;
