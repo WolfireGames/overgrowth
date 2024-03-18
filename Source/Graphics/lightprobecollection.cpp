@@ -901,6 +901,9 @@ void LightProbeCollection::Draw(BulletWorld& bw) {
 
             int programHandle = shaders->programs[shader_id].gl_program;
             GLuint blockIndex = glGetUniformBlockIndex(programHandle, "LightProbeInfo");
+            if (blockIndex != GL_INVALID_INDEX) {
+                glUniformBlockBinding(programHandle, blockIndex, UBO_LIGHT_PROBES);
+            }
 
             const GLchar* names[] = {
                 "center[0]",
@@ -954,7 +957,7 @@ void LightProbeCollection::Draw(BulletWorld& bw) {
                 glBufferData(GL_UNIFORM_BUFFER, blockSize, blockBuffer, GL_DYNAMIC_DRAW);
             }
             glBindBuffer(GL_UNIFORM_BUFFER, ubo_id);
-            glBindBufferBase(GL_UNIFORM_BUFFER, blockIndex, ubo_id);
+            glBindBufferBase(GL_UNIFORM_BUFFER, UBO_LIGHT_PROBES, ubo_id);
 
             Camera* camera = ActiveCameras::Get();
             *cam_pos = camera->GetPos();

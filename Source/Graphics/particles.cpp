@@ -1128,7 +1128,7 @@ void ParticleSystem::Draw(SceneGraph* scenegraph) {
                         const unsigned kBatchSize = 100;
 
                         for (unsigned index = start; index < i; index += kBatchSize) {
-                            glUniformBlockBinding(shaders->programs[shader_id].gl_program, instance_block_index, 0);
+                            glUniformBlockBinding(shaders->programs[shader_id].gl_program, instance_block_index, UBO_PARAMS_PARTICLES_INSTANCE_INFO);
                             unsigned to_draw = min(kBatchSize, ((int)i - index));
                             PROFILER_ENTER(g_profiler_ctx, "Setup batch data");
 
@@ -1219,7 +1219,7 @@ void ParticleSystem::Draw(SceneGraph* scenegraph) {
                             {
                                 particle_uniform_buffer.Fill(16384 - 1, blockBuffer);
                                 glBindBuffer(GL_UNIFORM_BUFFER, particle_uniform_buffer.gl_id);
-                                glBindBufferRange(GL_UNIFORM_BUFFER, 0, particle_uniform_buffer.gl_id, particle_uniform_buffer.offset, particle_uniform_buffer.next_offset - particle_uniform_buffer.offset);
+                                glBindBufferRange(GL_UNIFORM_BUFFER, UBO_PARAMS_PARTICLES_INSTANCE_INFO, particle_uniform_buffer.gl_id, particle_uniform_buffer.offset, particle_uniform_buffer.next_offset - particle_uniform_buffer.offset);
                             }
                             CHECK_GL_ERROR();
                             {

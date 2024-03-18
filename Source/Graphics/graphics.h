@@ -40,8 +40,17 @@
 #include <climits>
 #include <stdint.h>  // cstdint would be more c++ but os x doesn't understand it
 
-#define UBO_CLUSTER_DATA 1
-#define UBO_SHADOW_CASCADES 2
+// Note: The minimum allowed compliant value of GL_MAX_UNIFORM_BUFFER_BINDINGS is 36 (24 for OpenGL ES)
+#define UBO_PARAMS_GLOBAL_VEC4 0
+#define UBO_PARAMS_GLOBAL_IVEC4 1
+#define UBO_PARAMS_INSTANCE_VEC4 2
+#define UBO_PARAMS_INSTANCE_IVEC4 3
+#define UBO_CLUSTER_DATA 4
+#define UBO_SHADOW_CASCADES 5
+#define UBO_LIGHT_PROBES 6
+#define UBO_PARAMS_DETAIL_OBJECT_INSTANCE_INFO 7
+#define UBO_PARAMS_ENVOBJ_INSTANCE_INFO 7
+#define UBO_PARAMS_PARTICLES_INSTANCE_INFO 7
 
 const GLuint INVALID_FRAMEBUFFER = UINT_MAX;
 

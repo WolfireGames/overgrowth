@@ -2708,6 +2708,7 @@ void SceneGraph::BindLights(int the_shader) {
         LOG_ASSERT_EQ(block_size, sizeof(ShaderClusterInfo));
 
         if (uniform_ring_buffer.gl_id != -1) {
+            // TODO: Are both of these calls needed? I think maybe only glBindBufferRange is needed
             glBindBufferBase(GL_UNIFORM_BUFFER, UBO_CLUSTER_DATA, uniform_ring_buffer.gl_id);
             glBindBufferRange(GL_UNIFORM_BUFFER, UBO_CLUSTER_DATA, uniform_ring_buffer.gl_id, uniform_ring_buffer.offset, uniform_ring_buffer.next_offset - uniform_ring_buffer.offset);
         }

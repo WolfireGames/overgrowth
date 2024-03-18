@@ -814,7 +814,7 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
             }
 
             if (!attrib_envobj_instancing) {
-                glUniformBlockBinding(shaders->programs[the_shader].gl_program, instance_block_index, 0);
+                glUniformBlockBinding(shaders->programs[the_shader].gl_program, instance_block_index, UBO_PARAMS_ENVOBJ_INSTANCE_INFO);
             }
             int to_draw = min(kBatchSize, num_instances - i);
             PROFILER_ENTER(g_profiler_ctx, "Setup batch data");
@@ -934,7 +934,7 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
 
                 if (!attrib_envobj_instancing) {
                     env_object_instance_buffer.Fill(block_size / kBatchSize * to_draw, blockBuffer);
-                    glBindBufferRange(GL_UNIFORM_BUFFER, 0, env_object_instance_buffer.gl_id, env_object_instance_buffer.offset, env_object_instance_buffer.next_offset - env_object_instance_buffer.offset);
+                    glBindBufferRange(GL_UNIFORM_BUFFER, UBO_PARAMS_ENVOBJ_INSTANCE_INFO, env_object_instance_buffer.gl_id, env_object_instance_buffer.offset, env_object_instance_buffer.next_offset - env_object_instance_buffer.offset);
                 }
             }
             CHECK_GL_ERROR();

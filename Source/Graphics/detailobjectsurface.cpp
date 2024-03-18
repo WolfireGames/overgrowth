@@ -632,7 +632,7 @@ void DetailObjectSurface::Draw(const mat4& transform, DetailObjectShaderType sha
         {
             PROFILER_ZONE(g_profiler_ctx, "Issue draw calls");
             for (int i = 0, len = draw_detail_instances.size(); i < len; i += kBatchSize) {
-                glUniformBlockBinding(shaders->programs[shader_id].gl_program, instance_block_index, 0);
+                glUniformBlockBinding(shaders->programs[shader_id].gl_program, instance_block_index, UBO_PARAMS_DETAIL_OBJECT_INSTANCE_INFO);
                 int to_draw = min(kBatchSize, len - i);
                 if (indices[0] != GL_INVALID_INDEX) {
                     memcpy(&transforms[0], &draw_detail_instance_transforms[i], to_draw * sizeof(mat4));
@@ -643,7 +643,7 @@ void DetailObjectSurface::Draw(const mat4& transform, DetailObjectShaderType sha
 
                 // Copying over the whole block because fields aren't contiguous (struct of arrays), so at best can only save the final field's gap until the end of the buffer
                 detail_object_instance_buffer.Fill(block_size, blockBuffer);
-                glBindBufferRange(GL_UNIFORM_BUFFER, 0, detail_object_instance_buffer.gl_id, detail_object_instance_buffer.offset, detail_object_instance_buffer.next_offset - detail_object_instance_buffer.offset);
+                glBindBufferRange(GL_UNIFORM_BUFFER, UBO_PARAMS_DETAIL_OBJECT_INSTANCE_INFO, detail_object_instance_buffer.gl_id, detail_object_instance_buffer.offset, detail_object_instance_buffer.next_offset - detail_object_instance_buffer.offset);
 
                 CHECK_GL_ERROR();
                 graphics->DrawElementsInstanced(GL_TRIANGLES, bm.instance_num_faces, GL_UNSIGNED_INT, 0, to_draw);
