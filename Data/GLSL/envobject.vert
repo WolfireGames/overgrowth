@@ -19,6 +19,8 @@
 #og_version_major 1
 #og_version_minor 5
 
+#include "params_global.glsl"
+#include "params_instance.glsl"
 #include "lighting150.glsl"
 
 in vec3 vertex_attrib;

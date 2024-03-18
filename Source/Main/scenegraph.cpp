@@ -580,6 +580,36 @@ static void UpdateShaderSuffix(SceneGraph* scenegraph, Object::DrawType object_d
     FormatString(global_shader_suffix_storage, kGlobalShaderSuffixLen, "%s", shader_str[0]);
 }
 
+float g_global_shader_params_floats_data[4 * 1024] = {};
+int32_t g_global_shader_params_ints_data[4 * 1024] = {};
+bool g_global_shader_params_are_floats_dirty = true;
+bool g_global_shader_params_are_ints_dirty = true;
+
+static void UpdateGlobalUniformBlocks() {
+    static UniformRingBuffer global_float_buffer;
+    static UniformRingBuffer global_int_buffer;
+
+    if (global_float_buffer.gl_id == -1) {
+        global_float_buffer.Create(64 * 1024);
+    }
+
+    if (global_int_buffer.gl_id == -1) {
+        global_int_buffer.Create(64 * 1024);
+    }
+
+    if (g_global_shader_params_are_floats_dirty) {
+        global_float_buffer.Fill(sizeof(g_global_shader_params_floats_data), &g_global_shader_params_floats_data[0]);
+        glBindBufferRange(GL_UNIFORM_BUFFER, UBO_PARAMS_GLOBAL_VEC4, global_float_buffer.gl_id, global_float_buffer.offset, global_float_buffer.next_offset - global_float_buffer.offset);
+        g_global_shader_params_are_floats_dirty = false;
+    }
+
+    if (g_global_shader_params_are_ints_dirty) {
+        global_int_buffer.Fill(sizeof(g_global_shader_params_ints_data), &g_global_shader_params_ints_data[0]);
+        glBindBufferRange(GL_UNIFORM_BUFFER, UBO_PARAMS_GLOBAL_IVEC4, global_int_buffer.gl_id, global_int_buffer.offset, global_int_buffer.next_offset - global_int_buffer.offset);
+        g_global_shader_params_are_ints_dirty = false;
+    }
+}
+
 extern bool last_ofr_is_valid;
 
 // Draw all objects
@@ -592,6 +622,7 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
     Camera* camera = ActiveCameras::Get();
 
     UpdateShaderSuffix(this, Object::kFullDraw);
+    UpdateGlobalUniformBlocks();
 
     graphics->setDepthFunc(GL_LEQUAL);
     if (nav_mesh_ && (nav_mesh_renderer_.IsNavMeshVisible() || nav_mesh_renderer_.IsCollisionMeshVisible())) {

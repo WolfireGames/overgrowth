@@ -614,6 +614,17 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
             shaders->SetUniformVec4("primary_light_color", vec4(scenegraph_->primary_light.color,
                                                                 scenegraph_->primary_light.intensity));
         }
+
+        int global_params_float_block_index = shaders->GetUBOBindIndex(the_shader, "GlobalVec4Params");
+        if ((unsigned)global_params_float_block_index != GL_INVALID_INDEX) {
+            glUniformBlockBinding(shaders->programs[the_shader].gl_program, global_params_float_block_index, UBO_PARAMS_GLOBAL_VEC4);
+        }
+
+        int global_params_int_block_index = shaders->GetUBOBindIndex(the_shader, "GlobalIVec4Params");
+        if ((unsigned)global_params_int_block_index != GL_INVALID_INDEX) {
+            glUniformBlockBinding(shaders->programs[the_shader].gl_program, global_params_int_block_index, UBO_PARAMS_GLOBAL_IVEC4);
+        }
+
         PROFILER_LEAVE(g_profiler_ctx);  // Misc uniforms
 
         PROFILER_LEAVE(g_profiler_ctx);  // Shader

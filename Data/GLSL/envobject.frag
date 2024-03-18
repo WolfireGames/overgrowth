@@ -19,19 +19,16 @@
 #og_version_major 1
 #og_version_minor 5
 
-/*#if defined(WATER)
-#define NO_DECALS
-#endif
-*/
 #define FIRE_DECAL_ENABLED
-//#define RAINY
 
 uniform float time;
 uniform vec3 cam_pos;
 
-//#define VOLCANO
-//#define MISTY
-//#define WATER_HORIZON
+#include "params_global.glsl"
+#include "params_instance.glsl"
+#include "object_frag150.glsl"
+#include "object_shared150.glsl"
+#include "ambient_tet_mesh.glsl"
 
 #if defined(SWAMP)
     const float kBeachLevel = 17.1;
@@ -64,12 +61,6 @@ uniform vec3 cam_pos;
 #if defined(SKY_ARK)
     const float kBeachLevel = 75.4;
 #endif
-
-//#define VOLUME_SHADOWS
-
-#include "object_frag150.glsl"
-#include "object_shared150.glsl"
-#include "ambient_tet_mesh.glsl"
 
 #if defined(PARTICLE)
     uniform sampler2D tex0; // Colormap
