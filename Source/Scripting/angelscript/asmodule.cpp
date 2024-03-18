@@ -614,7 +614,7 @@ void VarStorage::destroy() {
             delete (float*)var;
             break;
         case _vs_enum:
-            delete[] (char*)var;
+            delete[](char*) var;
             break;
         case _vs_app_obj: {
             AppObject* ao = (AppObject*)var;
