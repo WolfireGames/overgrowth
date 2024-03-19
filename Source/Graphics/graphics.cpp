@@ -92,8 +92,8 @@ bool g_s3tc_dxt5_textures = true;
 bool g_opengl_callback_error_dialog = true;
 bool g_perform_occlusion_query = false;
 bool g_gamma_correct_final_output = true;
-bool g_attrib_envobj_intancing_support = false;
-bool g_attrib_envobj_intancing_enabled = true;
+bool g_attrib_envobj_instancing_support = false;
+bool g_attrib_envobj_instancing_enabled = true;
 bool g_ubo_batch_multiplier_force_1x = false;
 
 // Variables for turning off features at runtime for testing performance. Not backed by config, so as not to pollute it
@@ -195,7 +195,7 @@ void Graphics::SetParticleFieldSimple(bool val) {
 }
 
 void Graphics::setAttribEnvObjInstancing(bool val) {
-    g_attrib_envobj_intancing_enabled = val;
+    g_attrib_envobj_instancing_enabled = val;
 }
 
 void Graphics::PushViewport() {
@@ -302,7 +302,7 @@ void Graphics::framebufferDepthTexture2D(TextureRef t, int mipmap_level) {
     CHECK_GL_ERROR();
 }
 
-//#pragma optimize("",off)
+// #pragma optimize("",off)
 void Graphics::framebufferColorTexture2D(TextureRef t, int mipmap_level) {
     /*if(Textures::Instance()->IsCompressed(t)){
         Textures::Instance()->Uncompress(t);
@@ -324,7 +324,7 @@ void Graphics::framebufferColorTexture2D(TextureRef t, int mipmap_level) {
     PROFILER_LEAVE(g_profiler_ctx);
     CHECK_GL_ERROR();
 }
-//#pragma optimize("",on)
+// #pragma optimize("",on)
 
 void Graphics::genRenderbuffers(GLuint* rb) {
     CHECK_GL_ERROR();
@@ -1087,7 +1087,7 @@ void Graphics::InitScreen() {
             FatalError("Error", "No support for S3TC DXT5 textures detected. This means either your GPU is too old to run the game, or your drivers are out-of-date");
         }
 
-        bool g_opengl_callback_error_dialog = config["opengl_callback_error_dialoge"].toNumber<bool>();
+        bool g_opengl_callback_error_dialog = config["opengl_callback_error_dialog"].toNumber<bool>();
 
         if (config["opengl_callback_errors"].toNumber<bool>()) {
             LOGI << "Activating OpenGL callback errors, [opengl_callback_errors]" << std::endl;
@@ -1118,9 +1118,9 @@ void Graphics::InitScreen() {
         CHECK_GL_ERROR();
         // Determine what instanced array features are supported
         if (GLAD_GL_VERSION_3_3 || GLAD_GL_ARB_instanced_arrays) {
-            g_attrib_envobj_intancing_support = true;
+            g_attrib_envobj_instancing_support = true;
         } else {
-            g_attrib_envobj_intancing_support = false;
+            g_attrib_envobj_instancing_support = false;
         }
         ApplyVsync(config_.vSync());
         // Clear screen
@@ -1485,7 +1485,7 @@ void Graphics::SetFromConfig(const Config& config, bool dynamic) {
     setSimpleWater(config["simple_water"].toNumber<bool>());
     SetParticleFieldSimple(config["particle_field_simple"].toNumber<bool>());
     SetDetailObjectsReduced(config["detail_objects_reduced"].toNumber<bool>());
-    g_attrib_envobj_intancing_enabled = config["attrib_envobj_instancing"].toNumber<bool>();
+    g_attrib_envobj_instancing_enabled = config["attrib_envobj_instancing"].toNumber<bool>();
     g_perform_occlusion_query = config["occlusion_query"].toNumber<bool>();
     g_gamma_correct_final_output = config["gamma_correct_final_output"].toNumber<bool>();
 

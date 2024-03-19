@@ -64,7 +64,7 @@
 extern bool g_simple_shadows;
 extern bool g_level_shadows;
 extern Timer game_timer;
-//#define ALLOW_SOFTBODY true
+// #define ALLOW_SOFTBODY true
 
 inline btScalar calculateCombinedFriction(float friction0, float friction1) {
     btScalar friction = friction0 * friction1;

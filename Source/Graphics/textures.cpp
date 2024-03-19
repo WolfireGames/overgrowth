@@ -510,7 +510,7 @@ void Texture::Init() {
     name.clear();
 }
 
-//#pragma optimize(", off)
+// #pragma optimize(", off)
 void Textures::DisposeTexture(int which, bool free_space) {
     Texture& texture = textures[which];
 
@@ -539,7 +539,7 @@ void Textures::DisposeTexture(int which, bool free_space) {
         free_spaces.push_back(which);
     }
 }
-//#pragma optimize("", on)
+// #pragma optimize("", on)
 
 void Textures::Dispose() {
     blank_texture_ref.clear();

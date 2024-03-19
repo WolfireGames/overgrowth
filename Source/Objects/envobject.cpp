@@ -95,8 +95,8 @@ extern bool shadow_cache_dirty;
 extern bool g_draw_collision;
 extern bool g_no_reflection_capture;
 extern bool g_make_invisible_visible;
-extern bool g_attrib_envobj_intancing_support;
-extern bool g_attrib_envobj_intancing_enabled;
+extern bool g_attrib_envobj_instancing_support;
+extern bool g_attrib_envobj_instancing_enabled;
 extern bool g_ubo_batch_multiplier_force_1x;
 
 extern bool g_debug_runtime_disable_env_object_draw;
@@ -257,11 +257,14 @@ static void UpdateNormalOverride(EnvObject* obj, Model* model) {
 
 const size_t kAttribIdCountVboInstancing = 11;
 const size_t kAttribIdCountUboInstancing = 7;
+const size_t kAttribIdCountLegacyShader = 6;
 static int attrib_ids[kAttribIdCountVboInstancing];
 
-static void SetupAttribPointers(bool shader_changed, Model* model, VBORingContainer& env_object_model_translation_instance_vbo, VBORingContainer& env_object_model_scale_instance_vbo, VBORingContainer& env_object_model_rotation_quat_instance_vbo, VBORingContainer& env_object_color_tint_instance_vbo, VBORingContainer& env_object_detail_scale_instance_vbo, Shaders* shaders, int the_shader, Graphics* graphics) {
-    bool attrib_envobj_instancing = g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;
-    int attrib_count = attrib_envobj_instancing ? kAttribIdCountVboInstancing : kAttribIdCountUboInstancing;
+static void SetupAttribPointers(bool shader_changed, bool shader_is_v1_5_or_greater, Model* model, VBORingContainer& env_object_model_translation_instance_vbo, VBORingContainer& env_object_model_scale_instance_vbo, VBORingContainer& env_object_model_rotation_quat_instance_vbo, VBORingContainer& env_object_color_tint_instance_vbo, VBORingContainer& env_object_detail_scale_instance_vbo, Shaders* shaders, int the_shader, Graphics* graphics) {
+    bool attrib_envobj_instancing = g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
+    int attrib_count = shader_is_v1_5_or_greater
+                           ? (attrib_envobj_instancing ? kAttribIdCountVboInstancing : kAttribIdCountUboInstancing)
+                           : kAttribIdCountLegacyShader;
     if (shader_changed) {
         for (int i = 0; i < attrib_count; ++i) {
             const char* attrib_str;
@@ -724,7 +727,13 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
     }
     model->VBO_faces.Bind();
 
-    int kBatchSize = 256 * (!g_ubo_batch_multiplier_force_1x ? ubo_batch_size_multiplier : 1);
+    int vertex_version_major, vertex_version_minor, fragment_version_major, fragment_version_minor;
+    shaders->GetProgramOvergrowthVersion(the_shader, vertex_version_major, vertex_version_minor, fragment_version_major, fragment_version_minor);
+    bool shader_is_v1_5_or_greater = vertex_version_major >= 1 && vertex_version_minor >= 5 && fragment_version_major >= 1 && fragment_version_minor >= 5;
+
+    int kBatchSize = shader_is_v1_5_or_greater
+                         ? (256 * (!g_ubo_batch_multiplier_force_1x ? ubo_batch_size_multiplier : 1))
+                         : 100;
     const bool ignore_multiplier = true;
     static VBORingContainer env_object_model_translation_instance_vbo(sizeof(vec3) * kBatchSize * 16, kVBOFloat | kVBOStream, ignore_multiplier);
     static VBORingContainer env_object_model_scale_instance_vbo(sizeof(vec3) * kBatchSize * 15, kVBOFloat | kVBOStream, ignore_multiplier);
@@ -735,7 +744,8 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
     PROFILER_LEAVE(g_profiler_ctx);  // Attribs
     PROFILER_LEAVE(g_profiler_ctx);  // Setup
 
-    bool attrib_envobj_instancing = g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;
+    bool attrib_envobj_instancing = shader_is_v1_5_or_greater &&
+                                    g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
 
     int instance_block_index = shaders->GetUBOBindIndex(the_shader, "InstanceInfo");
     if (attrib_envobj_instancing || (unsigned)instance_block_index != GL_INVALID_INDEX) {
@@ -754,8 +764,11 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
 
         static GLubyte blockBuffer[131072];  // Big enough for 8x the OpenGL guaranteed minimum size. Max supported by shader flags currently. 16x or higher could be added if new platforms end up having > 128k frequently
 
+        // For shaders v1.5 or greater
         static std::vector<vec3> model_translation_buffer;
-        model_translation_buffer.resize(kBatchSize);
+        if (shader_is_v1_5_or_greater) {
+            model_translation_buffer.resize(kBatchSize);
+        }
 
         static std::vector<vec3> model_scale_buffer;
         static std::vector<vec4> model_rotation_quat_buffer;
@@ -769,12 +782,37 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
             detail_scale_buffer.resize(kBatchSize);
         }
 
+        // For legacy shaders
+        static std::vector<mat4> model_mat_buffer;
+        static std::vector<vec4> model_rotation_mat_buffer;
+
         for (int i = 0; i < num_instances; i += kBatchSize) {
-            vec3* model_translation_attrib = &model_translation_buffer[0];
-            vec3* model_scale = attrib_envobj_instancing ? &model_scale_buffer[0] : (vec3*)((uintptr_t)blockBuffer + 0 * sizeof(float) * 4);
-            vec4* model_rotation_quat = attrib_envobj_instancing ? &model_rotation_quat_buffer[0] : (vec4*)((uintptr_t)blockBuffer + 1 * sizeof(float) * 4);
-            vec4* color_tint = attrib_envobj_instancing ? &color_tint_buffer[0] : (vec4*)((uintptr_t)blockBuffer + 2 * sizeof(float) * 4);
-            vec4* detail_scale = attrib_envobj_instancing ? &detail_scale_buffer[0] : (vec4*)((uintptr_t)blockBuffer + 3 * sizeof(float) * 4);
+            // For shaders v1.5 or greater
+            vec3* model_translation_attrib = NULL;
+            vec3* model_scale = NULL;
+            vec4* model_rotation_quat = NULL;
+            vec4* color_tint = NULL;
+            vec4* detail_scale = NULL;
+
+            // For legacy shaders
+            mat4* model_mat = NULL;
+            vec4* model_rotation_mat = NULL;
+
+            if (shader_is_v1_5_or_greater) {
+                // For shaders v1.5 or greater
+                model_translation_attrib = &model_translation_buffer[0];
+                model_scale = attrib_envobj_instancing ? &model_scale_buffer[0] : (vec3*)((uintptr_t)blockBuffer + 0 * sizeof(float) * 4);
+                model_rotation_quat = attrib_envobj_instancing ? &model_rotation_quat_buffer[0] : (vec4*)((uintptr_t)blockBuffer + 1 * sizeof(float) * 4);
+                color_tint = attrib_envobj_instancing ? &color_tint_buffer[0] : (vec4*)((uintptr_t)blockBuffer + 2 * sizeof(float) * 4);
+                detail_scale = attrib_envobj_instancing ? &detail_scale_buffer[0] : (vec4*)((uintptr_t)blockBuffer + 3 * sizeof(float) * 4);
+            } else {
+                // For legacy shaders
+                model_mat = (mat4*)((uintptr_t)blockBuffer + 0 * sizeof(float) * 4);
+                model_rotation_mat = (vec4*)((uintptr_t)blockBuffer + 4 * sizeof(float) * 4);
+                color_tint = (vec4*)((uintptr_t)blockBuffer + 7 * sizeof(float) * 4);
+                detail_scale = (vec4*)((uintptr_t)blockBuffer + 8 * sizeof(float) * 4);
+            }
+
             if (!attrib_envobj_instancing) {
                 glUniformBlockBinding(shaders->programs[the_shader].gl_program, instance_block_index, 0);
             }
@@ -784,17 +822,38 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
                 EnvObject* obj = instance_array[i + j];
                 PlantComponent* plant_component = obj->plant_component_.get();
                 {
-                    *model_scale = obj->scale_;
-                    *model_rotation_quat = *(vec4*)&obj->GetRotation();
-                    *model_translation_attrib = obj->translation_;
-                    if (plant_component && plant_component->IsActive()) {
-                        // TODO: This used to calculate a pivot. Is that important anymore, or can it just rotate around its origin?
-                        // if(!plant_component->IsPivotCalculated()){
-                        //    plant_component->SetPivot(*scenegraph_->bullet_world_,
-                        //        obj->sphere_center_, obj->sphere_radius_);
-                        //}
-                        quaternion plant_rotation = plant_component->GetQuaternion(obj->sphere_radius_) * obj->GetRotation();
-                        *model_rotation_quat = *(vec4*)&plant_rotation;
+                    if (shader_is_v1_5_or_greater) {
+                        // For shaders v1.5 or greater
+                        *model_scale = obj->scale_;
+                        *model_rotation_quat = *(vec4*)&obj->GetRotation();
+                        *model_translation_attrib = obj->translation_;
+                        if (plant_component && plant_component->IsActive()) {
+                            // TODO: This used to calculate a pivot. Is that important anymore, or can it just rotate around its origin?
+                            // if(!plant_component->IsPivotCalculated()){
+                            //    plant_component->SetPivot(*scenegraph_->bullet_world_,
+                            //        obj->sphere_center_, obj->sphere_radius_);
+                            //}
+                            quaternion plant_rotation = plant_component->GetQuaternion(obj->sphere_radius_) * obj->GetRotation();
+                            *model_rotation_quat = *(vec4*)&plant_rotation;
+                        }
+                    } else {
+                        // For legacy shaders
+                        *model_mat = obj->transform_;
+                        if (plant_component && plant_component->IsActive()) {
+                            if (!plant_component->IsPivotCalculated()) {
+                                plant_component->SetPivot(*scenegraph_->bullet_world_,
+                                                          obj->sphere_center_, obj->sphere_radius_);
+                            }
+                            const vec3& pivot = plant_component->GetPivot();
+
+                            mat4 base_mat = obj->transform_;
+                            vec3 base_trans = base_mat.GetTranslationPart();
+                            base_mat.SetTranslationPart(base_trans - pivot);
+                            mat4 transform = plant_component->GetTransform(obj->sphere_radius_) * base_mat;
+                            transform.AddTranslation(pivot - base_trans);
+                            transform.AddTranslation(base_trans);
+                            *model_mat = transform;
+                        }
                     }
                 }
                 {
@@ -819,17 +878,29 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
                     *detail_scale = scale_vec;
                 }
 
-                ++model_translation_attrib;
-                if (attrib_envobj_instancing) {
-                    ++model_scale;
-                    ++model_rotation_quat;
-                    ++color_tint;
-                    ++detail_scale;
+                if (shader_is_v1_5_or_greater) {
+                    // For shaders v1.5 or greater
+                    ++model_translation_attrib;
+
+                    if (attrib_envobj_instancing) {
+                        ++model_scale;
+                        ++model_rotation_quat;
+                        ++color_tint;
+                        ++detail_scale;
+                    } else {
+                        model_scale = (vec3*)((uintptr_t)model_scale + 64);
+                        model_rotation_quat = (vec4*)((uintptr_t)model_rotation_quat + 64);
+                        color_tint = (vec4*)((uintptr_t)color_tint + 64);
+                        detail_scale = (vec4*)((uintptr_t)detail_scale + 64);
+                    }
                 } else {
-                    model_scale = (vec3*)((uintptr_t)model_scale + 64);
-                    model_rotation_quat = (vec4*)((uintptr_t)model_rotation_quat + 64);
-                    color_tint = (vec4*)((uintptr_t)color_tint + 64);
-                    detail_scale = (vec4*)((uintptr_t)detail_scale + 64);
+                    // For legacy shaders
+                    memcpy(&model_rotation_mat[0], &(obj->rotation_mat_), sizeof(vec4) * 3);
+
+                    model_mat = (mat4*)((uintptr_t)model_mat + 144);
+                    model_rotation_mat = (vec4*)((uintptr_t)model_rotation_mat + 144);
+                    color_tint = (vec4*)((uintptr_t)color_tint + 144);
+                    detail_scale = (vec4*)((uintptr_t)detail_scale + 144);
                 }
 
                 if (g_draw_collision) {
@@ -847,7 +918,9 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
             }
             PROFILER_LEAVE(g_profiler_ctx);  // Setup batch data
             {
-                env_object_model_translation_instance_vbo.Fill(sizeof(vec3) * to_draw, &model_translation_buffer[0]);
+                if (shader_is_v1_5_or_greater) {
+                    env_object_model_translation_instance_vbo.Fill(sizeof(vec3) * to_draw, &model_translation_buffer[0]);
+                }
 
                 if (attrib_envobj_instancing) {
                     env_object_model_scale_instance_vbo.Fill(sizeof(vec3) * to_draw, &model_scale_buffer[0]);
@@ -856,7 +929,7 @@ void EnvObject::DrawInstances(EnvObject** instance_array, int num_instances, con
                     env_object_detail_scale_instance_vbo.Fill(sizeof(vec4) * to_draw, &detail_scale_buffer[0]);
                 }
 
-                SetupAttribPointers(shader_changed, model, env_object_model_translation_instance_vbo, env_object_model_scale_instance_vbo, env_object_model_rotation_quat_instance_vbo, env_object_color_tint_instance_vbo, env_object_detail_scale_instance_vbo, shaders, the_shader, graphics);
+                SetupAttribPointers(shader_changed, shader_is_v1_5_or_greater, model, env_object_model_translation_instance_vbo, env_object_model_scale_instance_vbo, env_object_model_rotation_quat_instance_vbo, env_object_color_tint_instance_vbo, env_object_detail_scale_instance_vbo, shaders, the_shader, graphics);
                 shader_changed = false;
 
                 if (!attrib_envobj_instancing) {
@@ -891,7 +964,7 @@ void EnvObject::AfterDrawInstances() {
 
 void AfterDrawInstancesImpl() {
     Graphics* graphics = Graphics::Instance();
-    bool attrib_envobj_instancing = g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled;
+    bool attrib_envobj_instancing = g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled;
 
     graphics->ResetVertexAttribArrays();
     graphics->BindArrayVBO(0);

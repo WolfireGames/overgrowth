@@ -716,7 +716,7 @@ void Terrain::CalcDetailTextures() {
 
         // Compare each pixel to each average color
         // Create weight map and tint texture
-        //#pragma omp parallel for
+        // #pragma omp parallel for
         std::vector<unsigned char> image_data;
         image_data.resize(total_bytes);
         texture_data.GetUncompressedData(&image_data[0]);

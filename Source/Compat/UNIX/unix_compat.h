@@ -44,7 +44,7 @@
 extern "C" {
 void nonExistantFunctionToAlertYouToStubbedCode(void);
 }
-//#define STUBBED(txt) nonExistantFunctionToAlertYouToStubbedCode()
+// #define STUBBED(txt) nonExistantFunctionToAlertYouToStubbedCode()
 #define STUBBED(txt)                                                            \
     {                                                                           \
         static bool virgin = true;                                              \
