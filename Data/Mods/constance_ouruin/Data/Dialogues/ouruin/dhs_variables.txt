@@ -27,6 +27,10 @@ ouruin_current_sidearm
 ouruin_player_event
 	Variable per-level. Used to dictate which dialogue or events should play
 
+ouruin_current_area
+
+ouruin_current_area_stored
+
 ouruin_orb
 	0: Orb is not equipped
 	1: Orb is acquired
@@ -278,8 +282,26 @@ ouruin_dart_quest
 	1: Dart has been met
 	2: Dart has told Ghost about entry
 	3: Dart has been challenged
-	4: Dart has been beaten. Quest complete!
-	5: Player has given drug money to Dart
+	4: Dart has beaten Ghost in dueling
+	5: Dart has been beaten. Quest complete!
+	6: Player has given drug money to Dart. Quest complete!
+
+ouruin_dart_duel
+	0: Ghost cannot challenge
+	1: Dart can be challenged
+	2: Duel is underway
+	3: Ghost has won the duel
+
+ouruin_dart_quest_valerian
+	0: Dart has not asked Ghost for valerian root
+	1: Dart has asked Ghost for valerian root
+	2: Ghost has acquired valerian root
+	3: Dart has been given valerian root
+
+ouruin_beggar_quest
+	0: Beggar has not been met
+	1: Beggar has been met
+	2: Beggar has talked about Dart
 
 ouruin_adal_quest
 	0: Adal has not been met
@@ -295,22 +317,6 @@ ouruin_adal_quest
 		1: Thieves encountered
 		2: Gold retrieved, Adal ready
 		3: Gold paid
-
-ouruin_beggar_quest
-	0: Beggar has not been met
-	1: Beggar has been met
-	2: Beggar has talked about Dart
-
-ouruin_dart_quest_valerian
-	0: Dart has not asked Ghost for valerian root
-	1: Dart has asked Ghost for valerian root
-	2: Ghost has acquired valerian root
-	3: Dart has been given valerian root
-
-ouruin_dart_duel
-	0: Ghost cannot challenge
-	1: Dart can be challenged
-	2: Duel is underway
 
 ouruin_gunk_quest
 	0: Player has not talked to the bloods

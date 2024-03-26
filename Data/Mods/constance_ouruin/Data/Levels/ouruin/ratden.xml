@@ -30,9 +30,9 @@
     <parameter name="Custom Shader" type="string" val="#AMBIENT_LIGHT_DECALS #SHADOW_POINT_LIGHTS #TEST_CLOUDS_2 #CLOUDS_DO_NOT_CAST_SHADOWS #CLOUDS_DO_NOT_TINT_SKY #OURUIN_EVENING #CHARACTER_DECALS" />
     <parameter name="Fog amount" type="float" val="1.3272" />
     <parameter name="GPU Particle Field" type="string" val="" />
-    <parameter name="HDR Black point" type="float" val="0.01026" />
+    <parameter name="HDR Black point" type="float" val="0" />
     <parameter name="HDR Bloom multiplier" type="float" val="0" />
-    <parameter name="HDR White point" type="float" val="1.12" />
+    <parameter name="HDR White point" type="float" val="0.98462" />
     <parameter name="Level Boundaries" type="int" val="0" />
     <parameter name="Load Tip" type="string" val="Northern Ouruin, far away from the Drowned Streets, is in comparison " />
     <parameter name="Objectives" type="string" val="destroy_all" />
@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="48.1245" t1="-56.602" t2="-162.125" s0="1" s1="1" s2="1" q0="-0.0669555" q1="0.833558" q2="-0.103647" q3="-0.538475" euler_x="-2.89418" euler_y="-1.14711" euler_z="3.14159" id="0">
+    <CameraObject t0="48.3446" t1="-50.9565" t2="-145.84" s0="1" s1="1" s2="1" q0="0.0637143" q1="-0.821803" q2="0.0937725" q3="0.558379" euler_x="-2.91436" euler_y="-1.19361" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-184.36" t1="-53.3321" t2="-101.271" s0="1.25413" s1="1.69404" s2="1.21732" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
@@ -348,6 +348,9 @@
     <EnvObject t0="25.0355" t1="-55.599" t2="-161.434" s0="0.897609" s1="1.12451" s2="1.18722" q0="0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="92" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="48.6803" t1="-52.4694" t2="-157.202" s0="0.00373237" s1="0.00902249" s2="0.00373237" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="93" color_r="1" color_g="0.4" color_b="0" overbright="26.275" type_file="Data/Objects/fire_billboard_small.xml">
+        <parameters />
+    </EnvObject>
     <Decal t0="-3.75619" t1="-58.2326" t2="-158.63" s0="0.6747" s1="0.405872" s2="0.674701" q0="0.101458" q1="-0.0558727" q2="-0.238683" q3="-0.964164" euler_x="-0.171917" euler_y="0.156815" euler_z="0.471809" id="94" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.0313725" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
@@ -399,9 +402,15 @@
             </Decal>
         </Group>
     </Group>
+    <DynamicLightObject t0="42.0849" t1="-50.4382" t2="-149.528" s0="9.79712" s1="9.79712" s2="9.79712" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="116" color_r="0.796078" color_g="0.657318" color_b="0.387113" overbright="4.237">
+        <parameters />
+    </DynamicLightObject>
     <EnvObject t0="24.006" t1="-55.599" t2="-161.434" s0="0.897609" s1="1.12451" s2="1.18722" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="119" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
         <parameters />
     </EnvObject>
+    <DynamicLightObject t0="53.2776" t1="-50.4471" t2="-140.442" s0="14.6957" s1="14.6957" s2="14.6957" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="128" color_r="1" color_g="0.840331" color_b="0.529412" overbright="0">
+        <parameters />
+    </DynamicLightObject>
     <EnvObject t0="98.2317" t1="-174.674" t2="-184.142" s0="2843.67" s1="41.3657" s2="3914.16" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="147" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Cpathfloor.xml">
         <parameters />
     </EnvObject>
@@ -9575,10 +9584,10 @@
         </Group>
         <Group t0="8.61847" t1="-50.1333" t2="-144.859" s0="0.119812" s1="4.87725" s2="5.13045" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="6659" version="1">
             <parameters />
-            <EnvObject t0="8.61847" t1="-48.8893" t2="-144.859" s0="2.68032" s1="4.28284" s2="1.68682" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6657" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <EnvObject t0="8.61847" t1="-48.8893" t2="-144.859" s0="2.68125" s1="4.28284" s2="1.68683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6657" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="8.61847" t1="-51.3773" t2="-144.859" s0="2.68032" s1="4.28284" s2="1.68682" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="6658" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <EnvObject t0="8.61847" t1="-51.3773" t2="-144.859" s0="2.68125" s1="4.28284" s2="1.68683" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="6658" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -11521,10 +11530,10 @@
         </Connections>
         <ItemConnections />
         <Palette>
-            <Color label="Shirt" channel="0" red="1" green="1" blue="1" />
-            <Color label="Fur" channel="1" red="1" green="1" blue="1" />
-            <Color label="Pants" channel="2" red="1" green="1" blue="1" />
-            <Color label="Skin" channel="3" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="0" red="0.169412" green="0.17748" blue="0.282353" />
+            <Color label="Fur" channel="1" red="0.462745" green="0.410482" blue="0.37564" />
+            <Color label="Pants" channel="2" red="0.270991" green="0.113802" blue="0.392157" />
+            <Color label="Skin" channel="3" red="1" green="0.945798" blue="0.494118" />
         </Palette>
     </ActorObject>
     <EnvObject t0="10.6962" t1="-57.5374" t2="-163.098" s0="0.668335" s1="0.668335" s2="0.668335" q0="0" q1="0.968894" q2="0" q3="0.247476" euler_x="3.14159" euler_y="0.500149" euler_z="3.14159" id="7487" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/thick_bush.xml">
@@ -12225,10 +12234,10 @@
         </Connections>
         <ItemConnections />
         <Palette>
-            <Color label="Shirt" channel="0" red="1" green="1" blue="1" />
-            <Color label="Fur" channel="1" red="1" green="1" blue="1" />
-            <Color label="Pants" channel="2" red="1" green="1" blue="1" />
-            <Color label="Skin" channel="3" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="0" red="0.737255" green="0.701629" blue="0.138777" />
+            <Color label="Fur" channel="1" red="0.886275" green="0.729251" blue="0.50396" />
+            <Color label="Pants" channel="2" red="0.231373" green="0.0871049" blue="0.0871049" />
+            <Color label="Skin" channel="3" red="0.92549" green="0.683902" blue="0.424637" />
         </Palette>
     </ActorObject>
     <EnvObject t0="6.99949" t1="-58.6337" t2="-159.959" s0="0.458024" s1="0.678148" s2="0.42242" q0="0" q1="0.766941" q2="0" q3="-0.641718" euler_x="3.14159" euler_y="-1.39347" euler_z="3.14159" id="7845" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/short_bush.xml">
@@ -15644,7 +15653,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="53.1764" t1="-57.8759" t2="-160.673" s0="0.14302" s1="0.0716716" s2="0.0768488" q0="0" q1="-0.368504" q2="0" q3="0.929626" euler_x="0" euler_y="-0.754798" euler_z="0" id="9305" type_file="Data/Objects/Hotspots/emitter.xml">
+    <Hotspot t0="53.1787" t1="-57.8918" t2="-160.671" s0="0.14302" s1="0.0716716" s2="0.0768488" q0="0.0446204" q1="-0.365793" q2="-0.112564" q3="0.922786" euler_x="0.22237" euler_y="-0.727562" euler_z="-0.327727" id="9305" type_file="Data/Objects/Hotspots/emitter.xml">
         <parameters>
             <parameter name="Type" type="string" val="Dusty" />
         </parameters>
@@ -16519,9 +16528,9 @@
         </Connections>
         <ItemConnections />
         <Palette>
-            <Color label="Shirt" channel="0" red="1" green="1" blue="1" />
-            <Color label="Fur" channel="1" red="1" green="1" blue="1" />
-            <Color label="Pants" channel="2" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="0" red="0.592157" green="0.25544" blue="0.350513" />
+            <Color label="Fur" channel="1" red="0.545098" green="0.542095" blue="0.292857" />
+            <Color label="Pants" channel="2" red="0.117526" green="0.180392" blue="0.114602" />
             <Color label="Skin" channel="3" red="1" green="1" blue="1" />
         </Palette>
     </ActorObject>
@@ -17798,11 +17807,6 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="47.5975" t1="-51.8497" t2="-127.854" s0="1.32598" s1="0.330981" s2="2.57819" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11008" type_file="Data/Objects/Hotspots/fireflies.xml">
-        <parameters />
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
     <Group t0="49.137" t1="-52.0349" t2="-124.279" s0="0.337427" s1="0.359464" s2="0.278051" q0="0" q1="-0.431937" q2="0" q3="0.901904" euler_x="0" euler_y="-0.893279" euler_z="0" id="11009" version="1">
         <parameters />
         <EnvObject t0="49.1631" t1="-52.0935" t2="-124.22" s0="0.134927" s1="0.134927" s2="0.134927" q0="-0.127805" q1="-0.0584381" q2="-0.659819" q3="0.73817" euler_x="-0.115636" euler_y="-0.257776" euler_z="-1.44382" id="10983" color_r="0.732096" color_g="0" color_b="1" overbright="50" type_file="Data/Objects/Crete/CreteBlockShard.xml">
@@ -18267,11 +18271,6 @@
         <parameters />
     </EnvObject>
     <Hotspot t0="22.691" t1="-54.2849" t2="-150.248" s0="0.76238" s1="0.578627" s2="0.581728" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11230" type_file="Data/Objects/Hotspots/no_grab.xml">
-        <parameters />
-        <Connections />
-        <ConnectionsFrom />
-    </Hotspot>
-    <Hotspot t0="53.3057" t1="-51.825" t2="-114.604" s0="0.871546" s1="0.331083" s2="2.01118" q0="0" q1="-0.381645" q2="0" q3="0.924309" euler_x="0" euler_y="-0.783151" euler_z="0" id="11231" type_file="Data/Objects/Hotspots/fireflies.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
