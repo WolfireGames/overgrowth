@@ -60,7 +60,7 @@ bool g_sound_enable_layered_soundtrack_limiter = false;
 //-----------------------------------------------------------------------------
 
 #define REF_DISTANCE 1.0f
-//#define REF_DISTANCE 8.0f
+// #define REF_DISTANCE 8.0f
 
 Sound::Sound(const char *preferred_device) : m_last_game_time_scale(1.0f),
                                              m_last_game_timestep(0.0f),

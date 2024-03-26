@@ -120,7 +120,7 @@ inline vec4        vdot3( vec4 a, vec4 b )
 }
 */
 
-//#include "Platform.h"
+// #include "Platform.h"
 
 #if defined(CPR_OSX) && defined(__APPLE_ALTIVEC__)
 

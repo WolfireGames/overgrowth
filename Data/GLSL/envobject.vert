@@ -16,6 +16,9 @@
 #version 150
 #extension GL_ARB_shading_language_420pack : enable
 
+#og_version_major 1
+#og_version_minor 5
+
 #include "lighting150.glsl"
 
 in vec3 vertex_attrib;

@@ -623,7 +623,11 @@ void DetailObjectSurface::Draw(const mat4& transform, DetailObjectShaderType sha
             }
         }
 
-        int kBatchSize = 200 * (!g_ubo_batch_multiplier_force_1x ? ubo_batch_size_multiplier : 1);
+        int vertex_version_major, vertex_version_minor, fragment_version_major, fragment_version_minor;
+        shaders->GetProgramOvergrowthVersion(shader_id, vertex_version_major, vertex_version_minor, fragment_version_major, fragment_version_minor);
+        bool shader_is_v1_5_or_greater = vertex_version_major >= 1 && vertex_version_minor >= 5 && fragment_version_major >= 1 && fragment_version_minor >= 5;
+
+        int kBatchSize = 200 * (shader_is_v1_5_or_greater && !g_ubo_batch_multiplier_force_1x ? ubo_batch_size_multiplier : 1);
 
         {
             PROFILER_ZONE(g_profiler_ctx, "Issue draw calls");
@@ -636,11 +640,11 @@ void DetailObjectSurface::Draw(const mat4& transform, DetailObjectShaderType sha
                 if (indices[1] != GL_INVALID_INDEX) {
                     memcpy(&texcoords2[0], &draw_detail_instances[i], to_draw * sizeof(vec4));
                 }
-                {
-                    // Copying over the whole block because fields aren't contiguous (struct of arrays), so at best can only save the final field's gap until the end of the buffer
-                    detail_object_instance_buffer.Fill(block_size, blockBuffer);
-                    glBindBufferRange(GL_UNIFORM_BUFFER, 0, detail_object_instance_buffer.gl_id, detail_object_instance_buffer.offset, detail_object_instance_buffer.next_offset - detail_object_instance_buffer.offset);
-                }
+
+                // Copying over the whole block because fields aren't contiguous (struct of arrays), so at best can only save the final field's gap until the end of the buffer
+                detail_object_instance_buffer.Fill(block_size, blockBuffer);
+                glBindBufferRange(GL_UNIFORM_BUFFER, 0, detail_object_instance_buffer.gl_id, detail_object_instance_buffer.offset, detail_object_instance_buffer.next_offset - detail_object_instance_buffer.offset);
+
                 CHECK_GL_ERROR();
                 graphics->DrawElementsInstanced(GL_TRIANGLES, bm.instance_num_faces, GL_UNSIGNED_INT, 0, to_draw);
                 CHECK_GL_ERROR();

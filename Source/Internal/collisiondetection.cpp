@@ -587,7 +587,7 @@ bool triBoxOverlap(const vec3 &box_min, const vec3 &box_max, const vec3 &vert1, 
 
 #include <math.h>
 
-//#define FABS(x) ((float)fabs(x))        /* implement as is fastest on your machine */
+// #define FABS(x) ((float)fabs(x))        /* implement as is fastest on your machine */
 
 /* if USE_EPSILON_TEST is true then we do a check:
          if |dv|<EPSILON then dv=0.0f;

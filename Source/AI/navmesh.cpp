@@ -77,7 +77,7 @@ extern Config config;
 
 // So, while developing, we can assume that each new version of the game _might_ involve a code change in the navmesh, it's the conservative assumption.
 // static const char* NAVMESH_VERSION = "1";
-//#define NAVMESH_VERSION GetBuildVersion()
+// #define NAVMESH_VERSION GetBuildVersion()
 #define NAVMESH_VERSION "1"
 
 NavPoint::NavPoint(const NavPoint& other) {

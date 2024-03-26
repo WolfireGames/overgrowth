@@ -97,8 +97,8 @@ extern bool g_no_detailmaps;
 extern bool g_no_decals;
 extern bool g_no_decal_elements;
 extern bool g_character_decals_enabled;
-extern bool g_attrib_envobj_intancing_support;
-extern bool g_attrib_envobj_intancing_enabled;
+extern bool g_attrib_envobj_instancing_support;
+extern bool g_attrib_envobj_instancing_enabled;
 extern bool g_ubo_batch_multiplier_force_1x;
 
 const int kGlobalShaderSuffixLen = 1024;
@@ -535,7 +535,7 @@ static void UpdateShaderSuffix(SceneGraph* scenegraph, Object::DrawType object_d
             std::swap(shader_str[0], shader_str[1]);
         }
 
-        if (g_attrib_envobj_intancing_support && g_attrib_envobj_intancing_enabled) {
+        if (g_attrib_envobj_instancing_support && g_attrib_envobj_instancing_enabled) {
             FormatString(shader_str[1], kShaderStrSize, "%s #ATTRIB_ENVOBJ_INSTANCING", shader_str[0]);
             std::swap(shader_str[0], shader_str[1]);
         }

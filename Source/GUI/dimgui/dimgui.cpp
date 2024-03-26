@@ -80,7 +80,7 @@
 
 // disable Windows.h defining min and max as macros. Windows.h is pulled in by imgui.cpp
 #define NOMINMAX
-//#define IMGUI_DISABLE_OBSOLETE_FUNCTIONS
+// #define IMGUI_DISABLE_OBSOLETE_FUNCTIONS
 #include <imgui_internal.h>
 #include <imgui.h>
 #include <imgui_color_picker.h>

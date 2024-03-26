@@ -95,14 +95,14 @@ license you like.
 #define JSON_CONFIG_H_INCLUDED
 
 /// If defined, indicates that json library is embedded in CppTL library.
-//# define JSON_IN_CPPTL 1
+// # define JSON_IN_CPPTL 1
 
 /// If defined, indicates that json may leverage CppTL library
-//#  define JSON_USE_CPPTL 1
+// #  define JSON_USE_CPPTL 1
 /// If defined, indicates that cpptl vector based map should be used instead of
 /// std::map
 /// as Value container.
-//#  define JSON_USE_CPPTL_SMALLMAP 1
+// #  define JSON_USE_CPPTL_SMALLMAP 1
 
 // If non-zero, the library uses exceptions to report bad input instead of C
 // assertion macros. The default is to use exceptions.

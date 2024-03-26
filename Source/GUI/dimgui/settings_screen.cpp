@@ -76,8 +76,8 @@ extern bool g_no_decal_elements;
 extern bool g_single_pass_shadow_cascade;
 extern bool g_perform_occlusion_query;
 extern bool g_gamma_correct_final_output;
-extern bool g_attrib_envobj_intancing_support;
-extern bool g_attrib_envobj_intancing_enabled;
+extern bool g_attrib_envobj_instancing_support;
+extern bool g_attrib_envobj_instancing_enabled;
 extern bool g_ubo_batch_multiplier_force_1x;
 extern Timer game_timer;
 
@@ -499,8 +499,8 @@ void DrawSettingsImGui(SceneGraph* scenegraph, ImGuiSettingsType type) {
         }
         ImGui::EndDisabled();
 
-        ImGui::BeginDisabled(!g_attrib_envobj_intancing_support);
-        checkbox_val = g_attrib_envobj_intancing_enabled;
+        ImGui::BeginDisabled(!g_attrib_envobj_instancing_support);
+        checkbox_val = g_attrib_envobj_instancing_enabled;
         if (ImGui::Checkbox("Vertex Attrib Instancing", &checkbox_val)) {
             UpdateAttribEnvObjInstancing(checkbox_val);
         }
