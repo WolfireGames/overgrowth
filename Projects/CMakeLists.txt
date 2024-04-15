@@ -34,6 +34,7 @@ LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 INCLUDE(GetGitRevisionDescription)
 INCLUDE(ExternalProject)
+INCLUDE(FetchContent)
 
 git_describe(GIT_VERSION --always --tag)
 git_rev_list(GIT_REV_LIST --count HEAD) # Count what revision we're on
@@ -264,10 +265,19 @@ SET(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
 ADD_SUBDIRECTORY(../Libraries/glad glad)
+
+# Zstd
 set(ZSTD_BUILD_PROGRAMS Off)
 set(ZSTD_BUILD_STATIC ON)
 set(ZSTD_BUILD_SHARED Off)
-ADD_SUBDIRECTORY(../Libraries/zstd-1.5.0/build/cmake zstd)
+FetchContent_Declare(
+    zstd
+    GIT_REPOSITORY https://github.com/facebook/zstd
+    GIT_TAG 794ea1b0afca0f020f4e57b6732332231fb23c70 # v1.5.6
+    SOURCE_SUBDIR build/cmake
+)
+FetchContent_MakeAvailable(zstd)
+
 IF(WIN32)
     # Make sure freetype uses the precompiled 1.2.7 binary
     OPTION(FT_REQUIRE_ZLIB "Overridden on Windows" ON)
@@ -607,7 +617,6 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/recastnavigation/Detour/Include
     ${LIBDIR}/recastnavigation/DetourTileCache/Include
     ${LIBDIR}/recastnavigation/DetourCrowd/Include
-    ${LIBDIR}/zstd-1.5.0/lib
     ${LIBDIR}/binn-3.0/src
     ${LIBDIR}/freetype-2.12.1/include
 )
@@ -1367,7 +1376,7 @@ IF(BUILD_OVERGROWTH)
         DetourTileCache
         Detour
         crnlib
-	    freetype
+	freetype
         libzstd_static
         ${STATIC_LIBS}
         ${FLTK_LIBS}
