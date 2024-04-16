@@ -300,7 +300,11 @@ ADD_SUBDIRECTORY(../Libraries/freetype-2.12.1 freetype)
 IF(BUILD_OVERGROWTH) 
     #Create subprojects that have their own CMakeLists
     ADD_SUBDIRECTORY(triangle triangle)
-    ADD_SUBDIRECTORY(minizip minizip)
+    if(USE_SYSTEM_LIBS)
+        pkg_check_modules(MINIZIP REQUIRED IMPORTED_TARGET minizip)
+    else()
+        ADD_SUBDIRECTORY(minizip minizip)
+    endif()
     ADD_SUBDIRECTORY(murmurhash3 murmurhash3)
     ADD_SUBDIRECTORY(binn binn)
     ADD_SUBDIRECTORY(recastnavigation recastnavigation)
@@ -318,7 +322,9 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET binn PROPERTY FOLDER "Support")
     SET_PROPERTY(TARGET angelscript PROPERTY FOLDER "Support/Angelscript")
     SET_PROPERTY(TARGET triangle PROPERTY FOLDER "Support")
-    SET_PROPERTY(TARGET minizip PROPERTY FOLDER "Support")
+    if(NOT USE_SYSTEM_LIBS)
+        SET_PROPERTY(TARGET minizip PROPERTY FOLDER "Support")
+    endif()
     SET_PROPERTY(TARGET glad PROPERTY FOLDER "Support")
     SET_PROPERTY(TARGET BulletCollision PROPERTY FOLDER "Support/BulletPhysics")
     SET_PROPERTY(TARGET BulletDynamics PROPERTY FOLDER "Support/BulletPhysics")
@@ -1341,7 +1347,9 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET angelscript             PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
 #   SET_PROPERTY(TARGET game                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET triangle                PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
-    SET_PROPERTY(TARGET minizip                 PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
+    if(NOT USE_SYSTEM_LIBS)
+        SET_PROPERTY(TARGET minizip                 PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
+    endif()
     SET_PROPERTY(TARGET glad                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET trex                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET BulletCollision         PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
@@ -1372,7 +1380,7 @@ IF(BUILD_OVERGROWTH)
         BulletWorldImporter
         BulletFileLoader
         LinearMath
-        minizip
+        $<IF:$<BOOL:USE_SYSTEM_LIBS>,PkgConfig::MINIZIP,minizip>
         murmurhash3
         binn
         glad
