@@ -38,7 +38,7 @@
     <EnvObject t0="-42.9803" t1="35.9298" t2="111.989" s0="2.02081" s1="1" s2="3.30549" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
         <parameters />
     </EnvObject>
-    <CameraObject t0="-41.392" t1="40.4102" t2="148.975" s0="1" s1="1" s2="1" q0="-0.117605" q1="-0.605995" q2="0.091203" q3="-0.781422" euler_x="0.29876" euler_y="1.31925" euler_z="0" id="3">
+    <CameraObject t0="-52.4156" t1="41.0462" t2="154.023" s0="1" s1="1" s2="1" q0="0.103461" q1="0.455457" q2="-0.0533895" q3="0.882612" euler_x="0.233378" euler_y="0.952784" euler_z="0" id="3">
         <parameters />
     </CameraObject>
     <EnvObject t0="-43.1369" t1="36.0174" t2="107.512" s0="1.16523" s1="1" s2="1.0533" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" color_r="0.356863" color_g="0.356863" color_b="0.356863" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
@@ -415,7 +415,7 @@
     <ActorObject name="Donatas" t0="-42.8019" t1="38.719" t2="146.875" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="54" type_file="Data/Objects/therium/characters/donatas_actor.xml" is_player="1">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
-            <parameter name="Attack Damage" type="float" val="1.11594" />
+            <parameter name="Attack Damage" type="float" val="1" />
             <parameter name="Attack Knockback" type="float" val="1" />
             <parameter name="Attack Speed" type="float" val="1.02899" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
@@ -706,7 +706,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <ActorObject name="Test Dummy" t0="-36.1062" t1="38.6015" t2="148.63" s0="0.999752" s1="0.999752" s2="0.999752" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="98" type_file="Data/Objects/IGF_Characters/base_guard_actor.xml" is_player="0">
+    <ActorObject name="Test Dummy" t0="-36.1062" t1="38.6015" t2="148.63" s0="0.999752" s1="0.999752" s2="0.999752" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="98" type_file="Data/Objects/IGF_Characters/base_guard_actor.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="-50" />
             <parameter name="Attack Damage" type="float" val="1" />
@@ -763,7 +763,7 @@
             <Color label="Armor" channel="3" red="0.137255" green="0.137254" blue="0.137254" />
         </Palette>
     </ActorObject>
-    <ActorObject name="Test Dummy" t0="-36.1062" t1="38.6015" t2="146.297" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="99" type_file="Data/Objects/IGF_Characters/base_guard_actor.xml" is_player="0">
+    <ActorObject name="Test Dummy" t0="-36.1062" t1="38.6015" t2="146.297" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="99" type_file="Data/Objects/IGF_Characters/base_guard_actor.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="-500" />
             <parameter name="Attack Damage" type="float" val="1" />

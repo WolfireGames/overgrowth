@@ -291,7 +291,7 @@ class DrikaReadWriteSaveFile : DrikaElement{
 				ImGui_Text("Check if param");
 				ImGui_NextColumn();
 				ImGui_PushItemWidth(second_column_width);
-				if(ImGui_InputText("Parameter" + (i + 1), parameters[i], 64))
+				if(ImGui_InputText("##Parameter" + (i + 1), parameters[i], 64))
 					{parameters[i] = CleanString(parameters[i]);}
 
 				ImGui_PopItemWidth();
@@ -309,14 +309,15 @@ class DrikaReadWriteSaveFile : DrikaElement{
 
 				//Here we want to only allow float inputs when the user is attempting certain checks where strings would never be used.
 				//This doesn't guarantee that the user won't mess up anyway, but it decreases the number of conditions where an error could happen.
-				if(checkmodes[i] == check_mode_greaterthan || checkmodes[i] == check_mode_lessthan)
-					{float buf = atof(values[i]); ImGui_InputFloat("##Operator Input" + (i + 1), buf, 1, 5, 6); values[i] = formatFloat(buf,'', 0, 3);}
-				else {ImGui_InputText("Value " + (i + 1), values[i], 64);}
-
-				ImGui_PopItemWidth();
-				ImGui_NextColumn();
-
-				ImGui_Separator();
+				if(checkmodes[i] == check_mode_greaterthan || checkmodes[i] == check_mode_lessthan){
+					float buf = atof(values[i]);
+					ImGui_DragFloat("##Operator Input" + (i + 1), buf, 0.1f, 0.0f, 100.0f, "%.3f", 1.0f);
+					values[i] = formatFloat(buf,'', 0, 3);
+				} else {
+					ImGui_InputText("##Value " + (i + 1), values[i], 64);}
+					ImGui_PopItemWidth();
+					ImGui_NextColumn();
+					ImGui_Separator();
 				}
 
 			ImGui_AlignTextToFramePadding();
@@ -326,12 +327,12 @@ class DrikaReadWriteSaveFile : DrikaElement{
 			ImGui_NextColumn();
 
 			if(condition_count > 1 && continue_if_false){
-			ImGui_AlignTextToFramePadding();
-			ImGui_Text("Continue if any true");
-			ImGui_NextColumn();
-			ImGui_Checkbox("###Continue if any true", if_any_are_true);
-			ImGui_NextColumn();
-		}
+				ImGui_AlignTextToFramePadding();
+				ImGui_Text("Continue if any true");
+				ImGui_NextColumn();
+				ImGui_Checkbox("###Continue if any true", if_any_are_true);
+				ImGui_NextColumn();
+			}
 
 			if(continue_if_false){
 				continue_element.DrawGoToLineUI();
@@ -373,7 +374,7 @@ class DrikaReadWriteSaveFile : DrikaElement{
 				ImGui_NextColumn();
 				ImGui_PushItemWidth(second_column_width);
 
-				if(ImGui_InputText("Parameter" + (i + 1), parameters[i], 64))
+				if(ImGui_InputText("##Parameter" + (i + 1), parameters[i], 64))
 					{parameters[i] = CleanString(parameters[i]);}
 
 				ImGui_PopItemWidth();
@@ -393,15 +394,18 @@ class DrikaReadWriteSaveFile : DrikaElement{
 				ImGui_PushItemWidth(second_column_width);
 
 				//Here we are also checking for cases where the user should only ever input a float, and changing the input box accordingly.
-				if(operatormodes[i] < operator_mode_subtract || operatormodes[i] > operator_mode_multiply)
-				ImGui_InputText("Value" + (i + 1), values[i], 64);
+				if(operatormodes[i] < operator_mode_subtract || operatormodes[i] > operator_mode_multiply){
+					ImGui_InputText("##Value" + (i + 1), values[i], 64);
 
 				//The user is limited to two decimal positions. This is just to makes things easier to read and keep the strings shorter in DisplayString.
-				else {float buf = atof(values[i]); ImGui_InputFloat("##Operator Input" + (i + 1), buf, 1, 5, 6); values[i] = formatFloat(buf,'0', 0, 3);}
+				} else {
+					float buf = atof(values[i]);
+					ImGui_DragFloat("##Operator Input" + (i + 1), buf, 0.1f, 0.0f, 100.0f, "%.3f", 1.0f);
+					values[i] = formatFloat(buf,'', 0, 3);
+				}
 
 				ImGui_PopItemWidth();
 				ImGui_NextColumn();
-
 				ImGui_Separator();
 			}
 

@@ -313,7 +313,7 @@ ouruin_adal_quest
 	6: Player has decided to keep all of her funds. Quest complete
 
 	ouruin_adal_depot
-		0: Depot has not been entered
+		0: Yet to be encountered
 		1: Thieves encountered
 		2: Gold retrieved, Adal ready
 		3: Gold paid

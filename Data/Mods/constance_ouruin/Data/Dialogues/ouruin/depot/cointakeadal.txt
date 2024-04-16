@@ -1,0 +1,22 @@
+#name "CoinTakeAdal"
+#participants 2
+send_character_message 1 "set_torso_target 16.086 -22.4226 -7.34703 0"
+send_character_message 1 "set_animation \"Data/Animations/leanovertable.anm\""
+send_character_message 1 "set_eye_dir -11.6353 -15.1386 -11.3322 1"
+send_character_message 1 "set_head_target -11.9308 -15.1705 -11.2568 1"
+set_character_pos 1 -11.043 -15.4879 -11.3948 -180
+set_cam -12.4893 -14.8419 -11.8476 0 -107.73 0 44.938
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.52 0.95
+set_dialogue_voice 2 8
+say 2 "Ghost" "(500p... [wait 0.2]This must be Adal's purse.)"
+send_character_message 1 "set_torso_target -11.6379 -15.0403 -11.6795 0"
+send_character_message 1 "set_eye_dir -9.74772 -14.5654 -11.8302 1"
+send_character_message 1 "set_head_target -11.7676 -14.7956 -12.4334 1"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_level_message "wallet_gain"
+send_level_message "disable 6542"
+send_level_message "disable 6544"
+say 2 "Ghost" "(Maybe I should bring this back to her...)"
+send_level_message "dialogue_done"

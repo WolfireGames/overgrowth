@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Prototypes/CaveArena/Models/crate_lid.obj</Model>
+	<ColorMap>Data/Prototypes/CaveArena/Textures/Crate_Color.tga</ColorMap>
+	<NormalMap>Data/Prototypes/CaveArena/Textures/Crate_Norm.tga</NormalMap>
+  	<ShaderName>cubemap</ShaderName>
+    <MaterialPath>Data/Materials/wood.xml</MaterialPath>
+</Object>
