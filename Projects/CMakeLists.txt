@@ -40,6 +40,8 @@ git_describe(GIT_VERSION --always --tag)
 git_rev_list(GIT_REV_LIST --count HEAD) # Count what revision we're on
 SET(BUILD_ID "-1" CACHE STRING "Build ID value from automated build system")
 #Option to build with breakpad, removes some compiler warnings, so it's best to go without for normal development.
+
+OPTION(USE_SYSTEM_LIBS "Use system libraries when available/supported" OFF)
 OPTION(BREAKPAD "Build with breakpad linked into the binary and with exception handling?" OFF)
 OPTION(DO_DIST_ARCHIVE "Generate a package containing all build data relevant for final release, excluding game data." OFF)
 OPTION(BUILD_SERVER "Building on a buildserver, this means that additional steps are included which generally only occur on a build server" OFF)
@@ -266,17 +268,25 @@ SET(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
 ADD_SUBDIRECTORY(../Libraries/glad glad)
 
-# Zstd
-set(ZSTD_BUILD_PROGRAMS Off)
-set(ZSTD_BUILD_STATIC ON)
-set(ZSTD_BUILD_SHARED Off)
-FetchContent_Declare(
-    zstd
-    GIT_REPOSITORY https://github.com/facebook/zstd
-    GIT_TAG 794ea1b0afca0f020f4e57b6732332231fb23c70 # v1.5.6
-    SOURCE_SUBDIR build/cmake
-)
-FetchContent_MakeAvailable(zstd)
+if(USE_SYSTEM_LIBS)
+    find_package(PkgConfig REQUIRED)
+endif()
+
+if(USE_SYSTEM_LIBS)
+    pkg_check_modules(ZSTD REQUIRED IMPORTED_TARGET libzstd)
+else()
+    # Zstd
+    set(ZSTD_BUILD_PROGRAMS Off)
+    set(ZSTD_BUILD_STATIC ON)
+    set(ZSTD_BUILD_SHARED Off)
+    FetchContent_Declare(
+        zstd
+        GIT_REPOSITORY https://github.com/facebook/zstd
+        GIT_TAG 794ea1b0afca0f020f4e57b6732332231fb23c70 # v1.5.6
+        SOURCE_SUBDIR build/cmake
+    )
+    FetchContent_MakeAvailable(zstd) # define the libzstd_static target
+endif()
 
 IF(WIN32)
     # Make sure freetype uses the precompiled 1.2.7 binary
@@ -1377,7 +1387,7 @@ IF(BUILD_OVERGROWTH)
         Detour
         crnlib
 	freetype
-        libzstd_static
+        $<IF:$<BOOL:USE_SYSTEM_LIBS>,PkgConfig::ZSTD,libzstd_static>
         ${STATIC_LIBS}
         ${FLTK_LIBS}
     )
