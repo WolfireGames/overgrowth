@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="7.17868" t1="-8.93636" t2="-34.4575" s0="1" s1="1" s2="1" q0="-0.0797528" q1="0.74152" q2="-0.0895869" q3="-0.660123" euler_x="-2.90113" euler_y="-1.45478" euler_z="3.14159" id="0">
+    <CameraObject t0="14.7792" t1="-21.7226" t2="-26.6106" s0="1" s1="1" s2="1" q0="-0.0470243" q1="0.696834" q2="-0.0458797" q3="-0.714217" euler_x="0.131493" euler_y="-1.54616" euler_z="-2.41945e-06" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-30.9859" t1="-21.999" t2="-66.6815" s0="0.452963" s1="1.04224" s2="1.03207" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
@@ -18336,7 +18336,7 @@
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />
             <parameter name="Attack Knockback" type="float" val="0.8" />
-            <parameter name="Attack Speed" type="float" val="0.97" />
+            <parameter name="Attack Speed" type="float" val="0.9863" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.25" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
@@ -18521,7 +18521,7 @@
             <parameter name="Aggression" type="float" val="0.83704" />
             <parameter name="Attack Damage" type="float" val="1.0303" />
             <parameter name="Attack Knockback" type="float" val="1" />
-            <parameter name="Attack Speed" type="float" val="0.9596" />
+            <parameter name="Attack Speed" type="float" val="0.98093" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.68889" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
@@ -18764,7 +18764,7 @@
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="0.80556" />
             <parameter name="Attack Knockback" type="float" val="0.70833" />
-            <parameter name="Attack Speed" type="float" val="0.81944" />
+            <parameter name="Attack Speed" type="float" val="0.95368" />
             <parameter name="Block Follow-up" type="float" val="0.25" />
             <parameter name="Block Skill" type="float" val="0.25" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
@@ -20478,7 +20478,7 @@
             <parameter name="Aggression" type="float" val="0.66667" />
             <parameter name="Attack Damage" type="float" val="1.09091" />
             <parameter name="Attack Knockback" type="float" val="0.94949" />
-            <parameter name="Attack Speed" type="float" val="1.10101" />
+            <parameter name="Attack Speed" type="float" val="1.04632" />
             <parameter name="Block Follow-up" type="float" val="0.78788" />
             <parameter name="Block Skill" type="float" val="0.62222" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
@@ -22507,42 +22507,42 @@
         <EnvObject s0="1.13508" s1="0.958868" s2="1.41239" id="6643" color_r="0.533333" color_g="0.324183" color_b="0.47674" overbright="0" type_file="Data/Objects/therium/scarf.xml">
             <parameters />
         </EnvObject>
-        <Group t0="0" t1="-999999" t2="0" s0="0.325262" s1="0.621816" s2="0.372259" q0="-0.0177046" q1="-0.682372" q2="0.0204891" q3="0.730503" euler_x="-0.668822" euler_y="-1.48387" euler_z="0.672763" id="6741" version="1">
+        <Group t0="0" t1="-999999" t2="0" s0="0.325262" s1="0.621816" s2="0.372259" q0="-0.0279815" q1="-0.612626" q2="0.0294976" q3="0.789326" euler_x="-0.313415" euler_y="-1.30725" euler_z="0.315577" id="6741" version="1">
             <parameters />
-            <EnvObject t0="-0.000604441" t1="-999999" t2="-5.63283e-05" s0="1" s1="1" s2="1" q0="-0.0471198" q1="-0.00572091" q2="0.00387761" q3="0.998874" euler_x="-0.0943234" euler_y="-0.0110637" euler_z="0.00828623" id="6644" color_r="0.741176" color_g="0.630727" color_b="0.737278" overbright="0" type_file="Data/Objects/TestBackpack.xml">
+            <EnvObject t0="-0.000604629" t1="-999999" t2="5.41645e-05" s0="1" s1="1" s2="1" q0="-0.0606089" q1="0.0854286" q2="0.00536239" q3="0.994493" euler_x="-0.121713" euler_y="0.171404" euler_z="0.000314871" id="6644" color_r="0.741176" color_g="0.630727" color_b="0.737278" overbright="0" type_file="Data/Objects/TestBackpack.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="-0.00924174" t1="-999999" t2="-0.000243732" s0="0.407033" s1="0.538144" s2="0.538092" q0="0.00231743" q1="-0.998498" q2="0.0472768" q3="0.0276114" euler_x="-3.04702" euler_y="-0.0553874" euler_z="-3.13957" id="6645" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/bed_roll.xml">
+            <EnvObject t0="-0.00913261" t1="-999999" t2="0.00143519" s0="0.407033" s1="0.538144" s2="0.538092" q0="0.00335622" q1="-0.991078" q2="0.0608063" q3="0.118563" euler_x="-3.01809" euler_y="-0.23765" euler_z="3.1336" id="6645" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/bed_roll.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="-0.0114477" t1="-999999" t2="-0.000287263" s0="1.12372" s1="1.07745" s2="1.24818" q0="0.09349" q1="-0.0356736" q2="0.0103821" q3="0.994937" euler_x="0.186873" euler_y="-0.072992" euler_z="0.0140267" id="6671" color_r="1" color_g="0.999999" color_b="0.99999" overbright="5.65" type_file="Data/Objects/Gear/dog_armor/dog_armor_bag.xml">
+            <EnvObject t0="-0.0113099" t1="-999999" t2="0.00179217" s0="1.12372" s1="1.07745" s2="1.24818" q0="0.0799639" q1="0.0549325" q2="-0.000529706" q3="0.995293" euler_x="0.16077" euler_y="0.109652" euler_z="0.00777759" id="6671" color_r="1" color_g="0.999999" color_b="0.99999" overbright="5.65" type_file="Data/Objects/Gear/dog_armor/dog_armor_bag.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject name="Play Sound Helper" t0="0.0304366" t1="-999999" t2="0.000838102" s0="1.12372" s1="1.07745" s2="1.24818" q0="0.09349" q1="-0.0356736" q2="0.0103821" q3="0.994937" euler_x="0.186873" euler_y="-0.072992" euler_z="0.0140267" id="6672" color_r="1" color_g="0.999999" color_b="0.99999" overbright="5.65" type_file="Data/Objects/Gear/dog_armor/dog_armor_bag.xml">
+            <EnvObject name="Play Sound Helper" t0="0.0300836" t1="-999999" t2="-0.00469184" s0="1.12372" s1="1.07745" s2="1.24818" q0="0.0799639" q1="0.0549325" q2="-0.000529706" q3="0.995293" euler_x="0.16077" euler_y="0.109652" euler_z="0.00777759" id="6672" color_r="1" color_g="0.999999" color_b="0.99999" overbright="5.65" type_file="Data/Objects/Gear/dog_armor/dog_armor_bag.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="-0.0590631" t1="-999999" t2="-0.00160451" s0="1" s1="1" s2="1" q0="-0.700737" q1="-0.712427" q2="0.00729549" q3="0.0371641" euler_x="-3.07902" euler_y="-0.042742" euler_z="1.58602" id="6673" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/DogTools/DogToolHammer.xml">
+            <EnvObject t0="-0.0583741" t1="-999999" t2="0.00912615" s0="1" s1="1" s2="1" q0="-0.699658" q1="-0.703897" q2="0.0809552" q3="0.0920448" euler_x="-2.89635" euler_y="-0.0162988" euler_z="1.57485" id="6673" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/DogTools/DogToolHammer.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="0.0498251" t1="-999999" t2="0.00136048" s0="0.876513" s1="0.414719" s2="0.679474" q0="-0.72509" q1="0.023074" q2="0.688036" q3="-0.0182095" euler_x="2.30583" euler_y="1.4925" euler_z="-0.842908" id="6674" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Weapons/DogWeapons/dog_sword_scabbard.xml">
+            <EnvObject t0="0.0492451" t1="-999999" t2="-0.00769192" s0="0.876513" s1="0.414719" s2="0.679474" q0="-0.659045" q1="0.033062" q2="0.750847" q3="-0.0284384" euler_x="0.593579" euler_y="1.41445" euler_z="-2.55466" id="6674" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Weapons/DogWeapons/dog_sword_scabbard.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="0.0485134" t1="-999999" t2="0.00125326" s0="0.808891" s1="0.808891" s2="0.808891" q0="-0.726277" q1="0.0181532" q2="0.686556" q3="-0.0292909" euler_x="2.26016" euler_y="1.48356" euler_z="-0.866114" id="6676" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Weapons/gabenife.xml">
+            <EnvObject t0="0.0479358" t1="-999999" t2="-0.00755961" s0="0.808891" s1="0.808891" s2="0.808891" q0="-0.66022" q1="0.0271359" q2="0.749582" q3="-0.0390455" euler_x="0.629101" euler_y="1.41353" euler_z="-2.49578" id="6676" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Weapons/gabenife.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="0.05615" t1="-999999" t2="0.00151196" s0="1" s1="1" s2="1" q0="0.686451" q1="0.726878" q2="0.00928342" q3="0.0188618" euler_x="3.10219" euler_y="0.0146757" euler_z="1.62771" id="6734" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/DogTools/DogToolAwl.xml">
+            <EnvObject t0="0.0554926" t1="-999999" t2="-0.00868921" s0="1" s1="1" s2="1" q0="0.686197" q1="0.72366" q2="-0.0635101" q3="-0.0377259" euler_x="-2.99732" euler_y="0.0325652" euler_z="1.62629" id="6734" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/DogTools/DogToolAwl.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject name="Play Sound Helper" t0="-0.053134" t1="-999999" t2="-0.00142483" s0="0.155179" s1="0.664977" s2="0.234855" q0="0.00341728" q1="-0.999528" q2="-0.0200411" q3="0.0230146" euler_x="3.10132" euler_y="-0.0458867" euler_z="-3.13383" id="6735" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
+            <EnvObject name="Play Sound Helper" t0="-0.0525108" t1="-999999" t2="0.00822831" s0="0.155179" s1="0.664977" s2="0.234855" q0="-0.00161552" q1="-0.99347" q2="-0.00629762" q3="0.113902" euler_x="3.12912" euler_y="-0.228315" euler_z="3.13977" id="6735" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="-0.0536397" t1="-999999" t2="-0.00149012" s0="0.17177" s1="0.632503" s2="0.2729" q0="0.00341728" q1="-0.999528" q2="-0.0200411" q3="0.0230146" euler_x="3.10132" euler_y="-0.0458867" euler_z="-3.13383" id="6736" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
+            <EnvObject t0="-0.05302" t1="-999999" t2="0.00825577" s0="0.17177" s1="0.632503" s2="0.2729" q0="-0.00161552" q1="-0.99347" q2="-0.00629762" q3="0.113902" euler_x="3.12912" euler_y="-0.228315" euler_z="3.13977" id="6736" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="0.0455046" t1="-999999" t2="0.00126692" s0="0.0999042" s1="0.63249" s2="0.311219" q0="0.0203399" q1="-0.0241767" q2="0.00244269" q3="0.999501" euler_x="0.0406002" euler_y="-0.0484476" euler_z="0.00390402" id="6739" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
+            <EnvObject t0="0.0449794" t1="-999999" t2="-0.00700093" s0="0.0999042" s1="0.63249" s2="0.311219" q0="0.00637132" q1="0.0668946" q2="-0.00195038" q3="0.997741" euler_x="0.0125657" euler_y="0.133912" euler_z="-0.003067" id="6739" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="0.0558423" t1="-999999" t2="0.00143258" s0="0.0998953" s1="0.632486" s2="0.296793" q0="0.0203335" q1="-0.00548398" q2="0.00284532" q3="0.99977" euler_x="0.0406402" euler_y="-0.0110814" euler_z="0.00546667" id="6740" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
+            <EnvObject t0="0.0551756" t1="-999999" t2="-0.00871148" s0="0.0998953" s1="0.632486" s2="0.296793" q0="0.00645149" q1="0.0855379" q2="-0.00181228" q3="0.996308" euler_x="0.012732" euler_y="0.171304" euler_z="-0.00254473" id="6740" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml">
                 <parameters />
             </EnvObject>
         </Group>

@@ -115,14 +115,14 @@ array<string> idle_animations = {
 
 // The chance for this hotspot to create a random citizen.
 // For example 5 gives a one in five chance of spawning.
-const int SPAWN_PROBABILITY = 4;
-const float SCALE_MINIMUM = 0.78f;
+const int SPAWN_PROBABILITY = 2;
+const float SCALE_MINIMUM = 0.83f;
 const float SCALE_MAXIMUM = 1.15f;
 const float MUSCLE_MINIMUM = 0.2f;
 const float MUSCLE_MAXIMUM = 0.9f;
 const float FAT_MINIMUM = 0.35f;
 const float FAT_MAXIMUM = 0.75f;
-const float EAR_SIZE_MINIMUM = 0.1f;
+const float EAR_SIZE_MINIMUM = 0.2f;
 const float EAR_SIZE_MAXIMUM = 2.8f;
 const float PLAYER_PROXIMITY_DISABLE_THRESHOLD = 70.0;
 const float PLAYER_PROXIMITY_FROZEN_THRESHOLD = 15.0;

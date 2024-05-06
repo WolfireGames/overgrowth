@@ -1,46 +1,82 @@
 <?xml version="2.0" ?>
-<Type>prefab</Type>
-<Prefab>
-    <Group t0="266.964" t1="-47.633" t2="4.69504" s0="1.46056" s1="1.74947" s2="1.45685" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="0" version="1">
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="47.9455" t1="-52.8488" t2="44.8606" s0="2.02408" s1="4.13543" s2="2.02408" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21446" version="1">
         <parameters />
-        <EnvObject t0="266.964" t1="-47.633" t2="4.98374" s0="0.264014" s1="0.264013" s2="0.264013" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="-3.14159" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_support.xml">
+        <Group t0="47.9411" t1="-51.9287" t2="44.8652" s0="1.65721" s1="2.28542" s2="1.6572" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21444" version="1">
             <parameters />
-        </EnvObject>
-        <EnvObject t0="266.964" t1="-47.6331" t2="4.40595" s0="0.263778" s1="0.263778" s2="0.263778" q0="-1" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="2" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_support.xml">
+            <Group t0="47.9411" t1="-51.9287" t2="44.8652" s0="1.64726" s1="2.27548" s2="1.64725" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21431" version="1">
+                <parameters />
+                <EnvObject t0="47.9395" t1="-50.8797" t2="44.8598" s0="1.06637" s1="1.10973" s2="0.889056" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="21373" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/fire_ash.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.9426" t1="-51.5658" t2="44.8583" s0="0.052" s1="0.0525649" s2="0.052" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="21375" color_r="0.317647" color_g="0.313487" color_b="0.290242" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/roughbricksquare/octagon_tall.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.943" t1="-52.9601" t2="44.8583" s0="0.0840779" s1="0.0832563" s2="0.0840779" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="21376" color_r="0.752941" color_g="0.750023" color_b="0.670265" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/octagon.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.943" t1="-52.792" t2="44.8583" s0="0.0648994" s1="0.0648994" s2="0.0648994" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="21377" color_r="0.564706" color_g="0.542092" color_b="0.502699" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/octagon.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.9457" t1="-51.8636" t2="45.1699" s0="0.144279" s1="0.110084" s2="0.17397" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21378" color_r="0.752941" color_g="0.750023" color_b="0.670265" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/post_corners.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.9426" t1="-51.9749" t2="44.8583" s0="0.0648994" s1="0.0648994" s2="0.0648994" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="-3.14159" euler_y="-1.5708" euler_z="-3.14159" id="21379" color_r="0.564706" color_g="0.542092" color_b="0.502699" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/octagon.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.9457" t1="-51.8636" t2="44.5531" s0="0.144279" s1="0.110084" s2="0.17397" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="21380" color_r="0.752941" color_g="0.750023" color_b="0.670265" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/post_corners.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.943" t1="-51.0341" t2="44.8583" s0="0.0840779" s1="0.0832563" s2="0.0840779" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="21381" color_r="0.752941" color_g="0.750023" color_b="0.670265" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/octagon.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.6305" t1="-51.8636" t2="44.8567" s0="0.144279" s1="0.110084" s2="0.17397" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="21382" color_r="0.764706" color_g="0.760578" color_b="0.647751" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/post_corners.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="48.2609" t1="-51.8636" t2="44.8567" s0="0.144279" s1="0.110084" s2="0.17397" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21383" color_r="0.752941" color_g="0.750023" color_b="0.670265" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/post_corners.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="47.9426" t1="-52.3834" t2="44.8583" s0="0.052" s1="0.0525649" s2="0.052" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21395" color_r="0.317647" color_g="0.313487" color_b="0.290242" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/roughbricksquare/octagon_tall.xml">
+                    <parameters />
+                </EnvObject>
+                <Group t0="47.9428" t1="-51.0361" t2="44.8582" s0="0.899053" s1="0.418745" s2="0.89905" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21398" version="1">
+                    <parameters />
+                    <EnvObject t0="47.9428" t1="-50.9429" t2="44.8582" s0="0.151199" s1="0.188436" s2="0.151199" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21396" color_r="0.65098" color_g="0.649088" color_b="0.59737" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/stonerough/torus_fat.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="47.9426" t1="-51.1681" t2="44.8583" s0="0.0634826" s1="0.0634826" s2="0.0634826" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21397" color_r="0.564706" color_g="0.542092" color_b="0.502699" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/octagon.xml">
+                        <parameters />
+                    </EnvObject>
+                </Group>
+                <Group t0="47.9411" t1="-52.4569" t2="44.8652" s0="1.63726" s1="1.20907" s2="1.63725" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21405" version="1">
+                    <parameters />
+                    <Group t0="47.9421" t1="-52.4569" t2="44.8652" s0="0.45714" s1="1.19906" s2="1.62725" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21401" version="1">
+                        <parameters />
+                        <EnvObject t0="47.9421" t1="-52.4569" t2="45.375" s0="0.393525" s1="0.393131" s2="0.393131" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="21399" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="47.9421" t1="-52.4569" t2="44.3554" s0="0.393524" s1="0.393131" s2="0.393131" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="21400" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="47.9411" t1="-52.4569" t2="44.8526" s0="1.62726" s1="1.19906" s2="0.45714" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21404" version="1">
+                        <parameters />
+                        <EnvObject t0="47.4313" t1="-52.4569" t2="44.8526" s0="0.393525" s1="0.393131" s2="0.393131" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="21402" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="48.4509" t1="-52.4569" t2="44.8526" s0="0.393523" s1="0.393131" s2="0.39313" q0="0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="21403" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                </Group>
+            </Group>
+            <EnvObject t0="47.9426" t1="-52.0902" t2="44.8583" s0="0.0839793" s1="0.150659" s2="0.0839793" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21432" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/invisible/octagon_tall.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Decal t0="47.9455" t1="-53.0025" t2="44.8606" s0="2.01408" s1="3.818" s2="2.01408" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21445" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.407843" color_g="0.407839" color_b="0.407839" overbright="0">
             <parameters />
-        </EnvObject>
-        <EnvObject t0="266.674" t1="-47.633" t2="4.69504" s0="0.264691" s1="0.264691" s2="0.264691" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="0.597763" euler_y="1.57031" euler_z="-0.223172" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_support.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="267.254" t1="-47.6331" t2="4.6951" s0="0.264454" s1="0.264453" s2="0.264454" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0.121623" euler_y="-1.5702" euler_z="0.632763" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_support.xml">
-            <parameters />
-        </EnvObject>
+        </Decal>
     </Group>
-    <Group t0="266.972" t1="-46.6539" t2="4.69667" s0="0.869558" s1="0.239134" s2="0.839842" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" version="1">
-        <parameters />
-        <EnvObject t0="266.972" t1="-46.6539" t2="4.88359" s0="0.444444" s1="0.444445" s2="0.444445" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="6" color_r="0.910368" color_g="0.968627" color_b="0.896455" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/arch.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="266.972" t1="-46.6539" t2="4.50843" s0="0.441877" s1="0.441878" s2="0.441877" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="-3.14159" id="7" color_r="0.910368" color_g="0.968627" color_b="0.896455" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/arch.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
-    <EnvObject t0="266.969" t1="-46.8" t2="4.68037" s0="0.309557" s1="0.245257" s2="0.245257" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-3.14159" id="8" color_r="0.910368" color_g="0.968627" color_b="0.896455" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/platform.xml">
-        <parameters />
-    </EnvObject>
-    <Group t0="266.975" t1="-46.6056" t2="4.69672" s0="0.803121" s1="0.221418" s2="0.775689" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" version="1">
-        <parameters />
-        <EnvObject t0="266.975" t1="-46.6056" t2="4.86919" s0="0.410085" s1="0.410085" s2="0.410085" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="10" color_r="0.659895" color_g="0.721569" color_b="0.645167" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/arch.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="266.975" t1="-46.6056" t2="4.52304" s0="0.407717" s1="0.407717" s2="0.407715" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="11" color_r="0.659895" color_g="0.721569" color_b="0.645167" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/arch.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
-    <EnvObject t0="266.965" t1="-46.5511" t2="4.68397" s0="0.867004" s1="0.867004" s2="0.867004" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-3.14159" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/fire_ash.xml">
-        <parameters />
-    </EnvObject>
-    <Decal t0="266.971" t1="-48.5027" t2="4.68841" s0="2.36308" s1="3.97034" s2="2.36308" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-3.14159" id="13" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.392157" color_g="0.392153" color_b="0.392153" overbright="0">
-        <parameters />
-    </Decal>
-</Prefab>
+</ActorObjects>
