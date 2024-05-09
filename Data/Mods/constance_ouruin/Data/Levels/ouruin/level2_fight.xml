@@ -35,7 +35,7 @@
     <RayToSun r0="0.0967089" r1="0.861154" r2="0.49906" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-28.4541" t1="1.10171" t2="4.06735" s0="1" s1="1" s2="1" q0="0.0731546" q1="-0.284249" q2="0.0217579" q3="0.955708" euler_x="0.152792" euler_y="-0.578181" euler_z="0" id="0">
+    <CameraObject t0="-29.2716" t1="0.0705041" t2="4.20899" s0="1" s1="1" s2="1" q0="-0.0657865" q1="0.192743" q2="-0.0129524" q3="-0.978956" euler_x="0.1342" euler_y="-0.388799" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-0.0886753" t1="-0.313565" t2="-1.27944" s0="5.33216" s1="5.33216" s2="5.33216" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0.177301" color_g="0.192076" color_b="0.247059" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaster/disk.xml">
@@ -6753,6 +6753,9 @@
     <NavmeshHintObject t0="-28.1931" t1="1.98107" t2="6.86046" s0="8.98468" s1="13.1208" s2="3.00124" q0="0" q1="-0.10473" q2="0" q3="0.994501" euler_x="0" euler_y="-0.209845" euler_z="0" id="1650">
         <parameters />
     </NavmeshHintObject>
+    <EnvObject name="AIControl Helper" t0="-35.4547" t1="9.24847" t2="-4.45228" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1651" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject name="AIControl Helper" t0="-35.4547" t1="9.24847" t2="-4.45228" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1652" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
@@ -7474,6 +7477,9 @@
     <Decal name="Donatas Courtyard Light" t0="-91.2019" t1="2.29931" t2="-1.49005" s0="0.481917" s1="1.56493" s2="0.550679" q0="-0.002527" q1="-0.037166" q2="0.0677896" q3="0.997004" euler_x="-0.0101055" euler_y="-0.0738338" euler_z="0.136151" id="1841" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.454902" color_g="0.454897" color_b="0.454897" overbright="0">
         <parameters />
     </Decal>
+    <EnvObject name="AIControl Helper" t0="-20.7164" t1="3.371" t2="1.79232" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1842" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
     <NavmeshHintObject t0="-38.7976" t1="-1.22753" t2="6.60278" s0="2.14324" s1="6.22417" s2="0.984185" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1843">
         <parameters />
     </NavmeshHintObject>

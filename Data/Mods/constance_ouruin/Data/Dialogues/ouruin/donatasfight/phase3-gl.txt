@@ -1,0 +1,48 @@
+#name "Phase3-GL"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.65 0.8 0.9
+set_dialogue_voice 2 1
+send_character_message 2 "set_head_target -31.982 -2.92808 -7.41193 1"
+send_character_message 1 "set_eye_dir -32.1682 -2.80903 -6.79598 1"
+send_character_message 1 "set_torso_target -32.1624 -2.3499 -7.04018 0"
+send_character_message 1 "set_head_target -32.1812 -2.864 -6.04521 0.9948"
+send_character_message 2 "set_eye_dir -31.9727 -2.93837 -7.41278 1"
+send_character_message 2 "set_animation \"Data/Animations/donatas_combatidlethreat.anm\""
+send_character_message 1 "set_animation \"Data/Animations/fallontotable.anm\""
+set_character_pos 2 -32.1485 -3.55783 -5.74617 90
+set_character_pos 1 -31.8911 -3.51931 -6.99751 -90
+set_cam -33.28 -2.65529 -5.75721 -8.77 -29.6 0 30.9226
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 2.8 1.0"
+send_level_message "enable 1999"
+send_level_message "lantern_break"
+say 1 "Ghost" "Agh...[wait 0.1]!" 
+say 1 "Ghost" "Damn it... [wait 0.2]Why, [wait 0.1]Donatas!? [wait 0.15]Why do you have to be on their side!?" 
+say 1 "Ghost" "It could be simple: [wait 0.15]We cut and run! [wait 0.2]We'll have to go on-foot, sure..." 
+say 1 "Ghost" "But we can dodge 'em fine! [wait 0.15]We know this city like the back of our hands!" 
+say 1 "Ghost" "Donatas, [wait 0.1]please! [wait 0.15]We can work this out!" 
+say 2 "Donatas" "..." 
+say 2 "Donatas" "I--[wait 0.2]... [wait 0.2]I can't." 
+say 2 "Donatas" "I have no choice. [wait 0.2]I have to fight you, [wait 0.1]and keep you here..." 
+say 2 "Donatas" "Keep you here for as long as possible, [wait 0.15]so when the Empry comes..." 
+say 1 "Ghost" "You're being used like a puppet." 
+say 2 "Donatas" "..." 
+say 2 "Donatas" "That's... [wait 0.1]not true." 
+say 2 "Donatas" "If you cooperate... [wait 0.15]If you work for the Empry, [wait 0.1]then..." 
+say 2 "Donatas" "You could leave this gutter city behind." 
+say 1 "Ghost" "..." 
+say 2 "Donatas" "These streets are horrible to her, [wait 0.1]you know. [wait 0.15]Her condition..." 
+say 2 "Donatas" "Bijou can't go anywhere... [wait 0.15]can't do anything... [wait 0.15]She has to rely on you for it all!" 
+say 2 "Donatas" "If you come with her to the Empry, [wait 0.1]you'll live a life us vermin could only dream of." 
+say 2 "Donatas" "I want you two to have this. [wait 0.15]These streets don't deserve someone as good as you." 
+say 2 "Donatas" "Amos... [wait 0.2]Please." 
+say 2 "Donatas" "[wait 0.2]It's for your own good." 
+say 1 "Ghost" "..." 
+say 1 "Ghost" "You know I can't believe you." 
+say 2 "Donatas" "..." 
+say 2 "Donatas" "They're closing in on us, [wait 0.1]soon." 
+say 2 "Donatas" "I'm sorry... [wait 0.15]But I have to finish this." 
+say 1 "Ghost" "...[wait 0.2]Well." 
+say 1 "Ghost" "You're welcome to try, [wait 0.1]friend." send_level_message "make_all_aware"
+send_level_message "fight_begins"

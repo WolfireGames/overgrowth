@@ -45,9 +45,9 @@ send_character_message 2 "set_torso_target -23.2015 -0.528938 -1.96963 1"
 send_level_message "enable 4734"
 set_cam -33.2997 -2.56009 5.4231 -3.59 -15.88 0 30.4404
 send_level_message "set_camera_dof 0.5 5.0 1.0 0.8 12.0 2.0"
+set_character_pos 2 -23.574 0.98725 -1.31149 169
 send_character_message 2 "set_dialogue_control false"
 send_level_message "donatasjump"
-set_character_pos 2 -23.574 0.98725 -1.31149 169
 say 2 "Donatas" "Is everything, [wait 0.1]uh... [wait 0.2]alright, [wait 0.1]here?"
 send_character_message 1 "set_torso_target -31.2247 -3.42107 -5.2202 1"
 send_character_message 2 "set_head_target -30.2356 -2.46853 -4.93462 1"

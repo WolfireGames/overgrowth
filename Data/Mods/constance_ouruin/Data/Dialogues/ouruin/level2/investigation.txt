@@ -1,5 +1,5 @@
 #name "Investigate"
-#participants 2
+#participants 3
 set_character_pos 1 10.3068 0.519692 -14.9497 142
 send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
 send_character_message 1 "set_eye_dir 0.449369 1.04559 -19.5384 1"
@@ -8,12 +8,14 @@ send_character_message 1 "set_head_target 1.42074 1.18937 -19.1159 1"
 set_cam -2.6328 1.65116 -21.2837 -8.44 -110.39 0.01 24.2674
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
 send_level_message "disable 3208"
 send_level_message "enable 3207"
 send_level_message "set_camera_dof 0.3 5.0 10.0 0.8 15.0 3.0"
 send_level_message "phase1_begin"
 send_level_message "investigated"
-say 1 "Ghost" "Hey, [wait 0.3]Bijou?"
+say 1 "Ghost" "Hey, [wait 0.15]Bijou?"
 send_character_message 1 "set_eye_dir -0.501861 1.84791 -20.6453 1"
 send_character_message 1 "set_head_target -0.279383 1.31517 -20.4553 1"
 set_character_pos 1 3.47947 0.519692 -19.8678 178
@@ -21,15 +23,15 @@ set_cam 4.95521 3.0156 -21.3756 -22.25 102.74 -0.02 38.8894
 send_level_message "disable 3207"
 send_level_message "enable 3208"
 send_level_message "set_camera_dof 0.3 5.0 10.0 0.8 7.0 3.0"
-say 1 "Ghost" "..."
+say 3 "Ghost" "..."
 send_character_message 1 "set_eye_dir 1.09995 1.91422 -18.3489 0.824237"
 send_character_message 1 "set_head_target 0.659517 1.29637 -19.4162 1"
 set_cam 2.38093 0.923626 -18.5272 8.35 -32.19 0 24.5615
 send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 1.8 1.0"
-say 1 "Ghost" "You here? [wait 0.5]Doing okay?"
+say 1 "Ghost" "You here? [wait 0.2]Doing okay?"
 send_character_message 1 "set_eye_dir -1.41158 2.21965 -20.5373 0.824237"
 send_character_message 1 "set_head_target 0.540203 1.39882 -20.8731 1"
-say 1 "Ghost" "..."
+say 3 "Ghost" "..."
 send_character_message 1 "set_animation \"Data/Animations/r_dialogue_facepalm.anm\""
 send_character_message 1 "set_eye_dir 3.10082 0.950879 -19.723 0"
 send_character_message 1 "set_head_target 2.40995 0.826628 -19.9412 0"
@@ -39,10 +41,11 @@ send_character_message 1 "set_head_target 2.21872 1.07437 -20.3205 1"
 send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
 set_cam 1.23901 1.54669 -19.8393 -14.68 -94.82 0 31.4116
 send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 6.0 1.0"
-say 1 "Ghost" "Where'd she go...? [wait 0.5]She couldn't handle an attacker..."
+say 1 "Ghost" "Where'd she go...? [wait 0.2]She couldn't handle an attacker..."
 send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
 send_character_message 1 "set_head_target 1.83511 1.32028 -19.1216 1"
 send_character_message 1 "set_eye_dir 2.90125 1.30849 -18.8794 1"
 say 1 "Ghost" "[wait 0.3]I'm such a damn idiot."
 send_level_message "disable 3208"
 send_level_message "enable 4014"
+send_level_message "dialogue_done"

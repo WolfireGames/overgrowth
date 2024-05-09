@@ -1,0 +1,16 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="72.1313" t1="-21.1774" t2="-111.899" s0="15.7573" s1="20.1302" s2="15.7133" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9505" version="1">
+        <parameters />
+        <EnvObject t0="67.1739" t1="-21.1774" t2="-116.888" s0="1.21162" s1="1.21162" s2="1.21162" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="37" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="72.1533" t1="-20.5983" t2="-111.899" s0="0.858429" s1="1.6488" s2="1.79908" q0="0" q1="-0.92388" q2="0" q3="-0.382683" euler_x="-3.14159" euler_y="0.785398" euler_z="-3.14159" id="38" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="64.9421" t1="-15.7999" t2="-116.913" s0="0.978249" s1="1.16309" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1843" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>
