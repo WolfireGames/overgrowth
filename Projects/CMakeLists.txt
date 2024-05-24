@@ -222,6 +222,10 @@ if(LINUX)
         SET(ARCH_OUT "amd64")
         SET(TOOL_BIN_NAME "bin64")
         set_property(GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS ON)
+
+        ### Ensure LargeFileSupport on 64bit linux
+        set(CMAKE_C_FLAGS           "${CMAKE_C_FLAGS} -D_LARGEFILE64_SOURCE=1")
+        set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -D_LARGEFILE64_SOURCE=1")
     ELSE()
         SET(LIB_SUFFIX "lib")
         SET(BIN_SUFFIX ".bin.x86")
