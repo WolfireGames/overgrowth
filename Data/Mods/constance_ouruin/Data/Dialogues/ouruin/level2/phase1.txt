@@ -45,7 +45,6 @@ send_character_message 2 "set_torso_target -23.2015 -0.528938 -1.96963 1"
 send_level_message "enable 4734"
 set_cam -33.2997 -2.56009 5.4231 -3.59 -15.88 0 30.4404
 send_level_message "set_camera_dof 0.5 5.0 1.0 0.8 12.0 2.0"
-set_character_pos 2 -23.574 0.98725 -1.31149 169
 send_character_message 2 "set_dialogue_control false"
 send_level_message "donatasjump"
 say 2 "Donatas" "Is everything, [wait 0.1]uh... [wait 0.2]alright, [wait 0.1]here?"
@@ -102,9 +101,9 @@ send_character_message 1 "set_eye_dir -30.5659 -2.71956 -4.14835 0.914016"
 send_character_message 1 "set_head_target -30.5707 -2.73731 -4.1392 1"
 set_character_pos 1 -31.7716 -3.58097 -5.2047 -37
 send_character_message 2 "set_eye_dir -31.4058 -3.55826 -4.74461 0"
-send_character_message 2 "set_head_target -31.5074 -3.78301 -4.94093 1"
+send_character_message 2 "set_head_target -31.6229 -3.54222 -4.92552 1"
 send_character_message 2 "set_torso_target -31.4447 -3.28222 -4.80311 0.029034"
-set_cam -32.4816 -4.03814 -4.96023 30.77 -112.52 4.26 13.3196
+set_cam -30.5712 -2.84243 -5.52555 4.54 179.81 -1.15 17.8605
 send_level_message "enable 4749"
 say 2 "Donatas" "..."
 send_character_message 2 "set_head_target -31.2659 -3.78715 -4.75965 1"
@@ -114,7 +113,7 @@ send_character_message 2 "set_head_target -31.337 -3.68273 -4.94457 1"
 send_character_message 2 "set_eye_dir -31.4058 -3.55826 -4.74461 0.601296"
 say 2 "Donatas" "...[wait 0.2]Men from the Empry came [wait 0.1]and took her away."
 send_character_message 1 "set_head_target -30.5707 -2.73731 -4.1392 1"
-send_character_message 1 "set_eye_dir -31.2913 -2.71872 -4.78659 1"
+send_character_message 1 "set_eye_dir -30.7724 -2.72731 -4.33442 1"
 send_character_message 1 "set_animation \"Data/Animations/ghost_aback1.anm\""
 set_cam -28.0809 -2.75568 -3.25298 -3.06 66.93 3.58 20.9948
 send_level_message "set_camera_dof 0.0 5.0 10.0 0.7 5.0 1.0"
@@ -168,21 +167,20 @@ say 1 "Ghost" "But I have to get out of here, [wait 0.1]first things first..."
 send_character_message 2 "set_eye_dir -31.4058 -3.55826 -4.74461 1"
 send_character_message 2 "set_head_target -31.5445 -2.98665 -4.94464 1"
 send_character_message 2 "set_animation \"Data/Animations/donatas_anxioushands.anm\""
-set_cam -33.4203 -2.90437 -5.8068 0.5 -115.72 4.39 21.6181
+set_cam -33.5166 -2.90281 -5.81907 0.37 -114.06 4.4 21.6181
 say 2 "Donatas" "...[wait 0.2]Actually, [wait 0.1]Ghost, [wait 0.15]I think you should stay."
 send_character_message 1 "set_head_target -31.3522 -3.00158 -4.7391 1"
 send_character_message 2 "set_eye_dir -31.4058 -3.55826 -4.74461 0.641542"
 send_character_message 2 "set_head_target -31.4553 -2.7647 -5.04455 1"
 send_character_message 2 "set_animation \"Data/Animations/donatas_anxious2.anm\""
 say 2 "Donatas" "Stay here... [wait 0.15]And wait for them to come."
-set_cam -31.9684 -3.74112 -3.19776 22.17 -2.07 -1.05 17.9996
 send_character_message 1 "set_eye_dir -30.671 -2.70412 -4.15228 1"
 send_character_message 1 "set_head_target -30.6172 -2.79426 -4.22878 0"
 send_character_message 1 "set_animation \"Data/Animations/ghost_aback4.anm\""
 say 1 "Ghost" "...[wait 0.2]What?!"
 send_character_message 2 "set_eye_dir -31.4058 -3.55826 -4.74461 0"
 send_character_message 2 "set_head_target -31.0963 -3.19028 -5.27846 1"
-set_cam -33.726 -2.94864 -8.69874 0.61 -148.04 2.23 12.935
+set_cam -31.6742 -2.22912 -6.47538 -26.64 -171.22 5.3 71.6364
 send_character_message 2 "set_animation \"Data/Animations/donatas_anxious1.anm\""
 send_character_message 1 "set_head_target -30.5852 -2.70897 -4.22329 1"
 send_level_message "set_camera_dof 0.0 5.0 10.0 0.7 6.0 1.0"
