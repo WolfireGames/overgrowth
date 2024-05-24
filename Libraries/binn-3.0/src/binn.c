@@ -704,7 +704,7 @@ BINN_PRIVATE unsigned char * SearchForKey(unsigned char *p, int header_size, int
 
 /***************************************************************************/
 
-BINN_PRIVATE BOOL AddValue(binn *item, int type, void *pvalue, int size);
+BINN_PRIVATE BOOL AddValue(binn *item, int type, const void *pvalue, int size);
 
 /***************************************************************************/
 
@@ -724,7 +724,7 @@ BINN_PRIVATE BOOL binn_list_add_raw(binn *item, int type, void *pvalue, int size
 
 /***************************************************************************/
 
-BINN_PRIVATE BOOL binn_object_set_raw(binn *item, const char *key, int type, void *pvalue, int size) {
+BINN_PRIVATE BOOL binn_object_set_raw(binn *item, const char *key, int type, const void *pvalue, int size) {
   unsigned char *p, len;
   int int32;
 
@@ -909,7 +909,7 @@ loc_exit:
 
 BINN_PRIVATE int type_family(int type);
 
-BINN_PRIVATE BOOL AddValue(binn *item, int type, void *pvalue, int size) {
+BINN_PRIVATE BOOL AddValue(binn *item, int type, const void *pvalue, int size) {
   int int32, ArgSize, storage_type, extra_type;
   unsigned char *p;
 
@@ -2044,7 +2044,7 @@ int APIENTRY binn_get_read_storage(int type) {
 
 /*************************************************************************************/
 
-BINN_PRIVATE BOOL GetWriteConvertedData(int *ptype, void **ppvalue, int *psize) {
+BINN_PRIVATE BOOL GetWriteConvertedData(int *ptype, const void **ppvalue, int *psize) {
   int  type;
   float  f1;
   double d1;
@@ -2399,7 +2399,7 @@ BINN_PRIVATE BOOL copy_value(void *psource, void *pdest, int source_type, int de
 /*** WRITE FUNCTIONS *****************************************************************/
 /*************************************************************************************/
 
-BOOL APIENTRY binn_list_add(binn *list, int type, void *pvalue, int size) {
+BOOL APIENTRY binn_list_add(binn *list, int type, const void *pvalue, int size) {
 
   if (GetWriteConvertedData(&type, &pvalue, &size) == FALSE) return FALSE;
 
@@ -2409,7 +2409,7 @@ BOOL APIENTRY binn_list_add(binn *list, int type, void *pvalue, int size) {
 
 /*************************************************************************************/
 
-BOOL APIENTRY binn_map_set(binn *map, int id, int type, void *pvalue, int size) {
+BOOL APIENTRY binn_map_set(binn *map, int id, int type, const void *pvalue, int size) {
 
   if (GetWriteConvertedData(&type, &pvalue, &size) == FALSE) return FALSE;
 
