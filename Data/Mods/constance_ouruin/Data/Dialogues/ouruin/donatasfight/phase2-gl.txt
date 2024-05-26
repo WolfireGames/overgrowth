@@ -15,6 +15,7 @@ set_character_pos 2 -29.9752 -3.51092 -4.54705 -62
 send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 4.5 3.0"
 send_character_message 1 "set_animation \"Data/Animations/staggerback_lie.anm\""
 send_character_message 2 "set_animation \"Data/Animations/donatas_suckerpunch.anm\""
+send_level_message "enable 2299"
 say 1 "Ghost" "...[wait 0.15]Damn it!"
 send_character_message 1 "set_head_target -29.6017 -3.08566 -4.15018 0.402059"
 send_character_message 1 "set_eye_dir -29.8602 -2.82548 -4.2716 1"
@@ -57,8 +58,10 @@ send_character_message 1 "set_animation \"Data/Animations/r_combatidlethreat.anm
 send_character_message 2 "set_animation \"Data/Animations/donatas_combatidlethreat.anm\""
 send_character_message 2 "set_head_target -28.879 -3.0162 -2.36015 1"
 send_character_message 1 "set_head_target -29.8625 -2.86044 -4.40845 1"
+send_level_message "disable 4734"
 set_cam -29.527 -3.20103 -0.0292375 0 -8.69 0 62.884
 say 1 "Ghost" "Likewise, [wait 0.1]rat!"
 send_level_message "make_all_aware"
 send_level_message "phase3begins"
 send_level_message "fight_begins"
+send_level_message "disable 2299"

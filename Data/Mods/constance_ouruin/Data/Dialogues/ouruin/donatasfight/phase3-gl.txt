@@ -179,8 +179,10 @@ send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
 send_character_message 1 "set_eye_dir -32.4044 -2.72373 -4.90071 0.576712"
 set_cam -30.7434 -2.90501 -4.70845 -8.16 -36.74 -5.04 72.9879
 set_character_pos 1 -29.911 -3.51931 -5.68548 -162
+send_level_message "disable 4734"
 say 1 "Ghost" "...[wait 0.2]Well." 
 send_level_message "fire_add"
+send_level_message "enable 1517"
 send_character_message 1 "set_torso_target -31.1184 -3.42753 -5.86145 1"
 send_character_message 1 "set_animation \"Data/Animations/r_combatidlethreat.anm\""
 send_character_message 1 "set_head_target -32.1281 -2.8952 -4.78423 1"
@@ -188,6 +190,7 @@ send_character_message 2 "set_head_target -30.5832 -2.68271 -5.22745 1"
 set_cam -29.1176 -2.68553 -6.93618 -12.5 133.05 0.15 75.5044
 send_character_message 2 "set_animation \"Data/Animations/donatas_combatidlethreat.anm\""
 send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 4.8 1.5"
+send_level_message "disable 2299"
 say 1 "Ghost" "You're welcome to try, [wait 0.1]friend." 
 send_level_message "make_all_aware"
 send_level_message "fight_begins"

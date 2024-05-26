@@ -6475,6 +6475,9 @@ void ReceiveMessage(string msg) {
     } else if(token == "knockout") {
         SetKnockedOut(_unconscious);
         Ragdoll(_RGDL_FALL);
+    } else if(token == "knockout_limp") {
+        Ragdoll(_RGDL_LIMP);
+        SetKnockedOut(_unconscious);
     } else if(token == "fall_death") {
         fall_death = true;
     } else if(token == "tutorial") {
