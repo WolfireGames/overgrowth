@@ -62,6 +62,6 @@ send_level_message "disable 4734"
 set_cam -29.527 -3.20103 -0.0292375 0 -8.69 0 62.884
 say 1 "Ghost" "Likewise, [wait 0.1]rat!"
 send_level_message "make_all_aware"
-send_level_message "phase3begins"
+send_level_message "phase3_begin"
 send_level_message "fight_begins"
 send_level_message "disable 2299"

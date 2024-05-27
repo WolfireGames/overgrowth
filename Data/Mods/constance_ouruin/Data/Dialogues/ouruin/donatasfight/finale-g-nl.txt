@@ -6,6 +6,10 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.65 0.8 0.9
 set_dialogue_voice 2 1
+set_dialogue_color 3 0.65 0.8 0.9
+set_dialogue_voice 3 1
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
 send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
 set_cam -32.1393 -3.66823 -3.61513 0 40.78 0 11.5068
 send_character_message 2 "set_eye_dir -34.0317 -2.77234 -6.32566 0.364172"

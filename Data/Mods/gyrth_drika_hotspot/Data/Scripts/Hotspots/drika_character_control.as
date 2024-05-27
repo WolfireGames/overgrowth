@@ -46,7 +46,8 @@ enum character_control_options { 	aggression = 0,
 									apply_damage = 45,
 									wet = 46,
 									attach_item = 47,
-									sheathe_item = 48
+									sheathe_item = 48,
+									idle_sway = 49
 					};
 
 enum value_type_options			{ 	manual_input = 0,
@@ -82,7 +83,7 @@ class DrikaCharacterControl : DrikaElement{
 	string param_name;
 
 	array<int> string_parameters = {species, teams};
-	array<int> float_parameters = {aggression, attack_damage, attack_knockback, attack_speed, block_followup, block_skill, character_scale, damage_resistance, ear_size, fat, focus_fov_distance, focus_fov_horizontal, focus_fov_vertical, ground_aggression, movement_speed, muscle, peripheral_fov_distance, peripheral_fov_horizontal, peripheral_fov_vertical, fall_damage_mult, fear_afraid_at_health_level, throw_counter_probability, weapon_catch_skill};
+	array<int> float_parameters = {aggression, attack_damage, attack_knockback, attack_speed, block_followup, block_skill, character_scale, damage_resistance, ear_size, fat, focus_fov_distance, focus_fov_horizontal, focus_fov_vertical, ground_aggression, movement_speed, muscle, peripheral_fov_distance, peripheral_fov_horizontal, peripheral_fov_vertical, fall_damage_mult, fear_afraid_at_health_level, throw_counter_probability, weapon_catch_skill, idle_sway};
 	array<int> int_parameters = {knocked_out_shield};
 	array<int> bool_parameters = {cannot_be_disarmed, left_handed, static_char, fear_always_afraid_on_sight, fear_causes_fear_on_sight, fear_never_afraid_on_sight, no_look_around, stick_to_nav_mesh, is_throw_trainer, wearing_metal_armor};
 	array<int> function_parameters = {ignite, extinguish, is_player, kill, revive, limp_ragdoll, injured_ragdoll, ragdoll, cut_throat, apply_damage, wet, attach_item, sheathe_item};
@@ -135,7 +136,8 @@ class DrikaCharacterControl : DrikaElement{
 									"Apply Damage",
 									"Wet",
 									"Attach Item",
-									"Sheathe Item"
+									"Sheathe Item",
+									"Idle Sway"
 								};
 
 	array<string> attachment_type_names = 	{	"At Grip",
@@ -798,6 +800,16 @@ class DrikaCharacterControl : DrikaElement{
 					ImGui_PopItemWidth();
 					ImGui_NextColumn();
 					break;
+				case idle_sway:
+					ImGui_AlignTextToFramePadding();
+					ImGui_Text(param_name);
+					ImGui_NextColumn();
+
+					ImGui_PushItemWidth(second_column_width);
+					ImGui_SliderFloat(param_name, float_param_after, 0.0, 100.0, "%.2f");
+					ImGui_PopItemWidth();
+					ImGui_NextColumn();
+					break;
 				case attach_item:
 					ImGui_AlignTextToFramePadding();
 					ImGui_Text("Target Item");
@@ -957,6 +969,7 @@ class DrikaCharacterControl : DrikaElement{
 				case kill:
 				case revive:
 				case cut_throat:
+				case idle_sway:
 				case attach_item:
 					ImGui_Text("Variable Input is not supported for this setting.");
 					break;
@@ -1097,6 +1110,12 @@ class DrikaCharacterControl : DrikaElement{
 			}else{
 				switch(character_control_option){
 					case aggression:
+						if(current_value_type == variable && IsValidParam(variable_input_1) == true){
+							SetParamFromVariable(variable_input_1,variable_input_2,"param_after");
+						}
+						params.SetFloat(param_name, reset?params_before[i].float_value:float_param_after / 100.0);
+						break;
+					case idle_sway:
 						if(current_value_type == variable && IsValidParam(variable_input_1) == true){
 							SetParamFromVariable(variable_input_1,variable_input_2,"param_after");
 						}

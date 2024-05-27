@@ -68,3 +68,4 @@ say 2 "Donatas" "You're going to have to give me a lot more than just that, [wai
 send_level_message "disable 2299"
 send_level_message "make_all_aware"
 send_level_message "fight_begins"
+send_level_message "phase3_begin"
