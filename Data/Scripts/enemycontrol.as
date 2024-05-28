@@ -1574,7 +1574,7 @@ void UpdateBrain(const Timestep &in ts) {
 
                     Notice(id);
                 } else {
-                    if(char.GetIntVar("knocked_out") == _awake && (char.GetIntVar("invisible_when_stationary") == 0 || length_squared(char.velocity) > 0.1 || char.GetFloatVar("duck_amount") < 0.5 || distance_squared(this_mo.position, char.position) < 4.0)) {
+                    if(char.GetIntVar("knocked_out") == _awake && ((char.GetIntVar("invisible_when_stationary") == 0 || length_squared(char.velocity) > 0.1) && (char.GetIntVar("invisible_when_moving") == 0) || char.GetFloatVar("duck_amount") < 0.5 || distance_squared(this_mo.position, char.position) < 4.0)) {
                         ++num_enemies_visible;
 
                         if(goal == _patrol || goal == _investigate) {

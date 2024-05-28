@@ -1,0 +1,184 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>invisiblewhenstationary</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="44" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/blue3.tga</DomeTexture>
+    <SunAngularRad>0.0641109</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="0.437484" r1="0.764631" r2="0.473231" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-2.22485" t1="8.69712" t2="-32.5967" s0="1" s1="1" s2="1" q0="0.023669" q1="-0.975363" q2="0.175521" q3="0.131527" euler_x="-2.78549" euler_y="-0.268082" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="-4.44264" t1="0.00224876" t2="-8.0073" s0="38.9451" s1="1" s2="42.5083" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="0.0538376" t1="1.46699" t2="-19.029" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/IGF_Characters/IGF_TurnerActor.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Invisible When Moving" type="string" val="0" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="turner" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Cloth" channel="0" red="1" green="1" blue="1" />
+            <Color label="Rope" channel="1" red="1" green="1" blue="1" />
+            <Color label="Fur" channel="2" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <EnvObject t0="0.0959679" t1="2.05148" t2="-12.0962" s0="1.80285" s1="1.70874" s2="1.9678" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="-0.40832" t1="1.40328" t2="-7.67407" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7" type_file="Data/Objects/characters/raider_rabbit_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="7" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="0.215717" green="0.3104" blue="0.662745" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <Hotspot t0="-11.4655" t1="1.00332" t2="-14.4069" s0="1.63673" s1="1" s2="3.98109" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" type_file="Data/Objects/Hotspots/shadow_hide.xml">
+        <parameters>
+            <parameter name="Require Stationary Crouching" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-9.01879" t1="0.0905882" t2="-11.8541" s0="3.27035" s1="0.98542" s2="7.82834" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" color_r="0.0237846" color_g="0" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-9.01879" t1="5.68167" t2="-11.8541" s0="3.27035" s1="0.98542" s2="7.82834" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" color_r="0.0237846" color_g="0" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-11.7342" t1="2.80476" t2="-11.8534" s0="0.549765" s1="1.89949" s2="7.82428" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" color_r="0.0237846" color_g="0" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Decal t0="-11.7499" t1="0.306313" t2="-14.6338" s0="11.6441" s1="14.7478" s2="21.7333" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.215686" color_g="0.215684" color_b="0.215684" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="-9.77633" t1="4.98424" t2="-12.2286" s0="10.085" s1="6.6002" s2="16.6855" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.556863" color_g="0.556857" color_b="0.556857" overbright="0">
+        <parameters />
+    </Decal>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Raider Rabbit" path="Data/Objects/characters/raider_rabbit_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/raider_rabbit_actor.png" />
+    <SpawnerItem display_name="shadow_hide.xml" path="Data/Objects/Hotspots/shadow_hide.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
+</RecentItems>

@@ -30,7 +30,7 @@ float vignette_end = 0.0f;
 const float PI = 3.1415f;
 
 // Settings that can be changed by the user.
-float vignette_target_amount = 0.6f;
+float vignette_target_amount = 1.0f;
 float vignette_change_speed = 2.0f;
 bool show_editor_icon = true;
 
@@ -46,7 +46,7 @@ void Init() {
 }
 
 void SetParameters() {
-
+	params.AddIntCheckbox("Require Stationary Crouching", true);
 }
 
 void HandleEvent(string event, MovementObject @mo){
@@ -62,8 +62,13 @@ void OnEnter(MovementObject @mo) {
 		// Object@ char_obj = ReadObjectFromID(mo.GetID());
 		// ScriptParams @char_params = char_obj.GetScriptParams();
 		// char_params.SetInt("Invisible When Stationary", 1);
-
-		mo.Execute("invisible_when_stationary = 1;");
+		if(params.GetInt("Require Stationary Crouching") == 1){
+			mo.Execute("invisible_when_stationary = 1;");
+		}
+		else
+		{
+			mo.Execute("invisible_when_moving = 1;");
+		}
 
 		vignette_timer = 0.0f;
 		vignette_start = vignette_amount;
@@ -77,7 +82,13 @@ void OnExit(MovementObject @mo) {
 		// ScriptParams @char_params = char_obj.GetScriptParams();
 		// char_params.SetInt("Invisible When Stationary", 0);
 
-		mo.Execute("invisible_when_stationary = 0;");
+		if(params.GetInt("Require Stationary Crouching") == 1){
+			mo.Execute("invisible_when_stationary = 0;");
+		}
+		else
+		{
+			mo.Execute("invisible_when_moving = 0;");
+		}
 
 		vignette_timer = 0.0f;
 		vignette_start = vignette_amount;

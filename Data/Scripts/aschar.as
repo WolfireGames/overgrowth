@@ -131,6 +131,7 @@ vec3 old_slide_vel;
 vec3 new_slide_vel;
 float friction = 1.0f;
 int invisible_when_stationary = 0;
+int invisible_when_moving = 0;
 
 // Throat cut variables
 uint32 last_blood_particle_id = 0;
@@ -15600,6 +15601,12 @@ void SetParameters() {
         invisible_when_stationary = 1;
     } else {
         invisible_when_stationary = 0;
+    }
+
+    if(params.HasParam("Invisible When Moving") && params.GetInt("Invisible When Moving") != 0) {
+        invisible_when_moving = 1;
+    } else {
+        invisible_when_moving = 0;
     }
 
     params.AddFloatSlider("Character Scale", 1, "min:0.6,max:1.4,step:0.02,text_mult:100");
