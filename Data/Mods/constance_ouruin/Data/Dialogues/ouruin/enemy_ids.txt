@@ -1,0 +1,53 @@
+Enemy IDs and names for each level in Scar of Ouruin.
+Used for lethality & enemy state scripts, namely this variable:
+    ouruin_[levelname]_enemy_[id]_status
+		0: awake
+		1: unconscious
+		2: dead
+
+== EXPLORE
+    N/A
+
+== AGRA HOOD
+    Gate Guard 1            Emory
+        11
+    Gate Guard 2            Graves
+        1133
+    Gate Guard 3            Hein
+        1129
+    Well Guard 1            Kaarle
+        1291
+    Well Guard 2            Funs
+        1332
+    Roof Heavy 1            Helmut
+        6773
+    Roof Guard 1            Baldwin
+        16201
+    Roof Guard 2            Yves
+        1921
+    Roof Guard 3            Merrick
+        4592
+    Roof Guard 4            Ramon
+        16187
+    Tree Guard 1            Avva
+        4518
+
+== HIGH ROAD
+    Factory Heavy           Edtris
+        640
+    Street Heavy            Forres
+        1614
+    Street Leader           Axtro
+        4432
+    Street Mook 1           Noraluss
+        4436
+    Street Mook 2           Marixt
+        4513
+    Waterfront Mook 1       Calim
+        4953
+    Waterfront Mook 2       Riverfall
+        5073
+    Waterfront Mook 3       
+        5077
+    Waterfront Mook 4
+        11342

@@ -35,6 +35,14 @@ Define variable, its values and notes for each value.
 		0: Orb is not equipped
 		1: Orb is acquired
 		2: Orb has been equipped
+	
+	ouruin_[levelname]_enemy_[id]_status
+		Updated by Ouruin Level hotspot
+		0: awake
+		1: unconscious
+		2: dead
+
+	ouruin_[levelname]_enemy_[id]_status_stored
 
 
 == WALLET
