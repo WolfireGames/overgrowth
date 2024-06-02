@@ -54,16 +54,18 @@ The following command should install all necessary dependencies to build Overgro
 
 1. Go to the folder of the project
 2. Create a build directory ```% mkdir Build```
-3. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```% cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth.app/Contents/MacOS"```
-4. Run make to build the game ```% make```
-5. Run the game by first moving to the project directory ```% cd ..```
-6. Then start the game ```% ./Build/Overgrowth.app/Contents/MacOS/Overgrowth```
+3. Switch the terminal to the directory you just created. ```% cd Build```
+4. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```% cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth.app/Contents/MacOS"```
+5. Run make to build the game ```% make```
+6. Run the game by first moving to the project directory ```% cd ..```
+7. Then start the game ```% ./Build/Overgrowth.app/Contents/MacOS/Overgrowth```
 
 ## Linux
 
 1. Go to the folder of the project
 2. Create a build directory ```$ mkdir Build```
-3. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```$ cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth"```
-4. Run make to build the game ```$ make```
-5. Run the game by first moving to the project directory ```$ cd ..```
-6. Then start the game ```$ Build/Release/Overgrowth.x86_64```
+3. Switch the terminal to the directory you just created. ```% cd Build```
+4. Run cmake to generate Makefiles, include the path to an already installed instance of Overgrowth ```$ cmake ../Projects -DAUX_DATA="/path/to/installed/Overgrowth"```
+5. Run make to build the game ```$ make```
+6. Run the game by first moving to the project directory ```$ cd ..```
+7. Then start the game ```$ Build/Release/Overgrowth.x86_64```

@@ -292,8 +292,8 @@ BOOL APIENTRY binn_object_set_new(binn *obj, const char *key, binn *value);
 
 // extended interface
 
-BOOL   APIENTRY binn_list_add(binn *list, int type, void *pvalue, int size);
-BOOL   APIENTRY binn_map_set(binn *map, int id, int type, void *pvalue, int size);
+BOOL   APIENTRY binn_list_add(binn *list, int type, const void *pvalue, int size);
+BOOL   APIENTRY binn_map_set(binn *map, int id, int type, const void *pvalue, int size);
 BOOL   APIENTRY binn_object_set(binn *obj, const char *key, int type, const void *pvalue, int size);
 
 
