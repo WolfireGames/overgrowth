@@ -1,0 +1,13 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="73.0571" t1="-53.0868" t2="20.2907" s0="1.35847" s1="0.0986187" s2="1.35848" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="5404" version="1">
+        <parameters />
+        <Decal t0="73.0571" t1="-53.0661" t2="20.2907" s0="1.35181" s1="0.0506337" s2="1.35181" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="5405" type_file="Data/Objects/therium/Decals/manhole.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <EnvObject t0="73.0547" t1="-53.0943" t2="20.291" s0="0.666667" s1="0.0384916" s2="0.666667" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="5412" color_r="0.172549" color_g="0.170519" color_b="0.170519" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaster/cylinder.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>
