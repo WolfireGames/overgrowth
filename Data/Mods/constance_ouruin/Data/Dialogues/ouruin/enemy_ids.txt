@@ -51,3 +51,4 @@ Used for lethality & enemy state scripts, namely this variable:
         5077
     Waterfront Mook 4
         11342
+
