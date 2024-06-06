@@ -65,6 +65,8 @@ class vec4 {
         entries[3] = val;
     }
 
+    inline vec4(const vec4& vec) = default;
+
     inline vec4& operator=(float param) {
         entries[0] = param;
         entries[1] = param;
