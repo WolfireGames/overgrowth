@@ -106,4 +106,4 @@ send_character_message 2 "set_morph_target diss 0.8 0.3 outExpo"
 say 2 "Dart" "[wait 0.1]It doesn't matter. [wait 0.2]I was never alright."
 set_character_pos 2 -33.5393 -40.7371 -64.9707 0
 send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
-send_level_message "dart_choices"
+send_level_message "dialogue_done"

@@ -36,3 +36,4 @@ send_character_message 2 "set_morph_target diss 0.0 0.3 outExpo"
 send_character_message 2 "empty_hands"
 set_character_pos 2 -33.5393 -40.7371 -64.9707 0
 send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
+send_level_message "dialogue_done"

@@ -141,8 +141,8 @@ Define variable, its values and notes for each value.
 		1: Player is loading into Nui Warrens from Depot (depot.xml)
 
 	ouruin_agra_state
-		0: Player is loading into Agra Hood from Explore (level1_explore.xml)'s Gate Guards
-		1: Player is loading into Agra Hood from Explore (level1_explore.xml)'s shortcut
+		0: Player is loading into Agra Hood from Moritz Block (level1_explore.xml)'s Gate Guards
+		1: Player is loading into Agra Hood from Moritz Hood (level1_explore.xml)'s shortcut
 		2: Player is loading into Agra Hood from High Road (level1_b.xml)
 		3: Player is loading into Agra Hood from the Speakeasy (speakeasy.xml)
 
@@ -199,11 +199,15 @@ Define variable, its values and notes for each value.
 		ouruin_match_active
 			0: Inactive
 			1: Active
+	
+	ouruin_faas_state
+		0: Player is loading into Faas' Sanctuary from Explore (level1_explore.xml)
+		1: Player is loading into Faas' Sanctuary from Rat Den (ratden.xml)
 
 	ouruin_lvl2_state
-		0: Player is loading into Fractured Home from Crackdown (level1.xml) for the first time
+		0: Player is loading into Fractured Home from High Road (level1_b.xml)
 		1: Player is loading into Fractured Home from Donatas Fight (level2_fight.xml) and onwards
-		2: Player has watched the initial Guards cutscene.
+		2: Player has watched the initial Guards cutscene
 
 		ouruin_lvl2_investigate
 			0: Player has not reached home
@@ -292,19 +296,20 @@ Define variable, its values and notes for each value.
 		3: Dart has been challenged
 		4: Dart has beaten Ghost in dueling
 		5: Dart has been beaten. Quest complete!
-		6: Player has given drug money to Dart. Quest complete!
 
-	ouruin_dart_duel
-		0: Ghost cannot challenge
-		1: Dart can be challenged
-		2: Duel is underway
-		3: Ghost has won the duel
+		ouruin_dart_backstory
 
-	ouruin_dart_quest_valerian
-		0: Dart has not asked Ghost for valerian root
-		1: Dart has asked Ghost for valerian root
-		2: Ghost has acquired valerian root
-		3: Dart has been given valerian root
+		ouruin_dart_duel
+			0: Ghost cannot challenge
+			1: Dart can be challenged
+			2: Duel is underway
+			3: Ghost has won the duel
+
+		ouruin_dart_quest_valerian
+			0: Dart has not asked Ghost for valerian root
+			1: Dart has asked Ghost for valerian root
+			2: Ghost has acquired valerian root
+			3: Dart has been given valerian root
 
 	ouruin_beggar_quest
 		0: Beggar has not been met
@@ -436,21 +441,20 @@ Define variable, its values and notes for each value.
 
 		ouruin_ratty_bond
 
-
 	ouruin_gateguards_met
 
-	ouruin_gateguards_access
+		ouruin_gateguards_access
 
-	ouruin_gateguards_ambushed
+		ouruin_gateguards_ambushed
 
-	ouruin_gateguards_fight
-		0: Not challenged
-		1: Fight in progress
-		2: Fight lost
-		3: Fight won
-		4: Fight abandoned
+		ouruin_gateguards_fight
+			0: Not challenged
+			1: Fight in progress
+			2: Fight lost
+			3: Fight won
+			4: Fight abandoned
 
-	ouruin_gateguards_fleed
+		ouruin_gateguards_fleed
 
 
 	-- Dialogue
