@@ -59,7 +59,6 @@
 #endif
 
 #include <zstd.h>
-#include <zstd-1.5.0/lib/common/zstd_common.c>
 
 #include <limits>
 
@@ -949,7 +948,7 @@ size_t Online::DecompressData(vector<char>& target_buffer, const void* source_bu
     while (true) {
         size_t final_decompressed_size = ZSTD_decompressDCtx(zstdDContext, target_buffer.data(), target_buffer.size(), source_buffer, source_size);
         if (ZSTD_isError(final_decompressed_size)) {
-            LOGE << ZSTD_getErrorString(ZSTD_getErrorCode(final_decompressed_size)) << endl;
+            LOGE << ZSTD_getErrorName(final_decompressed_size) << endl;
         } else if (final_decompressed_size > target_buffer.size()) {
             // If the final decompressed size is larger than the target buffer, re-do the decompression after resizing.
             target_buffer.resize(final_decompressed_size);

@@ -34,11 +34,14 @@ LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 INCLUDE(GetGitRevisionDescription)
 INCLUDE(ExternalProject)
+INCLUDE(FetchContent)
 
 git_describe(GIT_VERSION --always --tag)
 git_rev_list(GIT_REV_LIST --count HEAD) # Count what revision we're on
 SET(BUILD_ID "-1" CACHE STRING "Build ID value from automated build system")
 #Option to build with breakpad, removes some compiler warnings, so it's best to go without for normal development.
+
+OPTION(USE_SYSTEM_LIBS "Use system libraries when available/supported" OFF)
 OPTION(BREAKPAD "Build with breakpad linked into the binary and with exception handling?" OFF)
 OPTION(DO_DIST_ARCHIVE "Generate a package containing all build data relevant for final release, excluding game data." OFF)
 OPTION(BUILD_SERVER "Building on a buildserver, this means that additional steps are included which generally only occur on a build server" OFF)
@@ -268,10 +271,27 @@ SET(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 #Create subprojects that have their own CMakeLists
 ADD_SUBDIRECTORY(../Libraries/crunch-r319 crnlib)
 ADD_SUBDIRECTORY(../Libraries/glad glad)
-set(ZSTD_BUILD_PROGRAMS Off)
-set(ZSTD_BUILD_STATIC ON)
-set(ZSTD_BUILD_SHARED Off)
-ADD_SUBDIRECTORY(../Libraries/zstd-1.5.0/build/cmake zstd)
+
+if(USE_SYSTEM_LIBS)
+    find_package(PkgConfig REQUIRED)
+endif()
+
+if(USE_SYSTEM_LIBS)
+    pkg_check_modules(ZSTD REQUIRED IMPORTED_TARGET libzstd)
+else()
+    # Zstd
+    set(ZSTD_BUILD_PROGRAMS Off)
+    set(ZSTD_BUILD_STATIC ON)
+    set(ZSTD_BUILD_SHARED Off)
+    FetchContent_Declare(
+        zstd
+        GIT_REPOSITORY https://github.com/facebook/zstd
+        GIT_TAG 794ea1b0afca0f020f4e57b6732332231fb23c70 # v1.5.6
+        SOURCE_SUBDIR build/cmake
+    )
+    FetchContent_MakeAvailable(zstd) # define the libzstd_static target
+endif()
+
 IF(WIN32)
     # Make sure freetype uses the precompiled 1.2.7 binary
     OPTION(FT_REQUIRE_ZLIB "Overridden on Windows" ON)
@@ -284,7 +304,11 @@ ADD_SUBDIRECTORY(../Libraries/freetype-2.12.1 freetype)
 IF(BUILD_OVERGROWTH) 
     #Create subprojects that have their own CMakeLists
     ADD_SUBDIRECTORY(triangle triangle)
-    ADD_SUBDIRECTORY(minizip minizip)
+    if(USE_SYSTEM_LIBS)
+        pkg_check_modules(MINIZIP REQUIRED IMPORTED_TARGET minizip)
+    else()
+        ADD_SUBDIRECTORY(minizip minizip)
+    endif()
     ADD_SUBDIRECTORY(murmurhash3 murmurhash3)
     ADD_SUBDIRECTORY(binn binn)
     ADD_SUBDIRECTORY(recastnavigation recastnavigation)
@@ -302,7 +326,9 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET binn PROPERTY FOLDER "Support")
     SET_PROPERTY(TARGET angelscript PROPERTY FOLDER "Support/Angelscript")
     SET_PROPERTY(TARGET triangle PROPERTY FOLDER "Support")
-    SET_PROPERTY(TARGET minizip PROPERTY FOLDER "Support")
+    if(NOT USE_SYSTEM_LIBS)
+        SET_PROPERTY(TARGET minizip PROPERTY FOLDER "Support")
+    endif()
     SET_PROPERTY(TARGET glad PROPERTY FOLDER "Support")
     SET_PROPERTY(TARGET BulletCollision PROPERTY FOLDER "Support/BulletPhysics")
     SET_PROPERTY(TARGET BulletDynamics PROPERTY FOLDER "Support/BulletPhysics")
@@ -611,7 +637,6 @@ INCLUDE_DIRECTORIES(
     ${LIBDIR}/recastnavigation/Detour/Include
     ${LIBDIR}/recastnavigation/DetourTileCache/Include
     ${LIBDIR}/recastnavigation/DetourCrowd/Include
-    ${LIBDIR}/zstd-1.5.0/lib
     ${LIBDIR}/binn-3.0/src
     ${LIBDIR}/freetype-2.12.1/include
 )
@@ -1326,7 +1351,9 @@ IF(BUILD_OVERGROWTH)
     SET_PROPERTY(TARGET angelscript             PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
 #   SET_PROPERTY(TARGET game                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET triangle                PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
-    SET_PROPERTY(TARGET minizip                 PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
+    if(NOT USE_SYSTEM_LIBS)
+        SET_PROPERTY(TARGET minizip                 PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
+    endif()
     SET_PROPERTY(TARGET glad                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET trex                    PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
     SET_PROPERTY(TARGET BulletCollision         PROPERTY COMPILE_FLAGS "${EXTERNAL_LIB_COMPILE_FLAGS}")
@@ -1357,7 +1384,7 @@ IF(BUILD_OVERGROWTH)
         BulletWorldImporter
         BulletFileLoader
         LinearMath
-        minizip
+        $<IF:$<BOOL:USE_SYSTEM_LIBS>,PkgConfig::MINIZIP,minizip>
         murmurhash3
         binn
         glad
@@ -1371,8 +1398,8 @@ IF(BUILD_OVERGROWTH)
         DetourTileCache
         Detour
         crnlib
-	    freetype
-        libzstd_static
+	freetype
+        $<IF:$<BOOL:USE_SYSTEM_LIBS>,PkgConfig::ZSTD,libzstd_static>
         ${STATIC_LIBS}
         ${FLTK_LIBS}
     )
