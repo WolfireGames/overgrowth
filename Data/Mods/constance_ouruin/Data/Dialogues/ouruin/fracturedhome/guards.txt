@@ -77,6 +77,8 @@ set_dialogue_color 2 0.9 0.9 0
 set_dialogue_voice 2 7
 set_dialogue_color 3 0.9 0.5 0
 set_dialogue_voice 3 16
+set_dialogue_color 4 0.5 0.1 0.3
+set_dialogue_voice 4 2
 set_dialogue_color 16 0 0.52 0.95
 set_dialogue_voice 16 8
 send_character_message 4 "empty_hands"
@@ -87,7 +89,7 @@ send_level_message "enable 15073"
 send_level_message "enable 15079"
 send_level_message "enable 15078"
 send_level_message "enable 15076"
-set_cam -37.2608 18.865 -4.43155 -10.04 102.86 0.21 17.5789
+set_cam -37.301 18.5251 -0.361205 -3.15 41.29 -0.46 17.5789
 send_level_message "disable 6280"
 send_level_message "disable 14838"
 say 16 "Ghost" "(Great... [wait 0.15]The Empry soldiers are here.)"
