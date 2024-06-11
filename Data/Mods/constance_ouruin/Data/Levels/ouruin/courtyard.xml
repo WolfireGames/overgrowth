@@ -37,6 +37,7 @@
     <parameter name="Load Tip" type="string" val="The Southern Half of Ouruin was first created by Ouranian refugees during a particularly poor Cicadan cycle. Nowadays, nearly all of the original Ouranian population has been wiped out due to plague, leaving a whole slum to rot in disrepair: Creating the Drowned Streets. The city itself has been marred due to the recent attacks from the Cinderbloods, the native inhabitants of Preuwyn, and the streets are on edge..." />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1.09453" />
+    <parameter name="Shared Camera" type="int" val="0" />
     <parameter name="Sky Brightness" type="float" val="0.69364" />
     <parameter name="Sky Rotation" type="float" val="2" />
     <parameter name="Sky Tint" type="string" val="255, 120, 34" />
@@ -954,7 +955,7 @@
     <Decal t0="160.929" t1="-8.57976" t2="13.9704" s0="3.64084" s1="2.60953" s2="3.96383" q0="0.0851218" q1="-0.863725" q2="0.0505602" q3="-0.494151" euler_x="-2.81519" euler_y="1.00659" euler_z="-2.7643" id="278" type_file="Data/Objects/Decals/FadedWhiteRocks.xml" color_r="0.27451" color_g="0.274507" color_b="0.274507" overbright="0">
         <parameters />
     </Decal>
-    <CameraObject t0="172.461" t1="-4.13298" t2="8.33736" s0="1" s1="1" s2="1" q0="0.0786504" q1="-0.917658" q2="0.229138" q3="0.314981" euler_x="-2.6522" euler_y="-0.661288" euler_z="-3.14159" id="285">
+    <CameraObject t0="167.169" t1="-5.22654" t2="-0.211209" s0="1" s1="1" s2="1" q0="0.00308099" q1="-0.996882" q2="0.051307" q3="0.0598632" euler_x="-3.03875" euler_y="-0.119957" euler_z="3.14159" id="285">
         <parameters />
     </CameraObject>
     <EnvObject t0="178.782" t1="-1.78297" t2="1.80147" s0="2.2158" s1="2.2158" s2="2.2158" q0="0" q1="-0.5" q2="0" q3="0.866025" euler_x="0" euler_y="-1.0472" euler_z="0" id="286" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window1.xml">
@@ -4247,6 +4248,19 @@
     <EnvObject name="Play Sound Helper" t0="168.753" t1="4.31903" t2="15.231" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1273" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
+    <Hotspot t0="167.441" t1="2.53364" t2="7.72385" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1274" type_file="Data/Objects/Hotspots/ambient_sound.xml">
+        <parameters>
+            <parameter name="Delay Max" type="float" val="30" />
+            <parameter name="Delay Min" type="float" val="10" />
+            <parameter name="Fade Distance" type="float" val="25" />
+            <parameter name="Gain" type="float" val="0.344" />
+            <parameter name="Global" type="int" val="0" />
+            <parameter name="Sound Path" type="string" val="Data/Sounds/ouruin/birds/XC75497 - Red-winged Blackbird - Agelaius phoeniceus.wav" />
+            <parameter name="Wind Scale" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="fire_test.xml" path="Data/Objects/Hotspots/fire_test.xml" thumbnail_path="empty_placeholder.png" />
@@ -4386,4 +4400,5 @@
     <SpawnerItem display_name="Crete Impact" path="Data/Objects/Decals/crete_impact.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/crete_impact.png" />
     <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
     <SpawnerItem display_name="walltorch.xml" path="Data/Prefabs/walltorch.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Ambient Sound Hotspot" path="Data/Objects/Hotspots/ambient_sound.xml" thumbnail_path="Data/UI/spawner/thumbs/Sounds/speaker_icon.png" />
 </RecentItems>

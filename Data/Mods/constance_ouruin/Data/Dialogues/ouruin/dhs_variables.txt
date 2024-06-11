@@ -134,7 +134,11 @@ Define variable, its values and notes for each value.
 	ouruin_depot_state
 		0: Player is loading into Depot from Explore (level1_explore.xml)
 		1: Player is loading into Depot from the Warrens (warrens.xml)
-		2: Player is loading into Depot from the uppper Explore entrance (level1_explore)
+		2: Player is loading into Depot from the upper Explore entrance (level1_explore)
+
+		ouruin_depot_upperdoor
+			0: Locked
+			1: Unlocked
 
 	ouruin_warrens_state
 		0: Player is loading into Nui Warrens from Market (market.xml)
@@ -183,10 +187,14 @@ Define variable, its values and notes for each value.
 		ouruin_match_wins
 		ouruin_match_losses
 
-		-- Suffixes
-			_current: The amount Ghost has at this moment
-			_score: Saved high score
-			_streak: Value to show for broken streaks
+			Suffixes
+				_current: The amount Ghost has at this moment
+				_score: Saved high score
+				_streak: Value to show for broken streaks
+				_unarmed: Unarmed score
+				_shortsword: Shortsword score
+				_broadsword: Broadsword score
+				_staff: Staff score
 
 		ouruin_match_mode
 			0: Non-combat

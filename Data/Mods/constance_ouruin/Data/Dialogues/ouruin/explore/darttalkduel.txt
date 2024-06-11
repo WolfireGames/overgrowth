@@ -17,4 +17,4 @@ send_character_message 1 "set_head_target -32.3357 -39.7804 -65.0578 1"
 set_cam -26.6053 -39.9376 -65.6438 0 98.65 0 13.9631
 send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
 say 2 "Dart" "Is this one here for a thrashing?"
-send_level_message "dart_choices"
+send_level_message "dialogue_done"
