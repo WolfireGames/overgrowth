@@ -1,0 +1,8 @@
+#name "VaridienTalk"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 2 "Varidien" "What's been goin' on? [wait 0.15]Anything excitin'?"
+send_level_message "dialogue_done"

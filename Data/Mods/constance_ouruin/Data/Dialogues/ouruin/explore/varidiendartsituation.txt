@@ -1,0 +1,10 @@
+#name "VaridienDartSituation"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "Do you really think this'll be enough to keep her off the pipe?"
+say 2 "Varidien" "I have no idea. [wait 0.15]But it's a better start than anything I've ever gotten, [wait 0.1]myself."
+say 2 "Varidien" "Maybe I should get her fighting again. [wait 0.15]I bet she could take down some of the greats 'round this area..."
+send_level_message "dialogue_done"

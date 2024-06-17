@@ -1,0 +1,19 @@
+#name "VaridienLiving"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "You're begging? [wait 0.15]Down here?"
+say 2 "Varidien" "Well, [wait 0.1]I'm not exactly gonna be able to beg my way into the Northerner's pockets. [wait 0.15]They threw me in with the rest of 'ya just the other day."
+say 2 "Varidien" "I was able to stick 'round a while, [wait 0.1]up there. [wait 0.15]But once my clothes started gettin' torn up and smelly, [wait 0.1]they got tired o' me."
+say 1 "Ghost" "Then why don't you roll around in the dumpsters, [wait 0.1]with the rest of us?"
+say 2 "Varidien" "To be truthful, [wait 0.1]I was never really above it!"
+say 1 "Ghost" "...[wait 0.2]But begging? [wait 0.15]Really?"
+say 2 "Varidien" "Hey, [wait 0.1]what else am I to do? [wait 0.15]I'm no criminal."
+say 1 "Ghost" "This city doesn't care about what you've done. [wait 0.15]It cares about what you are. [wait 0.15]And as long as you're down here, [wait 0.1]you're nothing."
+say 1 "Ghost" "So why not get some work done for yourself? [wait 0.15]It's not like the northerners want any piece of you. [wait 0.15]You're criminal enough in their eyes."
+say 2 "Varidien" "Because it just ain't right! [wait 0.15]I can get myself back up the right way, [wait 0.1]I know it... [wait 0.15]There are worse setbacks!"
+say 1 "Ghost" "Not on this side of Preuwyn."
+say 2 "Varidien" "Yeah, [wait 0.1]right. [wait 0.15]Tell a conscript that, [wait 0.1]let me know how it goes!"
+send_level_message "dialogue_done"

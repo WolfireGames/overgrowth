@@ -1,0 +1,10 @@
+#name "VaridienDeclineCoin"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "You need it more than I do. [wait 0.15]Keep it."
+say 2 "Varidien" "...[wait 0.15]That means more to me than you'll ever know. [wait 0.15]Thank you, [wait 0.1]Ghost."
+say 1 "Ghost" "I appreciate it."
+send_level_message "dialogue_done"

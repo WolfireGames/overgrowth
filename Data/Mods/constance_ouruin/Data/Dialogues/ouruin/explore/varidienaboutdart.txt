@@ -1,0 +1,18 @@
+#name "VaridienAboutDart"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "Hey, [wait 0.1]I actually met up with Dart recently. [wait 0.15]They were working a job."
+say 2 "Varidien" "Yeah! [wait 0.15]That's my girl! [wait 0.15]I... [wait 0.15]Well..."
+say 2 "Varidien" "Please, [wait 0.1]how sober was she?"
+say 1 "Ghost" "Too sober for her own liking."
+say 2 "Varidien" "Yeah... [wait 0.15]That's my girl. [wait 0.15]She keeps getting these episodes whenever she smokes, [wait 0.1]and she just doesn't stop."
+say 2 "Varidien" "Listen... [wait 0.15]If she asks you to buy some for her... [wait 0.15]Just decline. [wait 0.15]She doesn't need any more of that crap."
+say 2 "Varidien" "It's for her own good. [wait 0.15]I just don't know how long she can keep doing this to herself, [wait 0.1]you know? [wait 0.15]Especially if she's on the clock..."
+say 1 "Ghost" "...[wait 0.2]You got a point."
+say 1 "Ghost" "Hey, [wait 0.1]you mentioned she was a duelist?"
+say 2 "Varidien" "You mean you didn't know? [wait 0.15]I thought she'd be flaunting it around. [wait 0.15]If she's lost her pride, [wait 0.1]too, [wait 0.1]then..."
+say 2 "Varidien" "Oh, [wait 0.1]Kheio's arsehair, [wait 0.1]nevermind! [wait 0.15]Don't worry about it! [wait 0.15]Now, [wait 0.1]why don't we speak of better things?"
+send_level_message "dialogue_done"

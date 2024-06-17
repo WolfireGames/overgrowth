@@ -1,0 +1,18 @@
+#name "VaridienNorth"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "What was your life like up in the north city? [wait 0.15]Cleaner? [wait 0.15]Nicer?"
+say 2 "Varidien" "It doesn't even compare. [wait 0.15]It's like..."
+say 2 "Varidien" "Up there, [wait 0.1]I was valued. [wait 0.15]People smiled at me when I passed by. [wait 0.15]I even got fresh bread baked for me when I first moved in!"
+say 1 "Ghost" "And the moment you couldn't pay rent, [wait 0.1]you were thrown under the wagon. [wait 0.15]Am I right?"
+say 2 "Varidien" "Yeah... [wait 0.15]Did it happen to you?"
+say 1 "Ghost" "Nope. [wait 0.15]I just know the type."
+say 1 "Ghost" "I hate to say it, [wait 0.1]but you really brought it upon yourself. [wait 0.15]This city only cares for the purse."
+say 2 "Varidien" "Huh... [wait 0.15]I guess I didn't know what I had in Javerhold until it was gone."
+say 2 "Varidien" "You know... [wait 0.15]If this city is so terrible, [wait 0.1]why do you stay here?"
+say 1 "Ghost" "It's as good a place as any. [wait 0.15]Besides, [wait 0.1]it has its moments."
+say 2 "Varidien" "...[wait 0.15]Well, [wait 0.1]whatever you say! [wait 0.15]Heheh."
+send_level_message "dialogue_done"

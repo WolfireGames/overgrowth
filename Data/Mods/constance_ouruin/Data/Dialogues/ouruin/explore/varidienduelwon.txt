@@ -1,0 +1,15 @@
+#name "VaridienDuelWon"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "You mentioned Dart used to be real fancy with the sword, [wait 0.1]right? [wait 0.15]Well, [wait 0.1]I sparred with her for a bet."
+say 2 "Varidien" "Oh! [wait 0.15]How'd it go?"
+say 1 "Ghost" "Pretty smoothly, [wait 0.1]all things considered. [wait 0.15]She's... [wait 0.15]Not at her best."
+say 2 "Varidien" "Hm... [wait 0.15]Guess I should've expected that."
+say 2 "Varidien" "Maybe now that she lost to a bun, [wait 0.1]she'll reconsider her habits. [wait 0.15]That's what I'm hoping, [wait 0.1]anyways."
+say 2 "Varidien" "[wait 0.1]Hey... [wait 0.15]I really appreciate you helping out. [wait 0.15]I know it's not much, [wait 0.1]but... [wait 0.2]Please, [wait 0.1]take this."
+say 1 "Ghost" "50p? [wait 0.15]You sure?"
+say 2 "Varidien" "I'd lend you more, [wait 0.1]but... [wait 0.15]Times are tight."
+send_level_message "dialogue_done"

@@ -1,0 +1,12 @@
+#name "VaridienDuelLost"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "You mentioned Dart used to be real fancy with the sword, [wait 0.1]right? [wait 0.15]Well, [wait 0.1]I sparred with her for a bet."
+say 2 "Varidien" "Oh! [wait 0.15]How'd it go?"
+say 1 "Ghost" "She's good, [wait 0.1]alright. [wait 0.15]I just can't keep up."
+say 2 "Varidien" "Glad to see she's still got it in her...!"
+say 2 "Varidien" "Well, [wait 0.1]if you ever need to practice, [wait 0.1]I heard Zero's running a little arena down in Agra, [wait 0.1]past that gate. [wait 0.15]You could give it a shot, [wait 0.1]maybe you'll learn something!"
+send_level_message "dialogue_done"

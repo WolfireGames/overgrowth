@@ -1,0 +1,9 @@
+#name "VaridienGoodbye"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 1 "Ghost" "I've got to get a move on. [wait 0.15]See you later."
+say 2 "Varidien" "Yeah, [wait 0.1]I got no place to be myself, [wait 0.1]heheh. [wait 0.15]Be seeing you, [wait 0.1]then!"
+send_level_message "dialogue_done"

@@ -1,0 +1,21 @@
+#name "VaridienMeet"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.5 0.5 0.4
+set_dialogue_voice 2 17
+say 2 "???" "Hey, [wait 0.1]Ghost! [wait 0.15]How's it been?"
+say 1 "Ghost" "Hey. [wait 0.15]...Do I know you?"
+say 2 "???" "Heheheh! [wait 0.15]Cut right to the chase, [wait 0.1]eh?"
+say 2 "???" "You haven't met me, [wait 0.1]but you helped my buddy out, [wait 0.1]the duelist kitty!"
+say 1 "Ghost" "Oh, [wait 0.1]you mean Dart?"
+say 2 "???" "Heh, [wait 0.1]that's just right! [wait 0.15]You remember her name?"
+say 1 "Ghost" "I'm good with names."
+say 1 "Ghost" "...[wait 0.2]And, [wait 0.1]it's not often I end up helping people."
+say 2 "???" "Hah, [wait 0.1]keepin' it real! [wait 0.15]Well, [wait 0.1]my name's Varidien, [wait 0.1]try not to wear it out!"
+say 2 "Varidien" "And hey, [wait 0.1]if you ever see Dart... [wait 0.15]try and let me know, [wait 0.1]a'ight? [wait 0.15]I'm worried 'bout her."
+say 2 "Varidien" "It's been pretty rough, [wait 0.1]and I just need to make sure she's coping right."
+say 1 "Ghost" "One of those friends, [wait 0.1]huh?"
+say 2 "Varidien" "I[wait 0.1].[wait 0.1].[wait 0.1]. [wait 0.15]Guess?"
+say 2 "Varidien" "Just... [wait 0.15]Please, [wait 0.1]keep an ear out for 'er. [wait 0.15]She's probably somewhere around here, [wait 0.1]in Moritz. [wait 0.15]Anyways..."
+send_level_message "dialogue_done"

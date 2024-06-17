@@ -1,0 +1,52 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="289.583" t1="-43.4161" t2="102.502" s0="5.03728" s1="1.64937" s2="1.44701" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22903" version="1">
+        <parameters />
+        <Group t0="289.583" t1="-43.5279" t2="102.502" s0="5.02727" s1="1.41587" s2="1.43702" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22900" version="1">
+            <parameters />
+            <EnvObject t0="289.583" t1="-43.2995" t2="102.488" s0="0.24732" s1="0.24732" s2="0.24732" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22866" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="289.583" t1="-43.7299" t2="102.502" s0="0.259" s1="0.261055" s2="0.273" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="22874" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="289.572" t1="-42.8505" t2="102.528" s0="4.82995" s1="0.508047" s2="1.3191" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22902" version="1">
+            <parameters />
+            <EnvObject t0="288.026" t1="-42.7716" t2="102.505" s0="2.66009" s1="1.53418" s2="2.31249" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22875" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/bin_fillers/bin_spice_brown.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="289.592" t1="-42.7716" t2="102.505" s0="2.68497" s1="1.53418" s2="2.31249" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22876" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/bin_fillers/bin_spice_brown.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="291.143" t1="-42.7716" t2="102.505" s0="2.60932" s1="1.53418" s2="2.31249" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22877" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/bin_fillers/bin_spice_brown.xml">
+                <parameters />
+            </EnvObject>
+            <Group t0="289.572" t1="-42.8505" t2="102.528" s0="4.81994" s1="0.498049" s2="1.3091" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22901" version="1">
+                <parameters />
+                <EnvObject t0="287.267" t1="-42.8438" t2="102.533" s0="0.757529" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="22871" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/wood_trim_less.xml">
+                    <parameters />
+                </EnvObject>
+                <Group t0="289.597" t1="-42.8521" t2="102.52" s0="4.74636" s1="0.484785" s2="1.28287" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22873" version="1">
+                    <parameters />
+                    <EnvObject t0="288.413" t1="-42.8521" t2="103.056" s0="0.780441" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22867" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/wood_trim.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="290.781" t1="-42.8521" t2="103.056" s0="0.780441" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22868" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/wood_trim.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="288.413" t1="-42.8521" t2="101.983" s0="0.780441" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="22869" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/wood_trim.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="290.781" t1="-42.8521" t2="101.983" s0="0.780441" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="22870" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/wood_trim.xml">
+                        <parameters />
+                    </EnvObject>
+                </Group>
+                <EnvObject t0="291.876" t1="-42.8438" t2="102.533" s0="0.757529" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="22899" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/wood_trim_less.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+        </Group>
+    </Group>
+</ActorObjects>
