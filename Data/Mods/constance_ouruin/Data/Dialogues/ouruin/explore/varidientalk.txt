@@ -4,5 +4,15 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.5 0.5 0.4
 set_dialogue_voice 2 17
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+set_character_pos 2 270.306 -48.0387 88.585 171
+send_character_message 2 "set_animation \"Data/Animations/homeless_talk.anm\""
+send_character_message 2 "set_eye_dir 268.563 -47.4472 88.0548 1"
+send_character_message 2 "set_head_target 268.372 -47.1482 88.0737 1"
+set_character_pos 1 268.143 -48.0491 88.0341 0
+send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
+send_character_message 1 "set_torso_target 269.061 -47.6745 88.3624 0"
+send_character_message 1 "set_head_target 269.582 -47.6539 88.3626 1"
+set_cam 265.709 -46.7618 85.8174 -12.85 -126.5 2.34 23.7672
 say 2 "Varidien" "What's been goin' on? [wait 0.15]Anything excitin'?"
 send_level_message "dialogue_done"

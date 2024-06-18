@@ -320,9 +320,9 @@ Define variable, its values and notes for each value.
 			3: Dart has been given valerian root
 
 	ouruin_beggar_quest
-		0: Beggar has not been met
-		1: Beggar has been met
-		2: Beggar has talked about Dart
+		0: Varidien has not been met
+		1: Varidien has been met
+		2: Varidien has talked about Dart
 
 	ouruin_adal_quest
 		0: Adal has not been met

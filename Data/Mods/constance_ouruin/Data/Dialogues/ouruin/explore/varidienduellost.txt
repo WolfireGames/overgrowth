@@ -4,6 +4,16 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.5 0.5 0.4
 set_dialogue_voice 2 17
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+set_character_pos 2 270.306 -48.0387 88.585 171
+send_character_message 2 "set_animation \"Data/Animations/homeless_talk.anm\""
+send_character_message 2 "set_eye_dir 268.563 -47.4472 88.0548 1"
+send_character_message 2 "set_head_target 268.32 -47.364 88.1009 1"
+set_character_pos 1 268.143 -48.0491 88.0341 0
+send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
+send_character_message 1 "set_torso_target 269.061 -47.6738 88.3623 0"
+send_character_message 1 "set_head_target 269.887 -47.5933 88.3805 1"
+set_cam 266.038 -47.2927 88.8049 -9.76 -82.49 0.23 51.5745
 say 1 "Ghost" "You mentioned Dart used to be real fancy with the sword, [wait 0.1]right? [wait 0.15]Well, [wait 0.1]I sparred with her for a bet."
 say 2 "Varidien" "Oh! [wait 0.15]How'd it go?"
 say 1 "Ghost" "She's good, [wait 0.1]alright. [wait 0.15]I just can't keep up."
