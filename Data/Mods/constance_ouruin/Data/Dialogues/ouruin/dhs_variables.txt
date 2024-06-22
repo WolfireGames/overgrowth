@@ -195,6 +195,7 @@ Define variable, its values and notes for each value.
 				_shortsword: Shortsword score
 				_broadsword: Broadsword score
 				_staff: Staff score
+				_knife: Knife score
 
 		ouruin_match_mode
 			0: Non-combat

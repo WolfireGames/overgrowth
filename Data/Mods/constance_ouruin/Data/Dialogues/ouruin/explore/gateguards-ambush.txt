@@ -1,0 +1,31 @@
+#name "GateGuards-Ambush"
+#participants 4
+set_character_pos 3 260.109 -48.2148 27.6307 -98
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 1"
+send_character_message 3 "set_torso_target 259.909 -47.3779 29.4133 1"
+send_character_message 3 "set_head_target 259.04 -47.3966 29.7376 1"
+send_character_message 2 "set_eye_dir 257.608 -46.4514 26.8978 1"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0496759"
+send_character_message 2 "set_head_target 258.566 -47.4721 29.4738 1"
+set_character_pos 1 258.955 -48.2838 29.9748 90
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 258.592 -47.2815 27.9374 1"
+send_character_message 1 "set_torso_target 259.895 -47.7724 31.1206 0"
+send_character_message 1 "set_head_target 258.063 -47.2623 28.1255 1"
+send_character_message 2 "set_animation \"Data/Animations/d_actionidle.anm\""
+set_cam 258.956 -47.6132 23.9847 0 180 0 48.1771
+set_character_pos 2 257.797 -48.2112 27.6343 -81
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 1 1
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.5 0.5 0.5
+set_dialogue_voice 3 3
+say 1 "Ghost" "I just got jumped by a couple cinderians, [wait 0.1]and this gate closed right behind me. [wait 0.15]Mind explaining?"
+say 3 "????" "Didn't want that ugly mess right at our post. [wait 0.15]Bad for business."
+say 2 "???" "What, [wait 0.1]you expecting an apology? [wait 0.2]We're not gonna mess around with the law: That'd just screw us over!"
+say 1 "Ghost" "The guards must be quite happy you decided to cooperate. [wait 0.15]You looking for reimbursement?"
+say 2 "???" "You know, [wait 0.1]for a wad of cotton, [wait 0.1]you're pretty smart for coming up with that! [wait 0.15]Maybe I should take up your advice!"
+say 3 "????" "Total runt's attitude. [wait 0.15]Everything's out to get you, [wait 0.1]huh? Heheh!"
+send_level_message "dialogue_done"

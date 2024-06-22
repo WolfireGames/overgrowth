@@ -22,5 +22,5 @@ set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.5 0.5 0.5
 set_dialogue_voice 3 3
-say 2 "???" "And here you are, [wait 0.1]again. [wait 0.15]You got the coin, [wait 0.1]or d'ya feel like hopping away again?"
+say 2 "???" "And here you are, [wait 0.1]again. [wait 0.15]You got the coin, [wait 0.1]or d'ya feel like hopping away?"
 send_level_message "dialogue_done"

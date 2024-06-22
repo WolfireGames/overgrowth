@@ -1,0 +1,52 @@
+#name "GateGuards-FightAgain"
+#participants 4
+set_character_pos 3 260.109 -48.2148 27.6307 -98
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 1"
+send_character_message 3 "set_torso_target 259.909 -47.3779 29.4133 1"
+send_character_message 3 "set_head_target 259.04 -47.3966 29.7376 1"
+send_character_message 2 "set_eye_dir 257.608 -46.4514 26.8978 1"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0496759"
+send_character_message 2 "set_head_target 258.566 -47.4721 29.4738 1"
+set_character_pos 1 258.955 -48.2838 31.4699 90
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 258.592 -47.2815 27.9374 1"
+send_character_message 1 "set_torso_target 259.895 -47.7724 31.1206 0"
+send_character_message 1 "set_head_target 259.715 -47.7037 27.5154 1"
+send_character_message 2 "set_animation \"Data/Animations/d_actionidle.anm\""
+set_cam 258.921 -47.5752 23.761 -1.12 180 0 49.5529
+set_character_pos 2 257.797 -48.2112 27.6343 -81
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 1 1
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.5 0.5 0.5
+set_dialogue_voice 3 3
+say 1 "Ghost" "You're going to let me through, [wait 0.1]and I'm not going to pay. [wait 0.15]Open the gate!"
+send_character_message 1 "set_head_target 260.111 -47.0488 27.7917 1"
+send_character_message 2 "set_head_target 258.77 -47.7025 29.5681 1"
+send_character_message 3 "set_head_target 258.975 -47.5695 29.6884 1"
+send_character_message 3 "set_torso_target 259.909 -47.3779 29.4133 0.048007"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
+say 3 "????" "Again with this...[wait 0.1]? [wait 0.15]You hop-hops are always so stubborn."
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 2 "set_torso_target 257.769 -47.6586 29.7233 1"
+send_character_message 1 "set_head_target 258.331 -47.2933 27.8935 1"
+send_character_message 2 "set_head_target 259.404 -46.6284 28.7801 1"
+send_character_message 3 "set_head_target 258.09 -47.194 28.1637 1"
+send_character_message 3 "set_torso_target 259.44 -47.2848 29.6217 1"
+set_cam 258.978 -47.3276 34.6173 -5.37 -0.07 -0.18 37.5569
+send_character_message 2 "set_animation \"Data/Animations/d_dialogue_dualwield.anm\""
+send_character_message 3 "set_animation \"Data/Animations/jairothreateningsword.anm\""
+say 2 "???" "No coin to spare at all? [wait 0.15]Surely you ain't just cheap..."
+send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 0.79734"
+send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
+send_character_message 3 "set_head_target 259.075 -47.9139 29.73 1"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_jeer.anm\""
+send_character_message 1 "set_head_target 258.71 -47.1892 28.092 1"
+send_character_message 2 "set_head_target 258.697 -47.8008 29.9968 1"
+send_character_message 2 "set_torso_target 257.885 -48.0518 28.8432 1"
+send_character_message 2 "set_animation \"Data/Animations/r_combatidle.anm\""
+send_character_message 3 "set_torso_target 259.085 -48.1804 29.0937 0"
+say 3 "????" "Here we go again!"
+send_level_message "dialogue_done"
