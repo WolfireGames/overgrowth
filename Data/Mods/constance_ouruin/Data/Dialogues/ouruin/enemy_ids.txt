@@ -8,6 +8,7 @@ Used for lethality & enemy state scripts, namely this variable:
 == EXPLORE
     N/A
 
+
 == AGRA HOOD
     Gate Guard 1            Emory
         11
@@ -31,6 +32,20 @@ Used for lethality & enemy state scripts, namely this variable:
         16187
     Tree Guard 1            Avva
         4518
+    
+    -- VARIABLES
+        ouruin_agra_enemy_11_status
+        ouruin_agra_enemy_1133_status
+        ouruin_agra_enemy_1129_status
+        ouruin_agra_enemy_1291_status
+        ouruin_agra_enemy_1332_status
+        ouruin_agra_enemy_6773_status
+        ouruin_agra_enemy_16201_status
+        ouruin_agra_enemy_1921_status
+        ouruin_agra_enemy_4592_status
+        ouruin_agra_enemy_16187_status
+        ouruin_agra_enemy_4518_status
+
 
 == HIGH ROAD
     Factory Heavy           Edtris
@@ -51,4 +66,44 @@ Used for lethality & enemy state scripts, namely this variable:
         5077
     Waterfront Mook 4
         11342
+
+    -- VARIABLES
+        ouruin_highroad_enemy_640_status
+        ouruin_highroad_enemy_1614_status
+        ouruin_highroad_enemy_4432_status
+        ouruin_highroad_enemy_4436_status
+        ouruin_highroad_enemy_4513_status
+        ouruin_highroad_enemy_4953_status
+        ouruin_highroad_enemy_5073_status
+        ouruin_highroad_enemy_5077_status
+        ouruin_highroad_enemy_11342_status
+
+
+== DEPOT
+    Storage Rabbit 1        Damis
+        6049
+    Drawing Cat             Agate
+        6063
+    Prayer Dog              Ferrat
+        6065
+    Prayer Rabbit           Yarn
+        6083
+    Storage Rabbit 2        Radjin
+        6178
+    Storage Rabbit 3        Lunis
+        6259
+    Workstation Rabbit      Garash
+        6332
+    Workstation Cat         Sennes
+        6365
+    
+    -- VARIABLES
+        ouruin_depot_enemy_6049_status
+        ouruin_depot_enemy_6063_status
+        ouruin_depot_enemy_6065_status
+        ouruin_depot_enemy_6083_status
+        ouruin_depot_enemy_6178_status
+        ouruin_depot_enemy_6259_status
+        ouruin_depot_enemy_6332_status
+        ouruin_depot_enemy_6365_status
 

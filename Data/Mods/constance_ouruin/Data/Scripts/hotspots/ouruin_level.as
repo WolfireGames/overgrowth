@@ -114,9 +114,12 @@ void ReceiveMessage(string msg){ //This function listens for level messages
 
 		//Now we check for each message one by one and if we encounter a message we do the appropriate action.
 		//Note that you can extend this function to read more complex multi-part messages if needed
-		if(token == "message1"){
-			SaveDataToFile("count1" ,"value1"); //Call this if you want to manually set a variable
-		}
+//		if(token == "message1"){
+//			SaveDataToFile("count1" ,"value1"); //Call this if you want to manually set a variable
+//		}
+//		if(token == "message2"){
+//			AddVariableToVariable("stored_count1", "count1"); //Call this to add two variables together. The first gets added to the second.
+//		}
 		
 		// Increment elimination count
 		if(token == "enemy_eliminated"){
@@ -154,9 +157,6 @@ void ReceiveMessage(string msg){ //This function listens for level messages
 			Log(info, "Enemy overkilled!");
 		}
 
-		if(token == "message2"){
-			AddVariableToVariable("stored_count1", "count1"); //Call this to add two variables together. The first gets added to the second.
-		}
 		// Update character lethality state variables
 		if(token == "update_lethality"){
 			CharacterStates();

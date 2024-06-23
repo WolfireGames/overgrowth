@@ -133,8 +133,8 @@ Define variable, its values and notes for each value.
 
 	ouruin_depot_state
 		0: Player is loading into Depot from Explore (level1_explore.xml)
-		1: Player is loading into Depot from the Warrens (warrens.xml)
-		2: Player is loading into Depot from the upper Explore entrance (level1_explore)
+		1: Player is loading into Depot from the upper Explore entrance (level1_explore)
+		2: Player is loading into Depot from the Warrens (warrens.xml)
 
 		ouruin_depot_upperdoor
 			0: Locked
