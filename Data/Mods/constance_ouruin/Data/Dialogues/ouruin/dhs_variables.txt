@@ -51,6 +51,9 @@ Define variable, its values and notes for each value.
 	ouruin_petals_total
 		Total coin earned. Adds up every level currency variable for a total count of coin gained
 
+	ouruin_gain_amount
+		Amount of coin earned per acquisition
+
 	ouruin_petal_display
 		Possibly deprecated
 

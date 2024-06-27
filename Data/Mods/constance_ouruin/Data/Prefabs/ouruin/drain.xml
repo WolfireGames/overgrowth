@@ -1,0 +1,13 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="196.331" t1="-51.9251" t2="-91.0527" s0="0.496328" s1="0.536772" s2="1.08588" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8161" version="1">
+        <parameters />
+        <EnvObject t0="196.331" t1="-51.9251" t2="-91.0527" s0="2.91333" s1="2.77843" s2="4.12007" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="11685" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/StoneWindow1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="196.132" t1="-51.9251" t2="-91.0482" s0="0.305016" s1="0.0625584" s2="0.471876" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="11688" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

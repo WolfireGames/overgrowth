@@ -10,13 +10,15 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0 0.52 0.95
 set_dialogue_voice 2 8
+send_character_message 1 "set_morph_target smile 0.8 0.3 outExpo"
 say 2 "Ghost" "(500p, [wait 0.1]huh? [wait 0.2]Not bad.)"
 send_character_message 1 "set_torso_target -11.6379 -15.0403 -11.6795 0"
 send_character_message 1 "set_eye_dir -9.74772 -14.5654 -11.8302 1"
 send_character_message 1 "set_head_target -11.7676 -14.7956 -12.4334 1"
 send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
-send_level_message "wallet_gain"
 send_level_message "disable 6542"
 send_level_message "disable 6544"
+send_character_message 1 "set_morph_target smile 0.3 0.3 outExpo"
 say 2 "Ghost" "(It's for the best if I hold onto this...)"
+send_character_message 1 "set_morph_target smile 0 0.3 outExpo"
 send_level_message "dialogue_done"
