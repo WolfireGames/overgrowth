@@ -4,17 +4,21 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.5 0.5 0.4
 set_dialogue_voice 2 17
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
 set_character_pos 2 270.306 -48.0387 88.585 171
 send_character_message 2 "set_animation \"Data/Animations/homeless_talk.anm\""
-send_character_message 2 "set_eye_dir 268.563 -47.4472 88.0548 1"
-send_character_message 2 "set_head_target 268.32 -47.364 88.1009 1"
+send_character_message 2 "set_eye_dir 269.635 -48.2907 87.9975 0.745084"
+send_character_message 2 "set_head_target 268.772 -47.667 87.2937 1"
 set_character_pos 1 268.143 -48.0491 88.0341 0
 send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
 send_character_message 1 "set_torso_target 269.061 -47.6738 88.3623 0"
-send_character_message 1 "set_head_target 269.887 -47.5933 88.3805 1"
-set_cam 266.038 -47.2927 88.8049 -9.76 -82.49 0.23 51.5745
+send_character_message 1 "set_head_target 269.94 -47.8158 88.4559 1"
+set_cam 266.086 -47.0107 90.6515 -14.07 -53.49 -4.56 51.5745
 say 1 "Ghost" "Do you really think this'll be enough to keep her off the pipe?"
+send_character_message 2 "set_morph_target afraid 0.5 0.3 outExpo"
 say 2 "Varidien" "I have no idea. [wait 0.15]But it's a better start than anything I've ever gotten, [wait 0.1]myself."
+send_character_message 2 "set_animation \"Data/Animations/homeless_hand.anm\""
+send_character_message 2 "set_eye_dir 268.523 -46.6243 88.9801 1"
+send_character_message 2 "set_head_target 268.784 -47.4434 87.557 1"
 say 2 "Varidien" "Maybe I should get her fighting again. [wait 0.15]I bet she could take down some of the greats 'round this area..."
 send_level_message "dialogue_done"

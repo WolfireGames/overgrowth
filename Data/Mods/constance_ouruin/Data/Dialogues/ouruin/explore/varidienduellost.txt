@@ -4,19 +4,31 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.5 0.5 0.4
 set_dialogue_voice 2 17
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
 set_character_pos 2 270.306 -48.0387 88.585 171
 send_character_message 2 "set_animation \"Data/Animations/homeless_talk.anm\""
 send_character_message 2 "set_eye_dir 268.563 -47.4472 88.0548 1"
-send_character_message 2 "set_head_target 268.32 -47.364 88.1009 1"
+send_character_message 2 "set_head_target 268.316 -47.3596 88.1018 1"
 set_character_pos 1 268.143 -48.0491 88.0341 0
 send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
-send_character_message 1 "set_torso_target 269.061 -47.6738 88.3623 0"
-send_character_message 1 "set_head_target 269.887 -47.5933 88.3805 1"
-set_cam 266.038 -47.2927 88.8049 -9.76 -82.49 0.23 51.5745
+send_character_message 1 "set_torso_target 269.296 -47.7469 88.1917 0.994627"
+send_character_message 1 "set_head_target 269.902 -47.7515 88.4664 1"
+set_cam 272.073 -48.0274 88.3178 4.96 92.27 0.01 34.0345
 say 1 "Ghost" "You mentioned Dart used to be real fancy with the sword, [wait 0.1]right? [wait 0.15]Well, [wait 0.1]I sparred with her for a bet."
+send_character_message 1 "set_head_target 270.253 -47.9476 88.6623 1"
+send_character_message 1 "set_torso_target 269.296 -47.7469 88.1917 0"
+send_character_message 2 "set_head_target 268.259 -47.2392 88.1356 1"
+send_character_message 2 "set_animation \"Data/Animations/homeless_sitback.anm\""
 say 2 "Varidien" "Oh! [wait 0.15]How'd it go?"
+send_character_message 1 "set_eye_dir 269.225 -47.2622 89.7251 1"
+send_character_message 1 "set_head_target 269.627 -47.6352 89.5233 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
 say 1 "Ghost" "She's good, [wait 0.1]alright. [wait 0.15]I just can't keep up."
+send_character_message 2 "set_head_target 269.237 -47.0897 90.7456 1"
+set_cam 269.707 -48.0807 87 0 -160.56 0 40.8431
 say 2 "Varidien" "Glad to see she's still got it in her...!"
+send_character_message 2 "set_animation \"Data/Animations/homeless_sitfront.anm\""
+send_character_message 2 "set_eye_dir 268.348 -47.2252 88.1056 1"
+send_character_message 2 "set_head_target 268.739 -47.599 88.1644 1"
 say 2 "Varidien" "Well, [wait 0.1]if you ever need to practice, [wait 0.1]I heard Zero's running a little arena down in Agra, [wait 0.1]past that gate. [wait 0.15]You could give it a shot, [wait 0.1]maybe you'll learn something!"
 send_level_message "dialogue_done"

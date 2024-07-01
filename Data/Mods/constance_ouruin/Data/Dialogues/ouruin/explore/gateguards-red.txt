@@ -22,6 +22,8 @@ set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.5 0.5 0.5
 set_dialogue_voice 3 3
+set_dialogue_color 4 0.5 0.5 0.5
+set_dialogue_voice 4 3
 say 1 "Ghost" "Red was the one who hired you two, [wait 0.1]wasn't she? [wait 0.15]I should've guessed."
 send_character_message 1 "set_head_target 258.373 -46.7029 28.0895 1"
 send_character_message 2 "set_head_target 258.573 -47.4721 29.4813 1"
@@ -67,7 +69,7 @@ send_character_message 3 "set_torso_target 259.697 -47.0066 29.5384 1"
 send_character_message 2 "set_head_target 259.301 -47.1924 29.4864 1"
 send_character_message 3 "set_head_target 258.848 -47.2123 28.5511 1"
 set_cam 262.046 -47.0841 28.5988 -5.13 72.31 0 31.8923
-say 3 "????" "[wait 0.1].[wait 0.1].[wait 0.1]."
+say 4 "????" "[wait 0.1].[wait 0.1].[wait 0.1]."
 send_character_message 3 "set_torso_target 259.697 -48.2172 29.5298 1"
 send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 0.690158"
 send_character_message 3 "set_head_target 259.64 -47.5277 29.0749 1"

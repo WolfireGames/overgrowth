@@ -4,15 +4,17 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.5 0.5 0.4
 set_dialogue_voice 2 17
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
 set_character_pos 2 270.306 -48.0387 88.585 171
 send_character_message 2 "set_animation \"Data/Animations/homeless_talk.anm\""
 send_character_message 2 "set_eye_dir 268.563 -47.4472 88.0548 1"
 send_character_message 2 "set_head_target 268.32 -47.364 88.1009 1"
 set_character_pos 1 268.143 -48.0491 88.0341 0
-send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
+send_character_message 1 "set_eye_dir 268.59 -47.7751 87.9227 0"
 send_character_message 1 "set_torso_target 269.061 -47.6738 88.3623 0"
-send_character_message 1 "set_head_target 269.887 -47.5933 88.3805 1"
-set_cam 266.038 -47.2927 88.8049 -9.76 -82.49 0.23 51.5745
+send_character_message 1 "set_head_target 269.904 -47.8714 88.3507 1"
+set_cam 268.889 -47.6874 86.2495 6.15 163.2 -0.39 31.7602
+send_character_message 1 "set_morph_target smile 0.8 0.3 outExpo"
 say 1 "Ghost" "A small amount goes a long way. [wait 0.15]Thank you."
+send_character_message 1 "set_morph_target smile 0 0.3 outExpo"
 send_level_message "dialogue_done"

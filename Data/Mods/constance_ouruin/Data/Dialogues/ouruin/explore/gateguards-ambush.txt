@@ -9,12 +9,12 @@ send_character_message 2 "set_eye_dir 257.608 -46.4514 26.8978 1"
 send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 0.0496759"
 send_character_message 2 "set_head_target 258.566 -47.4721 29.4738 1"
 set_character_pos 1 258.955 -48.2838 29.9748 90
-send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
-send_character_message 1 "set_eye_dir 258.592 -47.2815 27.9374 1"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_eye_dir 257.863 -46.9721 27.9096 1"
 send_character_message 1 "set_torso_target 259.895 -47.7724 31.1206 0"
-send_character_message 1 "set_head_target 258.063 -47.2623 28.1255 1"
+send_character_message 1 "set_head_target 258.67 -47.8112 28.2671 1"
 send_character_message 2 "set_animation \"Data/Animations/d_actionidle.anm\""
-set_cam 258.956 -47.6132 23.9847 0 180 0 48.1771
+set_cam 257.908 -47.6254 28.7631 0 -138.13 0 48.1771
 set_character_pos 2 257.797 -48.2112 27.6343 -81
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
@@ -22,10 +22,33 @@ set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.5 0.5 0.5
 set_dialogue_voice 3 3
-say 1 "Ghost" "I just got jumped by a couple cinderians, [wait 0.1]and this gate closed right behind me. [wait 0.15]Mind explaining?"
+say 1 "Ghost" "I just got jumped by a couple cinderians in Agra, [wait 0.1]and this gate closed right behind me. [wait 0.15]Mind explaining?"
+send_character_message 2 "set_torso_target 257.795 -47.3994 29.0899 1"
+send_character_message 2 "set_head_target 258.967 -47.2332 29.1977 1"
+send_character_message 3 "set_head_target 260.173 -46.6506 30.0658 1"
+set_cam 255.717 -47.3483 28.8504 0 -70.09 0 33.4
 say 3 "????" "Didn't want that ugly mess right at our post. [wait 0.15]Bad for business."
+send_character_message 3 "set_head_target 258.57 -47.3927 28.7334 1"
+send_character_message 3 "set_torso_target 259.909 -47.3779 29.4133 0"
+send_character_message 2 "set_head_target 258.859 -47.6733 29.8712 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""
 say 2 "???" "What, [wait 0.1]you expecting an apology? [wait 0.2]We're not gonna mess around with the law: That'd just screw us over!"
+send_character_message 2 "set_head_target 258.859 -47.6734 29.8712 1"
+send_character_message 1 "set_head_target 258.67 -47.811 28.2658 1"
+send_character_message 3 "set_torso_target 259.48 -47.3296 29.2849 0.996611"
+send_character_message 3 "set_head_target 258.973 -47.4022 29.6913 1"
+send_character_message 2 "set_animation \"Data/Animations/d_actionidle.anm\""
+set_cam 259.366 -47.6447 23.716 0 173.87 0 45.3515
 say 1 "Ghost" "The guards must be quite happy you decided to cooperate. [wait 0.15]You looking for reimbursement?"
+send_character_message 1 "set_head_target 258.47 -47.9251 28.2749 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 258.907 -47.2585 29.9868 1"
+send_character_message 3 "set_head_target 258.638 -47.2688 28.3555 1"
 say 2 "???" "You know, [wait 0.1]for a wad of cotton, [wait 0.1]you're pretty smart for coming up with that! [wait 0.15]Maybe I should take up your advice!"
-say 3 "????" "Total runt's attitude. [wait 0.15]Everything's out to get you, [wait 0.1]huh? Heheh!"
+send_character_message 1 "set_eye_dir 259.978 -47.0716 27.8263 1"
+send_character_message 1 "set_head_target 259.356 -47.8719 28.1749 1"
+send_character_message 3 "set_head_target 258.959 -47.6871 29.9233 1"
+send_character_message 3 "set_torso_target 259.672 -48.0332 29.1638 1"
+send_character_message 2 "set_head_target 258.972 -47.7143 29.8573 1"
+say 3 "????" "Total runt's attitude. [wait 0.15]Everything's out to get you, [wait 0.1]huh? [wait 0.2]Heheh!"
 send_level_message "dialogue_done"

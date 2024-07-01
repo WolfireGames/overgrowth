@@ -4,22 +4,43 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.5 0.5 0.4
 set_dialogue_voice 2 17
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
 set_character_pos 2 270.306 -48.0387 88.585 171
 send_character_message 2 "set_animation \"Data/Animations/homeless_talk.anm\""
 send_character_message 2 "set_eye_dir 268.563 -47.4472 88.0548 1"
 send_character_message 2 "set_head_target 268.32 -47.364 88.1009 1"
 set_character_pos 1 268.143 -48.0491 88.0341 0
 send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
-send_character_message 1 "set_torso_target 269.061 -47.6738 88.3623 0"
-send_character_message 1 "set_head_target 269.887 -47.5933 88.3805 1"
-set_cam 266.038 -47.2927 88.8049 -9.76 -82.49 0.23 51.5745
+send_character_message 1 "set_torso_target 269.296 -47.7469 88.1917 1"
+send_character_message 1 "set_head_target 269.902 -47.7515 88.4663 1"
+set_cam 272.073 -48.0274 88.3178 4.96 92.27 0.01 34.0345
 say 1 "Ghost" "You mentioned Dart used to be real fancy with the sword, [wait 0.1]right? [wait 0.15]Well, [wait 0.1]I sparred with her for a bet."
+send_character_message 1 "set_head_target 269.994 -47.864 88.4069 1"
+send_character_message 2 "set_head_target 268.306 -47.1645 88.0515 1"
+send_character_message 2 "set_animation \"Data/Animations/homeless_sitback.anm\""
 say 2 "Varidien" "Oh! [wait 0.15]How'd it go?"
+send_character_message 2 "set_head_target 268.351 -47.3349 88.0883 1"
+send_character_message 1 "set_head_target 269.871 -47.5885 87.3627 1"
+send_character_message 1 "set_torso_target 269.296 -47.7469 88.1917 0"
 say 1 "Ghost" "Pretty smoothly, [wait 0.1]all things considered. [wait 0.15]She's... [wait 0.15]Not at her best."
+send_character_message 2 "set_eye_dir 269.753 -48.1541 89.1399 0.694999"
+send_character_message 2 "set_head_target 268.618 -47.7799 88.5534 1"
+set_cam 269.737 -47.8895 90.1144 -6.39 -23.8 0 40.668
 say 2 "Varidien" "Hm... [wait 0.15]Guess I should've expected that."
+send_character_message 2 "set_eye_dir 270.448 -47.7322 89.5821 0.694999"
+send_character_message 2 "set_head_target 268.759 -48.0958 88.9936 1"
 say 2 "Varidien" "Maybe now that she lost to a bun, [wait 0.1]she'll reconsider her habits. [wait 0.15]That's what I'm hoping, [wait 0.1]anyways."
+send_character_message 2 "set_eye_dir 269.194 -47.281 88.2446 1"
+send_character_message 2 "set_head_target 269.022 -48.3814 88.6867 1"
+send_character_message 2 "set_animation \"Data/Animations/homeless_sitfront.anm\""
 say 2 "Varidien" "[wait 0.1]Hey... [wait 0.15]I really appreciate you helping out. [wait 0.15]I know it's not much, [wait 0.1]but... [wait 0.2]Please, [wait 0.1]take this."
+send_character_message 2 "set_head_target 268.836 -47.8898 88.4721 1"
+set_cam 266.781 -47.066 86.8842 -12.9 -121.85 -3.02 48.0118
+send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
+send_character_message 1 "set_head_target 269.727 -47.6217 88.4322 1"
 say 1 "Ghost" "50p? [wait 0.15]You sure?"
-say 2 "Varidien" "I'd lend you more, [wait 0.1]but... [wait 0.15]Times are tight."
+send_character_message 2 "set_animation \"Data/Animations/homeless_hand.anm\""
+send_character_message 2 "set_eye_dir 268.743 -47.1445 87.9579 1"
+send_character_message 2 "set_head_target 268.492 -47.1451 87.8432 1"
+say 2 "Varidien" "I'd lend you more, [wait 0.1]but... [wait 0.15]Times are tight, [wait 0.1]y'know?"
 send_level_message "dialogue_done"
