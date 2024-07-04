@@ -10466,7 +10466,11 @@ int GetNearestPickupableWeapon(vec3 point, float max_range) {
 
             if(closest_id == -1 || distance_squared(point, item_pos) < closest_dist) {
                 closest_dist = distance_squared(point, item_pos);
-                closest_id = item_obj.GetID();
+                
+                //Prevent enemies from picking up collectables
+                if((item_obj.GetLabel() != "collectable" && !this_mo.controlled) || this_mo.controlled) {
+                    closest_id = item_obj.GetID();
+                }
             }
         }
     }

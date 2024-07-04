@@ -1,0 +1,9 @@
+#name "FromCourtyard"
+#participants 2
+set_character_pos 1 120.731 -44.1144 -7.34787 0
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle_extended.anm\""
+set_cam 116.569 -42.5748 -9.29763 -7.31 -105.64 0.03 58.3994
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 2 "Ghost" "(Here I am, [wait 0.1]Agra Hood.)"
+send_level_message "dialogue_done"

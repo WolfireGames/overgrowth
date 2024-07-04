@@ -1,0 +1,18 @@
+#name "ValerianSucceed"
+#participants 4
+send_character_message 3 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 2 "set_animation \"Data/Animations/dialogue_leaning_back_onwall.anm\""
+send_character_message 1 "set_animation \"Data/Animations/ghost_coins.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.3 0.9 0.6
+set_dialogue_color 3 0.8 0.4 0.6
+say 1 "Ghost" "Fine, [wait 0.1]here you go! [wait 0.2]Happy?"
+say 2 "Toker" "Overjoyed."
+send_character_message 1 "set_animation \"Data/Animations/ghost_hold3.anm\""
+say 3 "Clynn" "You've made a wonderful purchase today, [wait 0.1]short-tail! [wait 0.2]Enjoy responsibly."
+say 1 "Ghost" "...[wait 0.2]I really can't say I have, [wait 0.1]but thanks anyways."
+say 2 "Toker" "You should clear out, [wait 0.1]now. [wait 0.2]I hear that the heat's been getting antsy 'round here... [wait 0.2]Heheh!"
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+say 1 "Ghost" "Don't have to tell me twice."
+send_level_message "dialogue_done"

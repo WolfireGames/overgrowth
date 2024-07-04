@@ -1,0 +1,8 @@
+#name "ToCourtyard"
+#participants 2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.52 0.95
+set_dialogue_voice 2 8
+say 2 "Ghost" "(This door leads right to the sparring courtyard... [wait 0.15]I should visit, [wait 0.1]in case I want to sharpen up.)"
+send_level_message "dialogue_done"

@@ -1,0 +1,11 @@
+#name "ValerianTalk"
+#participants 4
+send_character_message 3 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 2 "set_animation \"Data/Animations/dialogue_leaning_back_onwall.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.3 0.9 0.6
+set_dialogue_color 3 0.8 0.4 0.6
+say 2 "Toker" "Well? [wait 0.2]Whaddya want, [wait 0.1]pipsqueak?"
+send_level_message "dialogue_done"

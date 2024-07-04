@@ -1,0 +1,14 @@
+#name "ValerianBye"
+#participants 4
+send_character_message 3 "set_animation \"Data/Animations/r_crouch.anm\""
+send_character_message 2 "set_animation \"Data/Animations/dialogue_leaning_back_onwall.anm\""
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.3 0.9 0.6
+set_dialogue_color 3 0.8 0.4 0.6
+say 1 "Ghost" "It could not possibly be worth that much. [wait 0.2]You're just lying to me."
+say 3 "Clynn" "I think we're stereotyping you, [wait 0.1]actually."
+say 2 "Toker" "Well, [wait 0.1]come on. [wait 0.2]Y' gotta prove you ain't a snitch, [wait 0.1]so rate's extra!"
+say 1 "Ghost" "Whatever. [wait 0.2]I'm not going to waste any more of my time."
+send_level_message "dialogue_done"
