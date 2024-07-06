@@ -180,9 +180,12 @@ Define variable, its values and notes for each value.
 			2: Player is at Cres' Home
 			3: Player is inbetween the waterfront and the road
 			4: Player is in the waterfront interior
+		
+		ouruin_highroad_visited
 
 	ouruin_courtyard_state
-		0: Player is loading into Courtyard
+		0: Player is loading into Courtyard for the first time
+		1: Player is returning to Courtyard
 
 		ouruin_match_blocked
 		ouruin_match_kills
@@ -540,3 +543,13 @@ Define variable, its values and notes for each value.
 	TBD
 
 
+== DONATAS TALK
+	In Moritz Hood, you can talk to Donatas for updates on quests and tips/hints.
+		0: Not discussed
+		1: Discussed
+
+	ouruin_donatas_bloodsmention
+	ouruin_donatas_topic_gunkmet
+	ouruin_donatas_topic_gunktalk
+	ouruin_donatas_topic_gunkmoney
+	ouruin_donatas_topic_gunkmedicine
