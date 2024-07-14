@@ -44,9 +44,13 @@ void Dispose() {
     SetSunPosition(old_sun_position);
 }
 
+void SetParameters() {
+    params.AddFloatSlider("Thunder Time Multiplier",1.0f,"min:0.5,max:10,step:0.1");
+}
+
 void Update() {
     if(next_lightning_time < the_time){
-        next_lightning_time = the_time + RangedRandomFloat(6.0, 12.0);//RangedRandomFloat(3.0, 6.0);
+        next_lightning_time = the_time + RangedRandomFloat(6.0, 12.0) * params.GetFloat("Thunder Time Multiplier");//RangedRandomFloat(3.0, 6.0);
         lightning_distance = RangedRandomFloat(0.0, 1.0);
         thunder_time = the_time + lightning_distance * 3.0;
         lightning_time = the_time;
@@ -55,9 +59,9 @@ void Update() {
 
     if(thunder_time < the_time && thunder_time != -1.0){
         if(lightning_distance < 0.3){
-            PlaySoundGroup("Data/Sounds/weather/thunder_strike_mike_koenig.xml");
+            PlaySoundGroup("Data/Sounds/weather/thunder_strike_mike_koenig.xml", _sound_priority_high);
         } else {
-            PlaySoundGroup("Data/Sounds/weather/tapio/thunder.xml");
+            PlaySoundGroup("Data/Sounds/weather/tapio/thunder.xml", _sound_priority_high);
         }
         thunder_time = -1.0;
     }
