@@ -120,6 +120,7 @@ class DrikaDialogue : DrikaElement{
 	float rotation_shake_max_distance;
 	float rotation_shake_slerp_speed;
 	float rotation_shake_interval;
+	bool set_keyboard_focus = false;
 
 	array<string> dialogue_function_names =	{
 												"Say",
@@ -499,7 +500,7 @@ class DrikaDialogue : DrikaElement{
 		look_at_target.CheckAvailableTargets();
 		move_with_target.CheckAvailableTargets();
 		if(dialogue_function == say){
-
+			set_keyboard_focus = true;
 		}else if(dialogue_function == set_actor_animation){
 			if(all_animations.size() == 0){
 				level.SendMessage("drika_dialogue_get_animations " + hotspot.GetID());
@@ -853,7 +854,8 @@ class DrikaDialogue : DrikaElement{
 			ImGui_NextColumn();
 			ImGui_SetTextBuf(say_text);
 
-			if(ImGui_IsRootWindowOrAnyChildFocused() && !ImGui_IsAnyItemActive() && !ImGui_IsMouseClicked(0)){
+			if(set_keyboard_focus){
+				set_keyboard_focus = false;
 				ImGui_SetKeyboardFocusHere(0);
 			}
 

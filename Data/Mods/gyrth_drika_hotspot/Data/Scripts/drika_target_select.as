@@ -154,7 +154,7 @@ class DrikaTargetSelect{
 			identifier_tag = "identifier_" + tag;
 		}
 
-		box_select_placeholder.path = "Data/Objects/drika_box_select_placeholder.xml";
+		box_select_placeholder.path = og_stable?"Data/Objects/drika_box_select_placeholder_stable.xml":"Data/Objects/drika_box_select_placeholder_it.xml";
 		box_select_placeholder.name = "Box Select Helper";
 		box_select_placeholder.default_scale = vec3(0.5);
 		include_envobject = GetJSONBool(params, "include_envobject", true);

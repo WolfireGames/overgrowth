@@ -148,7 +148,7 @@ class DrikaPlaceholder{
 		data += "\t<Model>" + model + "</Model>\n";
 		data += "\t<ColorMap>" + colormap + "</ColorMap>\n";
 		data += "\t<NormalMap>Data/Textures/chest_n.png</NormalMap>\n";
-		data += "\t<ShaderName>drika_placeholder</ShaderName>\n";
+		data += og_stable?"\t<ShaderName>drika_placeholder_stable</ShaderName>\n":"\t<ShaderName>drika_placeholder_it</ShaderName>\n";
 		data += "\t<flags no_collision=true/>\n";
 		data += "</Object>\n";
 

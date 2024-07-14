@@ -467,3 +467,38 @@ float ApplyTween(float progress, IMTweenType tween_type){
 	Log(warning, "Tween value not found " + tween_type);
 	return progress;
 }
+
+bool IsPlayerInCombat(MovementObject@ player){
+
+	string command = 	'if(knocked_out != _awake){
+							self_id = -1;
+						}else{
+							self_id = -1;
+							for(uint i=0; i<situation.known_chars.size(); ++i){
+								KnownChar@ known_char = situation.known_chars[i];
+								if(!known_char.friendly){
+									if(MovementObjectExists(known_char.id)) {
+										MovementObject@ char = ReadCharacterID(known_char.id);
+										if(char.GetIntVar(\"knocked_out\") == _awake){
+											if(char.controlled){
+												string command = \"self_id = situation.KnownID(\" + this_mo.GetID() + \");\";
+												char.Execute(command);
+												if((char.GetIntVar(\"self_id\") != -1)){
+													self_id = 1;
+													break;
+												}
+											}else{
+												if(char.QueryIntFunction(\"int IsAggressive()\") == 1){
+													self_id = 1;
+													break;
+												}
+											}
+										}
+									}
+								}
+							}
+						}';
+
+	player.Execute(command);
+	return (player.GetIntVar("self_id") == 1);
+}

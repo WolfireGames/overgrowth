@@ -562,7 +562,7 @@ class DrikaCheckCharacterState : DrikaElement{
 					if(!target.controlled){
 						state = (target.GetIntVar("goal") == _ai_attack);
 					}else{
-						state = (target.QueryIntFunction("int CombatSong()") == 1);
+						state = IsPlayerInCombat(target);
 					}
 				}else if(state_choice == moving){
 					state = (length(target.velocity) > 1.0);

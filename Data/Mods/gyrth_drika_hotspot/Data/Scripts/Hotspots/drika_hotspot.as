@@ -121,6 +121,7 @@ string gl_driver_version;
 string vram;
 string glsl_version;
 string shader_model;
+bool og_stable;
 
 array<DrikaAnimationGroup@> all_animations;
 array<DrikaAnimationGroup@> current_animations;
@@ -164,6 +165,7 @@ void Init() {
 	show_name = (this_hotspot.GetName() != "");
 	display_name = this_hotspot.GetName();
 	level.ReceiveLevelEvents(hotspot.GetID());
+	og_stable = GetBuildVersionShort() == "1.4.0";
 	LoadPalette();
 	SortFunctionsAlphabetical();
 	//When the user duplicates a hotspot the editormode is active and the left alt is pressed.
