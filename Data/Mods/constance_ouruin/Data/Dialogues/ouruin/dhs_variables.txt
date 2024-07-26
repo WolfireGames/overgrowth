@@ -235,6 +235,40 @@ Define variable, its values and notes for each value.
 		0: Player is loading into Waterfront Escape from Fractured Home (level2.xml) as Ghost
 		1: Player is loading into Waterfront Escape as Donatas
 
+		ouruin_lvl3_checkpoint
+			0: Start
+
+		ouruin_lvl3_dockedship_found
+		ouruin_lvl3_dockedship_bashed
+		ouruin_lvl3_dockedship_broken
+
+		ouruin_lvl3_dockedship_method
+			0: Bash
+			1: Broadsword
+			2: Lockpicking
+			3: Unlock
+			4: Accessible!
+		
+		ouruin_lvl3_lockpick
+			0: Not acquired
+			1: Acquired
+			2: Lock examined
+
+		ouruin_lvl3_key
+
+		ouruin_lvl3_patri
+			0: Not found
+			1: Talked to
+			2: Freed
+		
+		ouruin_lvl3_adal
+			0: Not found
+			1: Talked to
+
+		ouruin_lvl3_timek
+			0: Not found
+			1: Talked to
+
 	ouruin_lvl4_state
 		0: Player is loading into Cinderian Ship from Waterfront Escape (level3.xml) as Ghost
 		1: Player is loading into Cinderian Ship as Donatas

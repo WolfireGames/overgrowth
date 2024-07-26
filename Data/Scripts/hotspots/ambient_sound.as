@@ -178,7 +178,7 @@ void DrawEditor(){
     Object@ obj = ReadObjectFromID(hotspot.GetID());
     DebugDrawBillboard("Data/Textures/ui/speaker.png",
                        obj.GetTranslation(),
-                       obj.GetScale()[1]*2.0,
+                       obj.GetScale()[1]*0.5,
                        vec4(vec3(0.5), 1.0),
                        _delete_on_draw);
 }
