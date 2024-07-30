@@ -172,7 +172,6 @@ int ScriptParams::ASGetInt(const std::string &key) {
 }
 
 void ScriptParams::ASRemove(const std::string &key) {
-    ScriptParamMap::iterator iter = parameter_map_.find(key);
     parameter_map_.erase(key);
 }
 
