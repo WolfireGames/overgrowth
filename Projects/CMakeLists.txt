@@ -1310,9 +1310,9 @@ IF(BUILD_OVERGROWTH)
         ENDIF()
 
         # Disabling strict-aliasing, which is default on gcc because angelscript interface has an api function that requires a return of *void.
-        SET_TARGET_PROPERTIES(Overgrowth PROPERTIES COMPILE_FLAGS "-Wall -Wno-long-long -Wno-variadic-macros -Wno-trigraphs -Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-unused-variable -Wno-unused-function -Wno-reorder -Werror=return-type ${SSE_FLAGS} ${BREAKPAD_FLAGS} ${NON_BREAKPAD_FLAGS}")
+        SET_TARGET_PROPERTIES(Overgrowth PROPERTIES COMPILE_FLAGS "-Wall -Wno-long-long -Wno-variadic-macros -Wno-trigraphs -Wno-unknown-pragmas -Wno-deprecated-declarations -Wno-unused-variable -Wno-unused-function -Wno-reorder -Werror=return-type -Woverloaded-virtual ${SSE_FLAGS} ${BREAKPAD_FLAGS} ${NON_BREAKPAD_FLAGS}")
     ENDIF()
-        
+
     # Supress all compile warnings because we shouldn't have to care about external code cleanlyness
     SET(EXTERNAL_LIB_COMPILE_FLAGS "${COMPILE_FLAGS} -w")
 

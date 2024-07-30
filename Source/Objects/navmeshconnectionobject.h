@@ -42,7 +42,7 @@ class NavmeshConnectionObject : public Object {
 
     bool ConnectTo(Object& other, bool checking_other = false) override;
     bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
-    virtual bool Disconnect(Object& other, bool checking_other = false);
+    virtual bool Disconnect(Object& other, bool from_socket = false, bool checking_other = false) override;
     void GetConnectionIDs(std::vector<int>* cons) override;
 
     void ResetConnectionOffMeshReference();

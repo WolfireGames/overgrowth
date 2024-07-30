@@ -79,7 +79,7 @@ class ItemObject : public Object {
     void Draw() override;
     void PreDrawFrame(float curr_game_time) override;
     bool ConnectTo(Object& other, bool checking_other = false) override;
-    virtual bool Disconnect(Object& other, bool checking_other = false);
+    virtual bool Disconnect(Object& other, bool from_socket = false, bool checking_other = false) override;
     void Moved(Object::MoveType type) override;
 
     int model_id() const;
@@ -218,7 +218,7 @@ class ItemObject : public Object {
     TimeInterpolator network_time_interpolator;
 
     void DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_planes, int num_cull_planes, Object::DrawType draw_type) override;
-    virtual void HandleMaterialEvent(const std::string& the_event, const vec3& normal, const vec3& event_pos, float gain = 1.0f, float pitch_shift = 1.0f);
+    void HandleItemObjectMaterialEvent(const std::string& the_event, const vec3& normal, const vec3& event_pos, float gain = 1.0f, float pitch_shift = 1.0f);
 
     void MakeBulletObject();
     void StickingCollisionOccured(const vec3& pos, int vert, const CollideInfo& collide_info);

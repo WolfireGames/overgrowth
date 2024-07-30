@@ -173,11 +173,11 @@ class EnvObject : public Object {
     void RemovePhysicsShape();
     const Model *GetModel() const;
     vec3 GetBoundingBoxSize();
-    void HandleMaterialEvent(const std::string &the_event, const vec3 &event_pos);
+    void HandleMaterialEvent(const std::string &the_event, const vec3 &event_pos, int *tri) override;
     const MaterialEvent &GetMaterialEvent(const std::string &the_event, const vec3 &event_pos, int *tri) override;
     const MaterialEvent &GetMaterialEvent(const std::string &the_event, const vec3 &event_pos, const std::string &mod, int *tri) override;
-    const MaterialDecal &GetMaterialDecal(const std::string &type, const vec3 &pos);
-    const MaterialParticle &GetMaterialParticle(const std::string &type, const vec3 &pos);
+    const MaterialDecal &GetMaterialDecal(const std::string &type, const vec3 &pos, int* tri = NULL) override;
+    const MaterialParticle &GetMaterialParticle(const std::string &type, const vec3 &pos, int* tri = NULL) override;
     MaterialRef GetMaterial(const vec3 &pos, int *tri = NULL) override;
     void UpdateDetailScale();
     bool Load(const std::string &type_file);

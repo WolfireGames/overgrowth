@@ -243,7 +243,7 @@ class Object {
     ScriptParams* GetScriptParams() { return &sp; }
     const ScriptParamMap& GetScriptParamMap();
     virtual void SetScriptParams(const ScriptParamMap& spm);
-    virtual void ApplyPalette(const OGPalette& palette) {}
+    virtual void ApplyPalette(const OGPalette& palette, bool from_socket = false) {}
     virtual OGPalette* GetPalette();
     virtual void ReceiveASVec3Message(int type, const vec3& vec_a, const vec3& vec_b) {}
     virtual void SaveHistoryState(std::list<SavedChunk>& chunk_list, int state_id);

@@ -199,7 +199,7 @@ class MovementObject : public Object {
     bool HasFunction(const std::string& function_definition);
     int QueryIntFunction(std::string func);
     void SetScriptParams(const ScriptParamMap& spm) override;
-    void ApplyPalette(const OGPalette& palette, bool from_socket = false);
+    void ApplyPalette(const OGPalette& palette, bool from_socket = false) override;
     OGPalette* GetPalette() override;
     void HitByItem(int id, const vec3& point, const std::string& material, int type);
     void Execute(std::string);
@@ -313,7 +313,7 @@ class MovementObject : public Object {
     void SetAnimation(std::string path);
     void SetAnimation(std::string path, float fade_speed, char flags);
     void SwapAnimation(std::string path);
-    void HandleMaterialEvent(std::string the_event, vec3 event_pos, float gain = 1.0f);
+    void HandleMovementObjectMaterialEvent(std::string the_event, vec3 event_pos, float gain = 1.0f);
 
     vec4 GetAvgRotationVec4();
     int ASWasHit(std::string type, std::string attack_path, vec3 dir, vec3 pos, int attacker_id, float attack_damage_mult, float attack_knockback_mult);
@@ -323,7 +323,7 @@ class MovementObject : public Object {
     void CreateRiggedObject();
     void RecreateRiggedObject(std::string _char_path);
     void ASDetachItem(int which);
-    void HandleMaterialEventDefault(std::string the_event, vec3 event_pos);
+    void HandleMovementObjectMaterialEventDefault(std::string the_event, vec3 event_pos);
     void ForceSoundGroupVoice(std::string path, float delay);
     int GetWaypointTarget();
     void Reset() override;

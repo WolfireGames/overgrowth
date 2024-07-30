@@ -192,7 +192,7 @@ void EnvObject::UpdateParentHierarchy() {
     }
 }
 
-void EnvObject::HandleMaterialEvent(const std::string& the_event, const vec3& event_pos) {
+void EnvObject::HandleMaterialEvent(const std::string& the_event, const vec3& event_pos, int* tri) {
     MaterialRef material = ofr_material;
     material->HandleEvent(the_event, event_pos);
 }
@@ -1421,12 +1421,12 @@ const Model* EnvObject::GetModel() const {
     return &Models::Instance()->GetModel(model_id_);
 }
 
-const MaterialDecal& EnvObject::GetMaterialDecal(const std::string& type, const vec3& pos) {
+const MaterialDecal& EnvObject::GetMaterialDecal(const std::string& type, const vec3& pos, int* tri) {
     MaterialRef material = ofr_material;
     return material->GetDecal(type);
 }
 
-const MaterialParticle& EnvObject::GetMaterialParticle(const std::string& type, const vec3& pos) {
+const MaterialParticle& EnvObject::GetMaterialParticle(const std::string& type, const vec3& pos, int* tri) {
     MaterialRef material = ofr_material;
     return material->GetParticle(type);
 }

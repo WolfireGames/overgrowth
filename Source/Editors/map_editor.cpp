@@ -1778,15 +1778,15 @@ void MapEditor::HandleShortcuts(const LineSegment& mouseray) {
                     for (auto& i : selected) {
                         if (active_tool_ == EditorTypes::CONNECT) {
                             Object* obj = i;
-                            // if(obj->ConnectTo(*hit_obj)){
-                            //     something_happened = true;
-                            // }
+                            if (obj->ConnectTo(*hit_obj)) {
+                                something_happened = true;
+                            }
                         } else if (active_tool_ == EditorTypes::DISCONNECT) {
                             Object* obj = i;
                             Object* hit_obj = c.hit_what;
-                            // if(obj->Disconnect(*hit_obj)){
-                            // something_happened = true;
-                            // }
+                            if (obj->Disconnect(*hit_obj)) {
+                                something_happened = true;
+                            }
                         }
                     }
                     if (something_happened) {

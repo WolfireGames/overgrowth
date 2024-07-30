@@ -656,12 +656,12 @@ void RiggedObject::ClientBeforeDraw() {
     }
 }
 
-void RiggedObject::Draw(const mat4& proj_view_matrix, Object::DrawType type) {
+void RiggedObject::DrawRiggedObject(const mat4& proj_view_matrix, Object::DrawType type) {
     if (g_debug_runtime_disable_rigged_object_draw) {
         return;
     }
 
-    PROFILER_GPU_ZONE(g_profiler_ctx, "RiggedObject::Draw()");
+    PROFILER_GPU_ZONE(g_profiler_ctx, "RiggedObject::DrawRiggedObject()");
     if (type == Object::kFullDraw) {
         last_draw_time = game_timer.game_time;
     }
@@ -3916,7 +3916,7 @@ void DefineRiggedObjectTypePublic(ASContext* ctx) {
     ctx->RegisterObjectMethod("RiggedObject", "void SetFrameMatrix(int which, const BoneTransform &in transform)", asFUNCTION(ASSetFrameMatrix), asCALL_CDECL_OBJFIRST);
     ctx->RegisterObjectMethod("RiggedObject", "float GetCharScale()", asMETHOD(RiggedObject, GetCharScale), asCALL_THISCALL);
     ctx->RegisterObjectMethod("RiggedObject", "float GetRelativeCharScale()", asMETHOD(RiggedObject, GetRelativeCharScale), asCALL_THISCALL);
-    ctx->RegisterObjectMethod("RiggedObject", "void Draw()", asMETHOD(RiggedObject, Draw), asCALL_THISCALL);
+    ctx->RegisterObjectMethod("RiggedObject", "void Draw()", asMETHOD(RiggedObject, DrawRiggedObject), asCALL_THISCALL);
     ctx->RegisterObjectMethod("RiggedObject", "void CutPlane(const vec3 &in normal, const vec3 &in position, const vec3 &in direction, int type, int depth)", asMETHOD(RiggedObject, CutPlane), asCALL_THISCALL);
     ctx->RegisterObjectMethod("RiggedObject", "void Stab(const vec3 &in position, const vec3 &in direction, int type, int depth)", asMETHOD(RiggedObject, Stab), asCALL_THISCALL);
     ctx->RegisterObjectMethod("RiggedObject", "void SetRagdollStrength(float)", asMETHOD(RiggedObject, SetRagdollStrength), asCALL_THISCALL);
@@ -4639,7 +4639,7 @@ void RiggedObject::ClearBoneConstraints() {
     scenegraph_->bullet_world_->ClearBoneConstraints();
 }
 
-void RiggedObject::ApplyPalette(const OGPalette& _palette) {
+void RiggedObject::ApplyPalette(const OGPalette& _palette, bool from_socket) {
     unsigned num_iters = min(palette_colors.size(), _palette.size());
     for (unsigned i = 0; i < num_iters; ++i) {
         palette_colors_srgb[_palette[i].channel] = _palette[i].color;

@@ -56,7 +56,17 @@
 #include <Threading/sdl_wrapper.h>
 #include <Online/online.h>
 
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-virtual"
+#endif
+
 #include <btBulletDynamicsCommon.h>
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
 //-----------------------------------------------------------------------------
 // Functions
 //-----------------------------------------------------------------------------
@@ -160,7 +170,7 @@ void ItemObject::SetAngularVelocity(vec3 vel) {
     bullet_object_->SetAngularVelocity(vel);
 }
 
-void ItemObject::HandleMaterialEvent(const std::string& the_event, const vec3& normal, const vec3& event_pos, float gain, float pitch_shift) {
+void ItemObject::HandleItemObjectMaterialEvent(const std::string& the_event, const vec3& normal, const vec3& event_pos, float gain, float pitch_shift) {
     const MaterialEvent* me = scenegraph_->GetMaterialEvent(the_event, event_pos, item_ref_->GetSoundModifier(), this);
     if (me && !me->soundgroup.empty()) {
         float dist = distance(event_pos, ActiveCameras::Get()->GetPos());
@@ -917,13 +927,13 @@ void ItemObject::PlayImpactSound(const vec3& pos, const vec3& normal, float impu
 
     switch (weight_class) {
         case kLightWeight:
-            HandleMaterialEvent("weapon_drop_light", normal, pos, impulse);
+            HandleItemObjectMaterialEvent("weapon_drop_light", normal, pos, impulse);
             break;
         case kMediumWeight:
-            HandleMaterialEvent("weapon_drop_medium", normal, pos, impulse);
+            HandleItemObjectMaterialEvent("weapon_drop_medium", normal, pos, impulse);
             break;
         case kHeavyWeight:
-            HandleMaterialEvent("weapon_drop_heavy", normal, pos, impulse);
+            HandleItemObjectMaterialEvent("weapon_drop_heavy", normal, pos, impulse);
             break;
     }
     {  // Notify nearby characters
@@ -1047,11 +1057,11 @@ bool ItemObject::ConnectTo(Object& other, bool checking_other /*= false*/) {
     }
 }
 
-bool ItemObject::Disconnect(Object& other, bool checking_other /*= false*/) {
+bool ItemObject::Disconnect(Object& other, bool from_socket /*= false*/, bool checking_other /*= false*/) {
     if (other.GetType() == _movement_object) {
-        return other.Disconnect(*this, true);
+        return other.Disconnect(*this, from_socket, true);
     } else {
-        return Object::Disconnect(other, checking_other);
+        return Object::Disconnect(other, from_socket, checking_other);
     }
 }
 

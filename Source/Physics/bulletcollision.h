@@ -24,7 +24,16 @@
 
 #include <Math/vec3.h>
 
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-virtual"
+#endif
+
 #include <btBulletDynamicsCommon.h>
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
 
 #include <map>
 #include <vector>

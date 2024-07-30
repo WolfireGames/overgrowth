@@ -311,7 +311,7 @@ class RiggedObject : public Object {
     void Update(float timestep) override;
 
     // Drawing
-    void Draw(const mat4 &proj_view_matrix, DrawType type);
+    void DrawRiggedObject(const mat4 &proj_view_matrix, DrawType type);
     void ClientBeforeDraw();
     void GetInterpolationWithLeftOver();
     void InterpolateBetweenNetworkBones();
@@ -331,7 +331,7 @@ class RiggedObject : public Object {
     void SetASContext(ASContext *_as_context);
 
     std::vector<vec3> *GetPaletteColors();
-    void ApplyPalette(const OGPalette &palette) override;
+    void ApplyPalette(const OGPalette &palette, bool from_socket = false) override;
     float GetStatusKeyValue(const std::string &label);
     void Ragdoll(const vec3 &velocity);
     void AddAnimation(std::string path, float weight);
