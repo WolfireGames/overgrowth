@@ -210,6 +210,8 @@ bool g_fear_always_afraid_on_sight;
 bool g_fear_never_afraid_on_sight;
 float g_fear_afraid_at_health_level;
 
+bool g_no_throwing_item;
+
 int shadow_id = -1;
 int lf_shadow_id = -1;
 int rf_shadow_id = -1;
@@ -7375,7 +7377,7 @@ void HandleAnimationCombatEvent(const string &in event, const vec3 &in world_pos
             }
 
             // Disarm
-            if((species != _dog && species != _cat && (!this_mo.controlled || RangedRandomFloat(0.0, 1.0) < game_difficulty * 0.75)) || startled) {
+            if((species != _dog && species != _cat && !g_cannot_be_disarmed && (!this_mo.controlled || RangedRandomFloat(0.0, 1.0) < game_difficulty * 0.75)) || startled) {
                 int weapon = weapon_slots[primary_weapon_slot];
 
                 if(weapon != -1) {
@@ -9501,7 +9503,7 @@ void MovingAttack(string &out attack_path_str, bool orig_mirrored, float attack_
     int primary_weapon_id = weapon_slots[primary_weapon_slot];
 
     if(primary_weapon_id != -1 && (ReadItemID(primary_weapon_id).GetLabel() == "sword" || ReadItemID(primary_weapon_id).GetLabel() == "rapier") && orig_mirrored == left_handed) {
-        attack_path_str = "Data/Attacks/smallswordslashright.xml";
+        attack_path_str = character_getter.GetAttackPath("moving_alt");
     } else if(attack_distance < (_close_attack_range + range_extender * 0.5f) * this_mo.rigged_object().GetCharScale()) {
         attack_path_str = character_getter.GetAttackPath("moving_close");
         AchievementEvent("attack_moving_close");
@@ -9533,7 +9535,7 @@ void GetAttackPath(string &in attack_str, string &out attack_path_str, bool orig
         attack_path_str = character_getter.GetAttackPath("low");
 
         if(primary_weapon_id != -1 && (ReadItemID(primary_weapon_id).GetLabel() == "sword" || ReadItemID(primary_weapon_id).GetLabel() == "rapier") && orig_mirrored == left_handed) {
-            attack_path_str = "Data/Attacks/smallswordslashright.xml";
+            attack_path_str = character_getter.GetAttackPath("moving_alt");
         }
 
         AchievementEvent("attack_low");
@@ -10628,7 +10630,7 @@ int GetAttackTarget(float range, uint16 flags) {
 }
 
 void HandleThrow() {
-    if(tethered == _TETHERED_FREE && WantsToThrowItem() && weapon_slots[primary_weapon_slot] != -1 && throw_knife_layer_id == -1 && (on_ground || flip_info.IsFlipping())) {
+    if(tethered == _TETHERED_FREE && WantsToThrowItem() && g_no_throwing_item == false && weapon_slots[primary_weapon_slot] != -1 && throw_knife_layer_id == -1 && (on_ground || flip_info.IsFlipping())) {
         int best_target = GetThrowTarget();
 
         if(best_target != -1) {
@@ -15699,6 +15701,9 @@ void SetParameters() {
 
     params.AddIntCheckbox("Stick To Nav Mesh", has_old_stick_to_nav_mesh_param);
     g_stick_to_nav_mesh = params.GetInt("Stick To Nav Mesh") != 0;
+
+    params.AddIntCheckbox("Cannot Throw Weapons", false);
+    g_no_throwing_item = params.GetInt("Cannot Throw Weapons") != 0;
 
     string team_str;
     character_getter.GetTeamString(team_str);

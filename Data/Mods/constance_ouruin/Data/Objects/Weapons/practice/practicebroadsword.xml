@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Weapons/practice/practice_broadsword.obj</Model>
+	<ColorMap>Data/Textures/Weapons/staff_basic_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Weapons/staff_basic_n.tga</NormalMap>
+	<SharpnessMap>Data/Textures/Weapons/staff_basic_s.tga</SharpnessMap>
+	<ShaderName>cubemapobjitem</ShaderName>
+</Object>

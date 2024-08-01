@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<item>
+    <type>weapon</type>
+    <appearance obj_path = "Data/Objects/Weapons/practice/practiceknife.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/r_dogweapongrip.anm"
+		  hands = "1"/>
+    <sheathe ik_attach = "hip"
+          anim = "Data/Animations/r_dogweaponsheathed.anm"/>
+    <physics mass = "0.3 kg"/>
+    <points>
+        <pommel x="0" y="-0.083" z="0"/>
+        <guard x="0" y="0.12" z="0"/>
+        <tip x="0" y="0.4" z="0"/>
+    </points>
+    <label>knife</label>
+    <anim_override idle = "Data/Animations/r_knifestancerear.xml"
+                   movement = "Data/Animations/r_movement_knife.xml"
+                   blockflinch = "Data/Animations/r_activeblockflinchknives.anm"/>
+    <attack_override moving = "Data/Attacks/practice/practiceknifeslash.xml"
+                     moving_close = "Data/Attacks/practice/practiceknifeslash.xml"
+                     stationary = "Data/Attacks/practice/practiceknifeslash.xml"
+                     stationary_close = "Data/Attacks/practice/practiceknifeslash.xml"/>
+    <range multiply = "0.8"/>
+</item>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<item>
+    <type>weapon</type>
+    <appearance obj_path = "Data/Objects/Weapons/practice/practicebroadsword.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/r_dogweapongrip.anm"
+		  hands = "2"/>
+    <sheathe ik_attach = "hip"
+          anim = "Data/Animations/r_dogweaponsheathed.anm"/>
+    <physics mass = "1.1 kg"/>
+    <points>
+        <pommel x="0" y="-0.18" z="0"/>
+        <guard x="0" y="0.15" z="0"/>
+        <tip x="0" y="0.85" z="0"/>
+    </points>
+    <label>big_sword</label>
+    <anim_blend idle = "Data/Animations/r_bigdogsword.xml"
+				movement = "Data/Animations/r_bigdogswordmove.xml"/>
+    <attack_override stationary = "Data/Attacks/practice/practicebroadswordoverhand.xml"
+                     moving = "Data/Attacks/practice/practicebroadswordside.xml"
+                     moving_close = "Data/Attacks/practice/practicebroadswordsideclose.xml"
+                     stationary_close = "Data/Attacks/practice/practicebroadswordsideclose.xml"/>
+    <anim_override idle = "Data/Animations/r_weaponidlestance.xml"
+                   movement = "Data/Animations/r_weaponmovestance.xml"
+                   medrightblock = "Data/Animations/r_dogswordparryright.anm"
+                   medleftblock = "Data/Animations/r_dogswordparryleft.anm"
+                   highrightblock = "Data/Animations/r_dogswordparryright.anm"
+                   highleftblock = "Data/Animations/r_dogswordparryleft.anm"
+                   blockflinch = "Data/Animations/r_dogswordflinch.anm"/>
+    <range extend = "0.4"/>
+</item>

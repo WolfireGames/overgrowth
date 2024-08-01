@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<attack>
+    <animations unblocked = "Data/Animations/r_smallswordslashleft.xml"
+                blocked = "Data/Animations/r_smallswordslashleftblocked.anm"/>
+    <flags height = "medium"
+           direction = "left"
+           swap_stance = "false"
+           swap_stance_blocked = "false"
+           mobile = "true"/>
+    <reaction>Data/Attacks/reaction_highleft.xml</reaction>
+    <impact_dir x="-0.5" y="-0.5" z="0.5"/>
+    <block_damage min="0.5" max="0.7"/>
+    <damage min="0.2" max="0.55"/>
+    <force val="7000"/>
+    <materialevent></materialevent>
+    <cut_plane type="light" x="-1.0" y="0.5" z="0.0"/>
+</attack>

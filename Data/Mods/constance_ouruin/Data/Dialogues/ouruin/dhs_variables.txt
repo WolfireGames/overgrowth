@@ -195,13 +195,15 @@ Define variable, its values and notes for each value.
 
 			Suffixes
 				_current: The amount Ghost has at this moment
-				_score: Saved high score
+				_score: Saved high score for current weapon
 				_streak: Value to show for broken streaks
 				_unarmed: Unarmed score
 				_shortsword: Shortsword score
 				_broadsword: Broadsword score
 				_staff: Staff score
 				_knife: Knife score
+		
+		ouruin_match_hits_taken
 
 		ouruin_match_mode
 			0: Non-combat
@@ -218,6 +220,7 @@ Define variable, its values and notes for each value.
 	ouruin_faas_state
 		0: Player is loading into Faas' Sanctuary from Explore (level1_explore.xml)
 		1: Player is loading into Faas' Sanctuary from Rat Den (ratden.xml)
+		2: Player is loading into Faas' Sanctuary from Zero's Courtyard (courtyard.xml)
 
 	ouruin_lvl2_state
 		0: Player is loading into Fractured Home from High Road (level1_b.xml)
