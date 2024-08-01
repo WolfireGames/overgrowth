@@ -53,7 +53,7 @@ class PlaceholderObject : public Object {
     uint64_t GetConnectToTypeFilterFlags();
     void SetConnectToTypeFilterFlags(uint64_t entity_type_flags);
     bool ConnectTo(Object& other, bool checking_other = false) override;
-    virtual bool Disconnect(Object& other, bool checking_other = false);
+    virtual bool Disconnect(Object& other, bool from_socket = false, bool checking_other = false) override;
     void GetConnectionIDs(std::vector<int>* cons) override;
 
     int GetConnectID();

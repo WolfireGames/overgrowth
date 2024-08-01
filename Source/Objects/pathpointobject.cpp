@@ -77,11 +77,11 @@ bool PathPointObject::AcceptConnectionsFrom(Object::ConnectionType type, Object&
     return type == kCTMovementObjects || type == kCTPathPoints;
 }
 
-bool PathPointObject::Disconnect(Object& other, bool checking_other) {
+bool PathPointObject::Disconnect(Object& other, bool from_socket, bool checking_other) {
     if (other.GetType() == _movement_object) {
-        return other.Disconnect(*this, true);
+        return other.Disconnect(*this, from_socket, true);
     } else if (other.GetType() == _hotspot_object) {
-        return Object::Disconnect(other, checking_other);
+        return Object::Disconnect(other, from_socket, checking_other);
     } else if (other.GetType() != _path_point_object) {
         return false;
     } else {
@@ -95,7 +95,7 @@ bool PathPointObject::Disconnect(Object& other, bool checking_other) {
                 connection_ids.erase(iter);
             }
             if (!checking_other) {
-                ppo->Disconnect(*this, true);
+                ppo->Disconnect(*this, from_socket, true);
             }
             return true;
         }

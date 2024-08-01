@@ -271,9 +271,9 @@ bool PlaceholderObject::AcceptConnectionsFrom(Object::ConnectionType type, Objec
     return connectable() && type == kCTMovementObjects;  // Not sure this is correct because I have no clue how placeholders work yet
 }
 
-bool PlaceholderObject::Disconnect(Object& other, bool checking_other) {
+bool PlaceholderObject::Disconnect(Object& other, bool from_socket, bool checking_other) {
     if (other.GetType() == _hotspot_object) {
-        return Object::Disconnect(other, checking_other);
+        return Object::Disconnect(other, from_socket, checking_other);
     }
     if (!connectable()) {
         return false;

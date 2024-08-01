@@ -33,8 +33,17 @@
 #include <Graphics/pxdebugdraw.h>
 #include <Math/enginemath.h>
 
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-virtual"
+#endif
+
 #include <BulletCollision/CollisionDispatch/btInternalEdgeUtility.h>
 #include <BulletCollision/CollisionShapes/btTriangleShape.h>
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
 
 btScalar ContactSlideCallback::addSingleResult(btManifoldPoint& cp, const btCollisionObjectWrapper* colObjWrap0, int partId0, int index0, const btCollisionObjectWrapper* colObj1Wrap, int partId1, int index1) {
     // LOG_ASSERT2(index0 >= 0, index0);

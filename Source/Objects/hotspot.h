@@ -94,7 +94,7 @@ class Hotspot : public Object {
     bool AcceptConnectionsFrom(ConnectionType type, Object& object) override;
     virtual bool AcceptConnectionsTo(Object& object);
     bool ConnectTo(Object& other, bool checking_other = false) override;
-    virtual bool Disconnect(Object& other, bool checking_other = false);
+    virtual bool Disconnect(Object& other, bool from_socket = false, bool checking_other = false) override;
 
     void ConnectedFrom(Object& other) override;
     void DisconnectedFrom(Object& other) override;

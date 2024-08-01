@@ -31,12 +31,32 @@
 #include <Graphics/graphics.h>
 
 #include <Internal/timer.h>
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-virtual"
+#endif
+
 #include <LinearMath/btTransformUtil.h>
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
 #include <Objects/object.h>
 #include <Logging/logdata.h>
 #include <Utility/assert.h>
 
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Woverloaded-virtual"
+#endif
+
 #include <btBulletDynamicsCommon.h>
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
 
 extern Timer game_timer;
 

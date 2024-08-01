@@ -596,7 +596,7 @@ bool Hotspot::ConnectTo(Object& other, bool checking_other /*= false*/) {
     return return_value;
 }
 
-bool Hotspot::Disconnect(Object& other, bool checking_other /* = false*/) {
+bool Hotspot::Disconnect(Object& other, bool from_socket /* = false*/, bool checking_other /* = false*/) {
     if (std::find(connected_to.begin(), connected_to.end(), other.GetID()) == connected_to.end())
         return false;
 

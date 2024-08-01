@@ -356,7 +356,7 @@ void MovementObject::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull
             }
 
             if (!occluded) {
-                rigged_object_->Draw(proj_view_matrix, RiggedObject::kDrawDepthOnly);
+                rigged_object_->DrawRiggedObject(proj_view_matrix, RiggedObject::kDrawDepthOnly);
             }
         }
     }
@@ -538,7 +538,7 @@ void MovementObject::Draw() {
             }
 
             if (!occluded) {
-                rigged_object_->Draw(cam->GetProjMatrix() * cam->GetViewMatrix(), RiggedObject::kFullDraw);
+                rigged_object_->DrawRiggedObject(cam->GetProjMatrix() * cam->GetViewMatrix(), RiggedObject::kFullDraw);
             }
         }
     }
@@ -1025,7 +1025,7 @@ void MovementObject::Update(float timestep) {
 
         if (incoming_material_sound_events.size() > 0) {
             MaterialSoundEvent* mse = static_cast<MaterialSoundEvent*>(incoming_material_sound_events.begin()->GetData());
-            HandleMaterialEvent(mse->event_name, mse->pos, mse->gain);
+            HandleMovementObjectMaterialEvent(mse->event_name, mse->pos, mse->gain);
             incoming_material_sound_events.pop_front();
         }
 
@@ -1281,7 +1281,7 @@ int MovementObject::QueryIntFunction(std::string func) {
     return val;
 }
 
-void MovementObject::HandleMaterialEvent(std::string the_event, vec3 event_pos, float gain) {
+void MovementObject::HandleMovementObjectMaterialEvent(std::string the_event, vec3 event_pos, float gain) {
     Online* online = Online::Instance();
 
     if (event_pos != event_pos) {
@@ -1343,8 +1343,8 @@ void MovementObject::HandleMaterialEvent(std::string the_event, vec3 event_pos, 
     }
 }
 
-void MovementObject::HandleMaterialEventDefault(std::string the_event, vec3 event_pos) {
-    HandleMaterialEvent(the_event, event_pos);
+void MovementObject::HandleMovementObjectMaterialEventDefault(std::string the_event, vec3 event_pos) {
+    HandleMovementObjectMaterialEvent(the_event, event_pos);
 }
 
 void MovementObject::MaterialParticleAtBone(std::string type, std::string bone_name) {
@@ -3984,8 +3984,8 @@ bool MovementObject::Initialize() {
     as_context->RegisterObjectMethod("MovementObject", "void SetCharAnimation(string char_anim, float transition_speed, int8 flags)", asMETHODPR(MovementObject, ASSetCharAnimation, (std::string, float, char), void), asCALL_THISCALL);
     as_context->RegisterObjectMethod("MovementObject", "void SetCharAnimation(string char_anim, float transition_speed)", asMETHODPR(MovementObject, ASSetCharAnimation, (std::string, float), void), asCALL_THISCALL);
     as_context->RegisterObjectMethod("MovementObject", "void SetCharAnimation(string char_anim)", asMETHODPR(MovementObject, ASSetCharAnimation, (std::string), void), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("MovementObject", "void MaterialEvent(string event, vec3 position)", asMETHOD(MovementObject, HandleMaterialEventDefault), asCALL_THISCALL);
-    as_context->RegisterObjectMethod("MovementObject", "void MaterialEvent(string event, vec3 position, float audio_gain)", asMETHOD(MovementObject, HandleMaterialEvent), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("MovementObject", "void MaterialEvent(string event, vec3 position)", asMETHOD(MovementObject, HandleMovementObjectMaterialEventDefault), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("MovementObject", "void MaterialEvent(string event, vec3 position, float audio_gain)", asMETHOD(MovementObject, HandleMovementObjectMaterialEvent), asCALL_THISCALL);
     as_context->RegisterObjectMethod("MovementObject", "void PlaySoundGroupAttached(string path, vec3 position)", asMETHOD(MovementObject, ASPlaySoundGroupAttached), asCALL_THISCALL);
     as_context->RegisterObjectMethod("MovementObject", "void PlaySoundAttached(string path, vec3 position)", asMETHOD(MovementObject, ASPlaySoundAttached), asCALL_THISCALL);
     as_context->RegisterObjectMethod("MovementObject", "void PlaySoundGroupVoice(string voice_key, float delay)", asMETHOD(MovementObject, PlaySoundGroupVoice), asCALL_THISCALL);

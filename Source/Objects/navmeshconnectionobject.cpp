@@ -80,9 +80,9 @@ bool NavmeshConnectionObject::AcceptConnectionsFrom(Object::ConnectionType type,
     return type == kCTNavmeshConnections;
 }
 
-bool NavmeshConnectionObject::Disconnect(Object& other, bool checking_other) {
+bool NavmeshConnectionObject::Disconnect(Object& other, bool from_socket, bool checking_other) {
     if (other.GetType() == _movement_object) {
-        return Object::Disconnect(other, checking_other);
+        return Object::Disconnect(other, from_socket, checking_other);
     } else if (other.GetType() != this->GetType()) {
         return false;
     } else {
@@ -101,7 +101,7 @@ bool NavmeshConnectionObject::Disconnect(Object& other, bool checking_other) {
             }
 
             if (!checking_other) {
-                ppo->Disconnect(*this, true);
+                ppo->Disconnect(*this, from_socket, true);
             }
             return true;
         }
