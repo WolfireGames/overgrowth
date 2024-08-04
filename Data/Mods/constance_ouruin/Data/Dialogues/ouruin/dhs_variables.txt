@@ -239,7 +239,13 @@ Define variable, its values and notes for each value.
 		1: Player is loading into Waterfront Escape as Donatas
 
 		ouruin_lvl3_checkpoint
-			0: Start
+			0: Agra Gate
+			1: Block Gate
+			2: Block Wall
+			3: Waterfront Nook
+			4: Boat
+			5: Hood Waterwall
+			6: Hood Alley
 
 		ouruin_lvl3_dockedship_found
 		ouruin_lvl3_dockedship_bashed
