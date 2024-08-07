@@ -74,6 +74,12 @@ class Attack : public AssetInfo {
     float block_damage[2];
     float damage[2];
     float force[2];
+
+    // Glimpse - Range Adjust
+    bool has_range_adjust;
+    float range_adjust[2];
+    // Glimpse - Range Adjust
+
     string materialevent;
     vec3 cut_plane;
     bool has_cut_plane;

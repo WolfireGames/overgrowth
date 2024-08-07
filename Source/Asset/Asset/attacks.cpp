@@ -62,6 +62,13 @@ void Attack::clear() {
     damage[1] = 0.0f;
     force[0] = 0.0f;
     force[1] = 0.0f;
+
+    // Glimpse - Range Adjust
+    has_range_adjust = false;
+    range_adjust[0] = 0.0f;
+    range_adjust[1] = 1.0f;
+    // Glimpse - Range Adjust
+
     unblockable = false;
     flesh_unblockable = false;
     mobile = false;
@@ -191,6 +198,13 @@ int Attack::Load(const string& path, uint32_t load_flags) {
             } else if (field_str == "force") {
                 GetRange(field, "val", "min", "max", force[0], force[1]);
             }
+            // Glimpse - Range Adjust
+            else if (field_str == "range_adjust") 
+            {
+                has_range_adjust = true;
+                GetRange(field, "val", "min", "max", range_adjust[0], range_adjust[1]);
+            }
+            // Glimpse - Range Adjust
         }
     } else {
         return kLoadErrorMissingFile;
