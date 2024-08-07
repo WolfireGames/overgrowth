@@ -7333,8 +7333,17 @@ void HandleAnimationCombatEvent(const string &in event, const vec3 &in world_pos
             range_extend += mix(1.0, 0.0, game_difficulty);
             range_extend *= mix(1.0, 0.0, game_difficulty);
         }
-
-        if(event == "attackblocked" || distance(this_mo.position, target_pos) < (_attack_range + range_extend) * this_mo.rigged_object().GetCharScale()) {
+		
+		//Glimpse - Range Adjust
+		float range_adjust = 0.0f;
+		
+		if(attack_getter.HasRangeAdjust())
+		{
+			range_adjust = attack_getter.GetRangeAdjust();
+		}
+		//Glimpse - Range Adjust
+																								//Glimpse - "+ range_adjust" added here.
+        if(event == "attackblocked" || distance(this_mo.position, target_pos) < (_attack_range + range_extend + range_adjust) * this_mo.rigged_object().GetCharScale()) {
             vec3 facing = this_mo.GetFacing();
             vec3 facing_right = vec3(-facing.z, facing.y, facing.x);
             vec3 dir = normalize(target_pos - this_mo.position);
@@ -7652,10 +7661,14 @@ bool IsLayerAttacking() {
     return last_knife_time <= time && last_knife_time >= time - 0.3f;
 }
 
-float GetAttackRange() {
-    if(on_ground) {
+float GetAttackRange() 
+{
+    if(on_ground) 
+	{
         return (_attack_range + range_extender) * range_multiplier * this_mo.rigged_object().GetCharScale() - _leg_sphere_size;
-    } else {
+    } 
+	else 
+	{
         return _attack_range * this_mo.rigged_object().GetCharScale() - _leg_sphere_size;
     }
 }
@@ -7671,6 +7684,7 @@ void UpdateGroundAttackControls(const Timestep &in ts) {
     }
 
     // DebugDrawWireSphere(this_mo.position, _attack_range + range_extender, vec3(1.0f), _delete_on_update);
+	
     const float range = GetAttackRange();
     int attack_id = -1;
     int throw_id = -1;
