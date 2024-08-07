@@ -64,7 +64,7 @@ void Attack::clear() {
     force[1] = 0.0f;
     has_range_adjust = false;
     range_adjust[0] = 0.0f;
-    range_adjust[1] = 1.0f;
+    range_adjust[1] = 0.0f;
     unblockable = false;
     flesh_unblockable = false;
     mobile = false;
