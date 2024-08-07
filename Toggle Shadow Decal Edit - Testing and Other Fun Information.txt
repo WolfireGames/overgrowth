@@ -1,0 +1,65 @@
+Changed Files:
+
+overgrowth-main\Source\Editors\entity_type.h
+overgrowth-main\Source\Editors\entity_type.cpp
+overgrowth-main\Source\Editors\map_editor.cpp
+overgrowth-main\Source\Editors\actors_editor.cpp
+
+overgrowth-main\Source\Asset\Asset\decalfile.h
+overgrowth-main\Source\Asset\Asset\decalfile.cpp
+
+overgrowth-main\Source\Objects\decalobjects.h
+overgrowth-main\Source\Objects\decalobjects.cpp
+
+overgrowth-main\Source\GUI\dimgui\dimgui.cpp
+overgrowth-main\Source\Main\scenegraph.cpp
+overgrowth-main\Source\Scripting\angelscript\asfuncs.cpp
+overgrowth-main\Source\Game\EntityDescription.cpp
+
+
+
+Functionality: 
+There is now a checkbox next to "Edit decals" in the editor ribbon named "Edit shadows".
+This new checkbox allow you to toggle the editing of shadow decals independently of all other decals.
+
+
+
+Implementation:
+(Apologies about my phrasing of things if it's incorrect.)
+
+DecalObjects can now have a "flag parameter" in their .xml file called "is_shadow". 
+Setting this flag to true, will result in that particular DecalObject returning a value of _shadow_decal_object when GetType() is called on that object (whereas DecalObjects that don't have that flag param *or* have it set to false will return _decal_object as they normally did).
+This allows the editing of those objects to be toggled independently of other DecalObjects when SetTypeEnabled is called.
+
+Throughout the rest of the code, I made sure that in instances where Objects of type _decal_object were treated differently, that all Objects of 
+type _shadow_decal_objects would get that same treatment.
+This ensures that Shadow Decals still behave and function exactly the same as they did before, and that the *only* change is that they can now be
+independently toggled.
+
+
+
+Reason For Existing:
+In my experience, Shadow decals can get/have gotten in the way of placing/re-arranging Other decals or vice versa depending on which pass was done
+first. This is especially prevalent in interior scenes like caves that have a lot of both types of decals.
+
+
+
+Testing:
+• Tested on a large variety of levels, both pre-existing and newly created.
+
+• Tested that Shadow decals can only be selected when their checkbox is on, that Other decals can be selected when their checkbox is on, that both
+  can be selected when both checkboxes are on and that neither can be selected when neither checkbox is on.
+
+• Tested that Shadow decals are all properly deselected when their checkbox is turned off, and the same for Other decals.
+
+• Tested that placing, re-arranging, deleting and pressing ctrl+z or ctrl+shift+z all work for Shadow decals.
+
+• Tested that loading into, saving and exiting a level that has these Shadow decals doesn't cause any problems.
+
+• Tested that the Color Picker works correctly and as expected for these Shadow decals.
+
+• Tested that ctrl+a and ctrl+shift+a works correctly for both Shadow and Other decals.
+
+
+
+Also quick note - The attatched map_editor.cpp also has the Media Mode Editor Stuff Disable code.
