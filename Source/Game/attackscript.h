@@ -49,12 +49,8 @@ class AttackScriptGetter {
     float GetSharpDamage();
     float GetDamage();
     float GetForce();
-
-    // Glimpse - Range Adjust
     bool HasRangeAdjust();
     float GetRangeAdjust();
-    // Glimpse - Range Adjust
-
     std::string GetPath();
     std::string GetSpecial();
     int GetUnblockable();
