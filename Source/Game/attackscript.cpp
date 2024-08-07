@@ -138,6 +138,16 @@ float AttackScriptGetter::GetForce() {
     return attack_ref_.valid() ? RangedRandomFloat(attack_ref_->force[0], attack_ref_->force[1]) : 0.0f;
 }
 
+// Glimpse - Range Adjust
+bool AttackScriptGetter::HasRangeAdjust() {
+    return attack_ref_.valid() ? attack_ref_->has_range_adjust : false;
+}
+
+float AttackScriptGetter::GetRangeAdjust() {
+    return attack_ref_.valid() ? RangedRandomFloat(attack_ref_->range_adjust[0], attack_ref_->range_adjust[1]) : 0.0f;
+}
+// Glimpse - Range Adjust
+
 std::string AttackScriptGetter::GetPath() {
     return path_;
 }
@@ -188,6 +198,12 @@ void AttachAttackScriptGetter(ASContext *as_context) {
     as_context->RegisterObjectMethod("AttackScriptGetter", "float GetSharpDamage()", asMETHOD(AttackScriptGetter, GetSharpDamage), asCALL_THISCALL);
     as_context->RegisterObjectMethod("AttackScriptGetter", "float GetDamage()", asMETHOD(AttackScriptGetter, GetDamage), asCALL_THISCALL);
     as_context->RegisterObjectMethod("AttackScriptGetter", "float GetForce()", asMETHOD(AttackScriptGetter, GetForce), asCALL_THISCALL);
+
+    // Glimpse - Range Adjust
+    as_context->RegisterObjectMethod("AttackScriptGetter", "bool HasRangeAdjust()", asMETHOD(AttackScriptGetter, HasRangeAdjust), asCALL_THISCALL);
+    as_context->RegisterObjectMethod("AttackScriptGetter", "float GetRangeAdjust()", asMETHOD(AttackScriptGetter, GetRangeAdjust), asCALL_THISCALL);
+    // Glimpse - Range Adjust
+
     as_context->RegisterObjectMethod("AttackScriptGetter", "int GetMirrored()", asMETHOD(AttackScriptGetter, GetMirrored), asCALL_THISCALL);
     as_context->RegisterObjectMethod("AttackScriptGetter", "int GetMobile()", asMETHOD(AttackScriptGetter, GetMobile), asCALL_THISCALL);
     as_context->DocsCloseBrace();
