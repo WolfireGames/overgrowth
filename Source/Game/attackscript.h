@@ -49,6 +49,8 @@ class AttackScriptGetter {
     float GetSharpDamage();
     float GetDamage();
     float GetForce();
+    bool HasRangeAdjust();
+    float GetRangeAdjust();
     std::string GetPath();
     std::string GetSpecial();
     int GetUnblockable();
