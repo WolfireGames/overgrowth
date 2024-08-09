@@ -353,7 +353,9 @@ void MapEditor::RibbonItemClicked(const std::string& item, bool param) {
         SetTypeEnabled(_prefab, param);
     } else if (item == "decaleditoractive") {
         SetTypeEnabled(_decal_object, param);
-    } else if (item == "hotspoteditoractive") {
+    } else if (item == "shadowdecaleditoractive") {
+        SetTypeEnabled(_shadow_decal_object, param);
+    }else if (item == "hotspoteditoractive") {
         gameplay_objects_enabled_ = param;
 
         SetTypeEnabled(_hotspot_object, param);
@@ -803,6 +805,7 @@ void MapEditor::Draw() {
                                                     ((type != _group && type != _prefab) || draw_group_and_prefab_boxes) &&
                                                     type != _env_object &&
                                                     type != _decal_object &&
+                                                    type != _shadow_decal_object &&
                                                     type != _light_probe_object &&
                                                     type != _dynamic_light_object &&
                                                     type != _navmesh_hint_object) ||

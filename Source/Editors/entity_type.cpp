@@ -41,6 +41,8 @@ const char* CStringFromEntityType(EntityType type) {
             return "_spawn_point";
         case _decal_object:
             return "_decal_object";
+        case _shadow_decal_object:
+            return "_shadow_decal_object";
         case _hotspot_object:
             return "_hotspot_object";
         case _group:

@@ -327,6 +327,9 @@ Object* CreateObjectFromDesc(const EntityDescription& desc) {
         case _decal_object:
             obj = new DecalObject();
             break;
+        case _shadow_decal_object:
+            obj = new DecalObject();
+            break;
         case _hotspot_object:
             obj = new Hotspot();
             break;
@@ -446,7 +449,7 @@ std::vector<Object*> ActorsEditor_AddEntitiesAtPosition(const Path& source, Scen
 
     std::vector<Object*> new_objects;
     for (const auto& i : desc_list) {
-        if (GetTypeFromDesc(i) == _decal_object) {
+        if (GetTypeFromDesc(i) == _decal_object || GetTypeFromDesc(i) == _shadow_decal_object) {
             // Check we are not exceeding max decal limit
             if ((scenegraph->decal_objects_.size() - scenegraph->dynamic_decals.size()) >= scenegraph->kMaxStaticDecals) {
                 DisplayError("Warning", "Static decal limit exceeded, cannot add new one!");
@@ -586,7 +589,7 @@ void ActorsEditor_AddEntitiesIntoPrefab(Object* obj, SceneGraph* scenegraph, con
 
     std::vector<Object*> new_objects;
     for (const auto& desc : desc_list) {
-        if (GetTypeFromDesc(desc) == _decal_object) {
+        if (GetTypeFromDesc(desc) == _decal_object || GetTypeFromDesc(desc) == _shadow_decal_object) {
             // Check we are not exceeding max decal limit
             if ((scenegraph->decal_objects_.size() - scenegraph->dynamic_decals.size()) >= scenegraph->kMaxStaticDecals) {
                 DisplayError("Warning", "Static decal limit exceeded, cannot add new one!");
@@ -793,7 +796,8 @@ TypeEnable::TypeEnable(const char* config_postfix) : unknown_types_enabled_(true
     SetFromConfig();
 }
 
-void TypeEnable::SetTypeEnabled(EntityType type, bool enabled) {
+void TypeEnable::SetTypeEnabled(EntityType type, bool enabled) 
+{
     type_enabled_[type] = enabled;
     WriteTypeString(type);
 }
@@ -820,6 +824,7 @@ void TypeEnable::SetFromConfig() {
     SetTypeEnabled(_movement_object, ReadTypeString(_movement_object));
     SetTypeEnabled(_spawn_point, ReadTypeString(_spawn_point));
     SetTypeEnabled(_decal_object, ReadTypeString(_decal_object));
+    SetTypeEnabled(_shadow_decal_object, ReadTypeString(_shadow_decal_object));
     SetTypeEnabled(_hotspot_object, ReadTypeString(_hotspot_object));
     SetTypeEnabled(_group, ReadTypeString(_group));
     SetTypeEnabled(_rigged_object, ReadTypeString(_rigged_object));
@@ -844,6 +849,7 @@ void TypeEnable::WriteToConfig() {
     WriteTypeString(_movement_object);
     WriteTypeString(_spawn_point);
     WriteTypeString(_decal_object);
+    WriteTypeString(_shadow_decal_object);
     WriteTypeString(_hotspot_object);
     WriteTypeString(_group);
     WriteTypeString(_rigged_object);
