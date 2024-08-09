@@ -1166,11 +1166,8 @@ void MapEditor::Update(GameCursor* cursor) {
                 }
             }
         }
-        if (!CheckForSelections(mouseray)) 
-        {
-            //Glimpse - Media Mode Keyboard Shortcuts Disable
-            if (!Graphics::Instance()->media_mode() && state_ == MapEditor::kIdle)
-            {
+        if (!CheckForSelections(mouseray)) {
+            if (!Graphics::Instance()->media_mode() && state_ == MapEditor::kIdle){
                 HandleShortcuts(mouseray);
             }
             UpdateTools(mouseray, cursor);
@@ -1925,9 +1922,7 @@ bool MapEditor::HandleScrollSelect(const vec3& start, const vec3& end) {
         scrolled = 1;
     }
     
-    //Glimpse - Media Mode Scroll Select Disable
-    if (scrolled == 0 || Graphics::Instance()->media_mode()) 
-    {
+    if (scrolled == 0 || Graphics::Instance()->media_mode()) {
         return false;
     }
 
@@ -2116,9 +2111,7 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
     const Keyboard& keyboard = Input::Instance()->getKeyboard();
     Mouse* mouse = &(Input::Instance()->getMouse());
 
-    if (!box_selector_.acting && state_ == MapEditor::kIdle) 
-    {
-        //Glimpse - Media Mode Start Box Select Disable
+    if (!box_selector_.acting && state_ == MapEditor::kIdle) {
         if (!Graphics::Instance()->media_mode() && mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) {
             // Start box select
             box_selector_.acting = true;
@@ -2134,19 +2127,15 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
             something_happened = true;
         }
     } 
-    else if (box_selector_.acting) 
-    {
-        //Glimpse - Media Mode Update Box Select Disable
-        if (!Graphics::Instance()->media_mode() && mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) 
-        {
+    else if (box_selector_.acting) {
+        if (!Graphics::Instance()->media_mode() && mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) {
             // Update box select
             Mouse* mouse = &(Input::Instance()->getMouse());
             box_selector_.points[1][0] = (float)mouse->pos_[0];
             box_selector_.points[1][1] = (float)(Graphics::Instance()->window_dims[1] - mouse->pos_[1]);
             something_happened = true;
         } 
-        else
-        {
+        else {
             // End box select
             const Keyboard& keyboard = Input::Instance()->getKeyboard();
             bool holding_shift = KeyCommand::CheckDown(keyboard, KeyCommand::kAddToSelection, KIMF_LEVEL_EDITOR_GENERAL);
@@ -2188,13 +2177,11 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
         }
     }
 
-    //Glimpse - Media Mode Deselect All Disable
     if (!Graphics::Instance()->media_mode() && KeyCommand::CheckPressed(keyboard, KeyCommand::kDeselectAll, KIMF_LEVEL_EDITOR_GENERAL)) {
         DeselectAll(scenegraph_);
         something_happened = true;
     }
 
-    //Glimpse - Media Mode Select Similar Disable
     if (!Graphics::Instance()->media_mode() && KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectSimilar, KIMF_LEVEL_EDITOR_GENERAL)) {
         std::vector<std::string> selected_string;
         for (auto obj : scenegraph_->objects_) {
@@ -2221,15 +2208,12 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
         something_happened = true;
     }
 
-    //Glimpse - Media Mode Select All Disable
     if (!Graphics::Instance()->media_mode() && KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectAll, KIMF_LEVEL_EDITOR_GENERAL)) {
         SelectAll();
         something_happened = true;
     }
-
     
     // handle double-click select
-    //Glimpse - Media Mode Shift + Select Disable
     if (!Graphics::Instance()->media_mode() && mouse->mouse_double_click_[Mouse::LEFT] && KeyCommand::CheckDown(keyboard, KeyCommand::kAddToSelection, KIMF_LEVEL_EDITOR_GENERAL)) 
     {
         Collision c = GetSelectableInLineSegment(scenegraph_, mouseray, type_enable_);
@@ -2243,9 +2227,7 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
         }
         something_happened = true;
     }
-    //Glimpse - Media Mode No Shift Select Disable
-    else if (!Graphics::Instance()->media_mode() && mouse->mouse_double_click_[Mouse::LEFT]) 
-    {
+    else if (!Graphics::Instance()->media_mode() && mouse->mouse_double_click_[Mouse::LEFT]) {
         DeselectAll(scenegraph_);
         Collision c = GetSelectableInLineSegment(scenegraph_, mouseray, type_enable_);
         if (c.hit) 
@@ -3523,7 +3505,6 @@ void MapEditor::UpdateTransformTool(SceneGraph* scenegraph, EditorTypes::Tool ty
     bool input_happened = false;
     bool transformation_happened = false;
 
-    //Glimpse - Media Mode Transform Tool Disable
     if (!Graphics::Instance()->media_mode() && (mouse->mouse_down_[Mouse::LEFT] || mouse->mouse_down_[Mouse::RIGHT]) && !mouse->mouse_double_click_[Mouse::LEFT]) {
         if (state_ == MapEditor::kIdle) {
             if (MouseWasClickedThisTimestep(mouse) && c.hit && c.hit_what && c.hit_what->Selected()) {
