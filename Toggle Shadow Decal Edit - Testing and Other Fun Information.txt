@@ -44,6 +44,12 @@ first. This is especially prevalent in interior scenes like caves that have a lo
 
 
 
+Bonus Attatched:
+A screenshot showing where the new checkbox is.
+Files of the round and square Shadow decals that have the "is_shadow" param and have it set to true.
+
+
+
 Testing:
 • Tested on a large variety of levels, both pre-existing and newly created.
 
@@ -59,7 +65,3 @@ Testing:
 • Tested that the Color Picker works correctly and as expected for these Shadow decals.
 
 • Tested that ctrl+a and ctrl+shift+a works correctly for both Shadow and Other decals.
-
-
-
-Also quick note - The attatched map_editor.cpp also has the Media Mode Editor Stuff Disable code.
