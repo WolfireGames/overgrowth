@@ -2126,21 +2126,18 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
             box_selector_.points[1][1] = box_selector_.points[0][1];
             something_happened = true;
         }
-    } 
-    else if (box_selector_.acting) {
+    } else if (box_selector_.acting) {
         if (!Graphics::Instance()->media_mode() && mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) {
             // Update box select
             Mouse* mouse = &(Input::Instance()->getMouse());
             box_selector_.points[1][0] = (float)mouse->pos_[0];
             box_selector_.points[1][1] = (float)(Graphics::Instance()->window_dims[1] - mouse->pos_[1]);
             something_happened = true;
-        } 
-        else {
+        } else {
             // End box select
             const Keyboard& keyboard = Input::Instance()->getKeyboard();
             bool holding_shift = KeyCommand::CheckDown(keyboard, KeyCommand::kAddToSelection, KIMF_LEVEL_EDITOR_GENERAL);
-            if (!holding_shift) 
-            {
+            if (!holding_shift) {
                 DeselectAll(scenegraph_);
             }
             // Make the selections
@@ -2217,17 +2214,14 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
     if (!Graphics::Instance()->media_mode() && mouse->mouse_double_click_[Mouse::LEFT] && KeyCommand::CheckDown(keyboard, KeyCommand::kAddToSelection, KIMF_LEVEL_EDITOR_GENERAL)) 
     {
         Collision c = GetSelectableInLineSegment(scenegraph_, mouseray, type_enable_);
-        if (c.hit) 
-        {
+        if (c.hit) {
             c.hit_what->Select(!c.hit_what->Selected());
-            if (c.hit_what->Selected()) 
-            {
+            if (c.hit_what->Selected()) {
                 DrawObjInfo(c.hit_what);
             }
         }
         something_happened = true;
-    }
-    else if (!Graphics::Instance()->media_mode() && mouse->mouse_double_click_[Mouse::LEFT]) {
+    } else if (!Graphics::Instance()->media_mode() && mouse->mouse_double_click_[Mouse::LEFT]) {
         DeselectAll(scenegraph_);
         Collision c = GetSelectableInLineSegment(scenegraph_, mouseray, type_enable_);
         if (c.hit) 
