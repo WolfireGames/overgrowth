@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<attack>
+    <animations unblocked = "Data/Animations/r_spearsweep.anm"
+                blocked = "Data/Animations/r_spearsweepblocked.anm"/>
+    <flags height = "low"
+           direction = "right"
+           swap_stance = "false"
+           swap_stance_blocked = "false"
+           mobile = "true"
+		   flesh_unblockable = "true"/>
+    <reaction>Data/Attacks/reaction_lowright.xml</reaction>
+    <impact_dir x="1.0" y="0.0" z="0.0"/>
+    <block_damage min="0.3" max="0.8"/>
+    <damage min="0.2" max="0.6"/>
+    <sharp_damage min="0.15" max="0.3"/>
+    <force val="8000"/>
+	<range_adjust val="-100"/>
+    <materialevent></materialevent>
+    <cut_plane type="light" x="0.1" y="0.9" z="0.4"/>
+</attack>

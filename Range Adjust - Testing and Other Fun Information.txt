@@ -44,6 +44,13 @@ Example of what the new .xml param-thing looks like:
 
 
 
+Bonus Attatched:
+Some attack .xml files that have the range_adjust param. It's somewhat hard to tell the difference with the roundhouse.xmls, but with the spear attack .xmls (which all set the
+total range to some negative number) it's easy to tell that they're working as using a spear to fight someone else with a spear will result in both of your attacks 
+constantly missing. 
+
+
+
 Testing:
 • Tested on a large variety of attacks, including weapon attacks and on all 5 species.
 
