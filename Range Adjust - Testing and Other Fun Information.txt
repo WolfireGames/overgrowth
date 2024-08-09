@@ -39,9 +39,15 @@ It's also just a pretty cool thing for modders generally speaking, both for givi
 
 
 
+Example of what the new .xml param-thing looks like:
+<range_adjust val="-0.5"/>
+
+
+
 Testing:
 • Tested on a large variety of attacks, including weapon attacks and on all 5 species.
 
 • Tested with having an absurdly high range_adjust value, and an absurdly low range_adjust value. 
   (Note: Having an absurdly low range-adjust value (i.e. one that makes the total range have a negative value) will cause the attack to always miss. This is because 
-  distance cannot be negative, so the distance between some guy and their opponent will always be more than the attack range value.)
+  distance cannot be negative, so the distance between some guy and their opponent will always be more than the attack range value. It should also be noted that these attacks,
+  like any that's not in range, can't be blocked.)
