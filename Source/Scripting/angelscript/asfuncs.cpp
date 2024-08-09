@@ -2380,6 +2380,9 @@ void ASSetTranslation(Object* obj, const vec3& vec) {
         case _decal_object:
             ((DecalObject*)obj)->SetTranslation(vec);
             break;
+        case _shadow_decal_object:
+            ((DecalObject*)obj)->SetTranslation(vec);
+            break;
         case _movement_object:
             ((MovementObject*)obj)->SetTranslation(vec);
             break;
@@ -2451,6 +2454,9 @@ void ASSetScale(Object* obj, const vec3& vec) {
         case _decal_object:
             ((DecalObject*)obj)->SetScale(vec);
             break;
+        case _shadow_decal_object:
+            ((DecalObject*)obj)->SetScale(vec);
+            break;
         case _movement_object:
             ((MovementObject*)obj)->SetScale(vec);
             break;
@@ -2471,6 +2477,9 @@ void ASSetRotation(Object* obj, const quaternion& quat) {
             ((EnvObject*)obj)->UpdatePhysicsTransform();
             break;
         case _decal_object:
+            ((DecalObject*)obj)->SetRotation(quat);
+            break;
+        case _shadow_decal_object:
             ((DecalObject*)obj)->SetRotation(quat);
             break;
         case _movement_object:
@@ -2624,6 +2633,9 @@ vec3 GetTint(Object* obj) {
             return ((EnvObject*)obj)->GetColorTint();
             break;
         case _decal_object:
+            return ((DecalObject*)obj)->color_tint_component_.tint_;
+            break;
+        case _shadow_decal_object:
             return ((DecalObject*)obj)->color_tint_component_.tint_;
             break;
         case _dynamic_light_object:
@@ -2825,6 +2837,7 @@ void AttachObject(ASContext* context) {
     context->RegisterEnumValue("EntityType", "_movement_object", _movement_object);
     context->RegisterEnumValue("EntityType", "_spawn_point", _spawn_point);
     context->RegisterEnumValue("EntityType", "_decal_object", _decal_object);
+    context->RegisterEnumValue("EntityType", "_shadow_decal_object", _shadow_decal_object);
     context->RegisterEnumValue("EntityType", "_hotspot_object", _hotspot_object);
     context->RegisterEnumValue("EntityType", "_group", _group);
     context->RegisterEnumValue("EntityType", "_rigged_object", _rigged_object);
