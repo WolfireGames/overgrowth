@@ -54,8 +54,10 @@ class FontRenderer {
     }
     void GetKerning(int face_id, char character_a, char character_b, FT_Vector* vec);
     FontRenderer();
-    FontRenderer(const FontRenderer& other);
+    FontRenderer(const FontRenderer& other) = delete;
     ~FontRenderer();
+
+    FontRenderer& operator=(const FontRenderer& other) = delete;
 
    private:
     FontRendererImpl* impl_;

@@ -221,10 +221,6 @@ FontRenderer::FontRenderer() {
     impl_ = new FontRendererImpl();
 }
 
-FontRenderer::FontRenderer(const FontRenderer &other) {
-    *impl_ = *other.impl_;
-}
-
 FontRenderer::~FontRenderer() {
     delete impl_;
 }
