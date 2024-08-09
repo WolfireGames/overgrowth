@@ -66,6 +66,19 @@ int DecalFile::Load(const std::string& path, uint32_t load_flags) {
         return kLoadErrorMissingSubFile;
     }
 
+    is_shadow = false;
+
+    TiXmlHandle hDoc(&doc);
+    TiXmlElement* flags = hDoc.FirstChildElement("DecalObject").FirstChildElement("flags").Element();
+    if (flags) {
+        const char* tf;
+        tf = flags->Attribute("is_shadow");
+
+        if (tf && (strcmp(tf, "true") == 0)) {
+            is_shadow = true;
+        }
+    }
+
     float val;
     if (XmlHelper::getNodeValue(doc, "DecalObject/SpecialType", val)) {
         special_type = (int)(val + 0.5f);

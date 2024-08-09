@@ -1,0 +1,9 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<DecalObject>
+    <ColorMap>Data/Textures/diffuse.tga</ColorMap>
+    <NormalMap>Data/Textures/diffusebump.tga</NormalMap>
+    <ShaderName>decal</ShaderName>
+    <SpecialType>13</SpecialType>
+	<flags is_shadow = "true"/>
+</DecalObject>

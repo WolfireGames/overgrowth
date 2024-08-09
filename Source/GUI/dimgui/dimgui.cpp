@@ -327,6 +327,9 @@ static vec4 GetObjColor(Object* obj) {
         case _decal_object:
             color = vec4(0.8f, 1.0f, 0.8f, 1.0f);
             break;
+        case _shadow_decal_object:
+            color = vec4(0.8f, 1.0f, 0.8f, 1.0f);
+            break;
         default:
             color = vec4(0.9f, 0.9f, 0.9f, 1.0f);
             break;
@@ -523,6 +526,10 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
                     color = ((DecalObject*)selected[i])->color_tint_component_.tint_;
                     overbright = ((DecalObject*)selected[i])->color_tint_component_.overbright_;
                     break;
+                } else if (selected[i]->GetType() == _shadow_decal_object) {
+                    color = ((DecalObject*)selected[i])->color_tint_component_.tint_;
+                    overbright = ((DecalObject*)selected[i])->color_tint_component_.overbright_;
+                    break;
                 } else if (selected[i]->GetType() == _dynamic_light_object) {
                     color = ((DynamicLightObject*)selected[i])->GetTint();
                     overbright = ((DynamicLightObject*)selected[i])->GetOverbright();
@@ -547,6 +554,11 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
                         io->ReceiveObjectMessage(OBJECT_MSG::SET_OVERBRIGHT, &overbright);
                     }
                     if (obj->GetType() == _decal_object) {
+                        DecalObject* decalo = (DecalObject*)obj;
+                        decalo->ReceiveObjectMessage(OBJECT_MSG::SET_COLOR, &color);
+                        decalo->ReceiveObjectMessage(OBJECT_MSG::SET_OVERBRIGHT, &overbright);
+                    }
+                    if (obj->GetType() == _shadow_decal_object) {
                         DecalObject* decalo = (DecalObject*)obj;
                         decalo->ReceiveObjectMessage(OBJECT_MSG::SET_COLOR, &color);
                         decalo->ReceiveObjectMessage(OBJECT_MSG::SET_OVERBRIGHT, &overbright);
@@ -2175,7 +2187,8 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     SetBit(ribbon_toggle, RibbonGUI::view_nav_mesh_jump_nodes, type_enable_.IsTypeEnabled( _navmesh_connection_object ));
                 }
                 */
-                if (ImGui::BeginMenu("File")) {
+                if (ImGui::BeginMenu("File")) 
+                {
                     if (ImGui::MenuItem("New Level", KeyCommand::GetDisplayText(KeyCommand::kNewLevel))) {
                         Engine::NewLevel();
                     }
@@ -2206,7 +2219,8 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::EndMenu();
                 }
 
-                if (ImGui::BeginMenu("Edit")) {
+                if (ImGui::BeginMenu("Edit")) 
+                {
                     if (ImGui::MenuItem("Undo", KeyCommand::GetDisplayText(KeyCommand::kUndo), false, !me->GetTerrainPreviewMode())) {
                         me->Undo();
                     }
@@ -2290,7 +2304,9 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                             scenegraph->level->SetPCScript(scriptName);
                         }
                     }
-                    if (ImGui::BeginMenu("Player control script")) {
+
+                    if (ImGui::BeginMenu("Player control script")) 
+                    {
                         std::string pc_script = scenegraph->level->GetPCScript(NULL);
                         if (pc_script == Level::DEFAULT_PLAYER_SCRIPT) {
                             ImGui::Text("%s (default)", pc_script.c_str());
@@ -2330,7 +2346,9 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         }
                         ImGui::EndMenu();
                     }
-                    if (ImGui::BeginMenu("Enemy control script")) {
+
+                    if (ImGui::BeginMenu("Enemy control script")) 
+                    {
                         std::string npc_script = scenegraph->level->GetNPCScript(NULL);
                         if (npc_script == Level::DEFAULT_ENEMY_SCRIPT) {
                             ImGui::Text("%s (default)", npc_script.c_str());
@@ -2370,14 +2388,20 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         }
                         ImGui::EndMenu();
                     }
+
                     ImGui::Separator();
                     bool temp = me->IsTypeEnabled(_env_object);
                     if (ImGui::Checkbox("Edit static meshes", &temp)) {
                         me->RibbonItemClicked("objecteditoractive", temp);
                     }
                     temp = me->IsTypeEnabled(_decal_object);
-                    if (ImGui::Checkbox("Edit decals", &temp)) {
+                    if (ImGui::Checkbox("Edit decals             ", &temp)) {
                         me->RibbonItemClicked("decaleditoractive", temp);
+                    }
+                    ImGui::SameLine();
+                    temp = me->IsTypeEnabled(_shadow_decal_object);
+                    if (ImGui::Checkbox("Edit shadows", &temp)) {
+                        me->RibbonItemClicked("shadowdecaleditoractive", temp);
                     }
                     temp = me->IsTypeEnabled(_hotspot_object);
                     if (ImGui::Checkbox("Edit gameplay objects", &temp)) {
@@ -2387,6 +2411,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     if (ImGui::Checkbox("Edit lighting", &temp)) {
                         me->RibbonItemClicked("lighteditoractive", temp);
                     }
+
                     ImGui::Separator();
                     if (ImGui::MenuItem("Play level", "8")) {
                         me->RibbonItemClicked("sendinrabbot", true);

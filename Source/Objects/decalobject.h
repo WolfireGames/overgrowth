@@ -38,7 +38,8 @@ class DecalEditor;
 
 class DecalObject : public Object {
    public:
-    EntityType GetType() const override { return _decal_object; }
+
+    EntityType GetType() const override;
     DecalObject();
     bool Initialize() override;
     void Dispose() override;
@@ -48,7 +49,6 @@ class DecalObject : public Object {
     void GetDesc(EntityDescription& desc) const override;
     void Load(const std::string& type_file);
     void ReceiveObjectMessageVAList(OBJECT_MSG::Type type, va_list args) override;
-
     void PreDrawFrame(float curr_game_time) override;
     ColorTintComponent color_tint_component_;
     float spawn_time_;
