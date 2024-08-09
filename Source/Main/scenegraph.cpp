@@ -332,6 +332,9 @@ void SceneGraph::LinkObject(Object* new_object) {
         case _decal_object:
             decal_objects_.push_back(new_object);
             break;
+        case _shadow_decal_object:
+            decal_objects_.push_back(new_object);
+            break;
         case _hotspot_object:
             hotspots_.push_back((Hotspot*)(new_object));
             hotspots_modified_ = true;
@@ -724,6 +727,7 @@ void SceneGraph::Draw(SceneGraph::SceneDrawType scene_draw_type) {
             const EntityType& obj_type = obj.GetType();
             switch (obj_type) {
                 case _decal_object:
+                case _shadow_decal_object:
                 case _env_object:
                 case _hotspot_object:
                 case _group:
@@ -1711,7 +1715,7 @@ void SceneGraph::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_pla
         if (scene_draw_type == kStaticAndDynamic) {
             for (auto& it : visible_objects_copy) {
                 Object& obj = *it;
-                if (obj.enabled_ && obj.GetType() != _decal_object && obj.GetType() != _env_object) {
+                if (obj.enabled_ && obj.GetType() != _decal_object && obj.GetType() != _shadow_decal_object && obj.GetType() != _env_object) {
                     obj.DrawDepthMap(proj_view_matrix, cull_planes, num_cull_planes, object_draw_type);
                 }
             }
