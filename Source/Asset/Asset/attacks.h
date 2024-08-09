@@ -75,7 +75,7 @@ class Attack : public AssetInfo {
     float damage[2];
     float force[2];
     bool has_range_adjust;
-    float range_adjust[2];
+    float range_adjust;
     string materialevent;
     vec3 cut_plane;
     bool has_cut_plane;
