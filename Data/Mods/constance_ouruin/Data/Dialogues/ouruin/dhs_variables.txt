@@ -268,7 +268,6 @@ Define variable, its values and notes for each value.
 		ouruin_lvl3_patri
 			0: Not found
 			1: Talked to
-			2: Freed
 		
 		ouruin_lvl3_adal
 			0: Not found

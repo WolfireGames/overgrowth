@@ -1,0 +1,116 @@
+#name "Guards-Medium"
+#participants 9
+send_character_message 8 "set_animation \"Data/Animations/oren_idle.anm\""
+send_character_message 8 "set_head_target 180.867 -47.267 101.252 1"
+send_character_message 7 "set_head_target 181.279 -46.9186 100.776 1"
+send_character_message 6 "set_head_target 181.352 -46.9304 100.708 1"
+send_character_message 5 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 5 "set_head_target 181.375 -46.9214 100.924 1"
+send_character_message 4 "set_animation \"Animations/r_spearstance_lag.anm\""
+send_character_message 4 "set_head_target 181.417 -46.9983 100.896 1"
+send_character_message 3 "set_head_target 181.458 -46.9643 100.884 1"
+send_character_message 2 "set_torso_target 181.291 -47.3105 101.643 0"
+send_character_message 8 "set_eye_dir 181.339 -47.3231 102.105 1"
+send_character_message 7 "set_eye_dir 181.339 -46.9053 100.679 1"
+send_character_message 6 "set_eye_dir 181.506 -46.8913 100.625 1"
+send_character_message 5 "set_eye_dir 181.384 -46.9678 100.604 1"
+send_character_message 4 "set_eye_dir 181.474 -46.9188 100.627 1"
+send_character_message 3 "set_eye_dir 181.378 -46.9529 100.707 1"
+send_character_message 7 "set_animation \"Animations/r_bigswordarmstance.anm\""
+send_character_message 6 "set_animation \"Animations/r_bigswordarmstance.anm\""
+send_character_message 3 "set_animation \"Animations/r_bigswordarmstance.anm\""
+send_character_message 2 "set_animation \"Data/Animations/swordrelaxnew.anm\""
+send_character_message 2 "set_eye_dir 181.549 -46.8471 102.801 1"
+send_character_message 2 "set_head_target 181.431 -47.2544 102.768 1"
+send_character_message 1 "set_eye_dir 233.191 -48.0038 105.881 1"
+send_character_message 1 "set_torso_target 243.86 -47.6751 107.001 0"
+send_character_message 1 "set_head_target 233.909 -47.9965 106.602 0.00365105"
+set_character_pos 8 180.099 -48.0124 99.9916 -77
+set_character_pos 7 178.77 -48.2464 103.255 28
+set_character_pos 6 184.143 -48.2355 103.282 144
+set_character_pos 5 179.979 -48.2506 104.649 77
+set_character_pos 4 182.888 -48.2088 104.647 102
+set_character_pos 3 181.438 -48.2586 103.976 90
+set_character_pos 2 181.389 -47.9008 101.081 -89
+set_character_pos 1 235.827 -48.2215 106.328 -180
+send_character_message 1 "set_animation \"Data/Animations/ghost_limpenter.anm\""
+set_cam 235.9 -47.7941 104.759 0 139.68 0 27.1022
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 9 0 0.52 0.95
+set_dialogue_voice 9 8
+set_dialogue_color 2 1 1 1
+set_dialogue_color 7 1.000 0.77 0.11
+set_dialogue_color 4 0.5 0.5 0.5
+set_character_pos 1 234.991 -48.2215 106.328 -180
+send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 2.0 1.5"
+say 9 "Ghost" "(...[wait 0.2]Here I am again... [wait 0.15]Moritz block.)"
+send_character_message 1 "set_head_target 233.909 -47.9965 106.602 0.980464"
+say 9 "Ghost" "(I need to look around for some way to escape... [wait 0.2]There's gotta be something.)"
+send_character_message 1 "set_torso_target 233.897 -48.0544 106.192 1"
+send_character_message 1 "set_head_target 233.336 -47.6628 105.969 1"
+say 2 "???" "All units, [wait 0.1]stand to attention!"
+send_character_message 1 "set_torso_target 233.92 -47.9508 106.189 1"
+send_character_message 1 "set_head_target 233.174 -47.4515 105.96 1"
+set_cam 236.971 -47.4005 106.737 0 82.93 0 13.2143
+send_level_message "set_camera_dof 0.6 5.0 2.0 0.5 62.0 8.5"
+say 2 "???" "The target has escaped the previous squad. [wait 0.15]It's very likely he's been chased into this corner of the district, [wait 0.1]looking for a way out."
+send_character_message 2 "set_head_target 180.427 -47.1211 103.069 1"
+set_cam 186.394 -47.7204 108.728 0 40.66 0 37.9847
+send_character_message 2 "set_animation \"Data/Animations/swordrelaxnew_hip.anm\""
+send_level_message "set_camera_dof 0.0 5.0 10.0 1.0 8.0 5.5"
+say 2 "???" "The Black Hand is dangerous, [wait 0.1]and has escaped every attempt at capture. [wait 0.2]Tread lightly and do not hold back."
+send_character_message 2 "set_head_target 182.571 -47.304 104.231 1"
+say 2 "???" "The Black Hand is highly capable, [wait 0.1]and must not be underestimated. [wait 0.15]Where several failed, you are the only ones trusted to succeed."
+send_character_message 2 "set_torso_target 181.197 -47.291 101.697 1"
+send_character_message 2 "set_head_target 179.406 -47.2805 102.699 1"
+send_character_message 2 "set_animation \"Data/Animations/swordrelaxnew.anm\""
+say 2 "???" "The chancellors believe he can withstand severe punishment, [wait 0.1]so we believe he can withstand mortal wounding. [wait 0.2]Give him everything you've got, [wait 0.1]and bring him back alive."
+send_character_message 7 "set_head_target 181.522 -46.6842 100.889 1"
+set_cam 177.996 -47.2646 104.478 0 -39.52 0 24.7348
+send_character_message 2 "set_animation \"Data/Animations/swordrelaxnew_hand.anm\""
+send_character_message 2 "set_torso_target 181.197 -47.291 101.697 0.0176589"
+send_character_message 2 "set_head_target 182.276 -47.2246 103.459 1"
+say 2 "???" "Any civilians you find, [wait 0.1]you shackle them and keep them secure! [wait 0.15]Focus on finding the Black Hand: [wait 0.2]He is your top priority!"
+send_character_message 7 "set_head_target 180.816 -47.3427 101.198 1"
+send_character_message 8 "set_head_target 180.936 -47.2373 101.028 1"
+send_character_message 2 "set_torso_target 181.177 -46.6693 102.166 1"
+send_character_message 2 "set_animation \"Data/Animations/ 102.985 1"
+say 2 "???" "All of you, [wait 0.1]spread out. [wait 0.2]Cover the area. [wait 0.2]Check in with the rest of your squad consistently: [wait 0.15]Don't get picked off!"
+send_character_message 2 "set_torso_target 181.177 -46.6693 102.166 0"
+send_character_message 2 "set_animation \"Data/Animations/swordrelaxnew_command.anm\""
+send_character_message 7 "set_torso_target 179.718 -47.5417 102.324 1"
+send_character_message 6 "set_torso_target 183.027 -47.7541 102.642 1"
+send_character_message 5 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 8 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 8 "set_head_target 180.866 -47.2493 101.055 1"
+send_character_message 7 "set_head_target 180.816 -47.3426 101.198 1"
+send_character_message 4 "set_torso_target 182.546 -47.38 103.476 1"
+send_character_message 6 "set_head_target 180.927 -46.8347 100.637 1"
+send_character_message 5 "set_head_target 181.879 -47.202 100.557 1"
+send_character_message 4 "set_head_target 181.463 -46.5702 101.392 1"
+send_character_message 3 "set_head_target 181.404 -47.1459 100.876 1"
+send_character_message 2 "set_head_target 183.072 -47.1083 104.047 1"
+set_cam 186.527 -44.855 108.581 -23.33 39.05 -2.97 72.7528
+send_character_message 7 "set_animation \"Animations/r_bigdogswordarmstance.anm\""
+send_character_message 6 "set_animation \"Animations/r_bigdogswordarmstance.anm\""
+say 2 "???" "You know where you need to be, [wait 0.1]so get to it! [wait 0.2]Stay alert!"
+send_character_message 8 "set_eye_dir 180.329 -47.2638 100.874 0"
+send_character_message 5 "set_animation \"Animations/cinderbreathesalute.anm\""
+send_character_message 8 "set_animation \"Animations/cinderbreathesalute.anm\""
+send_character_message 5 "set_head_target 181.655 -47.1687 100.918 1"
+send_character_message 6 "set_head_target 181.085 -46.7374 100.502 1"
+send_character_message 8 "set_head_target 180.827 -46.7355 102.352 1"
+send_character_message 7 "set_head_target 180.871 -46.9067 101.089 1"
+send_character_message 4 "set_head_target 181.743 -46.9853 101.413 1"
+send_character_message 4 "set_torso_target 182.485 -48.4828 103.605 1"
+send_character_message 2 "set_animation \"Animations/r_bigswordarmstance.anm\""
+say 7 "Guards" "Hail!"
+set_character_pos 8 -8.52914 -54.7294 139.734 0
+set_character_pos 7 33.2776 -52.0009 68.1573 0
+set_character_pos 6 66.6387 -53.3281 95.5711 0
+set_character_pos 5 161.192 -31.4601 61.8493 0
+set_character_pos 4 198.279 -33.539 28.5532 0
+set_character_pos 3 188.73 -31.4222 55.5763 0
+set_character_pos 2 181.722 -48.1918 106.632 0
+send_level_message "dialogue_done"

@@ -1,0 +1,39 @@
+#name "Rally-Low"
+#participants 9
+set_character_pos 8 180.099 -48.0124 99.9916 -77
+set_character_pos 7 178.77 -48.2464 103.255 28
+set_character_pos 6 184.143 -48.2355 103.282 144
+set_character_pos 5 179.979 -48.2506 104.649 77
+set_character_pos 4 182.888 -48.2088 104.647 102
+set_character_pos 3 181.438 -48.2586 103.976 90
+set_character_pos 2 181.389 -47.9008 101.081 -89
+send_character_message 2 "set_animation \"Animations/swordrelax2.anm\""
+send_character_message 2 "set_eye_dir 182.687 -47.7924 106.403 1"
+send_character_message 2 "set_head_target 181.431 -47.2544 102.768 1"
+send_character_message 1 "set_eye_dir 233.191 -48.0038 105.881 1"
+send_character_message 1 "set_torso_target 243.86 -47.6751 107.001 0"
+send_character_message 1 "set_head_target 233.909 -47.9965 106.602 0.00365105"
+set_character_pos 1 235.827 -48.2215 106.328 -180
+set_cam 235.9 -47.7941 104.759 0 139.61 0 27.1022
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 0 0 0.52 0.95
+set_dialogue_voice 0 8
+set_dialogue_color 4 0.5 0.5 0.5
+set_character_pos 1 234.991 -48.2215 106.328 -180
+send_character_message 1 "set_animation \"Data/Animations/ghost_limpenter.anm\""
+say 0 "Ghost" "(...[wait 0.2]Here I am again... [wait 0.15]Moritz block.)"
+send_character_message 1 "set_head_target 233.909 -47.9965 106.602 0.980464"
+say 0 "Ghost" "(I need to look around for some way to escape... [wait 0.2]There's gotta be something.)"
+send_character_message 1 "set_torso_target 233.897 -48.0544 106.193 1"
+send_character_message 1 "set_head_target 233.336 -47.6621 105.969 1"
+say 2 "???" "All units, [wait 0.1]stand to attention!"
+say 2 "???" "The target has escaped the previous squad. [wait 0.15]It's very likely he's been chased into this corner of the district, [wait 0.1]looking for a way out."
+say 2 "???" "Don't bother trying to make an arrest: [wait 0.2]We're long past that, [wait 0.1]now. [wait 0.15]He is a fugitive, [wait 0.1]and will do whatever he can to beat us back."
+say 2 "???" "The Black Hand is highly capable, [wait 0.1]and must not be underestimated. [wait 0.15]Where several failed, you are the only ones trusted to succeed."
+say 2 "???" "The chancellors believe he can withstand severe punishment, [wait 0.1]so we believe he can withstand mortal wounding. [wait 0.2]Give him everything you've got, [wait 0.1]and bring him back alive."
+say 2 "???" "Any civilians you find, [wait 0.1]you shackle them and keep them secure! [wait 0.15]Focus on finding the Black Hand: [wait 0.2]He is your top priority!"
+say 2 "???" "All of you, [wait 0.1]spread out. [wait 0.2]Cover the area. [wait 0.2]Check in with the rest of your squad consistently: [wait 0.15]Don't get picked off!"
+say 2 "???" "You know where you need to be, [wait 0.1]so get to it! [wait 0.2]Stay alert!"
+say 0 "Guards" "Hail!"
+send_level_message "dialogue_done"

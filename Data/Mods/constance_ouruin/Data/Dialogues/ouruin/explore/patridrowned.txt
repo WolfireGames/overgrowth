@@ -20,7 +20,7 @@ say 2 "Patri" "Well, [wait 0.1]at least it's a lot easier pickin' on the surface
 send_character_message 2 "set_eye_dir 38.349 -50.4694 -57.5339 0.915863"
 send_character_message 2 "set_head_target 38.1244 -51.2455 -57.8432 1"
 send_character_message 2 "set_morph_target smile 0.8 0.5 outExpo"
-say 2 "Patri" "Out here, [wait 0.1]you really get to stretch your legs. Tunneldwellers like the rest of the Lotus folks wouldn't get it!"
+say 2 "Patri" "Out here, [wait 0.1]you really get to stretch your legs. [wait 0.15]Tunneldwellers like the rest of the Lotus folks wouldn't get it!"
 send_character_message 2 "set_eye_dir 38.4535 -51.662 -55.612 1"
 send_character_message 2 "set_head_target 38.0343 -52.3458 -58.0894 1"
 send_character_message 2 "set_animation \"Data/Animations/patri_hand.anm\""

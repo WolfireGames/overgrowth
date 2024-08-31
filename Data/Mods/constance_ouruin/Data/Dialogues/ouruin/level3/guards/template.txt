@@ -1,0 +1,396 @@
+#name "LowLethal-NoDetect"
+#participants 15
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 0 0 0.52 0.95
+set_dialogue_voice 0 8
+set_dialogue_color 4 0.5 0.5 0.5
+
+say 0 "Ghost" "(...[wait 0.2]Here I am again... [wait 0.15]Moritz block.)"
+
+say 0 "Ghost" "(I need to look around for some way to escape... [wait 0.2]There's gotta be something.)"
+
+say 2 "???" "All units, [wait 0.1]stand to attention!"
+
+say 2 "???" "The target has escaped the previous squad. [wait 0.15]It's very likely he's been chased into this corner of the district, [wait 0.1]looking for a way out."
+
+- **Low Lethality**
+
+say 2 "???" "Don't bother trying to make an arrest: [wait 0.2]We're long past that, [wait 0.1]now. [wait 0.15]He is a fugitive, [wait 0.1]and will do whatever he can to beat us back."
+
+- **Medium Lethality**
+
+say 2 "???" "The Black Hand is dangerous, [wait 0.1]and has escaped every attempt at capture. [wait 0.2]Tread lightly and do not hold back."
+
+- **High Lethality**
+
+say 2 "???" "The Black Hand has made short work of the weaker squads. [wait 0.2]They are highly trained, [wait 0.1]and will not hesitate to kill."
+
+- **Full Lethality**
+
+say 2 "???" "The Black Hand is extremely dangerous, [wait 0.1]and has killed every single person who has stood in his way. [wait 0.2]Utmost caution is necessary."
+
+
+say 2 "???" "The Black Hand is highly capable, [wait 0.1]and must not be underestimated. [wait 0.15]Where several failed, you are the only ones trusted to succeed."
+
+say 2 "???" "The chancellors believe he can withstand severe punishment, [wait 0.1]so we believe he can withstand mortal wounding. [wait 0.2]Give him everything you've got, [wait 0.1]and bring him back alive."
+
+say 2 "???" "Any civilians you find, [wait 0.1]you shackle them and keep them secure! [wait 0.15]Focus on finding the Black Hand: [wait 0.2]He is your top priority!"
+
+say 2 "???" "All of you, [wait 0.1]spread out. [wait 0.2]Cover the area. [wait 0.2]Check in with the rest of your squad consistently: [wait 0.15]Don't get picked off!"
+
+say 2 "???" "You know where you need to be, [wait 0.1]so get to it! [wait 0.2]Stay alert!"
+
+say 0 "Guards" "Hail!"
+
+say 1 "Ghost" "(This can't be the only squad in Moritz... [wait 0.2]There's more in the hood, [wait 0.1]for certain.)"
+
+say 1 "Ghost" "(...[wait 0.2]Damn, [wait 0.1]there's two coming over...)"
+
+say 3 "????" "This 'Black Hand' guy... [wait 0.2]Isn't he that Edsel, [wait 0.1]from the Empry?"
+
+say 4 "?????" "Yeah, [wait 0.1]but he stepped down. [wait 0.2]His son's next in line... [wait 0.2]He's who we're looking for."
+
+say 3 "????" "Oh, [wait 0.1]thank Priya... [wait 0.2]I wasn't anywhere near ready to fight Edsel himself. [wait 0.2]You've heard those stories, [wait 0.1]right?"
+
+say 4 "?????" "I wouldn't be so relieved..."
+
+- *If Ghost was never spotted*
+- **With no eliminations**
+
+say 4 "?????" "Nobody's been able to find him. [wait 0.2]He's probably not even in this city, [wait 0.1]anymore."
+
+say 4 "?????" "A prince like him... [wait 0.2]I bet he's halfway to Javerstat."
+
+say 3 "????" "So... [wait 0.2]We're chasing a ghost?"
+
+say 4 "?????" "Yup... [wait 0.2]That must be why they call him that."
+
+say 3 "????" "You're telling me I have to wade through sewage all night!? [wait 0.2]Damn..."
+
+say 4 "?????" "And we'll have to search deep. [wait 0.2]Chancellors are throwing a fit... [wait 0.2]They really, [wait 0.1]really want us to freeze out here."
+
+say 3 "????" "I'm already sick of the smell."
+
+say 4 "?????" "Alright, [wait 0.1]I've got to go. [wait 0.2]Officer's gonna get on my case if I don't."
+
+say 3 "????" "Look out for civilians... [wait 0.2]At least we'll get something out of this, [wait 0.1]right?"
+
+- **Low lethal**
+
+say 3 "????" "He's only hurt a few people, [wait 0.1]right...[wait 0.1]?"
+
+say 4 "?????" "None of them knew he was coming... [wait 0.2]The only ones who saw him ended up with concussions."
+
+say 3 "????" "Better than a knife to the neck."
+
+say 4 "?????" "Still... [wait 0.2]You see him, [wait 0.1]you know he'll get you next. [wait 0.2]And he won't go easy."
+
+say 3 "????" "...[wait 0.2]Better hope I don't see him, [wait 0.1]then."
+
+say 4 "?????" "I mean, [wait 0.1]hey; [wait 0.2]If you catch him, [wait 0.1]there's a huge reward for it. [wait 0.2]Empry really wants this kid in his cage."
+
+say 3 "????" "Oh, [wait 0.1]yeah. [wait 0.2]Honorary shoe-in to living in the Empry... [wait 0.2]Must be pretty damn sweet."
+
+say 4 "?????" "Just gotta hope he's not all he's cracked up to be!"
+
+say 4 "?????" "I'll leave you be... [wait 0.2]Holler if you find anything."
+
+- **Medium lethal**
+
+say 3 "????" "Yeah, [wait 0.1]you're right... [wait 0.2]Just gotta hope I can get away in time."
+
+say 4 "?????" "Try to make some noise before he slits your throat. [wait 0.2]Thrash about, [wait 0.1]yell, [wait 0.1]that kind of thing."
+
+say 3 "????" "Ugh. [wait 0.2]Blow off, [wait 0.1]already."
+
+say 4 "?????" "Might be hard, [wait 0.1]though: [wait 0.2]I hear he's real quick and precise about it. [wait 0.2]By the time we find someone's been hurt, [wait 0.1]he's long gone."
+
+say 3 "????" "Well, [wait 0.1]if you find my corpse in a ditch, [wait 0.1]I wouldn't be so sure. [wait 0.2]He'll probably be lurking in the shadows, [wait 0.1]sneaking from behind..."
+
+say 4 "?????" "Gotta keep an ear out. [wait 0.2]That reward bounty won't claim itself."
+
+say 3 "????" "Why don't you keep your ear somewhere else? [wait 0.2]My officer doesn't like us getting chatty."
+
+say 4 "?????" "Yeah, [wait 0.1]yeah..."
+
+- **High lethal**
+
+say 4 "?????" "The only guards to have met him didn't know what was happening until it was too late. [wait 0.2]He's not the type to leave witnesses."
+
+say 3 "????" "Damn... [wait 0.2]That's why he's called Ghost, [wait 0.1]huh?"
+
+say 4 "?????" "That's what I'm guessing... [wait 0.2]So if you see him, [wait 0.1]just know it'll be quick."
+
+say 3 "????" "And he's headed here? [wait 0.2]...[wait 0.1]Great."
+
+say 4 "?????" "Keep your eye out, [wait 0.1]and be careful. [wait 0.2]This is serious."
+
+say 3 "????" "Yeah... [wait 0.2]Hope your sword's at the ready."
+
+- **Full lethal**
+
+say 4 "?????" "Nobody's seen him, [wait 0.1]but he leaves every single street we patrol through covered in blood."
+
+say 4 "?????" "He's thorough about it... [wait 0.2]Makes sure there isn't a single one left. [wait 0.2]Never any struggle, [wait 0.1]or even a sound."
+
+say 3 "????" "...[wait 0.2]T-[wait 0.1]That can't be true. [wait 0.2]You're just messing with me."
+
+say 4 "?????" "I wish I was."
+
+say 3 "????" "You think he's really here, [wait 0.15]in Moritz...?"
+
+say 4 "?????" "I guess we'll know the answer some time tonight."
+
+say 3 "????" "[wait 0.2]Oh, [wait 0.2]hell..."
+
+say 4 "?????" "Stay safe, [wait 0.1]and keep your sword at the ready. [wait 0.15]I hope I see you alive by the end of this."
+
+say 3 "????" "I hope I get to go home."
+
+- **Maximum violence**
+
+say 4 "?????" "This guy's ripped apart every street he goes through. [wait 0.2]He doesn't just kill people... [wait 0.15]He leaves them mangled. [wait 0.15]Tears them to shreds like toys."
+
+say 3 "????" "Wh—[wait 0.1]... [wait 0.2]Are you..."
+
+say 4 "?????" "I saw what he did to one squad. [wait 0.2]It was just the aftermath... [wait 0.2]I can't get it out of my mind!"
+
+say 3 "????" "And he's done that to every squad...[wait 0.1]?"
+
+say 4 "?????" "There's no struggle. [wait 0.2]No fight. [wait 0.2]Just a group of people before, [wait 0.2]and a pile of corpses after."
+
+say 4 "?????" "He's not just a ghost... [wait 0.2]He's a god damned phantom."
+
+say 3 "????" "Okay, [wait 0.1]you're... [wait 0.15]Really starting to freak me out, [wait 0.1]now."
+
+say 4 "?????" "..."
+
+say 4 "?????" "[wait 0.2]I'll just go."
+
+say 3 "????" "Stay safe..."
+
+- *If Ghost was below medium detection*
+- **With no eliminations**
+
+say 4 "?????" "He's a slippery bastard. [wait 0.2]The few times someone's seen him, [wait 0.1]he's always weaseled his way out."
+
+say 3 "????" "So we'll just have to chase him around, [wait 0.1]huh...[wait 0.1]? [wait 0.15]Great."
+
+say 4 "?????" "Good luck catching 'em... [wait 0.2]But if you do, [wait 0.1]there's a big reward in tow."
+
+say 3 "????" "A trip to the Empry is about the only thing that could make running in circles out here worth it."
+
+say 4 "?????" "What's a prince like him doing in these gutters, [wait 0.1]anyways?"
+
+say 3 "????" "Beats me. [wait 0.2]I don't have the clearance, [wait 0.1]and if I did, [wait 0.1]I wouldn't be blabbing about it."
+
+say 4 "?????" "Speaking of blabbing... [wait 0.2]I'll be out patrolling."
+
+say 3 "????" "Keep an eye out!"
+
+- **Low lethal**
+
+say 4 "?????" "He's messed people up. [wait 0.2]Concussions, [wait 0.1]and I think a broken bone or two. [wait 0.2]He's relentless."
+
+say 3 "????" "This is the last place I want to nurse a broken bone..."
+
+say 4 "?????" "The damn freezing rain won't do your unconscious body much good, [wait 0.1]either!"
+
+say 3 "????" "For someone of his skillset, [wait 0.1]I was expecting a lot more dead..."
+
+say 4 "?????" "The last Black Hand, [wait 0.1]Edsel, [wait 0.1]was weird about killing. [wait 0.15]Not sure what his deal was."
+
+say 3 "????" "Like, [wait 0.1]what, [wait 0.1]was he a pacifist or something? [wait 0.2]I've only ever heard the bloody stories."
+
+say 4 "?????" "Something about refusing to do unnecessary harm... [wait 0.2]Not sure, [wait 0.1]though. [wait 0.2]Not like there's much time for reading these days."
+
+say 3 "????" "Ain't that the truth... [wait 0.2]Anyways, [wait 0.1]I should quit wasting time myself. [wait 0.2]Catch you later."
+
+- **Medium lethal**
+
+say 4 "?????" "He's slippery, [wait 0.1]and tough. [wait 0.2]If you cross his path, [wait 0.1]he won't go easy... [wait 0.15]Nobody's caught him for a reason."
+
+say 3 "????" "Yeah, [wait 0.1]I guess so. [wait 0.2]I just hope he doesn't kill too many out here."
+
+say 4 "?????" "Yeah... [wait 0.2]He's probably on his way here, [wait 0.1]if he isn't already in the area. So be careful."
+
+say 3 "????" "Guess we just have to hope he's already out of the city then, [wait 0.1]huh?"
+
+say 4 "?????" "I mean, [wait 0.1]hey... [wait 0.2]That bounty on his head is pretty enticing."
+
+say 3 "????" "Not worth getting stabbed in the gut, [wait 0.1]if you ask me. [wait 0.2]Now, don't you have a patrol to get to?"
+
+say 4 "?????" "Yeah, [wait 0.1]yeah. [wait 0.2]You sound like my officer."
+
+- **High lethal**
+
+say 4 "?????" "He's killed a lot of people, [wait 0.1]and based on what happened to the last squads, [wait 0.1]he's making his way here now."
+
+say 3 "????" "Damn... [wait 0.2]Do you think he's already here?"
+
+say 4 "?????" "Maybe... [wait 0.2]If I see him, [wait 0.1]I'm not sure whether I should take him on, [wait 0.1]or run for the hills."
+
+say 3 "????" "Command wouldn't like the sound of that. [wait 0.15]Besides, [wait 0.1]what about the reward? [wait 0.2]Empry living must be pretty sweet!"
+
+say 4 "?????" "Yeah... [wait 0.2]I guess you're right. [wait 0.15]I don't have much say in the matter, [wait 0.1]anyways."
+
+say 3 "????" "Good luck... [wait 0.2]If what you say about him is true, [wait 0.1]you'll need it."
+
+say 4 "?????" "Yeah... [wait 0.2]Thanks."
+
+- **Full Lethal**
+
+say 4 "?????" "He's been ripping through every patrol we've got. [wait 0.2]From here to the northern distillery, [wait 0.1]there's a trail of blood..."
+
+say 4 "?????" "Nobody's been able to fight back. [wait 0.2]The few people lucky enough to see him don't live to tell the tale."
+
+say 3 "????" "[wait 0.1]D-[wait 0.15]Damn... [wait 0.2]That's..."
+
+say 4 "?????" "I can't help but feel like if I see him, [wait 0.1]I'll share the same fate as the others. [wait 0.2]He's a Black Hand, [wait 0.1]after all..."
+
+say 3 "????" "We'll just... [wait 0.2]Have to do our best, [wait 0.1]I guess. [wait 0.15]Shout for help if you see him."
+
+say 4 "?????" "I won't live to see the reward bounty... [wait 0.2]I don't even know if I'll see home ever again."
+
+say 3 "????" "L-[wait 0.15]Look... [wait 0.2]You're freaking me out, [wait 0.1]alright...?"
+
+say 3 "????" "Just... [wait 0.2]Go out for your patrol. [wait 0.2]Walking will clear your head, [wait 0.1]and... [wait 0.2]Stay safe, [wait 0.1]okay?"
+
+say 4 "?????" "Right... [wait 0.2]Yeah, [wait 0.1]sorry. [wait 0.2]I'll keep my eye out."
+
+- **Maximum Violence**
+
+say 4 "?????" "His son's an absolute demon. [wait 0.2]Tears people to shreds, [wait 0.1]usually before they can even react, [wait 0.1]and then... [wait 0.15]Toys with them."
+
+say 4 "?????" "Rips them apart... [wait 0.2]Breaks every bone in their body..."
+
+say 3 "????" "Come on, [wait 0.1]man... [wait 0.15]Quit messing with me."
+
+say 4 "?????" "I'm not kidding. [wait 0.2]Last patrols are all dead. [wait 0.15]I saw the aftermath of one... [wait 0.2]The gutters ran red."
+
+say 3 "????" "..."
+
+say 3 "????" "[wait 0.1]H-[wait 0.2]He's... [wait 0.2]Really in Moritz?"
+
+say 4 "?????" "I guess we'll find out soon enough."
+
+say 3 "????" "Priya save us..."
+
+say 4 "?????" "Seems like tonight, [wait 0.1]only Khyo is here."
+
+- *If Ghost was medium detection or more*
+- **With no eliminations**
+
+say 4 "?????" "Every time he got seen, [wait 0.1]he found a way out. [wait 0.2]He's a damn slippery bastard, [wait 0.1]and he knows these streets like the back of his paw."
+
+say 3 "????" "Oof... [wait 0.2]Not looking forwards to hopping through trash. [wait 0.2]This place is a serious dump."
+
+say 4 "?????" "And good luck catching him! [wait 0.2]All the other patrols were left in the dust!"
+
+say 3 "????" "But the one who catches him gets a big reward, [wait 0.1]right?"
+
+say 4 "?????" "Life in the Empry... [wait 0.2]But only to whoever can snatch the hoodlum before he runs."
+
+say 3 "????" "Like a game of tag... [wait 0.2]I was good at that, [wait 0.1]as a kit!"
+
+say 4 "?????" "Just watch your step; [wait 0.2]Visibility's awful, [wait 0.1]right now."
+
+- **Low lethal**
+
+say 4 "?????" "Bastard's tough. [wait 0.2]We've caught him plenty of times, [wait 0.1]but he either finds a way out, [wait 0.1]or makes one."
+
+say 4 "?????" "If he's really here in Moritz, [wait 0.1]I'm not sure we'll be able to stop him..."
+
+say 3 "????" "He must be tired by now... [wait 0.2]Plus, [wait 0.1]the other patrols weren't as well equipped as we are."
+
+say 3 "????" "This is the end of the line for him: [wait 0.2]I'll make sure of it!"
+
+say 4 "?????" "You sound motivated."
+
+say 3 "????" "Sooner or later, [wait 0.1]he'll slip up! [wait 0.2]That bounty's mine, [wait 0.1]mark my words...!"
+
+say 4 "?????" "Heheh. [wait 0.2]Have fun fighting the Black Hand."
+
+say 3 "????" "Good luck, [wait 0.1]and keep your ear perked."
+
+- **Medium lethal**
+
+say 4 "?????" "Every single patrol's thrown everything at him, [wait 0.1]and he's still on the run. [wait 0.2]Like a damned beast!"
+
+say 3 "????" "Well, [wait 0.1]surely he must be tired, [wait 0.1]now... [wait 0.15]He can't have that much fight left in 'im."
+
+say 4 "?????" "They say Edsel lasted for months in enemy territories with no contact or support. [wait 0.2]If his son's anything like that, [wait 0.1]then we're in for a long, [wait 0.1]difficult night."
+
+say 3 "????" "But hey, [wait 0.1]it might just lead to one of us earning a spot in the Empry. [wait 0.2]That's nice, [wait 0.15]right?"
+
+say 4 "?????" "I'd rather take my chances breaking rocks than going toe-to-toe with an assassin prodigy."
+
+say 3 "????" "...[wait 0.2]Y'know, [wait 0.1]I'll catch you later. [wait 0.2]I should get to patrolling."
+
+say 4 "?????" "Yeah, [wait 0.1]sure... [wait 0.2]Fine."
+
+- **High lethal**
+
+say 3 "????" "Yeah... [wait 0.2]You're right. [wait 0.15]Kid or not, [wait 0.1]he's no joke..."
+
+say 4 "?????" "You mean you heard what happened to the last patrols?"
+
+say 3 "????" "How could I not? [wait 0.2]He's unstoppable...[wait 0.1]!"
+
+say 4 "?????" "No wonder the Empry's put such a high price on his head... [wait 0.2]He really does take after his father."
+
+say 3 "????" "..."
+
+say 4 "?????" "What...[wait 0.1]? [wait 0.2]Is something wrong?"
+
+say 3 "????" "No, [wait 0.1]I just... [wait 0.2]It's nerves, [wait 0.1]really."
+
+say 4 "?????" "Yeah..."
+
+say 4 "?????" "...[wait 0.2]I'm scared, [wait 0.1]too."
+
+say 3 "????" "Come on, [wait 0.1]man... [wait 0.2]I gotta split up, [wait 0.1]don't mess with me like that."
+
+say 4 "?????" "Patrolling over by the gate? [wait 0.2]Best hope the street light stays lit..."
+
+say 3 "????" "I'm getting shivers just thinking about it..."
+
+- **Full lethal**
+
+say 3 "????" "Yeah... [wait 0.2]You're right. [wait 0.15]Tonight's gonna be bad..."
+
+say 4 "?????" "We just have to hope he's already made it out of the city. [wait 0.2]Let some other patrol handle him..."
+
+say 3 "????" "Knowing my luck, [wait 0.1]I'm probably going to have to clean up the aftermath."
+
+say 4 "?????" "Better than getting wiped up, [wait 0.1]yourself. [wait 0.2]Corpses being thrown into the water... [wait 0.15]Only Khyo can tend to them."
+
+say 3 "????" "Damn it, [wait 0.1]I started today with ambition... [wait 0.2]That price on his head was a trick, [wait 0.1]I swear."
+
+say 4 "?????" "I... [wait 0.15]I gotta go. [wait 0.2]We could be overheard."
+
+say 3 "????" "I hope I can see you again when this is all over."
+
+say 4 "?????" "..."
+
+- **Maximum Violence**
+
+say 4 "?????" "Edsel was a professional. [wait 0.2]He killed for his motherland... [wait 0.15]Ghost kills for the sake of it."
+
+say 3 "????" "What, [wait 0.1]is he a sadist or something?"
+
+say 4 "?????" "You mean you haven't heard? [wait 0.2]Priyat, [wait 0.1]you never listen..."
+
+say 3 "????" "H-[wait 0.2]Heard what? [wait 0.2]What does he do?"
+
+say 4 "?????" "The other squads were a mess. [wait 0.2]Hardened vets puking their guts out every time a body was discovered..."
+
+say 4 "?????" "He doesn't just kill people. [wait 0.2]He brutalizes them. [wait 0.2]Grounds them to a pulp... [wait 0.2]Until all that's left are chunks..."
+
+say 3 "????" "You're not joking... [wait 0.2]Oh, [wait 0.1]gods. [wait 0.2]This is bad."
+
+say 4 "?????" "Just... [wait 0.2]Keep your eyes open and your ears perked. [wait 0.15]As long as it's dark out like this, [wait 0.1]he could be anywhere..."
+
+say 3 "????" "Okay... [wait 0.2]Thanks for the heads up. [wait 0.15]Stay safe."
+send_level_message "dialogue_done"

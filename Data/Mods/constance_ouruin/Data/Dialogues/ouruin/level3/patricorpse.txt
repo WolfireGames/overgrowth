@@ -1,0 +1,29 @@
+#name "PatriCorpse"
+#participants 2
+send_character_message 1 "set_animation \"Animations/r_actionidlecrouch.anm\""
+send_character_message 1 "set_eye_dir 93.643 -58.5165 116.809 1"
+send_character_message 1 "set_head_target 93.699 -58.5756 116.814 1"
+set_cam 94.3336 -56.6175 115.082 -46.45 148.84 -0.86 64.1735
+set_character_pos 1 92.9278 -58.3655 116.345 -30
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.52 0.95
+set_dialogue_voice 2 8
+say 1 "Ghost" "Patri? [wait 0.2]Are you..."
+send_character_message 1 "set_eye_dir 93.6348 -58.5906 116.724 0.665801"
+send_character_message 1 "set_head_target 93.8567 -58.5885 117.026 1"
+send_character_message 1 "set_animation \"Animations/r_crouch_sad.anm\""
+say 1 "Ghost" "Oh... [wait 0.2]Oh no."
+set_cam 96.4097 -56.973 115.462 -27.15 112.64 8.07 32.3423
+say 2 "Ghost" "(...[wait 0.1]She's cold. [wait 0.15]No breath. [wait 0.2]She's dead... [wait 0.2]Must've been killed by the cinderians.)"
+send_character_message 1 "set_eye_dir 93.3763 -58.1095 115.657 0.665801"
+send_character_message 1 "set_head_target 93.8511 -58.5963 116.588 1"
+say 2 "Ghost" "(Damnit... [wait 0.2]I know her. [wait 0.15]She jumped on them the moment she had a chance. [wait 0.2]I bet she got cornered...)"
+send_character_message 1 "set_eye_dir 93.6958 -58.7429 116.614 0.665801"
+send_character_message 1 "set_head_target 93.8456 -58.4936 116.691 1"
+say 2 "Ghost" "(She didn't back down... [wait 0.2]And this is where it got her.)"
+send_character_message 1 "set_eye_dir 94.0564 -58.5634 116.928 0.665801"
+send_character_message 1 "set_head_target 93.9373 -58.6 116.931 1"
+send_character_message 1 "set_animation \"Animations/r_actionidlecrouch.anm\""
+say 2 "Ghost" "(Goodbye, [wait 0.15]Patri...)"
+send_level_message "dialogue_done"
