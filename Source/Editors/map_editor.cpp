@@ -362,7 +362,6 @@ void MapEditor::RibbonItemClicked(const std::string& item, bool param) {
         SetTypeEnabled(_item_object, param);
         SetTypeEnabled(_placeholder_object, param);
 
-        // Glimpse - Make "view Nav hints/Nav regions/Jump nodes" save state.
         if (!IsTypeEnabled(_hotspot_object)) {
             SetTypeEnabled(_navmesh_region_object, false);
             SetTypeEnabled(_navmesh_hint_object, false);
@@ -1666,7 +1665,6 @@ void MapEditor::HandleShortcuts(const LineSegment& mouseray) {
         }
     }
     // Handle switching editor type
-    // Glimpse - Fix ctrl+1/2/3 hotkeys.
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kToggleObjectEditing, KIMF_LEVEL_EDITOR_GENERAL)) {
         bool temp_env_objs_enabled = !IsTypeEnabled(_env_object);
         SetTypeEnabled(_env_object, temp_env_objs_enabled);
@@ -1681,13 +1679,14 @@ void MapEditor::HandleShortcuts(const LineSegment& mouseray) {
     }
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kToggleHotspotEditing, KIMF_LEVEL_EDITOR_GENERAL)) {
         bool temp_hotspots_enabled = !IsTypeEnabled(_hotspot_object);
+
+        gameplay_objects_enabled_ = temp_hotspots_enabled;
         SetTypeEnabled(_hotspot_object, temp_hotspots_enabled);
         SetTypeEnabled(_movement_object, temp_hotspots_enabled);
         SetTypeEnabled(_path_point_object, temp_hotspots_enabled);
         SetTypeEnabled(_item_object, temp_hotspots_enabled);
         SetTypeEnabled(_placeholder_object, temp_hotspots_enabled);
 
-        // Glimpse - Make "view Nav hints/Nav regions/Jump nodes" save state.
         if (!temp_hotspots_enabled) {
             SetTypeEnabled(_navmesh_region_object, false);
             SetTypeEnabled(_navmesh_hint_object, false);
@@ -2902,7 +2901,6 @@ void MapEditor::SetTypeEnabled(EntityType type, bool enabled) {
     }
 }
 
-// Glimpse - Make "view Nav hints/Nav regions/Jump nodes" save state.
 void MapEditor::SaveViewRibbonTypeEnabled(EntityType type, bool enabled) {
     switch (type) {
         case _navmesh_hint_object:
