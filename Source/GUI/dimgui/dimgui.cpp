@@ -2412,7 +2412,6 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
 
                     ImGui::BeginDisabled(!me->GameplayObjectsEnabled());
 
-                    // Glimpse - Make "view Nav hints/Nav regions/Jump nodes" save state.
                     temp = me->IsTypeEnabled(_navmesh_hint_object);
                     if (ImGui::Checkbox("Nav hints", &temp)) {
                         me->SetTypeEnabled(_navmesh_hint_object, temp);
