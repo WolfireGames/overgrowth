@@ -232,7 +232,7 @@ void MovementObject::Reload() {
     as_context->Reload();
 }
 
-const float kCullRadius = 2.0f;
+float kCullRadius = 2.0f;
 
 void MovementObject::ActualPreDraw(float curr_game_time) {
     bool dirty_attachment = false;
@@ -1402,11 +1402,24 @@ void MovementObject::CreateRiggedObject() {
     rigged_object_->char_id = GetID();
     palette.clear();
     rigged_object_->SetCharacterScriptGetter(character_script_getter);
+
     if (GetScriptParams()->HasParam("Character Scale")) {
         rigged_object_->SetCharScale(GetScriptParams()->ASGetFloat("Character Scale"));
+
+        float new_frust = GetScriptParams()->ASGetFloat("Character Scale") * 2;
+        if (new_frust <= 2.0f) {
+            kCullRadius = 2.0f;
+        } else if (new_frust >= 200.0f) {
+            kCullRadius = 200.0f;
+        } else {
+            kCullRadius = new_frust;
+        }
+
     } else {
+        kCullRadius = 2.0f;
         rigged_object_->SetCharScale(1.0f);
     }
+
     {
         PROFILER_ZONE(g_profiler_ctx, "rigged_object_->Load");
         rigged_object_->Load(character_path,
