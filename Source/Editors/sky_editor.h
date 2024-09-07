@@ -75,7 +75,7 @@ class SkyEditor {
 
     // Control and tool handlers
     EditorTypes::Tool OmniGetTool(float angle_from_sun, const LineSegment& mouseray);
-    bool HandleSelect(float angle_from_sun);  // returns true is something happened
+    bool HandleSelect(float angle_from_sun, bool stuff_in_the_way);  // returns true if something happened
     void HandleSunTranslate(float angle_from_sun);
     void HandleSunScale(float angle_from_sun);
     void HandleSunRotate(float angle_from_sun, const vec3& mouseray, GameCursor* cursor);
