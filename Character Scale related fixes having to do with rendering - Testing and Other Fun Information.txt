@@ -1,0 +1,60 @@
+Changed Files:
+overgrowth-main\Source\Objects\movementobject.cpp
+overgrowth-main\Source\Objects\riggedobject.cpp
+overgrowth-main\Data\Scripts\aschar.as
+
+
+
+Functionality: 
+Characters who have their scale set to a really really high number no longer flicker in and out of existence weirdly. Basically, they render correctly.
+There's also a new character param called "No Breathing" which stops characters from doing any animation stuff tied to breathing. This is because breathing animations used to be
+really messed up on large character models, with their chest pulsating back and forth ridiculous distances.
+Lastly, setting a character's scale to 0 now no longer causes the game to crash.
+
+
+
+Implementation:
+A character's "kCullRadius" (which is used in movementobject.cpp) now automatically adjusts itself as the character's scale is changed. 
+In the past, kCullRadius used to always have a value of 2.0f, and this worked perfectly for characters who had the default scale of 1.0f (or "100" as it appears in-editor). 
+So now, kCullRadius is equal to 2 times a character's scale, which maintains the value of 2.0f at default scale, and auto-adjusts as the character's scale changes. It also has an upper-limit of kCullRadius = 200.0f (which is more than enough to support MASSIVE characters), while the lower-limit is still at 2.0f because this value still supports very small characters correctly.
+
+A character's rigged object's scale now has a lower-limit of 0.01f (which corresponds to a size of 1 in-editor), which still allows characters to be made incredibly tiny while no longer causing the crash that used to happen when setting a character's scale to 0 in their params.
+
+Having the new "No Breathing" param and having it set to "true" simply causes the 'void Breathe()' function in aschar.as to return as soon as it's called, which does indeed stop the breathing.
+I don't think it's the most efficient implementation and, admittedly, it is a "cheat solution" to the problem of breathing anims being weird with large characters since this just disables it entirely, whereas ideally the breathing stuff would fix itself and auto-adjust to work how it does for smaller characters, but I have no idea how to do that so at least there's this for the time being.
+
+
+
+Reason For Existing:
+Large characters are cool, and now they actually render correctly which is twice as cool. 
+The lower-limit for a character's rigged object's scale is just there for QoL.
+
+
+
+Testing:
+• Tested that the scale = 0 QoL fix does indeed work, and no longer causes a crash.
+
+Note: At the lowest size (a value of 1 in-editor) and nearby sizes, characters are difficult to see from a distance due to being small (though they are still rendered), but getting very very close to the model will cause it to stop being rendered at all.
+I don't really think this is a problem though, considering how impractical it is to have characters that are *that* small anyways, and because a size of 15 (in-editor) is tiny and works perfectly from very very close to very very far range.
+
+At the bottom of this "Testing" section, there's a summary of the range of in-editor values for character scale that have very little to no problems at all. (As far as rendering goes anyways.)
+
+
+• Tested that the "No Breathing" param does indeed stop large characters from doing any breathing anims, and that it also works for smaller characters and doesn't cause any problems for them besides stopping their breathing anims.
+Note: A character's "chest position" will be stuck at wherever it is at the moment when the "No Breathing" param is set to "true", regardless of if it's in a wonk position or not.
+Resetting the level with 'L' will fix this.
+
+
+• Tested that having multiple characters of different sizes fighting/being around each other doesn't cause crashes or behave "unexpectedly" (of course, 100 scale characters fighting a 20000 scale character is gonna be mad jank but it still "works" y'know).
+
+
+• Tested that using the editor to set a character's scale param to the following (in-editor) values causes them to render correctly (no flickering and such) at close range, medium range, and long range:
+15 - 250, 1000, 2000, 5000, 10000, 20000
+
+At a size of 20000 sometimes the model will flicker slightly and infrequently when moving the editor camera *very* close to their body. I'd say that 20000 is the highest that
+one *should* go, and 15 is the lowest.
+
+
+I am gonna note that this really does only (hopefully) fix rendering stuff, very large or small characters are still wonk in most other gameplay ways (ragdolling/ledge-climbing/fighting and such) though that makes sense considering Overgrowth never was built around that. 
+Well... Except for rats having bad ledge-climb stuff, dog attacks sometimes hitting even if their fist/foot isn't close to the player, I think cats and wolves suffer from this issue too.
+I think that the hitbox issue can be solved via the "range_adjust" thingy I put up a while back. (This _does_ kinda come with the issue of it being cumbersome to have copies of each different attack for each different race just so they have fitting range_adjust values, but personally I think it's worth it for the sake of fairness/balance since getting hit by phantom dog paws isn't the most fun.)
