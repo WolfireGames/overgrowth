@@ -1,0 +1,43 @@
+Changed Files:
+overgrowth-main\Source\Editors\map_editor.cpp
+overgrowth-main\Source\UserInput\keycommands.cpp
+overgrowth-main\Source\UserInput\keycommands.h
+overgrowth-main\Data\Scripts\cam.as
+
+
+
+Functionality: 
+There are now 2 new editor hotkeys. The first one, ctrl+4, is for toggling the editing of light-related objects. (Similar to how ctrl+1/2/3 toggle the editing of static objects/decals/gameplay objects).
+The second one, currently set to "g", acts as a second input for rotating the editor cam - since using left-click while in a crowded space can cause one to accidently select/move around stuff even though they only wanted to rotate the camera.
+Note: Honestly not too sure where I stand on what the button should be for this one. I just chose "g" since, as far as I know, "g" isn't used for anything else editor-wise but it's still close to the WASD keys.
+
+
+
+Implementation:
+The ctrl+4 hotkey is implemented in the same way that ctrl+1/2/3 are, and the "g" hotkey works because now, in cam.as, it does editor cam rotation stuffs if "mouse0" is down *or* if "g" is down.
+
+To get the "ctrl+4" hotkey to work, I had to "define" it in the config file.
+Um, I suppose this is the part where I mention that I actually have no idea how this config file stuff works. At first I was thinking that one of the source files is probably responsible for writing all the default hotkeys and binds and what have you there, but I couldn't find anything (entirely possible I just missed it somewhere) - so now I'm thinking that maybe what's supposed to be written in that config file is shipped with the game? Like, when you install it, that stuff gets put there? I have no idea. 
+
+
+
+Reason For Existing:
+The ctrl+4 hotkey exists for consistency's sake and, because, if the suggestions I mentioned in my "editor hotkey and view ribbon fixes" PR are implemented then this'd just be pretty cool.
+The "g" hotkey exists as Constance requested it in the GitHub issues thing and I liked the sound of it.
+
+So... On that note, I do actually have a question/suggestion:
+Perhaps when the "g" hotkey is used, not only does it allow you to rotate the editor cam without worry of selecting/moving stuff, but maybe it also disables the editor UI/bounding boxes/hotspot connections/etc. while the key is held down too? 
+It would just add another function to this hotkey which I personally think would be really cool.
+
+Whenever I'm making maps, I *very* frequently jump into Media Mode just so I can see what the map "really looks like" so far (even in the early stages of development when clutter is at a minimum), but I also get that I may be in the minority about this and that for others, the disappearing/reappearing of the editor UI/bounding boxes/etc. can be a nuisance. 
+
+
+
+Bonus Attatched:
+My config file. The new hotkey stuff can be found with a ctrl+f for "toggle_light_editing".
+
+
+
+Testing:
+• Hopped into a couple different levels, pressed the buttons and saw if they did the thing. 
+They did indeed do the thing, and they didn't interfere with any of the other hotkeys or editor functionality from what I saw.
