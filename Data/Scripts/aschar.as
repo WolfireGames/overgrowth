@@ -2320,6 +2320,14 @@ string MovementKeys() {
 }
 
 void Breathe(const Timestep& in ts) {
+	//Glimpse - No breathing.
+	if(params.HasParam("No Breathing")){
+		if (params.GetString("No Breathing") == "true") {
+			return;
+		}
+	}
+	
+
     if(knocked_out != _dead) {
         if(max_speed == 0.0f) {
             max_speed = true_max_speed;
