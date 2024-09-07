@@ -2320,7 +2320,6 @@ string MovementKeys() {
 }
 
 void Breathe(const Timestep& in ts) {
-	//Glimpse - No breathing.
 	if(params.HasParam("No Breathing")){
 		if (params.GetString("No Breathing") == "true") {
 			return;
