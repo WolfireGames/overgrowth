@@ -87,7 +87,7 @@ bool log_all_events = false;
 void ReceiveMessage(string msg){ //This function listens for level messages
 	TokenIterator token_iter;
 	token_iter.Init(); //A token iterator reads through a message searching for strings/values separated by spaces
-	if(!token_iter.FindNextToken(msg)) { //If there is no message than no need to do anything - back out of the function
+	if(!token_iter.FindNextToken(msg)) { //If there is no message then no need to do anything - back out of the function
 		return;
 	}
 
@@ -101,7 +101,7 @@ void ReceiveMessage(string msg){ //This function listens for level messages
 		token_iter.FindNextToken(msg);
 		token = token_iter.GetToken(msg);
 
-		if (log_all_levelevents && (!log_all_events) && token != "tutorial") {
+		if (log_all_levelevents && (!log_all_events) && token != "tutorial" && token != "added_object" && token != "notify_deleted" && token != "moved_objects") {
 			Log(info, msg);
 		}
 
