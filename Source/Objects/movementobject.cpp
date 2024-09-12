@@ -233,8 +233,6 @@ void MovementObject::Reload() {
     as_context->Reload();
 }
 
-//const float kCullRadius = 2.0f;
-
 void MovementObject::ActualPreDraw(float curr_game_time) {
     bool dirty_attachment = false;
     for (auto& i : rigged_object_->children) {
@@ -1408,15 +1406,6 @@ void MovementObject::CreateRiggedObject() {
         float char_scale = GetScriptParams()->ASGetFloat("Character Scale");
         float new_radius = char_scale * 2;
         rigged_object_->SetCharScale(char_scale);
-        //if (new_radius <= 2.0f) {
-        //    kCullRadius = 2.0f;
-        //} else if (new_radius >= 200.0f) {
-        //    kCullRadius = 200.0f;
-        //} else {
-        //    kCullRadius = new_radius;
-        //}
-
-        //kCullRadius = min(200.0f, max(2.0f, new_radius));
         kCullRadius = clamp(new_radius, 2.0f, 200.0f);
 
     } else {

@@ -4797,11 +4797,9 @@ Skeleton& RiggedObject::skeleton() {
 
 void RiggedObject::SetCharScale(float val) {
     float default_scale = character_script_getter->GetDefaultScale();
-    //char_scale = val * default_scale <= 0.01f ? 0.01f : val * default_scale;
     char_scale = max(0.01f, val * default_scale);
 
     float model_scale = character_script_getter->GetModelScale();
-    //model_char_scale = char_scale / model_scale <= 0.01f ? 0.01f : char_scale / model_scale;
     model_char_scale = max(0.01f, char_scale/model_scale);
 }
 
