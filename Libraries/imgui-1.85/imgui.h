@@ -1329,7 +1329,7 @@ enum ImGuiDataType_
     ImGuiDataType_U64,      // unsigned long long / unsigned __int64
     ImGuiDataType_Float,    // float
     ImGuiDataType_Double,   // double
-    ImGuiDataType_COUNT
+    ImGuiDataType_COUNT  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
 };
 
 // A cardinal direction
@@ -1340,7 +1340,7 @@ enum ImGuiDir_
     ImGuiDir_Right   = 1,
     ImGuiDir_Up      = 2,
     ImGuiDir_Down    = 3,
-    ImGuiDir_COUNT
+    ImGuiDir_COUNT  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
 };
 
 // A sorting direction
@@ -1376,11 +1376,10 @@ enum ImGuiKey_
     ImGuiKey_X,                 // for text edit CTRL+X: cut
     ImGuiKey_Y,                 // for text edit CTRL+Y: redo
     ImGuiKey_Z,                 // for text edit CTRL+Z: undo
-    ImGuiKey_COUNT,
     ImGuiKey_LShift,
     ImGuiKey_RShift,
-    ImGuiKey_NumEnter
-
+    ImGuiKey_NumEnter,
+    ImGuiKey_COUNT  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
 };
 
 // To test io.KeyMods (which is a combination of individual fields io.KeyCtrl, io.KeyShift, io.KeyAlt set by user/backend)
@@ -1423,7 +1422,7 @@ enum ImGuiNavInput_
     ImGuiNavInput_KeyRight_,     // move right
     ImGuiNavInput_KeyUp_,        // move up
     ImGuiNavInput_KeyDown_,      // move down
-    ImGuiNavInput_COUNT,
+    ImGuiNavInput_COUNT,  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
     ImGuiNavInput_InternalStart_ = ImGuiNavInput_KeyLeft_
 };
 
@@ -1509,7 +1508,7 @@ enum ImGuiCol_
     ImGuiCol_NavWindowingHighlight, // Highlight window when using CTRL+TAB
     ImGuiCol_NavWindowingDimBg,     // Darken/colorize entire screen behind the CTRL+TAB window list, when active
     ImGuiCol_ModalWindowDimBg,      // Darken/colorize entire screen behind a modal window, when one is active
-    ImGuiCol_COUNT
+    ImGuiCol_COUNT  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
 };
 
 // Enumeration for PushStyleVar() / PopStyleVar() to temporarily modify the ImGuiStyle structure.
@@ -1547,7 +1546,7 @@ enum ImGuiStyleVar_
     ImGuiStyleVar_TabRounding,         // float     TabRounding
     ImGuiStyleVar_ButtonTextAlign,     // ImVec2    ButtonTextAlign
     ImGuiStyleVar_SelectableTextAlign, // ImVec2    SelectableTextAlign
-    ImGuiStyleVar_COUNT
+    ImGuiStyleVar_COUNT  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
 };
 
 // Flags for InvisibleButton() [extended in imgui_internal.h]
@@ -1633,7 +1632,7 @@ enum ImGuiMouseButton_
     ImGuiMouseButton_Left = 0,
     ImGuiMouseButton_Right = 1,
     ImGuiMouseButton_Middle = 2,
-    ImGuiMouseButton_COUNT = 5
+    ImGuiMouseButton_COUNT = 5  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
 };
 
 // Enumeration for GetMouseCursor()
@@ -1650,7 +1649,7 @@ enum ImGuiMouseCursor_
     ImGuiMouseCursor_ResizeNWSE,        // When hovering over the bottom-right corner of a window
     ImGuiMouseCursor_Hand,              // (Unused by Dear ImGui functions. Use for e.g. hyperlinks)
     ImGuiMouseCursor_NotAllowed,        // When hovering something with disallowed interaction. Usually a crossed circle.
-    ImGuiMouseCursor_COUNT
+    ImGuiMouseCursor_COUNT  // DO NOT place enum values after this, unless they're just aliases for other earlier enum values. This is used for an array size
 };
 
 // Enumeration for ImGui::SetWindow***(), SetNextWindow***(), SetNextItem***() functions
