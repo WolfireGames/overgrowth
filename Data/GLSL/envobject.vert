@@ -581,6 +581,26 @@ void main() {
             //max_dist *= 0.25;
             int type = instance_id % 83;
 
+            #if defined(HEAVEN_MIASMA)
+                size *= 80.0;
+
+                if(type > 0){
+                    size = 0.0;
+                }
+            #elif defined(MED)
+                size *= 1.25;
+
+                if(type > 7){
+                    size = 0.0;
+                }
+            #elif defined(LOW)
+                size *= 1.25;
+
+                if(type > 2){
+                    size = 0.0;
+                }
+            #endif
+
         #elif defined(SNOW)
 
             speed = 0.1;
