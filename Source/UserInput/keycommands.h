@@ -89,6 +89,7 @@ enum Label {
     kToggleDecalEditing,
     kToggleObjectEditing,
     kToggleHotspotEditing,
+    kToggleLightEditing,
     kOpenSpawner,
     kSaveSelectedItems,
     kSaveLevel,

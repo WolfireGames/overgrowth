@@ -298,6 +298,7 @@ void KeyCommand::Initialize() {
     AddPairToHash("toggle_decal_editing", kToggleDecalEditing);
     AddPairToHash("toggle_object_editing", kToggleObjectEditing);
     AddPairToHash("toggle_hotspot_editing", kToggleHotspotEditing);
+    AddPairToHash("toggle_light_editing", kToggleLightEditing);
     AddPairToHash("open_spawner", kOpenSpawner);
     AddPairToHash("save_selected_items", kSaveSelectedItems);
     AddPairToHash("save_level", kSaveLevel);
