@@ -360,13 +360,30 @@ void MapEditor::RibbonItemClicked(const std::string& item, bool param) {
         SetTypeEnabled(_movement_object, param);
         SetTypeEnabled(_path_point_object, param);
         SetTypeEnabled(_item_object, param);
-        SetTypeEnabled(_navmesh_region_object, param);
-        SetTypeEnabled(_navmesh_hint_object, param);
-        SetTypeEnabled(_navmesh_connection_object, param);
         SetTypeEnabled(_placeholder_object, param);
-        SetTypeVisible(_navmesh_region_object, param);
-        SetTypeVisible(_navmesh_hint_object, param);
-        SetTypeVisible(_navmesh_connection_object, param);
+
+        if (!IsTypeEnabled(_hotspot_object)) {
+            SetTypeEnabled(_navmesh_region_object, false);
+            SetTypeEnabled(_navmesh_hint_object, false);
+            SetTypeEnabled(_navmesh_connection_object, false);
+
+            SetTypeVisible(_navmesh_region_object, false);
+            SetTypeVisible(_navmesh_hint_object, false);
+            SetTypeVisible(_navmesh_connection_object, false);
+        } else {
+            if (nav_region_enabled_) {
+                SetTypeEnabled(_navmesh_region_object, true);
+                SetTypeVisible(_navmesh_region_object, true);
+            }
+            if (nav_hints_enabled_) {
+                SetTypeEnabled(_navmesh_hint_object, true);
+                SetTypeVisible(_navmesh_hint_object, true);
+            }
+            if (jump_nodes_enabled_) {
+                SetTypeEnabled(_navmesh_connection_object, true);
+                SetTypeVisible(_navmesh_connection_object, true);
+            }
+        }
     } else if (item == "lighteditoractive") {
         SetTypeEnabled(_dynamic_light_object, param);
         SetTypeEnabled(_reflection_capture_object, param);
@@ -1649,13 +1666,49 @@ void MapEditor::HandleShortcuts(const LineSegment& mouseray) {
     }
     // Handle switching editor type
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kToggleObjectEditing, KIMF_LEVEL_EDITOR_GENERAL)) {
-        SetTypeEnabled(_env_object, !IsTypeEnabled(_env_object));
+        bool temp_env_objs_enabled = !IsTypeEnabled(_env_object);
+        SetTypeEnabled(_env_object, temp_env_objs_enabled);
+        SetTypeEnabled(_group, temp_env_objs_enabled);
+        SetTypeEnabled(_prefab, temp_env_objs_enabled);
     }
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kToggleDecalEditing, KIMF_LEVEL_EDITOR_GENERAL)) {
-        SetTypeEnabled(_decal_object, !IsTypeEnabled(_decal_object));
+        bool temp_decal_objs_enabled = !IsTypeEnabled(_decal_object);
+        SetTypeEnabled(_decal_object, temp_decal_objs_enabled);
+        // SetTypeEnabled(_shadow_decal_object, temp_decal_objs_enabled);
+        //  If y'liked my shadow decal change then it might be a good idea to add this line of code here. ^^
     }
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kToggleHotspotEditing, KIMF_LEVEL_EDITOR_GENERAL)) {
-        SetTypeEnabled(_hotspot_object, !IsTypeEnabled(_hotspot_object));
+        bool temp_hotspots_enabled = !IsTypeEnabled(_hotspot_object);
+
+        gameplay_objects_enabled_ = temp_hotspots_enabled;
+        SetTypeEnabled(_hotspot_object, temp_hotspots_enabled);
+        SetTypeEnabled(_movement_object, temp_hotspots_enabled);
+        SetTypeEnabled(_path_point_object, temp_hotspots_enabled);
+        SetTypeEnabled(_item_object, temp_hotspots_enabled);
+        SetTypeEnabled(_placeholder_object, temp_hotspots_enabled);
+
+        if (!temp_hotspots_enabled) {
+            SetTypeEnabled(_navmesh_region_object, false);
+            SetTypeEnabled(_navmesh_hint_object, false);
+            SetTypeEnabled(_navmesh_connection_object, false);
+
+            SetTypeVisible(_navmesh_region_object, false);
+            SetTypeVisible(_navmesh_hint_object, false);
+            SetTypeVisible(_navmesh_connection_object, false);
+        } else {
+            if (nav_region_enabled_) {
+                SetTypeEnabled(_navmesh_region_object, true);
+                SetTypeVisible(_navmesh_region_object, true);
+            }
+            if (nav_hints_enabled_) {
+                SetTypeEnabled(_navmesh_hint_object, true);
+                SetTypeVisible(_navmesh_hint_object, true);
+            }
+            if (jump_nodes_enabled_) {
+                SetTypeEnabled(_navmesh_connection_object, true);
+                SetTypeVisible(_navmesh_connection_object, true);
+            }
+        }
     }
     // Handle saves
     // This bool is needed because the new default keybind for "save level as"
@@ -2845,6 +2898,20 @@ void MapEditor::SetTypeEnabled(EntityType type, bool enabled) {
         if (!type_enable_.IsTypeEnabled(obj->GetType())) {
             obj->Select(false);
         }
+    }
+}
+
+void MapEditor::SaveViewRibbonTypeEnabled(EntityType type, bool enabled) {
+    switch (type) {
+        case _navmesh_hint_object:
+            nav_hints_enabled_ = enabled;
+            break;
+        case _navmesh_region_object:
+            nav_region_enabled_ = enabled;
+            break;
+        case _navmesh_connection_object:
+            jump_nodes_enabled_ = enabled;
+            break;
     }
 }
 

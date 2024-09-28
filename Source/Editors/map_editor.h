@@ -228,6 +228,7 @@ class MapEditor {
     int ReplaceObjects(const std::vector<Object*>& objects, const std::string& replacement_path);
     bool IsTypeEnabled(EntityType type);
     void SetTypeEnabled(EntityType type, bool enabled);
+    void SaveViewRibbonTypeEnabled(EntityType type, bool enabled);
     bool IsTypeVisible(EntityType type);
     void SetTypeVisible(EntityType type, bool enabled);
     Object* GetSelectedCameraObject();
@@ -280,6 +281,9 @@ class MapEditor {
     vec4 color_history_candidate_;
 
     bool gameplay_objects_enabled_;  // The setting is called "gameplay objects" in-game, but the enum value is actually hotspots...
+    bool nav_hints_enabled_;
+    bool nav_region_enabled_;
+    bool jump_nodes_enabled_;
 
     StateHistory state_history_;
     EntityDescriptionList add_desc_list_;

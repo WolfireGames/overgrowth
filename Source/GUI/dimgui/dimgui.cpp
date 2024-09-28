@@ -2411,22 +2411,29 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::Separator();
 
                     ImGui::BeginDisabled(!me->GameplayObjectsEnabled());
+
                     temp = me->IsTypeEnabled(_navmesh_hint_object);
                     if (ImGui::Checkbox("Nav hints", &temp)) {
                         me->SetTypeEnabled(_navmesh_hint_object, temp);
                         me->SetTypeVisible(_navmesh_hint_object, temp);
+
+                        me->SaveViewRibbonTypeEnabled(_navmesh_hint_object, temp);
                     }
 
                     temp = me->IsTypeEnabled(_navmesh_region_object);
                     if (ImGui::Checkbox("Nav regions", &temp)) {
                         me->SetTypeEnabled(_navmesh_region_object, temp);
                         me->SetTypeVisible(_navmesh_region_object, temp);
+
+                        me->SaveViewRibbonTypeEnabled(_navmesh_region_object, temp);
                     }
 
                     temp = me->IsTypeEnabled(_navmesh_connection_object);
                     if (ImGui::Checkbox("Jump nodes", &temp)) {
                         me->SetTypeEnabled(_navmesh_connection_object, temp);
                         me->SetTypeVisible(_navmesh_connection_object, temp);
+
+                        me->SaveViewRibbonTypeEnabled(_navmesh_connection_object, temp);
                     }
                     ImGui::EndDisabled();
 
