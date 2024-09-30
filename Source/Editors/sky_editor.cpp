@@ -242,10 +242,10 @@ EditorTypes::Tool SkyEditor::OmniGetTool(float angle_from_sun,
     }
 }
 
-bool SkyEditor::HandleSelect(float angle_from_sun) {
+bool SkyEditor::HandleSelect(float angle_from_sun, bool stuff_in_the_way) {
     Mouse* mouse = &(Input::Instance()->getMouse());
     if (mouse->mouse_double_click_[Mouse::LEFT]) {
-        if (angle_from_sun < PI / 50) {
+        if (angle_from_sun < PI / 50 && !stuff_in_the_way) {
             m_sun_selected = true;
             return true;
         } else {
