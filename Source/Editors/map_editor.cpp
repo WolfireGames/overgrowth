@@ -369,9 +369,8 @@ void MapEditor::RibbonItemClicked(const std::string& item, bool param) {
         SetTypeVisible(_navmesh_connection_object, param);
     } else if (item == "lighteditoractive") {
         SetTypeEnabled(_dynamic_light_object, param);
-        SetTypeEnabled(_light_volume_object, param);
-    } else if (item == "editreflectioncaptures") {
         SetTypeEnabled(_reflection_capture_object, param);
+        SetTypeEnabled(_light_volume_object, param);
     } else if (item == "isolate") {
         // ToggleSelectedDecalIsolation();
     } else if (item == "exit") {
