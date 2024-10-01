@@ -119,6 +119,7 @@ class Object {
     int permission_flags;
     bool selectable_;
     bool enabled_;
+    bool editor_locked;
     vec4 box_color;
     Box box_;
     bool editor_visible;
@@ -166,6 +167,7 @@ class Object {
           exclude_from_save(false),
           update_list_entry(-1),
           enabled_(true),
+          editor_locked(false),
           parent(NULL),
           scenegraph_(parent_scenegraph),
           scale_(1.0f),
