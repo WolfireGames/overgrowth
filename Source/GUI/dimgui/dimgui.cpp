@@ -933,7 +933,6 @@ static void DrawLaunchCustomGuiButton(Object* obj, bool& are_script_params_read_
     }
 }
 
-//Glimpse - Group no_navmesh.
 static void UpdateChildrenNoNavmesh(Group* group, bool enabled) {
     for (auto& i : group->children) {
         if (i.direct_ptr->GetType() == _env_object) {
@@ -1269,7 +1268,7 @@ static void DrawObjectInfoFlat(Object* obj) {
         ImGui::Separator();
         ImGui::Checkbox("no_navmesh", &eo->no_navmesh);
     }
-    //Glimpse - Group no_navmesh.
+
     if (obj->GetType() == _group) {
         Group* group = (Group*)obj;
         ImGui::Separator();
@@ -1448,7 +1447,6 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params) {
         }
     }
 
-    // Glimpse - Group no_navmesh.
     if (obj->GetType() == _group) {
         Group* group = (Group*)obj;
         ImGui::Separator();
