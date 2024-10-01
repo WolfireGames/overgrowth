@@ -567,7 +567,6 @@ void EntityDescription::SaveToXML(TiXmlElement* parent) const {
                 }
                 break;
             }
-            //Glimpse - Group no_navmesh.
             case EDF_CHILDREN_NO_NAVMESH: {
                 bool val;
                 field.ReadBool(&val);
@@ -877,7 +876,6 @@ void LoadGroupDescriptionFromXML(EntityDescription& desc, const TiXmlElement* el
     }
     desc.AddVec3(EDF_COLOR, color);
 
-    // Glimpse - Group no_navmesh.
     const char* children_no_navmesh = el->Attribute("children_no_navmesh");
     if (children_no_navmesh) {
         desc.AddBool(EDF_CHILDREN_NO_NAVMESH, saysTrue(children_no_navmesh) == 1);
