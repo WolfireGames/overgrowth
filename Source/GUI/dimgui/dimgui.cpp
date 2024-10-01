@@ -933,6 +933,20 @@ static void DrawLaunchCustomGuiButton(Object* obj, bool& are_script_params_read_
     }
 }
 
+static void UpdateChildrenNoNavmesh(Group* group, bool enabled) {
+    for (auto& i : group->children) {
+        if (i.direct_ptr->GetType() == _env_object) {
+            EnvObject* eo = (EnvObject*)i.direct_ptr;
+            eo->no_navmesh = enabled;
+        }
+        if (i.direct_ptr->GetType() == _group) {
+            Group* sub_group = (Group*)i.direct_ptr;
+            sub_group->children_no_navmesh = enabled;
+            UpdateChildrenNoNavmesh(sub_group, enabled);
+        }
+    }
+}
+
 static void DrawObjectInfoFlat(Object* obj) {
     ImGui::Indent(ImGui::GetTreeNodeToLabelSpacing());
     obj->DrawImGuiEditor();
@@ -1255,6 +1269,15 @@ static void DrawObjectInfoFlat(Object* obj) {
         ImGui::Checkbox("no_navmesh", &eo->no_navmesh);
     }
 
+    if (obj->GetType() == _group) {
+        Group* group = (Group*)obj;
+        ImGui::Separator();
+        if (ImGui::Checkbox("children_no_navmesh", &group->children_no_navmesh)) {
+            bool enabled = group->children_no_navmesh;
+            UpdateChildrenNoNavmesh(group, enabled);
+        } 
+    }
+
     ImGui::Separator();
     if (obj->GetType() == _movement_object) {
         MovementObject* mov_obj = (MovementObject*)obj;
@@ -1421,6 +1444,15 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params) {
         if (ImGui::TreeNode("Flags")) {
             ImGui::Checkbox("no_navmesh", &eo->no_navmesh);
             ImGui::TreePop();
+        }
+    }
+
+    if (obj->GetType() == _group) {
+        Group* group = (Group*)obj;
+        ImGui::Separator();
+        if (ImGui::Checkbox("children_no_navmesh", &group->children_no_navmesh)) {
+            bool enabled = group->children_no_navmesh;
+            UpdateChildrenNoNavmesh(group, enabled);
         }
     }
 
