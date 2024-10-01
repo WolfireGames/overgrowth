@@ -71,6 +71,8 @@ enum EntityDescriptionFieldType {
     EDF_GI_COEFFICIENTS,
     EDF_NAV_MESH_CONNECTIONS,
     EDF_NO_NAVMESH,
+    //Glimpse - Group no_navmesh.
+    EDF_CHILDREN_NO_NAVMESH,    //Used for groups. 
     EDF_PREFAB_LOCKED,
     EDF_PREFAB_PATH,
     EDF_ORIGINAL_SCALE,
