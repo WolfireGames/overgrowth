@@ -40,6 +40,9 @@ class Group : public Object {
     bool child_transforms_need_update;
     bool child_moved;
 
+    //Glimpse - Group no navmesh.
+    bool children_no_navmesh;
+
     Group();
     bool Initialize() override;
     ~Group() override;
