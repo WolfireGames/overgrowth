@@ -239,6 +239,10 @@ bool Object::SetFromDesc(const EntityDescription &desc) {
                 SetScriptParams(spm);
                 break;
             }
+            case EDF_EDITOR_LOCKED: {
+                field.ReadBool(&editor_locked);
+                break;
+            }
             case EDF_HOTSPOT_CONNECTED_TO: {
                 field.ReadIntVec(&unfinalized_connected_to);
                 break;
@@ -308,6 +312,7 @@ void Object::GetDesc(EntityDescription &desc) const {
     desc.AddScriptParams(EDF_SCRIPT_PARAMS, sp.GetParameterMap());
     desc.AddIntVec(EDF_HOTSPOT_CONNECTED_TO, connected_to);
     desc.AddIntVec(EDF_HOTSPOT_CONNECTED_FROM, connected_from);
+    desc.AddBool(EDF_EDITOR_LOCKED, editor_locked);
 }
 
 void Object::ReceiveObjectMessage(OBJECT_MSG::Type type, ...) {

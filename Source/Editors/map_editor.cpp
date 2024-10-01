@@ -798,7 +798,6 @@ void MapEditor::Draw() {
             for (auto obj : scenegraph_->objects_) {
                 if (obj->editor_visible) {
                     const EntityType& type = obj->GetType();
-
                     if (IsTypeEnabled(type) && ((
                                                     ((type != _group && type != _prefab) || draw_group_and_prefab_boxes) &&
                                                     type != _env_object &&
@@ -808,7 +807,21 @@ void MapEditor::Draw() {
                                                     type != _navmesh_hint_object) ||
                                                 obj->Selected())) {
                         // Draw box for selected objects or objects that always have a visible box.
-                        DrawBox(obj->box_, obj, obj->Selected(), obj->box_color);
+                        vec4 box_color;
+                        if (obj->editor_locked) {
+                            box_color = vec4(1.0f, 0.0f, 0.0f, 1.0f);
+                            //So there's still a distinction between playable character boxes and 
+                            //non-playable character boxes, even if they're both locked.
+                            if (type == _movement_object) {
+                                MovementObject* mo = (MovementObject*)obj;
+                                if (mo->is_player) {
+                                    box_color = vec4(0.75f, 0.25f, 0.0f, 1.0f);
+                                }
+                            } 
+                        } else {
+                            box_color = obj->box_color;
+                        }
+                        DrawBox(obj->box_, obj, obj->Selected(), box_color);
                     }
                 }
                 if (always_draw_hotspot_connections) {
@@ -1081,6 +1094,13 @@ static Collision lineCheckActiveSelected(SceneGraph* scenegraph, const vec3& sta
 }
 
 static EditorTypes::Tool OmniGetTool(const Collision& c, int permission_flags, const Object* object_, const Box& box_) {
+    //This just makes it so that while the cursor is over a selected but locked object, that it doesn't show
+    //any of the sybols for transform/rotate/scale/whatever.
+    //It'd be pretty cool if it had its own symbol though, like an X or something.
+    if (object_->editor_locked) {
+        return EditorTypes::NO_TOOL;
+    }
+
     const Keyboard& keyboard = Input::Instance()->getKeyboard();
     if (KeyCommand::CheckDown(keyboard, KeyCommand::kForceTranslate, KIMF_LEVEL_EDITOR_GENERAL) && permission_flags & Object::CAN_TRANSLATE) {
         return EditorTypes::TRANSLATE;
@@ -3554,7 +3574,7 @@ void MapEditor::UpdateTransformTool(SceneGraph* scenegraph, EditorTypes::Tool ty
         std::vector<int> moved_objects;
         PROFILER_ZONE(g_profiler_ctx, "Updating transform");
         for (auto obj : scenegraph->objects_) {
-            if (obj->Selected()) {
+            if (obj->Selected() && !obj->editor_locked) {
                 obj->SetTranslation(obj->start_transform.translation + curr_tool_transform.translation);
                 obj->SetRotation(curr_tool_transform.rotation * obj->start_transform.rotation);
                 obj->SetScale(curr_tool_transform.scale * obj->start_transform.scale);

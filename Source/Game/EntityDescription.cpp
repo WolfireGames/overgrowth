@@ -567,6 +567,14 @@ void EntityDescription::SaveToXML(TiXmlElement* parent) const {
                 }
                 break;
             }
+            case EDF_EDITOR_LOCKED: {
+                bool val;
+                field.ReadBool(&val);
+                if (val) {
+                    object->SetAttribute("editor_locked", "true");
+                }
+                break;
+            }
             case EDF_PREFAB_LOCKED: {
                 bool val;
                 field.ReadBool(&val);
@@ -726,6 +734,13 @@ void GetTSRIinfo(EntityDescription& desc, const TiXmlElement* pElement) {
     desc.AddVec3(EDF_SCALE, scale);
     desc.AddQuaternion(EDF_ROTATION, rotation);
     desc.AddVec3(EDF_ROTATION_EULER, rotation_euler);
+
+    const char* editor_locked = pElement->Attribute("editor_locked");
+    if (editor_locked) {
+        desc.AddBool(EDF_EDITOR_LOCKED, saysTrue(editor_locked) == 1);
+    } else {
+        desc.AddBool(EDF_EDITOR_LOCKED, false);
+    }
 
     ScriptParamMap spm;
     const TiXmlElement* params = pElement->FirstChildElement("parameters");
