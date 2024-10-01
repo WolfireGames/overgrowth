@@ -31,6 +31,7 @@
 
 #include <Internal/common.h>
 #include <Internal/filesystem.h>
+#include <Internal/error.h> /* FatalError */
 
 #include <Memory/allocation.h>
 #include <Logging/logdata.h>
@@ -181,43 +182,6 @@ void chdirToBasePath(const char *argv0) {
     }
 }
 
-static void caseCorrectFilename(char *path) {
-    if (*path == '\0')
-        return;  // this is the root directory ("/"), so just return.
-
-    if (access(path, F_OK) == 0)
-        return;  // fast path: it definitely exists in acceptable case.
-
-    DIR *dir = NULL;
-    char *base = strrchr(path, '/');
-    if (base == path)
-        dir = opendir("/");
-    else if (base == NULL) {
-        dir = opendir(".");
-        base = path - 1;
-    } else {
-        *base = '\0';
-        dir = opendir(path);
-        *base = '/';
-    }
-    base++;
-
-    if (dir == NULL)
-        return;  // basedir doesn't exist at all, handled elsewhere.
-
-    if (*base != '\0') {
-        struct dirent *dent;
-        while ((dent = readdir(dir)) != NULL) {
-            if (strcasecmp(base, dent->d_name) == 0)  // found a match.
-            {
-                strcpy(base, dent->d_name);  // make sure case is right.
-                break;
-            }
-        }
-    }
-
-    closedir(dir);
-}
 
 std::string caseCorrect(const std::string &path) {
     char *buf = (char *)OG_MALLOC((path.length() + 1) * sizeof(char));
@@ -231,18 +195,178 @@ std::string caseCorrect(const std::string &path) {
     return ret;
 }
 
-// TODO: figure out long-term solution for case-sensitivity
-void caseCorrect(char *path) {
-    for (int i = 0; path[i]; i++) {
-        if ((path[i] == '/') || (path[i] == '\\')) {
-            path[i] = '\0';
-            caseCorrectFilename(path);
-            path[i] = '/';
+static char* findPrevSegment(char* cur, char* start) {
+    if(!cur)
+        return (char*) 0;
+    if(cur == start)
+        return (char*) 0;
+    do {
+        --cur;
+    } while(*cur != '/' && cur != start);
+    return cur;
+}
+
+static char* findNextSegment(char* cur) {
+    if(!cur) return (char*) 0;
+    if(*cur == '\0') return (char*) 0;
+    do {
+        ++cur;
+    } while(*cur != '/' && *cur != '\0');
+    return cur;
+}
+
+enum class CaseCorrectResult {
+    /* supplied path segment has been corrected */
+    Correct,
+    /* cannot correct this path segment (e.g. permission issue) */
+    Uncorrectable,
+    /* need to correct the parent first */
+    NeedParent
+};
+
+
+/* note that these segment pointers each point at the END of the respective segment */
+static CaseCorrectResult caseCorrectSegment(char* path, char* baseSegment, char* correctionSegment) {
+    const char* parent_dir;
+    if(baseSegment == path) {
+        /* need to correct first segment, our base segment is 'empty' */
+        if(*baseSegment == '/') {
+            /* absolute path */
+            parent_dir = "/";
+        } else { /* relative path */
+            parent_dir = ".";
+        }
+    } else {
+        /* any other segment */
+        if(*baseSegment != '/') {
+            /* This should never happen due to how `caseCorrectInner` traverses the path */
+            FatalError("Compat Error", "Cannot case correct path '%s': Base segment does not end with a '/' (at position %zd)", path, baseSegment - path);
+        }
+        *baseSegment = '\0';
+        parent_dir = path;
+    }
+    DIR* dirf = opendir(parent_dir);
+    if(baseSegment != path)
+        *baseSegment = '/'; /* revert the string change from above */
+    if(dirf == nullptr) {
+        return errno == ENOENT ? CaseCorrectResult::NeedParent : CaseCorrectResult::Uncorrectable;
+    }
+
+    char separator = *correctionSegment;
+    *correctionSegment = '\0';
+    char* nameStart;
+    if(baseSegment == path && *baseSegment != '/') {
+        /* empty base segment on a relative path, the name starts *directly* at the beginning of the string */
+        nameStart = baseSegment;
+    } else { /* name starts after the slash */
+        nameStart = baseSegment + 1;
+    }
+    CaseCorrectResult status = CaseCorrectResult::Uncorrectable;
+    struct dirent* entry;
+    while((entry = readdir(dirf)) != nullptr) {
+        if(strcasecmp(baseSegment + 1, entry->d_name) == 0) {
+            /* found a match, use its case */
+            strcpy(baseSegment + 1, entry->d_name);
+            status = CaseCorrectResult::Correct;
+            break;
         }
     }
 
-    // get last piece of the path.
-    caseCorrectFilename(path);
+    *correctionSegment = separator;
+    closedir(dirf);
+    return status;
+}
+
+static bool caseCorrectInner(char* path, char* pathEnd) {
+    /* first, scan backwards to find the first incorrect segment and correct it */
+    char* currentSegment = pathEnd;
+    {
+        char* prevSegment = findPrevSegment(currentSegment, path);
+        while(1) {
+            CaseCorrectResult status = caseCorrectSegment(path, prevSegment, currentSegment);
+            if(status == CaseCorrectResult::Correct) break;
+            if(status == CaseCorrectResult::Uncorrectable) return false;
+            assert(status == CaseCorrectResult::NeedParent);
+            /* move to the previous segment */
+            currentSegment = prevSegment;
+            prevSegment = findPrevSegment(currentSegment, path);
+        }
+    }
+
+    /* fast track: was that the only error? */
+    if(access(path, F_OK) == 0)
+        return true;
+    if(errno != ENOENT)
+        return false;
+
+    /* no -> need to correct forwards */
+    {
+        char* nextSegment = findNextSegment(currentSegment);
+        while(nextSegment != 0) {
+            /* check access on the next segment */
+            int acc;
+            {
+                char separator = *nextSegment;
+                *nextSegment = '\0';
+                acc = access(path, F_OK);
+                *nextSegment = separator;
+            }
+            if(acc != 0) {
+                if(errno != ENOENT)
+                    return false;
+                CaseCorrectResult status = caseCorrectSegment(path, currentSegment, nextSegment);
+                if(status == CaseCorrectResult::Uncorrectable) return false;
+                /* parent should be accessible at this point, unless someone lied or we raced */
+                assert(status == CaseCorrectResult::Correct);
+            }
+            /* move to the next segment */
+            currentSegment = nextSegment;
+            nextSegment = findNextSegment(currentSegment);
+        }
+    }
+    return true;
+}
+
+// TODO: figure out long-term solution for case-sensitivity
+void caseCorrect(char* path) {
+    if(*path == '\0')
+        return;
+
+    char* pathEnd;
+    {
+        /* '\' -> '/' conversion */
+        char* current = path;
+        while(*current != '\0') {
+            if(*current == '\\')
+                *current = '/';
+            ++current;
+        }
+        pathEnd = current;
+    }
+    if(access(path, F_OK) == 0)
+        return;
+    if(errno != ENOENT)
+        return;
+
+    bool restoreSlash = false;
+    if(*(pathEnd - 1) == '/') {
+        /* path ends with a slash; to simplify handling things, remove it temporarily */
+        --pathEnd;
+        *pathEnd = '\0';
+        restoreSlash = true;
+    }
+
+    bool success = caseCorrectInner(path, pathEnd);
+
+    if(restoreSlash) {
+        *pathEnd = '/';
+        /* Technically, for correctness: (but `pathEnd` isn't used after this) */
+        /* ++pathEnd; */
+    }
+
+    if(success) {
+        LOGW << "Corrected a path to '" << path << "'" << std::endl;
+    }
 }
 
 std::vector<std::string> &getSubdirectories(const char *basepath, std::vector<std::string> &mods) {
