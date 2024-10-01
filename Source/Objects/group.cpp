@@ -39,7 +39,6 @@ extern bool g_debug_runtime_disable_group_pre_draw_frame;
 
 Group::Group() : child_transforms_need_update(false),
                  child_moved(false),
-                 //Glimpse - Group no navmesh.
                  children_no_navmesh(false) {
     box_.dims = vec3(1.0f);
 }
