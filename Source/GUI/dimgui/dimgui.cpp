@@ -2384,8 +2384,13 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         me->RibbonItemClicked("hotspoteditoractive", temp);
                     }
                     temp = me->IsTypeEnabled(_dynamic_light_object);
-                    if (ImGui::Checkbox("Edit lighting", &temp)) {
+                    if (ImGui::Checkbox("Edit lighting        ", &temp)) {
                         me->RibbonItemClicked("lighteditoractive", temp);
+                    }
+                    ImGui::SameLine();
+                    temp = me->IsTypeEnabled(_reflection_capture_object);
+                    if (ImGui::Checkbox("Edit reflections", &temp)) {
+                        me->RibbonItemClicked("editreflectioncaptures", temp);
                     }
                     ImGui::Separator();
                     if (ImGui::MenuItem("Play level", "8")) {
