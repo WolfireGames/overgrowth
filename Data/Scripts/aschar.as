@@ -2335,8 +2335,7 @@ void Breathe(const Timestep& in ts) {
         float breath_inertia = mix(0.999f, 0.99f, speed_ratio);
         breath_speed = min(5.0f, mix(target_breath_speed, breath_speed, pow(breath_inertia, ts.frames())));
         float old_breath_time = breath_time;
-		breath_time += ts.step() * breath_speed; //+RangedRandomFloat(0.0f, 0.2f); 
-												 //(Suggestion ^: Since even people irl don't breathe *completely* on intervals.
+		breath_time += ts.step() * breath_speed; //+RangedRandomFloat(0.0f, 0.2f); <- Suggestion ^: Since even people irl don't breathe *completely* on intervals.
         breath_amount = (sin(breath_time) * 0.5f + 0.5f) * 1.0f * mix(0.5f, 1.0f, breath_speed / 5.0f);
 
         if(level.GetScriptParams().HasParam("cold_breath")) {
