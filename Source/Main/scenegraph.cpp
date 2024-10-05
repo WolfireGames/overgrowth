@@ -1715,7 +1715,8 @@ void SceneGraph::DrawDepthMap(const mat4& proj_view_matrix, const vec4* cull_pla
         if (scene_draw_type == kStaticAndDynamic) {
             for (auto& it : visible_objects_copy) {
                 Object& obj = *it;
-                if (obj.enabled_ && obj.GetType() != _decal_object && obj.GetType() != _shadow_decal_object && obj.GetType() != _env_object) {
+                const EntityType& type = obj->GetType();
+                if (obj.enabled_ && type != _decal_object && type != _shadow_decal_object && type != _env_object) {
                     obj.DrawDepthMap(proj_view_matrix, cull_planes, num_cull_planes, object_draw_type);
                 }
             }
