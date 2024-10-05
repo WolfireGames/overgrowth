@@ -514,23 +514,20 @@ static void DrawColorPicker(Object** selected, unsigned selected_count, SceneGra
 
         if (!color_changed) {
             for (unsigned i = 0; i < selected_count; ++i) {
-                if (selected[i]->GetType() == _env_object) {
+                const EntityType& type = selected[i]->GetType();
+                if (type == _env_object) {
                     color = ((EnvObject*)selected[i])->GetColorTint();
                     overbright = ((EnvObject*)selected[i])->GetOverbright();
                     break;
-                } else if (selected[i]->GetType() == _item_object) {
+                } else if (type == _item_object) {
                     color = ((ItemObject*)selected[i])->GetColorTint();
                     overbright = ((ItemObject*)selected[i])->GetOverbright();
                     break;
-                } else if (selected[i]->GetType() == _decal_object) {
+                } else if (type == _decal_object || type == _shadow_decal_object) {
                     color = ((DecalObject*)selected[i])->color_tint_component_.tint_;
                     overbright = ((DecalObject*)selected[i])->color_tint_component_.overbright_;
                     break;
-                } else if (selected[i]->GetType() == _shadow_decal_object) {
-                    color = ((DecalObject*)selected[i])->color_tint_component_.tint_;
-                    overbright = ((DecalObject*)selected[i])->color_tint_component_.overbright_;
-                    break;
-                } else if (selected[i]->GetType() == _dynamic_light_object) {
+                } else if (type == _dynamic_light_object) {
                     color = ((DynamicLightObject*)selected[i])->GetTint();
                     overbright = ((DynamicLightObject*)selected[i])->GetOverbright();
                 }
