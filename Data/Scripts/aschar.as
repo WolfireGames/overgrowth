@@ -2482,11 +2482,6 @@ void Update(int num_frames) {
             invincible = GetConfigValueBool("player_invincible");
         }
     }
-	
-	if(GetInputPressed(this_mo.controller_id, "k"))
-	{
-		SetOnFire(true);
-	}
 
     if(this_mo.controlled) {
         if(knocked_out == _awake) {
