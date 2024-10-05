@@ -2187,8 +2187,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     SetBit(ribbon_toggle, RibbonGUI::view_nav_mesh_jump_nodes, type_enable_.IsTypeEnabled( _navmesh_connection_object ));
                 }
                 */
-                if (ImGui::BeginMenu("File")) 
-                {
+                if (ImGui::BeginMenu("File")) {
                     if (ImGui::MenuItem("New Level", KeyCommand::GetDisplayText(KeyCommand::kNewLevel))) {
                         Engine::NewLevel();
                     }
@@ -2219,8 +2218,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::EndMenu();
                 }
 
-                if (ImGui::BeginMenu("Edit")) 
-                {
+                if (ImGui::BeginMenu("Edit")) {
                     if (ImGui::MenuItem("Undo", KeyCommand::GetDisplayText(KeyCommand::kUndo), false, !me->GetTerrainPreviewMode())) {
                         me->Undo();
                     }
@@ -2305,8 +2303,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         }
                     }
 
-                    if (ImGui::BeginMenu("Player control script")) 
-                    {
+                    if (ImGui::BeginMenu("Player control script")) {
                         std::string pc_script = scenegraph->level->GetPCScript(NULL);
                         if (pc_script == Level::DEFAULT_PLAYER_SCRIPT) {
                             ImGui::Text("%s (default)", pc_script.c_str());
@@ -2347,8 +2344,7 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                         ImGui::EndMenu();
                     }
 
-                    if (ImGui::BeginMenu("Enemy control script")) 
-                    {
+                    if (ImGui::BeginMenu("Enemy control script")) {
                         std::string npc_script = scenegraph->level->GetNPCScript(NULL);
                         if (npc_script == Level::DEFAULT_ENEMY_SCRIPT) {
                             ImGui::Text("%s (default)", npc_script.c_str());
