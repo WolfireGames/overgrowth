@@ -253,13 +253,9 @@ void EntityDescription::SaveToXML(TiXmlElement* parent) const {
                     case _decal_object:
                         type_str = "Decal";
                         break;
-
-                    //Glimpse
                     case _shadow_decal_object:
                         type_str = "Decal";
                         break;
-                    //Glimpse
-
                     case _movement_object:
                         type_str = "ActorObject";
                         break;
