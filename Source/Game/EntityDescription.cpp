@@ -158,6 +158,10 @@ void EntityDescription::ReturnPaths(PathSet& path_set) {
             // DecalFiles::Instance()->ReturnRef(str)->ReturnPaths(path_set);
             Engine::Instance()->GetAssetManager()->LoadSync<DecalFile>(str)->ReturnPaths(path_set);
             break;
+        case _shadow_decal_object:
+            // DecalFiles::Instance()->ReturnRef(str)->ReturnPaths(path_set);
+            Engine::Instance()->GetAssetManager()->LoadSync<DecalFile>(str)->ReturnPaths(path_set);
+            break;
         case _hotspot_object:
             // HotspotFiles::Instance()->ReturnRef(str)->ReturnPaths(path_set);
             Engine::Instance()->GetAssetManager()->LoadSync<HotspotFile>(str)->ReturnPaths(path_set);
@@ -247,6 +251,9 @@ void EntityDescription::SaveToXML(TiXmlElement* parent) const {
                         type_str = "EnvObject";
                         break;
                     case _decal_object:
+                        type_str = "Decal";
+                        break;
+                    case _shadow_decal_object:
                         type_str = "Decal";
                         break;
                     case _movement_object:
