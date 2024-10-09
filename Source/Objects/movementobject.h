@@ -142,6 +142,7 @@ class MovementObject : public Object {
     bool visible;
     int no_grab;
     bool focused_character;
+    float kCullRadius;
     std::string object_npc_script_path;
     std::string object_pc_script_path;
 
