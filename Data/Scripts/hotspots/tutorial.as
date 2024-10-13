@@ -2,8 +2,6 @@
 //           Name: tutorial.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,49 +20,44 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
 void SetParameters() {
     params.AddString("Type", "Default text");
 }
 
-void SetEnabled(bool val){
-    array<int> ids;
-    level.GetCollidingObjects(hotspot.GetID(), ids);
-    for(int i=0, len=ids.size(); i<len; ++i){
-        int id = ids[i];
-        if(ObjectExists(id)){
-            Object@ obj = ReadObjectFromID(id);
-            if(obj.GetType() == _movement_object){
-                MovementObject@ mo = ReadCharacterID(id);
-                if(mo.controlled){
-                    if(val){
-                        if( GetConfigValueBool("tutorials") ) {
-                            mo.ReceiveMessage("tutorial "+params.GetString("Type")+" enter");
-                        }
-                    } else {
-                        mo.ReceiveMessage("tutorial "+params.GetString("Type")+" exit");
-                    }
-                }
-            }
-        }
+void HandleEvent(string event, MovementObject@ mo) {
+    if (!mo.controlled || !ReadObjectFromID(hotspot.GetID()).GetEnabled()) {
+        return;
+    }
+
+    if (event == "enter" || event == "engaged_player_control") {
+        SetEnabled(true);
+    } else if (event == "exit" || event == "disengaged_player_control") {
+        mo.ReceiveMessage("tutorial " + params.GetString("Type") + " exit");
     }
 }
 
-void HandleEvent(string event, MovementObject @mo) {
-    if( event == "enter" 
-        || event == "exit" 
-        || event == "disengaged_player_control"  
-        || event == "engaged_player_control" ) 
-    {
-        if(mo.controlled && ReadObjectFromID(hotspot.GetID()).GetEnabled()){
-            if(event == "enter" || event == "engaged_player_control"){
-                SetEnabled(true);
+void SetEnabled(bool enabled) {
+    array<int>@ ids = array<int>();
+    level.GetCollidingObjects(hotspot.GetID(), ids);
+    for (uint i = 0; i < ids.length(); ++i) {
+        int id = ids[i];
+        if (!ObjectExists(id)) {
+            continue;
+        }
+        Object@ obj = ReadObjectFromID(id);
+        if (obj.GetType() != _movement_object) {
+            continue;
+        }
+        MovementObject@ mo = ReadCharacterID(id);
+        if (!mo.controlled) {
+            continue;
+        }
+        if (enabled) {
+            if (GetConfigValueBool("tutorials")) {
+                mo.ReceiveMessage("tutorial " + params.GetString("Type") + " enter");
             }
-            if(event == "exit" || event == "disengaged_player_control"){
-                mo.ReceiveMessage("tutorial "+params.GetString("Type")+" exit");
-            }
+        } else {
+            mo.ReceiveMessage("tutorial " + params.GetString("Type") + " exit");
         }
     }
 }

@@ -2,7 +2,6 @@
 //           Name: launcher.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,35 +21,34 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
 // Credit to Steelraven7.
 
+void Init() {
+    // No initialization needed
+}
+
 void SetParameters() {
-	params.AddString("Velocity x", "0.0");
-	params.AddString("Velocity y (up)", "0.0");
-	params.AddString("Velocity z", "0.0");
-	params.AddString("Trigger on entry", "1");
-	params.AddString("Trigger on exit", "0");
+    params.AddFloat("Velocity x", 0.0f);
+    params.AddFloat("Velocity y (up)", 0.0f);
+    params.AddFloat("Velocity z", 0.0f);
+    params.AddInt("Trigger on entry", 1);
+    params.AddInt("Trigger on exit", 0);
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter" && params.GetString("Trigger on entry") != "0") {
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter" && params.GetInt("Trigger on entry") != 0) {
         Launch(mo);
-    }
-    else if(event == "exit" && params.GetString("Trigger on exit") != "0"){
+    } else if (event == "exit" && params.GetInt("Trigger on exit") != 0) {
         Launch(mo);
     }
 }
 
-void Launch(MovementObject @mo) {
-
-	//If player is ragdollized, don't launch since this way of launching ragdolls may cause problems.
-	if(mo.GetIntVar("state") == 4) return;
-
-	mo.velocity.x = params.GetFloat("Velocity x");
-	mo.velocity.y = params.GetFloat("Velocity y (up)");
-	mo.velocity.z = params.GetFloat("Velocity z");
-    mo.Execute("SetOnGround(false);");
-    mo.Execute("pre_jump = false;");
+void Launch(MovementObject@ mo) {
+    if (mo.GetIntVar("state") == 4) {
+        return;
+    }
+    mo.velocity.x = params.GetFloat("Velocity x");
+    mo.velocity.y = params.GetFloat("Velocity y (up)");
+    mo.velocity.z = params.GetFloat("Velocity z");
+    mo.Execute("SetOnGround(false); pre_jump = false;");
 }

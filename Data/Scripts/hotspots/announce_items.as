@@ -2,7 +2,6 @@
 //           Name: announce_items.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,45 +22,63 @@
 //-----------------------------------------------------------------------------
 
 array<int> contained_items;
+
 void Init() {
+    // No initialization needed
 }
 
 void SetParameters() {
     params.AddString("Hotspot ID", "ID for the announcing hotspot");
 }
 
-void HandleEventItem( string event, ItemObject @obj ) {
-    Log( info, "" + event + " occurred" );
-    if( event == "enter" ) {
-        bool has_id = false;
-        for( uint i = 0; i < contained_items.length(); i++ ) {
-            if( contained_items[i] == obj.GetID() ) {
-                has_id = true; 
-            }
-        }
-        if( has_id == false ) {
-            contained_items.insertLast( obj.GetID() );
-        }
-    }
-
-    if( event == "exit" ) {
-        for( uint i = 0; i < contained_items.length(); i++ ) {
-            if( contained_items[i] == obj.GetID() ) {
-                contained_items.removeAt(i);
-                i--;
-            }
-        }
-    }
-
-    if( event == "enter" || event == "exit" ) {
-        level.SendMessage( "hotspot_announce_items " + params.GetString("Hotspot ID") + " " + event + " " + obj.GetID() );
-        string message = "hotspot_announce_items " + params.GetString("Hotspot ID") + " inside_list";
-        for( uint i = 0; i < contained_items.length(); i++ ) {
-            message += " " + contained_items[i];
-        }
-        level.SendMessage( message );
+void HandleEventItem(string event, ItemObject@ obj) {
+    if (event == "enter") {
+        OnItemEnter(obj);
+    } else if (event == "exit") {
+        OnItemExit(obj);
     }
 }
 
-void OnEnter(MovementObject @mo) {
+void OnItemEnter(ItemObject@ obj) {
+    if (!IsItemContained(obj.GetID())) {
+        contained_items.insertLast(obj.GetID());
+    }
+    AnnounceItemEvent("enter", obj);
+    AnnounceContainedItems();
+}
+
+void OnItemExit(ItemObject@ obj) {
+    RemoveItem(obj.GetID());
+    AnnounceItemEvent("exit", obj);
+    AnnounceContainedItems();
+}
+
+bool IsItemContained(int id) {
+    for (uint i = 0; i < contained_items.length(); ++i) {
+        if (contained_items[i] == id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void RemoveItem(int id) {
+    for (uint i = 0; i < contained_items.length(); ++i) {
+        if (contained_items[i] == id) {
+            contained_items.removeAt(i);
+            break;
+        }
+    }
+}
+
+void AnnounceItemEvent(string event, ItemObject@ obj) {
+    level.SendMessage("hotspot_announce_items " + params.GetString("Hotspot ID") + " " + event + " " + obj.GetID());
+}
+
+void AnnounceContainedItems() {
+    string message = "hotspot_announce_items " + params.GetString("Hotspot ID") + " inside_list";
+    for (uint i = 0; i < contained_items.length(); ++i) {
+        message += " " + contained_items[i];
+    }
+    level.SendMessage(message);
 }

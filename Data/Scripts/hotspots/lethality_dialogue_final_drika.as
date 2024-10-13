@@ -2,7 +2,6 @@
 //           Name: lethality_dialogue_final_drika.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,86 +21,76 @@
 //
 //-----------------------------------------------------------------------------
 
-bool played;
+bool played = false;
+
+void Init() {
+    // No initialization needed
+}
 
 void Reset() {
     played = false;
 }
 
-void Init() {
-    Reset();
-	//vec3 end = char.rigged_object().GetAvgIKChainPos("torso");
-}
-
 void SetParameters() {
-	params.AddIntCheckbox("Play Once", true);
-	params.AddIntCheckbox("Play Only If Dead", false);
-	params.AddIntCheckbox("Play for NPCs", false);
-	
+    params.AddIntCheckbox("Play Once", true);
+    params.AddIntCheckbox("Play Only If Dead", false);
+    params.AddIntCheckbox("Play for NPCs", false);
+
     params.AddString("Lethal Dialogue", "Default text");
     params.AddString("Medium Dialogue", "Default text");
     params.AddString("Non Lethal Dialogue", "Default text");
     params.AddString("Non Lethal Ghost Dialogue", "Default text");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-	if(mo.controlled || params.GetInt("Play for NPCs") == 1)													//condition for "Play for NPCs"
-    if((mo.GetIntVar("knocked_out") > 0 || params.GetInt("Play Only If Dead") == 0)								//condition for "Play Only If Dead"
-		&& (!played || params.GetInt("Play Once") == 0)){														//condition for "Play once"
-		
-		int num_chars = GetNumCharacters();
-		bool everyone_alive = true;
-		bool everyone_awake = true;
-		bool everyone_dead = true;
-		for(int i=0; i<num_chars; ++i){												//check all character if they are alive
-            MovementObject @char = ReadCharacter(i);
-			if(!char.controlled && !mo.OnSameTeam(char)){
-				if(char.GetIntVar("knocked_out") > 0){
-					everyone_awake = false;
-					Log(warning, "dude is ko");
-				} else {
-					everyone_dead = false;
-					Log(warning, "dude is conscious");
-				}
-			}
-			if(!char.controlled && !mo.OnSameTeam(char)){
-				if(char.GetIntVar("knocked_out") == _dead){
-					everyone_alive = false;
-					Log(warning, "dude is dead");
-				} else {
-					everyone_dead = false;
-					Log(warning, "dude is alive");
-				}
-			} else {
-				Log(warning, "this is the player char");
-			}
-		}
-
-
-		if(everyone_awake){															//branches for different security states
-			Log(warning, "everyone's awake");
-			level.SendMessage("start_dialogue \""+params.GetString("Non Lethal Ghost Dialogue")+"\"");	
-		} else if(everyone_alive){															//branches for different lethal states
-			Log(warning, "everyone's alive");
-			level.SendMessage("start_dialogue \""+params.GetString("Non Lethal Dialogue")+"\"");
-		} else if(everyone_dead){
-			Log(warning, "everyone's dead");
-			level.SendMessage("start_dialogue \""+params.GetString("Lethal Dialogue")+"\"");
-		} else {
-			Log(warning, "some survived");
-			level.SendMessage("start_dialogue \""+params.GetString("Medium Dialogue")+"\"");
-		}
-        played = true;
+void OnEnter(MovementObject@ mo) {
+    if ((!mo.controlled && params.GetInt("Play for NPCs") == 0) || (played && params.GetInt("Play Once") == 1)) {
+        return;
     }
+    if (params.GetInt("Play Only If Dead") == 1 && mo.GetIntVar("knocked_out") <= 0) {
+        return;
+    }
+
+    EvaluateDialogue(mo);
+    played = true;
 }
 
-void OnExit(MovementObject @mo) {
+void EvaluateDialogue(MovementObject@ mo) {
+    int num_chars = GetNumCharacters();
+    bool everyone_awake = true;
+    bool everyone_alive = true;
+    bool everyone_dead = true;
+
+    for (int i = 0; i < num_chars; ++i) {
+        MovementObject@ char = ReadCharacter(i);
+        if (char.controlled || mo.OnSameTeam(char)) {
+            continue;
+        }
+        int knocked_out = char.GetIntVar("knocked_out");
+        if (knocked_out > 0) {
+            everyone_awake = false;
+        } else {
+            everyone_dead = false;
+        }
+        if (knocked_out == _dead) {
+            everyone_alive = false;
+        } else {
+            everyone_dead = false;
+        }
+    }
+
+    if (everyone_awake) {
+        level.SendMessage("start_dialogue \"" + params.GetString("Non Lethal Ghost Dialogue") + "\"");
+    } else if (everyone_alive) {
+        level.SendMessage("start_dialogue \"" + params.GetString("Non Lethal Dialogue") + "\"");
+    } else if (everyone_dead) {
+        level.SendMessage("start_dialogue \"" + params.GetString("Lethal Dialogue") + "\"");
+    } else {
+        level.SendMessage("start_dialogue \"" + params.GetString("Medium Dialogue") + "\"");
+    }
 }

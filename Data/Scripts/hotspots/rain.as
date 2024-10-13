@@ -2,8 +2,6 @@
 //           Name: rain.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,55 +20,82 @@
 //
 //-----------------------------------------------------------------------------
 
-float lightning_time = -1.0;
-float next_lightning_time = -1.0;
-float thunder_time = -1.0;
-float lightning_distance; // in miles
+float lightning_time = -1.0f;
+float next_lightning_time = -1.0f;
+float thunder_time = -1.0f;
+float lightning_distance = 0.0f;
 
-vec3 old_sun_position;
-vec3 old_sun_color;
-float old_sun_ambient;
+vec3 original_sun_position;
+vec3 original_sun_color;
+float original_sun_ambient;
 
 void Init() {
-    old_sun_position = GetSunPosition();
-    old_sun_color = GetSunColor();
-    old_sun_ambient = GetSunAmbient();
+    original_sun_position = GetSunPosition();
+    original_sun_color = GetSunColor();
+    original_sun_ambient = GetSunAmbient();
 }
 
 void Dispose() {
-    SetSunAmbient(old_sun_ambient);// + 1.5*flash_amount);
-    SetSkyTint(GetBaseSkyTint());
-    SetSunColor(old_sun_color);
-    SetSunPosition(old_sun_position);
+    RestoreSunSettings();
 }
 
 void Update() {
-    if(next_lightning_time < the_time){
-        next_lightning_time = the_time + RangedRandomFloat(6.0, 12.0);//RangedRandomFloat(3.0, 6.0);
-        lightning_distance = RangedRandomFloat(0.0, 1.0);
-        thunder_time = the_time + lightning_distance * 3.0;
-        lightning_time = the_time;
-        SetSunPosition(normalize(vec3(RangedRandomFloat(-1.0, 1.0), RangedRandomFloat(0.5, 1.0), RangedRandomFloat(-1.0, 1.0))));
+    if (next_lightning_time < the_time) {
+        ScheduleNextLightning();
     }
-
-    if(thunder_time < the_time && thunder_time != -1.0){
-        if(lightning_distance < 0.3){
-            PlaySoundGroup("Data/Sounds/weather/thunder_strike_mike_koenig.xml");
-        } else {
-            PlaySoundGroup("Data/Sounds/weather/tapio/thunder.xml");
-        }
-        thunder_time = -1.0;
+    if (thunder_time != -1.0f && thunder_time < the_time) {
+        PlayThunderSound();
+        thunder_time = -1.0f;
     }
-
-    if(lightning_time <= the_time){
-        float flash_amount = min(1.0, max(0.0, 1.0 + (lightning_time - the_time) * 0.1));
-        SetSunAmbient(1.5);// + 1.5*flash_amount);
-        flash_amount = min(1.0, max(0.0, 1.0 + (lightning_time - the_time) * 2.0));
-        flash_amount *= RangedRandomFloat(0.8,1.2);
-        flash_amount *= 3.0;
-        SetSkyTint(mix(GetBaseSkyTint() * 0.7, vec3(3.0), flash_amount));
-        SetSunColor(vec3(flash_amount) * 4.0);
-        SetFlareDiffuse(4.0);
+    if (lightning_time <= the_time) {
+        UpdateLightningEffects();
     }
+}
 
+void ScheduleNextLightning() {
+    next_lightning_time = the_time + RangedRandomFloat(6.0f, 12.0f);
+    lightning_distance = RangedRandomFloat(0.0f, 1.0f);
+    thunder_time = the_time + lightning_distance * 3.0f;
+    lightning_time = the_time;
+    SetSunPosition(RandomLightningPosition());
+}
+
+vec3 RandomLightningPosition() {
+    float x = RangedRandomFloat(-1.0f, 1.0f);
+    float y = RangedRandomFloat(0.5f, 1.0f);
+    float z = RangedRandomFloat(-1.0f, 1.0f);
+    return normalize(vec3(x, y, z));
+}
+
+void PlayThunderSound() {
+    if (lightning_distance < 0.3f) {
+        PlaySoundGroup("Data/Sounds/weather/thunder_strike_mike_koenig.xml");
+    } else {
+        PlaySoundGroup("Data/Sounds/weather/tapio/thunder.xml");
+    }
+}
+
+void UpdateLightningEffects() {
+    float flash_amount = Clamp(1.0f + (lightning_time - the_time) * 0.1f, 0.0f, 1.0f);
+    SetSunAmbient(1.5f);
+
+    flash_amount = Clamp(1.0f + (lightning_time - the_time) * 2.0f, 0.0f, 1.0f);
+    flash_amount *= RangedRandomFloat(0.8f, 1.2f) * 3.0f;
+
+    vec3 sky_tint = mix(GetBaseSkyTint() * 0.7f, vec3(3.0f), flash_amount);
+    SetSkyTint(sky_tint);
+
+    SetSunColor(vec3(flash_amount) * 4.0f);
+    SetFlareDiffuse(4.0f);
+}
+
+void RestoreSunSettings() {
+    SetSunAmbient(original_sun_ambient);
+    SetSkyTint(GetBaseSkyTint());
+    SetSunColor(original_sun_color);
+    SetSunPosition(original_sun_position);
+}
+
+float Clamp(float value, float min_value, float max_value) {
+    return min(max(value, min_value), max_value);
 }

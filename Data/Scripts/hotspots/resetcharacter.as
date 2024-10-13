@@ -2,8 +2,6 @@
 //           Name: resetcharacter.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,34 +20,25 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
-void SetParameters() {
-}
-
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if (event == "exit"){
-    	OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-	Object@ charObject = ReadObjectFromID(mo.GetID());
-	mo.Execute("Recover();");
-	mo.Execute("Reset();");
-	mo.position = charObject.GetTranslation();
-	mo.velocity = vec3(0);
-	//mo.Execute("SetParameters();");
-	mo.Execute("PostReset();");
-	mo.Execute("ResetSecondaryAnimation();");
-	if(mo.controlled){
-		level.SendMessage("achievement_event character_reset_hotspot");
-	}
+void OnEnter(MovementObject@ mo) {
+    ResetCharacter(mo);
+    if (mo.controlled) {
+        level.SendMessage("achievement_event character_reset_hotspot");
+    }
 }
 
-void OnExit(MovementObject @mo) {;
-
+void ResetCharacter(MovementObject@ mo) {
+    Object@ char_object = ReadObjectFromID(mo.GetID());
+    mo.Execute("Recover();");
+    mo.Execute("Reset();");
+    mo.position = char_object.GetTranslation();
+    mo.velocity = vec3(0.0f);
+    mo.Execute("PostReset();");
+    mo.Execute("ResetSecondaryAnimation();");
 }

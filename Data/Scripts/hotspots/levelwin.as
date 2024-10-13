@@ -2,7 +2,6 @@
 //           Name: levelwin.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,30 +22,27 @@
 //-----------------------------------------------------------------------------
 
 void Init() {
+    // No initialization needed
 }
 
 void SetParameters() {
-    params.AddString("branch","");
+    params.AddString("branch", "");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if(mo.controlled){
-        string branch = params.GetString("branch");
-        if(branch == "") {
-            SendGlobalMessage("levelwin");
-        } else {
-            SendGlobalMessage("levelwin " + branch);
-        }
+void OnEnter(MovementObject@ mo) {
+    if (!mo.controlled) {
+        return;
     }
-}
-
-void OnExit(MovementObject @mo) {
+    string branch = params.GetString("branch");
+    if (branch == "") {
+        SendGlobalMessage("levelwin");
+    } else {
+        SendGlobalMessage("levelwin " + branch);
+    }
 }

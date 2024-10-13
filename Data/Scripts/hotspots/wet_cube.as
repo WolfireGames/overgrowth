@@ -2,8 +2,6 @@
 //           Name: wet_cube.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,93 +20,81 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
-int count = 0;
 int water_surface_id = -1;
 int water_decal_id = -1;
 
 void SetParameters() {
-    params.AddFloatSlider("Wave Density",0.25f,"min:0,max:1,step:0.01");
-    params.AddFloatSlider("Wave Height",0.5f,"min:0,max:1,step:0.01");
-    params.AddFloatSlider("Water Fog",1.0f,"min:0,max:1,step:0.01");
-
+    params.AddFloatSlider("Wave Density", 0.25f, "min:0,max:1,step:0.01");
+    params.AddFloatSlider("Wave Height", 0.5f, "min:0,max:1,step:0.01");
+    params.AddFloatSlider("Water Fog", 1.0f, "min:0,max:1,step:0.01");
 }
 
 void Dispose() {
-    if(water_decal_id != -1){
-        QueueDeleteObjectID(water_decal_id);
-        water_decal_id = -1;
-    }
-    if(water_surface_id != -1){
-        QueueDeleteObjectID(water_surface_id);
-        water_surface_id = -1;
-    }
-}
-
-void HandleEvent(string event, MovementObject @mo){
-    //DebugText("wed", "Event: " + event, _fade);
-    if(event == "enter"){
-        OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
-    }
-}
-
-void OnEnter(MovementObject @mo) {
-    //mo.ReceiveScriptMessage("extinguish");
-    //mo.Execute("TakeBloodDamage(1.0f);Ragdoll(_RGDL_FALL);zone_killed=1;");
-}
-
-void OnExit(MovementObject @mo) {
-    mo.Execute("WaterExit("+hotspot.GetID()+");");
-}
-
-
-void PreDraw(float curr_game_time) {
+    DeleteObjectById(water_decal_id);
+    DeleteObjectById(water_surface_id);
 }
 
 void Update() {
-    EnterTelemetryZone("wet cube update");
-    Object@ obj = ReadObjectFromID(hotspot.GetID());
-    /*array<int> nearby_characters;
-    GetCharacters(nearby_characters);
-    int num_chars = nearby_characters.size();
-    for(int i=0; i<num_chars; ++i){
-        MovementObject@ mo = ReadCharacterID(nearby_characters[i]);
-        mo.rigged_object().AddWaterCube(obj.GetTransform());
-    }    */
-    if(!params.HasParam("Invisible")){
-        if(water_surface_id == -1){
-            water_surface_id = CreateObject("Data/Objects/water_test.xml", true);
-        }
-        Object@ water_surface_obj = ReadObjectFromID(water_surface_id);
-        water_surface_obj.SetTranslation(obj.GetTranslation());
-        water_surface_obj.SetRotation(obj.GetRotation());
-        water_surface_obj.SetScale(obj.GetScale() * 2.0f);
+    UpdateWaterSurface();
+    UpdateWaterDecal();
+    HandleCollisions();
+}
 
-        water_surface_obj.SetTint(vec3(params.GetFloat("Wave Height"),params.GetFloat("Wave Density"),params.GetFloat("Water Fog")));
-    }    
-    if(water_decal_id == -1){
+void UpdateWaterSurface() {
+    if (params.HasParam("Invisible")) {
+        return;
+    }
+    if (water_surface_id == -1) {
+        water_surface_id = CreateObject("Data/Objects/water_test.xml", true);
+    }
+    Object@ water_surface_obj = ReadObjectFromID(water_surface_id);
+    Object@ hotspot_obj = ReadObjectFromID(hotspot.GetID());
+    water_surface_obj.SetTranslation(hotspot_obj.GetTranslation());
+    water_surface_obj.SetRotation(hotspot_obj.GetRotation());
+    water_surface_obj.SetScale(hotspot_obj.GetScale() * 2.0f);
+
+    vec3 tint = vec3(
+        params.GetFloat("Wave Height"),
+        params.GetFloat("Wave Density"),
+        params.GetFloat("Water Fog")
+    );
+    water_surface_obj.SetTint(tint);
+}
+
+void UpdateWaterDecal() {
+    if (water_decal_id == -1) {
         water_decal_id = CreateObject("Data/Objects/Decals/water_fog.xml", true);
     }
     Object@ water_decal_obj = ReadObjectFromID(water_decal_id);
-    water_decal_obj.SetTranslation(obj.GetTranslation());
-    water_decal_obj.SetRotation(obj.GetRotation());
-    water_decal_obj.SetScale(obj.GetScale() * 4.00f);
+    Object@ hotspot_obj = ReadObjectFromID(hotspot.GetID());
+    water_decal_obj.SetTranslation(hotspot_obj.GetTranslation());
+    water_decal_obj.SetRotation(hotspot_obj.GetRotation());
+    water_decal_obj.SetScale(hotspot_obj.GetScale() * 4.0f);
+}
 
-    array<int> collides_with;
-    level.GetCollidingObjects(hotspot.GetID(), collides_with);
-    for(int i=0, len=collides_with.size(); i<len; ++i){
-        int id = collides_with[i];
-        if(ObjectExists(id) && ReadObjectFromID(id).GetType() == _movement_object){
-            MovementObject@ mo = ReadCharacterID(id);
-            mo.Execute("WaterIntersect("+hotspot.GetID()+");");
-            if(params.HasParam("Lethal")){
-              mo.Execute("zone_killed=1;TakeDamage(1.0f);");
-            }
+void HandleCollisions() {
+    array<int> colliding_objects;
+    level.GetCollidingObjects(hotspot.GetID(), colliding_objects);
+    for (uint i = 0; i < colliding_objects.length(); ++i) {
+        int object_id = colliding_objects[i];
+        if (!ObjectExists(object_id)) {
+            continue;
+        }
+        Object@ obj = ReadObjectFromID(object_id);
+        if (obj.GetType() != _movement_object) {
+            continue;
+        }
+        MovementObject@ mo = ReadCharacterID(object_id);
+        mo.Execute("WaterIntersect(" + hotspot.GetID() + ");");
+        if (params.HasParam("Lethal")) {
+            mo.Execute("zone_killed=1; TakeDamage(1.0f);");
         }
     }
-    LeaveTelemetryZone();
+}
+
+void DeleteObjectById(int& inout object_id) {
+    if (object_id != -1) {
+        QueueDeleteObjectID(object_id);
+        object_id = -1;
+    }
 }

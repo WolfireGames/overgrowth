@@ -2,8 +2,6 @@
 //           Name: revive.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,22 +20,16 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
-        OnEnter(mo);
-    } if(event == "exit"){
-        //Print("Exited Revive\n");
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
+        ReviveAllCharacters();
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    //Print("Entered Revive\n");
-	int num_chars = GetNumCharacters();
-				for(int i=0; i<num_chars; ++i){
-					MovementObject @char = ReadCharacter(i);
-	char.Execute("RecoverHealth();cut_throat = false;lives = p_lives;ko_shield = max_ko_shield;");
-	}
+void ReviveAllCharacters() {
+    int num_characters = GetNumCharacters();
+    for (int i = 0; i < num_characters; ++i) {
+        MovementObject@ character = ReadCharacter(i);
+        character.Execute("RecoverHealth(); cut_throat = false; lives = p_lives; ko_shield = max_ko_shield;");
+    }
 }

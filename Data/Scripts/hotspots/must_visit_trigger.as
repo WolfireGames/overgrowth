@@ -2,7 +2,6 @@
 //           Name: must_visit_trigger.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -24,32 +23,21 @@
 
 bool visited = false;
 
-void Init() {
-}
-
 void Reset() {
     visited = false;
 }
 
-void SetParameters() {
-}
-
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if(mo.controlled){
-        visited = true;
-        Log(info,"Visited!");
+void OnEnter(MovementObject@ mo) {
+    if (!mo.controlled) {
+        return;
     }
-}
-
-void OnExit(MovementObject @mo) {
+    visited = true;
 }
 
 string GetTypeString() {

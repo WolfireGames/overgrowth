@@ -2,7 +2,6 @@
 //           Name: creak.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,15 +22,29 @@
 //-----------------------------------------------------------------------------
 
 float delay = 5.0f;
-array<string> sounds = {"Data/Sounds/ambient/amb_forest_wood_creak_1.wav",
-                        "Data/Sounds/ambient/amb_forest_wood_creak_2.wav",
-                        "Data/Sounds/ambient/amb_forest_wood_creak_3.wav"};
-void UpdateSounds(){
+array<string> sounds = {
+    "Data/Sounds/ambient/amb_forest_wood_creak_1.wav",
+    "Data/Sounds/ambient/amb_forest_wood_creak_2.wav",
+    "Data/Sounds/ambient/amb_forest_wood_creak_3.wav"
+};
+
+void UpdateSounds() {
     delay -= time_step;
-    if(delay < 0.0f){
-        delay = RangedRandomFloat(0.1, 10.0f);
-        MovementObject@ player = ReadCharacterID(player_id);
-        vec3 position = player.position + vec3(RangedRandomFloat(-10.0f, 10.0f),RangedRandomFloat(-10.0f, 10.0f),RangedRandomFloat(-10.0f, 10.0f));
-        PlaySound(sounds[rand() % sounds.size()], position);
+    if (delay >= 0.0f) {
+        return;
     }
+    delay = RangedRandomFloat(0.1, 10.0f);
+    PlayRandomCreakSound();
+}
+
+void PlayRandomCreakSound() {
+    MovementObject@ player = ReadCharacterID(player_id);
+    vec3 random_offset = vec3(
+        RangedRandomFloat(-10.0f, 10.0f),
+        RangedRandomFloat(-10.0f, 10.0f),
+        RangedRandomFloat(-10.0f, 10.0f)
+    );
+    vec3 position = player.position + random_offset;
+    string sound = sounds[rand() % sounds.size()];
+    PlaySound(sound, position);
 }

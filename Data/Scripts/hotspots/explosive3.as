@@ -2,7 +2,6 @@
 //           Name: explosive3.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,39 +22,47 @@
 //-----------------------------------------------------------------------------
 
 void Init() {
+    // No initialization needed
 }
 
 void SetParameters() {
-	params.AddString("Smoke particle amount", "5.0");
+    params.AddString("Smoke particle amount", "5.0");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
     }
-	else if(event == "exit"){
-        OnExit(mo);
+}
+
+void OnEnter(MovementObject@ mo) {
+    vec3 explosion_point = hotspot.GetTranslation();
+    MakeMetalSparks(explosion_point);
+    CreateSmokeParticles(mo.position, params.GetFloat("Smoke particle amount"));
+    PlaySound("Data/Sounds/explosives/explosion3.wav");
+}
+
+void CreateSmokeParticles(vec3 position, float amount) {
+    float speed = 5.0f;
+    for (int i = 0; i < int(amount); ++i) {
+        vec3 velocity = RandomVector(-speed, speed);
+        MakeParticle("Data/Particles/explosion_smoke.xml", position, velocity);
     }
 }
-void OnEnter(MovementObject @mo) {
-		Object@ thisHotspot = ReadObjectFromID(hotspot.GetID());
-		vec3 explosion_point = thisHotspot.GetTranslation();
-		MakeMetalSparks(explosion_point);
-		float speed = 5.0f;
-		for(int i=0; i<(params.GetFloat("Smoke particle amount")); i++){
-				MakeParticle("Data/Particles/explosion_smoke.xml",mo.position,
-				vec3(RangedRandomFloat(-speed,speed),RangedRandomFloat(-speed,speed),RangedRandomFloat(-speed,speed)));
-		}
-	  PlaySound("Data/Sounds/explosives/explosion3.wav");
-}
-void OnExit(MovementObject @mo) {
-}
-void MakeMetalSparks(vec3 pos){
+
+void MakeMetalSparks(vec3 pos) {
     int num_sparks = 60;
-		float speed = 20.0f;
-    for(int i=0; i<num_sparks; ++i){
-        MakeParticle("Data/Particles/explosion_fire.xml",pos,vec3(RangedRandomFloat(-speed,speed),
-                                                         RangedRandomFloat(-speed,speed),
-                                                         RangedRandomFloat(-speed,speed)));
+    float speed = 20.0f;
+    for (int i = 0; i < num_sparks; ++i) {
+        vec3 velocity = RandomVector(-speed, speed);
+        MakeParticle("Data/Particles/explosion_fire.xml", pos, velocity);
     }
+}
+
+vec3 RandomVector(float min, float max) {
+    return vec3(
+        RangedRandomFloat(min, max),
+        RangedRandomFloat(min, max),
+        RangedRandomFloat(min, max)
+    );
 }

@@ -2,7 +2,6 @@
 //           Name: fixedragdollpart.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,34 +21,28 @@
 //
 //-----------------------------------------------------------------------------
 
+Object@ this_hotspot;
+
 void Init() {
-
-}
-Object@ thisHotspot = ReadObjectFromID(hotspot.GetID());
-
-void SetParameters() {
+    this_hotspot = ReadObjectFromID(hotspot.GetID());
 }
 
-void Reset(){
-
-}
-
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
+    } else if (event == "exit") {
         OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-   mo.rigged_object().FixedRagdollPart(1,thisHotspot.GetTranslation());
+void OnEnter(MovementObject@ mo) {
+    mo.rigged_object().FixedRagdollPart(1, this_hotspot.GetTranslation());
 }
 
-void OnExit(MovementObject @mo) {
+void OnExit(MovementObject@ mo) {
     mo.rigged_object().ClearBoneConstraints();
 }
 
-void Update(){
-    
+void Update() {
+    // Update code if needed
 }

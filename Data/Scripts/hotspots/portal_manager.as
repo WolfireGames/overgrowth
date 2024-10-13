@@ -2,8 +2,6 @@
 //           Name: portal_manager.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,53 +20,57 @@
 //
 //-----------------------------------------------------------------------------
 
+array<int> portal_ids;
+
 void SetParameters() {
     params.AddString("Portals", "");
 }
 
-void Init() {
+void Update() {
+    UpdatePortalIDs();
+    if (GetInputPressed(0, "k") && portal_ids.length() > 0) {
+        TeleportToRandomPortal();
+    }
 }
 
-array<int> portal_ids;
-
-void Update() {   
+void UpdatePortalIDs() {
     portal_ids.resize(0);
-    if(params.HasParam("Portals")){
-        string str = params.GetString("Portals");
-        TokenIterator token_iter;
-        token_iter.Init();
-        while(token_iter.FindNextToken(str)){
-            string token = token_iter.GetToken(str);
-            int target_id = atoi(token);
-            if(ObjectExists(target_id)){
-                Object @obj = ReadObjectFromID(target_id);
-                if(obj.GetType() == _hotspot_object){
-                    portal_ids.push_back(target_id);
-                }
-            }
+    if (!params.HasParam("Portals")) {
+        return;
+    }
+    string portals_str = params.GetString("Portals");
+    TokenIterator token_iter;
+    token_iter.Init();
+    while (token_iter.FindNextToken(portals_str)) {
+        int target_id = atoi(token_iter.GetToken(portals_str));
+        if (ObjectExists(target_id) && ReadObjectFromID(target_id).GetType() == _hotspot_object) {
+            portal_ids.push_back(target_id);
         }
     }
+}
 
-    if(GetInputPressed(0, "k") && portal_ids.size() > 0){
-        int which = rand() % portal_ids.size();
-        Object @obj = ReadObjectFromID(portal_ids[which]);
-        ScriptParams@ portal_params = obj.GetScriptParams();
-        if(portal_params.HasParam("spawn_point")){
-            int spawn_point_id = portal_params.GetInt("spawn_point");
-            if(ObjectExists(spawn_point_id)){
-                Object @spawn_point_obj = ReadObjectFromID(spawn_point_id);
-                int num_chars = GetNumCharacters();
-                for(int i=0; i<num_chars; ++i){
-                    MovementObject@ char = ReadCharacter(i);
-                    char.position = spawn_point_obj.GetTranslation();
-                    char.SetRotationFromFacing(spawn_point_obj.GetRotation() * vec3(0,0,1));
-                    char.velocity = vec3(0.0);
+void TeleportToRandomPortal() {
+    int which = rand() % portal_ids.length();
+    Object@ portal_obj = ReadObjectFromID(portal_ids[which]);
+    ScriptParams@ portal_params = portal_obj.GetScriptParams();
+    if (!portal_params.HasParam("spawn_point")) {
+        return;
+    }
+    int spawn_point_id = portal_params.GetInt("spawn_point");
+    if (!ObjectExists(spawn_point_id)) {
+        return;
+    }
+    Object@ spawn_point_obj = ReadObjectFromID(spawn_point_id);
+    TeleportCharactersToSpawnPoint(spawn_point_obj);
+}
 
-                    char.Execute("Reset();");
-                    char.Execute("PostReset();");
-                    char.Execute("ResetSecondaryAnimation();");
-                }
-            }
-        }
+void TeleportCharactersToSpawnPoint(Object@ spawn_point_obj) {
+    int num_chars = GetNumCharacters();
+    for (int i = 0; i < num_chars; ++i) {
+        MovementObject@ char = ReadCharacter(i);
+        char.position = spawn_point_obj.GetTranslation();
+        char.SetRotationFromFacing(spawn_point_obj.GetRotation() * vec3(0, 0, 1));
+        char.velocity = vec3(0.0f);
+        char.Execute("Reset(); PostReset(); ResetSecondaryAnimation();");
     }
 }

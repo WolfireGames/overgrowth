@@ -2,8 +2,6 @@
 //           Name: ragdoll.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,33 +20,49 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
 void SetParameters() {
-	params.AddString("Recovery time", "5.0");
-	params.AddString("Damage dealt", "0.0");
-	params.AddString("Upward force", "0.0");
-	params.AddString("Ragdoll type", "0");
+    params.AddString("RecoveryTime", "5.0");
+    params.AddString("DamageDealt", "0.0");
+    params.AddString("UpwardForce", "0.0");
+    params.AddString("RagdollType", "0");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    string ragdollType = "_RGDL_FALL";
+void OnEnter(MovementObject@ mo) {
+    string ragdoll_type = GetRagdollType();
+    string script = BuildRagdollScript(ragdoll_type);
+    mo.Execute(script);
+}
 
-    if(params.GetFloat("Ragdoll type") == 1) {
-    	ragdollType = "_RGDL_INJURED";
+string GetRagdollType() {
+    float type = params.GetFloat("RagdollType");
+    if (type == 1) {
+        return "_RGDL_INJURED";
+    } else if (type == 2) {
+        return "_RGDL_LIMP";
+    } else if (type == 3) {
+        return "_RGDL_ANIMATION";
     }
-    else if(params.GetFloat("Ragdoll type") == 2) {
-    	ragdollType = "_RGDL_LIMP";
-    }
-    else if(params.GetFloat("Ragdoll type") == 3) {
-    	ragdollType = "_RGDL_ANIMATION";
-    }
-    mo.Execute("DropWeapon(); Ragdoll("+ragdollType+"); HandleRagdollImpactImpulse(vec3(0.0f,"+params.GetFloat("Upward force")+",0.0f), this_mo.rigged_object().GetAvgIKChainPos(\"torso\"), "+params.GetFloat("Damage dealt")+"); roll_recovery_time = "+params.GetFloat("Recovery time")+"; recovery_time = "+params.GetFloat("Recovery time")+";");
+    return "_RGDL_FALL";
+}
+
+string BuildRagdollScript(const string& in ragdoll_type) {
+    float upward_force = params.GetFloat("UpwardForce");
+    float damage_dealt = params.GetFloat("DamageDealt");
+    float recovery_time = params.GetFloat("RecoveryTime");
+
+    string script =
+        "DropWeapon(); "
+        "Ragdoll(" + ragdoll_type + "); "
+        "HandleRagdollImpactImpulse(vec3(0.0f," + upward_force + ",0.0f), "
+        "this_mo.rigged_object().GetAvgIKChainPos(\"torso\"), " + damage_dealt + "); "
+        "roll_recovery_time = " + recovery_time + "; "
+        "recovery_time = " + recovery_time + ";";
+
+    return script;
 }

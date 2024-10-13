@@ -2,8 +2,6 @@
 //           Name: spike_tip.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,33 +20,26 @@
 //
 //-----------------------------------------------------------------------------
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
-        OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
+        SendMessageToParent("arm_spike");
+    } else if (event == "exit") {
+        SendMessageToParent("disarm_spike");
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if(params.HasParam("Parent")){
-        int id = params.GetInt("Parent");
-        if(ObjectExists(id)){
-            Object@ parent = ReadObjectFromID(id);
-            parent.ReceiveScriptMessage("arm_spike");
-        }
+void SendMessageToParent(const string& in message) {
+    if (!params.HasParam("Parent")) {
+        return;
     }
-}
-
-void OnExit(MovementObject @mo) {
-    if(params.HasParam("Parent")){
-        int id = params.GetInt("Parent");
-        if(ObjectExists(id)){
-            Object@ parent = ReadObjectFromID(id);
-            parent.ReceiveScriptMessage("disarm_spike");
-        }
+    int parent_id = params.GetInt("Parent");
+    if (!ObjectExists(parent_id)) {
+        return;
     }
+    Object@ parent = ReadObjectFromID(parent_id);
+    parent.ReceiveScriptMessage(message);
 }
 
 void Draw() {
+    // No drawing needed
 }

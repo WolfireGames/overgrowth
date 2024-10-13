@@ -2,8 +2,6 @@
 //           Name: snow.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,58 +20,63 @@
 //
 //-----------------------------------------------------------------------------
 
-const float k_base_spawn_rate = 120.0f;
-bool g_is_spawn_always_on = true;
-float g_time_per_spawn = 1.0f / k_base_spawn_rate;
+const float kBaseSpawnRate = 120.0f;
+bool spawn_always_on = true;
+float time_per_spawn = 1.0f / kBaseSpawnRate;
 
-int g_player_in_hotspot_count = 0;
-float g_elapsed_time = 0;
-vec3 g_pos_previous = vec3(0.0);
+int player_in_hotspot_count = 0;
+float elapsed_time = 0.0f;
+vec3 previous_position = vec3(0.0f);
 
 void SetParameters() {
-    params.AddIntCheckbox("Spawns Only When Player Inside", false);
-    g_is_spawn_always_on = params.GetInt("Spawns Only When Player Inside") == 0;
+    params.AddIntCheckbox("SpawnsOnlyWhenPlayerInside", false);
+    spawn_always_on = params.GetInt("SpawnsOnlyWhenPlayerInside") == 0;
 
-    params.AddFloatSlider("Spawn Rate", 1.0, "min:0.01,max:2.0,step:0.01,text_mult:100");
-    float spawn_frequency = min(10.0f, max(0.01f, params.GetFloat("Spawn Rate")));
-    g_time_per_spawn = 1.0f / (k_base_spawn_rate * spawn_frequency);
+    params.AddFloatSlider("SpawnRate", 1.0f, "min:0.01,max:2.0,step:0.01,text_mult:100");
+    float spawn_frequency = Clamp(params.GetFloat("SpawnRate"), 0.01f, 10.0f);
+    time_per_spawn = 1.0f / (kBaseSpawnRate * spawn_frequency);
 }
 
 void Update() {
-    if(g_player_in_hotspot_count > 0 || g_is_spawn_always_on) {
-        vec3 pos = camera.GetPos();
-        float domain_size = 5.0f;
-        vec3 scale = vec3(domain_size);
-        vec3 movement_vec = pos - g_pos_previous;
+    if (player_in_hotspot_count <= 0 && !spawn_always_on) {
+        return;
+    }
+    SpawnSnowParticles();
+}
 
-        g_elapsed_time += time_step;
+void SpawnSnowParticles() {
+    vec3 current_position = camera.GetPos();
+    vec3 movement_vector = current_position - previous_position;
+    elapsed_time += time_step;
+    float domain_size = 5.0f;
+    vec3 scale = vec3(domain_size);
 
-        while(g_elapsed_time >= g_time_per_spawn) {
-            vec3 offset;
-            offset.x = RangedRandomFloat(-scale.x * 2.0f, scale.x * 2.0f);
-            offset.y = RangedRandomFloat(-scale.y * 2.0f, scale.y * 2.0f);
-            offset.z = RangedRandomFloat(-scale.z * 2.0f, scale.z * 2.0f);
+    while (elapsed_time >= time_per_spawn) {
+        vec3 offset;
+        offset.x = RangedRandomFloat(-scale.x * 2.0f, scale.x * 2.0f);
+        offset.y = RangedRandomFloat(-scale.y * 2.0f, scale.y * 2.0f);
+        offset.z = RangedRandomFloat(-scale.z * 2.0f, scale.z * 2.0f);
 
-            vec3 initial_position = pos + offset + movement_vec * 150;
-            uint32 id = MakeParticle("Data/Particles/snow.xml", initial_position, vec3(0.0f, 0.0f, 0.0f));
+        vec3 initial_position = current_position + offset + movement_vector * 150.0f;
+        MakeParticle("Data/Particles/snow.xml", initial_position, vec3(0.0f));
+        elapsed_time -= time_per_spawn;
+    }
 
-            g_elapsed_time -= g_time_per_spawn;
-        }
+    previous_position = current_position;
+}
 
-        g_pos_previous = pos;
+void HandleEvent(string event, MovementObject@ mo) {
+    Object@ mo_obj = ReadObjectFromID(mo.GetID());
+    if (!mo_obj.GetPlayer()) {
+        return;
+    }
+    if (event == "enter") {
+        ++player_in_hotspot_count;
+    } else if (event == "exit") {
+        --player_in_hotspot_count;
     }
 }
 
-void HandleEvent(string event, MovementObject @mo) {
-    Object@ mo_obj = ReadObjectFromID(mo.GetID());
-
-    if(event == "enter") {
-        if(mo_obj.GetPlayer()) {
-            ++g_player_in_hotspot_count;
-        }
-    } else if(event == "exit") {
-        if(mo_obj.GetPlayer()) {
-            --g_player_in_hotspot_count;
-        }
-    }
+float Clamp(float value, float min_value, float max_value) {
+    return min(max(value, min_value), max_value);
 }

@@ -2,7 +2,6 @@
 //           Name: emitter.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,7 +22,7 @@
 //-----------------------------------------------------------------------------
 
 enum ParticleType {
-    _smoke = 0, 
+    _smoke = 0,
     _falling_water = 1,
     _foggy = 2,
     _dripping_water = 3,
@@ -31,6 +30,8 @@ enum ParticleType {
 };
 
 int particle_type;
+float delay = 0.0f;
+float last_game_time = 0.0f;
 
 void Init() {
     hotspot.SetCollisionEnabled(false);
@@ -39,102 +40,107 @@ void Init() {
 void SetParameters() {
     params.AddString("Type", "Smoke");
     string type_string = params.GetString("Type");
-    Log(info, "type_string: "+type_string);
-    if(type_string == "Smoke"){
-        particle_type = _smoke;
-    } else if(type_string == "Foggy"){
-        particle_type = _foggy;
-    } else if(type_string == "Falling Water"){
-        particle_type = _falling_water;
-    } else if(type_string == "Dripping Water"){
-        particle_type = _dripping_water;
-    } else if(type_string == "Dripping Water Lower"){
-        particle_type = _dripping_water_lower;
-	}
+    particle_type = GetParticleTypeFromString(type_string);
 }
 
-float delay = 0.0;
+int GetParticleTypeFromString(string type_string) {
+    if (type_string == "Smoke") {
+        return _smoke;
+    } else if (type_string == "Foggy") {
+        return _foggy;
+    } else if (type_string == "Falling Water") {
+        return _falling_water;
+    } else if (type_string == "Dripping Water") {
+        return _dripping_water;
+    } else if (type_string == "Dripping Water Lower") {
+        return _dripping_water_lower;
+    }
+    return _smoke; // Default
+}
 
-float last_game_time = 0.0;
 void PreDraw(float curr_game_time) {
     EnterTelemetryZone("Emitter Update");
 
-    if(ReadObjectFromID(hotspot.GetID()).GetEnabled()){
-        float delta_time = curr_game_time - last_game_time;
-
-        Object@ obj = ReadObjectFromID(hotspot.GetID());
-        vec3 pos = obj.GetTranslation();
-        vec3 scale = obj.GetScale();
-        vec4 v = obj.GetRotationVec4();
-        quaternion rotation(v.x,v.y,v.z,v.a);
-        delay -= delta_time;
-        if(delay <= 0.0f){
-            if(particle_type == _smoke){
-                for(int i=0; i<1; ++i){
-                    vec3 offset;
-                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
-                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
-                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
-                    uint32 id = MakeParticle("Data/Particles/smoke_ambient.xml", pos + Mult(rotation, offset), vec3(0.0f), vec3(1.0f));
-                }
-                delay += 0.4f;
-            }
-                    if(particle_type == _foggy){
-                for(int i=0; i<1; ++i){
-                    vec3 offset;
-                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
-                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
-                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
-                    uint32 id = MakeParticle("Data/Particles/smoke_foggy.xml", pos + Mult(rotation, offset), vec3(0.0f), vec3(1.0f));
-                }
-                delay += 0.4f;
-            }
-            if(particle_type == _falling_water){
-                for(int i=0; i<1; ++i){
-                    vec3 offset;
-                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
-                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
-                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
-                    vec3 vel = rotation * vec3(1,0,0);
-                    uint32 id = MakeParticle("Data/Particles/falling_water.xml", pos + Mult(rotation, offset), vel * 3.0, vec3(1.0f));
-                }
-                for(int i=0; i<1; ++i){
-                    vec3 offset;
-                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
-                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
-                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
-                    vec3 vel = rotation * vec3(1,0,0);
-                    uint32 id = MakeParticle("Data/Particles/falling_water_drops.xml", pos + Mult(rotation, offset), vel * 2.0, vec3(1.0f));
-                }
-                delay += 0.2f;
-            }
-            if(particle_type == _dripping_water){
-                for(int i=0; i<1; ++i){
-                    vec3 offset;
-                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
-                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
-                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
-                    vec3 vel = rotation * vec3(0,0,0);
-                    uint32 id = MakeParticle("Data/Particles/rain.xml", pos + Mult(rotation, offset), vel * 2.0, vec3(1.0f));
-                }
-                delay += 0.3f;
-            }
-            if(particle_type == _dripping_water_lower){
-                for(int i=0; i<1; ++i){
-                    vec3 offset;
-                    offset.x += RangedRandomFloat(-scale.x*2.0f,scale.x*2.0f);
-                    offset.y += RangedRandomFloat(-scale.y*2.0f,scale.y*2.0f);
-                    offset.z += RangedRandomFloat(-scale.z*2.0f,scale.z*2.0f);
-                    vec3 vel = rotation * vec3(0,0,0);
-                    uint32 id = MakeParticle("Data/Particles/rainsmall.xml", pos + Mult(rotation, offset), vel * 2.0, vec3(1.0f));
-                }
-                delay += 0.6f;
-            }
-        }
-        if(delay < -1.0){
-            delay = -1.0;
-        }
+    if (!ReadObjectFromID(hotspot.GetID()).GetEnabled()) {
+        last_game_time = curr_game_time;
+        LeaveTelemetryZone();
+        return;
     }
+
+    float delta_time = curr_game_time - last_game_time;
+    delay -= delta_time;
+
+    if (delay > 0.0f) {
+        last_game_time = curr_game_time;
+        LeaveTelemetryZone();
+        return;
+    }
+
+    Object@ obj = ReadObjectFromID(hotspot.GetID());
+    vec3 pos = obj.GetTranslation();
+    vec3 scale = obj.GetScale();
+    quaternion rotation = obj.GetRotation();
+
+    GenerateParticles(pos, scale, rotation);
+
     last_game_time = curr_game_time;
     LeaveTelemetryZone();
+}
+
+void GenerateParticles(vec3 pos, vec3 scale, quaternion rotation) {
+    switch (particle_type) {
+        case _smoke:
+            EmitParticles("Data/Particles/smoke_ambient.xml", pos, scale, rotation, 1);
+            delay += 0.4f;
+            break;
+        case _foggy:
+            EmitParticles("Data/Particles/smoke_foggy.xml", pos, scale, rotation, 1);
+            delay += 0.4f;
+            break;
+        case _falling_water:
+            EmitFallingWater(pos, scale, rotation);
+            delay += 0.2f;
+            break;
+        case _dripping_water:
+            EmitParticles("Data/Particles/rain.xml", pos, scale, rotation, 1);
+            delay += 0.3f;
+            break;
+        case _dripping_water_lower:
+            EmitParticles("Data/Particles/rainsmall.xml", pos, scale, rotation, 1);
+            delay += 0.6f;
+            break;
+    }
+
+    if (delay < -1.0f) {
+        delay = -1.0f;
+    }
+}
+
+void EmitParticles(string particle_path, vec3 pos, vec3 scale, quaternion rotation, int count) {
+    for (int i = 0; i < count; ++i) {
+        vec3 offset = GetRandomOffset(scale);
+        vec3 particle_pos = pos + rotation * offset;
+        MakeParticle(particle_path, particle_pos, vec3(0.0f), vec3(1.0f));
+    }
+}
+
+void EmitFallingWater(vec3 pos, vec3 scale, quaternion rotation) {
+    for (int i = 0; i < 1; ++i) {
+        vec3 offset = GetRandomOffset(scale);
+        vec3 vel = rotation * vec3(1, 0, 0) * 3.0f;
+        MakeParticle("Data/Particles/falling_water.xml", pos + rotation * offset, vel, vec3(1.0f));
+    }
+    for (int i = 0; i < 1; ++i) {
+        vec3 offset = GetRandomOffset(scale);
+        vec3 vel = rotation * vec3(1, 0, 0) * 2.0f;
+        MakeParticle("Data/Particles/falling_water_drops.xml", pos + rotation * offset, vel, vec3(1.0f));
+    }
+}
+
+vec3 GetRandomOffset(vec3 scale) {
+    return vec3(
+        RangedRandomFloat(-scale.x * 2.0f, scale.x * 2.0f),
+        RangedRandomFloat(-scale.y * 2.0f, scale.y * 2.0f),
+        RangedRandomFloat(-scale.z * 2.0f, scale.z * 2.0f)
+    );
 }
