@@ -294,7 +294,7 @@ Define variable, its values and notes for each value.
 	Perfect Non-Lethal Stealth requires less than 1 lethality point.
 	Non-Lethal Stealth requires less than 6 lethality points.
 	Non-Lethal requires less than 32 lethality points.
-	Lethal requires less than 60 lethality points.
+	Lethal requires less than 45 lethality points.
 	Full-Lethal requires more than 60 lethality points.
 	Perfect Full-Lethal requires killing every single enemy in the game.
 	Senseless Full-Lethal requires overkilling every single enemy in the game.

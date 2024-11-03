@@ -5,32 +5,53 @@ Used for lethality & enemy state scripts, namely this variable:
 		1: unconscious
 		2: dead
 
-== EXPLORE
+
+
+
+:=: POINTS CODEX
+
+	eliminations
+		Add 1 lethality point
+	kills
+		Add 8 lethality points
+	zonekills
+		Add 2 lethality points. Incurred upon drowning, dying to spikes, or lava
+	overkills
+		Add 2 lethality points per overkill. Maximum of 10 overkills per level. Multiple overkills can be achieved on the same character
+	throatscut
+		Add 4 lethality points
+
+
+
+
+=== EXPLORE
     N/A
 
 
-== AGRA HOOD
-    Gate Guard 1            Emory
+
+
+=== AGRA HOOD [11 Enemies]
+    Gate Guard 1                Emory
         11
-    Gate Guard 2            Graves
+    Gate Guard 2                Graves
         1133
-    Gate Guard 3            Hein
+    Gate Guard 3                Hein
         1129
-    Well Guard 1            Kaarle
+    Well Guard 1                Kaarle
         1291
-    Well Guard 2            Funs
+    Well Guard 2                Funs
         1332
-    Roof Heavy 1            Helmut
+    Roof Heavy 1                Helmut
         6773
-    Roof Guard 1            Baldwin
+    Roof Guard 1                Baldwin
         16201
-    Roof Guard 2            Yves
+    Roof Guard 2                Yves
         1921
-    Roof Guard 3            Merrick
+    Roof Guard 3                Merrick
         4592
-    Roof Guard 4            Ramon
+    Roof Guard 4                Ramon
         16187
-    Tree Guard 1            Avva
+    Tree Guard 1                Avva
         4518
     
     -- VARIABLES
@@ -45,26 +66,32 @@ Used for lethality & enemy state scripts, namely this variable:
         ouruin_agra_enemy_4592_status
         ouruin_agra_enemy_16187_status
         ouruin_agra_enemy_4518_status
+    
+    -- POINTS TOTAL
+        kills: 88 points
+        throatcuts: 132 points
 
 
-== HIGH ROAD
-    Factory Heavy           Edtris
+
+
+=== HIGH ROAD [9 Enemies]
+    Factory Heavy               Edtris
         640
-    Street Heavy            Forres
+    Street Heavy                Forres
         1614
-    Street Leader           Axtro
+    Street Leader               Axtro
         4432
-    Street Mook 1           Noraluss
+    Street Mook 1               Noraluss
         4436
-    Street Mook 2           Marixt
+    Street Mook 2               Marixt
         4513
-    Waterfront Mook 1       Calim
+    Waterfront Mook 1           Calim
         4953
-    Waterfront Mook 2       Riverfall
+    Waterfront Mook 2           Riverfall
         5073
-    Waterfront Mook 3       
+    Waterfront Mook 3           Softstep
         5077
-    Waterfront Mook 4
+    Waterfront Mook 4           Hawks
         11342
 
     -- VARIABLES
@@ -77,24 +104,30 @@ Used for lethality & enemy state scripts, namely this variable:
         ouruin_highroad_enemy_5073_status
         ouruin_highroad_enemy_5077_status
         ouruin_highroad_enemy_11342_status
+    
+    -- POINTS TOTAL
+        kills: 72 points
+        throatcuts: 108 points
 
 
-== DEPOT
-    Storage Rabbit 1        Damis
+
+
+=== DEPOT [8 Enemies]
+    Storage Rabbit 1            Damis
         6049
-    Drawing Cat             Agate
+    Drawing Cat                 Agate
         6063
-    Prayer Dog              Ferrat
+    Prayer Dog                  Ferrat
         6065
-    Prayer Rabbit           Yarn
+    Prayer Rabbit               Yarn
         6083
-    Storage Rabbit 2        Radjin
+    Storage Rabbit 2            Radjin
         6178
-    Storage Rabbit 3        Lunis
+    Storage Rabbit 3            Lunis
         6259
-    Workstation Rabbit      Garash
+    Workstation Rabbit          Garash
         6332
-    Workstation Cat         Sennes
+    Workstation Cat             Sennes
         6365
     
     -- VARIABLES
@@ -106,4 +139,106 @@ Used for lethality & enemy state scripts, namely this variable:
         ouruin_depot_enemy_6259_status
         ouruin_depot_enemy_6332_status
         ouruin_depot_enemy_6365_status
+    
+    -- POINTS TOTAL
+        kills: 64 points
+        throatcuts: 100 points
 
+
+
+
+
+=== RAT DEN
+
+
+
+
+=== FRACTURED HOME [13 Enemies]
+    Streets Heavy 1             Ingrid
+        3940
+    Streets Guard 1             Stalkes
+        4593
+    Streets Roof Guard 1        Pinspot
+        4624
+    Streets Guard 2             Yvren
+        4729
+    Market Roof Guard 2         Wrenne
+        4733
+    Streets Guard 3             Basden
+        4737
+    Street Roof Heavy 1         Wyrris
+        11269
+    Market Heavy 1              Aubren
+        11745
+    Market Heavy 2              Morrin
+        14407
+    Rex                         Rex
+        14470
+    Alley Roof Guard 1          Grainset
+        14528
+    Market Roof Guard 1         Ulice
+        14552
+    Streets Roof Guard 2        Malcon
+        15056
+    
+    -- VARIABLES
+        ouruin_level2_enemy_3940_status
+        ouruin_level2_enemy_4593_status
+        ouruin_level2_enemy_4624_status
+        ouruin_level2_enemy_4729_status
+        ouruin_level2_enemy_4733_status
+        ouruin_level2_enemy_4737_status
+        ouruin_level2_enemy_11269_status
+        ouruin_level2_enemy_11745_status
+        ouruin_level2_enemy_14407_status
+        ouruin_level2_enemy_14470_status
+        ouruin_level2_enemy_14528_status
+        ouruin_level2_enemy_14552_status
+        ouruin_level2_enemy_15056_status
+    
+    -- POINTS TOTAL
+        kills: 104 points
+        throatcuts: 144 points
+
+
+
+
+=== WATERFRONT ESCAPE [19 Enemies]
+    Waterfront Spearsman        Sanris
+        8871
+    Hood-Block Spearsman        Wallis
+        9872
+    Hood-Block Heavy            Horrace
+        10002
+    Hood-Block Swordsman        Falsen
+        10033
+    Hood Broadsman 1            Nyrriam
+        10060
+    Hood Heavy                  Frost
+        10085
+    Hood Broadsman 2            Summer
+        10166
+    Market Heavy                Auden
+        10192
+    Market Swordsman 1          Obranne
+        10222
+    Market Swordsman 2          Dawn
+        10269
+    Market Swordsman 3          Charyanne
+        10289
+    Waterfront Swordsman        Ollie
+        10321
+    Waterfront Heavy 1          Chronne
+        10378
+    Block Heavy 1               Willis
+        10651
+    Waterfront Heavy 2          Frieden
+        10655
+    Block Spearsman             Zorrit
+        10685
+    Block Swordsman             Gorr
+        10785
+    Block Broadsman             Fall
+        10814
+    Block Scout                 Winter
+        13834

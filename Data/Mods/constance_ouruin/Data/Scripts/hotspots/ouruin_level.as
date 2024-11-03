@@ -101,7 +101,7 @@ void ReceiveMessage(string msg){ //This function listens for level messages
 		token_iter.FindNextToken(msg);
 		token = token_iter.GetToken(msg);
 
-		if (log_all_levelevents && (!log_all_events) && token != "tutorial" && token != "added_object" && token != "notify_deleted" && token != "moved_objects") {
+		if (log_all_levelevents && (!log_all_events) && token != "tutorial" && token != "added_object" && token != "notify_deleted" && token != "moved_objects" && token != "drika_dialogue_next") {
 			Log(info, msg);
 		}
 
