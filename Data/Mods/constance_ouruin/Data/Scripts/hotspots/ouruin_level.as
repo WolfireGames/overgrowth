@@ -167,6 +167,7 @@ void ReceiveMessage(string msg){ //This function listens for level messages
 			for (int i = 0; i < int(tracked_values.length()); ++i) {
 				SaveDataToFile("ouruin_" + params.GetString("level_name") + "_" + tracked_values[i] + "_current", "0");
 			}
+			SaveDataToFile("ouruin_gain_amount" ,"25"); //Set wallet gain to 25 for loose pouches
 			Log(info, "Current variables reset!");
 		}
 	}

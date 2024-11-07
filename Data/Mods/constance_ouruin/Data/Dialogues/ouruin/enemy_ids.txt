@@ -31,28 +31,29 @@ Used for lethality & enemy state scripts, namely this variable:
 
 
 === AGRA HOOD [11 Enemies]
-    Gate Guard 1                Emory
-        11
-    Gate Guard 2                Graves
-        1133
-    Gate Guard 3                Hein
-        1129
-    Well Guard 1                Kaarle
-        1291
-    Well Guard 2                Funs
-        1332
-    Roof Heavy 1                Helmut
-        6773
-    Roof Guard 1                Baldwin
-        16201
-    Roof Guard 2                Yves
-        1921
-    Roof Guard 3                Merrick
-        4592
-    Roof Guard 4                Ramon
-        16187
-    Tree Guard 1                Avva
-        4518
+    -- ENEMIES
+        Gate Guard 1                Emory
+            11
+        Gate Guard 2                Graves
+            1133
+        Gate Guard 3                Hein
+            1129
+        Well Guard 1                Kaarle
+            1291
+        Well Guard 2                Funs
+            1332
+        Roof Heavy 1                Helmut
+            6773
+        Roof Guard 1                Baldwin
+            16201
+        Roof Guard 2                Yves
+            1921
+        Roof Guard 3                Merrick
+            4592
+        Roof Guard 4                Ramon
+            16187
+        Tree Guard 1                Avva
+            4518
     
     -- VARIABLES
         ouruin_agra_enemy_11_status
@@ -75,24 +76,25 @@ Used for lethality & enemy state scripts, namely this variable:
 
 
 === HIGH ROAD [9 Enemies]
-    Factory Heavy               Edtris
-        640
-    Street Heavy                Forres
-        1614
-    Street Leader               Axtro
-        4432
-    Street Mook 1               Noraluss
-        4436
-    Street Mook 2               Marixt
-        4513
-    Waterfront Mook 1           Calim
-        4953
-    Waterfront Mook 2           Riverfall
-        5073
-    Waterfront Mook 3           Softstep
-        5077
-    Waterfront Mook 4           Hawks
-        11342
+    -- ENEMIES
+        Factory Heavy               Edtris
+            640
+        Street Heavy                Forres
+            1614
+        Street Leader               Axtro
+            4432
+        Street Mook 1               Noraluss
+            4436
+        Street Mook 2               Marixt
+            4513
+        Waterfront Mook 1           Calim
+            4953
+        Waterfront Mook 2           Riverfall
+            5073
+        Waterfront Mook 3           Softstep
+            5077
+        Waterfront Mook 4           Hawks
+            11342
 
     -- VARIABLES
         ouruin_highroad_enemy_640_status
@@ -113,22 +115,23 @@ Used for lethality & enemy state scripts, namely this variable:
 
 
 === DEPOT [8 Enemies]
-    Storage Rabbit 1            Damis
-        6049
-    Drawing Cat                 Agate
-        6063
-    Prayer Dog                  Ferrat
-        6065
-    Prayer Rabbit               Yarn
-        6083
-    Storage Rabbit 2            Radjin
-        6178
-    Storage Rabbit 3            Lunis
-        6259
-    Workstation Rabbit          Garash
-        6332
-    Workstation Cat             Sennes
-        6365
+    -- ENEMIES
+        Storage Rabbit 1            Damis
+            6049
+        Drawing Cat                 Agate
+            6063
+        Prayer Dog                  Ferrat
+            6065
+        Prayer Rabbit               Yarn
+            6083
+        Storage Rabbit 2            Radjin
+            6178
+        Storage Rabbit 3            Lunis
+            6259
+        Workstation Rabbit          Garash
+            6332
+        Workstation Cat             Sennes
+            6365
     
     -- VARIABLES
         ouruin_depot_enemy_6049_status
@@ -154,32 +157,33 @@ Used for lethality & enemy state scripts, namely this variable:
 
 
 === FRACTURED HOME [13 Enemies]
-    Streets Heavy 1             Ingrid
-        3940
-    Streets Guard 1             Stalkes
-        4593
-    Streets Roof Guard 1        Pinspot
-        4624
-    Streets Guard 2             Yvren
-        4729
-    Market Roof Guard 2         Wrenne
-        4733
-    Streets Guard 3             Basden
-        4737
-    Street Roof Heavy 1         Wyrris
-        11269
-    Market Heavy 1              Aubren
-        11745
-    Market Heavy 2              Morrin
-        14407
-    Rex                         Rex
-        14470
-    Alley Roof Guard 1          Grainset
-        14528
-    Market Roof Guard 1         Ulice
-        14552
-    Streets Roof Guard 2        Malcon
-        15056
+    -- ENEMIES
+        Streets Heavy 1             Ingrid
+            3940
+        Streets Guard 1             Stalkes
+            4593
+        Streets Roof Guard 1        Pinspot
+            4624
+        Streets Guard 2             Yvren
+            4729
+        Market Roof Guard 2         Wrenne
+            4733
+        Streets Guard 3             Basden
+            4737
+        Street Roof Heavy 1         Wyrris
+            11269
+        Market Heavy 1              Aubren
+            11745
+        Market Heavy 2              Morrin
+            14407
+        Rex                         Rex
+            14470
+        Alley Roof Guard 1          Grainset
+            14528
+        Market Roof Guard 1         Ulice
+            14552
+        Streets Roof Guard 2        Malcon
+            15056
     
     -- VARIABLES
         ouruin_level2_enemy_3940_status

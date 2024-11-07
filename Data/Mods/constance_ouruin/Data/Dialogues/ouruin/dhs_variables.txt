@@ -100,6 +100,7 @@ Define variable, its values and notes for each value.
 	ouruin_dart_currency
 	ouruin_courtyard_currency
 	ouruin_creshome_currency (Unused. Coin does not spawn in this level)
+	ouruin_speakeasy_currency (Unused. Coin does not spawn in this level)
 	ouruin_agra_currency
 	ouruin_highroad_currency
 	ouruin_lvl2_currency
@@ -289,15 +290,16 @@ Define variable, its values and notes for each value.
 
 == LETHALITY
 	At the end of every level, Ouruin adds up each elimination, kill and overkill. It also collects the names of each character.
-	These variables are then tallied against every other levels' sums to calculate total eliminations, kills and overkills.
+	These variables are then tallied to form a total number of points.
+	This point total is compared to a percentage of the maximum possible lethality points (not counting throats slit and overkills).
 
-	Perfect Non-Lethal Stealth requires less than 1 lethality point.
-	Non-Lethal Stealth requires less than 6 lethality points.
-	Non-Lethal requires less than 32 lethality points.
-	Lethal requires less than 45 lethality points.
-	Full-Lethal requires more than 60 lethality points.
-	Perfect Full-Lethal requires killing every single enemy in the game.
-	Senseless Full-Lethal requires overkilling every single enemy in the game.
+	Perfect Non-Lethal Stealth requires 0% lethality points.
+	Non-Lethal Stealth requires less than 10% lethality points.
+	Non-Lethal requires less than 30% lethality points.
+	Lethal requires less than 50% lethality points.
+	Full-Lethal requires more than 75% lethality points.
+	Perfect Full-Lethal requires 100% lethality points.
+	Senseless Full-Lethal requires more than 100% lethality points.
 
 	-- Totals
 	ouruin_total_eliminations
@@ -319,6 +321,8 @@ Define variable, its values and notes for each value.
 		Adds 4 lethality points
 	ouruin_level_lethality
 		Tallies up every lethality point, and decides a level's final lethality state (PNLS, NLS, NL, L, FL, PFL, SFL). Only set at the end of the level
+	ouruin_level_alerts
+		Does not affect lethality
 
 		-- Suffixes
 			_current: Count on this current level playthrough. Does not apply to ouruin_level_lethality
