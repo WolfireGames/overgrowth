@@ -143,6 +143,8 @@ Define variable, its values and notes for each value.
 		ouruin_depot_upperdoor
 			0: Locked
 			1: Unlocked
+		
+		ouruin_depot_visited
 
 	ouruin_warrens_state
 		0: Player is loading into Nui Warrens from Market (market.xml)
@@ -295,7 +297,7 @@ Define variable, its values and notes for each value.
 
 	Perfect Non-Lethal Stealth requires 0% lethality points.
 	Non-Lethal Stealth requires less than 10% lethality points.
-	Non-Lethal requires less than 30% lethality points.
+	Non-Lethal requires less than 25% lethality points.
 	Lethal requires less than 50% lethality points.
 	Full-Lethal requires more than 75% lethality points.
 	Perfect Full-Lethal requires 100% lethality points.
@@ -307,6 +309,7 @@ Define variable, its values and notes for each value.
 	ouruin_total_kills
 	ouruin_total_overkills
 	ouruin_total_lethality
+		Decided at the end of High Road
 
 	-- Levels (Replace level with level name)
 	ouruin_level_eliminations

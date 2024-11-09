@@ -35,7 +35,7 @@
     <RayToSun r0="0.0967089" r1="0.861154" r2="0.49906" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="18.3466" t1="19.4816" t2="-6.16335" s0="1" s1="1" s2="1" q0="0.0825202" q1="-0.0777308" q2="0.00645613" q3="0.993532" euler_x="0.165734" euler_y="-0.156156" euler_z="0" id="0">
+    <CameraObject t0="22.3606" t1="16.2878" t2="-6.98359" s0="1" s1="1" s2="1" q0="0.0700327" q1="-0.360803" q2="0.0271813" q3="0.929612" euler_x="0.150387" euler_y="-0.740451" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-0.0886753" t1="-0.313565" t2="-1.27944" s0="5.33216" s1="5.33216" s2="5.33216" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0.177301" color_g="0.192076" color_b="0.247059" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaster/disk.xml">

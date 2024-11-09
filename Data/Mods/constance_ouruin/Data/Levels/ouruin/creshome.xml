@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="1.29957" t1="3.55231" t2="4.98385" s0="1" s1="1" s2="1" q0="0.000695193" q1="-0.994664" q2="0.10295" q3="0.0067167" euler_x="-2.93532" euler_y="-0.0135053" euler_z="3.14159" id="0">
+    <CameraObject t0="-1.6148" t1="4.95026" t2="7.55358" s0="1" s1="1" s2="1" q0="-0.185299" q1="-0.391997" q2="0.080935" q3="-0.89747" euler_x="0.407215" euler_y="0.823612" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="0.838877" t1="-7.63834e-05" t2="4.68956" s0="1" s1="1" s2="0.956974" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
@@ -1766,6 +1766,7 @@
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
             <parameter name="Damage Resistance" type="float" val="1" />
             <parameter name="Ear Size" type="float" val="0.52817" />
@@ -1836,24 +1837,24 @@
         <EnvObject name="Hazel Bandage" s0="0.999974" s1="0.821324" s2="0.754447" id="700" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_3.xml">
             <parameters />
         </EnvObject>
-        <Group name="Hazel Abdomen Blood" t0="0" t1="-999999" t2="0" s0="0.399623" s1="0.342507" s2="0.401766" q0="0.00977514" q1="-0.00550712" q2="-0.825579" q3="0.564175" euler_x="0.0201252" euler_y="0.00992652" euler_z="-1.94254" id="1611" version="1">
+        <Group name="Hazel Abdomen Blood" t0="0" t1="-999999" t2="0" s0="0.399623" s1="0.342507" s2="0.401766" q0="0.0103225" q1="-0.00582846" q2="-0.825645" q3="0.564065" euler_x="0.0212724" euler_y="0.0104704" euler_z="-1.94278" id="1611" version="1">
             <parameters />
-            <Decal t0="0.0791779" t1="-999999" t2="-0.0178608" s0="0.140586" s1="0.0432846" s2="0.0341745" q0="-0.0767679" q1="-0.0928067" q2="-0.820376" q3="0.559002" euler_x="0.0683249" euler_y="-0.231785" euler_z="-1.95329" id="1603" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0792004" t1="-999999" t2="-0.0177605" s0="0.140586" s1="0.0432846" s2="0.0341745" q0="-0.0762352" q1="-0.0931139" q2="-0.8205" q3="0.558842" euler_x="0.0694972" euler_y="-0.231229" euler_z="-1.95382" id="1603" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.0694992" t1="-999999" t2="0.00255798" s0="0.16347" s1="0.134764" s2="0.16347" q0="-0.822743" q1="-0.561795" q2="-0.07401" q3="0.0447745" euler_x="3.13197" euler_y="-0.172952" euler_z="1.19906" id="1604" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0784314" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0694992" t1="-999999" t2="0.00255798" s0="0.16347" s1="0.134764" s2="0.16347" q0="-0.822766" q1="-0.561715" q2="-0.0745618" q3="0.0444463" euler_x="3.1308" euler_y="-0.173495" euler_z="1.199" id="1604" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0784314" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.0379678" t1="-999999" t2="0.022323" s0="0.281515" s1="0.176952" s2="0.281515" q0="0.00677788" q1="-0.00111476" q2="-0.826037" q3="0.563576" euler_x="0.00948198" euler_y="0.00994123" euler_z="-1.9441" id="1605" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.109804" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0379678" t1="-999999" t2="0.022323" s0="0.281515" s1="0.176952" s2="0.281515" q0="0.00732607" q1="-0.00143534" q2="-0.826105" q3="0.563469" euler_x="0.0106283" euler_y="0.0104868" euler_z="-1.94434" id="1605" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.109804" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="-0.02443" t1="-999999" t2="0.0202485" s0="0.301795" s1="0.267437" s2="0.233666" q0="0.0097751" q1="-0.00550719" q2="-0.82558" q3="0.564175" euler_x="0.0201253" euler_y="0.00992638" euler_z="-1.94254" id="1606" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.129412" color_g="0" color_b="0" overbright="0">
+            <Decal t0="-0.02443" t1="-999999" t2="0.0202485" s0="0.301795" s1="0.267437" s2="0.233666" q0="0.0103225" q1="-0.00582849" q2="-0.825646" q3="0.564065" euler_x="0.0212725" euler_y="0.0104704" euler_z="-1.94279" id="1606" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.129412" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.0560794" t1="-999999" t2="0.0175847" s0="0.0970266" s1="0.113168" s2="0.106476" q0="-0.634098" q1="-0.428908" q2="0.529434" q3="-0.365589" euler_x="3.08655" euler_y="1.39758" euler_z="1.14318" id="1607" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0509804" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0560794" t1="-999999" t2="0.0175847" s0="0.0970266" s1="0.113168" s2="0.106476" q0="-0.634417" q1="-0.428678" q2="0.529055" q3="-0.365854" euler_x="3.08011" euler_y="1.39708" euler_z="1.13682" id="1607" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0509804" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.0412744" t1="-999999" t2="0.000915782" s0="0.380673" s1="0.239279" s2="0.380673" q0="0.595454" q1="0.402245" q2="-0.572553" q3="0.394738" euler_x="2.85961" euler_y="1.53675" euler_z="0.915596" id="1609" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.0392157" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0412744" t1="-999999" t2="0.000915782" s0="0.380673" s1="0.239279" s2="0.380673" q0="0.595798" q1="0.401997" q2="-0.572197" q3="0.394987" euler_x="2.83156" euler_y="1.53602" euler_z="0.887552" id="1609" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.0392157" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
         </Group>
@@ -2372,6 +2373,7 @@
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
             <parameter name="Damage Resistance" type="float" val="1" />
             <parameter name="Ear Size" type="float" val="1.77465" />
@@ -2690,6 +2692,7 @@
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
             <parameter name="Damage Resistance" type="float" val="1" />
             <parameter name="Ear Size" type="float" val="1" />
@@ -3563,7 +3566,7 @@
     <EnvObject t0="5.78035" t1="1.82105" t2="20.7197" s0="1" s1="0.786947" s2="1" q0="0" q1="0.678355" q2="0" q3="-0.734737" euler_x="0" euler_y="-1.49109" euler_z="0" id="1038" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/DogBoxBase.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-5.05919" t1="1.09092" t2="0.266343" s0="0.0191831" s1="0.0191831" s2="0.0191831" q0="0" q1="-0.492771" q2="0" q3="0.870159" euler_x="0" euler_y="-1.03054" euler_z="0" id="1039" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/applebit.xml">
+    <EnvObject t0="-5.05919" t1="1.0897" t2="0.266343" s0="0.0191831" s1="0.0191831" s2="0.0191831" q0="0" q1="-0.492771" q2="0" q3="0.870159" euler_x="0" euler_y="-1.03054" euler_z="0" id="1039" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/applebit.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-5.40744" t1="4.85625" t2="2.50291" s0="1" s1="1" s2="1" q0="0.281955" q1="0" q2="-0.959428" q3="0" euler_x="0" euler_y="0.571663" euler_z="3.14159" id="1040" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
@@ -4113,7 +4116,7 @@
     <Decal t0="4.87953" t1="1.20214" t2="1.60824" s0="0.282758" s1="0.282758" s2="0.282758" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1217" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.337255" color_g="0.337252" color_b="0.337252" overbright="0">
         <parameters />
     </Decal>
-    <ActorObject name="Ghost" t0="0.948802" t1="1.16261" t2="2.07109" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1218" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+    <ActorObject name="Ghost" t0="0.948802" t1="1.16261" t2="2.07109" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1218" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />
@@ -4122,6 +4125,7 @@
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
             <parameter name="Damage Resistance" type="float" val="1" />
             <parameter name="Ear Size" type="float" val="1" />
@@ -5334,7 +5338,7 @@
             <parameter name="Fade" type="int" val="1" />
             <parameter name="Force play" type="int" val="0" />
             <parameter name="Play only once" type="int" val="1" />
-            <parameter name="Question Character" type="string" val="796" />
+            <parameter name="Question Character" type="string" val="fart" />
             <parameter name="Visible in game" type="int" val="0" />
         </parameters>
         <Connections />
@@ -5640,6 +5644,9 @@
         <ConnectionsFrom />
     </Hotspot>
     <EnvObject name="Set Actor Head Direction Helper" t0="-3.84107" t1="1.84408" t2="-0.150079" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1498" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject name="AIControl Helper" t0="1.61277" t1="3.6241" t2="21.0199" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1499" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
     <EnvObject name="Set Actor Eye Direction Helper" t0="-3.7715" t1="1.89932" t2="0.0361564" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1500" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -6144,7 +6151,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;24331&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:8,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;24332&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[23,320],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_petals_total: {ouruin_petals_total}p\nouruin_shop_debug_cheat: {ouruin_shop_debug_cheat}p\nouruin_petal_display: {ouruin_petal_display}p\n--\nouruin_current_weapon: {ouruin_current_weapon}\nouruin_current_sidearm: {ouruin_current_sidearm}\nouruin_current_item: {ouruin_current_item}\n==\nouruin_gunk_quest: {ouruin_gunk_quest}\nouruin_tarz_talk: {ouruin_tarz_talk}\nouruin_patri_quest: {ouruin_patri_quest}\nouruin_gunk_donated_petals: {ouruin_gunk_donated_petals}\nouruin_gunk_donated_medicine: {ouruin_gunk_donated_medicine}\n--\nouruin_gunk_bond_total: {ouruin_gunk_bond_total}\n.ouruin_gunk_bond_talk: {ouruin_gunk_bond_talk}\n.ouruin_gunk_donated_petals_bond: {ouruin_gunk_donated_petals_bond}\n.ouruin_gunk_donate_offer: {ouruin_gunk_donate_offer}\nouruin_cres_currency: {ouruin_cres_currency}&quot;,&quot;ui_element_identifier&quot;:&quot;24336&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:26,&quot;identifier&quot;:1218,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;24334&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:26,&quot;identifier&quot;:1218,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;24331&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:8,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;24332&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[23,320],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_petals_total: {ouruin_petals_total}p\nouruin_shop_debug_cheat: {ouruin_shop_debug_cheat}p\nouruin_petal_display: {ouruin_petal_display}p\n--\nouruin_current_weapon: {ouruin_current_weapon}\nouruin_current_sidearm: {ouruin_current_sidearm}\nouruin_current_item: {ouruin_current_item}\n==\nouruin_gunk_quest: {ouruin_gunk_quest}\nouruin_tarz_talk: {ouruin_tarz_talk}\nouruin_patri_quest: {ouruin_patri_quest}\nouruin_gunk_donated_petals: {ouruin_gunk_donated_petals}\nouruin_gunk_donated_medicine: {ouruin_gunk_donated_medicine}\n--\nouruin_gunk_bond_total: {ouruin_gunk_bond_total}\n.ouruin_gunk_bond_talk: {ouruin_gunk_bond_talk}\n.ouruin_gunk_donated_petals_bond: {ouruin_gunk_donated_petals_bond}\n.ouruin_gunk_donate_offer: {ouruin_gunk_donate_offer}\nouruin_cres_currency: {ouruin_cres_currency}&quot;,&quot;ui_element_identifier&quot;:&quot;24333&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:26,&quot;identifier&quot;:1218,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;24334&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:26,&quot;identifier&quot;:1218,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
