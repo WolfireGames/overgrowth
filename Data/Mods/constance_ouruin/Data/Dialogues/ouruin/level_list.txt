@@ -1,0 +1,18 @@
+
+
+explore         explore.xml             Moritz Hood
+depot*          depot.xml               Lotus Depot
+market          market.xml              Lotus Market
+dart            level1_dart.xml         Faas' Sanctuary
+ratden*         ratden.xml              Rat Den
+agra*           level1_a.xml            Agra Hood
+highroad*       level1_b.xml            High Road
+creshome        creshome.xml            Cres' Home
+courtyard       courtyard.xml           Zero's Courtyard
+fractured*      level2.xml              Fractured Home
+escape*         level3.xml              Waterfront Escape
+ship*           level4.xml              Cinderian Ship
+
+speakeasy       speakeasy.xml           Rebel's Speakeasy
+warrens         My cakes will burn!     Nui Warrens
+

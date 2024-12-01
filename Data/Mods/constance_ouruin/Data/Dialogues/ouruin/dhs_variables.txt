@@ -111,6 +111,9 @@ Define variable, its values and notes for each value.
 == LEVEL STATE
 	Controls where the player spawns, and under what conditions the level loads.
 
+	ouruin_[level]_visited
+		Used for calculating lethality
+
 	ouruin_intro_played
 		Global for every level. Is set upon transitioning to a new level
 
@@ -144,8 +147,6 @@ Define variable, its values and notes for each value.
 			0: Locked
 			1: Unlocked
 		
-		ouruin_depot_visited
-
 	ouruin_warrens_state
 		0: Player is loading into Nui Warrens from Market (market.xml)
 		1: Player is loading into Nui Warrens from Depot (depot.xml)
@@ -295,13 +296,13 @@ Define variable, its values and notes for each value.
 	These variables are then tallied to form a total number of points.
 	This point total is compared to a percentage of the maximum possible lethality points (not counting throats slit and overkills).
 
-	Perfect Non-Lethal Stealth requires 0% lethality points.
-	Non-Lethal Stealth requires less than 10% lethality points.
-	Non-Lethal requires less than 25% lethality points.
-	Lethal requires less than 50% lethality points.
-	Full-Lethal requires more than 75% lethality points.
-	Perfect Full-Lethal requires 100% lethality points.
-	Senseless Full-Lethal requires more than 100% lethality points.
+	(0) Perfect Non-Lethal Stealth requires 0% lethality points.
+	(1) Non-Lethal Stealth requires less than 10% lethality points.
+	(2) Non-Lethal requires less than 25% lethality points.
+	(3) Lethal requires less than 50% lethality points.
+	(4) Full-Lethal requires more than 75% lethality points.
+	(5) Perfect Full-Lethal requires 100% lethality points.
+	(6) Senseless Full-Lethal requires more than 100% lethality points.
 
 	-- Totals
 	ouruin_total_eliminations
@@ -309,7 +310,7 @@ Define variable, its values and notes for each value.
 	ouruin_total_kills
 	ouruin_total_overkills
 	ouruin_total_lethality
-		Decided at the end of High Road
+		Tallied at the end of each level, averaged with every level's lethality state
 
 	-- Levels (Replace level with level name)
 	ouruin_level_eliminations
@@ -439,10 +440,6 @@ Define variable, its values and notes for each value.
 
 		ouruin_patri_talked
 			Number of times player has talked to Patri.
-
-	ouruin_market_visited
-		0: Market has not yet been visited
-		1: Market has been visited
 
 	ouruin_forten_quest
 		0: Player has not talked to Forten

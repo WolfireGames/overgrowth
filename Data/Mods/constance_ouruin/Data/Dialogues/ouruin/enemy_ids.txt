@@ -27,13 +27,13 @@ Used for lethality & enemy state scripts, namely this variable:
 	These variables are then tallied to form a total number of points.
 	This point total is compared to a percentage of the maximum possible lethality points (not counting throats slit and overkills).
 
-	Perfect Non-Lethal Stealth requires 0% lethality points.
-	Non-Lethal Stealth requires less than 10% lethality points.
-	Non-Lethal requires less than 25% lethality points.
-	Lethal requires less than 50% lethality points.
-	Full-Lethal requires more than 75% lethality points.
-	Perfect Full-Lethal requires 100% lethality points.
-	Senseless Full-Lethal requires more than 100% lethality points.
+	(0) Perfect Non-Lethal Stealth requires 0% lethality points.
+	(1) Non-Lethal Stealth requires less than 10% lethality points.
+	(2) Non-Lethal requires less than 25% lethality points.
+	(3) Lethal requires less than 50% lethality points.
+	(4) Full-Lethal requires more than 75% lethality points.
+	(5) Perfect Full-Lethal requires 100% lethality points.
+	(6) Senseless Full-Lethal requires more than 100% lethality points.
 
 
 
@@ -84,6 +84,10 @@ Used for lethality & enemy state scripts, namely this variable:
     
     -- POINTS TOTAL
         kills: 88 points
+        10%: 11
+        25%: 22
+        50%: 44
+        75%: 66
 
 
 
@@ -122,6 +126,10 @@ Used for lethality & enemy state scripts, namely this variable:
     
     -- POINTS TOTAL
         kills: 72 points
+        NLS 10%: 7
+        NL  25%: 18
+        ML  50%: 36
+        75%: 54
 
 
 
@@ -157,6 +165,10 @@ Used for lethality & enemy state scripts, namely this variable:
     
     -- POINTS TOTAL
         kills: 64 points
+        10%: 6
+        25%: 16
+        50%: 32
+        75%: 48
 
 
 
@@ -213,6 +225,10 @@ Used for lethality & enemy state scripts, namely this variable:
     
     -- POINTS TOTAL
         kills: 104 points
+        10%: 10
+        25%: 26
+        50%: 52
+        75%: 78
 
 
 
@@ -281,3 +297,8 @@ Used for lethality & enemy state scripts, namely this variable:
     
     -- POINTS TOTAL
         kills: 152 points
+        10%: 15
+        25%: 38
+        50%: 76
+        75%: 104
+
