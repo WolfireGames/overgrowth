@@ -4429,7 +4429,11 @@ void Engine::Draw() {
         {  // Perform per-frame calculations (like character shadows or LOD)
             PROFILER_GPU_ZONE(g_profiler_ctx, "Pre-draw frame");
             float predraw_time = game_timer.GetRenderTime();
-            for (auto obj : scenegraph_->objects_) {
+            // Using an index based for-loop because new items get added inside the angelscript PreDraw function
+            for (int i = 0; i < scenegraph_->objects_.size(); ++i) {
+                // TODO: Handle removing an object in angelscript inside PreDraw function? Should all deletes from script be a queued delete?
+                //       May have to modify scripts to make that work right.
+                Object* obj = scenegraph_->objects_[i];
                 if (!obj->parent) {
                     obj->PreDrawFrame(predraw_time);
                 }

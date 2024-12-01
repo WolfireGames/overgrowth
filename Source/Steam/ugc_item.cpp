@@ -353,6 +353,7 @@ void SteamworksUGCItem::OnUGCSteamUGCQueryCompleted(SteamUGCQueryCompleted_t* pR
         } else {
             has_eresult_error = true;
             eresult_error = pResult->m_eResult;
+            return;  // Further API calls may fail and even seem to crash the app. Better to return early
         }
 
         SteamUGCDetails_t m_details;
