@@ -3,6 +3,6 @@
 	<Model>Data/Models/fire_billboard.obj</Model>
 	<ColorMap>Data/Textures/fire_noise.png</ColorMap>
 	<NormalMap>Data/Textures/fire_noise.png</NormalMap>
-	<ShaderName>fire_billboard #BILLBOARD #HEAT_DISTORTION</ShaderName>
+	<ShaderName>envobject #INVISIBLE</ShaderName>
 	<flags no_collision = "true" transparent = "true" double_sided = "false" dynamic = "true"/>
 </Object>

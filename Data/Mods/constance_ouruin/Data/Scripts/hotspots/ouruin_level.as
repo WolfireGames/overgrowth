@@ -79,7 +79,7 @@ void CharacterStates() {
 }
 
 
-// Will print all level_events (except tutorial level_events)
+// Will print most level_events
 bool log_all_levelevents = true;
 // Will print all event messages no matter what
 bool log_all_events = false;

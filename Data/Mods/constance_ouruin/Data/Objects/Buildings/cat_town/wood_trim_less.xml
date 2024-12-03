@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/cat_town/wood_trim_less.obj</Model>
+	<ColorMap>Data/Textures/Buildings/cat_town/wood_trim_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Buildings/cat_town/wood_trim_n.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
+	<ShaderName>cubemapobj</ShaderName>
+</Object>
