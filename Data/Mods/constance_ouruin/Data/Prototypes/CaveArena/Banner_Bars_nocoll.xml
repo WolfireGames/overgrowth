@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Prototypes/CaveArena/Models/Banner_Bars.obj</Model>
+	<ColorMap>Data/Prototypes/CaveArena/Textures/Banner_Color.tga</ColorMap>
+	<NormalMap>Data/Prototypes/CaveArena/Textures/Banner_Norm.tga</NormalMap>
+  	<TranslucencyMap>Data/Prototypes/CaveArena/Textures/Banner_Translucency.tga</TranslucencyMap>
+	<WindMap>Data/Prototypes/CaveArena/Textures/Banner_Wind.tga</WindMap>
+  	<ShaderName>plant</ShaderName>
+    <flags no_collision = "true"/>
+	<MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>
