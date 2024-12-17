@@ -1,0 +1,119 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="24.581" t1="-49.2119" t2="-26.8028" s0="3.92942" s1="2.14469" s2="2.74205" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2061" version="1">
+        <parameters />
+        <ActorObject name="Clynn" t0="25.1747" t1="-49.1446" t2="-26.8028" s0="1" s1="1" s2="1" q0="0" q1="-0.5" q2="0" q3="0.866025" euler_x="0" euler_y="-1.0472" euler_z="0" id="16662" type_file="Data/Objects/IGF_Characters/base_guard_actor.xml" is_player="0">
+            <parameters>
+                <parameter name="Aggression" type="float" val="0.5" />
+                <parameter name="Attack Damage" type="float" val="1" />
+                <parameter name="Attack Knockback" type="float" val="1" />
+                <parameter name="Attack Speed" type="float" val="1" />
+                <parameter name="Block Follow-up" type="float" val="0.5" />
+                <parameter name="Block Skill" type="float" val="0.5" />
+                <parameter name="Cannot Be Disarmed" type="int" val="0" />
+                <parameter name="Cannot Throw Weapons" type="int" val="0" />
+                <parameter name="Character Scale" type="float" val="0.94091" />
+                <parameter name="Damage Resistance" type="float" val="1" />
+                <parameter name="Ear Size" type="float" val="1.48295" />
+                <parameter name="Fall Damage Multiplier" type="float" val="1" />
+                <parameter name="Fat" type="float" val="0.585225" />
+                <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+                <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+                <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+                <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+                <parameter name="Focus FOV distance" type="float" val="100" />
+                <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+                <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+                <parameter name="Ground Aggression" type="float" val="0.5" />
+                <parameter name="Idle Sway" type="float" val="1" />
+                <parameter name="Jump - Air Control" type="float" val="3" />
+                <parameter name="Jump - Initial Velocity" type="float" val="5" />
+                <parameter name="Jump - Jump Sustain" type="float" val="5" />
+                <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+                <parameter name="Knockout Shield" type="int" val="0" />
+                <parameter name="Left handed" type="int" val="0" />
+                <parameter name="Movement Speed" type="float" val="1" />
+                <parameter name="Muscle" type="float" val="0.34659" />
+                <parameter name="No Look Around" type="int" val="0" />
+                <parameter name="Peripheral FOV distance" type="float" val="4" />
+                <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+                <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+                <parameter name="Species" type="string" val="rabbit" />
+                <parameter name="Static" type="int" val="1" />
+                <parameter name="Stick To Nav Mesh" type="int" val="0" />
+                <parameter name="Teams" type="string" val="guard" />
+                <parameter name="Throw Counter Probability" type="float" val="0.4" />
+                <parameter name="Throw Trainer" type="int" val="0" />
+                <parameter name="Weapon Catch Skill" type="float" val="1" />
+                <parameter name="Wearing Metal Armor" type="int" val="0" />
+            </parameters>
+            <Connections>
+                <Connection id="1100" />
+            </Connections>
+            <ItemConnections />
+            <Palette>
+                <Color label="Clothes" channel="0" red="0.807843" green="0.503714" blue="0.711237" />
+                <Color label="Fur" channel="1" red="0.552941" green="0.390566" blue="0.346943" />
+                <Color label="Leather" channel="2" red="0.463895" green="0.67451" blue="0.29361" />
+                <Color label="Armor" channel="3" red="0.129412" green="0.12941" blue="0.12941" />
+            </Palette>
+        </ActorObject>
+        <ActorObject name="Toker" t0="23.6213" t1="-49.2793" t2="-26.9419" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1737" type_file="Data/Objects/characters/dogs/light_armored_dog_male_2_actor.xml" is_player="0">
+            <parameters>
+                <parameter name="Aggression" type="float" val="0.5" />
+                <parameter name="Attack Damage" type="float" val="1" />
+                <parameter name="Attack Knockback" type="float" val="1" />
+                <parameter name="Attack Speed" type="float" val="1" />
+                <parameter name="Block Follow-up" type="float" val="0.5" />
+                <parameter name="Block Skill" type="float" val="0.17614" />
+                <parameter name="Cannot Be Disarmed" type="int" val="0" />
+                <parameter name="Cannot Throw Weapons" type="int" val="0" />
+                <parameter name="Character Scale" type="float" val="1.03182" />
+                <parameter name="Damage Resistance" type="float" val="1" />
+                <parameter name="Ear Size" type="float" val="0.5625" />
+                <parameter name="Fall Damage Multiplier" type="float" val="1" />
+                <parameter name="Fat" type="float" val="0.491525" />
+                <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+                <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+                <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+                <parameter name="Fear - Never Afraid On Sight" type="int" val="1" />
+                <parameter name="Focus FOV distance" type="float" val="15.341" />
+                <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+                <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+                <parameter name="Ground Aggression" type="float" val="0.5" />
+                <parameter name="Idle Sway" type="float" val="1" />
+                <parameter name="Jump - Air Control" type="float" val="3" />
+                <parameter name="Jump - Initial Velocity" type="float" val="5" />
+                <parameter name="Jump - Jump Sustain" type="float" val="5" />
+                <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+                <parameter name="Knockout Shield" type="int" val="0" />
+                <parameter name="Left handed" type="int" val="0" />
+                <parameter name="Movement Speed" type="float" val="1" />
+                <parameter name="Muscle" type="float" val="0.43644" />
+                <parameter name="No Look Around" type="int" val="0" />
+                <parameter name="Peripheral FOV distance" type="float" val="4" />
+                <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+                <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+                <parameter name="Species" type="string" val="dog" />
+                <parameter name="Static" type="int" val="1" />
+                <parameter name="Stick To Nav Mesh" type="int" val="0" />
+                <parameter name="Teams" type="string" val="guard" />
+                <parameter name="Throw Counter Probability" type="float" val="0.4" />
+                <parameter name="Throw Trainer" type="int" val="0" />
+                <parameter name="Weapon Catch Skill" type="float" val="0.125" />
+                <parameter name="Wearing Metal Armor" type="int" val="0" />
+            </parameters>
+            <Connections>
+                <Connection id="1119" />
+            </Connections>
+            <ItemConnections />
+            <Palette>
+                <Color label="Fur" channel="0" red="0.552941" green="0.463272" blue="0.346943" />
+                <Color label="Shirt" channel="1" red="0.331327" green="0.169289" blue="0.337255" />
+                <Color label="Armor" channel="2" red="0.172734" green="0.282353" blue="0.278484" />
+                <Color label="Fur patches" channel="3" red="0.0784314" green="0.0784306" blue="0.0784306" />
+            </Palette>
+        </ActorObject>
+    </Group>
+</ActorObjects>
