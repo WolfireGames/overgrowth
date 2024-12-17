@@ -579,6 +579,10 @@ Define variable, its values and notes for each value.
 		ghost
 		donatas
 
+	ouruin_donatas_state
+		0: Alive
+		1: Dead
+
 
 == DIALOGUE
 	Each variable is based off the dialogue file's name
