@@ -59,6 +59,10 @@ class DrikaSetVelocity : DrikaElement{
 		towards_target.PostInit();
 	}
 
+	bool UsesPlaceholderObject(){
+		return (set_velocity_mode == _set_velocity_with_placeholder);
+	}
+
 	JSONValue GetSaveData(){
 		JSONValue data;
 		data["velocity_magnitude"] = JSONValue(velocity_magnitude);

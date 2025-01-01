@@ -176,6 +176,10 @@ class DrikaTargetSelect{
 		}
 	}
 
+	bool UsesPlaceholderObject(){
+		return (identifier_type == box_select);
+	}
+
 	void AttemptSelectedAsTarget(){
 		array<int> selected = GetSelected();
 

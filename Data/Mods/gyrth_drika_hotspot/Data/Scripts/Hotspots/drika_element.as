@@ -35,7 +35,8 @@ enum drika_element_types { 	none = 0,
 							drika_comment = 34,
 							drika_ai_control = 35,
 							drika_user_interface = 36,
-							drika_checkpoint = 37
+							drika_checkpoint = 37,
+							drika_campaign_control = 38
 						};
 
 array<string> drika_element_names = {	"None",
@@ -75,7 +76,8 @@ array<string> drika_element_names = {	"None",
 										"Comment",
 										"AI Control",
 										"User Interface",
-										"Checkpoint"
+										"Checkpoint",
+										"Campaign Control"
 									};
 
 array<string> sorted_element_names;
@@ -235,6 +237,7 @@ class DrikaElement{
 
 	DrikaElement(){
 		node_position = vec2(125.0, 125.0 + (100.0f * drika_elements.size()));
+		@placeholder.parent = this;
 	}
 
 	~DrikaElement(){
@@ -564,6 +567,12 @@ class DrikaElement{
 	void RelativeTransform(vec3 origin, vec3 translation_offset, mat4 before_mat, mat4 after_mat){
 		placeholder.RelativeTranslate(translation_offset);
 		placeholder.RelativeRotate(origin, before_mat, after_mat);
+	}
+
+	// By default the placeholder object is disabled.
+	// Functions can override this function to return true when needed.
+	bool UsesPlaceholderObject(){
+		return false;
 	}
 }
 

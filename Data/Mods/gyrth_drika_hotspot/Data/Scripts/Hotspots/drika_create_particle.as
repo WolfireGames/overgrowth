@@ -47,6 +47,10 @@ class DrikaCreateParticle : DrikaElement{
 		placeholder.Retrieve();
 	}
 
+	bool UsesPlaceholderObject(){
+		return true;
+	}
+
 	void Delete(){
 		placeholder.Remove();
 	}

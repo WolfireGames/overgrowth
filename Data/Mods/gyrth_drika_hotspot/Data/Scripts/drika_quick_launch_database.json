@@ -237,5 +237,6 @@
 	"User Interface Button": "{\"function\":36,\"ui_function\":4}",
 	"User Interface Input Box": "{\"function\":36,\"ui_function\":5}",
 	"User Interface Fullscreen Image": "{\"function\":36,\"ui_function\":6}",
-	"Wait": "{\"function\":2}"
+	"Wait": "{\"function\":2}",
+	"Campaign Control": "{\"function\":38}"
 }

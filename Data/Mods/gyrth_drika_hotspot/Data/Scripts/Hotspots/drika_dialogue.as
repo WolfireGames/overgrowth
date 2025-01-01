@@ -315,6 +315,10 @@ class DrikaDialogue : DrikaElement{
 		}
 	}
 
+	bool UsesPlaceholderObject(){
+		return (dialogue_function == set_actor_eye_direction || dialogue_function == set_actor_torso_direction || dialogue_function == set_actor_head_direction);
+	}
+
 	JSONValue GetSaveData(){
 		JSONValue data;
 		data["dialogue_function"] = JSONValue(dialogue_function);

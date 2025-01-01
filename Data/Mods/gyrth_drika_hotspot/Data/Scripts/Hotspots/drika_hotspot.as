@@ -40,6 +40,7 @@
 #include "hotspots/drika_ai_control.as"
 #include "hotspots/drika_user_interface.as"
 #include "hotspots/drika_checkpoint.as"
+#include "hotspots/drika_campaign_control.as"
 #include "drika_quick_launch.as"
 #include "drika_docs.as"
 
@@ -2083,6 +2084,8 @@ DrikaElement@ InterpElement(drika_element_types element_type, JSONValue &in func
 			return DrikaUserInterface(function_json);
 		case drika_checkpoint:
 			return DrikaCheckpoint(function_json);
+		case drika_campaign_control:
+			return DrikaCampaignControl(function_json);
 	}
 	return DrikaElement();
 }

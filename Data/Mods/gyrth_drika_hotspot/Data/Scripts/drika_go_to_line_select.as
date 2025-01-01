@@ -28,7 +28,7 @@ class DrikaGoToLineSelect{
 	}
 
 	void GetTargetElement(){
-		if(int(drika_indexes.size()) > index){
+		if(int(drika_indexes.size()) > index && index != -1){
 			if(int(drika_elements.size()) > drika_indexes[index]){
 				@target_element = drika_elements[drika_indexes[index]];
 				return;

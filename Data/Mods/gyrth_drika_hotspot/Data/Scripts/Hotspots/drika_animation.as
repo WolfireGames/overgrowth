@@ -29,6 +29,7 @@ class AnimationKey{
 
 class DrikaAnimation : DrikaElement{
 	array<AnimationKey@> key_data;
+	array<int> input_key_ids;
 	array<int> key_ids;
 	animation_types animation_type;
 	int current_animation_type;
@@ -117,14 +118,12 @@ class DrikaAnimation : DrikaElement{
 			target_select.identifier_type = cam;
 		}
 
-		RetrieveAnimationPlaceholders(params);
+		input_key_ids = GetJSONIntArray(params, "key_ids", {});
 		has_settings = true;
 	}
 
-	void RetrieveAnimationPlaceholders(JSONValue params){
+	void RetrieveAnimationPlaceholders(){
 		if(animation_method != placeholder_method){return;}
-
-		array<int> input_key_ids = GetJSONIntArray(params, "key_ids", {});
 
 		for(uint i = 0; i < input_key_ids.size(); i++){
 			if(!ObjectExists(input_key_ids[i])){continue;}
@@ -160,6 +159,14 @@ class DrikaAnimation : DrikaElement{
 					key.SetSelected(false);
 				}
 			}
+		}
+
+		if(int(key_ids.size()) > key_index && ObjectExists(key_ids[key_index])){
+			@current_key = ReadObjectFromID(key_ids[key_index]);
+		}
+
+		if(int(key_ids.size()) > (key_index + 1) && ObjectExists(key_ids[key_index + 1])){
+			@next_key = ReadObjectFromID(key_ids[key_index + 1]);
 		}
 
 		WriteAnimationKeyParams();
@@ -225,6 +232,7 @@ class DrikaAnimation : DrikaElement{
 	}
 
 	void PostInit(){
+		RetrieveAnimationPlaceholders();
 		target_select.PostInit();
 	}
 

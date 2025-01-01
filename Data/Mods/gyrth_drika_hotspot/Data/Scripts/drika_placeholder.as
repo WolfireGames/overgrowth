@@ -20,13 +20,14 @@ class DrikaPlaceholder{
 	vec3 bounding_box;
 	placeholder_modes placeholder_mode;
 	bool updating_placeholder_preview = false;
+	string placeholder_tag;
 
 	DrikaPlaceholder(){
 
 	}
 
 	void Save(JSONValue &inout data){
-		if(Exists()){
+		if(Exists() && parent.UsesPlaceholderObject()){
 			data["placeholder_id"] = JSONValue(cube_id);
 			// The bounding box data needs to be saved as well or else the scaling isn't going to be correct.
 			// This bounding box is calculated by using the placeholder scale, which isn't available outside of Editor Mode.
@@ -34,13 +35,14 @@ class DrikaPlaceholder{
 			data["bounding_box"].append(bounding_box.x);
 			data["bounding_box"].append(bounding_box.y);
 			data["bounding_box"].append(bounding_box.z);
+			WritePlaceholderTag();
+			data["placeholder_tag"] = JSONValue(placeholder_tag);
 		}
 	}
 
 	void Load(JSONValue params){
-		if(params.isMember("placeholder_id")){
-			cube_id = params["placeholder_id"].asInt();
-		}
+		cube_id = GetJSONInt(params, "placeholder_id", -1);
+		placeholder_tag = GetJSONString(params, "placeholder_tag", "None");
 		bounding_box = GetJSONVec3(params, "bounding_box", vec3(1.0));
 	}
 
@@ -226,6 +228,8 @@ class DrikaPlaceholder{
 	}
 
 	void Retrieve(){
+		if(!parent.UsesPlaceholderObject()){return;}
+
 		if(placeholder_mode == _at_cube){
 			if(duplicating_hotspot || duplicating_function){
 				if(ObjectExists(cube_id)){
@@ -239,7 +243,33 @@ class DrikaPlaceholder{
 					cube_id = -1;
 				}
 			}else{
-				if(ObjectExists(cube_id)){
+				if(placeholder_tag != "None"){
+					array<int> env_objects = GetObjectIDsType(_env_object);
+					
+					for(uint i = 0; i < env_objects.size(); i++){
+						Object@ env_object = ReadObjectFromID(env_objects[i]);
+						ScriptParams@ params = env_object.GetScriptParams();
+						
+						if(params.HasParam("Placeholder Tag")){
+							if(params.GetString("Placeholder Tag") == placeholder_tag){
+								cube_id = env_object.GetID();
+								@cube_object = @env_object;
+								
+								cube_object.SetName(name);
+								cube_object.SetSelectable(editing);
+								cube_object.SetTranslatable(true);
+								cube_object.SetScalable(true);
+								cube_object.SetRotatable(true);
+
+								cube_object.SetDeletable(false);
+								cube_object.SetCopyable(false);
+								return;
+							}
+						}
+					}
+
+					Create();
+				}else if(ObjectExists(cube_id)){
 					@cube_object = ReadObjectFromID(cube_id);
 					cube_object.SetName(name);
 					SetSelectable(false);
@@ -415,5 +445,11 @@ class DrikaPlaceholder{
 				cast_object.SetEditorDisplayName(editor_display_name);
 			}
 		}
+	}
+
+	void WritePlaceholderTag(){
+		placeholder_tag = GetCurrLevelName() + this_hotspot.GetID() + cube_id;
+		ScriptParams@ cube_params = cube_object.GetScriptParams();
+		cube_params.SetString("Placeholder Tag", placeholder_tag);
 	}
 }

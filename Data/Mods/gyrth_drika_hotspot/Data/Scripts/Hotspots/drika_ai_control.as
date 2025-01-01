@@ -88,6 +88,10 @@ class DrikaAIControl : DrikaElement{
 		ai_target.PostInit();
 	}
 
+	bool UsesPlaceholderObject(){
+		return (goals_with_placeholders.find(ai_goals(ai_goal)) != -1);
+	}
+
 	void Delete(){
 		Reset();
 		placeholder.Remove();

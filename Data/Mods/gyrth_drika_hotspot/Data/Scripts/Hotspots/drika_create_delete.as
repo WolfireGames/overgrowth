@@ -31,7 +31,6 @@ class DrikaCreateDelete : DrikaElement{
 
 		has_settings = true;
 		placeholder.object_path = object_path;
-		@placeholder.parent = this;
 	}
 
 	void Delete(){
@@ -50,6 +49,10 @@ class DrikaCreateDelete : DrikaElement{
 		}else if(create_delete_mode == _delete_object){
 			target_select.PostInit();
 		}
+	}
+
+	bool UsesPlaceholderObject(){
+		return (create_delete_mode == _create_at_placeholder);
 	}
 
 	JSONValue GetCheckpointData(){

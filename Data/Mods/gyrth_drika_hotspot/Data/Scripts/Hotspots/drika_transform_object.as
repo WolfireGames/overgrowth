@@ -122,6 +122,10 @@ class DrikaTransformObject : DrikaElement{
 		target_location.PostInit();
 	}
 
+	bool UsesPlaceholderObject(){
+		return (transform_mode == transform_to_placeholder);
+	}
+
 	JSONValue GetSaveData(){
 		JSONValue data;
 		target_select.SaveIdentifier(data);

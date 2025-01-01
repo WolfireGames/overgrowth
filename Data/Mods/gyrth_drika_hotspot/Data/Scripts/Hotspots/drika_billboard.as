@@ -68,6 +68,10 @@ class DrikaBillboard : DrikaElement{
 		return data;
 	}
 
+	bool UsesPlaceholderObject(){
+		return (billboard_type == billboard_image_at_placeholder || billboard_type == billboard_text_at_placeholder);
+	}
+
 	void PostInit(){
 		placeholder.Retrieve();
 	}
@@ -219,15 +223,15 @@ class DrikaBillboard : DrikaElement{
 	void DrawEditing(){
 		PlaceholderCheck();
 
-		if(billboard_type == billboard_image_at_placeholder || billboard_type == billboard_text_at_placeholder){
+		if(UsesPlaceholderObject()){
 			DebugDrawLine(placeholder.GetTranslation(), this_hotspot.GetTranslation(), vec3(0.0, 1.0, 0.0), _delete_on_draw);
 		}
 	}
 
 	void PlaceholderCheck(){
-		if((billboard_type == billboard_image_at_target || billboard_type == billboard_text_at_target) && placeholder.Exists()){
+		if(!UsesPlaceholderObject() && placeholder.Exists()){
 			placeholder.Remove();
-		}else if((billboard_type == billboard_image_at_placeholder || billboard_type == billboard_text_at_placeholder) && !placeholder.Exists()){
+		}else if(UsesPlaceholderObject() && !placeholder.Exists()){
 			placeholder.Create();
 			StartEdit();
 		}

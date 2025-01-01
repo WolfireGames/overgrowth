@@ -113,6 +113,10 @@ class DrikaPlaySound : DrikaElement{
 		}
 	}
 
+	bool UsesPlaceholderObject(){
+		return (play_sound_method == play_sound_at_location || play_sound_method == play_sound_loop_at_location || play_sound_method == play_sound_group_position || play_sound_method == play_sound_group_position_gain || play_sound_method == play_sound_group_position_priority);
+	}
+
 	void PostInit(){
 		placeholder.Retrieve();
 	}

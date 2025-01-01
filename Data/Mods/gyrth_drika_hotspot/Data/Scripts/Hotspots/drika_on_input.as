@@ -148,6 +148,10 @@ class DrikaOnInput : DrikaElement{
 		}
 	}
 
+	bool UsesPlaceholderObject(){
+		return use_prompt;
+	}
+
 	void GetInputData(){
 		for(uint i = 0; i < inputs.size(); i++){
 			if(inputs[i].input_identifier == input_identifiers(input_index)){

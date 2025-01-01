@@ -311,6 +311,7 @@ Define variable, its values and notes for each value.
 	ouruin_total_overkills
 	ouruin_total_lethality
 		Tallied at the end of each level, averaged with every level's lethality state
+	ouruin_total_alerts
 
 	-- Levels (Replace level with level name)
 	ouruin_level_eliminations
@@ -328,10 +329,17 @@ Define variable, its values and notes for each value.
 	ouruin_level_alerts
 		Does not affect lethality
 
-		-- Suffixes
-			_current: Count on this current level playthrough. Does not apply to ouruin_level_lethality
-			_stored: Added to _current. Modified on checkpoints, so counts from previous areas still apply. Does not apply to ouruin_level_lethality
-			_points: Only set at the end of the level. Points of lethality earned per variable
+		ouruin_cinderian_alerts
+			Tallies up alerts from each Cinderbreathe occupied level.
+		ouruin_snakes_alerts
+			Tallies up alerts from each Snake occupied level.
+		ouruin_rats_alerts
+			Tallies up alerts from the Rat Den.
+
+	-- Suffixes
+		_current: Count on this current level playthrough. Does not apply to ouruin_level_lethality
+		_stored: Added to _current. Modified on checkpoints, so counts from previous areas still apply. Does not apply to ouruin_level_lethality
+		_points: Only set at the end of the level. Points of lethality earned per variable
 
 	...
 
