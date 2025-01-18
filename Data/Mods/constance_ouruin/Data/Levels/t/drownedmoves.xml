@@ -1,0 +1,209 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>drownedmoves</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<Terrain>
+    <Heightmap>Data/Textures/Terrain/flat.png</Heightmap>
+    <ShaderExtra></ShaderExtra>
+    <DetailMap></DetailMap>
+    <ColorMap>Data/Textures/black.tga</ColorMap>
+    <WeightMap>Data/Textures/black.tga</WeightMap>
+    <ModelOverride>Data/Models/lolnothing.obj</ModelOverride>
+    <DetailMaps>
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rocks.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/gravel.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/sand.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rock.xml" />
+    </DetailMaps>
+    <DetailObjects />
+</Terrain>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="#SHADOW_POINT_LIGHTS #TEST_CLOUDS_2 #OURUIN_EVENING #CLOUDS_DO_NOT_TINT_SKY #CLOUDS_DO_NOT_CAST_SHADOWS" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.12346" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="1.48148" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="This level hosts every relevant DHS prefab, so they can be loaded in their respective levels. Editing prefabs here will affect Ouruin&apos;s DHS scripts." />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="2" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="160, 50, 0" />
+</LevelScriptParameters>
+<NavMeshParameters generate="false" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.0991825</SunAngularRad>
+    <SunColorAngle>123.298</SunColorAngle>
+    <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="3.2968" t1="3.40277" t2="-9.35213" s0="1" s1="1" s2="1" q0="0.00227831" q1="0.997347" q2="-0.0632719" q3="0.0359127" euler_x="-3.01488" euler_y="0.0719853" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <ActorObject name="Ghost" t0="6.49199" t1="1.16235" t2="-1.24382" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="3.84167" t1="-1.28992" t2="-1.57579" s0="5.0625" s1="5.0625" s2="1" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="3" color_r="0.0901961" color_g="0.0901952" color_b="0.0901952" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="1.26992" t1="1.1541" t2="-1.244" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="-0.436663" euler_y="1.57045" euler_z="-0.436663" id="6" type_file="Data/Objects/characters/rabbits/female_rabbit_2_actor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="cat" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="6" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="1" red="0.505882" green="0.13887" blue="0.13887" />
+            <Color label="Pants" channel="2" red="0.241707" green="0.287833" blue="0.364706" />
+            <Color label="Spots" channel="3" red="0.478431" green="0.478427" blue="0.478427" />
+        </Palette>
+    </ActorObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="random_citizen.xml" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fire Wood Hot" path="Data/Objects/Environment/camp/fire_wood_hot.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood_hot.png" />
+    <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/lethality/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/lethality/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/lethality/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/lethality/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="highroad.xml" path="Data/Prefabs/ouruin/lethality/highroad.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl2.xml" path="Data/Prefabs/ouruin/lethality/lvl2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl3.xml" path="Data/Prefabs/ouruin/lethality/lvl3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl4.xml" path="Data/Prefabs/ouruin/lethality/lvl4.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/wallets/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/wallets/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="cres.xml" path="Data/Prefabs/ouruin/wallets/cres.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/wallets/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/wallets/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level1.xml" path="Data/Prefabs/ouruin/wallets/level1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level2.xml" path="Data/Prefabs/ouruin/wallets/level2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level3.xml" path="Data/Prefabs/ouruin/wallets/level3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="template.xml" path="Data/Prefabs/ouruin/wallets/template.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Blood Drop Splat" path="Data/Objects/Decals/blooddropsplat.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/blooddropsplat.png" />
+    <SpawnerItem display_name="Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="Data/UI/thumbsnailsT2/Coin.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/lethality/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/lethality/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/wallets/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/wallets/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Book Open" path="Data/Objects/therium/openbook.xml" thumbnail_path="Data/UI/thumbsnailsT2/Book open.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/lethality/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/lethality/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ship.xml" path="Data/Prefabs/ouruin/lethality/ship.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/wallets/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/wallets/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ratden.xml" path="Data/Prefabs/ouruin/lethality/ratden.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Skull Rabbit" path="Data/Objects/therium/rabbit_skull.xml" thumbnail_path="Data/UI/thumbsnailsT2/Skull rabbit.png" />
+    <SpawnerItem display_name="FenceBlock.xml" path="Data/Objects/therium/ouruin/marble/FenceBlock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Donatas" path="Data/Objects/therium/characters/donatas_actor.xml" thumbnail_path="Data/UI/thumbsnailsT2/Character/Donatas.png" />
+    <SpawnerItem display_name="Female Rabbit Average" path="Data/Objects/characters/rabbits/female_rabbit_2_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/female_rabbit_2_actor.png" />
+</RecentItems>

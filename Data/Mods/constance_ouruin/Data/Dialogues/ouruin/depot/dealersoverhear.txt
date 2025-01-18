@@ -1,0 +1,85 @@
+#name "DealersOverhear"
+#participants 4
+send_character_message 2 "set_torso_target 34.8045 -22.2199 -26.2779 1"
+set_cam 30.8817 -22.408 -33.8922 0 -150.49 0 51.8371
+set_character_pos 3 35.1327 -22.7613 -25.2624 120
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
+send_character_message 3 "set_eye_dir 34.441 -21.4521 -25.3865 1"
+send_character_message 3 "set_head_target 35.2716 -22.104 -26.5939 1"
+set_character_pos 2 34.3614 -22.7042 -25.2655 90
+send_character_message 2 "set_animation \"Data/Animations/toker_leanidle.anm\""
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 1"
+send_character_message 2 "set_head_target 35.3436 -22.2633 -25.8316 1"
+set_character_pos 1 32.1851 -22.8857 -32.2234 -16
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 34.6582 -22.2528 -26.2234 1"
+send_character_message 1 "set_torso_target 32.8152 -22.384 -31.7746 0"
+send_character_message 1 "set_head_target 34.081 -22.3136 -30.9648 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 3 0.27 0.6 0.58
+set_dialogue_voice 3 7
+set_dialogue_color 2 0.71 0.43 0.63
+set_dialogue_voice 2 6
+say 3 "???" "Red, [wait 0.1]Red, [wait 0.1]Red... [wait 0.15]Oh, [wait 0.1]what a bother!"
+send_character_message 1 "set_torso_target 32.8152 -22.384 -31.7746 1"
+send_character_message 1 "set_head_target 33.7501 -22.0884 -30.5636 1"
+send_character_message 3 "set_head_target 35.2681 -22.0086 -26.5839 1"
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.500723"
+send_character_message 2 "set_head_target 33.5624 -21.6851 -26.3968 1"
+send_character_message 2 "set_torso_target 34.8045 -22.2199 -26.2779 0"
+say 2 "????" "Ugh. [wait 0.15]Tell me about it. [wait 0.15]At least there's some new competition 'round these parts... [wait 0.15]Let's hope the Lotus puts up a fight."
+send_character_message 1 "set_head_target 33.1642 -22.2373 -28.7128 1"
+send_character_message 1 "set_torso_target 32.8152 -22.384 -31.7746 0"
+set_character_pos 1 31.5871 -22.8859 -31.4023 -35
+send_character_message 3 "set_eye_dir 35.1654 -22.4018 -25.6637 0.467867"
+send_character_message 3 "set_head_target 35.0916 -22.5735 -26.4247 1"
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitpalm.anm\""
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.781012"
+send_character_message 2 "set_head_target 35.1383 -22.104 -26.0971 1"
+set_cam 36.207 -22.6572 -27.0258 8.7 136.93 -0.01 51.8371
+say 3 "???" "Don't those lillies demand all drug trade be stopped? [wait 0.15]If they get their way, [wait 0.1]Toker..."
+send_character_message 2 "set_animation \"Data/Animations/toker_leanchin.anm\""
+send_character_message 3 "set_head_target 35.0103 -22.4033 -26.4059 1"
+send_character_message 3 "set_eye_dir 34.9631 -21.9935 -25.6522 1"
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0"
+send_character_message 2 "set_head_target 35.171 -21.5356 -26.5824 1"
+say 2 "Toker" "Pah. [wait 0.15]You think they're doing that for some moral duty? [wait 0.15]Get real!"
+send_character_message 3 "set_torso_target 34.8977 -22.6691 -26.3174 1"
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.686126"
+send_character_message 2 "set_torso_target 34.7056 -21.8948 -26.3055 1"
+send_character_message 2 "set_head_target 34.6849 -21.5142 -26.8625 1"
+send_character_message 3 "set_eye_dir 34.6247 -21.8793 -25.5674 1"
+send_character_message 1 "set_eye_dir 34.433 -22.1091 -25.9498 1"
+send_character_message 3 "set_head_target 34.4256 -22.0731 -26.1159 1"
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
+say 2 "Toker" "It's all market control. [wait 0.15]Trashing all that sniffstuff was just to impress the goody two-shoe northerners!"
+send_character_message 2 "set_torso_target 34.7056 -21.8948 -26.3055 0"
+send_character_message 2 "set_head_target 34.8697 -21.5907 -26.7344 1"
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.852926"
+send_character_message 3 "set_eye_dir 36.6151 -21.6372 -25.9863 0.739104"
+send_character_message 3 "set_head_target 35.1834 -22.0478 -26.4879 1"
+say 3 "???" "Surely they have some other source of revenue tiding them over 'til then... [wait 0.15]Eschewing all that coin is a big deal for a clan."
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.522842"
+send_character_message 2 "set_head_target 36.0212 -21.6036 -26.2837 1"
+send_character_message 3 "set_torso_target 34.8977 -22.6691 -26.3174 0"
+send_character_message 3 "set_eye_dir 35.005 -22.4049 -26.1911 0.739104"
+send_character_message 3 "set_head_target 35.1001 -22.6651 -26.6978 1"
+send_character_message 2 "set_animation \"Data/Animations/toker_leanidle.anm\""
+say 2 "Toker" "Maybe they got somethin' up their sleeve, [wait 0.1]maybe not... [wait 0.15]I like to play it by ear."
+send_character_message 3 "set_eye_dir 35.4928 -22.3879 -26.1364 0.739104"
+send_character_message 3 "set_head_target 35.9644 -22.2291 -26.7557 1"
+send_character_message 2 "set_head_target 33.978 -21.5347 -26.3294 1"
+send_character_message 1 "set_torso_target 32.8159 -22.384 -31.7722 0.0239481"
+send_character_message 1 "set_head_target 33.1634 -22.2368 -28.7149 1"
+set_cam 31.3915 -21.9713 -33.918 -10.66 -172.27 0.1 62.3124
+say 4 "Ghost" "..."
+send_character_message 2 "set_torso_target 34.7056 -21.8948 -26.3055 1"
+send_character_message 2 "set_head_target 34.9705 -21.7327 -27.1274 1"
+send_character_message 3 "set_head_target 34.7818 -22.4498 -26.7599 1"
+send_character_message 1 "set_torso_target 32.403 -22.4373 -30.5985 1"
+send_character_message 1 "set_head_target 33.7746 -21.8786 -30.4748 1"
+say 4 "Ghost" "(Drug dealers, [wait 0.1]huh...? [wait 0.15]Sounds like they wouldn't mind some business, [wait 0.1]even if it's not from a Snake. [wait 0.15]Talking to them should be safe.)"
+send_level_message "dialogue_done"

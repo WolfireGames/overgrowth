@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <Mod>
-    <Id>const-ouruin</Id> 
+    <Id>const-scarofouruin</Id> 
 	
     <Name>Scar of Ouruin</Name> 
 
@@ -21,7 +21,8 @@
 
     <NeedsRestart>false</NeedsRestart>
 
-    <Level title="Ouruin Testing" thumbnail="Textures/ouruin/campaign_thumbnails/prologue.jpg">t/testselect.xml</Level>
+    <Level title="[SOO] Lethality Land" thumbnail="Textures/ouruin/campaign_thumbnails/prologue.jpg">t/lethalityland.xml</Level>
+    <Level title="[SOO] Test Lethality" thumbnail="Textures/ouruin/campaign_thumbnails/prologue.jpg">t/lethalityland.xml</Level>
 
     <Campaign title="Scar of Ouruin" thumbnail="Images/ouruin/thumb.jpg" menu_script="standard_campaign_menu.as" main_script="linear_campaign.as">
         <Level id="level_1" title="Rainfall" thumbnail="Textures/ouruin/campaign_thumbnails/prologue.jpg">ouruin/prologue.xml</Level>

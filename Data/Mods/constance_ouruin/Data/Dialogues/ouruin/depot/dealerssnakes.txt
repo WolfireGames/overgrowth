@@ -1,0 +1,31 @@
+#name "DealersSnakes"
+#participants 4
+set_character_pos 3 35.1327 -22.7613 -25.2624 120
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
+send_character_message 3 "set_eye_dir 34.673 -22.4608 -27.8445 1"
+send_character_message 3 "set_head_target 34.7389 -22.4705 -26.611 1"
+set_character_pos 2 34.3614 -22.7042 -25.2655 90
+send_character_message 2 "set_animation \"Data/Animations/toker_leanidle.anm\""
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 1"
+send_character_message 2 "set_head_target 34.5872 -22.0338 -26.9133 1"
+set_character_pos 1 34.7022 -23.1966 -28.1323 -90
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 34.6582 -22.2528 -26.2234 1"
+send_character_message 1 "set_torso_target 35.6533 -22.771 -27.5651 0"
+send_character_message 1 "set_head_target 34.6813 -21.7606 -26.0962 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0.27 0.6 0.58
+set_dialogue_voice 3 7
+set_dialogue_color 2 0.71 0.43 0.63
+set_dialogue_voice 2 6
+say 3 "Clynn" "He don't look like a snake. [wait 0.15]Mayhaps he rallies with the Lotus?"
+
+say 2 "Toker" "Nah, [wait 0.1]nah. [wait 0.15]He'd probably be tusslin' if he was. [wait 0.15]My guess is he's a guest."
+
+say 3 "Clynn" "Slithers must be desperate if this is the audience they're draggin' up! [wait 0.2]What're they thinkin' letting a dirt apple like this in?"
+
+say 1 "Ghost" "I'm right here, [wait 0.1]you know. [wait 0.15]No need to talk about me like I can't hear."
+
+say 2 "Toker" "You think something's buzzing 'round? [wait 0.15]I've half a mind to swat at my ears, [wait 0.1]the noises I'm hearing..."
+send_level_message "dialogue_done"

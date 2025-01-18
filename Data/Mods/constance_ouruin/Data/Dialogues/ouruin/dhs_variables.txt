@@ -383,6 +383,14 @@ Define variable, its values and notes for each value.
 			1: Dart has asked Ghost for valerian root
 			2: Ghost has acquired valerian root
 			3: Dart has been given valerian root
+		
+		ouruin_dart_dealers
+			0: Dealers have not been met
+			1: Dealers have met Ghost
+			2: Dealers have offered Valerian
+			3: Ghost has purchased Valerian
+			4: Ghost has challenged dealers
+			5: Dealers are eliminated
 
 	ouruin_beggar_quest
 		0: Varidien has not been met
