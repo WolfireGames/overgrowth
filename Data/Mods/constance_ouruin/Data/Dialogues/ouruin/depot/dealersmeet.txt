@@ -1,5 +1,6 @@
 #name "DealersMeet"
 #participants 4
+set_cam 36.4471 -22.6225 -28.572 0 131.19 0 79.7737
 set_character_pos 3 35.1327 -22.7613 -25.2624 120
 send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
 send_character_message 3 "set_eye_dir 34.673 -22.4608 -27.8445 1"
@@ -20,10 +21,41 @@ set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
 say 1 "Ghost" "Hey there. [wait 0.15]Waiting for somebody?"
+send_character_message 1 "set_head_target 34.8225 -21.8495 -26.0005 1"
+send_character_message 2 "set_head_target 34.59 -22.2077 -27.1776 1"
+send_character_message 3 "set_eye_dir 34.8057 -21.6666 -25.845 1"
+send_character_message 3 "set_head_target 34.3447 -22.1772 -26.4947 1"
+send_character_message 3 "set_animation \"Data/Animations/clynn_sithand.anm\""
 say 3 "???" "Toker--[wait 0.2]Look! [wait 0.15]A customer!"
+set_cam 36.4402 -22.6219 -28.5588 0 131.19 0 79.7737
+send_character_message 3 "set_eye_dir 34.7511 -22.5907 -26.936 1"
+send_character_message 2 "set_eye_dir 34.47 -22.188 -26.5551 1"
+send_character_message 3 "set_head_target 34.5008 -23.0332 -27.143 1"
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitgesture.anm\""
+send_character_message 1 "set_head_target 35.0051 -22.1881 -25.801 1"
 say 3 "???" "Well, [wait 0.1]we were waiting for someone with fine taste to come along, [wait 0.1]but bestill my beating heart--"
+send_character_message 3 "set_head_target 34.4043 -22.3867 -26.7762 1"
+send_character_message 1 "set_eye_dir 34.6582 -22.2528 -26.2234 0.7233"
+send_character_message 2 "set_head_target 34.8521 -22.1361 -26.5769 1"
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
+send_character_message 3 "set_eye_dir 34.7671 -21.9243 -25.498 1"
+set_cam 33.6595 -21.1177 -26.1824 -37.72 -128.57 0 48.5794
+send_character_message 1 "set_head_target 34.7033 -22.5125 -26.7011 1"
 say 2 "Toker" "Shut the hell up, [wait 0.1]Clynn. [wait 0.15]This bun ain't lookin' for what we're sellin'."
+send_character_message 2 "set_head_target 35.169 -22.0335 -26.3125 1"
+send_character_message 3 "set_head_target 34.5454 -21.6804 -26.649 1"
 say 3 "Clynn" "What? [wait 0.15]How d'you figure?"
+send_character_message 3 "set_head_target 34.7732 -22.1328 -27.1009 1"
+send_character_message 2 "set_animation \"Data/Animations/toker_leanhands.anm\""
+send_character_message 2 "set_eye_dir 34.47 -22.188 -26.5551 0.599008"
+send_character_message 2 "set_head_target 34.2684 -21.8956 -27.5233 1"
 say 2 "Toker" "Why the hell would a rabbit like him want Valer? [wait 0.15]Besides, [wait 0.1]just look at 'im. [wait 0.15]I mean, [wait 0.1]come on."
+send_character_message 1 "set_head_target 34.7049 -22.2466 -26.2741 1"
+send_character_message 3 "set_torso_target 35.0045 -22.9932 -26.0481 1"
+send_character_message 3 "set_eye_dir 35.0513 -22.7411 -26.1127 0"
+send_character_message 3 "set_head_target 35.1543 -22.8353 -26.9422 1"
+send_character_message 2 "set_eye_dir 34.47 -22.188 -26.5551 0.749618"
+send_character_message 2 "set_head_target 35.0122 -22.1486 -27.434 1"
+send_character_message 2 "set_animation \"Data/Animations/toker_leanidle.anm\""
 say 3 "Clynn" "Hmm! [wait 0.2]That's quite a pity. [wait 0.15]Valerian root is truly quite the wonder, [wait 0.1]so I've heard~!"
 send_level_message "dialogue_done"

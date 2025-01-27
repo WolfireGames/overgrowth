@@ -1,18 +1,21 @@
 #name "DealersSnakesCombat"
 #participants 4
+send_character_message 3 "set_torso_target 34.7321 -22.5502 -26.1604 0.00356039"
+send_character_message 2 "set_torso_target 34.7072 -21.9416 -26.1919 0.00311565"
+set_cam 34.2125 -22.455 -29.2773 0.37 -168.55 0.01 43.9447
 set_character_pos 3 35.1327 -22.7613 -25.2624 120
 send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
-send_character_message 3 "set_eye_dir 34.673 -22.4608 -27.8445 1"
-send_character_message 3 "set_head_target 34.7389 -22.4705 -26.611 1"
+send_character_message 3 "set_eye_dir 34.5251 -21.6317 -25.7774 1"
+send_character_message 3 "set_head_target 34.4516 -22.4561 -26.4178 1"
 set_character_pos 2 34.3614 -22.7042 -25.2655 90
 send_character_message 2 "set_animation \"Data/Animations/toker_leanidle.anm\""
 send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 1"
-send_character_message 2 "set_head_target 34.5872 -22.0338 -26.9133 1"
-set_character_pos 1 34.7022 -23.1966 -28.1323 -90
+send_character_message 2 "set_head_target 35.1496 -22.259 -26.1249 1"
+set_character_pos 1 34.7022 -23.2594 -28.1323 -90
 send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 send_character_message 1 "set_eye_dir 34.6582 -22.2528 -26.2234 1"
 send_character_message 1 "set_torso_target 35.6533 -22.771 -27.5651 0"
-send_character_message 1 "set_head_target 34.6813 -21.7606 -26.0962 1"
+send_character_message 1 "set_head_target 34.6947 -21.8381 -25.779 1"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0.27 0.6 0.58
@@ -20,14 +23,39 @@ set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
 say 2 "Toker" "What's up with him, [wait 0.1]huh? [wait 0.15]Clearly the snakes want him out of here. [wait 0.15]He lost or somethin'?"
-
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.667404"
+send_character_message 2 "set_head_target 34.7459 -22.0019 -26.2589 1"
+send_character_message 3 "set_eye_dir 35.0471 -22.3269 -27.7484 1"
+send_character_message 3 "set_head_target 34.6135 -22.5688 -26.5758 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_handhips.anm\""
 say 1 "Ghost" "Funny you should say, [wait 0.1]I--"
-
+send_character_message 1 "set_head_target 34.9297 -22.122 -25.7659 1"
+send_character_message 3 "set_torso_target 34.9843 -23.0689 -26.2452 0.995396"
+send_character_message 2 "set_torso_target 34.7645 -22.9058 -26.4832 1"
+send_character_message 2 "set_head_target 35.1884 -22.0184 -26.2498 1"
+send_character_message 3 "set_head_target 33.991 -22.8091 -26.5277 1"
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitgesture.anm\""
 say 3 "Clynn" "Clearly he's an entrepeneur. [wait 0.15]It's obvious he's got his own business going, [wait 0.1]eh?"
-
+send_character_message 1 "set_head_target 34.5935 -22.0179 -25.8053 1"
+send_character_message 2 "set_torso_target 34.9879 -23.4205 -26.4026 0.997153"
+send_character_message 2 "set_head_target 35.3409 -22.3449 -26.0077 1"
+send_character_message 3 "set_eye_dir 34.4686 -21.5871 -25.2725 1"
+send_character_message 3 "set_head_target 33.7918 -22.1685 -26.3276 1"
 say 2 "Toker" "You think we should tip off the rest of the building? [wait 0.15]Holler that he's here?"
-
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 34.8407 -22.4875 -25.7952 1"
+send_character_message 3 "set_head_target 33.8401 -22.402 -26.3563 1"
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 1"
+send_character_message 2 "set_head_target 34.9529 -22.2767 -26.404 1"
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
 say 3 "Clynn" "And gain what? [wait 0.15]Don't be silly, [wait 0.1]Toker. [wait 0.15]His being here could only lead to more coin."
-
+send_character_message 1 "set_head_target 34.4574 -21.9826 -25.7097 1"
+send_character_message 2 "set_torso_target 34.9879 -23.4205 -26.4026 0"
+send_character_message 3 "set_torso_target 34.9843 -23.2505 -26.2452 1"
+send_character_message 3 "set_eye_dir 35.3365 -22.0921 -27.1193 1"
+send_character_message 3 "set_head_target 33.95 -23.0882 -26.6541 1"
+send_character_message 2 "set_animation \"Data/Animations/toker_leanhands.anm\""
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.50326"
+send_character_message 2 "set_head_target 35.1001 -21.5399 -26.8019 1"
 say 2 "Toker" "Heheh. [wait 0.15]Here I am worrying about competition, [wait 0.1]like we don't have our target audience cornered!"
 send_level_message "dialogue_done"

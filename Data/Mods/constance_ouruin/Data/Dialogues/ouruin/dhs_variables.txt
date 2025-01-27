@@ -391,6 +391,8 @@ Define variable, its values and notes for each value.
 			3: Ghost has purchased Valerian
 			4: Ghost has challenged dealers
 			5: Dealers are eliminated
+		
+		ouruin_dart_dealers_combatheard
 
 	ouruin_beggar_quest
 		0: Varidien has not been met

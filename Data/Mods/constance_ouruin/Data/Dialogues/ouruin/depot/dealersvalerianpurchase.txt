@@ -1,0 +1,36 @@
+#name "DealersValerianPurchase"
+#participants 4
+send_character_message 3 "set_torso_target 34.899 -22.6625 -26.1174 1"
+send_character_message 2 "set_torso_target 34.7072 -21.9416 -26.1919 0.00361523"
+set_cam 35.36 -22.9026 -27.0484 20.77 158.61 13.48 45.86
+set_character_pos 3 35.1327 -22.7613 -25.2624 120
+send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
+send_character_message 3 "set_eye_dir 34.5624 -21.4496 -25.6952 0.469377"
+send_character_message 3 "set_head_target 34.3299 -22.1953 -26.2179 1"
+set_character_pos 2 34.3614 -22.7042 -25.2655 90
+send_character_message 2 "set_animation \"Data/Animations/toker_leanidle.anm\""
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.595537"
+send_character_message 2 "set_head_target 34.6027 -22.0421 -27.8916 1"
+set_character_pos 1 34.7022 -23.1966 -28.1323 -90
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 34.6582 -22.2528 -26.2234 1"
+send_character_message 1 "set_torso_target 35.6533 -22.771 -27.5651 0"
+send_character_message 1 "set_head_target 34.6813 -21.7606 -26.0962 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0.27 0.6 0.58
+set_dialogue_voice 3 7
+set_dialogue_color 2 0.71 0.43 0.63
+set_dialogue_voice 2 6
+say 1 "Ghost" "Fine, [wait 0.1]here you go! [wait 0.2]Happy?"
+
+say 2 "Toker" "Overjoyed."
+
+say 3 "Clynn" "You've made a wonderful purchase today, [wait 0.1]short-tail! [wait 0.2]Enjoy responsibly."
+
+say 1 "Ghost" "...[wait 0.2]I really can't say I have, [wait 0.1]but thanks anyways."
+
+say 2 "Toker" "You should clear out, [wait 0.1]now. [wait 0.15]Don't wanna let your fellow bunnies see you munching dirt!"
+
+say 1 "Ghost" "Don't have to tell me twice."
+send_level_message "dialogue_done"

@@ -34,7 +34,7 @@
     <parameter name="HDR Bloom multiplier" type="float" val="1" />
     <parameter name="HDR White point" type="float" val="1.48148" />
     <parameter name="Level Boundaries" type="int" val="1" />
-    <parameter name="Load Tip" type="string" val="This level hosts every relevant DHS prefab, so they can be loaded in their respective levels. Editing prefabs here will affect Ouruin&apos;s DHS scripts." />
+    <parameter name="Load Tip" type="string" val="This level is for testing the Drowned moveset swap." />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1" />
     <parameter name="Shared Camera" type="int" val="0" />
@@ -50,10 +50,10 @@
     <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="3.2968" t1="3.40277" t2="-9.35213" s0="1" s1="1" s2="1" q0="0.00227831" q1="0.997347" q2="-0.0632719" q3="0.0359127" euler_x="-3.01488" euler_y="0.0719853" euler_z="3.14159" id="0">
+    <CameraObject t0="3.53628" t1="3.37484" t2="-8.72871" s0="1" s1="1" s2="1" q0="-0.000393952" q1="0.999123" q2="-0.0407395" q3="-0.00966153" euler_x="-3.06009" euler_y="-0.0193394" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
-    <ActorObject name="Ghost" t0="6.49199" t1="1.16235" t2="-1.24382" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+    <ActorObject name="Ghost" t0="6.49199" t1="1.16235" t2="-1.24382" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />
@@ -104,10 +104,10 @@
         <ItemConnections />
         <Palette />
     </ActorObject>
-    <EnvObject t0="3.84167" t1="-1.28992" t2="-1.57579" s0="5.0625" s1="5.0625" s2="1" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="3" color_r="0.0901961" color_g="0.0901952" color_b="0.0901952" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock.xml">
+    <EnvObject t0="3.84167" t1="-1.28992" t2="-1.57579" s0="5.0625" s1="5.0625" s2="1" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="3" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock.xml">
         <parameters />
     </EnvObject>
-    <ActorObject t0="1.26992" t1="1.1541" t2="-1.244" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="-0.436663" euler_y="1.57045" euler_z="-0.436663" id="6" type_file="Data/Objects/characters/rabbits/female_rabbit_2_actor.xml" is_player="0">
+    <ActorObject t0="1.26992" t1="1.1541" t2="-1.244" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="6" type_file="Data/Objects/characters/rabbits/female_rabbit_2_actor.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="0" />
             <parameter name="Attack Damage" type="float" val="1" />
