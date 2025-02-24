@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<Object>
+
+
+<Model>Data/Models/Buildings/cat_town/overhang_floor.obj</Model>
+
+
+	
+	<ColorMap>Data/Textures/Buildings/cat_town/overhang_block_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Buildings/cat_town/overhang_block_n.tga</NormalMap>
+	<WeightMap>Data/Textures/Buildings/cat_town/overhang_block_w.tga</WeightMap>
+   
+    <DetailMaps>
+        <DetailMap colorpath="Data/Textures/Buildings/detail_textures/plaster_c.tga" normalpath="Data/Textures/Buildings/detail_textures/plaster_n.tga" materialpath="Data/Materials/rocks.xml" />
+	<DetailMap colorpath="Data/Textures/Buildings/detail_textures/plaster_bricks_c.tga" normalpath="Data/Textures/Buildings/detail_textures/plaster_bricks_n.tga" materialpath="Data/Materials/rocks.xml" />
+	<DetailMap colorpath="Data/Textures/Buildings/detail_textures/plaster_bricks_c.tga" normalpath="Data/Textures/Buildings/detail_textures/plaster_bricks_n.tga" materialpath="Data/Materials/rocks.xml" />
+	<DetailMap colorpath="Data/Textures/Buildings/detail_textures/plaster_c.tga" normalpath="Data/Textures/Buildings/detail_textures/plaster_n.tga" materialpath="Data/Materials/rocks.xml" />
+        
+    </DetailMaps>
+	<ShaderName>detailmap4</ShaderName>
+</Object>
