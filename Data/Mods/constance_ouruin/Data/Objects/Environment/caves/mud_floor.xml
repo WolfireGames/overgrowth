@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Environments/caves/cave_floor.obj</Model>
+	<ColorMap>Data/Textures/Environments/caves/cave_floor_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Environments/caves/cave_floor_n.tga</NormalMap>
+	<WeightMap>Data/Textures/Environments/caves/cave_floor_w.tga</WeightMap>
+
+	<DetailMaps>
+		<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/chipped_rock.tga" normalpath="Data/Textures/Terrain/DetailTextures/chipped_rock_normal.tga" materialpath="Data/Materials/mud.xml" />  
+		<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/smooth_mud.tga" normalpath="Data/Textures/Terrain/DetailTextures/smooth_mud_normal.tga" materialpath="Data/Materials/mud.xml" /> 
+    		<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/wet_mud.tga" normalpath="Data/Textures/Terrain/DetailTextures/wet_mud_normal.tga" materialpath="Data/Materials/mud.xml" />
+	
+		<DetailMap colorpath="Data/Textures/Terrain/DetailTextures/cave_popcorn_c.tga" normalpath="Data/Textures/Terrain/DetailTextures/cave_popcorn_n.tga" materialpath="Data/Materials/mud.xml" /> 
+  	
+    	</DetailMaps>
+
+    <MaterialPath>Data/Materials/mud.xml</MaterialPath>
+	<ShaderName>detailmap4</ShaderName>
+</Object>
