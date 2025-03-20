@@ -1035,6 +1035,10 @@ class Dialogue {
     }
 
     void Play() {
+		if(EditorModeActive() && !preview){
+			return;
+		}
+	
         bool stop = false;
         bool first = false;
   
