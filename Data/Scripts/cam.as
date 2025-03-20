@@ -209,7 +209,7 @@ void Update() {
         }
         co.velocity = co.velocity * inertia + target_velocity * (1.0f - inertia);
         position += co.velocity * time_step;
-        if(GetInputDown(controller_id, "mouse0") && !co.ignore_mouse_input){
+        if((GetInputDown(controller_id, "mouse0") || GetInputDown(controller_id, "g")) && !co.ignore_mouse_input){
             target_rotation -= GetLookXAxis(controller_id);
             target_rotation2 -= GetLookYAxis(controller_id);
         }

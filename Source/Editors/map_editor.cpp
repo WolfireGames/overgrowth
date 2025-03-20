@@ -1657,6 +1657,12 @@ void MapEditor::HandleShortcuts(const LineSegment& mouseray) {
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kToggleHotspotEditing, KIMF_LEVEL_EDITOR_GENERAL)) {
         SetTypeEnabled(_hotspot_object, !IsTypeEnabled(_hotspot_object));
     }
+    if (KeyCommand::CheckPressed(keyboard, KeyCommand::kToggleLightEditing, KIMF_LEVEL_EDITOR_GENERAL)) {
+        bool lights_enabled = !IsTypeEnabled(_dynamic_light_object);
+        SetTypeEnabled(_dynamic_light_object, lights_enabled);
+        SetTypeEnabled(_reflection_capture_object, lights_enabled);
+        SetTypeEnabled(_light_volume_object, lights_enabled);
+    }
     // Handle saves
     // This bool is needed because the new default keybind for "save level as"
     // is the old "save selected items", so to keep backward/forward compatibility
