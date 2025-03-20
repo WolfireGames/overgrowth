@@ -39,6 +39,7 @@ class Group : public Object {
     std::vector<Child> children;
     bool child_transforms_need_update;
     bool child_moved;
+    bool children_no_navmesh;
 
     Group();
     bool Initialize() override;

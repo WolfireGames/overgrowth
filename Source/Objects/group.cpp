@@ -38,7 +38,8 @@ extern bool g_debug_runtime_disable_group_pre_draw_camera;
 extern bool g_debug_runtime_disable_group_pre_draw_frame;
 
 Group::Group() : child_transforms_need_update(false),
-                 child_moved(false) {
+                 child_moved(false),
+                 children_no_navmesh(false) {
     box_.dims = vec3(1.0f);
 }
 
@@ -118,6 +119,14 @@ bool Group::SetFromDesc(const EntityDescription& desc) {
         if (!version_edf) {
             InitShape();
         }
+        for (const auto& field : desc.fields) {
+            switch (field.type) {
+                case EDF_CHILDREN_NO_NAVMESH: {
+                    field.ReadBool(&children_no_navmesh);
+                    break;
+                }
+            }
+        }
 
         InitRelMats();
     }
@@ -137,6 +146,7 @@ void Group::GetDesc(EntityDescription& desc) const {
             obj->GetDesc(desc.children.back());
         }
     }
+    desc.AddBool(EDF_CHILDREN_NO_NAVMESH, children_no_navmesh);
 }
 
 void Group::InitRelMats() {
