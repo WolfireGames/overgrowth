@@ -55,6 +55,10 @@ std::map<std::string, RC_DecalTexture> DecalObject::textureCache;
 extern bool g_debug_runtime_disable_decal_object_draw;
 extern bool g_debug_runtime_disable_decal_object_pre_draw_frame;
 
+EntityType DecalObject::GetType() const {
+    return decal_file_ref->is_shadow ? _shadow_decal_object : _decal_object;
+}
+
 DecalObject::DecalObject() {
     collidable = false;
     box_.dims = vec3(1.0f);

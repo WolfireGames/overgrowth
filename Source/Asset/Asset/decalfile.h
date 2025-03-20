@@ -40,6 +40,8 @@ class DecalFile : public AssetInfo {
     std::string shader_name;
     int special_type;
 
+    bool is_shadow;
+
     DecalFile(AssetManager* owner, uint32_t asset_id);
     static AssetType GetType() { return DECAL_FILE_ASSET; }
     static const char* GetTypeName() { return "DECAL_FILE_ASSET"; }
