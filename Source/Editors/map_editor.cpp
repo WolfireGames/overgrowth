@@ -1128,6 +1128,16 @@ static void SetBit(uint32_t* bitfield, int mask, bool val) {
     }
 }
 
+static Collision GetSelectableInLineSegment(SceneGraph* scenegraph, const LineSegment& l, const TypeEnable& type_enable) {
+    std::vector<Collision> collisions;
+    GetEditorLineCollisions(scenegraph, l.start, l.end, collisions, type_enable);
+    if (!collisions.empty()) {
+        return collisions[0];
+    } else {
+        return Collision();
+    }
+}
+
 void MapEditor::Update(GameCursor* cursor) {
     if (!Engine::Instance()->menu_paused) {
         // Update editor mouseray
@@ -1154,7 +1164,8 @@ void MapEditor::Update(GameCursor* cursor) {
                 float angle_from_sun = acosf(dst_from_sun);
 
                 // Check if we've double-clicked on the sun
-                if (!sky_editor_->HandleSelect(angle_from_sun)) {
+                bool stuff_in_the_way = GetSelectableInLineSegment(scenegraph_, mouseray, type_enable_).hit;
+                if (!sky_editor_->HandleSelect(angle_from_sun, stuff_in_the_way)) {
                     // Get relevant tool based on mouse position
                     if (!sky_editor_->m_sun_translating && !sky_editor_->m_sun_scaling && !sky_editor_->m_sun_rotating) {
                         sky_editor_->m_tool = sky_editor_->OmniGetTool(angle_from_sun, mouseray);
@@ -1996,16 +2007,6 @@ bool MapEditor::HandleScrollSelect(const vec3& start, const vec3& end) {
     return something_happened;
 }
 
-static Collision GetSelectableInLineSegment(SceneGraph* scenegraph, const LineSegment& l, const TypeEnable& type_enable) {
-    std::vector<Collision> collisions;
-    GetEditorLineCollisions(scenegraph, l.start, l.end, collisions, type_enable);
-    if (!collisions.empty()) {
-        return collisions[0];
-    } else {
-        return Collision();
-    }
-}
-
 void CalculateGroupString(Object* obj, std::string& str) {
     if (obj->GetType() == _group || obj->GetType() == _prefab) {
         Group* group = (Group*)obj;
@@ -2173,6 +2174,7 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
     }
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kDeselectAll, KIMF_LEVEL_EDITOR_GENERAL)) {
         DeselectAll(scenegraph_);
+        sky_editor_->m_sun_selected = false;
         something_happened = true;
     }
     if (KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectSimilar, KIMF_LEVEL_EDITOR_GENERAL)) {
