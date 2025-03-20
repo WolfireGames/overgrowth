@@ -2431,6 +2431,11 @@ void DrawImGui(Graphics* graphics, SceneGraph* scenegraph, GUI* gui, AssetManage
                     ImGui::EndDisabled();
 
                     ImGui::Separator();
+                    temp = me->IsTypeEnabled(_reflection_capture_object);
+                    if (ImGui::Checkbox("Reflection captures", &temp)) {
+                        me->SetTypeEnabled(_reflection_capture_object, temp);
+                    }
+                    ImGui::Separator();
                     ImGui::Checkbox("Invisible objects", &g_make_invisible_visible);
                     ImGui::Checkbox("Draw boxes around groups and prefabs", &draw_group_and_prefab_boxes);
                     ImGui::Checkbox("Always show hotspot connections", &always_draw_hotspot_connections);
