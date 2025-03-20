@@ -933,6 +933,61 @@ static void DrawLaunchCustomGuiButton(Object* obj, bool& are_script_params_read_
     }
 }
 
+//Not all types are editor-lockable since, for example, being able to editor-lock a dialogue placeholder is
+//a pretty useless feature... I think?
+//
+// In any case, here are the types that are current *not* editor lockable.
+/*
+    _any_type,
+    _no_type,
+    _camera_type,
+    _terrain_type,
+    _spawn_point,
+    _rigged_object,
+    _placeholder_object,
+    _light_probe_object,
+    _light_volume_object,
+*/
+
+static bool EditorLockable(const EntityType& type) {
+    if (type == _env_object ||
+        type == _decal_object ||
+        type == _movement_object ||
+        type == _hotspot_object ||
+        type == _group ||
+        type == _item_object ||
+        type == _path_point_object ||
+        type == _ambient_sound_object ||
+        type == _dynamic_light_object ||
+        type == _navmesh_hint_object ||
+        type == _navmesh_region_object ||
+        type == _navmesh_connection_object ||
+        type == _reflection_capture_object ||
+        type == _prefab) 
+    {
+        return true;
+    }
+    return false;
+}
+
+//This feature may seem redundant, since you can't really "accidently" select objects in a group unless you're
+//usinig the scroll select, but a *potential* use case is allowing one to Ctrl+Shift+A a particular object,
+//group them, lock the group, apply the lock to all children, then ungroup and boom now all instances of that
+//particular object are locked which I think is pretty neat. And I'm sure there are other use cases too.
+static void UpdateChildrenEditorLock(Group* group, bool enabled) {
+    for (auto& i : group->children) {
+        Object* obj = i.direct_ptr;
+        const EntityType& type = obj->GetType();
+        if (EditorLockable(type)) {
+            obj->editor_locked = enabled;
+            if (type == _group) {
+                Group* sub_group = (Group*)obj;
+                UpdateChildrenEditorLock(sub_group, enabled);
+            }
+        }
+    }
+}
+
 static void DrawObjectInfoFlat(Object* obj) {
     ImGui::Indent(ImGui::GetTreeNodeToLabelSpacing());
     obj->DrawImGuiEditor();
@@ -942,10 +997,18 @@ static void DrawObjectInfoFlat(Object* obj) {
     DrawLaunchCustomGuiButton(obj, are_script_params_read_only);
 
     bool temp_enabled = obj->enabled_;
-    if (ImGui::Checkbox("Enabled", &temp_enabled)) {
+    //Added spaces here so that the "Lock" checkbox is off further to the right.
+    if (ImGui::Checkbox("Enabled                                  ", &temp_enabled)) {
         obj->SetEnabled(temp_enabled);
     }
-
+    ImGui::SameLine();
+    if (EditorLockable(obj->GetType())) {
+        ImGui::Text("Locked");
+        ImGui::SameLine();
+        ImGui::Checkbox("", &obj->editor_locked);
+        //The reason that the "Locked" text is its own ImGui::Text thingy as apposed just being part of ImGui::Checkbox
+        //is because this allows the text to be to the left of the checkbox, which looked better imo.
+    }
     const size_t name_len = 64;
     char name[name_len];
     strscpy(name, obj->GetName().c_str(), name_len);
@@ -1246,15 +1309,22 @@ static void DrawObjectInfoFlat(Object* obj) {
         }
         ImGui::TreePop();
     }
-
     ImGui::Separator();
     DrawColorPicker(&obj, 1, obj->scenegraph_);
-    if (obj->GetType() == _env_object) {
-        EnvObject* eo = (EnvObject*)obj;
+    if (obj->GetType() == _env_object || obj->GetType() == _group) {
         ImGui::Separator();
-        ImGui::Checkbox("no_navmesh", &eo->no_navmesh);
-    }
+        if (obj->GetType() == _env_object) {
+            EnvObject* eo = (EnvObject*)obj;
 
+            ImGui::Checkbox("No navmesh", &eo->no_navmesh);
+        }
+        if (obj->GetType() == _group) {
+            if (ImGui::Button("Apply Lock To Children")) {
+                Group* group = (Group*)obj;
+                UpdateChildrenEditorLock(group, obj->editor_locked);
+            }
+        }
+    }
     ImGui::Separator();
     if (obj->GetType() == _movement_object) {
         MovementObject* mov_obj = (MovementObject*)obj;
@@ -1342,10 +1412,15 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params) {
     DrawLaunchCustomGuiButton(obj, are_script_params_read_only);
 
     bool temp_enabled = obj->enabled_;
-    if (ImGui::Checkbox("Enabled", &temp_enabled)) {
+    if (ImGui::Checkbox("Enabled                                  ", &temp_enabled)) {
         obj->SetEnabled(temp_enabled);
     }
-
+    ImGui::SameLine();
+    if (EditorLockable(obj->GetType())) {
+        ImGui::Text("Locked");
+        ImGui::SameLine();
+        ImGui::Checkbox("", &obj->editor_locked);
+    }
     if (ImGui::TreeNode("Name")) {
         const size_t name_len = 64;
         char name[name_len];
@@ -1419,8 +1494,20 @@ static void DrawObjectInfo(Object* obj, bool force_expand_script_params) {
             ImGui::TreePop();
         }
         if (ImGui::TreeNode("Flags")) {
-            ImGui::Checkbox("no_navmesh", &eo->no_navmesh);
+            ImGui::Checkbox("No navmesh", &eo->no_navmesh);
+            //This checkbox ^ used to say "no_navmesh" which is all well and lovely, but I've changed it to
+            //instead be "No navmesh" on account of the fact that I didn't want the "Lock" checkbox to say
+            //"editor_locked", so yeah. This has been done for consitency's sake. Though if the previous 
+            //naming convention is preferred then I'm all g with reverting it.
             ImGui::TreePop();
+        }
+    }
+
+    if (obj->GetType() == _group) {
+        ImGui::NextColumn();
+        if (ImGui::Button("Apply Lock To Children")) {
+            Group* group = (Group*)obj;
+            UpdateChildrenEditorLock(group, obj->editor_locked);
         }
     }
 
