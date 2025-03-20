@@ -1167,7 +1167,7 @@ void MapEditor::Update(GameCursor* cursor) {
             }
         }
         if (!CheckForSelections(mouseray)) {
-            if (state_ == MapEditor::kIdle) {
+            if (!Graphics::Instance()->media_mode() && state_ == MapEditor::kIdle){
                 HandleShortcuts(mouseray);
             }
             UpdateTools(mouseray, cursor);
@@ -1921,7 +1921,8 @@ bool MapEditor::HandleScrollSelect(const vec3& start, const vec3& end) {
     } else if (Input::Instance()->getMouse().wheel_delta_y_ > 0) {
         scrolled = 1;
     }
-    if (scrolled == 0) {
+    
+    if (scrolled == 0 || Graphics::Instance()->media_mode()) {
         return false;
     }
 
@@ -2109,8 +2110,10 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
     bool something_happened = false;
     const Keyboard& keyboard = Input::Instance()->getKeyboard();
     Mouse* mouse = &(Input::Instance()->getMouse());
+    bool media_mode = Graphics::Instance()->media_mode();
+
     if (!box_selector_.acting && state_ == MapEditor::kIdle) {
-        if (mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) {
+        if (!media_mode && mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) {
             // Start box select
             box_selector_.acting = true;
             state_ = MapEditor::kBoxSelectDrag;
@@ -2125,7 +2128,7 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
             something_happened = true;
         }
     } else if (box_selector_.acting) {
-        if (mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) {
+        if (!media_mode && mouse->mouse_down_[Mouse::LEFT] && (mouse->mouse_down_[Mouse::RIGHT] || KeyCommand::CheckDown(keyboard, KeyCommand::kBoxSelect, KIMF_LEVEL_EDITOR_GENERAL))) {
             // Update box select
             Mouse* mouse = &(Input::Instance()->getMouse());
             box_selector_.points[1][0] = (float)mouse->pos_[0];
@@ -2171,11 +2174,13 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
             something_happened = true;
         }
     }
-    if (KeyCommand::CheckPressed(keyboard, KeyCommand::kDeselectAll, KIMF_LEVEL_EDITOR_GENERAL)) {
+
+    if (!media_mode && KeyCommand::CheckPressed(keyboard, KeyCommand::kDeselectAll, KIMF_LEVEL_EDITOR_GENERAL)) {
         DeselectAll(scenegraph_);
         something_happened = true;
     }
-    if (KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectSimilar, KIMF_LEVEL_EDITOR_GENERAL)) {
+
+    if (!media_mode && KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectSimilar, KIMF_LEVEL_EDITOR_GENERAL)) {
         std::vector<std::string> selected_string;
         for (auto obj : scenegraph_->objects_) {
             if (obj->GetType() == _group || obj->GetType() == _prefab) {
@@ -2200,12 +2205,15 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
         }
         something_happened = true;
     }
-    if (KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectAll, KIMF_LEVEL_EDITOR_GENERAL)) {
+
+    if (!media_mode && KeyCommand::CheckPressed(keyboard, KeyCommand::kSelectAll, KIMF_LEVEL_EDITOR_GENERAL)) {
         SelectAll();
         something_happened = true;
     }
+    
     // handle double-click select
-    if (mouse->mouse_double_click_[Mouse::LEFT] && KeyCommand::CheckDown(keyboard, KeyCommand::kAddToSelection, KIMF_LEVEL_EDITOR_GENERAL)) {
+    if (!media_mode && mouse->mouse_double_click_[Mouse::LEFT] && KeyCommand::CheckDown(keyboard, KeyCommand::kAddToSelection, KIMF_LEVEL_EDITOR_GENERAL))
+    {
         Collision c = GetSelectableInLineSegment(scenegraph_, mouseray, type_enable_);
         if (c.hit) {
             c.hit_what->Select(!c.hit_what->Selected());
@@ -2214,17 +2222,20 @@ bool MapEditor::CheckForSelections(const LineSegment& mouseray) {
             }
         }
         something_happened = true;
-    } else if (mouse->mouse_double_click_[Mouse::LEFT]) {
+    } else if (!media_mode && mouse->mouse_double_click_[Mouse::LEFT]) {
         DeselectAll(scenegraph_);
         Collision c = GetSelectableInLineSegment(scenegraph_, mouseray, type_enable_);
-        if (c.hit) {
+        if (c.hit) 
+        {
             c.hit_what->Select(true);
             DrawObjInfo(c.hit_what);
         }
         something_happened = true;
     }
+
     // handle group scroll select
     something_happened = something_happened || HandleScrollSelect(mouseray.start, mouseray.end);
+
     return something_happened;
 }
 
@@ -3489,7 +3500,7 @@ void MapEditor::UpdateTransformTool(SceneGraph* scenegraph, EditorTypes::Tool ty
     bool input_happened = false;
     bool transformation_happened = false;
 
-    if ((mouse->mouse_down_[Mouse::LEFT] || mouse->mouse_down_[Mouse::RIGHT]) && !mouse->mouse_double_click_[Mouse::LEFT]) {
+    if (!Graphics::Instance()->media_mode() && (mouse->mouse_down_[Mouse::LEFT] || mouse->mouse_down_[Mouse::RIGHT]) && !mouse->mouse_double_click_[Mouse::LEFT]) {
         if (state_ == MapEditor::kIdle) {
             if (MouseWasClickedThisTimestep(mouse) && c.hit && c.hit_what && c.hit_what->Selected()) {
                 // We are just starting to drag
