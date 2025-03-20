@@ -2,8 +2,6 @@
 //           Name: sound_hotspot.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -34,50 +32,59 @@ void ReceiveMessage(string message) {
     TokenIterator token_iter;
     token_iter.Init();
 
-    if(!token_iter.FindNextToken(message)) {
+    if (!token_iter.FindNextToken(message)) {
         return;
     }
 
-    string token = token_iter.GetToken(message);
-    const string usage_message = "sound_hotspot_play_sound: usage - `sound_hotspot_play_sound \\\"filename\\\" x y z` - x y z (position) is optional";
+    string command = token_iter.GetToken(message);
+    if (command != "sound_hotspot_play_sound") {
+        return;
+    }
 
-    if(token == "sound_hotspot_play_sound") {
-        if(!token_iter.FindNextToken(message)) {
-            Log(error, "sound_hotspot_play_sound: Invalid parameters");
-            Log(error, usage_message);
-            return;
-        }
+    HandlePlaySoundCommand(token_iter, message);
+}
 
-        string sound_filename = token_iter.GetToken(message);
+void HandlePlaySoundCommand(TokenIterator@ token_iter, const string& in message) {
+    const string usage_message = "Usage: sound_hotspot_play_sound \"filename\" [x y z]";
 
-        if(!FileExists(sound_filename)) {
-            Log(error, "sound_hotspot_play_sound: No file found with the given filename");
-            return;
-        }
+    if (!token_iter.FindNextToken(message)) {
+        Log(error, "Invalid parameters");
+        Log(error, usage_message);
+        return;
+    }
 
-        vec3 sound_pos = camera.GetPos();
-        bool specified_position = false;
+    string sound_filename = token_iter.GetToken(message);
+    if (!FileExists(sound_filename)) {
+        Log(error, "File not found: " + sound_filename);
+        return;
+    }
 
-        if(token_iter.FindNextToken(message)) {
-            string pos_x = token_iter.GetToken(message);
-
-            if(token_iter.FindNextToken(message)) {
-                string pos_y = token_iter.GetToken(message);
-
-                if(token_iter.FindNextToken(message)) {
-                    string pos_z = token_iter.GetToken(message);
-
-                    sound_pos = vec3(atof(pos_x), atof(pos_y), atof(pos_z));
-                } else {
-                    Log(warning, "sound_hotspot_play_sound: Specified x andy position, but not y and z. Ignoring pos passed in");
-                    Log(warning, usage_message);
-                }
-            } else {
-                Log(warning, "sound_hotspot_play_sound: Specified x position, but not y and z. Ignoring pos passed in");
-                Log(warning, usage_message);
-            }
-        }
-
+    vec3 sound_pos = camera.GetPos();
+    if (ParsePosition(token_iter, message, sound_pos)) {
+        PlaySound(sound_filename, sound_pos);
+    } else {
+        Log(warning, "Invalid position specified. Using default camera position.");
+        Log(warning, usage_message);
         PlaySound(sound_filename, sound_pos);
     }
+}
+
+bool ParsePosition(TokenIterator@ token_iter, const string& in message, vec3& out position) {
+    if (!token_iter.FindNextToken(message)) {
+        return false;
+    }
+    string pos_x = token_iter.GetToken(message);
+
+    if (!token_iter.FindNextToken(message)) {
+        return false;
+    }
+    string pos_y = token_iter.GetToken(message);
+
+    if (!token_iter.FindNextToken(message)) {
+        return false;
+    }
+    string pos_z = token_iter.GetToken(message);
+
+    position = vec3(atof(pos_x), atof(pos_y), atof(pos_z));
+    return true;
 }

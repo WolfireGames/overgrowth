@@ -2,7 +2,6 @@
 //           Name: lava_kill.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,18 +22,16 @@
 //-----------------------------------------------------------------------------
 
 void Init() {
+    // No initialization needed
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } if(event == "exit"){
-        //Print("Exited lava\n");
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    //Print("Entered lava\n");
-    mo.Execute("zone_killed=1;TakeBloodDamage(1.0f);Ragdoll(_RGDL_INJURED);");
+void OnEnter(MovementObject@ mo) {
+    mo.Execute("zone_killed=1; TakeBloodDamage(1.0f); Ragdoll(_RGDL_INJURED);");
     mo.ReceiveScriptMessage("ignite");
 }

@@ -2,7 +2,6 @@
 //           Name: displayvideo.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -23,27 +22,31 @@
 //-----------------------------------------------------------------------------
 
 void Init() {
+    // No initialization needed
 }
 
 void SetParameters() {
+    // No parameters to set
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
+    } else if (event == "exit") {
         OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if(mo.controlled){
-        level.SendMessage("displayvideo tutorial_video\\video_container.html");
+void OnEnter(MovementObject@ mo) {
+    if (!mo.controlled) {
+        return;
     }
+    level.SendMessage("displayvideo tutorial_video\\video_container.html");
 }
 
-void OnExit(MovementObject @mo) {
-    if(mo.controlled){
-        level.SendMessage("removevideo");
+void OnExit(MovementObject@ mo) {
+    if (!mo.controlled) {
+        return;
     }
+    level.SendMessage("removevideo");
 }

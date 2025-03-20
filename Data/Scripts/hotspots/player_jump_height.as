@@ -2,8 +2,6 @@
 //           Name: player_jump_height.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -32,36 +30,34 @@ void Dispose() {
     level.StopReceivingLevelEvents(hotspot.GetID());
 }
 
-string GetTypeString() {
-    return "therium2_player_jump_height";
-}
-
 void SetParameters() {
     params.AddFloatSlider("Initial Jetpack Fuel", 5.0f, "min:0.0,max:20.0");
     params.AddFloatSlider("Initial Jump Velocity Multiplier", 1.0f, "min:0.0,max:5.0,step:0.1,text_mult:100");
 }
 
 void ReceiveMessage(string message) {
-    if(message == "level_event achievement_event player_jumped") {
+    if (message == "level_event achievement_event player_jumped") {
         is_triggered = true;
     }
 }
 
 void Update() {
-    if(is_triggered) {
-        is_triggered = false;
+    if (!is_triggered) {
+        return;
+    }
+    is_triggered = false;
+    float new_jetpack_fuel = params.GetFloat("Initial Jetpack Fuel");
+    float jump_velocity_multiplier = params.GetFloat("Initial Jump Velocity Multiplier");
+    ApplyJumpSettings(new_jetpack_fuel, jump_velocity_multiplier);
+}
 
-        float new_jetpack_fuel = params.GetFloat("Initial Jetpack Fuel");
-        float initial_jump_velocity_multiplier = params.GetFloat("Initial Jump Velocity Multiplier");
-
-        for(int i = 0, len = GetNumCharacters(); i < len; i++) {
-            MovementObject@ character = ReadCharacter(i);
-
-            if(ReadObjectFromID(character.GetID()).GetPlayer()) {
-                character.Execute(
-                    "jump_info.jetpack_fuel = " + new_jetpack_fuel + ";" +
-                    "this_mo.velocity.y *= " + initial_jump_velocity_multiplier + ";");
-            }
+void ApplyJumpSettings(float jetpack_fuel, float velocity_multiplier) {
+    for (int i = 0; i < GetNumCharacters(); ++i) {
+        MovementObject@ character = ReadCharacter(i);
+        if (ReadObjectFromID(character.GetID()).GetPlayer()) {
+            character.Execute(
+                "jump_info.jetpack_fuel = " + jetpack_fuel + ";" +
+                "this_mo.velocity.y *= " + velocity_multiplier + ";");
         }
     }
 }

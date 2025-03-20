@@ -2,7 +2,6 @@
 //           Name: dialogue_lethality.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,7 +21,7 @@
 //
 //-----------------------------------------------------------------------------
 
-bool played;
+bool played = false;
 
 void Reset() {
     played = false;
@@ -33,29 +32,31 @@ void Init() {
 }
 
 void SetParameters() {
-	params.AddIntCheckbox("Play Once", true);
-	params.AddIntCheckbox("Play Lethal Dialogue", false);
-	params.AddIntCheckbox("Play for npcs", false);
+    params.AddIntCheckbox("Play Once", true);
+    params.AddIntCheckbox("Play Lethal Dialogue", false);
+    params.AddIntCheckbox("Play for npcs", false);
     params.AddString("Dialogue", "Test");
     params.AddString("Lethal Dialogue", "Test2");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if((mo.GetIntVar("no_kills_") == 1 || params.GetInt("Play Lethal Dialogue") == 1)
-		&& (mo.controlled || params.GetInt("Play for npcs") == 1)){
-		
-        level.SendMessage("start_dialogue \""+params.GetString("Lethal Dialogue")+"\"");
-        played = true;
+void OnEnter(MovementObject@ mo) {
+    if (played && params.GetInt("Play Once") != 0) {
+        return;
     }
-}
-
-void OnExit(MovementObject @mo) {
+    bool play_for_npcs = params.GetInt("Play for npcs") != 0;
+    if (!mo.controlled && !play_for_npcs) {
+        return;
+    }
+    if (mo.GetIntVar("no_kills_") == 1 || params.GetInt("Play Lethal Dialogue") != 0) {
+        level.SendMessage("start_dialogue \"" + params.GetString("Lethal Dialogue") + "\"");
+    } else {
+        level.SendMessage("start_dialogue \"" + params.GetString("Dialogue") + "\"");
+    }
+    played = true;
 }

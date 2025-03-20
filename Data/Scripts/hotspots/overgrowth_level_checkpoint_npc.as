@@ -2,8 +2,6 @@
 //           Name: overgrowth_level_checkpoint_npc.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -23,24 +21,25 @@
 //-----------------------------------------------------------------------------
 
 void SetParameters() {
-	params.AddInt("level_hotspot_id", -1);
+    params.AddInt("level_hotspot_id", -1);
     params.AddInt("checkpoint_id", -1);
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
     }
 }
 
-
-void OnEnter(MovementObject @mo) {
-    if(!mo.controlled && params.HasParam("level_hotspot_id") && params.HasParam("checkpoint_id")){
-        int level_hotspot_id = params.GetInt("level_hotspot_id");
-        if(ObjectExists(level_hotspot_id)){
-            Object@ obj = ReadObjectFromID(level_hotspot_id);
-            int checkpoint_id = params.GetInt("checkpoint_id");
-            obj.ReceiveScriptMessage("player_entered_checkpoint "+checkpoint_id);
-        }
+void OnEnter(MovementObject@ mo) {
+    if (mo.controlled || !params.HasParam("level_hotspot_id") || !params.HasParam("checkpoint_id")) {
+        return;
     }
+    int level_hotspot_id = params.GetInt("level_hotspot_id");
+    if (!ObjectExists(level_hotspot_id)) {
+        return;
+    }
+    Object@ obj = ReadObjectFromID(level_hotspot_id);
+    int checkpoint_id = params.GetInt("checkpoint_id");
+    obj.ReceiveScriptMessage("player_entered_checkpoint " + checkpoint_id);
 }

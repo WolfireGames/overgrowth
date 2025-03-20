@@ -2,8 +2,6 @@
 //           Name: victorytrigger.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,28 +20,14 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
-void SetParameters() {
-}
-
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
-        OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
+void HandleEvent(string event, MovementObject@ mo) {
+    if (!mo.controlled) {
+        return;
     }
-}
 
-void OnEnter(MovementObject @mo) {
-    if(mo.controlled){
+    if (event == "enter") {
         level.SendMessage("victory_trigger_enter");
-    }
-}
-
-void OnExit(MovementObject @mo) {
-    if(mo.controlled){
+    } else if (event == "exit") {
         level.SendMessage("victory_trigger_exit");
     }
 }

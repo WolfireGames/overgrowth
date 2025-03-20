@@ -2,7 +2,6 @@
 //           Name: dialogue_new.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,7 +21,7 @@
 //
 //-----------------------------------------------------------------------------
 
-bool played;
+bool played = false;
 
 void Reset() {
     played = false;
@@ -33,29 +32,36 @@ void Init() {
 }
 
 void SetParameters() {
-	params.AddIntCheckbox("Play Once", true);
-	params.AddIntCheckbox("Play only If dead", false);
-	params.AddIntCheckbox("Play for npcs", false);
+    params.AddIntCheckbox("Play Once", true);
+    params.AddIntCheckbox("Play only If dead", false);
+    params.AddIntCheckbox("Play for npcs", false);
     params.AddString("Dialogue", "Default text");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if((mo.GetIntVar("knocked_out") > 0 || params.GetInt("Play only If dead") == 0)
-		&& (!played || params.GetInt("Play Once") == 0)
-		&& (mo.controlled || params.GetInt("Play for npcs") == 1)){
-		
-        level.SendMessage("start_dialogue \""+params.GetString("Dialogue")+"\"");
-        played = true;
+void OnEnter(MovementObject@ mo) {
+    if (!ShouldPlayDialogue(mo)) {
+        return;
     }
+    level.SendMessage("start_dialogue \"" + params.GetString("Dialogue") + "\"");
+    played = true;
 }
 
-void OnExit(MovementObject @mo) {
+bool ShouldPlayDialogue(MovementObject@ mo) {
+    if (params.GetInt("Play only If dead") != 0 && mo.GetIntVar("knocked_out") <= 0) {
+        return false;
+    }
+    if (played && params.GetInt("Play Once") != 0) {
+        return false;
+    }
+    bool play_for_npcs = params.GetInt("Play for npcs") != 0;
+    if (!mo.controlled && !play_for_npcs) {
+        return false;
+    }
+    return true;
 }

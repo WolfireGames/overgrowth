@@ -2,7 +2,6 @@
 //           Name: dialogue_inspect_key.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,8 +21,8 @@
 //
 //-----------------------------------------------------------------------------
 
-bool played;
-string dialogue_key = "g";
+bool played = false;
+const string dialogue_key = "g";
 
 void Reset() {
     played = false;
@@ -34,57 +33,72 @@ void Init() {
 }
 
 void SetParameters() {
-	params.AddIntCheckbox("Check every Frame", false);
-	params.AddIntCheckbox("Play Once", true);
-	params.AddIntCheckbox("Play only If dead", false);
-	params.AddIntCheckbox("Play for npc's", false);
-	params.AddIntCheckbox("Play for player", true);
-	params.AddIntCheckbox("Play on button", true);
+    params.AddIntCheckbox("Check every Frame", false);
+    params.AddIntCheckbox("Play Once", true);
+    params.AddIntCheckbox("Play only If dead", false);
+    params.AddIntCheckbox("Play for npc's", false);
+    params.AddIntCheckbox("Play for player", true);
+    params.AddIntCheckbox("Play on button", true);
     params.AddString("Dialogue", "Default text");
 }
 
 void Update() {
+    if (params.GetInt("Check every Frame") != 1) {
+        return;
+    }
     Object@ obj = ReadObjectFromID(hotspot.GetID());
     vec3 pos = obj.GetTranslation();
     vec3 scale = obj.GetScale();
-	if(params.GetInt("Check every Frame") == 1){
-		int num_chars = GetNumCharacters();
-		for(int i=0; i<num_chars; ++i){
-			MovementObject @mo = ReadCharacter(i);
-			
-			vec3 mopos = mo.position;
-			bool isinside =	   mopos.x > pos.x-scale.x*2.0f
-							&& mopos.x < pos.x+scale.x*2.0f
-							&& mopos.y > pos.y-scale.y*2.0f
-							&& mopos.y < pos.y+scale.y*2.0f
-							&& mopos.z > pos.z-scale.z*2.0f
-							&& mopos.z < pos.z+scale.z*2.0f;
-						
-			if(isinside){
-				OnEnter(mo);
-			}
-		}
-	}
+
+    int num_chars = GetNumCharacters();
+    for (int i = 0; i < num_chars; ++i) {
+        MovementObject@ mo = ReadCharacter(i);
+        if (IsInsideHotspot(mo.position, pos, scale)) {
+            OnEnter(mo);
+        }
+    }
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+bool IsInsideHotspot(vec3 position, vec3 hotspot_pos, vec3 hotspot_scale) {
+    vec3 half_scale = hotspot_scale * 2.0f;
+    return position.x > hotspot_pos.x - half_scale.x && position.x < hotspot_pos.x + half_scale.x &&
+           position.y > hotspot_pos.y - half_scale.y && position.y < hotspot_pos.y + half_scale.y &&
+           position.z > hotspot_pos.z - half_scale.z && position.z < hotspot_pos.z + half_scale.z;
+}
+
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if((mo.GetIntVar("knocked_out") > 0 || params.GetInt("Play only If dead") == 0)
-		&& (!played || params.GetInt("Play Once") == 0)
-		&&( (!mo.controlled && params.GetInt("Play for npc's") == 1)
-		|| (mo.controlled && params.GetInt("Play for player") == 1) && GetInputPressed(mo.controller_id, dialogue_key) && params.GetInt("Play on button") == 1)){
-		
-        level.SendMessage("start_dialogue \""+params.GetString("Dialogue")+"\"");
-        played = true;
+void OnEnter(MovementObject@ mo) {
+    if (!ShouldPlayDialogue(mo)) {
+        return;
     }
+    level.SendMessage("start_dialogue \"" + params.GetString("Dialogue") + "\"");
+    played = true;
 }
 
-void OnExit(MovementObject @mo) {
+bool ShouldPlayDialogue(MovementObject@ mo) {
+    if (params.GetInt("Play only If dead") != 0 && mo.GetIntVar("knocked_out") <= 0) {
+        return false;
+    }
+    if (played && params.GetInt("Play Once") != 0) {
+        return false;
+    }
+    bool play_for_npcs = params.GetInt("Play for npc's") != 0;
+    bool play_for_player = params.GetInt("Play for player") != 0;
+    bool play_on_button = params.GetInt("Play on button") != 0;
+
+    if (!mo.controlled && !play_for_npcs) {
+        return false;
+    }
+    if (mo.controlled && !play_for_player) {
+        return false;
+    }
+    if (play_on_button && (!mo.controlled || !GetInputPressed(mo.controller_id, dialogue_key))) {
+        return false;
+    }
+    return true;
 }

@@ -2,8 +2,6 @@
 //           Name: remove_object.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,34 +20,24 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
-string _default_path = "Unknown";
-
 void SetParameters() {
-    params.AddString("Object name to disappear", _default_path);
+    params.AddString("ObjectNameToDisappear", "Unknown");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
-        OnEnter(mo);
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
+        OnEnter();
     }
 }
 
-void OnEnter(MovementObject @mo) {
-        string to_disappear = params.GetString("Object name to disappear");
-        array<int> @object_ids = GetObjectIDs();
-        int num_objects = object_ids.length();
-        for(int i=0; i<num_objects; ++i){
-            Object @obj = ReadObjectFromID(object_ids[i]);
-            ScriptParams@ params = obj.GetScriptParams();
-            if(params.HasParam("Name")){
-                string name_str = params.GetString("Name");
-                if(to_disappear == name_str){
-                    Log(info, "Test");
-                    DeleteObjectID(object_ids[i]);
-                }
-            }
+void OnEnter() {
+    string target_name = params.GetString("ObjectNameToDisappear");
+    array<int>@ object_ids = GetObjectIDs();
+    for (uint i = 0; i < object_ids.length(); ++i) {
+        Object@ obj = ReadObjectFromID(object_ids[i]);
+        ScriptParams@ obj_params = obj.GetScriptParams();
+        if (obj_params.HasParam("Name") && obj_params.GetString("Name") == target_name) {
+            DeleteObjectID(object_ids[i]);
         }
     }
+}

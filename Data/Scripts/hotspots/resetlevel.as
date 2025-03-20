@@ -2,8 +2,6 @@
 //           Name: resetlevel.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,20 +20,15 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-}
-
-void SetParameters() {
-}
-
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } 
+    }
 }
 
-void OnEnter(MovementObject @mo) {;
-    if(mo.controlled){
-        level.SendMessage("reset");
+void OnEnter(MovementObject@ mo) {
+    if (!mo.controlled) {
+        return;
     }
+    level.SendMessage("reset");
 }

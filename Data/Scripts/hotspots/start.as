@@ -2,8 +2,6 @@
 //           Name: start.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
-//        License: Read below
 //-----------------------------------------------------------------------------
 //
 //   Copyright 2022 Wolfire Games LLC
@@ -22,30 +20,30 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-    Log(info, "Initializing start.as hotspot");
-}
-
 void SetParameters() {
-    params.AddString("Display Text", "Default text");
+    params.AddString("DisplayText", "Default text");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    Log(info, "Handling event: "+event);  
-    if(event == "enter"){
+void Init() {
+    // Initialization if needed
+}
+
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
+    } else if (event == "exit") {
         OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    Log(info, "Entering start.as hotspot");
-    if(mo.controlled) {
-        level.SendMessage("displaytext \"Display Text\"");
+void OnEnter(MovementObject@ mo) {
+    if (!mo.controlled) {
+        return;
     }
+    string display_text = params.GetString("DisplayText");
+    level.SendMessage("displaytext \"" + display_text + "\"");
 }
 
-void OnExit(MovementObject @mo) {
+void OnExit(MovementObject@ mo) {
     level.SendMessage("cleartext");
 }

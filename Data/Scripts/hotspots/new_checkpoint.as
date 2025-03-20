@@ -2,7 +2,6 @@
 //           Name: new_checkpoint.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -22,21 +21,16 @@
 //
 //-----------------------------------------------------------------------------
 
-void Init() {
-    params.AddFloat("LastEnteredTime", -1.0f);
-    params.SetFloat("LastEnteredTime", -1.0f);
-}
-
 void SetParameters() {
-	params.AddFloat("LastEnteredTime", -1.0f);
+    params.AddFloat("LastEnteredTime", -1.0f);
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
-        OnEnter(mo);
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
+        OnEnter();
     }
 }
 
-void OnEnter(MovementObject @mo) {
+void OnEnter() {
     params.SetFloat("LastEnteredTime", the_time);
 }

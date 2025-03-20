@@ -2,7 +2,6 @@
 //           Name: adv_dialogue.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -30,63 +29,66 @@ void Reset() {
 
 void Init() {
     Reset();
-	//vec3 end = char.rigged_object().GetAvgIKChainPos("torso");
 }
 
 void SetParameters() {
-	params.AddIntCheckbox("Play Once", true);
-	params.AddIntCheckbox("Play Only If Dead", false);
-	params.AddIntCheckbox("Play for NPCs", false);
-	
+    params.AddIntCheckbox("Play Once", true);
+    params.AddIntCheckbox("Play Only If Dead", false);
+    params.AddIntCheckbox("Play for NPCs", false);
     params.AddString("Lethal Dialogue", "Default text");
     params.AddString("Medium Dialogue", "Default text");
     params.AddString("Non Lethal Dialogue", "Default text");
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
         OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
     }
 }
 
-void OnEnter(MovementObject @mo) {
-    if((mo.GetIntVar("knocked_out") > 0 || params.GetInt("Play Only If Dead") == 0)	//condition for "Play Only If Dead"
-		&& (!played || params.GetInt("Play Once") == 0)								//condition for "Play once"
-		&& (mo.controlled || params.GetInt("Play for NPCs") == 1)){					//condition for "Play for NPCs"
-		
-		int num_chars = GetNumCharacters();
-		bool everyone_alive = true;
-		bool everyone_dead = true;
-		for(int i=0; i<num_chars; ++i){												//check all character if they are alive
-            MovementObject @char = ReadCharacter(i);
-			if(!char.controlled && !mo.OnSameTeam(char)){
-				if(char.GetIntVar("knocked_out") == _dead){
-					everyone_alive = false;
-					Log(warning, "dude is dead");
-				} else {
-					everyone_dead = false;
-					Log(warning, "dude is alive");
-				}
-			} else {
-				Log(warning, "this is the player char");
-			}
-		}
-		
-		if(everyone_alive){															//branches for different lethal states
-			Log(warning, "everyone's alive");
-			level.SendMessage("start_dialogue \""+params.GetString("Non Lethal Dialogue")+"\"");
-		} else if(everyone_dead){
-			Log(warning, "everyone's dead");
-			level.SendMessage("start_dialogue \""+params.GetString("Lethal Dialogue")+"\"");
-		} else {
-			Log(warning, "some survived");
-			level.SendMessage("start_dialogue \""+params.GetString("Medium Dialogue")+"\"");
-		}
-        played = true;
+void OnEnter(MovementObject@ mo) {
+    if (!ShouldPlayDialogue(mo)) {
+        return;
     }
+
+    PlayDialogue(mo);
+    played = true;
 }
 
-void OnExit(MovementObject @mo) {
+bool ShouldPlayDialogue(MovementObject@ mo) {
+    if (params.GetInt("Play Only If Dead") != 0 && mo.GetIntVar("knocked_out") <= 0) {
+        return false;
+    }
+    if (played && params.GetInt("Play Once") != 0) {
+        return false;
+    }
+    if (!mo.controlled && params.GetInt("Play for NPCs") == 0) {
+        return false;
+    }
+    return true;
+}
+
+void PlayDialogue(MovementObject@ mo) {
+    int num_chars = GetNumCharacters();
+    bool everyone_alive = true;
+    bool everyone_dead = true;
+
+    for (int i = 0; i < num_chars; ++i) {
+        MovementObject@ char = ReadCharacter(i);
+        if (!char.controlled && !mo.OnSameTeam(char)) {
+            if (char.GetIntVar("knocked_out") == _dead) {
+                everyone_alive = false;
+            } else {
+                everyone_dead = false;
+            }
+        }
+    }
+
+    if (everyone_alive) {
+        level.SendMessage("start_dialogue \"" + params.GetString("Non Lethal Dialogue") + "\"");
+    } else if (everyone_dead) {
+        level.SendMessage("start_dialogue \"" + params.GetString("Lethal Dialogue") + "\"");
+    } else {
+        level.SendMessage("start_dialogue \"" + params.GetString("Medium Dialogue") + "\"");
+    }
 }

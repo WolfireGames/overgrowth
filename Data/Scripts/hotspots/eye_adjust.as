@@ -2,7 +2,6 @@
 //           Name: eye_adjust.as
 //      Developer: Wolfire Games LLC
 //    Script Type: Hotspot
-//    Description:
 //        License: Read below
 //-----------------------------------------------------------------------------
 //
@@ -25,35 +24,36 @@
 bool inside = false;
 
 void Init() {
+    // No initialization needed
 }
 
-void HandleEvent(string event, MovementObject @mo){
-    if(event == "enter"){
-        OnEnter(mo);
-    } else if(event == "exit"){
-        OnExit(mo);
+void HandleEvent(string event, MovementObject@ mo) {
+    if (event == "enter") {
+        inside = true;
+    } else if (event == "exit") {
+        inside = false;
     }
-}
-
-void OnEnter(MovementObject @mo) {
-    inside = true;
-}
-
-void OnExit(MovementObject @mo) {
-    inside = false;
 }
 
 void Update() {
-    if(inside){
-        SetHDRWhitePoint(mix(GetHDRWhitePoint(), params.GetFloat("HDR White point"), 0.05));
-        SetHDRBlackPoint(mix(GetHDRBlackPoint(), params.GetFloat("HDR Black point"), 0.05));
-        SetHDRBloomMult(mix(GetHDRBloomMult(), params.GetFloat("HDR Bloom multiplier"), 0.05));
+    if (!inside) {
+        return;
     }
+    AdjustHDRSettings();
+}
+
+void AdjustHDRSettings() {
+    float white_point = params.GetFloat("HDR White point");
+    float black_point = params.GetFloat("HDR Black point");
+    float bloom_mult = params.GetFloat("HDR Bloom multiplier");
+
+    SetHDRWhitePoint(mix(GetHDRWhitePoint(), white_point, 0.05));
+    SetHDRBlackPoint(mix(GetHDRBlackPoint(), black_point, 0.05));
+    SetHDRBloomMult(mix(GetHDRBloomMult(), bloom_mult, 0.05));
 }
 
 void SetParameters() {
-    params.AddFloatSlider("HDR White point",GetHDRWhitePoint(),"min:0,max:2,step:0.001,text_mult:100");
-    params.AddFloatSlider("HDR Black point",GetHDRBlackPoint(),"min:0,max:2,step:0.001,text_mult:100");
-    params.AddFloatSlider("HDR Bloom multiplier",GetHDRBloomMult(),"min:0,max:5,step:0.001,text_mult:100");
-
+    params.AddFloatSlider("HDR White point", GetHDRWhitePoint(), "min:0,max:2,step:0.001,text_mult:100");
+    params.AddFloatSlider("HDR Black point", GetHDRBlackPoint(), "min:0,max:2,step:0.001,text_mult:100");
+    params.AddFloatSlider("HDR Bloom multiplier", GetHDRBloomMult(), "min:0,max:5,step:0.001,text_mult:100");
 }
