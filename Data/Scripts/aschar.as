@@ -125,6 +125,7 @@ int block_stunned_by_id = -1;
 float last_collide_time;
 
 const float POW_SANITY_LIMIT = 1.0e-14;
+const float PI = 3.141592653589;
 
 // For sliding on ice
 vec3 old_slide_vel;
@@ -1985,7 +1986,7 @@ void UpdateVision() {
         return;
     }
 
-    transform.rotation = transform.rotation * quaternion(vec4(1, 0, 0, -70 / 180.0f * 3.1417f));
+    transform.rotation = transform.rotation * quaternion(vec4(1, 0, 0, -70 / 180.0f * PI));
     array<int> visible_objects;
     GetObjectsInHull("Data/Models/fov.obj", transform.GetMat4(), visible_objects);
 
@@ -2339,9 +2340,7 @@ void Breathe(const Timestep& in ts) {
         breath_amount = (sin(breath_time) * 0.5f + 0.5f) * 1.0f * mix(0.5f, 1.0f, breath_speed / 5.0f);
 
         if(level.GetScriptParams().HasParam("cold_breath")) {
-            float pi = 3.14159265359;
-
-            if(int(breath_time / (pi * 2.0) + 0.6) != int(old_breath_time / (pi * 2.0) + 0.6)) {
+            if(int(breath_time / (PI * 2.0) + 0.6) != int(old_breath_time / (PI * 2.0) + 0.6)) {
                 mat4 head_transform = this_mo.rigged_object().GetAvgIKChainTransform("head");
                 uint32 id = MakeParticle("Data/Particles/breath_fog.xml", head_transform * vec4(0.0, 0.0, 0.0, 1.0), (head_transform * vec4(0.0f, 1.0, 0.0f, 0.0f) + this_mo.velocity), vec3(1.0));
             }
@@ -2366,7 +2365,7 @@ int updated = 0;
 void UpdateDialogueControl(const Timestep &in ts) {
     this_mo.position = dialogue_position;
     {
-        vec3 new_facing = Mult(quaternion(vec4(0, 1, 0, dialogue_rotation * 3.1415f / 180.0f)), vec3(1, 0, 0));
+        vec3 new_facing = Mult(quaternion(vec4(0, 1, 0, dialogue_rotation * PI / 180.0f)), vec3(1, 0, 0));
         this_mo.SetRotationFromFacing(new_facing);
     }
 
@@ -4656,7 +4655,7 @@ void UpdateBlink(const Timestep &in ts) {
 
         if(blinking) {
             blink_progress += ts.step() * 5.0f;
-            blink_amount = sin(blink_progress * 3.14f);
+            blink_amount = sin(blink_progress * PI);
 
             if(blink_progress > 1.0f) {
                 blink_amount = 0.0f;
@@ -6523,7 +6522,7 @@ void ReceiveMessage(string msg) {
         token = token_iter.GetToken(msg);
         float rotation = atof(token);
         dialogue_rotation = rotation;
-        vec3 new_facing = Mult(quaternion(vec4(0, 1, 0, rotation * 3.1415f / 180.0f)), vec3(1, 0, 0));
+        vec3 new_facing = Mult(quaternion(vec4(0, 1, 0, rotation * PI / 180.0f)), vec3(1, 0, 0));
         this_mo.SetRotationFromFacing(new_facing);
     } else if(token == "equip_item") {  // params: int weapon_id
         token_iter.FindNextToken(msg);
@@ -10930,7 +10929,7 @@ void ApplyCameraControls(const Timestep &in ts) {
         float old_tr2 = target_rotation2;
 
         // Apply vertical angle
-        float facing_rotation2 = asin(facing.y) / 3.14159265f * 180.0f;
+        float facing_rotation2 = asin(facing.y) / PI * 180.0f;
         target_rotation2 = mix(facing_rotation2,
                                 target_rotation2,
                                 pow(0.95f, ts.frames()));
@@ -10940,7 +10939,7 @@ void ApplyCameraControls(const Timestep &in ts) {
 
         if(length_squared(facing) > 0.01f) {
             facing = normalize(facing);
-            target_rotation = atan2(-facing.x, -facing.z) / 3.14159265f * 180.0f;
+            target_rotation = atan2(-facing.x, -facing.z) / PI * 180.0f;
         }
 
         while(target_rotation < cam_rotation - 180.0f) {
@@ -10984,7 +10983,7 @@ void ApplyCameraControls(const Timestep &in ts) {
             MovementObject @char_a = ReadCharacterID(player_ids[0]);
             MovementObject @char_b = ReadCharacterID(player_ids[1]);
             vec3 vec = normalize(char_b.position - char_a.position);
-            target_rotation = atan2(vec.x, vec.z) * 180.0f / 3.1415f + 90.0f;
+            target_rotation = atan2(vec.x, vec.z) * 180.0f / PI + 90.0f;
 
             // Change rotation to have minimum difference from current rotation
             while(target_rotation < cam_rotation - 180.0f) {
@@ -11075,8 +11074,8 @@ void ApplyCameraControls(const Timestep &in ts) {
     {
         vec3 facing;
         mat4 rotationY_mat, rotationX_mat;
-        rotationY_mat.SetRotationY(cam_rotation * 3.1415f / 180.0f);
-        rotationX_mat.SetRotationX(cam_rotation2 * 3.1415f / 180.0f);
+        rotationY_mat.SetRotationY(cam_rotation * PI / 180.0f);
+        rotationX_mat.SetRotationX(cam_rotation2 * PI / 180.0f);
         mat4 rotation_mat = rotationY_mat * rotationX_mat;
         facing = rotation_mat * vec3(0.0f, 0.0f, -1.0f);
         // Check for collisions between camera center and camera follow position
@@ -11245,8 +11244,8 @@ void ApplyCameraCones(vec3 cam_pos) {
     }
 
     mat4 rotationY_mat, rotationX_mat;
-    rotationY_mat.SetRotationY(target_rotation * 3.1415f / 180.0f);
-    rotationX_mat.SetRotationX(target_rotation2 * 3.1415f / 180.0f);
+    rotationY_mat.SetRotationY(target_rotation * PI / 180.0f);
+    rotationX_mat.SetRotationX(target_rotation2 * PI / 180.0f);
     mat4 rotation_mat = rotationY_mat * rotationX_mat;
     vec3 facing = rotation_mat * vec3(0.0f, 0.0f, -1.0f);
 
@@ -11274,10 +11273,10 @@ void ApplyCameraCones(vec3 cam_pos) {
         }
 
         facing = bad_dir * rot_facing.x * -1.0f + new_right * rot_facing.y;
-        target_rotation2 = asin(facing.y) / 3.14159265f * 180.0f;
+        target_rotation2 = asin(facing.y) / PI * 180.0f;
         facing.y = 0.0f;
         facing = normalize(facing);
-        target_rotation = atan2(-facing.x, -facing.z) / 3.14159265f * 180.0f;
+        target_rotation = atan2(-facing.x, -facing.z) / PI * 180.0f;
 
         while(target_rotation > old_target_rotation + 180.0f) {
             target_rotation -= 360.0f;
@@ -11451,7 +11450,7 @@ void Reset() {
 
 void SetCameraFromFacing() {
     vec3 facing = this_mo.GetFacing();
-    float cur_rotation = atan2(-facing.x, -facing.z) / (3.1415f / 180.0f);
+    float cur_rotation = atan2(-facing.x, -facing.z) / (PI / 180.0f);
     cam_rotation = cur_rotation;
     target_rotation = cam_rotation;
     cam_rotation2 = -20.0f;
@@ -11785,7 +11784,7 @@ void HandleFootStance(const Timestep &in ts) {
     for(int i = 0; i < 2; ++i) {
         if(!foot_info_planted[i]) {
             foot_info_progress[i] += ts.step() * step_speed;
-            foot_info_height[i] = min(0.1f, sin(foot_info_progress[i] * 3.1415f) * length_squared(temp_vel) * 0.005f);
+            foot_info_height[i] = min(0.1f, sin(foot_info_progress[i] * PI) * length_squared(temp_vel) * 0.005f);
         }
 
         if(foot_info_progress[i] >= 1.0f) {
@@ -11922,13 +11921,13 @@ void UpdateAnimation(const Timestep &in ts) {
                 vec3 target_look = normalize(GetTargetVelocity() + normalize(flat_velocity) * 0.1f);
                 float target_look_angle = -atan2(-target_look.z, target_look.x);
 
-                if(target_look_angle > angle + 3.1417f) {
-                    target_look_angle -= 3.1417f * 2.0f;
-                } else if(target_look_angle < angle - 3.1417f) {
-                    target_look_angle += 3.1417f * 2.0f;
+                if(target_look_angle > angle + PI) {
+                    target_look_angle -= PI * 2.0f;
+                } else if(target_look_angle < angle - PI) {
+                    target_look_angle += PI * 2.0f;
                 }
 
-                float look_max = 3.1417f * 0.6f;
+                float look_max = PI * 0.6f;
 
                 if(abs(angle - target_look_angle) < look_max) {
                     target_look_angle = target_look_angle;
@@ -11945,10 +11944,10 @@ void UpdateAnimation(const Timestep &in ts) {
                     target_angle = target_look_angle;
                 }
 
-                if(target_angle > angle + 3.1417f) {
-                    target_angle -= 3.1417f * 2.0f;
-                } else if(target_angle < angle - 3.1417f) {
-                    target_angle += 3.1417f * 2.0f;
+                if(target_angle > angle + PI) {
+                    target_angle -= PI * 2.0f;
+                } else if(target_angle < angle - PI) {
+                    target_angle += PI * 2.0f;
                 }
 
                 float turn_speed = ts.step() * 10.0f;
@@ -12520,7 +12519,7 @@ void DrawArms(const BoneTransform &in chest_transform, const BoneTransform &in l
                     vec3 dir = normalize(target - shoulder);
                     float rotation = atan2(dir.z, -dir.x);
                     float rotation2 = asin(-dir.y);
-                    sword_mat = Mat4FromQuaternion(quaternion(vec4(0, 1, 0, rotation - 3.1417 * 0.5)) * quaternion(vec4(1, 0, 0, rotation2)));
+                    sword_mat = Mat4FromQuaternion(quaternion(vec4(0, 1, 0, rotation - PI * 0.5)) * quaternion(vec4(1, 0, 0, rotation2)));
                     sword_mat.SetTranslationPart(shoulder + normalize(target - shoulder) * (upper_arm_length[1] + lower_arm_length[1]) * (0.8 + sin(time * 5.0) * 0.4));
 
                     int bone = this_mo.rigged_object().skeleton().IKBoneStart("rightarm");
@@ -13927,7 +13926,7 @@ void FinalAnimationMatrixUpdate(int num_frames) {
         flip_rotation.rotation = quaternion(vec4(flip_modifier_axis.x, flip_modifier_axis.y, flip_modifier_axis.z, flip_modifier_rotation));
         vec3 tilt_axis = normalize(cross(vec3(0.0f, 1.0f, 0.0f), tilt_modifier));
         BoneTransform tilt_rotation;
-        tilt_rotation.rotation = quaternion(vec4(tilt_axis.x, tilt_axis.y, tilt_axis.z, length(tilt_modifier) / 180.0f * 3.1417f));
+        tilt_rotation.rotation = quaternion(vec4(tilt_axis.x, tilt_axis.y, tilt_axis.z, length(tilt_modifier) / 180.0f * PI));
         flip_modifier = flip_rotation * tilt_rotation * flip_modifier;
         flip_modifier.origin += frame_com;
 
@@ -15181,7 +15180,7 @@ void DoFootIK(const BoneTransform &in local_to_world, int num_frames) {
                 vec3 new_pos = pos + vec3(0, ground_offset, 0);
 
                 vec3 vec(1, 0, 0);
-                quaternion quat(vec4(0, 1, 0, 3.1417 * 0.25));
+                quaternion quat(vec4(0, 1, 0, PI * 0.25));
 
                 for(int i = 0; i < 8; ++i) {
                     col.GetSweptSphereCollision(balance_pos + vec * 0.4f,
@@ -15486,19 +15485,19 @@ void SetParameters() {
     vec3 old_fov_focus = fov_focus;
     vec3 old_fov_peripheral = fov_peripheral;
 
-    params.AddFloatSlider("Focus FOV horizontal", 3.1417f * 0.2f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
+    params.AddFloatSlider("Focus FOV horizontal", PI * 0.2f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
     fov_focus[0] = params.GetFloat("Focus FOV horizontal");
 
-    params.AddFloatSlider("Focus FOV vertical", 3.1417f * 0.2f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
+    params.AddFloatSlider("Focus FOV vertical", PI * 0.2f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
     fov_focus[1] = params.GetFloat("Focus FOV vertical");
 
     params.AddFloatSlider("Focus FOV distance", 100.0f, "min:0,max:100, step:0.1, text_mult:1");
     fov_focus[2] = params.GetFloat("Focus FOV distance");
 
-    params.AddFloatSlider("Peripheral FOV horizontal", 3.1417f * 0.45f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
+    params.AddFloatSlider("Peripheral FOV horizontal", PI * 0.45f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
     fov_peripheral[0] = params.GetFloat("Peripheral FOV horizontal");
 
-    params.AddFloatSlider("Peripheral FOV vertical", 3.1417f * 0.45f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
+    params.AddFloatSlider("Peripheral FOV vertical", PI * 0.45f, "min:0.01,max:1.570796,step:0.01,text_mult:57.2957");
     fov_peripheral[1] = params.GetFloat("Peripheral FOV vertical");
 
     params.AddFloatSlider("Peripheral FOV distance", 4.0f, "min:0,max:100, step:0.1, text_mult:1");
