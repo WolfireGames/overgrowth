@@ -62,6 +62,8 @@ void Attack::clear() {
     damage[1] = 0.0f;
     force[0] = 0.0f;
     force[1] = 0.0f;
+    has_range_adjust = false;
+    range_adjust = 0.0f;
     unblockable = false;
     flesh_unblockable = false;
     mobile = false;
@@ -190,6 +192,12 @@ int Attack::Load(const string& path, uint32_t load_flags) {
                 GetRange(field, "val", "min", "max", damage[0], damage[1]);
             } else if (field_str == "force") {
                 GetRange(field, "val", "min", "max", force[0], force[1]);
+            }
+            else if (field_str == "range_adjust") 
+            {
+                has_range_adjust = true;
+                field->QueryFloatAttribute("val", &range_adjust);
+                //GetRange(field, "val", "min", "max", range_adjust[0], range_adjust[1]);
             }
         }
     } else {

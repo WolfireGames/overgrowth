@@ -7333,8 +7333,14 @@ void HandleAnimationCombatEvent(const string &in event, const vec3 &in world_pos
             range_extend += mix(1.0, 0.0, game_difficulty);
             range_extend *= mix(1.0, 0.0, game_difficulty);
         }
+		
+		float range_adjust = 0.0f;
+		
+		if(attack_getter.HasRangeAdjust()){
+			range_adjust = attack_getter.GetRangeAdjust();
+		}
 
-        if(event == "attackblocked" || distance(this_mo.position, target_pos) < (_attack_range + range_extend) * this_mo.rigged_object().GetCharScale()) {
+        if(event == "attackblocked" || distance(this_mo.position, target_pos) < (_attack_range + range_extend + range_adjust) * this_mo.rigged_object().GetCharScale()) {
             vec3 facing = this_mo.GetFacing();
             vec3 facing_right = vec3(-facing.z, facing.y, facing.x);
             vec3 dir = normalize(target_pos - this_mo.position);
