@@ -109,6 +109,7 @@ MovementObject::MovementObject() : controlled(false),
                                    shader("3d_color #NO_VELOCITY_BUF"),
                                    no_grab(0),
                                    focused_character(false),
+                                   kCullRadius(2.0f),
                                    remote(false) {
     box_.dims = vec3(2.0f);
     created_on_the_fly = false;
@@ -231,8 +232,6 @@ void MovementObject::PreDrawFrame(float curr_game_time) {
 void MovementObject::Reload() {
     as_context->Reload();
 }
-
-const float kCullRadius = 2.0f;
 
 void MovementObject::ActualPreDraw(float curr_game_time) {
     bool dirty_attachment = false;
@@ -1402,11 +1401,18 @@ void MovementObject::CreateRiggedObject() {
     rigged_object_->char_id = GetID();
     palette.clear();
     rigged_object_->SetCharacterScriptGetter(character_script_getter);
+
     if (GetScriptParams()->HasParam("Character Scale")) {
-        rigged_object_->SetCharScale(GetScriptParams()->ASGetFloat("Character Scale"));
+        float char_scale = GetScriptParams()->ASGetFloat("Character Scale");
+        float new_radius = char_scale * 2;
+        rigged_object_->SetCharScale(char_scale);
+        kCullRadius = clamp(new_radius, 2.0f, 200.0f);
+
     } else {
+        kCullRadius = 2.0f;
         rigged_object_->SetCharScale(1.0f);
     }
+
     {
         PROFILER_ZONE(g_profiler_ctx, "rigged_object_->Load");
         rigged_object_->Load(character_path,
