@@ -150,12 +150,25 @@ Define variable, its values and notes for each value.
 	ouruin_warrens_state
 		0: Player is loading into Nui Warrens from Market (market.xml)
 		1: Player is loading into Nui Warrens from Depot (depot.xml)
+	
+	ouruin_ratnest_state
+		0: Player has not visited Rat's Nest
+		1: Player has visited Rat's Nest
+		2: Player has looted the crystals
+
+		ouruin_ratnest_disease
+			0: Player has not contracted disease
+			1: Player might have contracted disease
+			2: Player has received treatment for potential disease
 
 	ouruin_agra_state
 		0: Player is loading into Agra Hood from Moritz Block (level1_explore.xml)'s Gate Guards
 		1: Player is loading into Agra Hood from Moritz Hood (level1_explore.xml)'s shortcut
 		2: Player is loading into Agra Hood from High Road (level1_b.xml)
-		3: Player is loading into Agra Hood from the Speakeasy (speakeasy.xml)
+		3: Player is loading into Agra Hood from Zero's Courtyard (courtyard.xml)
+		4: Player is loading into Agra Hood from the Speakeasy (speakeasy.xml)
+
+		ouruin_agra_visited
 
 		ouruin_agra_checkpoint
 			0: Player is at the Moritz Gate
@@ -189,7 +202,11 @@ Define variable, its values and notes for each value.
 
 	ouruin_courtyard_state
 		0: Player is loading into Courtyard for the first time
-		1: Player is returning to Courtyard
+		1: Player has visited Courtyard
+
+		ouruin_courtyard_origin
+			0: Player is coming from Faas' Sanctuary
+			1: Player is coming from Agra Hood
 
 		ouruin_match_blocked
 		ouruin_match_kills
@@ -544,6 +561,11 @@ Define variable, its values and notes for each value.
 			1: Player has returned from a different level once
 			2: Player has returned from a different level twice
 			3: Quest complete
+		
+		ouruin_talk_flute
+			0: Flute has not been met
+			1: Flute has been met
+			2: Flute has talked about the builders
 
 
 == MARKET
@@ -616,8 +638,17 @@ Define variable, its values and notes for each value.
 		0: Not discussed
 		1: Discussed
 
+	ouruin_donatas_rumor
+		_patri
+		_gunk
+		_lloyd
+		_dart
+		_zero
+		_ratnest
+
 	ouruin_donatas_bloodsmention
 	ouruin_donatas_topic_gunkmet
 	ouruin_donatas_topic_gunktalk
 	ouruin_donatas_topic_gunkmoney
 	ouruin_donatas_topic_gunkmedicine
+	ouruin_donatas_pathforwards

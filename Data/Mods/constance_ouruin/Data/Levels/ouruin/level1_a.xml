@@ -50,7 +50,7 @@
     <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="210.818" t1="-41.9614" t2="-178.61" s0="1" s1="1" s2="1" q0="0.0956598" q1="0.713031" q2="-0.099219" q3="0.687453" euler_x="-2.86507" euler_y="1.53427" euler_z="3.14159" id="0">
+    <CameraObject t0="184.826" t1="-5.16708" t2="-112.288" s0="1" s1="1" s2="1" q0="-0.0767093" q1="0.467693" q2="-0.0407867" q3="-0.879611" euler_x="0.173976" euler_y="-0.977376" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-1.38719" t1="-46.6397" t2="14.8746" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="2" color_r="0.392157" color_g="0.392153" color_b="0.392153" overbright="0" type_file="Data/Prototypes/OG/WindowBlock_Mod3.xml">
@@ -496,7 +496,9 @@
         <parameters />
     </EnvObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="113.238" t1="-43.7326" t2="-8.4538" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a6579139" />
+        </parameters>
     </EnvObject>
     <EnvObject t0="-58.9177" t1="-94.284" t2="43.4182" s0="18.9269" s1="41.1973" s2="21.6627" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="146" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Cpathfloor.xml">
         <parameters />
@@ -586,7 +588,9 @@
         </EnvObject>
     </Group>
     <EnvObject name="Set Actor Eye Direction Helper" t0="109.464" t1="-42.9414" t2="-6.76211" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="184" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a6579184" />
+        </parameters>
     </EnvObject>
     <ItemObject name="Coin Pickup" t0="152.039" t1="-39.0512" t2="-120.039" s0="1" s1="1" s2="1" q0="0" q1="-0.998002" q2="0" q3="0.0631814" euler_x="3.14159" euler_y="-0.126447" euler_z="3.14159" id="185" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
@@ -892,7 +896,7 @@
     <EnvObject t0="66.6942" t1="-50.5514" t2="13.1596" s0="0.585719" s1="0.576694" s2="0.802894" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="299" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_block.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="430.655" t1="-58.3082" t2="25.6042" s0="1" s1="1" s2="1" q0="0.0678473" q1="0" q2="0" q3="0.997696" euler_x="0.135799" euler_y="0" euler_z="0" id="302" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="441.974" t1="-55.3898" t2="-6.98637" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="302" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -2996,6 +3000,9 @@
     <EnvObject t0="61.6685" t1="-44.247" t2="-43.0282" s0="0.547632" s1="0.805704" s2="0.622523" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="493" color_r="0.392157" color_g="0.392153" color_b="0.392153" overbright="0" type_file="Data/Objects/Buildings/cat_town/window_block.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="-21.7699" t1="-39.6836" t2="-64.9598" s0="1" s1="1.54774" s2="1.09889" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="494" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/macbeth_cube.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="61.9716" t1="-52.4453" t2="-43.0779" s0="0.829313" s1="1.05739" s2="1.14213" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="495" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_block.xml">
         <parameters />
     </EnvObject>
@@ -3261,7 +3268,7 @@
             <parameters>
                 <parameter name="Debug Current Line" type="int" val="0" />
                 <parameter name="Run in EditorMode" type="int" val="0" />
-                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;101&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;102&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;25&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_agra_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;103&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:7,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[216,103],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_petals_total}p&quot;,&quot;ui_element_identifier&quot;:&quot;104&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-210,0],&quot;move_in_tween_type&quot;:7,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[27,47],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[173,173],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;105&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;font_color&quot;:[0,1,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;106&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:1500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1000,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:3,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[229,195],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;+{ouruin_wallet_toadd_display}&quot;,&quot;ui_element_identifier&quot;:&quot;107&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1500,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Add coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;placeholder_id&quot;:4804,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;108&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:2}]}&#x0A;' />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;109&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;102&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;25&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_agra_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;103&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:7,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[216,103],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_petals_total}p&quot;,&quot;ui_element_identifier&quot;:&quot;104&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-210,0],&quot;move_in_tween_type&quot;:7,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[27,47],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[173,173],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;105&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;font_color&quot;:[0,1,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;106&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:1500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1000,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:3,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[229,195],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;+{ouruin_wallet_toadd_display}&quot;,&quot;ui_element_identifier&quot;:&quot;107&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1500,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Add coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;108&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:2}]}&#x0A;' />
                 <parameter name="Show UI Grid" type="int" val="1" />
                 <parameter name="Transform Relative" type="int" val="0" />
                 <parameter name="UI Snap Scale" type="int" val="20" />
@@ -3645,6 +3652,12 @@
     <EnvObject t0="61.3694" t1="-26.699" t2="-81.5762" s0="1.52249" s1="2.52542" s2="1.51571" q0="-0.500004" q1="-0.500004" q2="-0.500004" q3="0.500004" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="694" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
         <parameters />
     </EnvObject>
+    <DynamicLightObject t0="139.418" t1="-45.5157" t2="-207.532" s0="12.0091" s1="12.0091" s2="12.0091" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="695" color_r="0.690196" color_g="1" color_b="0.760271" overbright="1">
+        <parameters />
+    </DynamicLightObject>
+    <DynamicLightObject t0="139.818" t1="-46.1044" t2="-211.36" s0="12.0091" s1="12.0091" s2="12.0091" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="696" color_r="0.639216" color_g="0.597495" color_b="0.473772" overbright="1">
+        <parameters />
+    </DynamicLightObject>
     <EnvObject t0="61.977" t1="-26.6995" t2="-78.4428" s0="1.52246" s1="2.20918" s2="1.5157" q0="0" q1="-0.707112" q2="-0.707112" q3="0" euler_x="1.57081" euler_y="0" euler_z="-3.14159" id="697" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
         <parameters />
     </EnvObject>
@@ -5199,6 +5212,21 @@
     <EnvObject t0="36.4983" t1="-101.238" t2="46.6681" s0="98.9395" s1="41.3657" s2="86.0755" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1121" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Cpathfloor.xml">
         <parameters />
     </EnvObject>
+    <DynamicLightObject t0="137.843" t1="-46.3949" t2="-211.99" s0="12.0091" s1="12.0091" s2="12.0091" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1122" color_r="0.364706" color_g="0.338738" color_b="0.26173" overbright="1">
+        <parameters />
+    </DynamicLightObject>
+    <Hotspot name="Courtyard Entrance" t0="137.916" t1="-45.0945" t2="-203.778" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1123" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="0" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:39,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_courtyard_state&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;billboard_type&quot;:0,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:31,&quot;image_color&quot;:[1,1,1,1],&quot;image_path&quot;:&quot;Data/Images/icon-door.png&quot;,&quot;image_size&quot;:0.25,&quot;overbright&quot;:0,&quot;placeholder_id&quot;:2420,&quot;placeholder_tag&quot;:&quot;level1_a11232420&quot;,&quot;reference_string&quot;:&quot;Courtyard Entrance&quot;},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:1,&quot;message&quot;:&quot;courtyard_door&quot;},{&quot;display_comment&quot;:&quot;Present choice&quot;,&quot;function&quot;:34},{&quot;billboard_type&quot;:4,&quot;function&quot;:31,&quot;reference_string&quot;:&quot;Courtyard Entrance&quot;},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:false},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,1,1,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:48,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:false,&quot;use_voice_sounds&quot;:true},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[141.92599487304688,-46.393867492675781,-208.22959899902344],&quot;target_camera_rotation&quot;:[-5.8725890994537622e-06,34.107913970947266,-4.1457137740508188e-06],&quot;target_camera_zoom&quot;:57.251472473144531},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[139.85650634765625,-46.713768005371094,-209.94403076171875],&quot;target_actor_rotation&quot;:90},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:1128,&quot;placeholder_tag&quot;:&quot;level1_a11231128&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:4982,&quot;placeholder_tag&quot;:&quot;level1_a11234982&quot;},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_actionidle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;choice_1&quot;:&quot;Enter Zero&apos;s Courtyard&quot;,&quot;choice_1_go_to_line&quot;:16,&quot;choice_2&quot;:&quot;[ Stay in Agra Hood ]&quot;,&quot;choice_2_go_to_line&quot;:34,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:2,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;-- Enter Zero&apos;s Courtyard&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:9,&quot;fade_to_black_duration&quot;:2,&quot;function&quot;:33,&quot;target_fade_to_black&quot;:1},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[139.85650634765625,-46.713771820068359,-210.62448120117188],&quot;target_actor_rotation&quot;:90},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:4975,&quot;placeholder_tag&quot;:&quot;level1_a11234975&quot;},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/lanterntouch.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/doors/door_A_creak.xml&quot;,&quot;sound_type&quot;:0},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:1,&quot;music_path&quot;:&quot;Data/Music/kvbuvyyaxc.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:3,&quot;music_path&quot;:&quot;Data/Music/kvbuvyyaxc.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:4,&quot;music_path&quot;:&quot;Data/Music/kvbuvyyaxc.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:0,&quot;music_path&quot;:&quot;Data/Music/kvbuvyyaxc.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:5,&quot;music_path&quot;:&quot;Data/Music/drika_music.xml&quot;,&quot;song_name&quot;:&quot;lugaru_menu_new.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/lugaru_menu_new.ogg&quot;},{&quot;duration&quot;:2500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_agra_state&quot;,&quot;ouruin_agra_checkpoint&quot;,&quot;ouruin_intro_played&quot;,&quot;ouruin_player_event&quot;,&quot;ouruin_courtyard_origin&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;2&quot;,&quot;6&quot;,&quot;0&quot;,&quot;nothing&quot;,&quot;1&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_agra_alerts_current&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_cinderian_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_agra_alerts_current&quot;,&quot;ouruin_highroad_alerts_current&quot;,&quot;ouruin_fractured_alerts_current&quot;,&quot;ouruin_escape_alerts_current&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;loadlevel \&quot;Data/Levels/ouruin/courtyard.xml\&quot;&quot;},{&quot;function&quot;:1,&quot;message&quot;:&quot;Done!&quot;},{&quot;display_comment&quot;:&quot;-- Stay in Agra Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;billboard_type&quot;:0,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:31,&quot;image_color&quot;:[1,1,1,1],&quot;image_path&quot;:&quot;Data/Images/icon-door.png&quot;,&quot;image_size&quot;:0.25,&quot;overbright&quot;:0,&quot;placeholder_id&quot;:1127,&quot;placeholder_tag&quot;:&quot;level1_a11231127&quot;,&quot;reference_string&quot;:&quot;Courtyard Entrance&quot;},{&quot;function&quot;:7,&quot;line&quot;:1},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Inaccessible&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;Done!&quot;}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <Hotspot t0="274.554" t1="-19.0897" t2="-14.2083" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1124" type_file="Data/Objects/Hotspots/overgrowth_level.xml">
         <parameters>
             <parameter name="death_message" type="string" val="Press $attack$ to try again" />
@@ -5215,6 +5243,19 @@
     <EnvObject name="AIControl Helper" t0="272.486" t1="-31.18" t2="2.53407" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1126" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
+    <EnvObject name="Billboard Helper" t0="139.861" t1="-46.2134" t2="-211.556" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1127" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a11231127" />
+        </parameters>
+    </EnvObject>
+    <PlaceholderObject name="Set Actor Head Direction Helper" t0="139.878" t1="-45.5249" t2="-211.867" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1128" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a11231128" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <ActorObject name="Gate Guard 3" t0="294.721" t1="-48.1554" t2="-10.2026" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="1129" type_file="Data/Objects/therium/IGF_Characters/mook3spawn.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
@@ -6503,22 +6544,22 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Group t0="-14.9541" t1="-45.7507" t2="-68.5399" s0="7.47352" s1="14.8337" s2="16.5816" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="1422" version="1">
+    <Group t0="-14.9541" t1="-46.4846" t2="-68.5397" s0="7.47351" s1="13.3662" s2="16.5822" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1422" version="1">
         <parameters />
         <EnvObject t0="-14.9541" t1="-51.9139" t2="-64.4129" s0="0.492887" s1="0.268392" s2="0.952077" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="1423" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_block.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-14.9467" t1="-44.6832" t2="-64.4619" s0="1.48889" s1="1.3788" s2="1.3788" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1424" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
+        <EnvObject t0="-14.9466" t1="-45.417" t2="-64.462" s0="1.48889" s1="1.21932" s2="1.3788" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1424" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-15.1823" t1="-46.5029" t2="-72.0819" s0="0.534266" s1="1.44736" s2="1.21732" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1425" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
+        <EnvObject t0="-15.1823" t1="-46.5029" t2="-71.9238" s0="0.552076" s1="1.44737" s2="1.21732" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1425" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
             <parameters />
         </EnvObject>
     </Group>
     <EnvObject t0="-22.7726" t1="-33.1872" t2="-57.1423" s0="1.48889" s1="1.77664" s2="1.3788" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1428" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
         <parameters />
     </EnvObject>
-    <Group t0="-14.9541" t1="-45.7507" t2="-53.3823" s0="7.47352" s1="14.8337" s2="16.5816" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="1430" version="1">
+    <Group t0="-14.9541" t1="-45.7508" t2="-53.4677" s0="7.47351" s1="14.8337" s2="16.7535" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1430" version="1">
         <parameters />
         <EnvObject t0="-14.9541" t1="-51.9139" t2="-49.2553" s0="0.492887" s1="0.268392" s2="0.952077" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="1431" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_block.xml">
             <parameters />
@@ -6526,7 +6567,7 @@
         <EnvObject t0="-14.9467" t1="-44.6832" t2="-49.3043" s0="1.48889" s1="1.3788" s2="1.3788" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1432" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="-15.1823" t1="-46.5029" t2="-56.9243" s0="0.534266" s1="1.44736" s2="1.21732" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1433" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
+        <EnvObject t0="-15.1823" t1="-46.5029" t2="-57.0099" s0="0.543908" s1="1.44736" s2="1.21732" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1433" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -10463,12 +10504,23 @@
     <EnvObject t0="240.953" t1="-45.5734" t2="-174.719" s0="1.41154" s1="1.25554" s2="1.41154" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="2414" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/window_box_large.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="345.38" t1="-55.3653" t2="-70.1203" s0="1.38308" s1="1.38124" s2="1.92631" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="2420" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-        <parameters />
+    <EnvObject name="Billboard Helper" t0="139.861" t1="-46.2134" t2="-211.556" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2420" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a11232420" />
+        </parameters>
     </EnvObject>
-    <EnvObject t0="345.199" t1="-57.886" t2="-70.1203" s0="1.38308" s1="1.38124" s2="1.92631" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="2422" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-        <parameters />
-    </EnvObject>
+    <PlaceholderObject t0="139.365" t1="-46.6055" t2="-205.747" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2422" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="empty" />
+            <parameter name="DisplayName" type="string" val="CourtyardDoorTrigger" />
+            <parameter name="NumParticipants" type="int" val="1" />
+            <parameter name="Script" type="string" val='#name &quot;CourtyardDoorTrigger&quot;&#x0A;#participants 1&#x0A;send_level_message &quot;courtyard_door&quot;&#x0A;' />
+            <parameter name="obj_1" type="int" val="2458" />
+        </parameters>
+        <Connections>
+            <Connection id="2422" />
+        </Connections>
+    </PlaceholderObject>
     <Group t0="123.12" t1="-24.1024" t2="-20.4333" s0="5.24219" s1="5.23828" s2="1.64033" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2424" version="1">
         <parameters />
         <EnvObject t0="123.118" t1="-24.1025" t2="-21.1481" s0="1.06179" s1="2.62307" s2="1.06178" q0="-0.382683" q1="-0.92388" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="2.3562" id="15154" color_r="0.54902" color_g="0.549014" color_b="0.549014" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -10682,6 +10734,12 @@
     <EnvObject t0="310.967" t1="-43.1867" t2="-159.261" s0="4.17369" s1="3.74561" s2="3.39233" q0="-0.706665" q1="-0.0250009" q2="0.0250009" q3="-0.706665" euler_x="1.5708" euler_y="0.070728" euler_z="0" id="2456" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
+    <PlaceholderObject t0="139.365" t1="-45.9055" t2="-205.747" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2458" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="54" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject t0="334.825" t1="-59.8631" t2="-147.733" s0="8.10707" s1="1.5537" s2="7.59375" q0="0.0014419" q1="0.707106" q2="0.00144184" q3="0.707106" euler_x="1.57126" euler_y="1.56722" euler_z="1.57126" id="2459" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
         <parameters />
     </EnvObject>
@@ -16843,12 +16901,6 @@
     <EnvObject t0="285.233" t1="-19.7391" t2="-13.7853" s0="4.28994" s1="4.104" s2="3.51102" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="4426" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="344.473" t1="-52.6243" t2="-70.1048" s0="1.93045" s1="2.9491" s2="4.06058" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4427" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="346.283" t1="-52.6418" t2="-70.1048" s0="1.93045" s1="2.9491" s2="4.06058" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="4428" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="180.253" t1="-54.4787" t2="-172.536" s0="1.8386" s1="1.8386" s2="3.23637" q0="-0.2136" q1="0" q2="0" q3="0.976921" euler_x="-0.430517" euler_y="0" euler_z="0" id="4429" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
@@ -16883,7 +16935,9 @@
         </Group>
     </Group>
     <EnvObject name="Set Actor Eye Direction Helper" t0="117.364" t1="-43.2548" t2="-8.60466" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4432" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a65794432" />
+        </parameters>
     </EnvObject>
     <EnvObject t0="318.511" t1="-37.5948" t2="-286.596" s0="2.50183" s1="2.50739" s2="2.57292" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="4435" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
         <parameters />
@@ -17305,138 +17359,6 @@
     <EnvObject t0="199.539" t1="-42.0181" t2="-181.645" s0="1.33384" s1="1.29068" s2="1.33383" q0="-0.0874379" q1="-0.170258" q2="-0.0723007" q3="0.978846" euler_x="-0.156845" euler_y="-0.353258" euler_z="-0.119408" id="4534" color_r="0.776471" color_g="0.839585" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
         <parameters />
     </EnvObject>
-    <Group t0="334.263" t1="-58.9066" t2="-73.1457" s0="20.1462" s1="28.9999" s2="33.5436" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4540" version="1">
-        <parameters />
-        <EnvObject t0="334.489" t1="-58.4001" t2="-68.1076" s0="8.10411" s1="1.5" s2="7.59375" q0="-0.183013" q1="0.683013" q2="0.183013" q3="-0.683013" euler_x="1.5708" euler_y="-1.0472" euler_z="-1.5708" id="2470" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="334.489" t1="-50.2961" t2="-82.1441" s0="8.10411" s1="1.5" s2="7.59375" q0="-0.183013" q1="0.683013" q2="0.183013" q3="-0.683013" euler_x="1.5708" euler_y="-1.0472" euler_z="-1.5708" id="2473" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="342.531" t1="-51.5131" t2="-77.3439" s0="3.1377" s1="5.10925" s2="3.07204" q0="0.353554" q1="-0.612373" q2="0.353554" q3="-0.612373" euler_x="-1.5708" euler_y="0.523599" euler_z="-1.5708" id="2480" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="326.226" t1="-51.4463" t2="-77.4596" s0="3.13766" s1="4.9782" s2="3.07204" q0="-0.353554" q1="-0.612373" q2="0.353554" q3="0.612373" euler_x="-1.5708" euler_y="-0.523599" euler_z="1.5708" id="2488" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="342.531" t1="-46.9492" t2="-85.2488" s0="3.13762" s1="3.65755" s2="3.07204" q0="-0.612373" q1="0.353554" q2="0.612373" q3="-0.353554" euler_x="1.5708" euler_y="0.523599" euler_z="-1.5708" id="4535" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="326.226" t1="-46.9497" t2="-85.2479" s0="3.13767" s1="3.65605" s2="3.07204" q0="-0.612373" q1="-0.353554" q2="-0.612373" q3="-0.353554" euler_x="1.5708" euler_y="-0.523599" euler_z="1.5708" id="4536" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="342.531" t1="-56.9032" t2="-68.008" s0="3.1377" s1="5.54016" s2="3.07204" q0="-0.612373" q1="-0.353554" q2="-0.612373" q3="-0.353554" euler_x="1.5708" euler_y="-0.523599" euler_z="1.5708" id="4551" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="326.226" t1="-57.3273" t2="-67.2734" s0="3.13767" s1="6.74452" s2="3.07204" q0="0.612373" q1="-0.353554" q2="-0.612373" q3="0.353554" euler_x="1.5708" euler_y="0.523599" euler_z="-1.5708" id="4552" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="337.52" t1="-63.747" t2="-67.5305" s0="2.20378" s1="2.20378" s2="2.20378" q0="-0.37721" q1="0.598728" q2="-0.347298" q3="0.61532" euler_x="-1.57253" euler_y="0.494748" euler_z="-1.52326" id="2458" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="336.562" t1="-58.5017" t2="-75.3546" s0="2.20378" s1="2.20378" s2="2.20378" q0="-0.38534" q1="-0.601588" q2="0.358912" q3="0.600654" euler_x="-1.59403" euler_y="-0.462388" euler_z="1.55007" id="2469" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="333.602" t1="-53.7456" t2="-81.739" s0="1.32215" s1="1.32215" s2="1.32215" q0="-0.106063" q1="-0.870822" q2="0.458045" q3="0.143583" euler_x="-2.14787" euler_y="-0.153509" euler_z="2.81584" id="2472" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="330.07" t1="-58.8852" t2="-76.0272" s0="1.32214" s1="1.60842" s2="1.68944" q0="0.593499" q1="-0.255913" q2="-0.66496" q3="0.374292" euler_x="1.36409" euler_y="0.640671" euler_z="-1.58992" id="2474" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="336.627" t1="-50.7323" t2="-84.2712" s0="0.675098" s1="0.821273" s2="0.862642" q0="0.753527" q1="0.291171" q2="0.581368" q3="0.0971063" euler_x="2.13251" euler_y="-0.960719" euler_z="1.29782" id="2479" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="330.514" t1="-61.6278" t2="-68.6781" s0="1.68806" s1="1.44411" s2="1.51686" q0="0.370485" q1="-0.5313" q2="0.355734" q3="-0.673732" euler_x="-1.38937" euler_y="0.469364" euler_z="-1.36489" id="2578" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="329.036" t1="-56.6848" t2="-75.8497" s0="1.06738" s1="0.913125" s2="0.959127" q0="0.0749862" q1="-0.800512" q2="-0.590839" q3="0.0668484" euler_x="1.86809" euler_y="-0.0184174" euler_z="-2.94117" id="2579" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="328.943" t1="-53.5901" t2="-79.7061" s0="1.06737" s1="0.913122" s2="0.959123" q0="0.458763" q1="0.0128435" q2="-0.0720339" q3="-0.885541" euler_x="-0.952942" euler_y="0.0433597" euler_z="0.13995" id="2581" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="339.551" t1="-51.8334" t2="-82.7059" s0="1.06737" s1="0.913122" s2="0.959123" q0="-0.061243" q1="0.704213" q2="-0.65226" q3="-0.273667" euler_x="-1.57004" euler_y="-0.48401" euler_z="2.83073" id="4537" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="340.557" t1="-59.4435" t2="-71.3801" s0="0.796846" s1="0.68169" s2="0.716032" q0="0.0338407" q1="0.995839" q2="0.0637374" q3="-0.0556602" euler_x="3.01727" euler_y="-0.115427" euler_z="3.08085" id="4538" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="340.877" t1="-56.968" t2="-74.3202" s0="0.55981" s1="0.47891" s2="0.503036" q0="0.495633" q1="-0.416964" q2="-0.737444" q3="0.19149" euler_x="1.37338" euler_y="0.608106" euler_z="-2.12994" id="4539" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
-    <EnvObject t0="339.14" t1="-58.2402" t2="-73.7433" s0="1.67119" s1="1.67119" s2="1.52464" q0="0.0592446" q1="-0.867494" q2="0.492443" q3="-0.0379918" euler_x="-2.10846" euler_y="0.00756621" euler_z="-3.00092" id="4542" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="341.171" t1="-54.4425" t2="-77.2069" s0="1.00095" s1="1.00095" s2="0.934811" q0="-0.0301389" q1="0.556912" q2="0.828818" q3="0.0447662" euler_x="1.18124" euler_y="0.0999875" euler_z="3.10074" id="4543" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="340.706" t1="-51.4981" t2="-81.8807" s0="0.954642" s1="1.00095" s2="1.00095" q0="0.639211" q1="0.37655" q2="0.594391" q3="0.310354" euler_x="1.68956" euler_y="-0.554073" euler_z="1.55925" id="4544" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="335.175" t1="-60.3402" t2="-81.8227" s0="1.69349" s1="1.10708" s2="1.35107" q0="0.0343149" q1="-0.846417" q2="0.0657523" q3="-0.527335" euler_x="-2.81482" euler_y="1.09336" euler_z="-2.86058" id="4545" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/caves/cave_floor.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="327.637" t1="-58.4784" t2="-71.8666" s0="1.06737" s1="0.913122" s2="0.959123" q0="0.541211" q1="-0.0947103" q2="-0.190241" q3="-0.813591" euler_x="-1.13214" euler_y="0.368302" euler_z="0.223785" id="4547" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="327.542" t1="-54.9507" t2="-75.9057" s0="0.793554" s1="0.678874" s2="0.713074" q0="0.318328" q1="-0.115353" q2="-0.0634122" q3="-0.938799" euler_x="-0.647657" euler_y="0.259874" euler_z="0.0472251" id="4548" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="341.273" t1="-58.2467" t2="-72.1207" s0="1.00367" s1="1.00367" s2="0.994763" q0="-0.0463257" q1="0.696452" q2="0.715995" q3="-0.012068" euler_x="1.54514" euler_y="0.0495486" euler_z="-3.05959" id="4550" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="330.663" t1="-51.634" t2="-82.7597" s0="1.06737" s1="0.913122" s2="0.959123" q0="0.409987" q1="0.742642" q2="-0.50253" q3="-0.16691" euler_x="-2.03225" euler_y="0.164899" euler_z="2.23504" id="4553" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="341.189" t1="-48.9583" t2="-85.8195" s0="0.680725" s1="0.713745" s2="0.713744" q0="-0.31708" q1="0.443363" q2="0.831339" q3="-0.108466" euler_x="1.10437" euler_y="0.445625" euler_z="-2.60472" id="4554" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="339.035" t1="-49.0422" t2="-85.833" s0="0.680725" s1="0.713745" s2="0.713744" q0="-0.303269" q1="0.0831987" q2="-0.750562" q3="-0.581172" euler_x="0.276464" euler_y="-0.584701" euler_z="1.74013" id="4555" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="328.12" t1="-51.0978" t2="-83.1286" s0="0.680725" s1="0.713745" s2="0.713744" q0="0.0387713" q1="0.847306" q2="-0.518736" q3="-0.107126" euler_x="-2.03009" euler_y="-0.141787" euler_z="2.96199" id="4556" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="327.297" t1="-51.6001" t2="-80.9991" s0="0.733346" s1="0.965346" s2="0.481353" q0="0.61048" q1="0.345406" q2="0.641089" q3="0.311467" euler_x="1.55134" euler_y="-0.603562" euler_z="1.64447" id="4557" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="328.433" t1="-49.3746" t2="-85.2989" s0="0.81917" s1="0.858905" s2="0.858903" q0="0.267335" q1="0.639961" q2="-0.43842" q3="-0.571633" euler_x="-1.52703" euler_y="-0.52041" euler_z="1.80758" id="4558" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="331.593" t1="-49.5063" t2="-85.5011" s0="0.539546" s1="0.565717" s2="0.565716" q0="-0.843168" q1="-0.505846" q2="-0.0235587" q3="-0.180627" euler_x="2.80333" euler_y="0.143503" euler_z="1.05619" id="4559" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="325.713" t1="-60.1521" t2="-80.9763" s0="0.81917" s1="0.858905" s2="0.858903" q0="0.0368884" q1="0.669467" q2="-0.715669" q3="0.195615" euler_x="-1.46429" euler_y="0.320157" euler_z="-2.89619" id="4560" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="326.621" t1="-60.5192" t2="-85.3166" s0="0.81917" s1="0.858905" s2="0.858903" q0="0.685379" q1="-0.271078" q2="-0.19948" q3="0.645735" euler_x="1.65762" euler_y="-0.0767255" euler_z="-0.682922" id="4561" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="326.48" t1="-61.6023" t2="-88.3982" s0="0.819165" s1="0.842164" s2="1.20381" q0="0.995966" q1="0.0890901" q2="0.00736054" q3="0.00712527" euler_x="3.12609" euler_y="-0.0133925" euler_z="0.178529" id="4562" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="341.883" t1="-59.6732" t2="-80.7878" s0="0.81917" s1="0.858905" s2="0.858903" q0="0.750926" q1="0.0749314" q2="0.0797433" q3="0.651256" euler_x="1.71029" euler_y="-0.0221654" euler_z="0.218183" id="4563" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="342.484" t1="-60.2288" t2="-86.7472" s0="0.900141" s1="0.943803" s2="0.943802" q0="0.64622" q1="-0.325517" q2="-0.176668" q3="0.667256" euler_x="1.61897" euler_y="-0.207561" euler_z="-0.735389" id="4564" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="329.441" t1="-61.4002" t2="-90.4762" s0="0.819165" s1="0.842164" s2="1.20381" q0="0.309152" q1="0.185374" q2="-0.716235" q3="0.597544" euler_x="0.139499" euler_y="0.726676" euler_z="-1.69786" id="4565" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="332.953" t1="-61.5131" t2="-89.9222" s0="0.819165" s1="1.11148" s2="1.23053" q0="0.659097" q1="-0.690193" q2="-0.181154" q3="-0.237478" euler_x="-3.06508" euler_y="0.602383" euler_z="-1.59309" id="4566" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="336.408" t1="-60.7956" t2="-90.6963" s0="0.892718" s1="0.728097" s2="0.754255" q0="-0.738193" q1="-0.653005" q2="-0.144572" q3="0.0879768" euler_x="3.07917" euler_y="-0.334548" euler_z="1.45901" id="4567" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="340.041" t1="-60.7377" t2="-90.7251" s0="0.892718" s1="0.728097" s2="0.754255" q0="-0.185861" q1="0.0899078" q2="-0.75489" q3="-0.622499" euler_x="0.104192" euler_y="-0.403396" euler_z="1.74111" id="4568" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="326.159" t1="-59.3738" t2="-86.6087" s0="0.518793" s1="0.533359" s2="0.762399" q0="-0.150592" q1="0.846335" q2="0.510882" q3="-0.00508044" euler_x="2.07494" euler_y="0.145786" euler_z="-2.87558" id="4569" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="352.704" t1="-42.6475" t2="-73.8618" s0="2.50183" s1="1.8989" s2="2.57292" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4570" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
         <parameters />
     </EnvObject>
@@ -17542,9 +17464,6 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="343.737" t1="-57.8167" t2="-72.9562" s0="1.38308" s1="2.08973" s2="2.51649" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="4575" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="342.046" t1="-60.3245" t2="-60.1955" s0="1.00367" s1="1.00367" s2="0.994763" q0="0.507728" q1="0.0956463" q2="-0.0173987" q3="-0.856012" euler_x="-1.08016" euler_y="-0.146606" euler_z="0.128642" id="4586" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
@@ -17558,9 +17477,6 @@
             <Connection id="4740" />
         </Connections>
     </PathPointObject>
-    <EnvObject t0="343.737" t1="-57.8167" t2="-78.6206" s0="1.38308" s1="2.08973" s2="2.51649" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="4590" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-        <parameters />
-    </EnvObject>
     <ActorObject name="Roof Guard 3" t0="134.057" t1="-40.3867" t2="-116.44" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4592" type_file="Data/Objects/therium/IGF_Characters/mook4spawn.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
@@ -17649,39 +17565,6 @@
         <parameters />
     </EnvObject>
     <EnvObject t0="267.455" t1="-35.8808" t2="14.1829" s0="0.280936" s1="0.197531" s2="0.197531" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="4624" color_r="0.427447" color_g="0.427447" color_b="0.427451" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-56.9849" t2="-73.2041" s0="2.09977" s1="2.9491" s2="6.16322" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="4629" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-53.0551" t2="-73.2041" s0="2.09977" s1="2.9491" s2="6.16322" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="4630" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-51.087" t2="-72.9444" s0="2.09977" s1="2.9491" s2="6.16322" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="4631" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-55.0168" t2="-72.9444" s0="2.09977" s1="2.9491" s2="6.16322" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="4632" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-51.087" t2="-78.3956" s0="2.09977" s1="2.9491" s2="6.16322" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="4633" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-53.0551" t2="-78.6553" s0="2.09977" s1="2.9491" s2="6.16322" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="4634" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-55.0168" t2="-78.3956" s0="2.09977" s1="2.9491" s2="6.16322" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="4635" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="344.7" t1="-51.5265" t2="-80.2376" s0="2.63253" s1="2.63253" s2="2.63253" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="4636" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="344.7" t1="-51.5265" t2="-75.8359" s0="2.63253" s1="2.63253" s2="2.63253" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="4637" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.632" t1="-56.9849" t2="-78.6553" s0="2.09977" s1="2.9491" s2="6.16322" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="4638" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="344.7" t1="-51.5265" t2="-71.8237" s0="2.63253" s1="2.63253" s2="2.63253" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="4639" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="443.64" t1="-59.7973" t2="-104.832" s0="2.95213" s1="1.40087" s2="2.89793" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="4644" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
@@ -17974,9 +17857,6 @@
     <EnvObject t0="170.258" t1="-46.4329" t2="-17.3671" s0="2.92022" s1="2.42648" s2="2.65154" q0="0.139441" q1="-0.693222" q2="0.139441" q3="0.693222" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="4749" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="329.556" t1="-60.3108" t2="-140.714" s0="0.848925" s1="0.848925" s2="0.848925" q0="0.0549709" q1="0.0590773" q2="0.73117" q3="-0.677405" euler_x="0.0120726" euler_y="-0.161121" euler_z="-1.64807" id="4751" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="441.367" t1="-54.8494" t2="-27.3821" s0="1" s1="0.600299" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4752" color_r="0.329412" color_g="0.329408" color_b="0.329408" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concretesolid/pillar.xml">
         <parameters />
     </EnvObject>
@@ -18014,9 +17894,6 @@
         <parameters />
     </EnvObject>
     <EnvObject t0="449.937" t1="-72.4714" t2="-13.6533" s0="11.6045" s1="12.7121" s2="18.6112" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="4764" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/therium/Cpathfloor.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="430.2" t1="-61.3132" t2="6.014" s0="0.859529" s1="0.859529" s2="0.859529" q0="0.0689062" q1="0" q2="0" q3="0.997623" euler_x="0.137922" euler_y="0" euler_z="0" id="4765" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/therium/dogship.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="129.079" t1="-24.529" t2="27.232" s0="2.19187" s1="2.19187" s2="2.8391" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="4770" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
@@ -18172,9 +18049,6 @@
     <EnvObject t0="413.395" t1="-69.9059" t2="-14.013" s0="1.77601" s1="1.68809" s2="2.02175" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="4797" color_r="0.545098" color_g="0.545093" color_b="0.545093" overbright="0" type_file="Data/Objects/Buildings/cat_town/overhang_block.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="342.818" t1="-60.179" t2="-140.582" s0="0.848925" s1="0.848925" s2="0.848925" q0="-0.575755" q1="-0.424292" q2="0.485874" q3="-0.502407" euler_x="1.7085" euler_y="1.40221" euler_z="0.00216601" id="4799" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
     <Group t0="433.233" t1="-58.3345" t2="-54.3178" s0="6.83269" s1="3.44637" s2="14.4199" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4802" version="1">
         <parameters />
         <EnvObject t0="433.233" t1="-58.3345" t2="-50.7958" s0="1.10065" s1="0.354848" s2="0.596349" q0="0" q1="0.707108" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="4780" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/terraces/cat_stairs.xml">
@@ -18208,13 +18082,7 @@
     <EnvObject t0="516.512" t1="5.99332" t2="-43.5647" s0="3.27155" s1="3.59491" s2="3.02965" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="4819" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="331.728" t1="-60.4727" t2="-187.528" s0="0.848925" s1="0.848925" s2="0.848925" q0="-0.657774" q1="-0.560001" q2="0.403686" q3="-0.301276" euler_x="-3.02881" euler_y="1.05216" euler_z="1.47609" id="4825" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="400.617" t1="-54.1291" t2="-98.5779" s0="1.87787" s1="1.32322" s2="0.727866" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4826" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="340.288" t1="-60.3469" t2="-187.793" s0="0.848925" s1="0.848925" s2="0.848925" q0="0.641252" q1="0.483682" q2="-0.427679" q3="0.414652" euler_x="2.75531" euler_y="1.25202" euler_z="1.01151" id="4828" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
     <NavmeshConnectionObject t0="186.272" t1="-37.7636" t2="5.32468" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4829" type_file="">
@@ -18271,7 +18139,7 @@
     <EnvObject t0="370.333" t1="-28.4775" t2="-235.641" s0="7.83589" s1="2.49496" s2="48.153" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4853" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Cpathfloor.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="225.909" t1="-25.5631" t2="-201.574" s0="0.432643" s1="0.259568" s2="0.342374" q0="0" q1="-0.461906" q2="0" q3="0.886929" euler_x="0" euler_y="-0.960286" euler_z="0" id="4855" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/SquarePillow.xml">
+    <EnvObject t0="225.909" t1="-25.5631" t2="-201.574" s0="0.432643" s1="0.259568" s2="0.342374" q0="0" q1="-0.461906" q2="0" q3="0.886929" euler_x="0" euler_y="-0.960286" euler_z="0" id="4855" color_r="0.639216" color_g="0.597495" color_b="0.473772" overbright="0" type_file="Data/Objects/Environment/Furniture/SquarePillow.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="218.25" t1="-37.1488" t2="-81.0214" s0="0.545077" s1="0.488192" s2="0.545079" q0="0.00702816" q1="0.49628" q2="0.0256647" q3="-0.867754" euler_x="0.0261639" euler_y="-1.03853" euler_z="-0.0740902" id="4861" color_r="0.235294" color_g="0.191687" color_b="0.140254" overbright="0" type_file="Data/Objects/Crete/sphere_crete_rubble.xml">
@@ -18552,6 +18420,16 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <EnvObject name="Set Actor Head Direction Helper" t0="139.878" t1="-46.0422" t2="-211.887" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4975" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a11234975" />
+        </parameters>
+    </EnvObject>
+    <EnvObject name="Set Actor Eye Direction Helper" t0="139.857" t1="-45.6039" t2="-211.769" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4982" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a11234982" />
+        </parameters>
+    </EnvObject>
     <Group t0="369.905" t1="-18.6874" t2="-246.598" s0="6.44005" s1="17.2933" s2="15.894" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5031" version="1">
         <parameters />
         <EnvObject t0="369.905" t1="-18.2205" t2="-242.24" s0="1.48889" s1="1.77664" s2="1.3788" q0="0" q1="0.707108" q2="0" q3="-0.707108" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="5032" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
@@ -23148,39 +23026,6 @@
     <Decal t0="163.787" t1="-32.3168" t2="-212.514" s0="58.5332" s1="3.03786" s2="38.8452" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="6536" type_file="Data/Objects/Decals/crete_stains/leaky_rust.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Group t0="345.376" t1="-49.9843" t2="-76.18" s0="3.78228" s1="0.373338" s2="12.4937" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6537" version="1">
-        <parameters />
-        <EnvObject t0="344.513" t1="-50.0393" t2="-73.0018" s0="1.66769" s1="2.9491" s2="4.06058" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="3326" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="346.103" t1="-50.0393" t2="-72.7421" s0="1.72438" s1="2.9491" s2="4.06058" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="3327" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="344.541" t1="-50.0393" t2="-78.4658" s0="1.64579" s1="2.9491" s2="4.06058" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="3328" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="346.113" t1="-50.0393" t2="-78.2061" s0="1.70733" s1="2.9491" s2="4.06058" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="3329" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.242" t1="-49.9743" t2="-81.6106" s0="1.66321" s1="1.88113" s2="4.06058" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="3330" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.38" t1="-49.9624" t2="-70.1203" s0="1.38308" s1="1.38124" s2="1.92631" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="4424" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="343.672" t1="-49.9624" t2="-73.2082" s0="1.38308" s1="2.27442" s2="1.92631" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="4593" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="343.672" t1="-49.9622" t2="-79.3223" s0="1.38308" s1="2.27442" s2="1.92631" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="4594" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="347.053" t1="-49.9624" t2="-73.2082" s0="1.38308" s1="2.27442" s2="1.92631" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="4595" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="347.053" t1="-49.9624" t2="-79.3226" s0="1.38308" s1="2.27442" s2="1.92631" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="4596" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
     <EnvObject t0="377.714" t1="-31.2722" t2="-89.8218" s0="1.4236" s1="1.04263" s2="0.663428" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="6538" color_r="0.392157" color_g="0.392153" color_b="0.392153" overbright="0" type_file="Data/Objects/Buildings/cat_town/window_block.xml">
         <parameters />
     </EnvObject>
@@ -23280,9 +23125,6 @@
     <Decal t0="191.637" t1="-49.2671" t2="-175.383" s0="6.73635" s1="2.99929" s2="2.18662" q0="0.0361281" q1="-0.148164" q2="0.234127" q3="0.96017" euler_x="0" euler_y="-0.306205" euler_z="0.478344" id="6563" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.235294" color_g="0.235292" color_b="0.235292" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="339.449" t1="-60.2972" t2="-140.889" s0="0.848925" s1="0.848925" s2="0.848925" q0="0.0817232" q1="0.0174227" q2="0.725856" q3="-0.682747" euler_x="-0.0872995" euler_y="-0.142915" euler_z="-1.62573" id="6568" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject name="AIControl Helper" t0="272.486" t1="-31.18" t2="2.53407" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6569" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
@@ -23358,7 +23200,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="0" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:4,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_shortcut&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;6642&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:5},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;N/A&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;check_all&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:6593,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:2,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;,&quot;reset_when_false&quot;:true},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:10,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;use_prompt&quot;:false},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:7,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;attack_path_check&quot;:false,&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:6,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;display_comment&quot;:&quot;Play dialogue&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:25,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_shortcut&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;display_comment&quot;:&quot;- Unlock shortcut&quot;,&quot;function&quot;:34},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;N/A&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;dialogue_name&quot;:&quot;UnlockShortcut&quot;,&quot;function&quot;:11},{&quot;function&quot;:1,&quot;message&quot;:&quot;push&quot;},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[9.9999999747524271e-07,9.9998999303352321e-07,9.9998999303352321e-07,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/thumb_fallback.png&quot;,&quot;keep_aspect&quot;:true,&quot;position&quot;:[-3614,-1574],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[6217,3497],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;65791&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:true},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;65792&quot;,&quot;ui_function&quot;:0},{&quot;ai_sound&quot;:false,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;placeholder_id&quot;:6475,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/doors/door_A_creak.xml&quot;,&quot;sound_type&quot;:0},{&quot;ai_sound&quot;:false,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;placeholder_id&quot;:6539,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ambient/amb_forest_wood_creak.xml&quot;,&quot;sound_type&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Shortcut Closed&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_shortcut&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;display_comment&quot;:&quot;- Present choice&quot;,&quot;function&quot;:34},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;N/A&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:false},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,1,1,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:48,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:false,&quot;use_voice_sounds&quot;:true},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[114.25599670410156,-44.080799102783203,-7.0665202140808105],&quot;target_actor_rotation&quot;:180},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_dialogue_thoughtful.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:139},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:4432},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[117.11844635009766,-43.113933563232422,-8.3967046737670898],&quot;target_camera_rotation&quot;:[-8.9922866821289062,106.48140716552734,1.067216999217635e-06],&quot;target_camera_zoom&quot;:47.054656982421875},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;choice_1&quot;:&quot;Enter Moritz Hood&quot;,&quot;choice_1_go_to_line&quot;:36,&quot;choice_2&quot;:&quot;[ Stay in Agra Hood ]&quot;,&quot;choice_2_go_to_line&quot;:45,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:2,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;-- Enter Moritz Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[114.25599670410156,-44.080799102783203,-7.0665202140808105],&quot;target_actor_rotation&quot;:180},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6655},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:184},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_actionidle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;dialogue_function&quot;:9,&quot;fade_to_black_duration&quot;:2,&quot;function&quot;:33,&quot;target_fade_to_black&quot;:1},{&quot;duration&quot;:2500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0],&quot;parameters&quot;:[&quot;ouruin_explore_state&quot;,&quot;ouruin_agra_state&quot;,&quot;ouruin_agra_checkpoint&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;5&quot;,&quot;1&quot;,&quot;2&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;loadlevel \&quot;Data/Levels/ouruin/level1_explore.xml\&quot;&quot;},{&quot;display_comment&quot;:&quot;-- Stay in Agra Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;function&quot;:7,&quot;line&quot;:5}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:4,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_shortcut&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;6642&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:5},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;N/A&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;check_all&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:6593,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:2,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;,&quot;reset_when_false&quot;:true},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:10,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:0,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;use_prompt&quot;:false},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:7,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;attack_path_check&quot;:false,&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:6,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;display_comment&quot;:&quot;Play dialogue&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:25,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_shortcut&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;display_comment&quot;:&quot;- Unlock shortcut&quot;,&quot;function&quot;:34},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;N/A&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;dialogue_name&quot;:&quot;UnlockShortcut&quot;,&quot;function&quot;:11},{&quot;function&quot;:1,&quot;message&quot;:&quot;push&quot;},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[9.9999999747524271e-07,9.9998999303352321e-07,9.9998999303352321e-07,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/thumb_fallback.png&quot;,&quot;keep_aspect&quot;:true,&quot;position&quot;:[-3614,-1574],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[6217,3497],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;65791&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:true},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;65792&quot;,&quot;ui_function&quot;:0},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/doors/door_A_creak.xml&quot;,&quot;sound_type&quot;:0},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ambient/amb_forest_wood_creak.xml&quot;,&quot;sound_type&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Shortcut Closed&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_shortcut&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;display_comment&quot;:&quot;- Present choice&quot;,&quot;function&quot;:34},{&quot;function&quot;:12,&quot;identifier&quot;:&quot;Shortcut Exclamation Manager&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:&quot;N/A&quot;,&quot;param_name&quot;:&quot;Exclamation Object&quot;,&quot;param_type&quot;:0},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:false},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,1,1,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:48,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:false,&quot;use_voice_sounds&quot;:true},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[114.25599670410156,-44.080799102783203,-7.0665202140808105],&quot;target_actor_rotation&quot;:180},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_dialogue_thoughtful.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:139,&quot;placeholder_tag&quot;:&quot;level1_a6579139&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:4432,&quot;placeholder_tag&quot;:&quot;level1_a65794432&quot;},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[117.11844635009766,-43.113933563232422,-8.3967046737670898],&quot;target_camera_rotation&quot;:[-8.9922866821289062,106.48140716552734,1.067216999217635e-06],&quot;target_camera_zoom&quot;:47.054656982421875},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;choice_1&quot;:&quot;Enter Moritz Hood&quot;,&quot;choice_1_go_to_line&quot;:36,&quot;choice_2&quot;:&quot;[ Stay in Agra Hood ]&quot;,&quot;choice_2_go_to_line&quot;:45,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:2,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;-- Enter Moritz Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[114.25599670410156,-44.080799102783203,-7.0665202140808105],&quot;target_actor_rotation&quot;:180},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6655,&quot;placeholder_tag&quot;:&quot;level1_a65796655&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:184,&quot;placeholder_tag&quot;:&quot;level1_a6579184&quot;},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_actionidle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;dialogue_function&quot;:9,&quot;fade_to_black_duration&quot;:2,&quot;function&quot;:33,&quot;target_fade_to_black&quot;:1},{&quot;duration&quot;:2500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0],&quot;parameters&quot;:[&quot;ouruin_explore_state&quot;,&quot;ouruin_agra_state&quot;,&quot;ouruin_agra_checkpoint&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;5&quot;,&quot;1&quot;,&quot;2&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;loadlevel \&quot;Data/Levels/ouruin/level1_explore.xml\&quot;&quot;},{&quot;display_comment&quot;:&quot;-- Stay in Agra Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;function&quot;:7,&quot;line&quot;:5}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -23543,7 +23385,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="0" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;check_all&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:6631,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:2,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;,&quot;reset_when_false&quot;:true},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:7,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;attack_path_check&quot;:false,&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:6,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;dialogue_name&quot;:&quot;ToHighRoad&quot;,&quot;function&quot;:11},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;display_comment&quot;:&quot;Present choice&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:false},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,1,1,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:48,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:false,&quot;use_voice_sounds&quot;:true},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[220.37100219726562,-48.055999755859375,-176.09800720214844],&quot;target_actor_rotation&quot;:0},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_actionidle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6644},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6649},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0.30000001192092896,25,3],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[218.02287292480469,-47.999137878417969,-175.74687194824219],&quot;target_camera_rotation&quot;:[11.690622329711914,-84.126861572265625,-4.0554245970270131e-06],&quot;target_camera_zoom&quot;:38.348114013671875},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;choice_1&quot;:&quot;Enter High Road&quot;,&quot;choice_1_go_to_line&quot;:19,&quot;choice_2&quot;:&quot;[ Stay in Agra Hood ]&quot;,&quot;choice_2_go_to_line&quot;:30,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:2,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;-- Enter High Road&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[220.37100219726562,-48.055999755859375,-176.09800720214844],&quot;target_actor_rotation&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6645},{&quot;dialogue_function&quot;:9,&quot;fade_to_black_duration&quot;:2,&quot;function&quot;:33,&quot;target_fade_to_black&quot;:1},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_agra_state&quot;,&quot;ouruin_agra_checkpoint&quot;,&quot;ouruin_highroad_state&quot;,&quot;ouruin_highroad_checkpoint&quot;,&quot;ouruin_intro_played&quot;,&quot;ouruin_player_event&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;2&quot;,&quot;7&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;nothing&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_agra_alerts_current&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_cinderian_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_agra_alerts_current&quot;,&quot;ouruin_highroad_alerts_current&quot;,&quot;ouruin_fractured_alerts_current&quot;,&quot;ouruin_escape_alerts_current&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;loadlevel \&quot;Data/Levels/ouruin/level1_b.xml\&quot;&quot;},{&quot;function&quot;:1,&quot;message&quot;:&quot;Done!&quot;},{&quot;display_comment&quot;:&quot;-- Stay in Agra Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;check_all&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:6631,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:2,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;,&quot;reset_when_false&quot;:true},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:7,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;attack_path_check&quot;:false,&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:6,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;dialogue_name&quot;:&quot;ToHighRoad&quot;,&quot;function&quot;:11},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;display_comment&quot;:&quot;Present choice&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:false},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,1,1,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:48,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:false,&quot;use_voice_sounds&quot;:true},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[220.37100219726562,-48.055999755859375,-176.09800720214844],&quot;target_actor_rotation&quot;:0},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_actionidle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6644,&quot;placeholder_tag&quot;:&quot;level1_a66336644&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6649,&quot;placeholder_tag&quot;:&quot;level1_a66336649&quot;},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0.30000001192092896,25,3],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[218.02287292480469,-47.999137878417969,-175.74687194824219],&quot;target_camera_rotation&quot;:[11.690622329711914,-84.126861572265625,-4.0554245970270131e-06],&quot;target_camera_zoom&quot;:38.348114013671875},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;choice_1&quot;:&quot;Enter High Road&quot;,&quot;choice_1_go_to_line&quot;:19,&quot;choice_2&quot;:&quot;[ Stay in Agra Hood ]&quot;,&quot;choice_2_go_to_line&quot;:36,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:2,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;-- Enter High Road&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[220.37100219726562,-48.055999755859375,-176.09800720214844],&quot;target_actor_rotation&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:6645,&quot;placeholder_tag&quot;:&quot;level1_a66336645&quot;},{&quot;dialogue_function&quot;:9,&quot;fade_to_black_duration&quot;:2,&quot;function&quot;:33,&quot;target_fade_to_black&quot;:1},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:1,&quot;music_path&quot;:&quot;Data/Music/awdzcjlkzw.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:2,&quot;music_path&quot;:&quot;Data/Music/awdzcjlkzw.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:3,&quot;music_path&quot;:&quot;Data/Music/awdzcjlkzw.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:4,&quot;music_path&quot;:&quot;Data/Music/awdzcjlkzw.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:0,&quot;music_path&quot;:&quot;Data/Music/awdzcjlkzw.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:5,&quot;music_path&quot;:&quot;Data/Music/awdzcjlkzw.xml&quot;,&quot;song_name&quot;:&quot;silence.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/silence.ogg&quot;},{&quot;duration&quot;:2500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_agra_state&quot;,&quot;ouruin_agra_checkpoint&quot;,&quot;ouruin_highroad_state&quot;,&quot;ouruin_highroad_checkpoint&quot;,&quot;ouruin_intro_played&quot;,&quot;ouruin_player_event&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;2&quot;,&quot;7&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;nothing&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_agra_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_agra_alerts_current&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_cinderian_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;,&quot;ouruin_cinderian_alerts&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_agra_alerts_current&quot;,&quot;ouruin_highroad_alerts_current&quot;,&quot;ouruin_fractured_alerts_current&quot;,&quot;ouruin_escape_alerts_current&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;loadlevel \&quot;Data/Levels/ouruin/level1_b.xml\&quot;&quot;},{&quot;function&quot;:1,&quot;message&quot;:&quot;Done!&quot;},{&quot;display_comment&quot;:&quot;-- Stay in Agra Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -23575,13 +23417,17 @@
         <parameters />
     </EnvObject>
     <PlaceholderObject name="Set Actor Eye Direction Helper" t0="226.821" t1="-45.7317" t2="-176.024" s0="0.1" s1="0.1" s2="0.1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6644" type_file="" special_type="0">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a66336644" />
+        </parameters>
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="227.031" t1="-46.2492" t2="-175.914" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6645" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a66336645" />
+        </parameters>
     </EnvObject>
     <PlaceholderObject name="Checkpoint 3" t0="174.492" t1="-48.0402" t2="-46.0444" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6647" type_file="" special_type="0">
         <parameters />
@@ -23595,7 +23441,9 @@
         <ConnectionsFrom />
     </Hotspot>
     <EnvObject name="Set Actor Head Direction Helper" t0="227.096" t1="-45.0917" t2="-175.858" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6649" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a66336649" />
+        </parameters>
     </EnvObject>
     <PlaceholderObject t0="118.7" t1="-44.0009" t2="-5.29128" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="6650" type_file="" special_type="0">
         <parameters>
@@ -23641,10 +23489,9 @@
         </Connections>
     </PlaceholderObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="109.77" t1="-42.2565" t2="-6.62692" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6655" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="343.685" t1="-54.0821" t2="-70.0881" s0="1.67621" s1="3.03304" s2="1.92628" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="6682" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a65796655" />
+        </parameters>
     </EnvObject>
     <EnvObject t0="288.052" t1="-43.7616" t2="-172.879" s0="3.55589" s1="3.30369" s2="3.19018" q0="0.628148" q1="0.324699" q2="-0.324699" q3="0.628148" euler_x="1.57079" euler_y="0.954174" euler_z="0" id="6683" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
@@ -23850,9 +23697,6 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="346.838" t1="-54.0142" t2="-70.0881" s0="1.67621" s1="3.03304" s2="1.92628" q0="-0.706771" q1="0.021795" q2="-0.706771" q3="-0.021795" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="6741" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="206.704" t1="-26.451" t2="-216.7" s0="0.0728799" s1="6.61445" s2="10.6152" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="6742" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblockwood.xml">
         <parameters />
     </EnvObject>
@@ -25583,15 +25427,6 @@
     <EnvObject t0="280.722" t1="-59.6182" t2="-182.172" s0="0.848925" s1="0.848925" s2="0.848925" q0="0.60454" q1="0.447877" q2="0.421413" q3="0.506309" euler_x="1.70352" euler_y="-0.056023" euler_z="1.32429" id="6976" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="336.152" t1="-60.4362" t2="-187.561" s0="0.848925" s1="0.848925" s2="0.848925" q0="-0.371681" q1="0.437657" q2="0.604033" q3="0.552679" euler_x="0.333169" euler_y="1.20206" euler_z="1.88909" id="6977" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="335.65" t1="-60.2798" t2="-140.961" s0="0.848925" s1="0.848925" s2="0.848925" q0="-0.00241113" q1="0.0177531" q2="0.72488" q3="0.688642" euler_x="0.0224276" euler_y="0.0279503" euler_z="1.62237" id="6978" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="332.641" t1="-60.278" t2="-140.78" s0="0.848925" s1="0.848925" s2="0.848925" q0="0.0330396" q1="0.0521547" q2="0.728005" q3="-0.682788" euler_x="0.0310465" euler_y="-0.119612" euler_z="-1.63674" id="6979" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="281.627" t1="-60.3323" t2="-161.71" s0="1.03312" s1="1.03312" s2="1.03312" q0="0.392649" q1="-0.53272" q2="0.633938" q3="-0.400199" euler_x="-1.44608" euler_y="-0.0715031" euler_z="-1.95227" id="6980" color_r="0.290196" color_g="0.257074" color_b="0.204844" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
@@ -26684,9 +26519,6 @@
     <EnvObject t0="477.429" t1="-13.0287" t2="-29.9179" s0="3.67089" s1="12.0495" s2="3.92758" q0="0.614802" q1="-0.349314" q2="0.614802" q3="0.349314" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7588" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="430.2" t1="-61.0504" t2="7.62581" s0="0.859992" s1="0.859989" s2="0.859996" q0="0.0697565" q1="0" q2="0" q3="0.997564" euler_x="0.139626" euler_y="0" euler_z="0" id="7627" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/OG/ShipDetails.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="342.859" t1="-67.7196" t2="12.0572" s0="3.98867" s1="2.3258" s2="2.92227" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="7647" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
         <parameters />
     </EnvObject>
@@ -26907,96 +26739,6 @@
         <parameters />
     </EnvObject>
     <EnvObject t0="368.286" t1="-36.6048" t2="-10.6278" s0="2.98326" s1="1.76018" s2="1.63857" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7685" color_r="0.545098" color_g="0.545093" color_b="0.545093" overbright="0" type_file="Data/Objects/Buildings/cat_town/overhang_block.xml">
-        <parameters />
-    </EnvObject>
-    <Group t0="468.321" t1="-57.8086" t2="-128.556" s0="54.651" s1="21.7798" s2="29.4686" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7690" version="1">
-        <parameters />
-        <EnvObject t0="471.685" t1="-57.6838" t2="-129.306" s0="2.42583" s1="2.72307" s2="2.87406" q0="0.711922" q1="-0.593117" q2="0.190087" q3="0.324403" euler_x="2.82319" euler_y="-0.714808" euler_z="-1.26944" id="7694" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
-            <parameters />
-        </EnvObject>
-        <Group t0="446.725" t1="-58.8821" t2="-124.002" s0="11.4485" s1="19.6227" s2="20.3526" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7773" version="1">
-            <parameters />
-            <EnvObject t0="446.615" t1="-58.8029" t2="-124.081" s0="5.99248" s1="3.57209" s2="7.08958" q0="-0.190087" q1="0.324403" q2="0.711923" q3="0.593117" euler_x="0.318391" euler_y="0.714808" euler_z="1.87213" id="7774" color_r="0.756863" color_g="0.668165" color_b="0.587682" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaster/wedge.xml">
-                <parameters />
-            </EnvObject>
-            <Group t0="448.108" t1="-55.2978" t2="-127.645" s0="4.32206" s1="12.0739" s2="12.5686" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7775" version="1">
-                <parameters />
-                <EnvObject t0="448.694" t1="-51.7689" t2="-123.962" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7776" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="448.306" t1="-54.1059" t2="-126.401" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7777" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="447.912" t1="-56.4801" t2="-128.878" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7778" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="447.522" t1="-58.8267" t2="-131.327" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7779" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-            </Group>
-            <Group t0="447.069" t1="-57.6548" t2="-125.184" s0="4.32206" s1="12.0739" s2="12.5686" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7780" version="1">
-                <parameters />
-                <EnvObject t0="447.656" t1="-54.126" t2="-121.503" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7781" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="447.267" t1="-56.4637" t2="-123.941" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7782" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="446.873" t1="-58.8371" t2="-126.418" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7783" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="446.483" t1="-61.1838" t2="-128.867" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7784" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-            </Group>
-            <Group t0="445.955" t1="-60.0643" t2="-122.733" s0="4.32206" s1="12.0739" s2="12.5686" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7785" version="1">
-                <parameters />
-                <EnvObject t0="446.541" t1="-56.5354" t2="-119.051" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7786" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="446.153" t1="-58.8725" t2="-121.49" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7787" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="445.758" t1="-61.2466" t2="-123.966" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7788" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="445.368" t1="-63.5932" t2="-126.415" s0="1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7789" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-            </Group>
-            <Group t0="444.916" t1="-62.4217" t2="-120.273" s0="4.32196" s1="12.0732" s2="12.5679" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7790" version="1">
-                <parameters />
-                <EnvObject t0="445.502" t1="-58.8932" t2="-116.591" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7791" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="445.114" t1="-61.2301" t2="-119.03" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7792" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="444.72" t1="-63.6036" t2="-121.506" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7793" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-                <EnvObject t0="444.33" t1="-65.9503" t2="-123.954" s0="-1.56103" s1="1.35256" s2="1.37986" q0="-0.637818" q1="0.648785" q2="0.368994" q3="0.19001" euler_x="2.79544" euler_y="0.799852" euler_z="-1.73537" id="7794" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Roofs/RoofSlate.xml">
-                    <parameters />
-                </EnvObject>
-            </Group>
-            <EnvObject t0="447.35" t1="-54.0957" t2="-118.981" s0="1.63144" s1="5.35508" s2="1.74552" q0="0.149879" q1="-0.641328" q2="0.381808" q3="-0.648422" euler_x="-1.37952" euler_y="0.799851" euler_z="-1.73537" id="7795" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-                <parameters />
-            </EnvObject>
-            <EnvObject t0="445.76" t1="-63.6685" t2="-128.97" s0="1.63144" s1="5.35508" s2="1.74552" q0="0.149879" q1="-0.641328" q2="0.381808" q3="-0.648422" euler_x="-1.37952" euler_y="0.799851" euler_z="-1.73537" id="7796" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-                <parameters />
-            </EnvObject>
-            <EnvObject t0="448.761" t1="-54.2358" t2="-128.862" s0="1.60151" s1="5.23728" s2="2.41849" q0="0.395275" q1="0.126561" q2="-0.00775528" q3="0.909765" euler_x="0.830367" euler_y="0.238672" euler_z="0.0885649" id="7797" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-                <parameters />
-            </EnvObject>
-            <EnvObject t0="449.345" t1="-63.3406" t2="-129.855" s0="1.63144" s1="4.35321" s2="1.74552" q0="0.719678" q1="0.316648" q2="0.585362" q3="0.197842" euler_x="1.91694" euler_y="-0.79985" euler_z="1.40621" id="7798" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-                <parameters />
-            </EnvObject>
-            <EnvObject t0="450.933" t1="-53.7787" t2="-119.878" s0="1.63144" s1="4.35321" s2="1.74552" q0="0.719678" q1="0.316648" q2="0.585362" q3="0.197842" euler_x="1.91694" euler_y="-0.79985" euler_z="1.40621" id="7799" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-                <parameters />
-            </EnvObject>
-        </Group>
-    </Group>
-    <EnvObject t0="430.783" t1="-46.3417" t2="12.2129" s0="1.03959" s1="0.781042" s2="0.853773" q0="0.0697565" q1="0" q2="0" q3="0.997564" euler_x="0.139626" euler_y="0" euler_z="0" id="7698" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Prototypes/OG/ShipSails.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="450.185" t1="-66.0354" t2="-14.0126" s0="1.77601" s1="1.76883" s2="2.02175" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7772" color_r="0.545098" color_g="0.545093" color_b="0.545093" overbright="0" type_file="Data/Objects/Buildings/cat_town/overhang_block.xml">
@@ -29554,15 +29296,6 @@
     <EnvObject t0="100.185" t1="-47.6574" t2="1.86115" s0="1.4546" s1="3.13085" s2="1.44098" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="8520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window1.xml">
         <parameters />
     </EnvObject>
-    <Group t0="464.088" t1="-55.4393" t2="-67.0404" s0="2.44567" s1="3.36592" s2="1.61661" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="8522" version="1">
-        <parameters />
-        <EnvObject t0="464.088" t1="-55.4393" t2="-67.0404" s0="0.363536" s1="0.363536" s2="0.363536" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="11253" color_r="0.286275" color_g="0.286275" color_b="0.286275" overbright="0" type_file="Data/Objects/Buildings/cat_town/large_door.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="463.851" t1="-55.9939" t2="-67.0184" s0="0.537781" s1="0.754832" s2="0.518338" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="11306" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
     <EnvObject t0="279.775" t1="-19.987" t2="0.690223" s0="0.591546" s1="0.704679" s2="0.771052" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="8530" color_r="0.99999" color_g="0.99999" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
         <parameters />
     </EnvObject>
@@ -29707,9 +29440,6 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="396.457" t1="-58.3401" t2="-86.1932" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="0.901869" q2="0" q3="0.43201" euler_x="3.14159" euler_y="0.893441" euler_z="3.14159" id="8667" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
-        <parameters />
-    </EnvObject>
     <DynamicLightObject t0="224.392" t1="-22.2315" t2="-201.194" s0="12.0091" s1="12.0091" s2="12.0091" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8672" color_r="0.42125" color_g="0.611765" color_b="0.395848" overbright="1">
         <parameters />
     </DynamicLightObject>
@@ -32295,7 +32025,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:false,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:54,&quot;identifier_known_target&quot;:13934,&quot;identifier_type&quot;:4,&quot;identifier_type_known_target&quot;:0,&quot;proximity_distance&quot;:8.3199996948242188,&quot;state_check&quot;:13,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:16,&quot;identifier&quot;:&quot;big bread&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:13099,&quot;transform_mode&quot;:0}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:false,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:54,&quot;identifier_known_target&quot;:13934,&quot;identifier_type&quot;:4,&quot;identifier_type_known_target&quot;:0,&quot;proximity_distance&quot;:8.3199996948242188,&quot;state_check&quot;:13,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:16,&quot;identifier&quot;:&quot;big bread&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:13099,&quot;placeholder_tag&quot;:&quot;level1_a982613099&quot;,&quot;transform_mode&quot;:0}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -40960,7 +40690,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:16,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0,&quot;placeholder_id&quot;:13103,&quot;transform_mode&quot;:0},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:false,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;guard&quot;,&quot;identifier_known_target&quot;:-1,&quot;identifier_type&quot;:2,&quot;identifier_type_known_target&quot;:0,&quot;proximity_distance&quot;:2.8399999141693115,&quot;state_check&quot;:13,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:16,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0,&quot;placeholder_id&quot;:13104,&quot;transform_mode&quot;:0},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;fade_in_duration&quot;:1000,&quot;fade_in_tween_type&quot;:13,&quot;fade_out_duration&quot;:1000,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;position&quot;:[412,124],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;We&apos;re out to lunch. The water&apos;s cool!&quot;,&quot;ui_element_identifier&quot;:&quot;126281&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:10000,&quot;function&quot;:2},{&quot;function&quot;:36,&quot;position&quot;:[412,124],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;We&apos;re out to lunch. The water&apos;s cool!&quot;,&quot;ui_element_identifier&quot;:&quot;126282&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;126283&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;You are now exempt from becoming big bread.&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:16,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0,&quot;placeholder_id&quot;:13103,&quot;placeholder_tag&quot;:&quot;level1_a1262813103&quot;,&quot;transform_mode&quot;:0},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:false,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;guard&quot;,&quot;identifier_known_target&quot;:-1,&quot;identifier_type&quot;:2,&quot;identifier_type_known_target&quot;:0,&quot;proximity_distance&quot;:2.8399999141693115,&quot;state_check&quot;:13,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:16,&quot;identifier&quot;:11065,&quot;identifier_type&quot;:0,&quot;placeholder_id&quot;:13104,&quot;placeholder_tag&quot;:&quot;level1_a1262813104&quot;,&quot;transform_mode&quot;:0},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;fade_in_duration&quot;:1000,&quot;fade_in_tween_type&quot;:13,&quot;fade_out_duration&quot;:1000,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;position&quot;:[412,124],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;We&apos;re out to lunch. The water&apos;s cool!&quot;,&quot;ui_element_identifier&quot;:&quot;126281&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:10000,&quot;function&quot;:2},{&quot;function&quot;:36,&quot;position&quot;:[412,124],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;We&apos;re out to lunch. The water&apos;s cool!&quot;,&quot;ui_element_identifier&quot;:&quot;126282&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;126283&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;You are now exempt from becoming big bread.&quot;,&quot;function&quot;:34}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -41698,16 +41428,22 @@
         <parameters />
     </EnvObject>
     <EnvObject name="Transform Object Helper" t0="21.7962" t1="-43.734" t2="195.768" s0="65.1803" s1="24.6649" s2="39.8055" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13099" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a982613099" />
+        </parameters>
     </EnvObject>
     <EnvObject name="AIControl Helper" t0="141.578" t1="-29.1872" t2="-63.0448" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13100" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
     <EnvObject name="Transform Object Helper" t0="29.6124" t1="-209.801" t2="208.606" s0="3.33963" s1="2.30858" s2="1.16634" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="13103" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a1262813103" />
+        </parameters>
     </EnvObject>
     <EnvObject name="Transform Object Helper" t0="115.43" t1="-55.3699" t2="310.051" s0="3.41328" s1="2.06497" s2="1.16634" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="13104" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
-        <parameters />
+        <parameters>
+            <parameter name="Placeholder Tag" type="string" val="level1_a1262813104" />
+        </parameters>
     </EnvObject>
     <Group t0="-45.4692" t1="-48.1878" t2="-2.2952" s0="2.81486" s1="3.87403" s2="1.86065" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="13115" version="1">
         <parameters />
@@ -45395,7 +45131,7 @@
     <EnvObject name="AIControl Helper" t0="-59.5958" t1="-50.8839" t2="90.3989" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14691" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="159.403" t1="-31.2185" t2="-39.4256" s0="21.9159" s1="21.9159" s2="21.9159" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14692" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.407843" color_g="0.407839" color_b="0.407839" overbright="0">
+    <Decal t0="159.403" t1="-31.2185" t2="-39.4256" s0="21.9159" s1="21.9159" s2="21.9159" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14692" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.639216" color_g="0.639209" color_b="0.639209" overbright="0">
         <parameters />
     </Decal>
     <EnvObject name="Set Velocity Helper" t0="-59.5958" t1="-50.8839" t2="90.3989" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14693" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -46393,7 +46129,7 @@
     <Decal t0="243.492" t1="-48.4394" t2="2.49186" s0="2.39632" s1="1.39104" s2="2.32" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15415" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.494118" color_g="0.494113" color_b="0.494113" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="157.626" t1="-19.3665" t2="-43.6246" s0="75.6047" s1="31.8654" s2="32.6339" q0="0" q1="-0.702704" q2="0" q3="0.711482" euler_x="0" euler_y="-1.55835" euler_z="0" id="15418" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.172549" color_g="0.172547" color_b="0.172547" overbright="0">
+    <Decal t0="157.626" t1="-19.3665" t2="-43.6246" s0="75.6047" s1="31.8654" s2="32.6339" q0="0" q1="-0.702704" q2="0" q3="0.711482" euler_x="0" euler_y="-1.55835" euler_z="0" id="15418" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.352941" color_g="0.352938" color_b="0.352938" overbright="0">
         <parameters />
     </Decal>
     <DynamicLightObject t0="137.356" t1="-1.49084" t2="-76.4926" s0="90.639" s1="90.639" s2="90.639" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15421" color_r="1" color_g="0.727059" color_b="0.545098" overbright="400">
@@ -47564,54 +47300,6 @@
     <EnvObject t0="172.608" t1="-23.6024" t2="19.7784" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="15859" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/TrapDoor1.xml">
         <parameters />
     </EnvObject>
-    <Group t0="345.292" t1="-56.3902" t2="-179.359" s0="1.50759" s1="3.12724" s2="3.50789" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15860" version="1">
-        <parameters />
-        <EnvObject t0="345.221" t1="-56.4255" t2="-180.008" s0="0.869242" s1="0.869242" s2="0.869241" q0="0.706737" q1="0.706737" q2="-0.0228703" q3="-0.0228703" euler_x="-3.07689" euler_y="0" euler_z="1.5708" id="15852" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.263" t1="-57.7124" t2="-179.351" s0="1.24237" s1="1.71362" s2="1.9707" q0="-0.706737" q1="-0.0228703" q2="0.0228703" q3="-0.706737" euler_x="1.5708" euler_y="0.0646983" euler_z="0" id="15836" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.312" t1="-57.3036" t2="-178.608" s0="0.869242" s1="0.869242" s2="0.869241" q0="0.706737" q1="0.706737" q2="-0.0228703" q3="-0.0228703" euler_x="-3.07689" euler_y="0" euler_z="1.5708" id="15837" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="344.645" t1="-56.3882" t2="-180.916" s0="1" s1="1.14232" s2="0.999999" q0="0" q1="0.729607" q2="0" q3="0.683867" euler_x="3.14159" euler_y="1.5061" euler_z="3.14159" id="15853" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.208" t1="-57.3036" t2="-180.22" s0="0.869242" s1="0.869242" s2="0.869241" q0="0.706737" q1="0.706737" q2="-0.0228703" q3="-0.0228703" euler_x="-3.07689" euler_y="0" euler_z="1.5708" id="15839" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.263" t1="-56.8295" t2="-179.351" s0="1.24237" s1="1.71362" s2="1.9707" q0="-0.706737" q1="-0.0228703" q2="0.0228703" q3="-0.706737" euler_x="1.5708" euler_y="0.0646983" euler_z="0" id="15840" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.263" t1="-55.9321" t2="-179.351" s0="1.24237" s1="1.71362" s2="1.9707" q0="-0.706737" q1="-0.0228703" q2="0.0228703" q3="-0.706737" euler_x="1.5708" euler_y="0.0646983" euler_z="0" id="15841" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.263" t1="-55.0424" t2="-179.351" s0="1.24237" s1="1.71362" s2="1.9707" q0="-0.706737" q1="-0.0228703" q2="0.0228703" q3="-0.706737" euler_x="1.5708" euler_y="0.0646983" euler_z="0" id="15842" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.322" t1="-56.4201" t2="-178.448" s0="0.869242" s1="0.869242" s2="0.869241" q0="0.706737" q1="0.706737" q2="-0.0228703" q3="-0.0228703" euler_x="-3.07689" euler_y="0" euler_z="1.5708" id="15843" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.295" t1="-56.4655" t2="-179.359" s0="0.636612" s1="1.48333" s2="1.71136" q0="0" q1="0.999477" q2="0" q3="-0.0323435" euler_x="3.14159" euler_y="-0.0646983" euler_z="3.14159" id="15857" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblockwood.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.939" t1="-56.3882" t2="-177.802" s0="1" s1="1.14232" s2="0.999999" q0="0" q1="0.729607" q2="0" q3="0.683867" euler_x="3.14159" euler_y="1.5061" euler_z="3.14159" id="15856" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.733" t1="-56.3882" t2="-180.986" s0="1" s1="1.14232" s2="0.999999" q0="0" q1="0.729607" q2="0" q3="0.683867" euler_x="3.14159" euler_y="1.5061" euler_z="3.14159" id="15855" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.302" t1="-55.5235" t2="-178.763" s0="0.869242" s1="0.869242" s2="0.869241" q0="0.706737" q1="0.706737" q2="-0.0228703" q3="-0.0228703" euler_x="-3.07689" euler_y="0" euler_z="1.5708" id="15848" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="345.244" t1="-55.5235" t2="-179.661" s0="0.869242" s1="0.869242" s2="0.869241" q0="0.706737" q1="0.706737" q2="-0.0228703" q3="-0.0228703" euler_x="-3.07689" euler_y="0" euler_z="1.5708" id="15849" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/barrel.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="344.852" t1="-56.3882" t2="-177.732" s0="1" s1="1.14232" s2="0.999999" q0="0" q1="0.729607" q2="0" q3="0.683867" euler_x="3.14159" euler_y="1.5061" euler_z="3.14159" id="15854" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
     <Hotspot t0="297.255" t1="-33.8508" t2="22.5258" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15865" type_file="Data/Objects/Hotspots/displaytext.xml">
         <parameters>
             <parameter name="Display Text" type="string" val="Hope you&apos;re having fun climbing around :)" />
@@ -50279,7 +49967,6 @@
     <SpawnerItem display_name="Male Rabbit Black Neck" path="Data/Objects/characters/rabbits/male_rabbit_1_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/Male_rabbit_1_actor.png" />
     <SpawnerItem display_name="Non-Invisible Block" path="Data/Objects/therium/invisibleblocknonormal.xml" thumbnail_path="" />
     <SpawnerItem display_name="whaleman.xml" path="Data/Objects/therium/Decals/wallart/whaleman.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Macbeth Cube" path="Data/Objects/macbeth_cube.xml" thumbnail_path="" />
     <SpawnerItem display_name="Rotten Apple (no decal)" path="Data/Objects/therium/apple_rotten_decal.xml" thumbnail_path="" />
     <SpawnerItem display_name="Female Rabbit Average" path="Data/Objects/characters/rabbits/female_rabbit_2_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/female_rabbit_2_actor.png" />
     <SpawnerItem display_name="Dog Armor Detail Stud" path="Data/Objects/Gear/dog_armor/dog_armor_detail_stud.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/dog_armor_detail_stud.png" />
@@ -50563,7 +50250,6 @@
     <SpawnerItem display_name="Placeholder" path="Data/Objects/placeholder/empty_placeholder.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
     <SpawnerItem display_name="Invisible Block" path="Data/Objects/invisibleblock.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/invisibleblock.png" />
     <SpawnerItem display_name="Generic Kill Hotspot" path="Data/Objects/Hotspots/generic_kill.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/kill.png" />
-    <SpawnerItem display_name="Dynamic Light" path="Data/Objects/default_light.xml" thumbnail_path="" />
     <SpawnerItem display_name="all_dog_armor.xml" path="Data/Objects/therium/Gear/dog_armour_grey/all_dog_armor.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="ouruin_level.xml" path="Data/Objects/Hotspots/ouruin_level.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="template.xml" path="Data/Prefabs/ouruin/lethality/template.xml" thumbnail_path="empty_placeholder.png" />
@@ -50589,4 +50275,6 @@
     <SpawnerItem display_name="Ambient Shadow (square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="ya.xml" path="Data/Objects/therium/Decals/ya.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Small Gourd" path="Data/Objects/Environment/LitterLoads/SmallGourd.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/smallgourd.png" />
+    <SpawnerItem display_name="Macbeth Cube" path="Data/Objects/macbeth_cube.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Dynamic Light" path="Data/Objects/default_light.xml" thumbnail_path="" />
 </RecentItems>

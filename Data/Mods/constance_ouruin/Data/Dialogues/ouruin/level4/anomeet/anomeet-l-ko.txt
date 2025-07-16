@@ -48,4 +48,6 @@ say 2 "High Chancellor Ano" "I've made mistakes. [wait 0.2]I've done you wrong. 
 say 2 "High Chancellor Ano" "You really, [wait 0.1]truly do not deserve this. [wait 0.2]Which is why I want to make it up to you... [wait 0.2]I want to make things whole again."
 say 5 "Amos" "..."
 say 1 "Amos" "I don't... [wait 0.2]have a choice... [wait 0.2]Do I...[wait 0.1]?"
+fade_to_black 1
+say 5 "Amos" "..."
 send_level_message "dialogue_done"

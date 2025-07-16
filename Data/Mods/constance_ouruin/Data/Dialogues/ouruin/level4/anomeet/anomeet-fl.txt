@@ -15,9 +15,9 @@ send_character_message 1 "set_eye_dir 3.52187 -5.85086 10.7946 0.795718"
 send_character_message 1 "set_torso_target 4.73813 -6.19177 9.17686 0"
 send_character_message 1 "set_head_target 3.54766 -6.10819 10.7533 1"
 set_cam 3.6623 -5.8689 6.31594 -3 176.64 1.55 21.5966
-set_dialogue_color 1 0 0.52 0.95
+set_dialogue_color 1 0 0.62 0.95
 set_dialogue_voice 1 8
-set_dialogue_color 5 0 0.52 0.95
+set_dialogue_color 5 0 0.62 0.95
 set_dialogue_voice 5 8
 set_dialogue_color 2 0.9 0.9 0
 set_dialogue_voice 2 7
@@ -38,7 +38,7 @@ say 2 "High Chancellor Ano" "You're to come with us, [wait 0.1]to the Empry. [wa
 say 1 "Ghost" "You'll want me to do something for you. [wait 0.2]What is it?"
 say 2 "High Chancellor Ano" "The matters are far too sensitive to discuss here... [wait 0.2]But believe me, [wait 0.1]this is a matter of life and death, [wait 0.1]for everyone in Preuwyn."
 say 2 "High Chancellor Ano" "Your father wants you to come. [wait 0.2]He's proud of you, [wait 0.1]you know."
-say 1 "Ghost" "You took him from us. [wait 0.2]Why the hell are you speaking on his behalf?"
+say 1 "Ghost" "You took him away. [wait 0.2]Why the hell are you speaking on his behalf?"
 say 2 "High Chancellor Ano" "He came willingly. [wait 0.2]He knew what had to be done."
 say 1 "Ghost" "What had to be done, [wait 0.1]huh...[wait 0.1]? [wait 0.2]So that's why you're here."
 say 2 "High Chancellor Ano" "Aren't you tired of these streets? [wait 0.2]Don't you feel like you two deserve better?"
@@ -47,8 +47,9 @@ say 2 "High Chancellor Ano" "You're right... [wait 0.2]I've done terrible things
 say 5 "Ghost" "..."
 say 5 "Ghost" "..."
 say 1 "Ghost" "Fine. [wait 0.2]Yeah, [wait 0.1]sure."
-say 1 "Ghost" "I know I don't have a choice."
+say 1 "Ghost" "I know I don't have a choice. [wait 0.15]So whatever."
 say 1 "Ghost" "Throw me into whatever pit you deem necessary..."
 say 1 "Ghost" "Whatever it is, [wait 0.1]I promise..."
-say 1 "Ghost" "I'm going to rip it all apart."
+fade_to_black 1
+say 1 "Ghost" "[wait 0.5]I'm going to rip it all apart."
 send_level_message "dialogue_done"

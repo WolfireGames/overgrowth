@@ -46,5 +46,7 @@ say 4 "Bijou" "..."
 say 2 "High Chancellor Ano" "It's my hope that one day, [wait 0.1]you see things more clearly. [wait 0.2]When your eyes aren't tied by this cyan streak you're consigned to."
 say 2 "High Chancellor Ano" "I'm building a future where you're happy. [wait 0.2]I'm taking you home."
 say 1 "Amos" "Shut up, [wait 0.1]old man. [wait 0.2]The nightmare will never end."
-say 1 "Amos" "No one can change that."
+say 1 "Amos" "[wait 0.5]No one can change that."
+fade_to_black 1
+say 5 "Amos" "..."
 send_level_message "dialogue_done"

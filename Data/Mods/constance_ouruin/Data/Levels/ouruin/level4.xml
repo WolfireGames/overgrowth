@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-5.12686" t1="0.0382072" t2="-4.59046" s0="1" s1="1" s2="1" q0="-0.00105875" q1="-0.998889" q2="0.0278196" q3="-0.0380149" euler_x="-3.08591" euler_y="0.0760777" euler_z="3.14159" id="0">
+    <CameraObject t0="-5.93046" t1="17.9513" t2="14.7236" s0="1" s1="1" s2="1" q0="-0.142124" q1="-0.0926375" q2="0.0133609" q3="-0.985414" euler_x="0.28648" euler_y="0.187466" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -1641,7 +1641,7 @@
             <parameters />
         </EnvObject>
     </ActorObject>
-    <PlaceholderObject t0="-4.91656" t1="-4.70824" t2="1.89936" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="518" type_file="" special_type="0">
+    <PlaceholderObject t0="-4.91656" t1="-6.20824" t2="1.89936" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="518" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/hide_murder.txt" />
             <parameter name="DisplayName" type="string" val="Hide-Murder" />
@@ -1655,7 +1655,7 @@
             <Connection id="518" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.39156" t1="-4.00824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="519" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.39156" t1="-5.50824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="519" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
@@ -1848,7 +1848,7 @@
     <EnvObject t0="6.10883" t1="-4.9661" t2="16.3083" s0="0.0232311" s1="2.70418" s2="1.62682" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="536" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblockwood.xml">
         <parameters />
     </EnvObject>
-    <PlaceholderObject t0="-4.74156" t1="-4.00824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="537" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.74156" t1="-5.50824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="537" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="503" />
@@ -2013,13 +2013,13 @@
             <parameters />
         </EnvObject>
     </ActorObject>
-    <PlaceholderObject t0="-5.09156" t1="-4.00824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="550" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.09156" t1="-5.50824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="550" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="498" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.44156" t1="-4.00824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="551" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.44156" t1="-5.50824" t2="1.89936" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="551" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -2529,7 +2529,7 @@
             <parameters />
         </EnvObject>
     </ActorObject>
-    <PlaceholderObject t0="-4.91684" t1="-4.7083" t2="2.89906" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="597" type_file="" special_type="0">
+    <PlaceholderObject t0="-4.91684" t1="-5.7083" t2="2.89906" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="597" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/hide_lethal.txt" />
             <parameter name="DisplayName" type="string" val="Hide-Lethal" />
@@ -2543,13 +2543,13 @@
             <Connection id="597" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.39184" t1="-4.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="598" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.39184" t1="-5.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="598" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.74184" t1="-4.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="599" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.74184" t1="-5.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="599" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="503" />
@@ -2730,13 +2730,13 @@
             <parameters />
         </EnvObject>
     </ActorObject>
-    <PlaceholderObject t0="-5.09184" t1="-4.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="614" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.09184" t1="-5.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="614" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="498" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.44184" t1="-4.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="615" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.44184" t1="-5.0083" t2="2.89906" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="615" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -3026,7 +3026,7 @@
     <Decal t0="3.82831" t1="-7.04783" t2="-2.60823" s0="0.905677" s1="0.905677" s2="0.905677" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="696" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.352941" color_g="0.352938" color_b="0.352938" overbright="0">
         <parameters />
     </Decal>
-    <PlaceholderObject t0="-4.91714" t1="-4.70825" t2="3.89916" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="699" type_file="" special_type="0">
+    <PlaceholderObject t0="-4.91714" t1="-5.20825" t2="3.89916" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="699" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/hide_nonlethal.txt" />
             <parameter name="DisplayName" type="string" val="Hide-NonLethal" />
@@ -3040,25 +3040,25 @@
             <Connection id="699" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.39214" t1="-4.00825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="700" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.39214" t1="-4.50825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="700" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.74214" t1="-4.00825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="701" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.74214" t1="-4.50825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="701" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="503" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.09214" t1="-4.00825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="702" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.09214" t1="-4.50825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="702" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="498" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.44214" t1="-4.00825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="703" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.44214" t1="-4.50825" t2="3.89916" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="703" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -4654,11 +4654,11 @@
     <EnvObject t0="2.54952" t1="-1.17748" t2="21.8099" s0="0.456184" s1="2.52584" s2="0.330411" q0="0" q1="0.961186" q2="0" q3="0.275903" euler_x="3.14159" euler_y="0.559058" euler_z="3.14159" id="1006" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblockwood.xml">
         <parameters />
     </EnvObject>
-    <PlaceholderObject t0="-4.93954" t1="0.594943" t2="1.31977" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1007" type_file="" special_type="0">
+    <PlaceholderObject t0="-6.53731" t1="10.9555" t2="2.2618" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1007" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-nl-ko.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-NL-KO" />
-            <parameter name="NumParticipants" type="string" val="4" />
+            <parameter name="NumParticipants" type="int" val="4" />
             <parameter name="obj_1" type="int" val="1008" />
             <parameter name="obj_2" type="int" val="1009" />
             <parameter name="obj_3" type="int" val="1029" />
@@ -4668,13 +4668,13 @@
             <Connection id="1007" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.48487" t1="1.29494" t2="1.05727" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1008" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.08265" t1="11.6555" t2="1.9993" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1008" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.78798" t1="1.29494" t2="1.23227" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1009" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.38576" t1="11.6555" t2="2.1743" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1009" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1045" />
@@ -4800,23 +4800,23 @@
     <EnvObject t0="2.19973" t1="-7.16315" t2="11.3572" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="1028" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/DogGrave/DogGraveBase.xml">
         <parameters />
     </EnvObject>
-    <PlaceholderObject t0="-5.09109" t1="1.29494" t2="1.40727" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1029" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.68887" t1="11.6555" t2="2.3493" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1029" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.3942" t1="1.29494" t2="1.58227" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1030" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.99197" t1="11.6555" t2="2.5243" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1030" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.37992" t1="0.564933" t2="1.22659" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1031" type_file="" special_type="0">
+    <PlaceholderObject t0="-4.97769" t1="10.9255" t2="2.16862" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1031" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-nl-kill.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-NL-Kill" />
-            <parameter name="NumParticipants" type="string" val="4" />
+            <parameter name="NumParticipants" type="int" val="4" />
             <parameter name="obj_1" type="int" val="1032" />
             <parameter name="obj_2" type="int" val="1046" />
             <parameter name="obj_3" type="int" val="1047" />
@@ -4826,7 +4826,7 @@
             <Connection id="1031" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.92525" t1="1.26493" t2="0.964093" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1032" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.52303" t1="11.6255" t2="1.90612" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1032" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
@@ -4988,19 +4988,19 @@
             <parameters />
         </EnvObject>
     </ActorObject>
-    <PlaceholderObject t0="-3.22836" t1="1.26493" t2="1.13909" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1046" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.82614" t1="11.6255" t2="2.08112" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1046" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1045" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.53147" t1="1.26493" t2="1.31409" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1047" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.12925" t1="11.6255" t2="2.25612" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1047" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.83458" t1="1.26493" t2="1.48909" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1048" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.43235" t1="11.6255" t2="2.43112" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1048" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -5070,7 +5070,7 @@
             </parameters>
         </EnvObject>
     </ActorObject>
-    <PlaceholderObject t0="-3.379" t1="-1.28227" t2="1.22879" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1050" type_file="" special_type="0">
+    <PlaceholderObject t0="-4.97677" t1="9.0783" t2="2.17082" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1050" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-l-kill.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-L-Kill" />
@@ -5084,13 +5084,13 @@
             <Connection id="1050" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.92433" t1="-0.582269" t2="0.966289" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1051" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.52211" t1="9.7783" t2="1.90832" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1051" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.22744" t1="-0.582269" t2="1.14129" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1052" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.82522" t1="9.7783" t2="2.08332" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1052" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1045" />
@@ -5140,23 +5140,23 @@
             <Connection id="1045" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.53055" t1="-0.582269" t2="1.31629" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1059" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.12833" t1="9.7783" t2="2.25832" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1059" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.83366" t1="-0.582269" t2="1.49129" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1060" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.43143" t1="9.7783" t2="2.43332" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1060" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.03818" t1="-1.25884" t2="1.13158" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1061" type_file="" special_type="0">
+    <PlaceholderObject t0="-6.63595" t1="9.10173" t2="2.07361" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1061" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-l-ko.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-L-KO" />
-            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="NumParticipants" type="string" val="4" />
             <parameter name="obj_1" type="int" val="1064" />
             <parameter name="obj_2" type="int" val="1065" />
             <parameter name="obj_3" type="int" val="1087" />
@@ -5169,13 +5169,13 @@
     <DynamicLightObject name="Ano Light" t0="3.8166" t1="-5.52619" t2="13.2028" s0="3.78866" s1="3.78866" s2="3.78866" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1062" color_r="0.545098" color_g="0.510138" color_b="0.26293" overbright="0">
         <parameters />
     </DynamicLightObject>
-    <PlaceholderObject t0="-4.58351" t1="-0.558844" t2="0.869083" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1064" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.18129" t1="9.80173" t2="1.81111" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1064" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.88662" t1="-0.558844" t2="1.04408" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1065" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.4844" t1="9.80173" t2="1.98611" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1065" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1045" />
@@ -5336,23 +5336,23 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.18973" t1="-0.558844" t2="1.21908" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1087" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.78751" t1="9.80173" t2="2.16111" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1087" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.49284" t1="-0.558844" t2="1.39408" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1088" type_file="" special_type="2">
+    <PlaceholderObject t0="-7.09061" t1="9.80173" t2="2.33611" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1088" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.42918" t1="-3.17422" t2="1.18402" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1089" type_file="" special_type="0">
+    <PlaceholderObject t0="-5.02695" t1="7.18635" t2="2.12605" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1089" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-fl.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-FL" />
-            <parameter name="NumParticipants" type="string" val="4" />
+            <parameter name="NumParticipants" type="int" val="4" />
             <parameter name="obj_1" type="int" val="1090" />
             <parameter name="obj_2" type="int" val="1092" />
             <parameter name="obj_3" type="int" val="1094" />
@@ -5362,7 +5362,7 @@
             <Connection id="1089" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.97451" t1="-2.47422" t2="0.921524" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1090" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.57229" t1="7.88635" t2="1.86355" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1090" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
@@ -5371,13 +5371,13 @@
     <EnvObject t0="-2.72842" t1="7.2148" t2="-7.6168" s0="2.05229" s1="0.066042" s2="1.02159" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1091" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
         <parameters />
     </EnvObject>
-    <PlaceholderObject t0="-3.27762" t1="-2.47422" t2="1.09652" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1092" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.8754" t1="7.88635" t2="2.03855" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1092" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1045" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.91426" t1="2.40615" t2="1.35413" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1093" type_file="" special_type="0">
+    <PlaceholderObject t0="-6.51203" t1="12.7667" t2="2.29616" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1093" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-nlg-ko.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-NLG-KO" />
@@ -5391,31 +5391,31 @@
             <Connection id="1093" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.58073" t1="-2.47422" t2="1.27152" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1094" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.17851" t1="7.88635" t2="2.21355" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1094" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.26525" t1="3.0697" t2="1.10767" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1095" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.86302" t1="13.4303" t2="2.0497" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1095" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1045" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.7627" t1="3.10615" t2="1.26663" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1096" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.36048" t1="13.4667" t2="2.20866" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1096" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1045" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.88384" t1="-2.47422" t2="1.44652" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1097" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.48161" t1="7.88635" t2="2.38855" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1097" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.4168" t1="2.3697" t2="1.19517" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1098" type_file="" special_type="0">
+    <PlaceholderObject t0="-5.01457" t1="12.7303" t2="2.1372" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1098" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-nlg-kill.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-NLG-Kill" />
@@ -5443,13 +5443,13 @@
             <Connection id="1101" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-4.45959" t1="3.10615" t2="1.09163" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1106" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.05737" t1="13.4667" t2="2.03366" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1106" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.06581" t1="3.10615" t2="1.44163" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1108" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.66359" t1="13.4667" t2="2.38366" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1108" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
@@ -5461,7 +5461,7 @@
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-5.36892" t1="3.10615" t2="1.61663" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1113" type_file="" special_type="2">
+    <PlaceholderObject t0="-6.96669" t1="13.4667" t2="2.55866" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1113" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -5479,19 +5479,19 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.96214" t1="3.0697" t2="0.932666" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1118" type_file="" special_type="2">
+    <PlaceholderObject t0="-4.55991" t1="13.4303" t2="1.8747" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1118" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.56835" t1="3.0697" t2="1.28267" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1120" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.16613" t1="13.4303" t2="2.2247" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1120" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.87146" t1="3.0697" t2="1.45767" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1121" type_file="" special_type="2">
+    <PlaceholderObject t0="-5.46923" t1="13.4303" t2="2.3997" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1121" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />

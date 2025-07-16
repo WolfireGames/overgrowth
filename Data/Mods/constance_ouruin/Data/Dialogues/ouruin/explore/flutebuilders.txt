@@ -1,0 +1,23 @@
+#name "FluteBuilders"
+#participants 3
+send_character_message 2 "set_eye_dir 58.7946 -51.8923 1.59527 1"
+send_character_message 2 "set_head_target 58.4189 -52.1413 1.61913 1"
+set_character_pos 1 58.076 -52.64 1.657 0
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 59.4316 -51.8111 1.61053 0.782466"
+send_character_message 1 "set_head_target 59.092 -51.7777 1.67756 1"
+set_cam 57.04 -52.0161 2.87824 0 -53.19 0 53.177
+set_character_pos 2 59.5984 -52.6396 1.65729 -180
+send_character_message 2 "set_animation \"Animations/dialogue_leaning_back_onwall.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.2 0.4 0.3
+set_dialogue_voice 2 2
+say 1 "Ghost" "Feels like it's not too often I see a builder."
+say 2 "Flute" "But you see the fruits of our efforts, [wait 0.1]no doubt."
+say 2 "Flute" "Long ago, [wait 0.1]we laid the brickwork on what was already a very, [wait 0.1]very strong foundation of crete. [wait 0.15]Thank the elder gods..."
+say 2 "Flute" "Ever since then, [wait 0.1]it's been slow, [wait 0.1]steady progress. [wait 0.15]Some of us liken it to fighting the tide of decay."
+say 2 "Flute" "If you see any wood around, [wait 0.1]you can safely bet a builder's why it's not rotted into the dirt."
+say 1 "Ghost" "Must be thankless."
+say 2 "Flute" "You'd think... [wait 0.1]But seeing people live and thrive is thanks enough."
+send_level_message "dialogue_done"
