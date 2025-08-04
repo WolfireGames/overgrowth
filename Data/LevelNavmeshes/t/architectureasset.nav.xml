@@ -1,8 +1,8 @@
 <?xml version="2.0" ?>
 <NavMeshMeta>
-    <Level>depot</Level>
+    <Level>architectureasset</Level>
     <IgnoreHash>false</IgnoreHash>
-    <LevelHash>77c9abcbe8cb77839ac11d4d5172487</LevelHash>
+    <LevelHash>e878c211e2bb965fad7bf7771080110</LevelHash>
     <IgnoreVersion>false</IgnoreVersion>
     <Version>1</Version>
 </NavMeshMeta>

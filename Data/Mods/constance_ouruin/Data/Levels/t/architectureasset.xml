@@ -22,6 +22,7 @@
     <parameter name="Load Tip" type="string" val="" />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
     <parameter name="Sky Brightness" type="float" val="1" />
     <parameter name="Sky Rotation" type="float" val="0" />
     <parameter name="Sky Tint" type="string" val="255, 255, 255" />
@@ -34,7 +35,7 @@
     <RayToSun r0="-0.0188119" r1="0.760412" r2="0.649169" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="4.99965" t1="10.4122" t2="7.85868" s0="1" s1="1" s2="1" q0="0.130473" q1="-0.277685" q2="0.0380969" q3="0.951008" euler_x="0.272687" euler_y="-0.568184" euler_z="0" id="0">
+    <CameraObject t0="52.9154" t1="80.6506" t2="-5.55215" s0="1" s1="1" s2="1" q0="0.174155" q1="0.0701736" q2="-0.0124434" q3="0.982136" euler_x="0.350997" euler_y="0.142658" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="45.2717" t1="0.000555038" t2="-10.751" s0="92.8342" s1="1" s2="70.7418" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -73,6 +74,7 @@
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
             <parameter name="Damage Resistance" type="float" val="1" />
             <parameter name="Ear Size" type="float" val="1" />
@@ -86,6 +88,7 @@
             <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
             <parameter name="Focus FOV vertical" type="float" val="0.62834" />
             <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
             <parameter name="Jump - Air Control" type="float" val="3" />
             <parameter name="Jump - Initial Velocity" type="float" val="5" />
             <parameter name="Jump - Jump Sustain" type="float" val="5" />
@@ -114,6 +117,9 @@
         <Palette />
     </ActorObject>
     <EnvObject t0="-5.39539" t1="1.57617" t2="-7.2102" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="14" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="72.8005" t1="36.4784" t2="-80.1836" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/merged/level1_explore/walls/Faas-Moritz_Border.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="4.84182" t1="1.53295" t2="-7.21885" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Pathmarker.xml">
@@ -149,6 +155,12 @@
     <EnvObject t0="-19.63" t1="4.63263" t2="-6.88277" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/WoodAwning.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="15.6724" t1="66.6578" t2="-113.454" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/merged/level1_explore/walls/Dart_Room.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="98.3537" t1="69.1643" t2="-126.369" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/merged/level1_explore/walls/test.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="52.9305" t1="1.37317" t2="-9.7858" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="29" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
         <parameters />
     </EnvObject>
@@ -174,4 +186,7 @@
     <SpawnerItem display_name="Pathmarker.xml" path="Data/Objects/therium/ouruin/detail/Pathmarker.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Pathtrim.xml" path="Data/Objects/therium/ouruin/detail/Pathtrim.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="WoodAwning.xml" path="Data/Objects/therium/ouruin/detail/WoodAwning.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Faas-Moritz_Border.xml" path="Data/Objects/therium/ouruin/merged/level1_explore/walls/Faas-Moritz_Border.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Dart_Room.xml" path="Data/Objects/therium/ouruin/merged/level1_explore/walls/Dart_Room.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="test.xml" path="Data/Objects/therium/ouruin/merged/level1_explore/walls/test.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

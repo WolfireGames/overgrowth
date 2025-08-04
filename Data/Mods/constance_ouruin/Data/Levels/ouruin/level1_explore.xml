@@ -50,7 +50,7 @@
     <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="190.395" t1="-27.2023" t2="76.5945" s0="1" s1="1" s2="1" q0="-0.0103864" q1="-0.985407" q2="0.156872" q3="-0.0652433" euler_x="-2.82585" euler_y="0.132226" euler_z="-3.14159" id="0">
+    <CameraObject t0="24.2436" t1="-13.3443" t2="67.0133" s0="1" s1="1" s2="1" q0="0.160969" q1="0.0477288" q2="-0.00779377" q3="0.985774" euler_x="0.323728" euler_y="0.0967597" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-1.38773" t1="-46.6417" t2="14.8738" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="2" color_r="0.392157" color_g="0.392153" color_b="0.392153" overbright="0" type_file="Data/Prototypes/OG/WindowBlock_Mod3.xml">
@@ -1294,10 +1294,10 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="55.213" t1="-53.4127" t2="-27.298" s0="1.60006" s1="2.53883" s2="1.56862" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="306" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
+    <EnvObject t0="55.213" t1="-53.4127" t2="-27.3493" s0="1.60006" s1="2.53883" s2="1.75609" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="306" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="51.1437" t1="-53.4127" t2="-27.298" s0="1.60006" s1="2.53883" s2="1.56862" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="307" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
+    <EnvObject t0="51.1437" t1="-53.4127" t2="-27.3324" s0="1.60006" s1="2.53883" s2="1.69446" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="307" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="79.4422" t1="-66.1143" t2="-45.8524" s0="16.1287" s1="9.21823" s2="18.2437" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="308" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Cpathfloor_bricks.xml">

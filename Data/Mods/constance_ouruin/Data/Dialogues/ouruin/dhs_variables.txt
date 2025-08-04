@@ -75,37 +75,37 @@ Define variable, its values and notes for each value.
 
 	-- Debts
 
-	ouruin_wallet_debts_total
-		Totals up all debts
+		ouruin_wallet_debts_total
+			Totals up all debts
 
-	ouruin_root_debt
-		Valerian root purchase
+		ouruin_root_debt
+			Valerian root purchase
 
-	ouruin_dart_debt
-		Money given to Dart
+		ouruin_dart_debt
+			Money given to Dart
 
-	ouruin_shop_debt
-		Coin spent in the black market
+		ouruin_shop_debt
+			Coin spent in the black market
 
-	ouruin_shop_debug_cheat
-		Offsets the player's currency
+		ouruin_shop_debug_cheat
+			Offsets the player's currency
 
 
 	-- Level Coin Count
-	Total coin found for each level.
+		Total coin found for each level.
 
-	ouruin_explore_currency
-	ouruin_market_currency
-	ouruin_depot_currency
-	ouruin_dart_currency
-	ouruin_courtyard_currency
-	ouruin_creshome_currency (Unused. Coin does not spawn in this level)
-	ouruin_speakeasy_currency (Unused. Coin does not spawn in this level)
-	ouruin_agra_currency
-	ouruin_highroad_currency
-	ouruin_lvl2_currency
-	ouruin_lvl3_currency (Unused. Coin does not spawn in this level)
-	ouruin_lvl4_currency (Unused. Coin does not spawn in this level)
+		ouruin_explore_currency
+		ouruin_market_currency
+		ouruin_depot_currency
+		ouruin_dart_currency
+		ouruin_courtyard_currency
+		ouruin_creshome_currency (Unused. Coin does not spawn in this level)
+		ouruin_speakeasy_currency (Unused. Coin does not spawn in this level)
+		ouruin_agra_currency
+		ouruin_highroad_currency
+		ouruin_lvl2_currency
+		ouruin_lvl3_currency (Unused. Coin does not spawn in this level)
+		ouruin_lvl4_currency (Unused. Coin does not spawn in this level)
 
 
 == LEVEL STATE
@@ -403,11 +403,12 @@ Define variable, its values and notes for each value.
 		
 		ouruin_dart_dealers
 			0: Dealers have not been met
-			1: Dealers have met Ghost
-			2: Dealers have offered Valerian
-			3: Ghost has purchased Valerian
-			4: Ghost has challenged dealers
-			5: Dealers are eliminated
+			1: Dealers have been overheard
+			2: Dealers have met Ghost
+			3: Dealers have offered Valerian
+			4: Ghost has purchased Valerian!
+			5: Ghost has challenged dealers
+			6: Dealers are eliminated!
 		
 		ouruin_dart_dealers_combatheard
 

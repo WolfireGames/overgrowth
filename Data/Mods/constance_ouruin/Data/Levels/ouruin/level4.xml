@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-5.93046" t1="17.9513" t2="14.7236" s0="1" s1="1" s2="1" q0="-0.142124" q1="-0.0926375" q2="0.0133609" q3="-0.985414" euler_x="0.28648" euler_y="0.187466" euler_z="0" id="0">
+    <CameraObject t0="-2.45803" t1="11.8926" t2="7.62716" s0="1" s1="1" s2="1" q0="0.0781578" q1="0.0378666" q2="-0.0029708" q3="0.996217" euler_x="0.156588" euler_y="0.0759842" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -1324,7 +1324,7 @@
     <EnvObject t0="7.68581" t1="-6.16514" t2="2.57016" s0="1.25175" s1="1.25175" s2="1.25175" q0="0" q1="-0.63686" q2="0" q3="-0.77098" euler_x="0" euler_y="1.38084" euler_z="0" id="497" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/RatJunk/RatJunkPouch.xml">
         <parameters />
     </EnvObject>
-    <ActorObject name="Dialogue Guard 2" t0="-1.76123" t1="8.59285" t2="-7.55895" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="498" type_file="Data/Objects/therium/IGF_Characters/mook4spawn.xml" is_player="0">
+    <ActorObject name="Dialogue Guard 2" t0="-1.76123" t1="7.87847" t2="-7.55895" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="498" type_file="Data/Objects/therium/IGF_Characters/mook4spawn.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />
@@ -1411,7 +1411,7 @@
     <Decal t0="2.95244" t1="-4.2715" t2="-39.4681" s0="54.9343" s1="58.3424" s2="12.5656" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="502" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <ActorObject name="Dialogue Guard 1" t0="-3.68249" t1="8.58363" t2="-7.55667" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="503" type_file="Data/Objects/therium/IGF_Characters/mook2winterspawn.xml" is_player="0">
+    <ActorObject name="Dialogue Guard 1" t0="-3.68249" t1="7.86925" t2="-7.55667" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="503" type_file="Data/Objects/therium/IGF_Characters/mook2winterspawn.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />

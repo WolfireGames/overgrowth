@@ -1,4 +1,4 @@
-#name "DealersValerianPurchase"
+#name "DealersValerianRob"
 #participants 4
 send_character_message 3 "set_torso_target 34.899 -22.6625 -26.1174 1"
 send_character_message 2 "set_torso_target 34.7072 -21.9416 -26.1919 0.00361523"
@@ -23,10 +23,7 @@ set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
 say 1 "Ghost" "Well, [wait 0.1]that's a shame. [wait 0.15]Suppose I can't convince you to drop the price a bit?"
-
 say 2 "Toker" "Uh, [wait 0.1]yeah -- Bring me some good food, [wait 0.1]wouldn't you? [wait 0.15]It's been too long since I sucked some marrow... [wait 0.15]Heheheh."
-
 say 1 "Ghost" "I have some ideas on what to feed you."
-
 say 2 "Toker" "Oh yeah? [wait 0.15]Like what?"
 send_level_message "dialogue_done"

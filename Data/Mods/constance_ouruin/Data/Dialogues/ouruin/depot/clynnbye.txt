@@ -1,4 +1,4 @@
-#name "DealersValerianRepeat"
+#name "ClynnBye"
 #participants 4
 send_character_message 3 "set_torso_target 34.899 -22.6625 -26.1174 1"
 send_character_message 2 "set_torso_target 34.7072 -21.9416 -26.1919 0.00361523"
@@ -18,10 +18,11 @@ send_character_message 1 "set_torso_target 35.6533 -22.771 -27.5651 0"
 send_character_message 1 "set_head_target 34.6813 -21.7606 -26.0962 1"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 0 0 0.52 0.95
+set_dialogue_voice 0 8
 set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
-say 2 "Toker" "If'n you wanna cut in on this exclusive deal, [wait 0.1]you're gonna have to fork over the fee. [wait 0.15]300 petals, [wait 0.1]no less."
-say 3 "Clynn" "If we're overcharging him, [wait 0.1]shouldn't we not specify its exclusivity...?"
+say 3 "Clynn" "Hum, [wait 0.1]hum... [wait 0.1]Good thing I already bought dinner."
 send_level_message "dialogue_done"
