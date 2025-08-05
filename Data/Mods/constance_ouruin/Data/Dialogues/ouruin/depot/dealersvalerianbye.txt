@@ -2,19 +2,19 @@
 #participants 4
 send_character_message 3 "set_torso_target 34.899 -22.6625 -26.1174 1"
 send_character_message 2 "set_torso_target 34.7072 -21.9416 -26.1919 0.00361523"
-set_cam 35.36 -22.9026 -27.0484 20.77 158.61 13.48 45.86
+set_cam 36.1718 -22.6897 -29.5376 2.49 149.56 -0.16 47.4164
 set_character_pos 3 35.1327 -22.7613 -25.2624 120
 send_character_message 3 "set_animation \"Data/Animations/clynn_sitidle.anm\""
-send_character_message 3 "set_eye_dir 34.5624 -21.4496 -25.6952 0.469377"
-send_character_message 3 "set_head_target 34.3299 -22.1953 -26.2179 1"
+send_character_message 3 "set_eye_dir 35.3236 -22.1173 -26.9375 0.469377"
+send_character_message 3 "set_head_target 34.3181 -22.3789 -26.3189 1"
 set_character_pos 2 34.3614 -22.7042 -25.2655 90
 send_character_message 2 "set_animation \"Data/Animations/toker_leanidle.anm\""
 send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.595537"
-send_character_message 2 "set_head_target 34.6027 -22.0421 -27.8916 1"
+send_character_message 2 "set_head_target 34.6869 -22.611 -27.6921 1"
 set_character_pos 1 34.7022 -23.1966 -28.1323 -90
 send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 send_character_message 1 "set_eye_dir 34.6582 -22.2528 -26.2234 1"
-send_character_message 1 "set_torso_target 35.6533 -22.771 -27.5651 0"
+send_character_message 1 "set_torso_target 34.5133 -23.4596 -27.1288 1"
 send_character_message 1 "set_head_target 34.6813 -21.7606 -26.0962 1"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
@@ -23,7 +23,27 @@ set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
 say 1 "Ghost" "It could not possibly be worth that much. [wait 0.15]You're just lying to me."
+send_character_message 1 "set_eye_dir 35.0755 -22.4495 -26.0023 0.552916"
+send_character_message 1 "set_head_target 34.9008 -21.9571 -26.0768 1"
+send_character_message 1 "set_torso_target 34.5133 -23.4596 -27.1288 0.991359"
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.483414"
+send_character_message 3 "set_eye_dir 36.2929 -21.7079 -25.7973 0.522257"
+send_character_message 3 "set_head_target 34.0427 -22.0788 -26.3473 1"
+send_character_message 2 "set_head_target 35.4699 -22.3956 -26.9869 1"
 say 3 "Clynn" "I think we're stereotyping you, [wait 0.1]actually."
+send_character_message 1 "set_eye_dir 34.5761 -21.8973 -25.9635 1"
+send_character_message 1 "set_head_target 34.4314 -21.6766 -26.1301 1"
+send_character_message 1 "set_torso_target 34.5133 -23.4596 -27.1288 0.991359"
+send_character_message 3 "set_eye_dir 35.2243 -22.1047 -27.4985 0.611247"
+send_character_message 3 "set_head_target 33.9883 -22.3993 -26.394 1"
+send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.809064"
+send_character_message 2 "set_head_target 34.6582 -22.0798 -27.289 1"
 say 2 "Toker" "Well, [wait 0.1]come on. [wait 0.15]Y' gotta prove you ain't a snitch, [wait 0.1]so rate's extra!"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 36.4097 -21.8411 -29.5581 0.831733"
+send_character_message 1 "set_head_target 35.8382 -22.4628 -26.9526 1"
+send_character_message 1 "set_torso_target 34.5133 -23.4596 -27.1288 0"
+send_character_message 2 "set_head_target 34.6558 -22.1633 -27.3512 1"
+send_character_message 3 "set_head_target 33.9872 -22.4478 -26.3979 1"
 say 1 "Ghost" "Whatever. [wait 0.15]I'm not going to waste any more of my time."
 send_level_message "dialogue_done"

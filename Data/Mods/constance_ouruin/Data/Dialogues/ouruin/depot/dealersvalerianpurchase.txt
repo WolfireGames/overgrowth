@@ -23,14 +23,9 @@ set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
 say 1 "Ghost" "Fine, [wait 0.1]here you go! [wait 0.2]Happy?"
-
 say 2 "Toker" "Overjoyed."
-
 say 3 "Clynn" "You've made a wonderful purchase today, [wait 0.1]short-tail! [wait 0.2]Enjoy responsibly."
-
 say 1 "Ghost" "...[wait 0.2]I really can't say I have, [wait 0.1]but thanks anyways."
-
 say 2 "Toker" "You should clear out, [wait 0.1]now. [wait 0.15]Don't wanna let your fellow bunnies see you munching dirt!"
-
 say 1 "Ghost" "Don't have to tell me twice."
 send_level_message "dialogue_done"
