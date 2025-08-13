@@ -50,11 +50,12 @@ send_character_message 2 "set_eye_dir 34.192 -21.5447 -25.9517 1"
 send_level_message "disable 7257"
 send_level_message "disable 7232"
 say 1 "Ghost" "I have some ideas on what to feed you."
-set_character_pos 1 34.7022 -23.1966 -28.3511 -90
+set_character_pos 2 34.3615 -23.1532 -26.4061 125
+set_character_pos 1 33.4291 -23.1966 -28.3321 -69
 send_character_message 1 "set_head_target 34.4689 -22.0327 -26.4084 1"
-send_character_message 2 "set_head_target 34.5933 -22.5515 -27.8945 1"
-set_cam 33.5128 -22.6641 -29.1733 -2.21 -146.09 -1.03 71.7827
-send_character_message 2 "set_torso_target 34.6951 -23.0065 -27.1809 1"
+send_character_message 2 "set_head_target 33.6537 -22.5395 -27.9463 1"
+set_cam 32.4063 -22.6196 -28.794 -1.88 -131.35 -1.56 71.7827
+send_character_message 2 "set_torso_target 34.0276 -23.0065 -27.2082 1"
 send_character_message 2 "set_eye_dir 34.192 -21.5447 -25.9517 0.628536"
 say 2 "Toker" "Oh yeah? [wait 0.15]Like what?"
 send_level_message "dialogue_done"

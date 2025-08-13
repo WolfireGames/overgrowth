@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-2.45803" t1="11.8926" t2="7.62716" s0="1" s1="1" s2="1" q0="0.0781578" q1="0.0378666" q2="-0.0029708" q3="0.996217" euler_x="0.156588" euler_y="0.0759842" euler_z="0" id="0">
+    <CameraObject t0="4.62698" t1="-5.60415" t2="4.95966" s0="1" s1="1" s2="1" q0="0.0106362" q1="-0.989339" q2="0.106183" q3="0.0991009" euler_x="-2.92776" euler_y="-0.199672" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -300,7 +300,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="3.92538" t1="-3.92801" t2="8.79977" s0="0.907747" s1="0.58332" s2="1.33783" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="105" type_file="Data/Objects/Hotspots/ambient_sound.xml">
+    <Hotspot t0="3.92538" t1="-3.91277" t2="8.80308" s0="0.907747" s1="0.5757" s2="1.33617" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="105" type_file="Data/Objects/Hotspots/ambient_sound.xml">
         <parameters>
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
@@ -313,7 +313,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Hotspot t0="2.8012" t1="-1.79141" t2="8.85942" s0="0.907747" s1="1.48348" s2="1.33783" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="106" type_file="Data/Objects/Hotspots/ambient_sound.xml">
+    <Hotspot t0="3.94027" t1="-1.79141" t2="8.81669" s0="0.907747" s1="1.48348" s2="1.33783" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="106" type_file="Data/Objects/Hotspots/ambient_sound.xml">
         <parameters>
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
@@ -606,7 +606,7 @@
     <Decal t0="7.44164" t1="-7.17839" t2="-5.09215" s0="1.16098" s1="0.205896" s2="8.03824" q0="0" q1="0.149393" q2="0" q3="0.988778" euler_x="0" euler_y="0.299909" euler_z="0" id="252" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.0745098" color_g="0.0745091" color_b="0.0745091" overbright="0">
         <parameters />
     </Decal>
-    <DynamicLightObject t0="3.8486" t1="-5.19708" t2="-2.99606" s0="17.0542" s1="17.0542" s2="17.0542" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="253" color_r="0.870588" color_g="0.307266" color_b="0" overbright="0">
+    <DynamicLightObject t0="3.8486" t1="-5.19708" t2="-2.99606" s0="17.0542" s1="17.0542" s2="17.0542" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="253" color_r="0.290196" color_g="0.102422" color_b="0" overbright="0">
         <parameters />
     </DynamicLightObject>
     <Decal t0="3.81355" t1="-5.34813" t2="1.33939" s0="0.993671" s1="5.76352" s2="6.326" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="254" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.105882" color_g="0.105881" color_b="0.105881" overbright="0">
@@ -2025,7 +2025,7 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <Hotspot t0="1.95396" t1="-10.1062" t2="3.77693" s0="125.462" s1="1" s2="115.401" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="552" type_file="Data/Objects/Hotspots/resetcharacter.xml">
+    <Hotspot t0="2.29207" t1="-10.1564" t2="6.43712" s0="125.462" s1="1" s2="115.401" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="552" type_file="Data/Objects/Hotspots/resetcharacter.xml">
         <parameters />
         <Connections />
         <ConnectionsFrom />
@@ -4441,6 +4441,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <Decal t0="-4.25392" t1="-7.76218" t2="-23.1197" s0="54.6528" s1="54.6528" s2="43.724" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="927" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.156863" color_g="0.156861" color_b="0.156861" overbright="0">
+        <parameters />
+    </Decal>
     <EnvObject name="Play Sound Helper" t0="10.8512" t1="4.04277" t2="12.6108" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="929" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
@@ -4477,6 +4480,9 @@
     <EnvObject name="AIControl Helper" t0="10.8512" t1="4.04277" t2="12.6108" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="941" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
+    <Decal t0="-2.57314" t1="-8.60233" t2="1.58855" s0="10.5269" s1="32.024" s2="11.1294" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="942" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.207843" color_g="0.207841" color_b="0.207841" overbright="0">
+        <parameters />
+    </Decal>
     <NavmeshHintObject t0="9.81114" t1="-5.05857" t2="9.27271" s0="3.0488" s1="4.56213" s2="10.8861" q0="0" q1="-0.0469906" q2="0" q3="0.998895" euler_x="0" euler_y="-0.0940158" euler_z="0" id="943">
         <parameters />
     </NavmeshHintObject>
@@ -4658,7 +4664,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-nl-ko.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-NL-KO" />
-            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="NumParticipants" type="string" val="4" />
             <parameter name="obj_1" type="int" val="1008" />
             <parameter name="obj_2" type="int" val="1009" />
             <parameter name="obj_3" type="int" val="1029" />
@@ -4786,7 +4792,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;10261&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:8,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;10262&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[23,320],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_ship_eliminations: {ouruin_ship_eliminations}\nouruin_ship_eliminations_check: {ouruin_ship_eliminations_check}\nouruin_ship_phase: {ouruin_ship_phase}\n--\nouruin_current_weapon: {ouruin_current_weapon}\nouruin_current_sidearm: {ouruin_current_sidearm}\nouruin_current_item: {ouruin_current_item}\n--\nouruin_shop_shortsword: {ouruin_shop_shortsword}\nouruin_shop_broadsword: {ouruin_shop_broadsword}\nouruin_shop_knife: {ouruin_shop_knife}\nouruin_shop_throwing: {ouruin_shop_throwing}\nouruin_shop_spear: {ouruin_shop_spear}\nouruin_shop_staff: {ouruin_shop_staff}\nouruin_shop_sparrow: {ouruin_shop_sparrow}\nouruin_shop_talisman: {ouruin_shop_talisman}\nouruin_shop_tonic: {ouruin_shop_tonic}\nouruin_shop_armor: {ouruin_shop_armor}&quot;,&quot;ui_element_identifier&quot;:&quot;10263&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:26,&quot;identifier&quot;:867,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;10264&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:26,&quot;identifier&quot;:867,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;10261&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:8,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;10262&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[23,320],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_ship_eliminations: {ouruin_ship_eliminations}\nouruin_ship_eliminations_check: {ouruin_ship_eliminations_check}\nouruin_ship_phase: {ouruin_ship_phase}\n--\nouruin_current_weapon: {ouruin_current_weapon}\nouruin_current_sidearm: {ouruin_current_sidearm}\nouruin_current_item: {ouruin_current_item}\n--\nouruin_shop_shortsword: {ouruin_shop_shortsword}\nouruin_shop_broadsword: {ouruin_shop_broadsword}\nouruin_shop_knife: {ouruin_shop_knife}\nouruin_shop_throwing: {ouruin_shop_throwing}\nouruin_shop_spear: {ouruin_shop_spear}\nouruin_shop_staff: {ouruin_shop_staff}\nouruin_shop_sparrow: {ouruin_shop_sparrow}\nouruin_shop_talisman: {ouruin_shop_talisman}\nouruin_shop_tonic: {ouruin_shop_tonic}\nouruin_shop_armor: {ouruin_shop_armor}&quot;,&quot;ui_element_identifier&quot;:&quot;10267&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:26,&quot;identifier&quot;:867,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;10264&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:26,&quot;identifier&quot;:867,&quot;identifier_type&quot;:4,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -4816,7 +4822,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-nl-kill.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-NL-Kill" />
-            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="NumParticipants" type="string" val="4" />
             <parameter name="obj_1" type="int" val="1032" />
             <parameter name="obj_2" type="int" val="1046" />
             <parameter name="obj_3" type="int" val="1047" />
@@ -5074,7 +5080,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-l-kill.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-L-Kill" />
-            <parameter name="NumParticipants" type="string" val="4" />
+            <parameter name="NumParticipants" type="int" val="4" />
             <parameter name="obj_1" type="int" val="1051" />
             <parameter name="obj_2" type="int" val="1052" />
             <parameter name="obj_3" type="int" val="1059" />
@@ -5156,7 +5162,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-l-ko.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-L-KO" />
-            <parameter name="NumParticipants" type="string" val="4" />
+            <parameter name="NumParticipants" type="int" val="4" />
             <parameter name="obj_1" type="int" val="1064" />
             <parameter name="obj_2" type="int" val="1065" />
             <parameter name="obj_3" type="int" val="1087" />
@@ -5381,7 +5387,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/anomeet/anomeet-nlg-ko.txt" />
             <parameter name="DisplayName" type="string" val="AnoMeet-NLG-KO" />
-            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="NumParticipants" type="string" val="4" />
             <parameter name="obj_1" type="int" val="1106" />
             <parameter name="obj_2" type="int" val="1096" />
             <parameter name="obj_3" type="int" val="1108" />
@@ -5649,6 +5655,6 @@
     <SpawnerItem display_name="Rope" path="Data/Objects/Buildings/RopeBall1.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/rope.png" />
     <SpawnerItem display_name="Light Decal (round)" path="Data/Objects/Decals/light_round.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
     <SpawnerItem display_name="Light Decal (square)" path="Data/Objects/Decals/light_square.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
-    <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
     <SpawnerItem display_name="Water Froth" path="Data/Objects/Decals/water_froth.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
 </RecentItems>
