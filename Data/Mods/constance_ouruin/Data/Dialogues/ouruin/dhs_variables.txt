@@ -400,6 +400,7 @@ Define variable, its values and notes for each value.
 			1: Dart has asked Ghost for valerian root
 			2: Ghost has acquired valerian root
 			3: Dart has been given valerian root
+			4: Valerian root has been disposed of
 		
 		ouruin_dart_dealers
 			0: Dealers have not been met
@@ -416,6 +417,7 @@ Define variable, its values and notes for each value.
 		0: Varidien has not been met
 		1: Varidien has been met
 		2: Varidien has talked about Dart
+		3: Varidien has disposed of the valerian root
 
 	ouruin_adal_quest
 		0: Adal has not been met
@@ -541,6 +543,8 @@ Define variable, its values and notes for each value.
 	ouruin_gateguards_met
 
 		ouruin_gateguards_access
+		ouruin_gateguards_paid
+		ouruin_gateguards_bypassed
 
 		ouruin_gateguards_ambushed
 

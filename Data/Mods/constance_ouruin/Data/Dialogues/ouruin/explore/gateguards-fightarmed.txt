@@ -41,7 +41,6 @@ send_character_message 2 "set_animation \"Data/Animations/d_dialogue_dualwield.a
 send_character_message 3 "set_animation \"Data/Animations/jairothreateningsword.anm\""
 say 2 "???" "We'll see how much it helps when you're face down in the pavement..."
 send_character_message 3 "set_eye_dir 260.596 -46.5772 26.9709 0.79734"
-send_character_message 1 "set_animation \"Data/Animations/r_combatidle.anm\""
 send_character_message 3 "set_head_target 259.075 -47.9139 29.73 1"
 send_character_message 3 "set_animation \"Data/Animations/r_dialogue_jeer.anm\""
 send_character_message 1 "set_head_target 258.71 -47.1892 28.092 1"

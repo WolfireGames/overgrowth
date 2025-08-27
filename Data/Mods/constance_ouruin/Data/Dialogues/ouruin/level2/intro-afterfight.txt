@@ -8,6 +8,7 @@ send_character_message 1 "set_head_target -82.2014 1.388 -10.7676 0.0325716"
 set_cam -84.7743 0.920006 -12.6657 6.6 -89.5 0 25.9941
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+send_level_message "sheathe_weapon"
 say 1 "Ghost" "Okay... [wait 0.15]I need to get out of here. [wait 0.1]Get somewhere safe."
 send_character_message 1 "set_eye_dir -83.231 -0.0334722 -13.4955 0.869427"
 send_character_message 1 "set_torso_target -82.4786 1.05675 -11.9456 0.999937"
@@ -19,4 +20,5 @@ send_character_message 1 "set_torso_target -82.4788 1.05676 -11.9456 0"
 send_character_message 1 "set_animation \"Data/Animations/ghost_thoughtful_smooth_back.anm\""
 set_cam -81.1911 0.499153 -13.6126 31.8 133.66 -1.52 92.1483
 say 1 "Ghost" "You can do this, [wait 0.1]Ghost... [wait 0.15]Just gotta climb."
+send_level_message "prepare_weapon"
 send_level_message "dialogue_done"

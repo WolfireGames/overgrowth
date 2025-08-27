@@ -1,0 +1,14 @@
+#name "Leave-Check"
+#participants 2
+set_character_pos 1 -50.7371 7.8064 -136.721 -11
+send_character_message 1 "set_eye_dir -48.9388 8.87983 -136.439 1"
+send_character_message 1 "set_torso_target -49.7965 8.23979 -136.398 0"
+send_character_message 1 "set_head_target -48.6925 9.25886 -136.348 1"
+set_cam -52.964 8.31834 -138.722 0 -121.65 0 49.657
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 1 "Ghost" "This is the path to Atso, [wait 0.1]but I don't need to go through here right now."
+send_character_message 1 "set_eye_dir -51.3631 8.09111 -137.446 1"
+send_character_message 1 "set_torso_target -49.54 8.05581 -136.462 1"
+send_character_message 1 "set_head_target -49.9483 8.3376 -137.829 1"
+say 1 "Ghost" "I should look around for Bijou..."
