@@ -18,6 +18,8 @@ set_cam 260.15 -47.7641 28.5502 5.42 134.63 0 34.4579
 set_character_pos 2 257.797 -48.2407 27.6343 -81
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 5 0 0.52 0.95
+set_dialogue_voice 5 8
 set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.5 0.5 0.5
@@ -52,7 +54,6 @@ send_character_message 1 "set_torso_target 258.913 -47.5922 28.9254 0"
 send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
 set_cam 258.91 -47.745 27.7673 0 -179.73 0 46.8758
 say 1 "Ghost" "I can't help but agree... [wait 0.2]And I think Red will, [wait 0.1]too."
-set_cam 258.91 -47.745 27.7673 0 179.19 0 46.8758
 send_character_message 3 "set_head_target 258.891 -47.6534 29.8555 1"
 send_character_message 2 "set_head_target 259.029 -47.6924 29.8642 1"
 send_character_message 3 "set_torso_target 259.851 -47.3596 29.3815 0.929479"
@@ -133,5 +134,5 @@ send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
 send_character_message 1 "set_eye_dir 258.844 -48.0726 28.2331 0.677178"
 send_character_message 1 "set_head_target 258.525 -47.5573 28.1972 1"
 set_cam 260.06 -47.5437 28.7195 0 135.09 0 27.1059
-say 1 "Ghost" "..."
+say 5 "Ghost" "..."
 send_level_message "dialogue_done"

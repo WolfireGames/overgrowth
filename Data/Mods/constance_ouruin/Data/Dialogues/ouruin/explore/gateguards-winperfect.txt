@@ -22,6 +22,7 @@ set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.5 0.5 0.5
 set_dialogue_voice 3 3
+send_level_message "sheathe_weapon"
 say 2 "???" "Heheh... [wait 0.2]Wouldja look at that? [wait 0.15]Not even a scratch on 'im. [wait 0.1]Maybe all the bark was worth it."
 set_character_pos 2 258.616 -48.2042 36.275 -75
 set_character_pos 3 260.244 -48.2062 34.7805 -129

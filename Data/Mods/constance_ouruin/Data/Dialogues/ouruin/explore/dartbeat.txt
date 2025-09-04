@@ -6,6 +6,8 @@ set_dialogue_color 3 0 0.52 0.95
 set_dialogue_voice 3 8
 set_dialogue_color 2 0.6 0.22 0.4
 set_dialogue_voice 2 2
+set_dialogue_color 4 0.6 0.22 0.4
+set_dialogue_voice 4 2
 set_character_pos 2 -30.7393 -40.585 -64.9174 0
 send_character_message 2 "set_eye_dir -30.3791 -39.7118 -65.4639 1"
 send_character_message 2 "set_head_target -28.378 -39.8444 -64.8614 0.134815"
@@ -19,7 +21,7 @@ send_character_message 2 "set_animation \"Data/Animations/dart_defeated.anm\""
 send_character_message 2 "equip_item 16691"
 send_character_message 2 "set_morph_target angry 1 0.3 outExpo"
 send_character_message 2 "set_morph_target sad 0 0.3 outExpo"
-say 2 "Dart" "...Fuiot! [wait 0.2]You got lucky, [wait 0.1]rabbit!"
+say 2 "Dart" "...[wait 0.15]Fuiot! [wait 0.2]You got lucky, [wait 0.1]rabbit!"
 send_character_message 2 "set_head_target -28.378 -39.8444 -64.8614 1"
 send_character_message 1 "set_head_target -30.884 -39.4585 -64.9696 1"
 send_character_message 1 "set_animation \"Data/Animations/ghostsword_welcome.anm\""
@@ -30,22 +32,22 @@ send_character_message 2 "set_head_target -28.378 -39.8444 -64.8614 0"
 send_character_message 2 "set_animation \"Data/Animations/dart_defeatedshame.anm\""
 send_character_message 2 "set_morph_target angry 0.3 0.3 outExpo"
 send_character_message 2 "set_morph_target sad 0.6 0.7 outExpo"
-say 2 "Dart" "[wait 0.2]I... [wait 0.2]Ugh..."
+say 2 "Dart" "[wait 0.3]I... [wait 0.2]Ugh..."
 send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
 send_character_message 2 "set_torso_target -30.0101 -40.5662 -64.3005 1"
 send_character_message 2 "set_head_target -30.1361 -40.4128 -65.4491 0.333589"
 set_cam -29.6173 -40.9686 -65.9461 33.63 139.99 0 44.6625
 send_character_message 2 "set_morph_target afraid 0.0 0.3 outExpo"
 send_character_message 1 "empty_hands"
+send_level_message "sheathe_weapon"
 say 2 "Dart" "[wait 0.15]I need the acacia berlandieri. [wait 0.2]It's the only reason I lost. [wait 0.2]Were it not for that..."
 send_character_message 1 "set_head_target -30.3327 -39.752 -64.8498 1"
 send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
 send_character_message 2 "set_head_target -29.6723 -39.9121 -64.908 1"
-set_cam -31.982 -39.6637 -65.9927 -5.9 -120 0 35.7251
 say 1 "Ghost" "What was your fighting like before you started smoking?"
 send_character_message 1 "set_head_target -30.3276 -39.7958 -64.8907 1"
 send_character_message 2 "set_head_target -29.7263 -40.1904 -64.889 0.903639"
-say 2 "Dart" "..."
+say 4 "Dart" "..."
 send_character_message 2 "set_torso_target -30.0101 -40.5662 -64.3005 0"
 send_character_message 1 "set_head_target -30.31 -39.8991 -64.8783 1"
 send_character_message 2 "set_head_target -29.7263 -40.1904 -64.889 0"
@@ -60,6 +62,7 @@ send_character_message 2 "set_head_target -29.764 -39.7914 -64.9251 1"
 send_character_message 2 "set_animation \"Data/Animations/dart_ashamed.anm\""
 send_character_message 2 "set_morph_target sad 0.5 0.3 outExpo"
 send_character_message 2 "set_morph_target angry 0.4 0.3 outExpo"
+set_cam -31.982 -39.6637 -65.9927 -5.9 -120 0 35.7251
 say 2 "Dart" "Undoubtedly, [wait 0.1]but[wait 0.1]--"
 send_character_message 2 "set_head_target -28.885 -39.6871 -64.9251 1"
 send_character_message 1 "set_head_target -30.3824 -39.8435 -64.9704 1"
@@ -71,7 +74,7 @@ send_character_message 2 "set_head_target -29.3207 -40.0735 -64.9125 1"
 set_cam -28.9789 -39.5145 -65.3895 -11.62 106.32 0 35.7251
 send_character_message 2 "set_morph_target sad 0.2 0.3 outExpo"
 send_character_message 2 "set_morph_target angry 0.0 0.3 outExpo"
-say 2 "Dart" "..."
+say 4 "Dart" "..."
 send_character_message 1 "set_head_target -30.3824 -39.6184 -64.9704 1"
 set_cam -29.7532 -39.8649 -64.3342 0 -57.82 0 35.7251
 send_character_message 1 "set_morph_target think 0.0 0.3 outExpo"

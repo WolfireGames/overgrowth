@@ -19,6 +19,7 @@ set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.5 0.5 0.5
 set_dialogue_voice 3 3
+send_level_message "sheathe_weapon"
 say 1 "Ghost" "[wait 0.3]Ugh... [wait 0.15]Fine, [wait 0.1]you win..."
 send_character_message 3 "set_eye_dir 259.776 -46.549 33.6728 0.347363"
 send_character_message 3 "set_head_target 259.133 -48.1252 36.9533 1"

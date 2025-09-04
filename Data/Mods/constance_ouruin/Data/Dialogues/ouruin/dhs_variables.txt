@@ -10,6 +10,7 @@ Define variable, its values and notes for each value.
 		talisman
 		tonic
 
+	ouruin_shop_current_weapon
 	ouruin_current_weapon
 		nothing
 			This returns the player to being unarmed
