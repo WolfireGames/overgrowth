@@ -25,6 +25,11 @@ Define variable, its values and notes for each value.
 		throwing
 		knife
 
+	ouruin_shop_armor
+		0: Unbought
+		1: Bought
+		2: Equipped
+
 	ouruin_player_event
 		Variable per-level. Used to dictate which dialogue or events should play
 

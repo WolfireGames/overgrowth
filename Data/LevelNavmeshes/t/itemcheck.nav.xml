@@ -1,8 +1,8 @@
 <?xml version="2.0" ?>
 <NavMeshMeta>
-    <Level>level1_explore</Level>
+    <Level>itemcheck</Level>
     <IgnoreHash>false</IgnoreHash>
-    <LevelHash>61edc5e9dc58f4d1a0dfd02a09359553</LevelHash>
+    <LevelHash>1b81110cef851d04a6110067f87729d</LevelHash>
     <IgnoreVersion>false</IgnoreVersion>
     <Version>1</Version>
 </NavMeshMeta>

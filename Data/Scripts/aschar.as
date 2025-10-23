@@ -6510,6 +6510,12 @@ void ReceiveMessage(string msg) {
         }
     } else if(token == "extinguish") {
         SetOnFire(false);
+    } else if(token == "camera_shake") {
+        camera_shake += 1.0f;
+    } else if(token == "camera_shake_heavy") {
+        camera_shake += 1.75f;
+    } else if(token == "camera_shake_light") {
+        camera_shake += 0.5f;
     } else if(token == "start_talking") {
         test_talking = true;
     } else if(token == "stop_talking") {
