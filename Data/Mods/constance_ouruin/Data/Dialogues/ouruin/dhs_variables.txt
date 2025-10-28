@@ -275,8 +275,14 @@ Define variable, its values and notes for each value.
 			6: Hood Alley
 
 		ouruin_lvl3_dockedship_found
+
 		ouruin_lvl3_dockedship_bashed
+			Counter for bash attempts, broken at 6
+
 		ouruin_lvl3_dockedship_broken
+			0: Not affected
+			1: Bashed in & broken
+			2: Torn open
 
 		ouruin_lvl3_dockedship_method
 			0: Bash
