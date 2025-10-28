@@ -1,0 +1,229 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>rocks</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<Terrain>
+    <Heightmap>Data/Textures/Terrain/flat.png</Heightmap>
+    <ShaderExtra></ShaderExtra>
+    <DetailMap></DetailMap>
+    <ColorMap>Data/Textures/black.tga</ColorMap>
+    <WeightMap>Data/Textures/black.tga</WeightMap>
+    <ModelOverride>Data/Models/lolnothing.obj</ModelOverride>
+    <DetailMaps>
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rocks.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/gravel.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/sand.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rock.xml" />
+    </DetailMaps>
+    <DetailObjects />
+</Terrain>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="#SHADOW_POINT_LIGHTS #TEST_CLOUDS_2 #OURUIN_EVENING #CLOUDS_DO_NOT_TINT_SKY #CLOUDS_DO_NOT_CAST_SHADOWS" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.12346" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="1.48148" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="2" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="160, 50, 0" />
+</LevelScriptParameters>
+<NavMeshParameters generate="false" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.120331</SunAngularRad>
+    <SunColorAngle>123.298</SunColorAngle>
+    <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-13.4331" t1="23.1692" t2="36.7283" s0="1" s1="1" s2="1" q0="-0.20698" q1="-0.199611" q2="0.0431812" q3="-0.956792" euler_x="0.426089" euler_y="0.41135" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="-27.4945" t1="8.56029" t2="-5.02698" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/DesertRock1a.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject name="Ghost" t0="-15.6459" t1="0.176521" t2="1.29068" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="2" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="-20.0713" t1="3.93843" t2="-3.20353" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/gray_rock_boulder.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-13.8308" t1="3.04109" t2="-3.1711" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_forest_rock_a.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.89581" t1="-3.18246" t2="1.38009" s0="4.96517" s1="0.999999" s2="12.8663" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="8" color_r="0.0627451" color_g="0.0627445" color_b="0.0627445" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-13.903" t1="3.21322" t2="-6.90875" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_forest_rock_b.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.59171" t1="-3.03792" t2="-10.3711" s0="1" s1="1" s2="12.7201" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.59164" t1="-3.03794" t2="13.198" s0="1" s1="1" s2="12.7201" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-22.5984" t1="-3.0353" t2="1.41437" s0="1" s1="1" s2="6.93939" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-15.6023" t1="-3.04162" t2="1.27159" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="13" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-10.827" t1="3.12939" t2="-5.5041" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_forest_rock_c.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-10.4565" t1="2.89489" t2="-2.25643" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_forest_rock_d.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-11.9803" t1="4.7389" t2="-8.92767" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="16" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_forest_rock_pile.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.46581" t1="3.94133" t2="-5.16001" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_green_rock.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-5.32595" t1="3.1518" t2="-2.01352" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_mossy_rock_a.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.69279" t1="4.39028" t2="-6.25154" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="19" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_red_rock_a .xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.38014" t1="8.63082" t2="-8.29038" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_stone_boulder.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.336246" t1="5.79179" t2="-3.59471" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/medium_round_rock.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.4616" t1="9.36476" t2="-5.08753" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/red_boulder.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="31.7097" t1="-3.03533" t2="1.41433" s0="1" s1="1" s2="6.93939" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="random_citizen.xml" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fire Wood Hot" path="Data/Objects/Environment/camp/fire_wood_hot.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood_hot.png" />
+    <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/lethality/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/lethality/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/lethality/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/lethality/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="highroad.xml" path="Data/Prefabs/ouruin/lethality/highroad.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl2.xml" path="Data/Prefabs/ouruin/lethality/lvl2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl3.xml" path="Data/Prefabs/ouruin/lethality/lvl3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl4.xml" path="Data/Prefabs/ouruin/lethality/lvl4.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/wallets/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/wallets/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="cres.xml" path="Data/Prefabs/ouruin/wallets/cres.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/wallets/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/wallets/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level1.xml" path="Data/Prefabs/ouruin/wallets/level1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level2.xml" path="Data/Prefabs/ouruin/wallets/level2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level3.xml" path="Data/Prefabs/ouruin/wallets/level3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="template.xml" path="Data/Prefabs/ouruin/wallets/template.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Blood Drop Splat" path="Data/Objects/Decals/blooddropsplat.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/blooddropsplat.png" />
+    <SpawnerItem display_name="Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="Data/UI/thumbsnailsT2/Coin.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/lethality/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/lethality/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/wallets/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/wallets/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Book Open" path="Data/Objects/therium/openbook.xml" thumbnail_path="Data/UI/thumbsnailsT2/Book open.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/lethality/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/lethality/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ship.xml" path="Data/Prefabs/ouruin/lethality/ship.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/wallets/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/wallets/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ratden.xml" path="Data/Prefabs/ouruin/lethality/ratden.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Skull Rabbit" path="Data/Objects/therium/rabbit_skull.xml" thumbnail_path="Data/UI/thumbsnailsT2/Skull rabbit.png" />
+    <SpawnerItem display_name="StandardBlock.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_Red.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_Red.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_White.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="setmessages.xml" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="DesertRock1a.xml" path="Objects/Environment/Rocks/DesertRock1a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="coast_rock_large.xml" path="Objects/Environment/Rocks/coast_rock_large.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="gray_rock_boulder.xml" path="Objects/Environment/Rocks/gray_rock_boulder.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dark_rubble.xml" path="Objects/Environment/Rocks/dark_rubble.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_forest_rock_a.xml" path="Objects/Environment/Rocks/large_forest_rock_a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_forest_rock_b.xml" path="Objects/Environment/Rocks/large_forest_rock_b.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_forest_rock_c.xml" path="Objects/Environment/Rocks/large_forest_rock_c.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_forest_rock_d.xml" path="Objects/Environment/Rocks/large_forest_rock_d.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_forest_rock_pile.xml" path="Objects/Environment/Rocks/large_forest_rock_pile.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_green_rock.xml" path="Objects/Environment/Rocks/large_green_rock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_mossy_rock_a.xml" path="Objects/Environment/Rocks/large_mossy_rock_a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="large_red_rock_a .xml" path="Objects/Environment/Rocks/large_red_rock_a .xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_stone_boulder.xml" path="Objects/Environment/Rocks/lichen_stone_boulder.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_rock_a.xml" path="Objects/Environment/Rocks/lichen_rock_a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="medium_lichen_rock.xml" path="Objects/Environment/Rocks/medium_lichen_rock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="medium_round_rock.xml" path="Objects/Environment/Rocks/medium_round_rock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="red_boulder.xml" path="Objects/Environment/Rocks/red_boulder.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="gstrata_rock_block.xml" path="Objects/Environment/Rocks/strata_rocks_2/gstrata_rock_block.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="crevice.xml" path="Objects/Environment/Land/crevice.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="crevice_hills.xml" path="Objects/Environment/Land/crevice_hills.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="subterranean_cave_floor.xml" path="Objects/Environment/Land/subterranean_cave_floor.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>
