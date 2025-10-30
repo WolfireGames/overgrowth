@@ -1,0 +1,905 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>foliage</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<Terrain>
+    <Heightmap>Data/Textures/Terrain/flat.png</Heightmap>
+    <ShaderExtra></ShaderExtra>
+    <DetailMap></DetailMap>
+    <ColorMap>Data/Textures/black.tga</ColorMap>
+    <WeightMap>Data/Textures/black.tga</WeightMap>
+    <ModelOverride>Data/Models/lolnothing.obj</ModelOverride>
+    <DetailMaps>
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rocks.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/gravel.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/sand.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rock.xml" />
+    </DetailMaps>
+    <DetailObjects />
+</Terrain>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="#SHADOW_POINT_LIGHTS #TEST_CLOUDS_2 #OURUIN_EVENING #CLOUDS_DO_NOT_TINT_SKY #CLOUDS_DO_NOT_CAST_SHADOWS" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.12346" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="1.48148" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="2" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="160, 50, 0" />
+</LevelScriptParameters>
+<NavMeshParameters generate="false" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.107843</SunAngularRad>
+    <SunColorAngle>123.298</SunColorAngle>
+    <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="35.2758" t1="12.9594" t2="52.4711" s0="1" s1="1" s2="1" q0="-0.0586659" q1="-0.045104" q2="0.00265334" q3="-0.997255" euler_x="0.117519" euler_y="0.0903948" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <ActorObject name="Ghost" t0="4.67937" t1="0.176521" t2="-18.7873" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="2" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="-22.7322" t1="14.1752" t2="-7.79675" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/simple/simple_conifer_branch.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-20.7959" t1="11.85" t2="-7.4103" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/simple/simple_conifer_trunk.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.26122" t1="5.02706" t2="-4.29914" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Test/TestTree1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="36.8631" t1="-3.18246" t2="1.75446" s0="21.224" s1="0.999999" s2="12.8663" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8" color_r="0.0627451" color_g="0.0627445" color_b="0.0627445" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="1.53133" t1="5.77404" t2="-3.87451" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Test/TestTree2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="80.8267" t1="-3.03792" t2="1.45036" s0="1" s1="1" s2="12.7201" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.22794" t1="-3.03794" t2="1.45029" s0="1" s1="1" s2="12.7201" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="37.0156" t1="-3.0353" t2="-25.7397" s0="1" s1="1" s2="23.2923" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.69846" t1="-3.04162" t2="-18.7436" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.22867" t1="4.55621" t2="-4.04397" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Test/TestTree3.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="8.41527" t1="4.90006" t2="-4.76662" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Test/TestTree4.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="14.5112" t1="8.52413" t2="-8.44135" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Test/TestTree5.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="21.9648" t1="10.5645" t2="-7.41366" s0="2.44035" s1="2.44035" s2="2.44035" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Test/dense_test_tree.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="11.3307" t1="39.9948" t2="-50.8106" s0="65.5718" s1="83.8565" s2="59.7617" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" version="1">
+        <parameters />
+        <EnvObject t0="11.148" t1="36.6451" t2="-50.77" s0="4.97168" s1="4.97168" s2="4.97168" q0="0.0082441" q1="-0.20061" q2="-0.00377922" q3="0.979629" euler_x="0.0192157" euler_y="-0.403875" euler_z="-0.0116497" id="18" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.26" type_file="Data/Objects/plants/trees/temperate/evergreen_stump_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="12.667" t1="29.2301" t2="-55.0281" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.533968" q1="-0.283839" q2="0.0221609" q3="0.79613" euler_x="-1.26896" euler_y="-0.442587" euler_z="0.383848" id="19" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="7.98204" t1="32.4041" t2="-52.2884" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.476145" q1="0.254688" q2="0.377301" q3="0.752375" euler_x="-0.899078" euler_y="0.836857" euler_z="0.506965" id="20" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.32934" t1="37.3111" t2="-47.9084" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.214572" q1="0.642494" q2="0.657868" q3="0.329203" euler_x="1.4544" euler_y="0.782906" euler_z="2.91765" id="21" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.817" t1="38.2801" t2="-48.4089" s0="4.97168" s1="4.97168" s2="4.97168" q0="0.263548" q1="0.680866" q2="0.652638" q3="-0.202562" euler_x="1.65509" euler_y="-0.668536" euler_z="3.0209" id="22" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.7263" t1="46.2221" t2="-53.1791" s0="4.97168" s1="4.97168" s2="4.97168" q0="0.6261" q1="0.308212" q2="0.366364" q3="-0.615453" euler_x="-1.5231" euler_y="-0.993866" euler_z="-0.119481" id="23" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="7.38164" t1="50.5341" t2="-53.5996" s0="3.34304" s1="3.34304" s2="3.34305" q0="0.832592" q1="-0.153536" q2="-0.311429" q3="-0.431544" euler_x="-2.17881" euler_y="0.709035" euler_z="0.0172934" id="24" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.9638" t1="55.6801" t2="-50.277" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.107885" q1="-0.698131" q2="-0.70399" q3="-0.0733018" euler_x="1.56885" euler_y="-0.0495717" euler_z="2.88462" id="25" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.508" t1="58.6301" t2="-52.5199" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.511973" q1="-0.510235" q2="-0.420875" q3="0.548098" euler_x="-1.89937" euler_y="-1.43119" euler_z="0.454439" id="26" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="12.4368" t1="61.2821" t2="-53.7652" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.716156" q1="-0.0446706" q2="-0.0675969" q3="0.693223" euler_x="-1.60093" euler_y="-0.159428" euler_z="-0.0301237" id="27" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="11.0466" t1="66.6311" t2="-50.9557" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.614721" q1="0.433148" q2="0.280538" q3="0.596491" euler_x="-1.83187" euler_y="1.0385" euler_z="-0.400464" id="28" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.13834" t1="62.2791" t2="-56.268" s0="2.94127" s1="2.94127" s2="2.94127" q0="-0.0266999" q1="0.757407" q2="0.491832" q3="-0.428627" euler_x="1.76214" euler_y="-0.672606" euler_z="-2.50962" id="29" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="10.5535" t1="74.4251" t2="-52.3042" s0="2.78123" s1="2.78123" s2="2.78123" q0="0.645594" q1="-0.259114" q2="-0.303701" q3="-0.651026" euler_x="-1.52379" euler_y="0.817613" euler_z="0.0891131" id="30" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="20.116" t1="59.2461" t2="-58.8705" s0="4.97168" s1="4.97168" s2="4.97168" q0="-0.908966" q1="0.163938" q2="-0.142114" q3="0.355964" euler_x="-2.36511" euler_y="-0.142119" euler_z="-0.415086" id="31" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="7.62364" t1="63.5811" t2="-50.1245" s0="2.78123" s1="2.78123" s2="2.78123" q0="0.381943" q1="-0.54635" q2="-0.617113" q3="-0.41808" euler_x="1.26709" euler_y="1.18965" euler_z="2.87316" id="32" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="11.4351" t1="55.8691" t2="-43.6501" s0="2.94127" s1="2.94127" s2="2.94127" q0="0.417947" q1="-0.124395" q2="-0.315235" q3="-0.842894" euler_x="-0.790576" euler_y="0.492927" euler_z="0.506593" id="33" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="12.3002" t1="40.3951" t2="-55.1149" s0="2.01619" s1="2.01619" s2="2.01619" q0="0.00906837" q1="0.213468" q2="-0.000115252" q3="0.976907" euler_x="0.0194415" euler_y="0.430229" euler_z="0.00401206" id="34" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Lugaru/HangingVines_2.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="14.5689" t1="50.0271" t2="-54.6377" s0="2.01619" s1="2.01619" s2="2.01619" q0="0.0082441" q1="-0.20061" q2="-0.00377922" q3="0.979629" euler_x="0.0192157" euler_y="-0.403875" euler_z="-0.0116497" id="35" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Lugaru/HangingVines_2.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.94154" t1="44.8031" t2="-50.355" s0="2.01615" s1="2.01615" s2="2.01615" q0="0.00713605" q1="0.778888" q2="0.00559687" q3="0.627097" euler_x="3.059" euler_y="1.35496" euler_z="3.05681" id="36" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Lugaru/HangingVines_2.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="15.161" t1="48.8741" t2="-48.8438" s0="2.01619" s1="2.01619" s2="2.01619" q0="-0.00165772" q1="0.916417" q2="0.00891633" q3="-0.40012" euler_x="3.1156" euler_y="-0.823198" euler_z="-3.12663" id="37" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Lugaru/HangingVines_2.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="14.3127" t1="53.3811" t2="-53.9627" s0="10.8176" s1="10.8176" s2="10.8176" q0="0.35021" q1="-0.255929" q2="-0.637738" q3="0.636508" euler_x="0.891412" euler_y="0.121179" euler_z="-1.51478" id="38" color_r="0.945744" color_g="1" color_b="0.780392" overbright="2.542" type_file="Data/Objects/Plants/Trees/temperate/dead_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="12.6714" t1="47.2711" t2="-53.2828" s0="10.8176" s1="10.8176" s2="10.8176" q0="0.804006" q1="-0.425111" q2="0.0939969" q3="-0.404989" euler_x="-2.30078" euler_y="0.194405" euler_z="-0.885617" id="39" color_r="0.945744" color_g="1" color_b="0.780392" overbright="2.542" type_file="Data/Objects/Plants/Trees/temperate/dead_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="10.0645" t1="49.8001" t2="-50.637" s0="10.8176" s1="10.8176" s2="10.8176" q0="0.386139" q1="0.120433" q2="0.767151" q3="-0.497867" euler_x="-0.288557" euler_y="-0.792874" euler_z="-1.86879" id="40" color_r="0.945744" color_g="1" color_b="0.780392" overbright="2.542" type_file="Data/Objects/Plants/Trees/temperate/dead_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="16.7181" t1="52.3541" t2="-54.9376" s0="5.33373" s1="5.33373" s2="5.33373" q0="0.183714" q1="0.651304" q2="0.721917" q3="0.144527" euler_x="1.48634" euler_y="-0.0770667" euler_z="2.6756" id="41" color_r="0.945744" color_g="1" color_b="0.780392" overbright="2.542" type_file="Data/Objects/Plants/Trees/temperate/dead_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="8.56754" t1="50.3311" t2="-48.7598" s0="4.62785" s1="4.62785" s2="4.62785" q0="-0.767325" q1="0.0732509" q2="0.628052" q3="0.106752" euler_x="-2.77724" euler_y="1.36786" euler_z="0.107766" id="42" color_r="0.945744" color_g="1" color_b="0.780392" overbright="2.542" type_file="Data/Objects/Plants/Trees/temperate/dead_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-2.60636" t1="16.3691" t2="-52.8843" s0="6.79934" s1="6.79934" s2="6.79934" q0="0.130797" q1="-0.715036" q2="0.126527" q3="0.674985" euler_x="-3.06475" euler_y="-1.51379" euler_z="-2.85232" id="43" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.72184" t1="17.6991" t2="-40.3774" s0="3.90953" s1="3.90953" s2="3.90953" q0="0.28261" q1="-0.234443" q2="0.190579" q3="0.910409" euler_x="0.527249" euler_y="-0.564031" euler_z="0.256619" id="44" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="16.6299" t1="17.0211" t2="-40.6899" s0="6.79934" s1="6.79934" s2="6.79934" q0="0.298242" q1="0.339375" q2="-0.0832693" q3="0.888223" euler_x="0.674627" euler_y="0.710945" euler_z="0.0719972" id="45" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="25.4476" t1="16.4531" t2="-49.5356" s0="6.79934" s1="6.79934" s2="6.79934" q0="0.193681" q1="0.717249" q2="-0.0571527" q3="0.666913" euler_x="2.10328" euler_y="1.36464" euler_z="1.74474" id="46" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.35064" t1="15.2804" t2="-62.4821" s0="6.79934" s1="6.79934" s2="6.79934" q0="0.0955759" q1="-0.872508" q2="0.418618" q3="0.233136" euler_x="-2.23844" euler_y="-0.508475" euler_z="3.10906" id="47" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.8183" t1="17.0351" t2="-61.726" s0="5.09218" s1="5.09218" s2="5.09218" q0="-0.100436" q1="-0.902784" q2="0.416192" q3="-0.0409357" euler_x="-2.28953" euler_y="0.158172" euler_z="2.9919" id="48" color_r="0.999991" color_g="1" color_b="0.99999" overbright="2.542" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_rotting.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="32.7892" t1="1.98693" t2="-17.7278" s0="5.0625" s1="5.0625" s2="5.0625" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/fat_branch_rotting.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="36.8085" t1="-3.03531" t2="28.5684" s0="1" s1="1" s2="23.1879" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="58.2154" t1="27.5698" t2="-40.2056" s0="18.6835" s1="21.1045" s2="19.9403" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="73" version="1">
+        <parameters />
+        <EnvObject t0="57.697" t1="22.2882" t2="-40.6511" s0="1.22503" s1="1.22503" s2="1.22503" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="51" color_r="0.803922" color_g="0.762937" color_b="0.762937" overbright="0" type_file="Data/Objects/plants/trees/temperate/evergreen_stump_mossy.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="60.1438" t1="25.508" t2="-39.6226" s0="1" s1="1" s2="1" q0="0.485544" q1="0.1726" q2="0.851332" q3="-0.09844" euler_x="0.400059" euler_y="-1.03664" euler_z="-3.14159" id="52" color_r="0.803922" color_g="0.762937" color_b="0.762937" overbright="0" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_mossy.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="56.9133" t1="25.1018" t2="-43.029" s0="1" s1="1.09832" s2="1.01525" q0="-0.93604" q1="0.299547" q2="0.183759" q3="-0.0182289" euler_x="2.98804" euler_y="0.33958" euler_z="-0.645808" id="53" color_r="0.803922" color_g="0.762937" color_b="0.762937" overbright="0" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_mossy.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="56.3517" t1="25.7994" t2="-39.761" s0="0.715486" s1="0.715486" s2="0.715486" q0="-0.43612" q1="0.107566" q2="0.892849" q3="0.0324007" euler_x="0.268044" euler_y="0.903906" euler_z="-3.08341" id="54" color_r="0.803922" color_g="0.762937" color_b="0.762937" overbright="0" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_mossy.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="56.6118" t1="28.2784" t2="-40.7522" s0="0.715486" s1="0.785833" s2="0.726399" q0="-0.61648" q1="0.432938" q2="0.632952" q3="0.178558" euler_x="1.96126" euler_y="1.2083" euler_z="-2.09059" id="55" color_r="0.803922" color_g="0.762937" color_b="0.762937" overbright="0" type_file="Data/Objects/plants/trees/temperate/evergreen_roots_mossy.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.3511" t1="27.4443" t2="-41.2558" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0.252056" q3="0.967713" euler_x="0" euler_y="0" euler_z="0.509609" id="56" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/plants/trees/temperate/broken_branch_mossy.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.1054" t1="29.5523" t2="-43.218" s0="3.11106" s1="3.11103" s2="3.11104" q0="-0.0831905" q1="0.38515" q2="-0.0930434" q3="0.914374" euler_x="-0.313872" euler_y="0.759917" euler_z="-0.329035" id="57" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="62.0766" t1="28.4082" t2="-38.2947" s0="2.21351" s1="2.21351" s2="2.21351" q0="0.171558" q1="0.894806" q2="0.196754" q3="-0.362187" euler_x="2.80929" euler_y="-0.797603" euler_z="2.90383" id="58" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.9271" t1="30.0343" t2="-38.6255" s0="3.56203" s1="3.56199" s2="3.56201" q0="0.212994" q1="-0.245466" q2="-0.0213282" q3="0.945475" euler_x="0.482585" euler_y="-0.47246" euler_z="-0.163449" id="59" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="56.0478" t1="30.3824" t2="-40.2241" s0="3.16413" s1="3.16412" s2="3.16409" q0="0.202924" q1="-0.781474" q2="0.148533" q3="0.571016" euler_x="-3.14026" euler_y="-1.26216" euler_z="-2.63445" id="60" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/medium_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="56.8316" t1="25.5118" t2="-42.0697" s0="1.53023" s1="1.53023" s2="1.53023" q0="-0.332593" q1="0.27115" q2="0.100466" q3="0.897645" euler_x="-0.70967" euler_y="0.586707" euler_z="0" id="61" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="59.5258" t1="24.8224" t2="-42.5707" s0="2.12699" s1="2.12699" s2="2.12699" q0="0.271453" q1="0.753529" q2="-0.54277" q3="0.252808" euler_x="-1.96477" euler_y="0.741872" euler_z="2.9579" id="62" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="61.8592" t1="25.0877" t2="-39.1497" s0="2.00118" s1="2.00118" s2="2.00118" q0="0.673724" q1="0.346704" q2="-0.324931" q3="0.565965" euler_x="1.83996" euler_y="0.979596" euler_z="0.179238" id="63" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="57.987" t1="24.5741" t2="-38.7549" s0="2.22558" s1="2.22558" s2="2.22558" q0="0.652546" q1="-0.041975" q2="-0.000305998" q3="0.756588" euler_x="1.42515" euler_y="-0.0631582" euler_z="-0.0553829" id="64" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="55.5974" t1="26.1824" t2="-40.452" s0="2.2384" s1="2.22558" s2="2.31291" q0="0.359397" q1="-0.394528" q2="0.447608" q3="0.717518" euler_x="0.36116" euler_y="-1.09276" euler_z="0.894375" id="65" color_r="0.811765" color_g="0.767254" color_b="0.719446" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/small_deciduous.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="57.8203" t1="22.0513" t2="-42.4017" s0="0.795065" s1="0.795065" s2="0.795065" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="66" color_r="0.780392" color_g="0.67328" color_b="0.728726" overbright="0" type_file="Data/Prototypes/Lugaru/HangingVines_1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="59.2034" t1="22.0253" t2="-39.6745" s0="0.802923" s1="0.795065" s2="0.672221" q0="0" q1="-0.912713" q2="0" q3="0.408601" euler_x="3.14159" euler_y="-0.841841" euler_z="3.14159" id="67" color_r="0.780392" color_g="0.67328" color_b="0.728726" overbright="0" type_file="Data/Prototypes/Lugaru/HangingVines_1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="56.5486" t1="22.8299" t2="-40.3703" s0="0.802923" s1="0.795065" s2="0.672221" q0="0" q1="-0.869343" q2="0" q3="-0.494209" euler_x="-3.14159" euler_y="1.03385" euler_z="-3.14159" id="68" color_r="0.780392" color_g="0.67328" color_b="0.728726" overbright="0" type_file="Data/Prototypes/Lugaru/HangingVines_1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.6702" t1="21.9574" t2="-40.1007" s0="1" s1="1" s2="1" q0="0" q1="0.861793" q2="0" q3="-0.507259" euler_x="3.14159" euler_y="-1.064" euler_z="3.14159" id="69" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_FernWall1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="59.7892" t1="18.9399" t2="-41.797" s0="1" s1="1" s2="1" q0="0" q1="-0.276748" q2="0" q3="0.960943" euler_x="0" euler_y="-0.560817" euler_z="0" id="70" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern2.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="55.6795" t1="19.2249" t2="-41.1725" s0="1" s1="1" s2="1" q0="0" q1="0.150764" q2="0" q3="0.98857" euler_x="0" euler_y="0.302682" euler_z="0" id="71" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/WaterfallArena/CavePlants_Fern1.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="70.0664" t1="16.8739" t2="2.07409" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="74" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Prototypes/OG/PineTree1_A.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="103.179" t1="16.7601" t2="8.74527" s0="16.6766" s1="32.331" s2="17.5546" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="145" version="1">
+        <parameters />
+        <EnvObject t0="103.058" t1="15.663" t2="8.66061" s0="1.47736" s1="1.47736" s2="1.47736" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="75" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_trunk.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="102.44" t1="29.7089" t2="9.09054" s0="1.00708" s1="1.00708" s2="1.00708" q0="-0.454101" q1="0.366221" q2="-0.482004" q3="0.653717" euler_x="-1.24547" euler_y="0.0410644" euler_z="-1.30017" id="76" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="101.702" t1="27.8542" t2="9.66698" s0="1.00708" s1="1.00708" s2="1.00708" q0="-0.0796898" q1="0.289935" q2="-0.252762" q3="0.919619" euler_x="-0.343646" euler_y="0.515505" euler_z="-0.627891" id="77" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="103.024" t1="27.8614" t2="10.8227" s0="1.00708" s1="1.00708" s2="1.00708" q0="0" q1="0.725007" q2="0" q3="0.688742" euler_x="3.14159" euler_y="1.5195" euler_z="3.14159" id="78" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="103.295" t1="30.6856" t2="8.73355" s0="1.00708" s1="1.00708" s2="1.00708" q0="0.712853" q1="-0.625218" q2="0.254456" q3="-0.19025" euler_x="-2.50548" euler_y="-0.125211" euler_z="-1.48127" id="79" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="104.741" t1="27.378" t2="7.84342" s0="1.00708" s1="1.00708" s2="1.00708" q0="0" q1="0.959587" q2="0" q3="-0.281412" euler_x="3.14159" euler_y="-0.570531" euler_z="3.14159" id="80" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="103.19" t1="27.8603" t2="6.81298" s0="1.00708" s1="1.00708" s2="1.00708" q0="0" q1="-0.703208" q2="0" q3="0.710984" euler_x="0" euler_y="-1.5598" euler_z="0" id="81" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="104.395" t1="28.6693" t2="9.19613" s0="1.00708" s1="1.00708" s2="1.00708" q0="-0.405506" q1="0.906608" q2="-0.047662" q3="0.10656" euler_x="-2.96574" euler_y="0.155184" euler_z="-2.28671" id="82" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="101.548" t1="28.6766" t2="8.30627" s0="1.00708" s1="1.00708" s2="1.00708" q0="0.0344693" q1="-0.0903493" q2="-0.35478" q3="0.929936" euler_x="0.129924" euler_y="-0.144078" euler_z="-0.738321" id="83" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="103.079" t1="11.4452" t2="8.79703" s0="14.1206" s1="3.80485" s2="14.5386" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="92" version="1">
+            <parameters />
+            <Group t0="101.783" t1="11.4462" t2="6.38505" s0="11.5127" s1="3.78541" s2="9.69723" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="87" version="1">
+                <parameters />
+                <EnvObject t0="104.104" t1="11.8075" t2="5.95052" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="-0.786517" q2="0" q3="0.617569" euler_x="3.14159" euler_y="-1.3313" euler_z="3.14159" id="84" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="101.439" t1="11.0849" t2="5.96309" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="-0.481953" q2="0" q3="0.876197" euler_x="0" euler_y="-1.00577" euler_z="0" id="85" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="99.5936" t1="11.0849" t2="8.54336" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.00274851" q2="0" q3="0.999996" euler_x="0" euler_y="0.00549703" euler_z="0" id="86" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <Group t0="104.23" t1="11.4441" t2="11.205" s0="11.7998" s1="3.78541" s2="9.70524" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="91" version="1">
+                <parameters />
+                <EnvObject t0="101.876" t1="11.8054" t2="11.5538" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.601598" q2="0" q3="0.798799" euler_x="0" euler_y="1.291" euler_z="0" id="88" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="104.54" t1="11.0829" t2="11.6487" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.86631" q2="0" q3="0.499507" euler_x="3.14159" euler_y="1.04606" euler_z="3.14159" id="89" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="106.488" t1="11.0829" t2="9.14493" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.999849" q2="0" q3="0.0173981" euler_x="3.14159" euler_y="0.034798" euler_z="3.14159" id="90" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+        </Group>
+        <Group t0="103.088" t1="14.1125" t2="8.79066" s0="12.881" s1="3.40709" s2="13.2888" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="101" version="1">
+            <parameters />
+            <Group t0="103.589" t1="14.1135" t2="6.80812" s0="11.8607" s1="3.38787" s2="9.30638" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="96" version="1">
+                <parameters />
+                <EnvObject t0="105.684" t1="14.4366" t2="8.06551" s0="1.55365" s1="1.55365" s2="1.55365" q0="0" q1="0.982001" q2="0" q3="-0.188877" euler_x="3.14159" euler_y="-0.380036" euler_z="3.14159" id="93" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="104.291" t1="13.7903" t2="6.13122" s0="1.55365" s1="1.55365" s2="1.55365" q0="0" q1="-0.829668" q2="0" q3="0.558257" euler_x="3.14159" euler_y="-1.18457" euler_z="3.14159" id="94" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="101.453" t1="13.7903" t2="6.12719" s0="1.55365" s1="1.55365" s2="1.55365" q0="0" q1="-0.455454" q2="0" q3="0.89026" euler_x="0" euler_y="-0.945764" euler_z="0" id="95" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <Group t0="102.498" t1="14.1116" t2="10.7348" s0="11.6838" s1="3.38787" s2="9.38312" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="100" version="1">
+                <parameters />
+                <EnvObject t0="100.447" t1="14.4348" t2="9.35335" s0="1.55365" s1="1.55365" s2="1.55365" q0="0" q1="0.169055" q2="0" q3="0.985607" euler_x="0" euler_y="0.339741" euler_z="0" id="97" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="101.761" t1="13.7885" t2="11.3422" s0="1.55365" s1="1.55365" s2="1.55365" q0="0" q1="0.541429" q2="0" q3="0.840746" euler_x="0" euler_y="1.14427" euler_z="0" id="98" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="104.596" t1="13.7885" t2="11.4604" s0="1.55365" s1="1.55365" s2="1.55365" q0="0" q1="0.880903" q2="0" q3="0.473297" euler_x="3.14159" euler_y="0.986059" euler_z="3.14159" id="99" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+        </Group>
+        <Group t0="103.179" t1="16.7562" t2="8.74527" s0="16.6592" s1="4.56106" s2="17.5372" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="110" version="1">
+            <parameters />
+            <Group t0="105.853" t1="16.7574" t2="8.35034" s0="11.2936" s1="4.54123" s2="16.73" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="105" version="1">
+                <parameters />
+                <EnvObject t0="105.517" t1="17.1911" t2="11.4896" s0="2.0853" s1="2.0853" s2="2.0853" q0="0" q1="0.934391" q2="0" q3="0.356248" euler_x="3.14159" euler_y="0.728498" euler_z="3.14159" id="102" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="107.007" t1="16.3237" t2="8.65764" s0="2.0853" s1="2.0853" s2="2.0853" q0="0" q1="0.999277" q2="0" q3="-0.0380075" euler_x="3.14159" euler_y="-0.0760332" euler_z="3.14159" id="103" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="105.313" t1="16.3237" t2="5.24623" s0="2.0853" s1="2.0853" s2="2.0853" q0="0" q1="-0.855828" q2="0" q3="0.517261" euler_x="3.14159" euler_y="-1.08729" euler_z="3.14159" id="104" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <Group t0="100.491" t1="16.7549" t2="9.10475" s0="11.2652" s1="4.54123" s2="16.8009" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="109" version="1">
+                <parameters />
+                <EnvObject t0="100.835" t1="17.1887" t2="5.96791" s0="2.0853" s1="2.0853" s2="2.0853" q0="0" q1="-0.375" q2="0" q3="0.927025" euler_x="0" euler_y="-0.768793" euler_z="0" id="106" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="99.2322" t1="16.3212" t2="8.73736" s0="2.0853" s1="2.0853" s2="2.0853" q0="0" q1="0.0178683" q2="0" q3="0.99984" euler_x="0" euler_y="0.0357386" euler_z="0" id="107" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="100.787" t1="16.3212" t2="12.2142" s0="2.0853" s1="2.0853" s2="2.0853" q0="0" q1="0.499915" q2="0" q3="0.866075" euler_x="0" euler_y="1.047" euler_z="0" id="108" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+        </Group>
+        <Group t0="103.076" t1="19.0341" t2="8.79493" s0="14.2559" s1="3.71511" s2="14.0915" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="119" version="1">
+            <parameters />
+            <Group t0="105.207" t1="19.0351" t2="9.22157" s0="9.97598" s1="3.69571" s2="13.2208" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="114" version="1">
+                <parameters />
+                <EnvObject t0="104.068" t1="19.3877" t2="11.58" s0="1.69555" s1="1.69555" s2="1.69555" q0="0" q1="0.846538" q2="0" q3="0.532328" euler_x="3.14159" euler_y="1.1227" euler_z="3.14159" id="111" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="106.071" t1="18.6824" t2="9.91913" s0="1.69555" s1="1.69555" s2="1.69555" q0="0" q1="0.987373" q2="0" q3="0.158412" euler_x="3.14159" euler_y="0.318165" euler_z="3.14159" id="112" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="105.865" t1="18.6824" t2="6.82899" s0="1.69555" s1="1.69555" s2="1.69555" q0="0" q1="0.940551" q2="0" q3="-0.339654" euler_x="3.14159" euler_y="-0.693097" euler_z="3.14159" id="113" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <Group t0="101" t1="19.033" t2="8.28939" s0="10.0874" s1="3.69571" s2="13.063" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="118" version="1">
+                <parameters />
+                <EnvObject t0="102.278" t1="19.3857" t2="5.97247" s0="1.69555" s1="1.69555" s2="1.69555" q0="0" q1="-0.549274" q2="0" q3="0.835642" euler_x="0" euler_y="-1.16299" euler_z="0" id="115" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="100.21" t1="18.6804" t2="7.55104" s0="1.69555" s1="1.69555" s2="1.69555" q0="0" q1="-0.178272" q2="0" q3="0.983981" euler_x="0" euler_y="-0.358459" euler_z="0" id="116" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="100.291" t1="18.6804" t2="10.6468" s0="1.69555" s1="1.69555" s2="1.69555" q0="0" q1="0.320636" q2="0" q3="0.947202" euler_x="0" euler_y="0.652802" euler_z="0" id="117" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+        </Group>
+        <Group t0="103.134" t1="21.1488" t2="8.8078" s0="15.0819" s1="3.80485" s2="13.4108" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="128" version="1">
+            <parameters />
+            <Group t0="105.364" t1="21.1499" t2="9.97499" s0="10.6032" s1="3.78541" s2="11.059" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="123" version="1">
+                <parameters />
+                <EnvObject t0="102.915" t1="21.5111" t2="11.8183" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.725351" q2="0" q3="0.688379" euler_x="3.14159" euler_y="1.5185" euler_z="3.14159" id="120" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="105.464" t1="20.7886" t2="11.0395" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.936954" q2="0" q3="0.349452" euler_x="3.14159" euler_y="0.713972" euler_z="3.14159" id="121" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="106.49" t1="20.7886" t2="8.03747" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.988973" q2="0" q3="-0.148098" euler_x="3.14159" euler_y="-0.29729" euler_z="3.14159" id="122" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <Group t0="100.876" t1="21.1478" t2="7.51982" s0="10.549" s1="3.78541" s2="10.8175" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="127" version="1">
+                <parameters />
+                <EnvObject t0="103.437" t1="21.5091" t2="5.81091" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="-0.702852" q2="0" q3="0.711336" euler_x="0" euler_y="-1.5588" euler_z="0" id="124" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="100.859" t1="20.7866" t2="6.48615" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="-0.368257" q2="0" q3="0.929724" euler_x="0" euler_y="-0.754266" euler_z="0" id="125" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="99.7135" t1="20.7866" t2="9.44452" s0="1.7369" s1="1.7369" s2="1.7369" q0="0" q1="0.128144" q2="0" q3="0.991756" euler_x="0" euler_y="0.256996" euler_z="0" id="126" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+        </Group>
+        <Group t0="102.66" t1="26.277" t2="10.4946" s0="9.74739" s1="3.56743" s2="7.99707" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="132" version="1">
+            <parameters />
+            <EnvObject t0="101.007" t1="26.5871" t2="9.26308" s0="1.29146" s1="1.29146" s2="1.29146" q0="-0.0233974" q1="0.156749" q2="-0.0500321" q3="0.986093" euler_x="-0.0650076" euler_y="0.311827" euler_z="-0.11161" id="129" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="102.01" t1="26.0609" t2="10.9757" s0="1.29146" s1="1.29146" s2="1.29146" q0="-0.00194205" q1="0.530296" q2="-0.0551984" q3="0.846011" euler_x="-0.140374" euler_y="1.11307" euler_z="-0.217725" id="130" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="104.354" t1="25.8556" t2="11.1379" s0="1.29146" s1="1.29146" s2="1.29146" q0="0.0250368" q1="0.873714" q2="-0.0492321" q3="0.483295" euler_x="-3.02502" euler_y="1.01029" euler_z="-3.13437" id="131" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="103.61" t1="26.2789" t2="6.99308" s0="9.44585" s1="2.81909" s2="7.8787" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="136" version="1">
+            <parameters />
+            <EnvObject t0="105.251" t1="26.5475" t2="8.3033" s0="1.29146" s1="1.29146" s2="1.29146" q0="0" q1="0.990563" q2="0" q3="-0.137061" euler_x="3.14159" euler_y="-0.274988" euler_z="3.14159" id="133" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="104.268" t1="26.0103" t2="6.58278" s0="1.29146" s1="1.29146" s2="1.29146" q0="0" q1="-0.857832" q2="0" q3="0.51393" euler_x="3.14159" euler_y="-1.07952" euler_z="3.14159" id="134" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="101.923" t1="26.0103" t2="6.33227" s0="1.29146" s1="1.29146" s2="1.29146" q0="0" q1="-0.501564" q2="0" q3="0.86512" euler_x="0" euler_y="-1.05081" euler_z="0" id="135" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="103.485" t1="23.7759" t2="10.6619" s0="12.4409" s1="4.82366" s2="8.55431" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="140" version="1">
+            <parameters />
+            <EnvObject t0="101.161" t1="24.12" t2="10.4841" s0="1.53355" s1="1.53355" s2="1.53355" q0="0.0675188" q1="0.426205" q2="0.0765854" q3="0.898847" euler_x="0.289095" euler_y="0.856941" euler_z="0.30278" id="137" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="103.341" t1="23.4784" t2="11.3679" s0="1.53355" s1="1.53355" s2="1.53355" q0="0.0321457" q1="0.744086" q2="0.0969058" q3="0.660237" euler_x="2.1009" euler_y="1.35272" euler_z="2.19307" id="138" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="105.775" t1="23.9275" t2="10.0573" s0="1.53355" s1="1.53355" s2="1.53355" q0="-0.0188139" q1="0.97077" q2="0.10035" q3="0.217215" euler_x="2.93384" euler_y="0.439523" euler_z="3.13378" id="139" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="102.777" t1="23.9298" t2="6.81186" s0="12.3031" s1="3.34423" s2="8.31129" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="144" version="1">
+            <parameters />
+            <EnvObject t0="105.086" t1="24.2487" t2="7.05867" s0="1.53356" s1="1.53356" s2="1.53356" q0="0" q1="0.912016" q2="0" q3="-0.410154" euler_x="3.14159" euler_y="-0.845245" euler_z="3.14159" id="141" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="103" t1="23.6108" t2="5.96902" s0="1.53356" s1="1.53356" s2="1.53355" q0="0" q1="-0.678639" q2="0" q3="0.734472" euler_x="0" euler_y="-1.49182" euler_z="0" id="142" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="100.495" t1="23.6108" t2="7.22219" s0="1.53355" s1="1.53355" s2="1.53355" q0="0" q1="-0.237972" q2="0" q3="0.971272" euler_x="0" euler_y="-0.480554" euler_z="0" id="143" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/simple/simple_conifer_branch.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+    </Group>
+    <EnvObject t0="63.1685" t1="2.95708" t2="17.3473" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0.946458" euler_y="1.57031" euler_z="0.946458" id="146" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Redwood/log1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="52.8115" t1="1.90331" t2="8.3102" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="147" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/bleached_bough.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="50.2312" t1="3.347" t2="10.1966" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="148" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/broken_branch_rotting.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="50.4123" t1="0.894458" t2="10.2903" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="149" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/evergreen_bough.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="55.4632" t1="2.43934" t2="9.85937" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="150" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/medium_deciduous.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="52.9413" t1="3.36237" t2="7.72273" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="151" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/dead_bough.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="54.6059" t1="0.899146" t2="11.1957" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="152" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/low_fern_.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="56.098" t1="1.21916" t2="11.3516" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="153" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/tall_fern_green.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="57.5531" t1="1.81109" t2="10.3274" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="154" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/small_deciduous.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="55.2402" t1="0.825407" t2="13.0497" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="155" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/twisted_branch_rotting.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="45.8374" t1="2.42222" t2="10.1523" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="157" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/young_evergreen.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="43.1794" t1="1.04816" t2="10.3708" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="158" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/evergreen_roots_bumpy.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="39.9327" t1="0.963308" t2="10.2117" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="159" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_roots.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="50.3473" t1="2.43287" t2="16.1863" s0="1" s1="1" s2="1" q0="0.240644" q1="-0.861201" q2="0.397224" q3="0.206467" euler_x="-2.36831" euler_y="-0.578536" euler_z="-2.8378" id="160" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/temperate/small_evergreen_log_mossy.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="83.2213" t1="22.222" t2="8.76506" s0="16.3149" s1="38.3088" s2="15.5057" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="198" version="1">
+        <parameters />
+        <EnvObject t0="80.2055" t1="16.8939" t2="7.04264" s0="0.998038" s1="0.998038" s2="0.998038" q0="-0.0210815" q1="-0.34769" q2="0.0567317" q3="0.935654" euler_x="-0.103807" euler_y="-0.705275" euler_z="0.159351" id="161" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.18" t1="20.8507" t2="8.72004" s0="0.97959" s1="1.33234" s2="0.893718" q0="-0.00235832" q1="0.972515" q2="0.000564516" q3="-0.232829" euler_x="3.13913" euler_y="-0.469967" euler_z="-3.13615" id="162" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/large_evergreen_dirty.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.8843" t1="39.677" t2="9.27042" s0="1.16648" s1="1.16648" s2="1.16648" q0="0.49151" q1="-0.518215" q2="-0.481652" q3="0.507822" euler_x="1.59108" euler_y="-0.0528735" euler_z="-1.57187" id="163" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_small.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.7191" t1="36.9293" t2="9.36619" s0="0.606653" s1="0.606653" s2="0.606653" q0="-0.235967" q1="0.832067" q2="-0.136957" q3="0.482936" euler_x="-2.3984" euler_y="0.831637" euler_z="-2.2481" id="164" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="81.1271" t1="18.949" t2="10.4347" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="0.159208" q2="0" q3="0.987245" euler_x="0" euler_y="0.319776" euler_z="0" id="165" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.4209" t1="22.7213" t2="5.31115" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="-0.768194" q2="0" q3="0.640217" euler_x="3.14159" euler_y="-1.38956" euler_z="3.14159" id="166" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="80.0034" t1="23.7803" t2="6.8728" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="-0.347972" q2="0" q3="0.937505" euler_x="0" euler_y="-0.710813" euler_z="0" id="167" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="86.4205" t1="19.6867" t2="8.47898" s0="1.10772" s1="1.10772" s2="1.10772" q0="-0.111289" q1="0.993716" q2="0.0013286" q3="-0.0118603" euler_x="3.13631" euler_y="-0.0232779" euler_z="-2.91848" id="168" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.5973" t1="20.9334" t2="12.5643" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="0.725713" q2="0" q3="0.687997" euler_x="3.14159" euler_y="1.51745" euler_z="3.14159" id="169" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="86.5581" t1="21.9924" t2="10.251" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="0.971784" q2="0" q3="0.235874" euler_x="3.14159" euler_y="0.476235" euler_z="3.14159" id="170" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.5744" t1="24.1935" t2="11.6864" s0="1.06965" s1="1.06965" s2="1.06965" q0="-0.133828" q1="0.707099" q2="-0.12912" q3="0.682224" euler_x="-1.6685" euler_y="1.19507" euler_z="-1.66173" id="171" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="79.4821" t1="23.3714" t2="9.63958" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="0.0326339" q2="0" q3="0.999467" euler_x="0" euler_y="0.0652794" euler_z="0" id="172" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="85.7311" t1="24.8495" t2="6.71772" s0="1.01854" s1="1.01854" s2="1.01854" q0="0" q1="0.956048" q2="0" q3="-0.293211" euler_x="3.14159" euler_y="-0.595168" euler_z="3.14159" id="173" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="81.0533" t1="25.6615" t2="11.6498" s0="1.01854" s1="1.01854" s2="1.01854" q0="0" q1="0.403074" q2="0" q3="0.915167" euler_x="0" euler_y="0.829747" euler_z="0" id="174" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="80.512" t1="26.3878" t2="7.04647" s0="1.01854" s1="1.01854" s2="1.01854" q0="0" q1="-0.348329" q2="0" q3="0.937373" euler_x="0" euler_y="-0.711575" euler_z="0" id="175" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="85.4454" t1="19.2299" t2="9.65118" s0="1.16648" s1="1.16648" s2="1.16648" q0="-0.0241794" q1="0.949039" q2="0.0453553" q3="0.310938" euler_x="3.05329" euler_y="0.634008" euler_z="-3.11963" id="176" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="81.0895" t1="21.2642" t2="10.4483" s0="1.16648" s1="1.16648" s2="1.16648" q0="0.0339889" q1="0.155537" q2="0.210766" q3="0.964485" euler_x="0.137261" euler_y="0.289735" euler_z="0.450346" id="177" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.114" t1="37.2524" t2="9.39237" s0="0.860684" s1="0.860684" s2="0.860684" q0="-0.278839" q1="0.612024" q2="-0.321413" q3="0.66661" euler_x="-1.44682" euler_y="0.690234" euler_z="-1.51339" id="178" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_small.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.7575" t1="17.1617" t2="7.3155" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="0.893" q2="0" q3="-0.450057" euler_x="3.14159" euler_y="-0.933658" euler_z="3.14159" id="179" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_small.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.9201" t1="36.4018" t2="7.61543" s0="1.16648" s1="1.16648" s2="1.16648" q0="0.0999181" q1="-0.707209" q2="-0.0979143" q3="0.693025" euler_x="1.6438" euler_y="-1.28937" euler_z="-1.64094" id="180" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_small.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.1643" t1="19.6202" t2="6.65389" s0="1.16648" s1="1.16648" s2="1.16648" q0="0" q1="-0.674115" q2="0" q3="0.738626" euler_x="0" euler_y="-1.47953" euler_z="0" id="181" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="84.1955" t1="36.2675" t2="7.76157" s0="0.912429" s1="0.912429" s2="0.912429" q0="-0.194138" q1="0.963313" q2="-0.106644" q3="-0.151542" euler_x="-2.98544" euler_y="-0.339878" euler_z="-2.77071" id="182" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="83.983" t1="35.6468" t2="9.82885" s0="0.769517" s1="0.769517" s2="0.769517" q0="-0.119002" q1="0.856653" q2="-0.0690696" q3="0.497206" euler_x="-2.6964" euler_y="0.988909" euler_z="-2.62267" id="183" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="81.2449" t1="15.0729" t2="10.3969" s0="1.16648" s1="1.16648" s2="1.16648" q0="0.0339889" q1="0.155537" q2="0.210766" q3="0.964485" euler_x="0.137261" euler_y="0.289735" euler_z="0.450346" id="184" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="85.0596" t1="17.0065" t2="10.4365" s0="1.16648" s1="1.16648" s2="1.16648" q0="0.175564" q1="0.804513" q2="0.35509" q3="0.442547" euler_x="2.02644" euler_y="0.627825" euler_z="2.31239" id="185" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="85.0694" t1="33.8801" t2="8.28753" s0="0.935481" s1="0.935481" s2="0.935481" q0="0.138596" q1="0.989843" q2="0.0304435" q3="-0.00868925" euler_x="3.08368" euler_y="-0.0256435" euler_z="2.86411" id="186" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.9996" t1="34.1892" t2="10.51" s0="0.935481" s1="0.935481" s2="0.935481" q0="0" q1="0.533377" q2="0" q3="0.845878" euler_x="0" euler_y="1.12518" euler_z="0" id="187" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="85.834" t1="31.8956" t2="8.94389" s0="0.816838" s1="0.816838" s2="0.816838" q0="0" q1="0.997525" q2="0" q3="0.0703185" euler_x="3.14159" euler_y="0.140753" euler_z="3.14159" id="188" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="84.2612" t1="32.4816" t2="6.78176" s0="0.816838" s1="0.816838" s2="0.816838" q0="-0.163769" q1="0.885327" q2="0.0791561" q3="-0.427914" euler_x="2.71773" euler_y="-0.820902" euler_z="-2.58904" id="189" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.4666" t1="31.3851" t2="11.2791" s0="0.816838" s1="0.816838" s2="0.816838" q0="0" q1="0.537543" q2="0" q3="0.843236" euler_x="0" euler_y="1.13504" euler_z="0" id="190" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="80.4847" t1="31.7683" t2="9.30024" s0="0.816838" s1="0.816838" s2="0.816838" q0="0" q1="0.0381332" q2="0" q3="0.999273" euler_x="0" euler_y="0.076285" euler_z="0" id="191" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.572" t1="31.4997" t2="6.56214" s0="0.816838" s1="0.816838" s2="0.816838" q0="0.0952806" q1="-0.661921" q2="-0.105931" q3="0.735908" euler_x="1.21082" euler_y="-1.26644" euler_z="-1.22605" id="192" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="80.8136" t1="33.2181" t2="8.08463" s0="0.816838" s1="0.816838" s2="0.816838" q0="0.0270586" q1="-0.20858" q2="-0.125772" q3="0.969507" euler_x="0.114614" euler_y="-0.408935" euler_z="-0.281806" id="193" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.1289" t1="36.0054" t2="9.96799" s0="0.935481" s1="0.935481" s2="0.935481" q0="0.133554" q1="0.158085" q2="-0.255908" q3="0.94429" euler_x="0.185219" euler_y="0.375686" euler_z="-0.493992" id="194" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="82.653" t1="34.8245" t2="7.24497" s0="0.769517" s1="0.769517" s2="0.769517" q0="-0.0347301" q1="-0.708184" q2="0.133138" q3="0.69249" euler_x="-1.59387" euler_y="-1.33179" euler_z="1.73416" id="195" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_medium.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="80.9697" t1="14.1431" t2="6.66763" s0="1.16648" s1="1.16648" s2="1.16648" q0="0.246414" q1="-0.497411" q2="0.0858478" q3="0.827341" euler_x="0.698666" euler_y="-1.04588" euler_z="-0.207183" id="196" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_small.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="81.0709" t1="14.2038" t2="6.67387" s0="1.16648" s1="1.16648" s2="1.16648" q0="-0.30771" q1="-0.330027" q2="-0.146225" q3="0.880349" euler_x="-0.644228" euler_y="-0.735648" euler_z="-0.073378" id="197" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/pine_bough_small.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="47.4634" t1="36.6105" t2="-11.8624" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="199" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Trees/Redwood/BigTree1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="64.4768" t1="3.10062" t2="8.20261" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="200" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_stump_rotting.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="72.5867" t1="40.5366" t2="-21.8539" s0="20.5812" s1="53.1113" s2="19.1614" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="233" version="1">
+        <parameters />
+        <EnvObject t0="71.8847" t1="39.9676" t2="-21.9756" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="156" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/huge_evergreen_coarse.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="70.5784" t1="27.5448" t2="-18.0795" s0="0.887192" s1="1" s2="1" q0="0" q1="0.410697" q2="0" q3="0.911772" euler_x="0" euler_y="0.846437" euler_z="0" id="201" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="75.119" t1="30.5024" t2="-20.4575" s0="1" s1="1" s2="1" q0="0" q1="0.920641" q2="0" q3="0.390411" euler_x="3.14159" euler_y="0.802155" euler_z="3.14159" id="202" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="76.0875" t1="30.1572" t2="-24.5069" s0="1" s1="1" s2="1" q0="0.19187" q1="0.965212" q2="-0.034632" q3="-0.174218" euler_x="-2.99984" euler_y="-0.328923" euler_z="2.72557" id="203" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="69.7682" t1="35.1414" t2="-18.8861" s0="1.27859" s1="1.27859" s2="1.27859" q0="0.0682739" q1="0.430677" q2="0.0419488" q3="0.898942" euler_x="0.250974" euler_y="0.876617" euler_z="0.211381" id="204" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="72.3657" t1="32.7949" t2="-19.0127" s0="1.27859" s1="1.27859" s2="1.27859" q0="0.0525116" q1="0.680918" q2="0.0605272" q3="0.727963" euler_x="1.17072" euler_y="1.39743" euler_z="1.1821" id="205" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="68.049" t1="34.7296" t2="-24.3121" s0="1.27859" s1="1.27859" s2="1.27859" q0="-0.0603644" q1="-0.282372" q2="0.14775" q3="0.945935" euler_x="-0.232892" euler_y="-0.542611" euler_z="0.374939" id="206" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="70.1852" t1="38.912" t2="-26.0243" s0="1.27859" s1="1.27859" s2="1.27859" q0="0.0697984" q1="-0.577239" q2="-0.0393597" q3="0.812634" euler_x="0.456104" euler_y="-1.20176" euler_z="-0.412311" id="207" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="76.511" t1="36.0566" t2="-21.9769" s0="1.53709" s1="1.53709" s2="1.53709" q0="0.102058" q1="0.984813" q2="-0.0541722" q3="0.129587" euler_x="-3.05824" euler_y="0.269547" euler_z="2.94637" id="208" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="67.3923" t1="38.2091" t2="-21.9554" s0="1.27859" s1="1.27859" s2="1.27859" q0="0.0797358" q1="-0.00476488" q2="0.00795116" q3="0.996773" euler_x="0.159567" euler_y="-0.0107672" euler_z="0.0150926" id="209" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="71.3032" t1="40.2873" t2="-26.1868" s0="1.2078" s1="1.2078" s2="1.2078" q0="-0.119553" q1="-0.672078" q2="0.10574" q3="0.723075" euler_x="-1.35809" euler_y="-1.24265" euler_z="1.33829" id="210" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="73.7511" t1="52.9202" t2="-24.9686" s0="0.897149" s1="0.897149" s2="0.897149" q0="0.127844" q1="0.925458" q2="-0.0999737" q3="-0.342329" euler_x="-2.79113" euler_y="-0.653614" euler_z="2.74716" id="211" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="69.1582" t1="43.5742" t2="-25.3263" s0="1.2078" s1="1.2078" s2="1.2078" q0="0.0679698" q1="-0.445689" q2="0.0424397" q3="0.891594" euler_x="0.139568" euler_y="-0.928156" euler_z="0.0251836" id="212" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="69.4066" t1="43.1218" t2="-20.5632" s0="1.13647" s1="1.13647" s2="1.13647" q0="0.165829" q1="0.220844" q2="0.101261" q3="0.955759" euler_x="0.40341" euler_y="0.399071" euler_z="0.293766" id="213" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="74.9829" t1="39.899" t2="-24.896" s0="1.30252" s1="1.30252" s2="1.30252" q0="0.293334" q1="0.94183" q2="0.0158619" q3="-0.163281" euler_x="-3.07204" euler_y="-0.322429" euler_z="2.52642" id="214" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="74.4096" t1="41.5408" t2="-18.4983" s0="1.452" s1="1.452" s2="1.452" q0="0.115495" q1="0.825595" q2="-0.00337493" q3="0.552307" euler_x="2.83833" euler_y="1.14995" euler_z="2.66621" id="215" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="70.7037" t1="48.2227" t2="-25.9444" s0="1.14394" s1="1.14394" s2="1.14394" q0="0.243009" q1="-0.558571" q2="0.0669377" q3="0.790231" euler_x="0.875769" euler_y="-1.15633" euler_z="-0.424024" id="216" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="74.4415" t1="46.0354" t2="-21.9375" s0="0.945346" s1="0.945346" s2="0.945346" q0="0.0904253" q1="0.968866" q2="-0.010254" q3="0.230253" euler_x="3.11724" euler_y="0.464553" euler_z="2.94971" id="217" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="75.1977" t1="42.4646" t2="-23.8392" s0="1.2078" s1="1.2078" s2="1.2078" q0="0.227357" q1="0.96869" q2="0.00579958" q3="-0.0995723" euler_x="-3.10687" euler_y="-0.196815" euler_z="2.6771" id="218" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="74.9123" t1="53.4033" t2="-21.264" s0="1.15526" s1="1.15526" s2="1.15526" q0="0.04901" q1="0.924315" q2="0.169391" q3="0.338446" euler_x="2.68972" euler_y="0.654873" euler_z="2.87981" id="219" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="71.5507" t1="47.1903" t2="-19.5153" s0="1.13647" s1="1.13647" s2="1.13647" q0="0.109071" q1="0.619997" q2="-0.0381319" q3="0.776049" euler_x="0.531714" euler_y="1.32778" euler_z="0.321606" id="220" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="69.8857" t1="54.2122" t2="-21.7819" s0="1.0348" s1="1.0348" s2="1.0348" q0="0.189979" q1="0.144703" q2="0.174322" q3="0.955291" euler_x="0.436611" euler_y="0.211813" euler_z="0.408146" id="221" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="69.3677" t1="56.335" t2="-23.2916" s0="0.93696" s1="0.93696" s2="0.93696" q0="0.114559" q1="-0.186464" q2="0.164774" q3="0.961747" euler_x="0.173961" euler_y="-0.407608" euler_z="0.303321" id="222" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="73.9953" t1="55.5199" t2="-21.8971" s0="0.897149" s1="0.897149" s2="0.897149" q0="0.0593897" q1="0.971118" q2="-0.151036" q3="0.174902" euler_x="-2.8454" euler_y="0.36574" euler_z="3.0746" id="223" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="73.0837" t1="59.7014" t2="-22.9671" s0="0.349177" s1="0.349177" s2="0.349177" q0="0.0832769" q1="0.986421" q2="-0.137667" q3="-0.0329728" euler_x="-2.86058" euler_y="-0.0421335" euler_z="2.96719" id="224" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="70.9196" t1="59.21" t2="-22.4873" s0="0.474337" s1="0.474337" s2="0.474337" q0="0.158576" q1="-0.0221336" q2="-0.101506" q3="0.981866" euler_x="0.321421" euler_y="-0.0112718" euler_z="-0.207857" id="225" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="70.7055" t1="61.985" t2="-23.8913" s0="0.550111" s1="0.550111" s2="0.550111" q0="0.205455" q1="-0.428988" q2="-0.0669925" q3="0.87708" euler_x="0.651914" euler_y="-0.811014" euler_z="-0.440673" id="226" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="73.3214" t1="60.7072" t2="-21.0005" s0="0.616839" s1="0.616839" s2="0.616839" q0="0.00220499" q1="0.846716" q2="-0.162278" q3="0.506688" euler_x="-2.58067" euler_y="1.03284" euler_z="-2.82255" id="227" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="75.0422" t1="49.2238" t2="-24.9898" s0="1.31358" s1="1.31358" s2="1.31358" q0="0.0349764" q1="0.940227" q2="-0.199219" q3="-0.273973" euler_x="-2.66912" euler_y="-0.525051" euler_z="2.93802" id="228" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="69.496" t1="51.4844" t2="-21.0563" s0="0.93696" s1="0.93696" s2="0.93696" q0="0.121543" q1="0.228772" q2="0.0741885" q3="0.963009" euler_x="0.300234" euler_y="0.436295" euler_z="0.220806" id="229" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="71.854" t1="65.619" t2="-23.8242" s0="0.349177" s1="0.349177" s2="0.349177" q0="-0.466885" q1="0.73397" q2="0.100788" q3="-0.482854" euler_x="2.27953" euler_y="-0.661989" euler_z="-1.69503" id="230" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="71.6189" t1="63.6959" t2="-21.0778" s0="0.474337" s1="0.474337" s2="0.474337" q0="-0.0276881" q1="0.430347" q2="-0.374687" q3="0.820759" euler_x="-0.529934" euler_y="0.755527" euler_z="-1.07104" id="231" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="72.3356" t1="64.0474" t2="-23.6491" s0="0.349177" s1="0.349177" s2="0.349177" q0="-0.329595" q1="0.805023" q2="0.0137285" q3="-0.493069" euler_x="2.54705" euler_y="-0.902396" euler_z="-2.06967" id="232" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/evergreen_bough.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="43.0907" t1="1.51607" t2="19.1042" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="234" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Plants/Groundcover/Groundcover2.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="40.3382" t1="2.99298" t2="19.481" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="235" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Prototypes/CaveArena/Bonsai_Branch1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="40.6642" t1="0.866235" t2="27.0468" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="236" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Prototypes/PBR_TextureTest/QuixelFern.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="42.3789" t1="0.922363" t2="27.3028" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="237" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Prototypes/PBR_TextureTest/QuixelGrass.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="93.2365" t1="-1.16568" t2="57.2637" s0="0.44648" s1="0.44648" s2="0.44648" q0="0.112309" q1="0.964144" q2="0.0976692" q3="0.219703" euler_x="2.87904" euler_y="0.413387" euler_z="2.85431" id="238" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Prototypes/PBR_TextureTest/QuixelRockGranite.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="43.2396" t1="0.667885" t2="27.8197" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="239" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Prototypes/PBR_TextureTest/QuixelSalvia.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="44.2465" t1="0.749293" t2="27.9385" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="240" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Prototypes/PBR_TextureTest/QuixelSalviaAlt.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="random_citizen.xml" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fire Wood Hot" path="Data/Objects/Environment/camp/fire_wood_hot.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood_hot.png" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/lethality/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/lethality/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/lethality/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/lethality/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="highroad.xml" path="Data/Prefabs/ouruin/lethality/highroad.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl2.xml" path="Data/Prefabs/ouruin/lethality/lvl2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl3.xml" path="Data/Prefabs/ouruin/lethality/lvl3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl4.xml" path="Data/Prefabs/ouruin/lethality/lvl4.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/wallets/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/wallets/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="cres.xml" path="Data/Prefabs/ouruin/wallets/cres.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/wallets/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/wallets/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level1.xml" path="Data/Prefabs/ouruin/wallets/level1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level2.xml" path="Data/Prefabs/ouruin/wallets/level2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level3.xml" path="Data/Prefabs/ouruin/wallets/level3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="template.xml" path="Data/Prefabs/ouruin/wallets/template.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Blood Drop Splat" path="Data/Objects/Decals/blooddropsplat.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/blooddropsplat.png" />
+    <SpawnerItem display_name="Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="Data/UI/thumbsnailsT2/Coin.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/lethality/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/lethality/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/wallets/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/wallets/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Book Open" path="Data/Objects/therium/openbook.xml" thumbnail_path="Data/UI/thumbsnailsT2/Book open.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/lethality/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/lethality/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ship.xml" path="Data/Prefabs/ouruin/lethality/ship.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/wallets/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/wallets/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ratden.xml" path="Data/Prefabs/ouruin/lethality/ratden.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Skull Rabbit" path="Data/Objects/therium/rabbit_skull.xml" thumbnail_path="Data/UI/thumbsnailsT2/Skull rabbit.png" />
+    <SpawnerItem display_name="StandardBlock.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_Red.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_Red.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_White.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="setmessages.xml" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="simple_conifer_branch.xml" path="Objects/Plants/simple/simple_conifer_branch.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="simple_conifer_trunk.xml" path="Objects/Plants/simple/simple_conifer_trunk.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="TestTree1.xml" path="Objects/Plants/Trees/Test/TestTree1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="TestTree2.xml" path="Objects/Plants/Trees/Test/TestTree2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="TestTree3.xml" path="Objects/Plants/Trees/Test/TestTree3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="TestTree4.xml" path="Objects/Plants/Trees/Test/TestTree4.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="TestTree5.xml" path="Objects/Plants/Trees/Test/TestTree5.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dense_test_tree.xml" path="Objects/Plants/Trees/Test/dense_test_tree.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="gnarled_huge_swamp_tree.xml" path="Objects/Plants/Trees/prefabs/gnarled_huge_swamp_tree.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="swamp_tree_large.xml" path="Objects/Plants/Trees/prefabs/swamp_tree_large.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fat_branch_rotting.xml" path="Objects/Plants/Trees/temperate/fat_branch_rotting.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="PineTree1_A.xml" path="Prototypes/OG/PineTree1_A.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="pinetree1_a.xml" path="Objects/Plants/Trees/prefabs/pinetree1_a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Fir Tree Sparse" path="Data/Objects/Plants/Trees/prefabs/fir_tree_sparse.xml" thumbnail_path="Data/UI/spawner/thumbs/Prefabs/fir_tree_sparse.png" />
+    <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fir Tree" path="Data/Objects/Plants/Trees/prefabs/fir_tree.xml" thumbnail_path="Data/UI/spawner/thumbs/Prefabs/fir_tree.png" />
+    <SpawnerItem display_name="Branches.xml" path="Objects/Plants/Trees/Pine/Branches.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="bleached_bough.xml" path="Objects/Plants/Trees/temperate/bleached_bough.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="broken_branch_rotting.xml" path="Objects/Plants/Trees/temperate/broken_branch_rotting.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="evergreen_bough.xml" path="Objects/Plants/Trees/temperate/evergreen_bough.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="medium_deciduous.xml" path="Objects/Plants/Trees/temperate/medium_deciduous.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="pine_bough.xml" path="Objects/Plants/Trees/temperate/pine_bough.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dead_bough.xml" path="Objects/Plants/Trees/temperate/dead_bough.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="low_fern_.xml" path="Objects/Plants/Trees/temperate/low_fern_.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="tall_fern_green.xml" path="Objects/Plants/Trees/temperate/tall_fern_green.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="small_deciduous.xml" path="Objects/Plants/Trees/temperate/small_deciduous.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="twisted_branch_rotting.xml" path="Objects/Plants/Trees/temperate/twisted_branch_rotting.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="mossy_trunk_rotting.xml" path="Objects/Plants/Trees/temperate/mossy_trunk_rotting.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="young_evergreen.xml" path="Objects/Plants/Trees/temperate/young_evergreen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="green_bush_leaf.xml" path="Objects/Plants/Trees/temperate/green_bush_leaf.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="evergreen_roots_bumpy.xml" path="Objects/Plants/Trees/temperate/evergreen_roots_bumpy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Tree Evergreen Roots" path="Data/Objects/Plants/Trees/temperate/evergreen_roots.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/evergreen_roots.png" />
+    <SpawnerItem display_name="small_evergreen_log_mossy.xml" path="Objects/Plants/Trees/temperate/small_evergreen_log_mossy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="med_dirty_pineneedles.xml" path="Objects/Plants/Trees/prefabs/temperate/med_dirty_pineneedles.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Tree Evergreen Stump Rotting" path="Data/Objects/Plants/Trees/temperate/evergreen_stump_rotting.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/evergreen_stump_rotting.png" />
+    <SpawnerItem display_name="huge_coarse_evergreen.xml" path="Objects/Plants/Trees/prefabs/temperate/huge_coarse_evergreen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="log1.xml" path="Objects/Plants/Trees/Redwood/log1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="BigTree1.xml" path="Objects/Plants/Trees/Redwood/BigTree1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Groundcover2.xml" path="Objects/Plants/Groundcover/Groundcover2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="SpikeyTree_1.xml" path="Prototypes/CaveArena/SpikeyTree_1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Bonsai_Branch1.xml" path="Prototypes/CaveArena/Bonsai_Branch1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="QuixelFern.xml" path="Prototypes/PBR_TextureTest/QuixelFern.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="QuixelGrass.xml" path="Prototypes/PBR_TextureTest/QuixelGrass.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="QuixelRockGranite.xml" path="Prototypes/PBR_TextureTest/QuixelRockGranite.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="QuixelSalvia.xml" path="Prototypes/PBR_TextureTest/QuixelSalvia.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="QuixelSalviaAlt.xml" path="Prototypes/PBR_TextureTest/QuixelSalviaAlt.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_Pile.xml" path="Prototypes/Common/Wood_Pile.xml" thumbnail_path="empty_placeholder.png" />
+</RecentItems>

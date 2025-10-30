@@ -50,7 +50,7 @@
     <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-13.4331" t1="23.1692" t2="36.7283" s0="1" s1="1" s2="1" q0="-0.20698" q1="-0.199611" q2="0.0431812" q3="-0.956792" euler_x="0.426089" euler_y="0.41135" euler_z="0" id="0">
+    <CameraObject t0="6.18286" t1="24.2905" t2="34.1541" s0="1" s1="1" s2="1" q0="0.131161" q1="0.010685" q2="-0.0014138" q3="0.991302" euler_x="0.263096" euler_y="0.0215567" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-27.4945" t1="8.56029" t2="-5.02698" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/DesertRock1a.xml">
@@ -107,7 +107,7 @@
         <ItemConnections />
         <Palette />
     </ActorObject>
-    <EnvObject t0="-20.0713" t1="3.93843" t2="-3.20353" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/gray_rock_boulder.xml">
+    <EnvObject t0="-15.4551" t1="10.8112" t2="-6.03156" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/gray_rock_boulder.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-13.8308" t1="3.04109" t2="-3.1711" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="4" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_forest_rock_a.xml">
@@ -149,15 +149,99 @@
     <EnvObject t0="-3.69279" t1="4.39028" t2="-6.25154" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="19" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/large_red_rock_a .xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-3.38014" t1="8.63082" t2="-8.29038" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_stone_boulder.xml">
+    <EnvObject t0="-15.9604" t1="21.7863" t2="-6.55596" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_stone_boulder.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-0.336246" t1="5.79179" t2="-3.59471" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/medium_round_rock.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-20.4616" t1="9.36476" t2="-5.08753" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/red_boulder.xml">
+    <EnvObject t0="-16.4088" t1="16.2717" t2="-6.68872" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/red_boulder.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="-5.25527" t1="11.2271" t2="-6.31112" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_rock_a.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-4.26462" t1="11.7539" t2="-5.90572" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_rock_b.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.251" t1="11.5481" t2="-5.7158" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_rock_c.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-2.17455" t1="11.7726" t2="-5.86486" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_rock_d.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-1.22618" t1="11.3407" t2="-5.82201" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_rock_e.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.10306" t1="13.045" t2="-8.23495" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/lichen_rubble.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-3.40533" t1="10.9277" t2="-4.403" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="29" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/medium_lichen_rock.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.36212" t1="4.6572" t2="-6.88369" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="30" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/plain_rock_large.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="13.7326" t1="5.53201" t2="-5.00799" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="31" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/plain_rock_small.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.99237" t1="9.58375" t2="-6.58465" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="32" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/rock1a.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.8036" t1="14.616" t2="-6.71499" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="33" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/rock1a_lichen.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.94968" t1="19.5028" t2="-7.2353" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="34" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/rock1a_volcanic.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="13.8876" t1="9.478" t2="-5.52048" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="35" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/rock1b.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="13.8743" t1="13.3432" t2="-5.24828" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="36" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/rock1b_lichen.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="13.8102" t1="17.6171" t2="-5.14298" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="37" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/rock1b_volcanic.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-6.65952" t1="19.2652" t2="-6.00696" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="38" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/BlockyStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-35.0597" t1="35.6176" t2="-6.60907" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="39" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/ChunkyRock.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="0.0106773" t1="25.8782" t2="-5.33605" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="40" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/RoundStone1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="19.0594" t1="31.8047" t2="-7.07092" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/coast_rock_large.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-6.83789" t1="12.9903" t2="-7.91979" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="42" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/dark_rubble.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-16.8122" t1="27.9448" t2="-5.70099" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="43" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/Rocks/granite_vine_rocks/granite_boulder_round.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="38.0326" t1="11.2431" t2="-6.22589" s0="33.5279" s1="13.123" s2="15.9539" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" version="1">
+        <parameters />
+        <EnvObject t0="33.288" t1="13.7027" t2="-5.62799" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="44" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/strata_rocks/strata_rock_block.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="53.1849" t1="11.0577" t2="-7.80958" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="45" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/strata_rocks/strata_rock_boulder.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="33.3392" t1="6.86276" t2="-6.37424" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/strata_rocks/strata_rock_capital.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="42.7296" t1="12.2026" t2="-4.01238" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="47" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/strata_rocks/strata_rock_facade.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="24.0424" t1="11.25" t2="-7.96461" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="48" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/strata_rocks/strata_rock_slope.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="48.4063" t1="12.0171" t2="-4.41127" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Rocks/strata_rocks/strata_rock_pillar.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
     <EnvObject t0="31.7097" t1="-3.03533" t2="1.41433" s0="1" s1="1" s2="6.93939" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
         <parameters />
     </EnvObject>
@@ -205,10 +289,7 @@
     <SpawnerItem display_name="StandardBlock_White.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
     <SpawnerItem display_name="setmessages.xml" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="DesertRock1a.xml" path="Objects/Environment/Rocks/DesertRock1a.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="coast_rock_large.xml" path="Objects/Environment/Rocks/coast_rock_large.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="gray_rock_boulder.xml" path="Objects/Environment/Rocks/gray_rock_boulder.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="dark_rubble.xml" path="Objects/Environment/Rocks/dark_rubble.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="large_forest_rock_a.xml" path="Objects/Environment/Rocks/large_forest_rock_a.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="large_forest_rock_b.xml" path="Objects/Environment/Rocks/large_forest_rock_b.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="large_forest_rock_c.xml" path="Objects/Environment/Rocks/large_forest_rock_c.xml" thumbnail_path="empty_placeholder.png" />
@@ -218,12 +299,34 @@
     <SpawnerItem display_name="large_mossy_rock_a.xml" path="Objects/Environment/Rocks/large_mossy_rock_a.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="large_red_rock_a .xml" path="Objects/Environment/Rocks/large_red_rock_a .xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="lichen_stone_boulder.xml" path="Objects/Environment/Rocks/lichen_stone_boulder.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="lichen_rock_a.xml" path="Objects/Environment/Rocks/lichen_rock_a.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="medium_lichen_rock.xml" path="Objects/Environment/Rocks/medium_lichen_rock.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="medium_round_rock.xml" path="Objects/Environment/Rocks/medium_round_rock.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="red_boulder.xml" path="Objects/Environment/Rocks/red_boulder.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="gstrata_rock_block.xml" path="Objects/Environment/Rocks/strata_rocks_2/gstrata_rock_block.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="crevice.xml" path="Objects/Environment/Land/crevice.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="crevice_hills.xml" path="Objects/Environment/Land/crevice_hills.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="subterranean_cave_floor.xml" path="Objects/Environment/Land/subterranean_cave_floor.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_rock_a.xml" path="Objects/Environment/Rocks/lichen_rock_a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_rock_b.xml" path="Objects/Environment/Rocks/lichen_rock_b.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_rock_c.xml" path="Objects/Environment/Rocks/lichen_rock_c.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_rock_d.xml" path="Objects/Environment/Rocks/lichen_rock_d.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_rock_e.xml" path="Objects/Environment/Rocks/lichen_rock_e.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lichen_rubble.xml" path="Objects/Environment/Rocks/lichen_rubble.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="medium_lichen_rock.xml" path="Objects/Environment/Rocks/medium_lichen_rock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="panel_rock.xml" path="Objects/Environment/Rocks/panel_rock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="plain_rock_large.xml" path="Objects/Environment/Rocks/plain_rock_large.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="plain_rock_small.xml" path="Objects/Environment/Rocks/plain_rock_small.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="red_boulder.xml" path="Objects/Environment/Rocks/red_boulder.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="rock1a.xml" path="Objects/Environment/Rocks/rock1a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="rock1a_lichen.xml" path="Objects/Environment/Rocks/rock1a_lichen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="rock1a_volcanic.xml" path="Objects/Environment/Rocks/rock1a_volcanic.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="rock1b.xml" path="Objects/Environment/Rocks/rock1b.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="rock1b_lichen.xml" path="Objects/Environment/Rocks/rock1b_lichen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="rock1b_volcanic.xml" path="Objects/Environment/Rocks/rock1b_volcanic.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="BlockyStone1.xml" path="Objects/Environment/Rocks/BlockyStone1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ChunkyRock.xml" path="Objects/Environment/Rocks/ChunkyRock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="DesertRock1a.xml" path="Objects/Environment/Rocks/DesertRock1a.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="RoundStone1.xml" path="Objects/Environment/Rocks/RoundStone1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="coast_rock_large.xml" path="Objects/Environment/Rocks/coast_rock_large.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dark_rubble.xml" path="Objects/Environment/Rocks/dark_rubble.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="granite_boulder_round.xml" path="Objects/Environment/Rocks/granite_vine_rocks/granite_boulder_round.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="strata_rocks_all.xml" path="Objects/Environment/Rocks/strata_rocks/strata_rocks_all.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>
