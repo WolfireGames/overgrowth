@@ -13,8 +13,8 @@
 	<SupportedVersion>ba9913e</SupportedVersion>
 	<SupportedVersion>*</SupportedVersion>
 	<NeedsRestart>false</NeedsRestart>
-	<Level title="Drika Hotspot Testing" thumbnail="Images/drika_hotspot_full.jpg">drika_hotspot_testing.xml</Level>
-	<Item category="Hotspot" title="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail="Data/Textures/drika_hotspot.png" />
+	<!-- <Level title="Drika Hotspot Testing" thumbnail="Images/drika_hotspot_full.jpg">drika_hotspot_testing.xml</Level> -->
+	<!-- <Item category="Hotspot" title="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail="Data/Textures/drika_hotspot.png" /> -->
 	<LevelHookFile>Data/Scripts/drika_controller.as</LevelHookFile>
 	<!-- <Campaign title="DHS Example Campaign" thumbnail="Images/drika_hotspot_thumb.jpg" menu_script="standard_campaign_menu.as" main_script="linear_campaign.as">
 		<Level id="drika_campaign_level_1" title="Drika Campaign Level 1" thumbnail="Images/drika_hotspot_thumb.jpg">drika_campaign_level_1.xml</Level>
