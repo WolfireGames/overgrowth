@@ -1,0 +1,195 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>thumbnailvoid</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="" />
+    <parameter name="Fog amount" type="float" val="0" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.005" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="0.971" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="1" />
+    <parameter name="Sky Rotation" type="float" val="0" />
+    <parameter name="Sky Tint" type="string" val="255, 255, 255" />
+</LevelScriptParameters>
+<NavMeshParameters generate="true" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.153056</SunAngularRad>
+    <SunColorAngle>353.589</SunColorAngle>
+    <RayToSun r0="-0.107422" r1="0.689246" r2="0.71652" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-1046.53" t1="754.44" t2="997.104" s0="1" s1="1" s2="1" q0="0.220247" q1="0.373819" q2="-0.0918606" q3="0.896277" euler_x="0.481921" euler_y="0.790287" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <EnvObject t0="-995.345" t1="716.994" t2="946.642" s0="1" s1="1" s2="1" q0="0.554523" q1="-0.403535" q2="-0.0193699" q3="0.727536" euler_x="1.49879" euler_y="-0.601269" euler_z="-0.614923" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/2d_3d/environment/sandy_desert_ground.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="Ground Base" path="Data/Objects/Environment/Cliffs/GroundBase_02.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Ground Base [DetailObjects]" path="Data/Objects/Environment/Cliffs/GroundBase_02_shortgrass.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grass Cliff Big" path="Data/Prototypes/OG/GrassCliff_Big1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grass Cliff Big (Snowy)" path="Data/Objects/therium/Environments/Land/SnowCliff_Big1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grass Cliff Ledge 1" path="Data/Prototypes/OG/GrassCliff_Ledge1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grass Cliff Ledge 2" path="Data/Prototypes/OG/GrassCliff_Ledge2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grass Cliff Ledge 3" path="Data/Prototypes/OG/GrassCliff_Ledge3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Sandstone Bridge (White)" path="Data/Objects/therium/Environments/Land/white_sandstone_bridge.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Sandstone Mesa (White)" path="Data/Objects/therium/Environments/Land/white_sandstone_mesa.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Sandstone Spire (White)" path="Data/Objects/therium/Environments/Land/white_sandstone_spire.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Cave" path="Data/Prototypes/WaterfallArena/GreyRock_Cave.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Ledge 1" path="Data/Prototypes/WaterfallArena/GreyRock_Ledge1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Ledge 2" path="Data/Prototypes/WaterfallArena/GreyRock_Ledge2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Ledge 3" path="Data/Prototypes/WaterfallArena/GreyRock_Ledge3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Small 1" path="Data/Prototypes/WaterfallArena/GreyRockSmall_1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Small 2" path="Data/Prototypes/WaterfallArena/GreyRockSmall_2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Small 3" path="Data/Prototypes/WaterfallArena/GreyRockSmall_3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Ledge 4" path="Data/Prototypes/WaterfallArena/GreyRock_Ledge4.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Small Block" path="Data/Prototypes/WaterfallArena/GreyRockSmall_Block.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Small Flat" path="Data/Prototypes/WaterfallArena/GreyRockSmall_Flat.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Small Misc" path="Data/Prototypes/WaterfallArena/GreyRockSmall_Misc.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Grey Rock Small Pile" path="Data/Prototypes/WaterfallArena/GreyRockSmall_Pile.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chunky Rock" path="Data/Objects/Environment/Rocks/ChunkyRock.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Cliff Peak" path="Data/Objects/Environment/Rocks/CliffPeak.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Desert Rock Spire" path="Data/Objects/Environment/Rocks/DesertRock1a.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Forest Rock A" path="Data/Objects/Environment/Rocks/large_forest_rock_a.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Forest Rock B" path="Data/Objects/Environment/Rocks/large_forest_rock_b.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Forest Rock C" path="Data/Objects/Environment/Rocks/large_forest_rock_c.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Forest Rock D" path="Data/Objects/Environment/Rocks/large_forest_rock_d.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Forest Rock Pile" path="Data/Objects/Environment/Rocks/large_forest_rock_pile.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Green Rock" path="Data/Objects/Environment/Rocks/large_green_rock.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Mossy Rock" path="Data/Objects/Environment/Rocks/large_mossy_rock_a.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Red Rock" path="Data/Objects/Environment/Rocks/large_red_rock_a .xml" thumbnail_path="" />
+    <SpawnerItem display_name="Lichen Rock A" path="Data/Objects/Environment/Rocks/lichen_rock_a.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Lichen Rock B" path="Data/Objects/Environment/Rocks/lichen_rock_b.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Lichen Rock C" path="Data/Objects/Environment/Rocks/lichen_rock_c.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/lichen_rock_c.png" />
+    <SpawnerItem display_name="Lichen Rock D" path="Data/Objects/Environment/Rocks/lichen_rock_d.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Lichen Rock E" path="Data/Objects/Environment/Rocks/lichen_rock_e.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/lichen_rock_e.png" />
+    <SpawnerItem display_name="Medium Lichen Rock" path="Data/Objects/Environment/Rocks/medium_lichen_rock.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/medium_lichen_rock.png" />
+    <SpawnerItem display_name="Medium Round Rock" path="Data/Objects/Environment/Rocks/medium_round_rock.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rock 1A" path="Data/Objects/Environment/Rocks/rock1a.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rock 1A (Lichen)" path="Data/Objects/Environment/Rocks/rock1a_lichen.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rock 1A (Volcanic)" path="Data/Objects/Environment/Rocks/rock1a_volcanic.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rock 1B" path="Data/Objects/Environment/Rocks/rock1b.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rock 1B (Lichen)" path="Data/Objects/Environment/Rocks/rock1b_lichen.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rock 1B (Volcanic)" path="Data/Objects/Environment/Rocks/rock1b_volcanic.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Round Stone" path="Data/Objects/Environment/Rocks/RoundStone1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Huge Granite Rock" path="Data/Prototypes/PBR_TextureTest/QuixelRockGranite.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Farm Tilled Rows" path="Data/Objects/Environment/Farm/FarmRows.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Farm Haystack" path="Data/Objects/Environment/Farm/HayStack_01.xml" thumbnail_path="" />
+    <SpawnerItem display_name="sandpit.xml" path="Objects/sandpit.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Dirt Cube" path="Data/Objects/Environment/DirtDetail.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Courtyard Sand 1" path="Data/Prototypes/OG/CourtyardSand_1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Static Water Cube" path="Data/Objects/water_test.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Static Water Cylinder" path="Data/Objects/water_cylinder.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water Ripple (Huge)" path="Data/Prototypes/Common/Ripple_Huge.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water Ripple (Large)" path="Data/Prototypes/Common/Ripple_Large.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water Ripple (Small)" path="Data/Prototypes/Common/Ripple_Small.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water River (Long)" path="Data/Prototypes/Common/River_Long.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water River (Short)" path="Data/Prototypes/Common/River_Short.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water Splash" path="Data/Prototypes/Common/Splash.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water Stream (Long)" path="Data/Prototypes/Common/Stream_Long.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Water Stream (Short)" path="Data/Prototypes/Common/Stream_Short.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Waterfall" path="Data/Prototypes/Common/Waterfall.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Waterfall (Offset)" path="Data/Prototypes/Common/Waterfall_Offset.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Waterfall Tall" path="Data/Prototypes/Common/WaterfallTall.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Waterfall Tall (Offset)" path="Data/Prototypes/Common/WaterfallTall_Offset.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Iceberg 1" path="Data/Prototypes/OG/Iceberg1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Iceberg 2 (Cut-Off)" path="Data/Prototypes/OG/Iceberg2_TopCutOff.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Icicles 1" path="Data/Prototypes/OG/Icicles_1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Iceberg 2" path="Data/Prototypes/OG/Iceberg2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Icicles 1 (Simple)" path="Data/Prototypes/OG/Icicles_1_simple.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Icicles 2" path="Data/Prototypes/OG/Icicles_2_simple.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Icicles 2" path="Data/Prototypes/OG/Icicles_2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Icicles 3" path="Data/Prototypes/OG/Icicles_3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Sea Ice Chunk 1" path="Data/Prototypes/OG/SeaIce_Chunk1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Sea Ice Chunk 2" path="Data/Prototypes/OG/SeaIce_Chunk2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Sea Ice Chunk 3" path="Data/Prototypes/OG/SeaIce_Chunk3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Frozen River Edge 1" path="Data/Prototypes/Lugaru/FrozenRiverEdge1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Frozen River Edge 2" path="Data/Prototypes/Lugaru/FrozenRiverEdge2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Frozen River Edge 3" path="Data/Prototypes/Lugaru/FrozenRiverEdge3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Frozen River Edge 4 (Alt)" path="Data/Prototypes/Lugaru/FrozenRiverEdge4_2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Frozen River Edge 4" path="Data/Prototypes/Lugaru/FrozenRiverEdge4_1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Frozen River Main 1" path="Data/Prototypes/Lugaru/FrozenRiverMain_1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Frozen River Main 2" path="Data/Prototypes/Lugaru/FrozenRiverMain_2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Raft" path="Data/Objects/Waterprops/Raft.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Raft Sail" path="Data/Objects/Waterprops/RaftSail.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Boat" path="Data/Prototypes/OG/Boat.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Ship (Interior)" path="Data/Prototypes/OG/ShipHullInterior.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Ship Sails (Cinderbreathe)" path="Data/Prototypes/OG/ShipSails_Cinderbreathe.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Ship [Prefab]" path="Data/Prototypes/OG/ShipPrefab.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Flow Cross" path="Data/Prototypes/MagmaArena/MagmaFlow_Cross.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Flow Curve 1" path="Data/Prototypes/MagmaArena/MagmaFlow_Curve1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Flow Curve 2" path="Data/Prototypes/MagmaArena/MagmaFlow_Curve2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Flow Curve 3" path="Data/Prototypes/MagmaArena/MagmaFlow_Curve3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Flow Fall 1" path="Data/Prototypes/MagmaArena/MagmaFlow_Fall.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Flow Fall 2" path="Data/Prototypes/MagmaArena/MagmaFlow_Fall2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Magma Flow Fall 3" path="Data/Prototypes/MagmaArena/MagmaFlow_Fall3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Dog Sword Scabbard (Static)" path="Data/Objects/Weapons/DogWeapons/Dog_Sword_Scabbard.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Buckler Scale" path="Data/Objects/BucklerScale.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Buckler Standard" path="Data/Objects/standard-buckler.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/buckler.png" />
+    <SpawnerItem display_name="Wood Plate" path="Data/Objects/Gear/rabbit_gear/large_wood_plate.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chitin Chestplate" path="Data/Objects/therium/chitinarmour/chestplate.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chitin Backplate" path="Data/Objects/therium/chitinarmour/backplate.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chitin Collar" path="Data/Objects/therium/chitinarmour/collar.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chitin Helmet" path="Data/Objects/therium/chitinarmour/helmet.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chitin Shoulder" path="Data/Objects/therium/chitinarmour/shoulderblade.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chitin Armpiece" path="Data/Objects/therium/chitinarmour/armchunk.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Chitin Thighpiece" path="Data/Objects/therium/chitinarmour/thighpiece.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fabric Scarf" path="Data/Objects/therium/scarf.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Blue Cloak" path="Data/Objects/therium/ouruin/cloak.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Red Cloak" path="Data/Objects/therium/ouruin/cloak_blood.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Zero&apos;s Mask" path="Data/Objects/therium/ouruin/zeromask.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Cinderbreathe Pack" path="Data/Objects/therium/Gear/CinderbreatheRabbitPackNew.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Cinderbreathe Pack (Dirty)" path="Data/Objects/therium/Gear/CinderbreatheRabbitPack.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Large Bag" path="Data/Objects/Gear/rabbit_gear/large_bag.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Medium Bags" path="Data/Objects/Gear/rabbit_gear/medium_bags.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Sack" path="Data/Objects/Gear/RatJunk/RatJunkSack.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Banjo" path="Data/Objects/therium/banjo.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Paintbrush (Big)" path="Data/Objects/therium/big_paintbrush.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Paintbrush (Small)" path="Data/Objects/therium/small_paintbrush.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Coal Pen 1" path="Data/Objects/therium/coalpen1.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Coal Pen 2" path="Data/Objects/therium/coalpen2.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Coal Pen 3" path="Data/Objects/therium/coalpen3.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Coal Pen 4" path="Data/Objects/therium/coalpen4.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Hatchet" path="Data/Objects/therium/hatchet.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Handcuffs" path="Data/Objects/therium/handcuffs.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Inkpot" path="Data/Objects/therium/inkpot.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Pickaxe" path="Data/Objects/therium/pickaxe.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Lantern" path="Data/Objects/therium/lantern.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Lantern" path="Data/Objects/lantern_default.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fishing Rod" path="Data/Objects/therium/ouruin/fishingrod.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Cinderbreathe Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Scoutseer Eyeballs" path="Data/Objects/therium/eyeball.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Feather" path="Data/Objects/therium/feather.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Medallion" path="Data/Objects/therium/medallion.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Small Chain" path="Data/Objects/therium/chain.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Gabeknife (Static)" path="Data/Objects/Weapons/gabenife.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/gabenife.png" />
+    <SpawnerItem display_name="Ancient Rabbit Sigil" path="Data/Objects/therium/ancientsign.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Cat Pendant" path="Data/Objects/therium/arlisspendant.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Rock Key" path="Data/Objects/therium/key.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Crow Plushie" path="Data/Objects/therium/crowplush.xml" thumbnail_path="" />
+    <SpawnerItem display_name="2D Cylinder Square Rocks" path="Data/Objects/2d_3d/environment/cylinder_square_rocks.xml" thumbnail_path="" />
+    <SpawnerItem display_name="2D Rocky Desert Plains" path="Data/Objects/2d_3d/environment/rocky_desert_plains.xml" thumbnail_path="" />
+    <SpawnerItem display_name="2D Rocky Desert Plains Details" path="Data/Objects/2d_3d/environment/rocky_desert_plains_details.xml" thumbnail_path="" />
+    <SpawnerItem display_name="2D Rocky Dry Bluffs" path="Data/Objects/2d_3d/environment/rocky_dry_bluffs.xml" thumbnail_path="" />
+    <SpawnerItem display_name="2D Rocky Dry Bluffs Details" path="Data/Objects/2d_3d/environment/rocky_dry_bluffs_details.xml" thumbnail_path="" />
+    <SpawnerItem display_name="2D Sandy Ground" path="Data/Objects/2d_3d/environment/sandy_desert_ground.xml" thumbnail_path="" />
+</RecentItems>

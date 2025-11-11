@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <EnvObject t0="130.934" t1="-105.967" t2="-153.898" s0="0.136145" s1="0.136145" s2="0.136145" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/chain.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
