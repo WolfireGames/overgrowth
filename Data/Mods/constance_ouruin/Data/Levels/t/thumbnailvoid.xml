@@ -35,12 +35,9 @@
     <RayToSun r0="-0.107422" r1="0.689246" r2="0.71652" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-1046.53" t1="754.44" t2="997.104" s0="1" s1="1" s2="1" q0="0.220247" q1="0.373819" q2="-0.0918606" q3="0.896277" euler_x="0.481921" euler_y="0.790287" euler_z="0" id="0">
+    <CameraObject t0="6.25772" t1="-5.131" t2="-7.42828" s0="1" s1="1" s2="1" q0="0.177685" q1="0.0413952" q2="-0.00748109" q3="0.983188" euler_x="0.357587" euler_y="0.0841564" euler_z="0" id="0">
         <parameters />
     </CameraObject>
-    <EnvObject t0="-995.345" t1="716.994" t2="946.642" s0="1" s1="1" s2="1" q0="0.554523" q1="-0.403535" q2="-0.0193699" q3="0.727536" euler_x="1.49879" euler_y="-0.601269" euler_z="-0.614923" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/2d_3d/environment/sandy_desert_ground.xml">
-        <parameters />
-    </EnvObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Ground Base" path="Data/Objects/Environment/Cliffs/GroundBase_02.xml" thumbnail_path="" />
@@ -192,4 +189,8 @@
     <SpawnerItem display_name="2D Rocky Dry Bluffs" path="Data/Objects/2d_3d/environment/rocky_dry_bluffs.xml" thumbnail_path="" />
     <SpawnerItem display_name="2D Rocky Dry Bluffs Details" path="Data/Objects/2d_3d/environment/rocky_dry_bluffs_details.xml" thumbnail_path="" />
     <SpawnerItem display_name="2D Sandy Ground" path="Data/Objects/2d_3d/environment/sandy_desert_ground.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Brush Grass Clump" path="Data/Objects/Plants/Groundcover/Grass/brushgrass_clump.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/brushgrass_clump.png" />
+    <SpawnerItem display_name="Rune Wind" path="Data/Objects/Decals/runes/rune_wind.xml" thumbnail_path="Data/Textures/Decals/runes/rune_wind.png" />
+    <SpawnerItem display_name="Moss Leak" path="Data/Objects/therium/ouruin/mossleak.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Edged Stone Cube" path="Data/Objects/primitives/edged_cube.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/edged_cube.png" />
 </RecentItems>
