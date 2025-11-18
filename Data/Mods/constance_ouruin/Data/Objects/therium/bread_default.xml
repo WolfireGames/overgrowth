@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <EnvObject t0="9.00917" t1="-9.2373" t2="-13.3837" s0="0.0422222" s1="0.0422222" s2="0.0422222" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/bread.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>

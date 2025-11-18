@@ -1,0 +1,7 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <EnvObject t0="-636.404" t1="291.921" t2="595.622" s0="0.059" s1="0.059" s2="0.059" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/applebit.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
