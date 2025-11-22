@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="33.0756" t1="-40.1801" t2="-13.9978" s0="1" s1="1" s2="1" q0="0.0518872" q1="-0.503059" q2="0.0302754" q3="0.862162" euler_x="0.12022" euler_y="-1.05638" euler_z="0" id="0">
+    <CameraObject t0="9.05519" t1="-44.2475" t2="-32.8898" s0="1" s1="1" s2="1" q0="0.0522004" q1="-0.152996" q2="0.00809316" q3="0.986814" euler_x="0.105697" euler_y="-0.307631" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="7.28763" t1="-29.2394" t2="-48.4827" s0="4.37223" s1="2.18173" s2="2.96719" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="1" color_g="0.32549" color_b="0.769873" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonesmooth/cube.xml">
@@ -110,12 +110,6 @@
             </EnvObject>
         </Group>
     </Group>
-    <EnvObject t0="6.79595" t1="-49.1732" t2="-35.7249" s0="0.987644" s1="0.666667" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="3.5776" t1="-47.5634" t2="-35.9586" s0="0.863546" s1="0.751141" s2="0.751141" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="0.235618" euler_y="1.57031" euler_z="0.235618" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
-        <parameters />
-    </EnvObject>
     <EnvObject t0="6.65128" t1="-22.3356" t2="-37.9515" s0="4.11304" s1="1.94031" s2="1.88158" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" color_r="1" color_g="0.32549" color_b="0.769873" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonesmooth/cube.xml">
         <parameters />
     </EnvObject>
@@ -205,7 +199,7 @@
     </EnvObject>
     <Group t0="6.7553" t1="-43.8791" t2="-28.1523" s0="4.95796" s1="6.58516" s2="1.73613" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="67" version="1">
         <parameters />
-        <EnvObject t0="8.30609" t1="-46.506" t2="-28.2314" s0="0.257015" s1="0.280097" s2="0.310061" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="65" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
+        <EnvObject t0="8.30609" t1="-46.506" t2="-28.2314" s0="0.257015" s1="0.280097" s2="0.310061" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="65" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="5.23214" t1="-43.4525" t2="-28.1477" s0="0.344572" s1="0.344572" s2="0.344572" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="413" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
@@ -214,7 +208,7 @@
         <EnvObject t0="8.31733" t1="-43.4525" t2="-28.0927" s0="0.344572" s1="0.344572" s2="0.344572" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="415" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="5.20451" t1="-46.506" t2="-28.2314" s0="0.257015" s1="0.280097" s2="0.310061" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="66" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
+        <EnvObject t0="5.20451" t1="-46.506" t2="-28.2314" s0="0.257015" s1="0.280097" s2="0.310061" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="66" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -1220,33 +1214,30 @@
     <EnvObject t0="0.938121" t1="-25.0235" t2="-42.5072" s0="2.50047" s1="4.91062" s2="3.02986" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="161" color_r="1" color_g="0.32549" color_b="0.769873" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonesmooth/cube.xml">
         <parameters />
     </EnvObject>
-    <Group t0="6.65909" t1="-48.0987" t2="-48.9938" s0="10.3478" s1="4.05995" s2="15.2057" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="179" version="1">
+    <Group t0="6.78039" t1="-49.0219" t2="-78.3484" s0="20.9124" s1="5.57979" s2="14.2296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="179" version="1">
         <parameters />
-        <EnvObject t0="6.6884" t1="-48.1704" t2="-48.9504" s0="0.453017" s1="0.424383" s2="0.654263" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="162" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/window_block.xml">
+        <EnvObject t0="6.64787" t1="-49.1205" t2="-78.2887" s0="0.623194" s1="0.583804" s2="0.881376" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="162" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/window_block.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="10.2906" t1="-46.7065" t2="-53.1484" s0="0.409403" s1="0.329489" s2="0.387329" q0="0" q1="-0.000172555" q2="0" q3="1" euler_x="0" euler_y="-0.000345111" euler_z="0" id="164" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="11.7761" t1="-47.1067" t2="-84.0638" s0="0.563197" s1="0.453263" s2="0.53283" q0="0" q1="-0.000172555" q2="0" q3="1" euler_x="0" euler_y="-0.00034511" euler_z="0" id="164" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="2.90612" t1="-47.1834" t2="-53.1087" s0="0.396829" s1="0.577453" s2="0.387329" q0="0" q1="-1" q2="0" q3="0.000243962" euler_x="3.14159" euler_y="-0.000487923" euler_z="3.14159" id="165" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="1.61763" t1="-47.7627" t2="-84.0092" s0="0.5459" s1="0.794377" s2="0.53283" q0="0" q1="-1" q2="0" q3="0.000243962" euler_x="3.14159" euler_y="-0.000487924" euler_z="3.14159" id="165" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="10.4124" t1="-46.7065" t2="-44.8395" s0="0.396829" s1="0.329489" s2="0.387329" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="173" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="11.9437" t1="-47.1067" t2="-72.6337" s0="0.545899" s1="0.453263" s2="0.53283" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="173" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="2.90601" t1="-46.7075" t2="-44.8401" s0="0.396829" s1="0.329489" s2="0.387329" q0="0" q1="-0.000299126" q2="0" q3="1" euler_x="0" euler_y="-0.000598252" euler_z="0" id="174" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="1.61748" t1="-47.1081" t2="-72.6344" s0="0.545899" s1="0.453263" s2="0.53283" q0="0" q1="-0.000299126" q2="0" q3="1" euler_x="0" euler_y="-0.000598252" euler_z="0" id="174" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="13.1325" t1="-46.7067" t2="-48.9982" s0="0.349245" s1="0.329489" s2="0.395132" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="176" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="15.6856" t1="-47.107" t2="-78.3546" s0="0.48044" s1="0.453263" s2="0.543565" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="176" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.101984" t1="-47.1825" t2="-48.9655" s0="0.373977" s1="0.577453" s2="0.390029" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="177" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="-2.23989" t1="-47.7615" t2="-78.3096" s0="0.514463" s1="0.794376" s2="0.536545" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="177" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="7.44745" t1="-41.2249" t2="-35.8103" s0="8.24266" s1="1.52858" s2="5.36657" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="180" color_r="1" color_g="0.32549" color_b="0.769873" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonesmooth/cube.xml">
-        <parameters />
-    </EnvObject>
     <Group t0="0.34268" t1="-29.8865" t2="-37.8093" s0="6.17597" s1="0.462381" s2="3.42041" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="181" version="1">
         <parameters />
         <EnvObject t0="-2.57567" t1="-29.8621" t2="-37.8059" s0="1.74945" s1="1.24885" s2="1.74167" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="170" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -1374,6 +1365,15 @@
         <parameters />
     </EnvObject>
     <EnvObject t0="13.3731" t1="-25.0235" t2="-42.5072" s0="2.75162" s1="4.91062" s2="3.02986" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="204" color_r="1" color_g="0.32549" color_b="0.769873" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonesmooth/cube.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="6.76863" t1="-46.1706" t2="-28.0674" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="207" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim_floor.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="8.35471" t1="-42.0724" t2="-28.2637" s0="0.263825" s1="0.263825" s2="0.263825" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="208" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="5.19926" t1="-42.0724" t2="-28.2637" s0="0.263825" s1="0.263825" s2="0.263825" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="209" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/short_trim.xml">
         <parameters />
     </EnvObject>
     <Group t0="13.6975" t1="-29.8865" t2="-37.8092" s0="6.17597" s1="0.462381" s2="3.42041" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="224" version="1">
@@ -1931,10 +1931,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="6.77443" t1="-42.0732" t2="-27.7439" s0="0.23756" s1="0.197531" s2="0.27486" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="412" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/overhang.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="10.1283" t1="-47.5634" t2="-35.9586" s0="0.863546" s1="0.751141" s2="0.751141" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="416" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+    <EnvObject t0="6.77443" t1="-42.0732" t2="-27.8648" s0="0.23756" s1="0.246753" s2="0.27486" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="412" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/overhang.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="6.77533" t1="-42.0488" t2="-26.7586" s0="0.847666" s1="0.847666" s2="0.782279" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="419" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
@@ -1951,19 +1948,19 @@
     </EnvObject>
     <Group t0="13.0226" t1="-27.3196" t2="-37.8311" s0="1.52833" s1="5.49478" s2="3.503" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="429" version="1">
         <parameters />
-        <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="13.0473" t1="-25.568" t2="-36.4504" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="13.0473" t1="-25.568" t2="-36.4504" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="12.9524" t1="-29.3274" t2="-36.453" s0="1.47674" s1="1.12901" s2="1.47674" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="12.9524" t1="-29.3274" t2="-36.453" s0="1.47674" s1="1.12901" s2="1.47674" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="13.4338" t1="-27.1994" t2="-38.9941" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="13.4338" t1="-27.1994" t2="-38.9941" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="46" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="13.0473" t1="-25.5677" t2="-39.2263" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="68" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="13.0473" t1="-25.5677" t2="-39.2263" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="68" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="13.4338" t1="-26.1342" t2="-37.8195" s0="1.34907" s1="0.775054" s2="1.01611" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="99" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -1972,7 +1969,7 @@
         <EnvObject t0="13.4338" t1="-29.4547" t2="-37.8225" s0="1.34907" s1="0.775055" s2="1.01612" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="334" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="13.4338" t1="-27.1994" t2="-36.2244" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="428" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="13.4338" t1="-27.1994" t2="-36.2244" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="428" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="13.4338" t1="-28.6587" t2="-37.8225" s0="1.34907" s1="0.775054" s2="1.01611" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="425" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -1981,31 +1978,31 @@
         <EnvObject t0="13.4338" t1="-25.3382" t2="-37.8195" s0="1.34907" s1="0.775055" s2="1.01612" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="333" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="13.4483" t1="-27.4136" t2="-37.8219" s0="2.01792" s1="2.24323" s2="1.98839" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="0" euler_y="-1.57045" euler_z="0" id="427" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
+        <EnvObject t0="13.4483" t1="-27.4136" t2="-37.8219" s0="2.01792" s1="2.24323" s2="1.98839" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="-3.14159" euler_y="-1.5708" euler_z="-3.14159" id="427" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="13.4338" t1="-27.2021" t2="-36.6581" s0="1.21132" s1="1.92253" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="325" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="13.4338" t1="-27.2021" t2="-36.6581" s0="1.21132" s1="1.92253" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="325" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="12.9524" t1="-29.3274" t2="-39.2295" s0="1.47674" s1="1.12901" s2="1.47674" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="332" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="12.9524" t1="-29.3274" t2="-39.2295" s0="1.47674" s1="1.12901" s2="1.47674" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="332" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
     </Group>
     <Group t0="0.633159" t1="-27.3196" t2="-37.8311" s0="1.52833" s1="5.49478" s2="3.503" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="437" version="1">
         <parameters />
-        <EnvObject t0="0.222011" t1="-27.1994" t2="-36.2244" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.632763" euler_y="-1.57045" euler_z="0.632763" id="108" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="0.222011" t1="-27.1994" t2="-36.2244" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="108" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.608511" t1="-25.568" t2="-39.2119" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0.632763" euler_y="1.57045" euler_z="0.632763" id="243" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="0.608511" t1="-25.568" t2="-39.2119" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="243" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.703314" t1="-29.3274" t2="-39.2093" s0="1.47674" s1="1.12901" s2="1.47674" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="244" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="0.703314" t1="-29.3274" t2="-39.2093" s0="1.47674" s1="1.12901" s2="1.47674" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="244" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.222011" t1="-27.1994" t2="-36.6681" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.632763" euler_y="-1.57045" euler_z="0.632763" id="323" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="0.222011" t1="-27.1994" t2="-36.6681" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="323" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.60851" t1="-25.5677" t2="-36.4359" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0.632763" euler_y="1.57045" euler_z="0.632763" id="324" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="0.60851" t1="-25.5677" t2="-36.4359" s0="1.47674" s1="1.47674" s2="1.47674" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="324" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="0.222011" t1="-26.1342" t2="-37.8427" s0="1.34907" s1="0.775054" s2="1.01611" q0="0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="426" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -2014,7 +2011,7 @@
         <EnvObject t0="0.222011" t1="-29.4547" t2="-37.8398" s0="1.34907" s1="0.775055" s2="1.01612" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="430" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.222011" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.632763" euler_y="-1.57045" euler_z="0.632763" id="431" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="0.222011" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="431" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="0.222011" t1="-28.6587" t2="-37.8398" s0="1.34907" s1="0.775054" s2="1.01611" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="432" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -2023,13 +2020,13 @@
         <EnvObject t0="0.222011" t1="-25.3382" t2="-37.8427" s0="1.34907" s1="0.775055" s2="1.01612" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="433" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.207425" t1="-27.4136" t2="-37.8404" s0="2.01792" s1="2.24323" s2="1.98839" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="-3.00905" euler_y="1.5708" euler_z="0.260582" id="434" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
+        <EnvObject t0="0.207425" t1="-27.4136" t2="-37.8404" s0="2.01792" s1="2.24323" s2="1.98839" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="434" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.222011" t1="-27.2021" t2="-39.0042" s0="1.21132" s1="1.92253" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="-0.632763" euler_y="-1.57045" euler_z="0.632763" id="435" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+        <EnvObject t0="0.222011" t1="-27.2021" t2="-39.0042" s0="1.21132" s1="1.92253" s2="1.68494" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="435" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="0.703314" t1="-29.3274" t2="-36.4328" s0="1.47674" s1="1.12901" s2="1.47674" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="436" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+        <EnvObject t0="0.703314" t1="-29.3274" t2="-36.4328" s0="1.47674" s1="1.12901" s2="1.47674" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="436" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -2092,16 +2089,16 @@
         <EnvObject t0="6.77629" t1="-35.714" t2="-27.7674" s0="0.23756" s1="0.197531" s2="0.27486" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="92" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/overhang.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="5.23399" t1="-37.0933" t2="-28.1162" s0="0.344572" s1="0.344572" s2="0.344572" q0="0" q1="-1" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="3.14159" id="93" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
+        <EnvObject t0="5.23399" t1="-37.0933" t2="-28.1162" s0="0.344572" s1="0.344572" s2="0.344572" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="93" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
             <parameters />
         </EnvObject>
         <EnvObject t0="8.31919" t1="-37.0933" t2="-28.1162" s0="0.344572" s1="0.344572" s2="0.344572" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="94" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="6.79659" t1="-38.3321" t2="-27.4587" s0="0.82766" s1="0.754338" s2="0.828592" q0="0" q1="-1" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="3.14159" id="390" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/burrow/burrow_door.xml">
+        <EnvObject t0="6.79659" t1="-38.3321" t2="-27.4587" s0="0.82766" s1="0.754338" s2="0.828592" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="390" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/burrow/burrow_door.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="6.73959" t1="-38.3977" t2="-27.5441" s0="0.883509" s1="1.47619" s2="0.0174654" q0="0" q1="-1" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="3.14159" id="459" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+        <EnvObject t0="6.73959" t1="-38.3977" t2="-27.5441" s0="0.883509" s1="1.47619" s2="0.0174654" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="459" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -2234,12 +2231,378 @@
     <EnvObject t0="8.17363" t1="-42.9992" t2="-55.5258" s0="1" s1="1" s2="0.981857" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="741" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/Common/Wood_EndLegs.xml">
         <parameters />
     </EnvObject>
+    <EnvObject t0="6.75317" t1="-42.1419" t2="-28.2764" s0="0.145901" s1="0.164167" s2="0.178342" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="780" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/overhang.xml">
+        <parameters />
+    </EnvObject>
+    <Group t0="10.5018" t1="-43.477" t2="-28.659" s0="3.12178" s1="4.89256" s2="0.113975" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="786" version="1">
+        <parameters />
+        <EnvObject t0="10.5018" t1="-45.4564" t2="-28.659" s0="1.59583" s1="1.6622" s2="1.59583" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="781" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="10.5018" t1="-44.4717" t2="-28.659" s0="1.59583" s1="1.6622" s2="1.59583" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="782" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="10.5018" t1="-43.477" t2="-28.6591" s0="1.59583" s1="1.6622" s2="1.59583" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="783" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="10.5018" t1="-42.4923" t2="-28.6591" s0="1.59583" s1="1.6622" s2="1.59583" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="784" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="10.5018" t1="-41.4976" t2="-28.6591" s0="1.59583" s1="1.6622" s2="1.59583" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="785" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="3.0116" t1="-43.477" t2="-28.659" s0="3.12178" s1="4.89256" s2="0.113975" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="792" version="1">
+        <parameters />
+        <EnvObject t0="3.0116" t1="-41.4976" t2="-28.6591" s0="1.59583" s1="1.6622" s2="1.59583" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="787" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="3.0116" t1="-42.4823" t2="-28.6591" s0="1.59583" s1="1.6622" s2="1.59583" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="788" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="3.0116" t1="-43.477" t2="-28.659" s0="1.59583" s1="1.6622" s2="1.59583" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="789" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="3.0116" t1="-44.4617" t2="-28.659" s0="1.59583" s1="1.6622" s2="1.59583" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="790" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="3.0116" t1="-45.4564" t2="-28.659" s0="1.59583" s1="1.6622" s2="1.59583" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="791" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <EnvObject t0="10.488" t1="-43.4643" t2="-28.4677" s0="1.3088" s1="1.18772" s2="1.18772" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="793" color_r="0.0784314" color_g="0.0743496" color_b="0.0710496" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/medievalmixedcobble/wall.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="3.07814" t1="-43.4812" t2="-28.4677" s0="1.30033" s1="1.18772" s2="1.18772" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="794" color_r="0.0784314" color_g="0.0743496" color_b="0.0710496" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/medievalmixedcobble/wall.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject t0="-9.33529" t1="-9.71712" t2="-38.4823" s0="0.520627" s1="0.595268" s2="0.165408" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="798" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="13.3565" t1="-13.079" t2="-41.6691" s0="0.245537" s1="0.382886" s2="0.220625" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="845" color_r="0.247059" color_g="0.247056" color_b="0.247056" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
         <parameters />
     </EnvObject>
+    <Group t0="6.77068" t1="-42.0098" t2="-34.0716" s0="14.6251" s1="14.6251" s2="14.6251" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="851" version="1">
+        <parameters />
+        <Group t0="6.73717" t1="-46.9868" t2="-32.7647" s0="10.4655" s1="1.48503" s2="2.86895" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="205" version="1">
+            <parameters />
+            <EnvObject t0="10.5633" t1="-46.9896" t2="-32.7438" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="163" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="8.08406" t1="-46.984" t2="-32.8156" s0="1.53544" s1="1.85725" s2="1.02362" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="166" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.55372" t1="-46.9854" t2="-32.7471" s0="1.75796" s1="0.980971" s2="1.96714" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="167" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2.91103" t1="-46.984" t2="-32.7333" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="175" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="6.79901" t1="-46.9868" t2="-30.3238" s0="10.4655" s1="1.48503" s2="2.86898" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="206" version="1">
+            <parameters />
+            <EnvObject t0="2.97286" t1="-46.984" t2="-30.3743" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="804" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.45212" t1="-46.9896" t2="-30.3748" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="805" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="7.98246" t1="-46.9883" t2="-30.3063" s0="1.75796" s1="0.980971" s2="1.96714" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="806" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="10.6252" t1="-46.9896" t2="-30.3748" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="807" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="6.88626" t1="-43.507" t2="-34.0531" s0="11.2915" s1="6.01385" s2="11.6393" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="779" version="1">
+            <parameters />
+            <EnvObject t0="1.50393" t1="-43.4581" t2="-34.1528" s0="0.958156" s1="1.90234" s2="1.77403" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="24" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                <parameters />
+            </EnvObject>
+            <Group t0="6.88626" t1="-43.507" t2="-34.0531" s0="11.2815" s1="6.00384" s2="11.6293" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="778" version="1">
+                <parameters />
+                <EnvObject t0="12.1106" t1="-43.4581" t2="-34.1508" s0="0.958156" s1="1.90234" s2="1.77403" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="25" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="6.76649" t1="-43.4581" t2="-39.4538" s0="0.958156" s1="1.90234" s2="1.77403" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="180" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+                <Group t0="6.88626" t1="-43.507" t2="-34.0531" s0="11.2715" s1="5.99384" s2="11.6193" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="777" version="1">
+                    <parameters />
+                    <Group t0="2.11931" t1="-43.5781" t2="-29.0314" s0="1.55599" s1="5.60543" s2="1.566" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="386" version="1">
+                        <parameters />
+                        <Group t0="1.50772" t1="-43.5781" t2="-29.0314" s0="0.319729" s1="5.59543" s2="1.55599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="354" version="1">
+                            <parameters />
+                            <EnvObject t0="1.50772" t1="-41.7338" t2="-29.0314" s0="1.5541" s1="1.5541" s2="1.5541" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="210" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="1.50181" t1="-44.505" t2="-28.6494" s0="0.958156" s1="1.36922" s2="1.77403" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="218" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <EnvObject t0="2.11931" t1="-41.7338" t2="-28.6404" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="385" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="2.11973" t1="-43.5834" t2="-39.0748" s0="1.55599" s1="5.61603" s2="1.566" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="417" version="1">
+                        <parameters />
+                        <Group t0="1.50803" t1="-43.5834" t2="-39.0748" s0="0.319731" s1="5.60603" s2="1.55599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="391" version="1">
+                            <parameters />
+                            <EnvObject t0="1.50803" t1="-41.7338" t2="-39.0748" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="388" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="1.50393" t1="-44.5156" t2="-39.4727" s0="0.958156" s1="1.36922" s2="1.77403" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="389" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <EnvObject t0="2.11973" t1="-41.7338" t2="-39.4767" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="416" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="11.734" t1="-43.5781" t2="-29.2784" s0="1.56599" s1="5.60543" s2="1.55599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="743" version="1">
+                        <parameters />
+                        <Group t0="11.734" t1="-43.5781" t2="-28.6664" s0="1.55599" s1="5.59543" s2="0.319723" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="423" version="1">
+                            <parameters />
+                            <EnvObject t0="11.734" t1="-41.7338" t2="-28.6664" s0="1.5541" s1="1.5541" s2="1.5541" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="418" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="12.1159" t1="-44.505" t2="-28.6604" s0="0.958156" s1="1.36922" s2="1.77403" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="422" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <EnvObject t0="12.1251" t1="-41.7338" t2="-29.2784" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="742" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="11.6963" t1="-43.5833" t2="-38.8548" s0="1.56599" s1="5.61603" s2="1.55599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="748" version="1">
+                        <parameters />
+                        <Group t0="11.6963" t1="-43.5833" t2="-39.4668" s0="1.55599" s1="5.60603" s2="0.319723" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="746" version="1">
+                            <parameters />
+                            <EnvObject t0="11.6963" t1="-41.7337" t2="-39.4668" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="744" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="12.0945" t1="-44.5155" t2="-39.4707" s0="0.958156" s1="1.36922" s2="1.77403" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="745" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <EnvObject t0="12.0985" t1="-41.7337" t2="-38.8548" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="747" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="6.86353" t1="-46.3095" t2="-34.0748" s0="10.5544" s1="0.378855" s2="10.669" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="757" version="1">
+                        <parameters />
+                        <Group t0="6.86353" t1="-46.3095" t2="-34.1183" s0="10.5444" s1="0.368772" s2="5.61077" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="752" version="1">
+                            <parameters />
+                            <EnvObject t0="6.86353" t1="-46.3095" t2="-36.7458" s0="2.47291" s1="2.47293" s2="5.16326" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="749" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86353" t1="-46.3095" t2="-31.4908" s0="2.47291" s1="2.47293" s2="5.16327" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="750" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86353" t1="-46.3095" t2="-34.1168" s0="2.47291" s1="2.47293" s2="5.16326" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="751" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <Group t0="6.82013" t1="-46.3095" t2="-34.0748" s0="5.5358" s1="0.368772" s2="10.659" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="756" version="1">
+                            <parameters />
+                            <EnvObject t0="4.23663" t1="-46.3095" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="753" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="9.40363" t1="-46.3095" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="754" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.76283" t1="-46.3095" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="755" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                    </Group>
+                    <Group t0="6.86363" t1="-40.7164" t2="-34.0748" s0="10.5544" s1="0.378855" s2="10.669" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="766" version="1">
+                        <parameters />
+                        <Group t0="6.86363" t1="-40.7163" t2="-34.1183" s0="10.5444" s1="0.368772" s2="5.61077" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="761" version="1">
+                            <parameters />
+                            <EnvObject t0="6.86363" t1="-40.7163" t2="-36.7458" s0="2.47291" s1="2.47293" s2="5.16326" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="758" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86363" t1="-40.7163" t2="-31.4908" s0="2.47291" s1="2.47293" s2="5.16327" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="759" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86363" t1="-40.7163" t2="-34.1168" s0="2.47291" s1="2.47293" s2="5.16326" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="760" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <Group t0="6.82023" t1="-40.7164" t2="-34.0748" s0="5.5358" s1="0.368772" s2="10.659" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="765" version="1">
+                            <parameters />
+                            <EnvObject t0="4.23673" t1="-40.7164" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="762" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="9.40373" t1="-40.7164" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="763" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.76293" t1="-40.7164" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="764" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                    </Group>
+                    <Group t0="6.81218" t1="-40.7376" t2="-34.1398" s0="11.1132" s1="0.445108" s2="11.2447" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="771" version="1">
+                        <parameters />
+                        <EnvObject t0="12.0984" t1="-40.7376" t2="-34.1158" s0="2.30048" s1="4.10261" s2="2.30048" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="767" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="6.95673" t1="-40.7375" t2="-28.8457" s0="2.30048" s1="3.90845" s2="2.30048" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="768" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="1.52593" t1="-40.7375" t2="-34.1398" s0="2.30048" s1="4.1223" s2="2.30048" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="769" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="6.95673" t1="-40.7375" t2="-39.4277" s0="2.30048" s1="3.90845" s2="2.30048" q0="0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="770" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="6.81208" t1="-46.1989" t2="-34.1372" s0="11.1132" s1="0.445116" s2="11.2377" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="776" version="1">
+                        <parameters />
+                        <EnvObject t0="12.0983" t1="-46.199" t2="-34.1168" s0="2.30048" s1="4.10261" s2="2.30048" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="772" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="6.69183" t1="-46.1989" t2="-39.4857" s0="2.30048" s1="3.97767" s2="2.30048" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="773" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="6.95663" t1="-46.1988" t2="-28.8457" s0="2.30048" s1="3.90844" s2="2.30048" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="774" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="1.52583" t1="-46.1988" t2="-34.1245" s0="2.30048" s1="4.11036" s2="2.30048" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="775" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                </Group>
+            </Group>
+        </Group>
+        <EnvObject t0="6.67843" t1="-39.6336" t2="-30.4918" s0="0.580492" s1="0.526908" s2="0.526908" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="795" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.67841" t1="-39.2757" t2="-33.0026" s0="0.526908" s1="0.526908" s2="0.602919" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="796" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.67843" t1="-39.6336" t2="-35.6238" s0="0.580492" s1="0.526908" s2="0.526908" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="797" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.67841" t1="-39.2757" t2="-38.1346" s0="0.526908" s1="0.526908" s2="0.602919" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="799" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="11.8121" t1="-46.3095" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="800" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.77296" t1="-46.3095" t2="-34.0748" s0="2.47292" s1="2.47292" s2="5.21942" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="801" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.60353" t1="-46.3095" t2="-29.1361" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="802" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.60353" t1="-46.3095" t2="-39.2251" s0="2.47292" s1="2.47292" s2="5.21942" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="803" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="6.79901" t1="-46.9868" t2="-37.9847" s0="10.4655" s1="1.48503" s2="2.89203" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="812" version="1">
+            <parameters />
+            <EnvObject t0="10.6252" t1="-46.9896" t2="-37.9523" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="808" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="8.1459" t1="-46.984" t2="-38.0241" s0="1.53544" s1="1.85725" s2="1.02362" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="809" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.61556" t1="-46.9854" t2="-37.9556" s0="1.75796" s1="0.980971" s2="1.96714" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="810" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2.97286" t1="-46.984" t2="-37.9418" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="811" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="6.79902" t1="-46.9868" t2="-35.4518" s0="10.4655" s1="1.48504" s2="2.89203" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="817" version="1">
+            <parameters />
+            <EnvObject t0="2.97287" t1="-46.9896" t2="-35.4129" s0="1.53544" s1="1.85725" s2="1.02362" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="813" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.45212" t1="-46.984" t2="-35.4124" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="814" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="7.98247" t1="-46.9854" t2="-35.4809" s0="1.75796" s1="0.980971" s2="1.96714" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="815" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="10.6252" t1="-46.984" t2="-35.4124" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="816" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <EnvObject t0="6.7761" t1="-40.7422" t2="-34.0782" s0="3.375" s1="3.375" s2="2.25" q0="-0.692958" q1="0.140747" q2="0.140747" q3="0.692958" euler_x="-1.5708" euler_y="0.400769" euler_z="0" id="825" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Rope/knot.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="6.77068" t1="-42.0098" t2="-34.0716" s0="14.6151" s1="14.6151" s2="14.6151" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="839" version="1">
+            <parameters />
+            <Group t0="6.77068" t1="-42.0098" t2="-34.0716" s0="14.6051" s1="14.6051" s2="14.6051" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="837" version="1">
+                <parameters />
+                <Group t0="6.77068" t1="-42.0098" t2="-34.0716" s0="14.5951" s1="14.5951" s2="14.5951" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="835" version="1">
+                    <parameters />
+                    <Decal t0="6.76458" t1="-42.2639" t2="-34.0741" s0="0.734722" s1="0.307429" s2="0.734722" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="818" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
+                        <parameters />
+                    </Decal>
+                    <EnvObject t0="6.61968" t1="-42.0051" t2="-34.059" s0="0.0500059" s1="0.0266959" s2="0.0266958" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="826" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.69308" t1="-42.0051" t2="-34.1888" s0="0.050007" s1="0.0266964" s2="0.0266964" q0="-0.353553" q1="-0.353553" q2="0.612372" q3="0.612372" euler_x="-1.0472" euler_y="0" euler_z="1.57079" id="827" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.90588" t1="-42.0051" t2="-34.059" s0="0.0500071" s1="0.0266965" s2="0.0266965" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="828" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.83298" t1="-42.0051" t2="-34.1951" s0="0.0500051" s1="0.0266954" s2="0.0266954" q0="-0.351834" q1="0.351834" q2="-0.613362" q3="0.613362" euler_x="-1.04159" euler_y="0" euler_z="-1.5708" id="829" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.83438" t1="-42.0047" t2="-33.9432" s0="0.0501329" s1="0.0266992" s2="0.0240826" q0="-0.356984" q1="0.356984" q2="0.610379" q3="-0.610379" euler_x="1.05842" euler_y="0" euler_z="-1.5708" id="830" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.69158" t1="-42.0047" t2="-33.9407" s0="0.0501342" s1="0.0267027" s2="0.0236177" q0="-0.362321" q1="-0.362321" q2="-0.607226" q3="-0.607226" euler_x="1.07595" euler_y="0" euler_z="1.5708" id="831" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <DynamicLightObject t0="6.77068" t1="-42.0098" t2="-34.0716" s0="14.5851" s1="14.5851" s2="14.5851" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="832" color_r="1" color_g="0.211765" color_b="0" overbright="13.43">
+                        <parameters />
+                    </DynamicLightObject>
+                    <Decal t0="6.75548" t1="-42.0034" t2="-34.0655" s0="0.403697" s1="0.391844" s2="0.402859" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="833" type_file="Data/Objects/Decals/light_square.xml" color_r="1" color_g="0.258824" color_b="0" overbright="0">
+                        <parameters />
+                    </Decal>
+                    <Decal t0="6.76458" t1="-41.749" t2="-34.074" s0="0.803746" s1="0.293656" s2="0.803746" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="834" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
+                        <parameters />
+                    </Decal>
+                </Group>
+                <EnvObject t0="6.76158" t1="-40.4755" t2="-34.0679" s0="0.351509" s1="0.351509" s2="0.351509" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="836" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArenaPBR/HangingLamp_1.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <Decal t0="6.75318" t1="-41.1321" t2="-34.0678" s0="1.21913" s1="1.50137" s2="1.21913" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="838" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0705882" color_g="0.0705875" color_b="0.0705875" overbright="0">
+                <parameters />
+            </Decal>
+        </Group>
+        <Group t0="6.75893" t1="-40.8039" t2="-34.0716" s0="0.139166" s1="1.90231" s2="0.144193" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="842" version="1">
+            <parameters />
+            <EnvObject t0="6.75893" t1="-40.8039" t2="-34.0716" s0="1.5" s1="1" s2="1.5" q0="1" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="840" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Rope/dangeling rope.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="6.75893" t1="-40.8039" t2="-34.0716" s0="1.5" s1="1" s2="1.5" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="-3.14159" id="841" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Rope/dangeling rope.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <EnvObject t0="1.10707" t1="-42.6694" t2="-31.3827" s0="0.487608" s1="0.487608" s2="0.47528" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="843" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.095" t1="-42.769" t2="-36.721" s0="0.487608" s1="0.487608" s2="0.47528" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="844" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="7.07444" t1="-46.3725" t2="-34.17" s0="10.351" s1="0.306807" s2="10.351" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-3.14159" id="850" type_file="Data/Objects/therium/ouruin/floor_damage_3.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <EnvObject t0="12.5176" t1="-42.909" t2="-31.3908" s0="0.487608" s1="0.487608" s2="0.47528" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="847" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="12.5217" t1="-42.769" t2="-36.9234" s0="0.487608" s1="0.487608" s2="0.47528" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="848" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
     <EnvObject t0="13.7703" t1="-7.04792" t2="-44.0883" s0="0.195244" s1="0.689449" s2="0.710584" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="872" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
         <parameters />
     </EnvObject>
@@ -2282,6 +2645,309 @@
     <EnvObject t0="13.9164" t1="-8.22964" t2="-46.3823" s0="0.0260123" s1="1.1129" s2="0.705527" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="973" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/void/cube.xml">
         <parameters />
     </EnvObject>
+    <Group t0="6.77008" t1="-42.0099" t2="-44.6449" s0="14.6251" s1="14.6251" s2="14.6251" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="974" version="1">
+        <parameters />
+        <Group t0="6.73657" t1="-46.9869" t2="-43.338" s0="10.4655" s1="1.48503" s2="2.86895" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="856" version="1">
+            <parameters />
+            <EnvObject t0="10.5627" t1="-46.9897" t2="-43.3171" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="852" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="8.08346" t1="-46.9841" t2="-43.3889" s0="1.53544" s1="1.85725" s2="1.02362" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="853" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.55312" t1="-46.9855" t2="-43.3204" s0="1.75796" s1="0.980971" s2="1.96714" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="854" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2.91043" t1="-46.9841" t2="-43.3066" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="855" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="6.79843" t1="-46.9869" t2="-40.8972" s0="10.4655" s1="1.48503" s2="2.86898" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="861" version="1">
+            <parameters />
+            <EnvObject t0="2.97226" t1="-46.9841" t2="-40.9476" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="857" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.45152" t1="-46.9897" t2="-40.9481" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="858" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="7.98186" t1="-46.9884" t2="-40.8796" s0="1.75796" s1="0.980971" s2="1.96714" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="859" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="10.6246" t1="-46.9897" t2="-40.9481" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="860" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="6.86679" t1="-43.5071" t2="-44.6264" s0="11.2538" s1="6.01385" s2="11.6394" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="918" version="1">
+            <parameters />
+            <EnvObject t0="1.50333" t1="-43.4582" t2="-44.7261" s0="0.958156" s1="1.90234" s2="1.77403" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="862" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                <parameters />
+            </EnvObject>
+            <Group t0="6.86679" t1="-43.5071" t2="-44.6264" s0="11.2438" s1="6.00385" s2="11.6294" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="917" version="1">
+                <parameters />
+                <EnvObject t0="12.11" t1="-43.4582" t2="-44.7241" s0="0.958156" s1="1.90234" s2="1.77403" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="863" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+                <EnvObject t0="6.76581" t1="-43.4582" t2="-50.0271" s0="0.958156" s1="1.90234" s2="1.77403" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="864" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                    <parameters />
+                </EnvObject>
+                <Group t0="6.86679" t1="-43.5071" t2="-44.6264" s0="11.2338" s1="5.99385" s2="11.6194" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="916" version="1">
+                    <parameters />
+                    <Group t0="1.50712" t1="-41.7339" t2="-39.6047" s0="0.329729" s1="1.91685" s2="1.56598" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="869" version="1">
+                        <parameters />
+                        <Group t0="1.50712" t1="-41.7339" t2="-39.6047" s0="0.319729" s1="1.90685" s2="1.55598" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="867" version="1">
+                            <parameters />
+                            <EnvObject t0="1.50712" t1="-41.7339" t2="-39.6047" s0="1.5541" s1="1.5541" s2="1.5541" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="865" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                    </Group>
+                    <Group t0="2.11913" t1="-43.5835" t2="-49.6481" s0="1.55599" s1="5.61603" s2="1.566" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="875" version="1">
+                        <parameters />
+                        <Group t0="1.50743" t1="-43.5835" t2="-49.6481" s0="0.319731" s1="5.60603" s2="1.55599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="873" version="1">
+                            <parameters />
+                            <EnvObject t0="1.50743" t1="-41.7339" t2="-49.6481" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="870" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="1.50333" t1="-44.5157" t2="-50.046" s0="0.958156" s1="1.36922" s2="1.77403" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="871" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <EnvObject t0="2.11913" t1="-41.7339" t2="-50.05" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="874" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="12.1245" t1="-41.7339" t2="-39.8517" s0="0.319731" s1="1.90685" s2="1.55598" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="882" version="1">
+                        <parameters />
+                        <EnvObject t0="12.1245" t1="-41.7339" t2="-39.8517" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="881" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="11.6957" t1="-43.5834" t2="-49.4281" s0="1.56599" s1="5.61603" s2="1.55599" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="887" version="1">
+                        <parameters />
+                        <Group t0="11.6957" t1="-43.5834" t2="-50.0401" s0="1.55599" s1="5.60603" s2="0.319723" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="885" version="1">
+                            <parameters />
+                            <EnvObject t0="11.6957" t1="-41.7338" t2="-50.0401" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="883" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="12.0939" t1="-44.5156" t2="-50.044" s0="0.958156" s1="1.36922" s2="1.77403" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="884" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <EnvObject t0="12.0979" t1="-41.7338" t2="-49.4281" s0="1.55411" s1="1.5541" s2="1.5541" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="886" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="6.86293" t1="-46.3096" t2="-44.6481" s0="10.5544" s1="0.378855" s2="10.669" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="896" version="1">
+                        <parameters />
+                        <Group t0="6.86293" t1="-46.3096" t2="-44.6916" s0="10.5444" s1="0.368772" s2="5.61077" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="891" version="1">
+                            <parameters />
+                            <EnvObject t0="6.86293" t1="-46.3096" t2="-47.3191" s0="2.47291" s1="2.47293" s2="5.16326" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="888" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86293" t1="-46.3096" t2="-42.0641" s0="2.47291" s1="2.47293" s2="5.16327" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="889" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86293" t1="-46.3096" t2="-44.6901" s0="2.47291" s1="2.47293" s2="5.16326" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="890" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <Group t0="6.81953" t1="-46.3096" t2="-44.6481" s0="5.5358" s1="0.368772" s2="10.659" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="895" version="1">
+                            <parameters />
+                            <EnvObject t0="4.23603" t1="-46.3096" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="892" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="9.40303" t1="-46.3096" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="893" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.76223" t1="-46.3096" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="894" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                    </Group>
+                    <Group t0="6.86303" t1="-40.7165" t2="-44.6481" s0="10.5544" s1="0.378855" s2="10.669" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="905" version="1">
+                        <parameters />
+                        <Group t0="6.86303" t1="-40.7164" t2="-44.6916" s0="10.5444" s1="0.368772" s2="5.61077" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="900" version="1">
+                            <parameters />
+                            <EnvObject t0="6.86303" t1="-40.7164" t2="-47.3191" s0="2.47291" s1="2.47293" s2="5.16326" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="897" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86303" t1="-40.7164" t2="-42.0641" s0="2.47291" s1="2.47293" s2="5.16327" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="898" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.86303" t1="-40.7164" t2="-44.6901" s0="2.47291" s1="2.47293" s2="5.16326" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="899" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                        <Group t0="6.81963" t1="-40.7165" t2="-44.6481" s0="5.5358" s1="0.368772" s2="10.659" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="904" version="1">
+                            <parameters />
+                            <EnvObject t0="4.23613" t1="-40.7165" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="901" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="9.40313" t1="-40.7165" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="902" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                            <EnvObject t0="6.76233" t1="-40.7165" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="903" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+                                <parameters />
+                            </EnvObject>
+                        </Group>
+                    </Group>
+                    <Group t0="6.81157" t1="-40.7377" t2="-44.7131" s0="11.1132" s1="0.445108" s2="11.2447" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="910" version="1">
+                        <parameters />
+                        <EnvObject t0="12.0978" t1="-40.7377" t2="-44.6891" s0="2.30048" s1="4.10261" s2="2.30048" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="906" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="6.95613" t1="-40.7376" t2="-50.001" s0="2.30048" s1="3.90845" s2="2.30048" q0="0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="909" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="1.52533" t1="-40.7376" t2="-44.7131" s0="2.30048" s1="4.1223" s2="2.30048" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="908" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                    <Group t0="6.81147" t1="-46.199" t2="-44.7105" s0="11.1132" s1="0.445116" s2="11.2377" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="915" version="1">
+                        <parameters />
+                        <EnvObject t0="12.0977" t1="-46.1991" t2="-44.6901" s0="2.30048" s1="4.10261" s2="2.30048" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="911" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="6.69123" t1="-46.199" t2="-50.059" s0="2.30048" s1="3.97767" s2="2.30048" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="912" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="6.95603" t1="-46.1989" t2="-39.419" s0="2.30048" s1="3.90844" s2="2.30048" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="913" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                        <EnvObject t0="1.52523" t1="-46.1989" t2="-44.6978" s0="2.30048" s1="4.11036" s2="2.30048" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="914" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
+                            <parameters />
+                        </EnvObject>
+                    </Group>
+                </Group>
+            </Group>
+        </Group>
+        <EnvObject t0="6.67783" t1="-39.6337" t2="-41.0651" s0="0.580492" s1="0.526908" s2="0.526908" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="919" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.67781" t1="-39.2758" t2="-43.5759" s0="0.526908" s1="0.526908" s2="0.602919" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="920" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.67783" t1="-39.6337" t2="-46.1971" s0="0.580492" s1="0.526908" s2="0.526908" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="921" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.67781" t1="-39.2758" t2="-48.7079" s0="0.526908" s1="0.526908" s2="0.602919" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="922" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/large_crete_cube.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="11.8115" t1="-46.3096" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="923" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.77236" t1="-46.3096" t2="-44.6481" s0="2.47292" s1="2.47292" s2="5.21942" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="924" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.60293" t1="-46.3096" t2="-39.7094" s0="2.47292" s1="2.47292" s2="5.21942" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="925" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.60293" t1="-46.3096" t2="-49.7984" s0="2.47292" s1="2.47292" s2="5.21942" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="926" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="6.79843" t1="-46.9869" t2="-48.558" s0="10.4655" s1="1.48503" s2="2.89203" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="931" version="1">
+            <parameters />
+            <EnvObject t0="10.6246" t1="-46.9897" t2="-48.5256" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="927" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="8.1453" t1="-46.9841" t2="-48.5974" s0="1.53544" s1="1.85725" s2="1.02362" q0="0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="928" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.61496" t1="-46.9855" t2="-48.5289" s0="1.75796" s1="0.980971" s2="1.96714" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="929" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="2.97226" t1="-46.9841" t2="-48.5151" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="930" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <Group t0="6.79844" t1="-46.9869" t2="-46.0251" s0="10.4655" s1="1.48504" s2="2.89203" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="936" version="1">
+            <parameters />
+            <EnvObject t0="2.97227" t1="-46.9897" t2="-45.9862" s0="1.53544" s1="1.85725" s2="1.02362" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="932" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="5.45152" t1="-46.9841" t2="-45.9857" s0="1.53544" s1="1.85725" s2="1.02362" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="933" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="7.98187" t1="-46.9855" t2="-46.0542" s0="1.75796" s1="0.980971" s2="1.96714" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="934" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="10.6246" t1="-46.9841" t2="-45.9857" s0="1.53544" s1="1.85725" s2="1.02362" q0="0" q1="0.707107" q2="-0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="935" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0" type_file="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <EnvObject t0="6.7755" t1="-40.7423" t2="-44.6515" s0="3.375" s1="3.375" s2="2.25" q0="-0.692958" q1="0.140747" q2="0.140747" q3="0.692958" euler_x="-1.5708" euler_y="0.400769" euler_z="0" id="937" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Rope/knot.xml">
+            <parameters />
+        </EnvObject>
+        <Group t0="6.77008" t1="-42.0099" t2="-44.6449" s0="14.6151" s1="14.6151" s2="14.6151" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="952" version="1">
+            <parameters />
+            <Group t0="6.77008" t1="-42.0099" t2="-44.6449" s0="14.6051" s1="14.6051" s2="14.6051" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="950" version="1">
+                <parameters />
+                <Group t0="6.77008" t1="-42.0099" t2="-44.6449" s0="14.5951" s1="14.5951" s2="14.5951" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="948" version="1">
+                    <parameters />
+                    <Decal t0="6.76398" t1="-42.264" t2="-44.6474" s0="0.734722" s1="0.307429" s2="0.734722" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="938" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
+                        <parameters />
+                    </Decal>
+                    <EnvObject t0="6.61908" t1="-42.0052" t2="-44.6323" s0="0.0500059" s1="0.0266959" s2="0.0266958" q0="0.707107" q1="-0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="939" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.69248" t1="-42.0052" t2="-44.7621" s0="0.050007" s1="0.0266964" s2="0.0266964" q0="-0.353553" q1="-0.353553" q2="0.612372" q3="0.612372" euler_x="-1.0472" euler_y="0" euler_z="1.57079" id="940" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.90528" t1="-42.0052" t2="-44.6323" s0="0.0500071" s1="0.0266965" s2="0.0266965" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="941" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.83238" t1="-42.0052" t2="-44.7684" s0="0.0500051" s1="0.0266954" s2="0.0266954" q0="-0.351834" q1="0.351834" q2="-0.613362" q3="0.613362" euler_x="-1.04159" euler_y="0" euler_z="-1.5708" id="942" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.83378" t1="-42.0048" t2="-44.5165" s0="0.0501329" s1="0.0266992" s2="0.0240826" q0="-0.356984" q1="0.356984" q2="0.610379" q3="-0.610379" euler_x="1.05842" euler_y="0" euler_z="-1.5708" id="943" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <EnvObject t0="6.69098" t1="-42.0048" t2="-44.514" s0="0.0501342" s1="0.0267027" s2="0.0236177" q0="-0.362321" q1="-0.362321" q2="-0.607226" q3="-0.607226" euler_x="1.07595" euler_y="0" euler_z="1.5708" id="944" color_r="1" color_g="0.239216" color_b="0.239216" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
+                        <parameters />
+                    </EnvObject>
+                    <DynamicLightObject t0="6.77008" t1="-42.0099" t2="-44.6449" s0="14.5851" s1="14.5851" s2="14.5851" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="945" color_r="1" color_g="0.211765" color_b="0" overbright="13.43">
+                        <parameters />
+                    </DynamicLightObject>
+                    <Decal t0="6.75488" t1="-42.0035" t2="-44.6388" s0="0.403697" s1="0.391844" s2="0.402859" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="946" type_file="Data/Objects/Decals/light_square.xml" color_r="1" color_g="0.258824" color_b="0" overbright="0">
+                        <parameters />
+                    </Decal>
+                    <Decal t0="6.76398" t1="-41.7491" t2="-44.6473" s0="0.803746" s1="0.293656" s2="0.803746" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="947" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
+                        <parameters />
+                    </Decal>
+                </Group>
+                <EnvObject t0="6.76098" t1="-40.4756" t2="-44.6412" s0="0.351509" s1="0.351509" s2="0.351509" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="949" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArenaPBR/HangingLamp_1.xml">
+                    <parameters />
+                </EnvObject>
+            </Group>
+            <Decal t0="6.75258" t1="-41.1322" t2="-44.6411" s0="1.21913" s1="1.50137" s2="1.21913" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="951" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0705882" color_g="0.0705875" color_b="0.0705875" overbright="0">
+                <parameters />
+            </Decal>
+        </Group>
+        <Group t0="6.75833" t1="-40.8041" t2="-44.6449" s0="0.139166" s1="1.90231" s2="0.144193" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="957" version="1">
+            <parameters />
+            <EnvObject t0="6.75833" t1="-40.8041" t2="-44.6449" s0="1.5" s1="1" s2="1.5" q0="1" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="953" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Rope/dangeling rope.xml">
+                <parameters />
+            </EnvObject>
+            <EnvObject t0="6.75833" t1="-40.8041" t2="-44.6449" s0="1.5" s1="1" s2="1.5" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="-3.14159" id="954" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Rope/dangeling rope.xml">
+                <parameters />
+            </EnvObject>
+        </Group>
+        <EnvObject t0="1.10647" t1="-42.6696" t2="-42.069" s0="0.487609" s1="0.487609" s2="0.457892" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="958" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="1.09441" t1="-42.7691" t2="-47.2943" s0="0.487608" s1="0.487608" s2="0.47528" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="-1.5708" id="961" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+        <Decal t0="7.07384" t1="-46.3727" t2="-44.7433" s0="10.351" s1="0.306807" s2="10.351" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="969" type_file="Data/Objects/therium/ouruin/floor_damage_3.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <EnvObject t0="12.5148" t1="-42.9091" t2="-42.0843" s0="0.487609" s1="0.487608" s2="0.45278" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="963" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="12.5049" t1="-42.7691" t2="-47.4967" s0="0.487608" s1="0.487608" s2="0.47528" q0="-0.707107" q1="-0.707107" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="1.5708" id="967" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
     <EnvObject t0="11.3029" t1="-9.85835" t2="-38.9309" s0="1.84344" s1="1.84345" s2="1.82339" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="976" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
         <parameters />
     </EnvObject>
@@ -4706,7 +5372,6 @@
     <SpawnerItem display_name="Hanging Lamp 2" path="Data/Prototypes/CaveArena/HangingLamp_2.xml" thumbnail_path="" />
     <SpawnerItem display_name="Wooden Crate 3" path="Data/Prototypes/CaveArena/Crate_3.xml" thumbnail_path="" />
     <SpawnerItem display_name="clothlanternred.xml" path="Data/Prefabs/ouruin/clothlanternred.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Flame Base" path="Data/Objects/Decals/flame_base.xml" thumbnail_path="" />
     <SpawnerItem display_name="Fire Hotspot" path="Data/Objects/Hotspots/fire_test.xml" thumbnail_path="" />
     <SpawnerItem display_name="chair.xml" path="Data/Prefabs/chair.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Wooden Crate Table 1" path="Data/Prototypes/CaveArena/Crate_Table1.xml" thumbnail_path="" />
@@ -4914,5 +5579,21 @@
     <SpawnerItem display_name="Stucco Medium Wall" path="Data/Objects/Buildings/cat_town/medium_wall.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/medium_wall.png" />
     <SpawnerItem display_name="fart.xml" path="/home/constance/Desktop/fart.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Wood End Legs" path="Data/Prototypes/Common/Wood_EndLegs.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Scaffolded Room Frame [Prefab]" path="Data/Objects/therium/Prefabs/scaffoldingroomframe.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/scaffoldingroomframe.png" />
+    <SpawnerItem display_name="Stucco Short Trim (Cap)" path="Data/Objects/Buildings/cat_town/short_trim_floor.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/short_trim_floor.png" />
     <SpawnerItem display_name="Stucco Short Trim" path="Data/Objects/Buildings/cat_town/short_trim.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/short_trim.png" />
+    <SpawnerItem display_name="Short Board" path="Data/Objects/Buildings/shops/sign_short_board.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/sign_short_board.png" />
+    <SpawnerItem display_name="Long Board" path="Data/Objects/Buildings/shops/sign_long_board.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/sign_long_board.png" />
+    <SpawnerItem display_name="Large Crete Cube" path="Data/Objects/Crete/large_crete_cube.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/large_crete_cube.png" />
+    <SpawnerItem display_name="Cave Floor" path="Data/Objects/Environment/caves/cave_floor.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/cave_floor.png" />
+    <SpawnerItem display_name="Cliff Decal 02 [Decal]" path="Data/Objects/Decals/Cliffs/CliffDecal_02.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/Cliff_Decal_02.png" />
+    <SpawnerItem display_name="Ruins Block" path="Data/Objects/Buildings/Ruins/mysterious/ruin_block.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/ruin_block.png" />
+    <SpawnerItem display_name="HangingLamp_1_Short.xml" path="Data/Prototypes/CaveArena/HangingLamp_1_Short.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Old Rope Knot" path="Data/Objects/therium/Rope/knot.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/knot.png" />
+    <SpawnerItem display_name="Flame Base" path="Data/Objects/Decals/flame_base.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Cloth Lantern Red [Prefab]" path="Data/Prefabs/ouruin/clothlanternred.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/clothlanternred.png" />
+    <SpawnerItem display_name="Old Rope Wavering" path="Data/Objects/therium/Rope/dangeling rope.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/dangeling rope.png" />
+    <SpawnerItem display_name="Arena VIP Roof" path="Data/Objects/Buildings/arena/arena_vip_roof.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Arena VIP Roof.png" />
+    <SpawnerItem display_name="Arena Pillar" path="Data/Objects/Buildings/arena/arena_pillar.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Arena Pillar.png" />
+    <SpawnerItem display_name="Floor Damage 3 [Decal]" path="Data/Objects/therium/ouruin/floor_damage_3.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/floor_damage_3.png" />
 </RecentItems>

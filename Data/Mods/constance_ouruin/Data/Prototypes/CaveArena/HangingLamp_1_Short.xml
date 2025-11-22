@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Prototypes/CaveArena/Models/HangingLamp_1_Short.obj</Model>
+	<ColorMap>Data/Prototypes/CaveArena/Textures/Banner_Color.tga</ColorMap>
+	<NormalMap>Data/Prototypes/CaveArena/Textures/Banner_Norm.tga</NormalMap>
+  	<TranslucencyMap>Data/Prototypes/CaveArena/Textures/Banner_Translucency.tga</TranslucencyMap>
+	<WindMap>Data/Prototypes/CaveArena/Textures/Banner_Wind.tga</WindMap>
+  	<ShaderName>plant</ShaderName>
+	<MaterialPath>Data/Materials/default.xml</MaterialPath>
+</Object>
