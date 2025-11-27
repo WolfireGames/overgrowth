@@ -1,0 +1,49 @@
+<?xml version="2.0" ?>
+<Type>prefab</Type>
+<Prefab>
+    <Group t0="-94.1425" t1="-55.494" t2="-99.7754" s0="0.700979" s1="1.1933" s2="0.0585077" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="0" version="1">
+        <parameters />
+        <Decal t0="-94.1425" t1="-55.4488" t2="-99.7698" s0="0.690973" s1="0.0268544" s2="0.895502" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="1" type_file="Data/Objects/Decals/signs/icon_pot.xml" color_r="0.146282" color_g="0.454902" color_b="0.189852" overbright="0">
+            <parameters />
+        </Decal>
+        <Group t0="-94.1465" t1="-55.0833" t2="-99.7754" s0="0.336202" s1="0.361959" s2="0.0485132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" version="1">
+            <parameters />
+            <Decal t0="-94.1465" t1="-55.0833" t2="-99.7754" s0="0.326198" s1="0.0385055" s2="0.351958" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="3" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.146282" color_g="0.454902" color_b="0.189852" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-94.1465" t1="-55.0833" t2="-99.7754" s0="0.326198" s1="0.0385055" s2="0.351958" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="4" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.146282" color_g="0.454902" color_b="0.189852" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-94.1465" t1="-55.0833" t2="-99.7754" s0="0.326198" s1="0.0385055" s2="0.351958" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="5" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.146282" color_g="0.454902" color_b="0.189852" overbright="0">
+                <parameters />
+            </Decal>
+        </Group>
+        <Group t0="-94.1465" t1="-55.9047" t2="-99.7754" s0="0.336202" s1="0.361959" s2="0.0485132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" version="1">
+            <parameters />
+            <Decal t0="-94.1465" t1="-55.9047" t2="-99.7754" s0="0.326198" s1="0.0385055" s2="0.351958" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="7" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.146282" color_g="0.454902" color_b="0.189852" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-94.1465" t1="-55.9047" t2="-99.7754" s0="0.326199" s1="0.0385056" s2="0.351958" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="8" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.146282" color_g="0.454902" color_b="0.189852" overbright="0">
+                <parameters />
+            </Decal>
+            <Decal t0="-94.1465" t1="-55.9047" t2="-99.7754" s0="0.326199" s1="0.0385056" s2="0.351958" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="9" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.146282" color_g="0.454902" color_b="0.189852" overbright="0">
+                <parameters />
+            </Decal>
+        </Group>
+    </Group>
+    <Decal t0="-94.1462" t1="-54.7216" t2="-99.7778" s0="0.323605" s1="0.0603127" s2="0.563753" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="10" type_file="Data/Objects/Decals/signs/design_wing.xml" color_r="0.443137" color_g="0" color_b="0" overbright="0">
+        <parameters />
+    </Decal>
+    <Group t0="-94.1507" t1="-55.2904" t2="-99.8057" s0="0.363699" s1="1.89992" s2="0.143102" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" version="1">
+        <parameters />
+        <EnvObject t0="-94.2791" t1="-54.4133" t2="-99.8057" s0="1.03646" s1="1.03646" s2="0.460649" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-94.1507" t1="-55.2904" t2="-99.7731" s0="0.1598" s1="0.1598" s2="0.1598" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" color_r="0.458824" color_g="0.688028" color_b="1" overbright="0" type_file="Data/Objects/Environment/cat_props/banner_nowave.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-94.021" t1="-54.4133" t2="-99.8057" s0="1.03646" s1="1.03646" s2="0.460649" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="14" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</Prefab>
