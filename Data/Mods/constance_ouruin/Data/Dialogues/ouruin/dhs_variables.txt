@@ -5,6 +5,13 @@ Define variable, its values and notes for each value.
 == GAME
 	Gameplay related variables.
 
+	ouruin_progress
+		Increments when quests are completed and coin is spent
+		0: Game begin
+		2: Agra ambush reinforced
+		3: Agra reinforcements 
+		4: High Road reinforcements
+
 	ouruin_current_item
 		sparrow
 		talisman
