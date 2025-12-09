@@ -5,6 +5,14 @@ Define variable, its values and notes for each value.
 == GAME
 	Gameplay related variables.
 
+	ouruin_newgames
+		Current cycle of New Game.
+		0: Game not begun
+		1: New Game
+		2: New Game+
+	
+	ouruin_newgames_verified
+
 	ouruin_progress
 		Increments when quests are completed and coin is spent
 		0: Game begin
@@ -43,6 +51,8 @@ Define variable, its values and notes for each value.
 	ouruin_current_area
 
 	ouruin_current_area_stored
+
+	ouruin_current_level
 
 	ouruin_orb
 		0: Orb is not equipped

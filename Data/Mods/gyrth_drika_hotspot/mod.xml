@@ -12,6 +12,7 @@
 	<Tag>scripting</Tag>
 	<SupportedVersion>ba9913e</SupportedVersion>
 	<SupportedVersion>*</SupportedVersion>
+    <SupportsOnline>true</SupportsOnline>
 	<NeedsRestart>false</NeedsRestart>
 	<!-- <Level title="Drika Hotspot Testing" thumbnail="Images/drika_hotspot_full.jpg">drika_hotspot_testing.xml</Level> -->
 	<!-- <Item category="Hotspot" title="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail="Data/Textures/drika_hotspot.png" /> -->
