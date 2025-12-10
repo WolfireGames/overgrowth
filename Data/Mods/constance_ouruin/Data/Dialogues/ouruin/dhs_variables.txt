@@ -190,6 +190,7 @@ Define variable, its values and notes for each value.
 		2: Player is loading into Agra Hood from High Road (level1_b.xml)
 		3: Player is loading into Agra Hood from Zero's Courtyard (courtyard.xml)
 		4: Player is loading into Agra Hood from the Speakeasy (speakeasy.xml)
+		5: Player is loading into Agra Hood from Faas' Sanctuary (level1_dart.xml)
 
 		ouruin_agra_visited
 
