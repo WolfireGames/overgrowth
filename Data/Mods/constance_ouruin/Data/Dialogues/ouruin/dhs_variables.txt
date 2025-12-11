@@ -14,9 +14,9 @@ Define variable, its values and notes for each value.
 	ouruin_newgames_verified
 
 	ouruin_progress
-		Increments when quests are completed and coin is spent
+		Increments when quests are completed, coin is spent and levels are travelled
 		0: Game begin
-		2: Agra ambush reinforced
+		1: Agra ambush reinforced
 		3: Agra reinforcements 
 		4: High Road reinforcements
 
@@ -173,6 +173,8 @@ Define variable, its values and notes for each value.
 	ouruin_warrens_state
 		0: Player is loading into Nui Warrens from Market (market.xml)
 		1: Player is loading into Nui Warrens from Depot (depot.xml)
+		2: Player is loading into Nui Warrens from Agra Hood (level1_a.xml)
+		3: Player is loading into Nui Warrens from Zero's Arena (courtyard.xml)
 	
 	ouruin_ratnest_state
 		0: Player has not visited Rat's Nest
@@ -219,7 +221,7 @@ Define variable, its values and notes for each value.
 			0: Player is in the room leading to Agra
 			1: Player is on the tall pipes between the road and Agra
 			2: Player is at Cres' Home
-			3: Player is inbetween the waterfront and the road
+			3: Player is in the shelter between the waterfront and the road
 			4: Player is in the waterfront interior
 		
 		ouruin_highroad_visited
@@ -353,7 +355,6 @@ Define variable, its values and notes for each value.
 
 	-- Totals
 	ouruin_total_eliminations
-	ouruin_total_ko
 	ouruin_total_kills
 	ouruin_total_overkills
 	ouruin_total_lethality
@@ -611,6 +612,9 @@ Define variable, its values and notes for each value.
 
 	ouruin_shop_jobaccepted
 		Last job accepted.
+
+	ouruin_shop_jobs_accepted
+	ouruin_shop_jobs_complete
 
 	ouruin_charms_inspected
 		Whether Ghost has looked at Nedis' bone charms

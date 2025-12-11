@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Buildings/basics/edged_cone.obj</Model>
+	<ColorMap>Data/Textures/basic_blue_white_c.tga</ColorMap>
+	<NormalMap>Data/Textures/chest_n.png</NormalMap>
+	<ShaderName>drika_placeholder_it</ShaderName>
+	<flags no_collision=true/>
+</Object>
+ 

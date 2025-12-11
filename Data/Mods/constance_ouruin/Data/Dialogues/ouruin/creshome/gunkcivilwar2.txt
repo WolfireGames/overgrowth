@@ -3,6 +3,8 @@
 set_cam 2.64647 3.5745 19.9378 -40.23 -44.02 -0.32 65.2699
 set_character_pos 1 5.59518 1.04237 18.6547 166
 set_character_pos 2 3.42021 1.06262 17.8274 -7
+set_dialogue_color 0 0 0.52 0.95
+set_dialogue_voice 0 8
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
@@ -23,7 +25,7 @@ send_character_message 1 "set_eye_dir 3.85215 1.88896 17.9772 1"
 send_character_message 1 "set_head_target 3.80333 1.97989 17.2876 1"
 send_character_message 5 "set_animation \"Data/Animations/r_sleep_wounded.anm\""
 send_character_message 5 "set_eye_dir 2.71772 1.23983 19.5053 0"
-say 1 "Ghost" "What motivated you to join the war efforts?"
+say 1 "Ghost" "Are you a part of the cinderbloods' war efforts?"
 send_character_message 1 "set_head_target 3.80334 1.97989 17.2876 1"
 send_character_message 2 "set_eye_dir 4.00481 1.41386 17.6751 0.650972"
 send_character_message 2 "set_head_target 5.17205 1.71527 17.5351 1"
@@ -65,7 +67,7 @@ send_character_message 1 "set_head_target 3.84333 1.9207 19.1951 1"
 send_character_message 2 "set_torso_target 4.67465 1.38639 17.8636 0.943374"
 send_character_message 2 "set_head_target 5.05719 1.53789 16.94 1"
 send_character_message 2 "set_eye_dir 5.13919 1.79695 18.379 0.818957"
-say 1 "Ghost" "Is it working out alright?"
+say 1 "Ghost" "And now?"
 send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
 send_character_message 1 "set_eye_dir 3.62967 1.79777 17.7042 1"
 send_character_message 1 "set_head_target 3.68409 1.51199 18.7909 1"
@@ -73,10 +75,11 @@ send_character_message 2 "set_eye_dir 2.7048 1.46456 17.4016 1"
 send_character_message 2 "set_head_target 4.76244 1.29539 16.5255 1"
 send_character_message 2 "set_torso_target 4.64653 1.46286 18.0177 0.999993"
 say 2 "Gunk" "...[wait 0.3]I guess I'm still hoping for a way out. [wait 0.15]Just like before."
+send_character_message 2 "set_eye_dir 4.8621 2.1816 18.4193 0.676647"
 send_character_message 1 "set_torso_target 4.68962 1.73315 18.4248 1"
 send_character_message 2 "set_head_target 5.03371 1.79687 17.6096 1"
 send_character_message 2 "set_torso_target 4.64653 1.53513 18.0178 0"
 send_character_message 1 "set_eye_dir 4.83693 1.50942 18.5667 1"
 send_character_message 1 "set_head_target 3.64497 1.9343 19.0027 1"
-say 1 "Ghost" "..."
+say 0 "Ghost" "..."
 send_level_message "dialogue_done"

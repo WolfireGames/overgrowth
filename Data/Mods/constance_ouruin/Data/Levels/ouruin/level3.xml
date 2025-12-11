@@ -51,7 +51,7 @@
     <RayToSun r0="-0.161343" r1="0.682514" r2="-0.712841" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="191.91" t1="-39.7505" t2="114.398" s0="1" s1="1" s2="1" q0="0.109427" q1="-0.392934" q2="0.0471559" q3="0.911814" euler_x="0.238877" euler_y="-0.813776" euler_z="0" id="0">
+    <CameraObject t0="232.167" t1="-25.0785" t2="106.543" s0="1" s1="1" s2="1" q0="0.190162" q1="-0.632013" q2="0.163927" q3="0.733162" euler_x="0.507561" euler_y="-1.42288" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="181.769" t1="-55.9922" t2="109.042" s0="0.613082" s1="0.613082" s2="0.613082" q0="0.00733727" q1="-0.681411" q2="0.0110127" q3="-0.731781" euler_x="-0.346757" euler_y="1.49496" euler_z="-0.351959" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/hex_crete_rubble_simplecol.xml">
@@ -149,6 +149,7 @@
             <parameter name="Left handed" type="int" val="0" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="0" />
             <parameter name="Peripheral FOV horizontal" type="float" val="0.0100008" />
@@ -16177,6 +16178,7 @@
                 <parameter name="Left handed" type="int" val="0" />
                 <parameter name="Movement Speed" type="float" val="1" />
                 <parameter name="Muscle" type="float" val="0.6" />
+                <parameter name="No Idle Movement" type="int" val="0" />
                 <parameter name="No Look Around" type="int" val="1" />
                 <parameter name="Peripheral FOV distance" type="float" val="4" />
                 <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -16283,6 +16285,7 @@
                 <parameter name="Lives" type="string" val="1" />
                 <parameter name="Movement Speed" type="float" val="0.93" />
                 <parameter name="Muscle" type="string" val="0.6000000000000001" />
+                <parameter name="No Idle Movement" type="int" val="0" />
                 <parameter name="No Look Around" type="int" val="0" />
                 <parameter name="Peripheral FOV distance" type="float" val="4" />
                 <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -16410,12 +16413,12 @@
             <EnvObject s0="1.67193" s1="1.67193" s2="1.67193" id="5745" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_lower_arm.xml">
                 <parameters />
             </EnvObject>
-            <Group t0="0" t1="-999999" t2="0" s0="1.10668" s1="0.531751" s2="1.13631" q0="0.594294" q1="-0.00060906" q2="0.342132" q3="0.727846" euler_x="1.24344" euler_y="-0.419759" euler_z="0.575904" id="4690" version="1">
+            <Group t0="0" t1="-999999" t2="0" s0="1.10668" s1="0.531751" s2="1.13631" q0="0.603305" q1="-0.000606689" q2="0.347322" q3="0.717907" euler_x="1.26635" euler_y="-0.433393" euler_z="0.580792" id="4690" version="1">
                 <parameters />
-                <Decal t0="0" t1="-999999" t2="0" s0="0.786661" s1="0.434034" s2="0.786659" q0="-0.64134" q1="0.239244" q2="-0.158896" q3="-0.711476" euler_x="1.49576" euler_y="-0.57549" euler_z="-0.0964302" id="1777" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+                <Decal t0="0" t1="-999999" t2="0" s0="0.786661" s1="0.434034" s2="0.786659" q0="-0.651857" q1="0.236596" q2="-0.161014" q3="-0.702268" euler_x="1.52531" euler_y="-0.573081" euler_z="-0.09811" id="1777" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                     <parameters />
                 </Decal>
-                <Decal t0="0.0535952" t1="-999999" t2="0.0184532" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.661796" q1="-0.520147" q2="-0.276174" q3="0.463923" euler_x="2.00416" euler_y="-0.117344" euler_z="-1.25722" id="3107" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
+                <Decal t0="0.0535952" t1="-999999" t2="0.0184532" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.671247" q1="-0.5119" q2="-0.27929" q3="0.45761" euler_x="2.01206" euler_y="-0.0936927" euler_z="-1.24368" id="3107" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
                     <parameters />
                 </Decal>
             </Group>
@@ -19954,7 +19957,7 @@
     <Decal t0="317.021" t1="-46.9298" t2="100.591" s0="4.55961" s1="3.71074" s2="14.1509" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6631" type_file="Data/Objects/Decals/sponge_square.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Hotspot name="Level State" t0="60.2079" t1="-44.933" t2="73.5405" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6645" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+    <Hotspot name="Level State" t0="79.8077" t1="-44.0304" t2="66.7534" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6645" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
         <parameters>
             <parameter name="Debug Current Line" type="int" val="1" />
             <parameter name="Run in EditorMode" type="int" val="0" />
@@ -25386,14 +25389,14 @@
     <EnvObject t0="92.8862" t1="-43.736" t2="106.042" s0="1" s1="1.03183" s2="0.906052" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="8303" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
         <parameters />
     </EnvObject>
-    <Group t0="192.576" t1="-47.4216" t2="93.0771" s0="3.48705" s1="3.91001" s2="2.54786" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8304" version="1">
+    <Group t0="192.575" t1="-47.4216" t2="93.0771" s0="3.48598" s1="3.91002" s2="2.54786" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8304" version="1">
         <parameters />
         <NavmeshHintObject t0="192.565" t1="-45.9146" t2="93.0771" s0="3.29449" s1="0.693727" s2="2.487" q0="0" q1="-0.00776398" q2="0" q3="0.99997" euler_x="0" euler_y="-0.0155281" euler_z="0" id="3952">
             <parameters />
         </NavmeshHintObject>
-        <Group t0="192.576" t1="-47.4216" t2="93.1075" s0="3.44167" s1="3.90001" s2="1.29906" q0="0" q1="-0.0141554" q2="0" q3="0.9999" euler_x="0" euler_y="-0.0283118" euler_z="0" id="3949" version="1">
+        <Group t0="192.575" t1="-47.4216" t2="93.1075" s0="3.47597" s1="3.90002" s2="1.39541" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3949" version="1">
             <parameters />
-            <Group t0="192.576" t1="-47.4167" t2="93.1075" s0="3.43175" s1="3.88015" s2="1.28905" q0="0" q1="-0.0141554" q2="0" q3="0.9999" euler_x="0" euler_y="-0.0283118" euler_z="0" id="3947" version="1">
+            <Group t0="192.575" t1="-47.4167" t2="93.1075" s0="3.46596" s1="3.88016" s2="1.38541" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3947" version="1">
                 <parameters />
                 <EnvObject t0="192.57" t1="-49.1311" t2="93.0773" s0="1.24237" s1="1.71362" s2="1.9707" q0="0.492872" q1="-0.507028" q2="0.507028" q3="0.492872" euler_x="-1.57081" euler_y="-1.5425" euler_z="3.14159" id="1415" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
                     <parameters />
@@ -25404,7 +25407,7 @@
                 <EnvObject t0="192.57" t1="-47.3391" t2="93.0773" s0="1.24237" s1="1.71362" s2="1.9707" q0="-0.507028" q1="-0.492872" q2="0.492872" q3="-0.507028" euler_x="1.57081" euler_y="1.5425" euler_z="0" id="3937" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
                     <parameters />
                 </EnvObject>
-                <EnvObject t0="192.57" t1="-46.4494" t2="93.0773" s0="1.24237" s1="1.71362" s2="1.9707" q0="0.492872" q1="0.507028" q2="0.507028" q3="-0.492872" euler_x="1.57081" euler_y="-1.5425" euler_z="3.14159" id="3938" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+                <EnvObject t0="192.57" t1="-46.4494" t2="93.0773" s0="1.24237" s1="1.71362" s2="1.9707" q0="0.492872" q1="0.507028" q2="0.507028" q3="-0.492872" euler_x="1.57083" euler_y="-1.54251" euler_z="3.14159" id="3938" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="194.185" t1="-47.4167" t2="92.6079" s0="1" s1="1.42006" s2="1" q0="0.0141554" q1="0" q2="-0.9999" q3="0" euler_x="0" euler_y="0.0283118" euler_z="3.14159" id="3942" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -27083,6 +27086,7 @@
             <parameter name="Lore" type="string" val="Willis" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="string" val="0.6000000000000001" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -29726,7 +29730,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;97631&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;97632&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[-3,204],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_petals_total: {ouruin_petals_total}p\nouruin_player_event: {ouruin_player_event}\nouruin_intro_played: {ouruin_intro_played}\n--\nouruin_current_weapon: {ouruin_current_weapon}\nouruin_current_sidearm: {ouruin_current_sidearm}\nouruin_current_item: {ouruin_current_item}\n--\nouruin_lvl3_checkpoint: {ouruin_lvl3_checkpoint}\nouruin_lvl3_dockedship_found: {ouruin_lvl3_dockedship_found}\nouruin_lvl3_dockedship_bashed: {ouruin_lvl3_dockedship_bashed}\nouruin_lvl3_dockedship_broken: {ouruin_lvl3_dockedship_broken}\nouruin_lvl3_dockedship_method: {ouruin_lvl3_dockedship_method}\nouruin_lvl3_lockpick: {ouruin_lvl3_lockpick}\nouruin_lvl3_key: {ouruin_lvl3_key}\nouruin_lvl3_patri: {ouruin_lvl3_patri}\nouruin_lvl3_adal: {ouruin_lvl3_adal}\nouruin_lvl3_timek: {ouruin_lvl3_timek}\n--\nouruin_patri_quest: {ouruin_patri_quest}\n.\nouruin_gunk_quest: {ouruin_gunk_quest}\n.\nouruin_beggar_quest: {ouruin_beggar_quest}\n.\nouruin_adal_quest: {ouruin_adal_quest}\nouruin_adal_depot: {ouruin_adal_depot}&quot;,&quot;ui_element_identifier&quot;:&quot;97635&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;97634&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;function&quot;:7,&quot;line&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;debug setter&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;like anything man&quot;]}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;97631&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_debug&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;97632&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[-3,204],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_petals_total: {ouruin_petals_total}p\nouruin_player_event: {ouruin_player_event}\nouruin_intro_played: {ouruin_intro_played}\n--\nouruin_current_weapon: {ouruin_current_weapon}\nouruin_current_sidearm: {ouruin_current_sidearm}\nouruin_current_item: {ouruin_current_item}\n--\nouruin_lvl3_checkpoint: {ouruin_lvl3_checkpoint}\nouruin_lvl3_dockedship_found: {ouruin_lvl3_dockedship_found}\nouruin_lvl3_dockedship_bashed: {ouruin_lvl3_dockedship_bashed}\nouruin_lvl3_dockedship_broken: {ouruin_lvl3_dockedship_broken}\nouruin_lvl3_dockedship_method: {ouruin_lvl3_dockedship_method}\nouruin_lvl3_lockpick: {ouruin_lvl3_lockpick}\nouruin_lvl3_key: {ouruin_lvl3_key}\nouruin_lvl3_patri: {ouruin_lvl3_patri}\nouruin_lvl3_adal: {ouruin_lvl3_adal}\nouruin_lvl3_timek: {ouruin_lvl3_timek}\n--\nouruin_patri_quest: {ouruin_patri_quest}\n.\nouruin_gunk_quest: {ouruin_gunk_quest}\n.\nouruin_beggar_quest: {ouruin_beggar_quest}\n.\nouruin_adal_quest: {ouruin_adal_quest}\nouruin_adal_depot: {ouruin_adal_depot}&quot;,&quot;ui_element_identifier&quot;:&quot;97633&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;97634&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;other_input&quot;:&quot;\\&quot;,&quot;use_prompt&quot;:false},{&quot;function&quot;:7,&quot;line&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;debug setter&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;like anything man&quot;]}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -31647,6 +31651,7 @@
             <parameter name="Left handed" type="int" val="0" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.623075" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -38201,6 +38206,7 @@
             <parameter name="Lore" type="string" val="Nerise" />
             <parameter name="Movement Speed" type="float" val="1.1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -42895,7 +42901,7 @@
             <parameters />
         </Decal>
     </Group>
-    <Decal t0="195.279" t1="-52.5849" t2="113.693" s0="9.59424" s1="5.00039" s2="3.13932" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13709" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.345098" color_g="0.345095" color_b="0.345095" overbright="0">
+    <Decal t0="194.62" t1="-52.8739" t2="113.745" s0="10.9303" s1="5.44091" s2="3.0886" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13709" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.345098" color_g="0.345095" color_b="0.345095" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="243.948" t1="-40.9518" t2="66.011" s0="5.26184" s1="7.89276" s2="11.8391" q0="-0.00390685" q1="-0.00497946" q2="0.0896751" q3="0.995951" euler_x="-0.00867561" euler_y="-0.00921803" euler_z="0.179635" id="13710" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.607843" color_g="0.607837" color_b="0.607837" overbright="0">
@@ -45222,6 +45228,7 @@
             <parameter name="Lore" type="string" val="Frieden" />
             <parameter name="Movement Speed" type="float" val="0.93" />
             <parameter name="Muscle" type="string" val="0.6000000000000001" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -46612,6 +46619,7 @@
             <parameter name="Lore" type="string" val="Zorrit" />
             <parameter name="Movement Speed" type="float" val="1.1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -46800,6 +46808,7 @@
             <parameter name="Lore" type="string" val="Gorr" />
             <parameter name="Movement Speed" type="float" val="1.1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -47009,6 +47018,7 @@
             <parameter name="Lore" type="string" val="Fall" />
             <parameter name="Movement Speed" type="float" val="0.93" />
             <parameter name="Muscle" type="string" val="0.6000000000000001" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -47166,6 +47176,7 @@
             <parameter name="Lore" type="string" val="Winter" />
             <parameter name="Movement Speed" type="float" val="1.1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -47289,6 +47300,7 @@
             <parameter name="Lore" type="string" val="Ollie" />
             <parameter name="Movement Speed" type="float" val="1.1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -53434,7 +53446,7 @@
             <parameter name="Placeholder Tag" type="string" val="level3664516167" />
         </parameters>
     </EnvObject>
-    <EnvObject t0="175.701" t1="-55.3871" t2="102.448" s0="1" s1="1" s2="1" q0="-0.0380783" q1="-0.927962" q2="-0.0320099" q3="0.369349" euler_x="3.09848" euler_y="-0.758622" euler_z="3.07676" id="16168" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/short_bush.xml">
+    <EnvObject t0="175.701" t1="-55.3871" t2="102.448" s0="1" s1="1" s2="1" q0="-0.0380783" q1="-0.927962" q2="-0.0320099" q3="0.369349" euler_x="3.09848" euler_y="-0.758621" euler_z="3.07676" id="16168" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Trees/temperate/short_bush.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="158.901" t1="-73.1625" t2="126.252" s0="1.16493" s1="1.5" s2="1.08288" q0="-0.707107" q1="0" q2="-0.707107" q3="0" euler_x="-3.14159" euler_y="-1.5708" euler_z="-3.14159" id="16169" color_r="0.815686" color_g="0.815678" color_b="0.815678" overbright="0" type_file="Data/Objects/Crete/CreteBlockBase.xml">
@@ -54313,7 +54325,7 @@
             <parameter name="Placeholder Tag" type="string" val="level3664516445" />
         </parameters>
     </EnvObject>
-    <Decal t0="175.806" t1="-55.4753" t2="102.152" s0="4.12483" s1="2.31031" s2="3.52136" q0="0.00859582" q1="-0.121514" q2="-0.0547484" q3="0.991041" euler_x="0.031261" euler_y="-0.242273" euler_z="-0.11418" id="16446" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.607843" color_g="0.607837" color_b="0.607837" overbright="0">
+    <Decal t0="175.806" t1="-55.4753" t2="102.152" s0="4.12483" s1="2.31031" s2="3.52136" q0="0.00859582" q1="-0.121514" q2="-0.0547484" q3="0.991041" euler_x="0.0312609" euler_y="-0.242273" euler_z="-0.11418" id="16446" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.607843" color_g="0.607837" color_b="0.607837" overbright="0">
         <parameters />
     </Decal>
     <Decal name="Ship Door Damage" t0="58.492" t1="-48.2593" t2="70.3661" s0="0.13127" s1="0.0360833" s2="0.477407" q0="0.573495" q1="0.573495" q2="0.413646" q3="-0.413646" euler_x="3.14159" euler_y="-1.24972" euler_z="1.57079" id="16447" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="0.611765" color_g="0.48924" color_b="0.295086" overbright="0">
@@ -54369,7 +54381,7 @@
     <Decal t0="60.0631" t1="-49.4563" t2="70.423" s0="4.87738" s1="0.224206" s2="3.47777" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16452" type_file="Data/Objects/Decals/crete_stains/leaky_rust_white.xml" color_r="0.152941" color_g="0.15294" color_b="0.15294" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="202.022" t1="-52.2774" t2="104.486" s0="1.87652" s1="1.87652" s2="2.76972" q0="0.482407" q1="-0.516995" q2="0.516995" q3="0.482407" euler_x="-1.57079" euler_y="-1.5016" euler_z="-3.14159" id="16456" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+    <EnvObject t0="202.022" t1="-52.2774" t2="104.486" s0="1.87652" s1="1.87652" s2="2.76972" q0="0.482407" q1="-0.516995" q2="0.516995" q3="0.482407" euler_x="-1.57081" euler_y="-1.50162" euler_z="3.14159" id="16456" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
     <Group t0="-29.1167" t1="-41.1956" t2="-78.0208" s0="4.53041" s1="1.97328" s2="2.29238" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16507" version="1">
@@ -54569,6 +54581,7 @@
             <parameter name="Left handed" type="int" val="0" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.623075" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -54630,10 +54643,10 @@
         </EnvObject>
         <Group t0="0" t1="-999999" t2="0" s0="0.816534" s1="0.472502" s2="0.831732" q0="0.425189" q1="0.307711" q2="-0.0129013" q3="0.851095" euler_x="1.01052" euler_y="0.564216" euler_z="0.287627" id="16521" version="1">
             <parameters />
-            <Decal t0="0.0876518" t1="-999999" t2="-0.00111833" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.264507" q1="-0.288654" q2="-0.146657" q3="0.908421" euler_x="0.683898" euler_y="-0.463246" euler_z="-0.487629" id="16518" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0876518" t1="-999999" t2="-0.00111833" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.264507" q1="-0.288654" q2="-0.146657" q3="0.908421" euler_x="0.683897" euler_y="-0.463247" euler_z="-0.487629" id="16518" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="-0.000179514" t1="-999999" t2="0.000706835" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.168873" q1="0.728175" q2="0.336124" q3="-0.572951" euler_x="1.74118" euler_y="-0.80509" euler_z="-1.99686" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="-0.000179514" t1="-999999" t2="0.000706835" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.168873" q1="0.728175" q2="0.336124" q3="-0.572951" euler_x="1.74118" euler_y="-0.805091" euler_z="-1.99686" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
             <EnvObject t0="0.144639" t1="-999999" t2="0.0111243" s0="0.0265001" s1="0.0265001" s2="0.0265001" q0="0.425192" q1="0.307713" q2="-0.0129015" q3="0.851099" euler_x="1.01053" euler_y="0.564224" euler_z="0.287632" id="16520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
@@ -54656,7 +54669,7 @@
     <Decal t0="205.17" t1="-47.6962" t2="120.349" s0="24.4801" s1="13.9272" s2="19.6671" q0="-0.348291" q1="-0.0316762" q2="-0.02455" q3="0.936528" euler_x="-0.711173" euler_y="-0.076507" euler_z="-0.0239909" id="16528" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.666667" color_g="0.66666" color_b="0.66666" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="104.603" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="16530" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
+    <EnvObject t0="104.603" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="16530" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
         <parameters />
     </EnvObject>
     <EnvObject name="Create Particle Helper" t0="58.509" t1="-48.0327" t2="70.2886" s0="0.771429" s1="0.771429" s2="0.771429" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16531" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -54834,36 +54847,36 @@
     <Decal t0="237.045" t1="-40.3386" t2="81.4506" s0="5.0625" s1="1.01289" s2="5.0625" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="16551" type_file="Data/Objects/Decals/signs/design_lock.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
         <parameters />
     </Decal>
-    <Group t0="273.488" t1="-19.7762" t2="77.6487" s0="1.93486" s1="1.25769" s2="0.945059" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16560" version="1">
+    <Group t0="265.133" t1="-49.1031" t2="82.6345" s0="1.93486" s1="1.25769" s2="0.945059" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16560" version="1">
         <parameters />
-        <Group t0="273.488" t1="-20.1135" t2="77.6487" s0="1.92486" s1="0.572981" s2="0.935049" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16557" version="1">
+        <Group t0="265.133" t1="-49.4404" t2="82.6345" s0="1.92486" s1="0.572981" s2="0.935049" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16557" version="1">
             <parameters />
-            <EnvObject t0="273.488" t1="-20.1379" t2="77.6487" s0="0.462526" s1="0.257183" s2="0.957427" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16532" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+            <EnvObject t0="265.133" t1="-49.4647" t2="82.6345" s0="0.462526" s1="0.257183" s2="0.957427" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16532" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
                 <parameters />
             </EnvObject>
-            <Group t0="273.435" t1="-19.8672" t2="77.6431" s0="1.75707" s1="0.0702989" s2="0.872778" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16556" version="1">
+            <Group t0="265.08" t1="-49.194" t2="82.6289" s0="1.75707" s1="0.0702989" s2="0.872778" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16556" version="1">
                 <parameters />
-                <ItemObject name="Ghost Shortsword Item" t0="272.993" t1="-19.875" t2="77.8027" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16537" type_file="Data/Items/cinderbreathe_weapons/cinderbreathesword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <ItemObject name="Ghost Shortsword Item" t0="264.638" t1="-49.2018" t2="82.7885" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16537" type_file="Data/Items/cinderbreathe_weapons/cinderbreathesword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
                     <parameters />
                 </ItemObject>
-                <ItemObject name="Ghost Broadsword Item" t0="273.093" t1="-19.8716" t2="77.4987" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16550" type_file="Data/Items/cinderbreathe_weapons/cinderbreathebroadsword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <ItemObject name="Ghost Broadsword Item" t0="264.738" t1="-49.1984" t2="82.4845" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16550" type_file="Data/Items/cinderbreathe_weapons/cinderbreathebroadsword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
                     <parameters />
                 </ItemObject>
-                <ItemObject name="Ghost Spear Item" t0="273.385" t1="-19.8638" t2="77.3477" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16552" type_file="Data/Items/cinderbreathe_weapons/cinderbreathespear.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <ItemObject name="Ghost Spear Item" t0="265.03" t1="-49.1906" t2="82.3335" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16552" type_file="Data/Items/cinderbreathe_weapons/cinderbreathespear.xml" color_r="1" color_g="1" color_b="1" overbright="0">
                     <parameters />
                 </ItemObject>
-                <ItemObject name="Ghost Knife Item" t0="272.806" t1="-19.8654" t2="77.6677" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16553" type_file="Data/Items/cinderbreathe_weapons/cinderbreatheknife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <ItemObject name="Ghost Knife Item" t0="264.451" t1="-49.1922" t2="82.6535" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16553" type_file="Data/Items/cinderbreathe_weapons/cinderbreatheknife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
                     <parameters />
                 </ItemObject>
-                <ItemObject name="Ghost Throwing Item" t0="272.808" t1="-19.87" t2="77.9737" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16554" type_file="Data/Items/rabbit_weapons/rabbit_throwing_knife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <ItemObject name="Ghost Throwing Item" t0="264.453" t1="-49.1968" t2="82.9595" s0="1.00014" s1="1.00014" s2="1.00014" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16554" type_file="Data/Items/rabbit_weapons/rabbit_throwing_knife.xml" color_r="1" color_g="1" color_b="1" overbright="0">
                     <parameters />
                 </ItemObject>
-                <ItemObject name="Ghost Staff Item" t0="273.435" t1="-19.8627" t2="77.2367" s0="1.00014" s1="1.00014" s2="1.00014" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16555" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+                <ItemObject name="Ghost Staff Item" t0="265.08" t1="-49.1895" t2="82.2225" s0="1.00014" s1="1.00014" s2="1.00014" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16555" type_file="Data/Items/staffbasic.xml" color_r="1" color_g="1" color_b="1" overbright="0">
                     <parameters />
                 </ItemObject>
             </Group>
         </Group>
-        <ActorObject name="Ghost Doll" t0="274.04" t1="-19.4487" t2="77.8127" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16558" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="0">
+        <ActorObject name="Ghost Doll" t0="265.685" t1="-48.7755" t2="82.7985" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16558" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="0">
             <parameters>
                 <parameter name="Aggression" type="float" val="0.5" />
                 <parameter name="Attack Damage" type="float" val="1" />
@@ -54895,6 +54908,7 @@
                 <parameter name="Left handed" type="int" val="0" />
                 <parameter name="Movement Speed" type="float" val="1" />
                 <parameter name="Muscle" type="float" val="0.5" />
+                <parameter name="No Idle Movement" type="int" val="0" />
                 <parameter name="No Look Around" type="int" val="1" />
                 <parameter name="Peripheral FOV distance" type="float" val="4" />
                 <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -54914,7 +54928,7 @@
             <ItemConnections />
             <Palette />
         </ActorObject>
-        <PathPointObject t0="274.101" t1="-19.9016" t2="77.8157" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16559" type_file="">
+        <PathPointObject t0="265.746" t1="-49.2284" t2="82.8015" s0="0.5" s1="0.5" s2="0.5" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="16559" type_file="">
             <parameters>
                 <parameter name="Type" type="string" val="Stand" />
                 <parameter name="Wait" type="float" val="0" />
@@ -54940,12 +54954,12 @@
             <NavMeshConnection other_object_id="13890" offmesh_connection_id="1202" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
-    <Group t0="173.086" t1="-36.9528" t2="118.992" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="-3.14159" id="16569" version="1">
+    <Group t0="173.086" t1="-36.9528" t2="118.992" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="16569" version="1">
         <parameters />
-        <Decal t0="173.086" t1="-38.6487" t2="118.992" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="-3.14159" id="16565" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="173.086" t1="-38.6487" t2="118.992" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="16565" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
-        <Decal t0="173.086" t1="-35.2569" t2="118.992" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="-3.14159" id="16566" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="173.086" t1="-35.2569" t2="118.992" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="16566" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
     </Group>
@@ -54977,12 +54991,12 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Group t0="175.469" t1="-36.9528" t2="118.992" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="-3.14159" id="16577" version="1">
+    <Group t0="175.469" t1="-36.9528" t2="118.992" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="16577" version="1">
         <parameters />
-        <Decal t0="175.469" t1="-38.6487" t2="118.992" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="-3.14159" id="16573" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="175.469" t1="-38.6487" t2="118.992" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="16573" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
-        <Decal t0="175.469" t1="-35.2569" t2="118.992" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="-3.14159" id="16574" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="175.469" t1="-35.2569" t2="118.992" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="16574" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
     </Group>
@@ -55244,6 +55258,18 @@
     <EnvObject t0="156.675" t1="-67.6259" t2="125.508" s0="0.277659" s1="3.62715" s2="1.20425" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16671" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblockplant.xml">
         <parameters />
     </EnvObject>
+    <Hotspot name="Level Start" t0="244.731" t1="-23.6391" t2="94.561" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16674" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;function&quot;:1,&quot;message&quot;:&quot;level_start&quot;},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_intro_played&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_current_level&quot;,&quot;ouruin_escape_visited&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;escape&quot;,&quot;1&quot;]}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <Group t0="187.962" t1="-36.911" t2="118.992" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16680" version="1">
         <parameters />
         <Decal t0="187.962" t1="-35.2152" t2="118.992" s0="3.05966" s1="1.03645" s2="3.05966" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="16678" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
@@ -55276,7 +55302,7 @@
         <Decal t0="174.159" t1="-37.0321" t2="118.587" s0="-3.674" s1="0.390508" s2="3.67405" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="16688" type_file="Data/Objects/Decals/runes/rune_clouds.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
-        <Decal t0="181.635" t1="-35.5167" t2="118.577" s0="8.15443" s1="1.0694" s2="2.74685" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="-3.14159" id="16689" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="181.635" t1="-35.5167" t2="118.577" s0="8.15443" s1="1.0694" s2="2.74685" q0="0" q1="-0.707107" q2="0.707107" q3="0" euler_x="-1.5708" euler_y="0" euler_z="3.14159" id="16689" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
         <Decal t0="181.635" t1="-38.4777" t2="118.577" s0="8.15443" s1="1.0694" s2="2.74685" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="16690" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
@@ -55300,10 +55326,10 @@
         <Decal t0="186.27" t1="-36.9047" t2="125.431" s0="4.68484" s1="1.1096" s2="3.12323" q0="0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="16696" type_file="Data/Objects/Decals/runes/rune_good.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
-        <Decal t0="174.205" t1="-37.0324" t2="125.389" s0="3.67405" s1="0.390508" s2="3.67405" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="16697" type_file="Data/Objects/Decals/runes/rune_clouds.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="174.205" t1="-37.0324" t2="125.389" s0="3.67405" s1="0.390508" s2="3.67405" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="16697" type_file="Data/Objects/Decals/runes/rune_clouds.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
-        <Decal t0="189.32" t1="-37.0325" t2="125.389" s0="-3.674" s1="0.390508" s2="3.67405" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="16698" type_file="Data/Objects/Decals/runes/rune_clouds.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="189.32" t1="-37.0325" t2="125.389" s0="-3.674" s1="0.390508" s2="3.67405" q0="0" q1="0.707107" q2="0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="16698" type_file="Data/Objects/Decals/runes/rune_clouds.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
         <Decal t0="181.844" t1="-35.5171" t2="125.398" s0="8.15443" s1="1.0694" s2="2.74685" q0="-0.707107" q1="0" q2="0" q3="-0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="16699" type_file="Data/Objects/Decals/runes/rune_during.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
@@ -55327,19 +55353,19 @@
     </Group>
     <Group t0="173.086" t1="-36.9528" t2="125.62" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="16708" version="1">
         <parameters />
-        <Decal t0="173.086" t1="-35.2569" t2="125.62" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="16706" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="173.086" t1="-35.2569" t2="125.62" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="16706" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
-        <Decal t0="173.086" t1="-38.6487" t2="125.62" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="16707" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="173.086" t1="-38.6487" t2="125.62" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="16707" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
     </Group>
     <Group t0="175.469" t1="-36.9528" t2="125.62" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="16711" version="1">
         <parameters />
-        <Decal t0="175.469" t1="-35.2569" t2="125.62" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="16709" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="175.469" t1="-35.2569" t2="125.62" s0="3.05966" s1="1.03645" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="16709" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
-        <Decal t0="175.469" t1="-38.6487" t2="125.62" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="3.14159" id="16710" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
+        <Decal t0="175.469" t1="-38.6487" t2="125.62" s0="-3.06" s1="1.036" s2="3.05966" q0="0" q1="-0.707107" q2="-0.707107" q3="0" euler_x="1.5708" euler_y="0" euler_z="-3.14159" id="16710" type_file="Data/Objects/Decals/runes/rune_bad.xml" color_r="0.159446" color_g="0.164621" color_b="0.376471" overbright="0">
             <parameters />
         </Decal>
     </Group>
@@ -55352,7 +55378,7 @@
             <parameters />
         </Decal>
     </Group>
-    <Decal t0="174.174" t1="-49.0982" t2="109.453" s0="5.63005" s1="0.932599" s2="2.38624" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="16715" type_file="Data/Objects/Decals/sponge_square.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="174.174" t1="-49.0982" t2="109.453" s0="5.63005" s1="0.932599" s2="2.38624" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="16715" type_file="Data/Objects/Decals/sponge_square.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="108.366" t1="-17.5333" t2="-7.44636" s0="0.626714" s1="0.703269" s2="0.570008" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="16718" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/window_block.xml">
@@ -55361,16 +55387,34 @@
     <EnvObject t0="115.578" t1="-19.2902" t2="-11.7434" s0="0.626714" s1="0.703269" s2="0.570008" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="16719" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/window_block.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="138.567" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="16720" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
+    <EnvObject t0="138.567" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="16720" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="164.914" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="16721" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
+    <EnvObject t0="164.914" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="16721" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="198.878" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="1.57045" euler_z="0" id="16722" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
+    <EnvObject t0="198.878" t1="-48.7189" t2="164.764" s0="0.755037" s1="0.755037" s2="0.755037" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="16722" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/detail/Citycenter.xml">
         <parameters />
     </EnvObject>
     <Decal t0="180.924" t1="-48.4853" t2="87.1074" s0="13.6383" s1="1.16544" s2="1.16544" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16723" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+        <parameters />
+    </Decal>
+    <EnvObject t0="274.63" t1="-48.401" t2="133.759" s0="2.55325" s1="2.55325" s2="2.55325" q0="-0.68845" q1="0.161359" q2="0.161359" q3="0.68845" euler_x="-1.5708" euler_y="0.46045" euler_z="0" id="16736" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="274.679" t1="-48.401" t2="128.51" s0="2.55325" s1="2.55325" s2="2.55325" q0="0.543511" q1="0.452323" q2="-0.452323" q3="0.543511" euler_x="1.5708" euler_y="1.38817" euler_z="0" id="16737" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+        <parameters />
+    </EnvObject>
+    <Decal t0="217.768" t1="-48.5074" t2="136.492" s0="0.286889" s1="0.376447" s2="0.50269" q0="0" q1="0.217793" q2="0" q3="0.975995" euler_x="0" euler_y="0.439105" euler_z="0" id="16738" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.403922" color_g="0.403917" color_b="0.403917" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="218.216" t1="-48.5074" t2="136.185" s0="0.157606" s1="0.174667" s2="0.209507" q0="0" q1="0.217793" q2="0" q3="0.975995" euler_x="0" euler_y="0.439105" euler_z="0" id="16739" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.403922" color_g="0.403917" color_b="0.403917" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="219.197" t1="-48.4649" t2="139.854" s0="0.594351" s1="0.83184" s2="0.549429" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16740" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.615686" color_g="0.61568" color_b="0.61568" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="180.321" t1="-54.6831" t2="108.937" s0="4.30855" s1="2.8345" s2="3.42632" q0="0" q1="0.810463" q2="0" q3="0.58579" euler_x="3.14159" euler_y="1.25171" euler_z="3.14159" id="16741" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.607843" color_g="0.607837" color_b="0.607837" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="258.946" t1="-49.0876" t2="28.8855" s0="0.011561" s1="0.011561" s2="0.011561" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17906" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
@@ -56287,7 +56331,6 @@
     <SpawnerItem display_name="Plant Ground Cover 1" path="Data/Objects/Plants/Groundcover/Groundcover1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/groundcover1.png" />
     <SpawnerItem display_name="White Dust" path="Data/Objects/Decals/white_dust.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/white_dust.png" />
     <SpawnerItem display_name="invisibleblockplant.xml" path="Data/Objects/invisibleblockplant.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
     <SpawnerItem display_name="design_growth.xml" path="Data/Objects/Decals/signs/design_growth.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="design_ebb.xml" path="Data/Objects/Decals/signs/design_ebb.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Glyph Rabbit" path="Data/Objects/Decals/signs/glyph_rabbit.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/glyph_rabbit.png" />
@@ -56301,4 +56344,6 @@
     <SpawnerItem display_name="rune_wind.xml" path="Data/Objects/Decals/runes/rune_wind.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Citycenter.xml" path="Data/Objects/therium/ouruin/detail/Citycenter.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Ambient Shadow (square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fence Plank" path="Data/Objects/Buildings/Fence1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Fence1.png" />
+    <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
 </RecentItems>

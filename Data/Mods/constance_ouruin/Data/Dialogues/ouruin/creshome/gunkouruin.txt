@@ -29,8 +29,7 @@ send_character_message 1 "set_torso_target 4.72471 1.10287 18.6321 1"
 send_character_message 1 "set_head_target 4.25513 1.66615 19.3503 1"
 send_character_message 2 "set_head_target 5.63684 1.58821 18.2859 1"
 set_cam 2.14246 1.68869 16.4283 0.67 -130.05 3 31.8164
-say 1 "Ghost" "People don't come to these streets to live. [wait 0.15]They just end up here one way or another, [wait 0.1]broken and hopeless..."
-set_cam 2.14337 1.68515 16.4275 0.67 -130.05 3 31.8164
+say 1 "Ghost" "People don't come to these streets to live. [wait 0.15]They just end up here one way or another..."
 send_character_message 1 "set_torso_target 4.72597 1.10285 18.6306 1"
 send_character_message 2 "set_torso_target 4.3959 1.3614 18.2696 2.80142e-06"
 send_character_message 2 "set_head_target 5.65919 1.79438 18.3117 1"

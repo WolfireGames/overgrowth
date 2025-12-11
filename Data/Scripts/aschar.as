@@ -276,6 +276,7 @@ float eye_delay = 0.0f;  // How much time until the next eye dir adjustment
 vec3 dialogue_eye_dir;
 string dialogue_anim;
 bool g_no_look_around;
+bool g_no_idle_movement;
 
 vec3 dodge_dir;
 bool active_blocking = false;
@@ -2689,7 +2690,9 @@ void Update(int num_frames) {
         Timestep ts(time_step, num_frames);
         time += ts.step();
         this_mo.velocity = 0.0f;
-        UpdateEyeLookTarget();
+        if(!g_no_idle_movement) {
+            UpdateEyeLookTarget();
+        }
 
         if(!g_no_look_around) {
             UpdateHeadLook(ts);
@@ -3960,7 +3963,9 @@ float ragdoll_air_start = 0.0;
 void UpdateState(const Timestep &in ts) {
     EnterTelemetryZone("UpdateState");
     cam_pos_offset = vec3(0.0f);
-    UpdateEyeLookTarget();
+    if(!g_no_idle_movement) {
+        UpdateEyeLookTarget();
+    }
 
     if(!g_no_look_around) {
         UpdateHeadLook(ts);
@@ -4458,31 +4463,33 @@ void SetEnabled(bool val) {
 }
 
 void SetEyeLookDir(const vec3 &in eye_dir) {
-    // Set weights for carnivore
-    this_mo.rigged_object().SetMorphTargetWeight("look_r", max(0.0f, eye_dir.x), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_l", max(0.0f, -eye_dir.x), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_u", max(0.0f, eye_dir.y), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_d", max(0.0f, -eye_dir.y), 1.0f);
+    if(!g_no_idle_movement) {
+        // Set weights for carnivore
+        this_mo.rigged_object().SetMorphTargetWeight("look_r", max(0.0f, eye_dir.x), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_l", max(0.0f, -eye_dir.x), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_u", max(0.0f, eye_dir.y), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_d", max(0.0f, -eye_dir.y), 1.0f);
 
-    // Set weights for herbivore
-    this_mo.rigged_object().SetMorphTargetWeight("look_u", max(0.0f, eye_dir.y), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_d", max(0.0f, -eye_dir.y), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_f", max(0.0f, eye_dir.z), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_b", max(0.0f, -eye_dir.z), 1.0f);
+        // Set weights for herbivore
+        this_mo.rigged_object().SetMorphTargetWeight("look_u", max(0.0f, eye_dir.y), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_d", max(0.0f, -eye_dir.y), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_f", max(0.0f, eye_dir.z), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_b", max(0.0f, -eye_dir.z), 1.0f);
 
-    // Set weights for independent-eye herbivore
-    this_mo.rigged_object().SetMorphTargetWeight("look_u_l", max(0.0f, eye_dir.y), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_u_r", max(0.0f, eye_dir.y), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_d_l", max(0.0f, -eye_dir.y), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_d_r", max(0.0f, -eye_dir.y), 1.0f);
+        // Set weights for independent-eye herbivore
+        this_mo.rigged_object().SetMorphTargetWeight("look_u_l", max(0.0f, eye_dir.y), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_u_r", max(0.0f, eye_dir.y), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_d_l", max(0.0f, -eye_dir.y), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_d_r", max(0.0f, -eye_dir.y), 1.0f);
 
-    float right_front = eye_dir.z;
-    float left_front = eye_dir.z;
+        float right_front = eye_dir.z;
+        float left_front = eye_dir.z;
 
-    this_mo.rigged_object().SetMorphTargetWeight("look_f_r", max(0.0f, right_front), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_b_r", max(0.0f, -right_front), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_f_l", max(0.0f, left_front), 1.0f);
-    this_mo.rigged_object().SetMorphTargetWeight("look_b_l", max(0.0f, -left_front), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_f_r", max(0.0f, right_front), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_b_r", max(0.0f, -right_front), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_f_l", max(0.0f, left_front), 1.0f);
+        this_mo.rigged_object().SetMorphTargetWeight("look_b_l", max(0.0f, -left_front), 1.0f);
+    }
 }
 
 enum WhichEye {
@@ -4535,7 +4542,7 @@ void UpdateEyeLook() {
 
     debug_eye_lines.resize(0);
 
-    if(knocked_out != _awake) {
+    if(knocked_out != _awake || g_no_idle_movement) {
         return;
     }
 
@@ -15000,7 +15007,9 @@ void FinalAnimationMatrixUpdate(int num_frames) {
     }
 
     EnterTelemetryZone("update eye look");
-    UpdateEyeLook();
+    if(!g_no_idle_movement) {
+        UpdateEyeLook();
+    }
     LeaveTelemetryZone();
 
     UpdateDialogueMorph();
@@ -15605,6 +15614,9 @@ void SetParameters() {
 
     params.AddIntCheckbox("No Look Around", has_old_no_look_around_param);
     g_no_look_around = params.GetInt("No Look Around") != 0;
+
+    params.AddIntCheckbox("No Idle Movement", false);
+    g_no_idle_movement = params.GetInt("No Idle Movement") != 0;
 
     params.AddIntCheckbox("Cannot Be Disarmed", false);
     g_cannot_be_disarmed = params.GetInt("Cannot Be Disarmed") != 0;

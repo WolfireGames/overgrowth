@@ -36,7 +36,7 @@ say 2 "Gunk" "Really[wait 0.1].[wait 0.1].[wait 0.1].[wait 0.2]? [wait 0.15]Hmm.
 send_character_message 1 "set_torso_target 4.45904 1.60538 18.357 1"
 send_character_message 2 "set_eye_dir 3.79131 2.00432 18.9782 0.782323"
 send_character_message 2 "set_head_target 5.17054 1.82511 17.7537 1"
-say 2 "Gunk" "[wait 0.1]What is this stuff...[wait 0.1]? [wait 0.2]You said this is medicine?"
+say 2 "Gunk" "[wait 0.1]What is that stuff...[wait 0.1]? [wait 0.2]You said this is medicine?"
 send_character_message 3 "set_animation \"Data/Animations/r_idle.anm\""
 send_character_message 1 "set_head_target 3.95929 1.51156 17.6616 1"
 send_character_message 3 "set_head_target 11.6502 1.79841 16.864 0"

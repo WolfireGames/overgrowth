@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Objects/bread/bread.obj</Model>
+	<ColorMap>Data/Textures/Objects/bread/bread_c.tga</ColorMap>
+	<NormalMap>Data/Textures/chest_n.png</NormalMap>
+	<ShaderName>drika_placeholder_it</ShaderName>
+	<flags no_collision=true/>
+</Object>
+ 
