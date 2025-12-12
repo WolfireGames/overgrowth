@@ -566,10 +566,11 @@ Define variable, its values and notes for each value.
 
 		ouruin_gateguards_fight
 			0: Not challenged
-			1: Fight in progress
-			2: Fight lost
-			3: Fight won
-			4: Fight abandoned
+			1: Fight in progress (Deprecated)
+			2: Fight lost (Deprecated)
+			3: Fight won (Deprecated)
+			4: Fight abandoned (Deprecated)
+			5: Considered fighting
 
 		ouruin_gateguards_fleed
 
