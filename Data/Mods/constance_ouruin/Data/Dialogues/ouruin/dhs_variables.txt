@@ -98,20 +98,20 @@ Define variable, its values and notes for each value.
 		ouruin_market_currency
 		ouruin_depot_currency
 		ouruin_dart_currency
-		ouruin_ratden_currency (Unused. Coin does not spawn in this level)
+		ouruin_ratden_currency (Unused)
 		ouruin_courtyard_currency
 		ouruin_agra_currency
-		ouruin_speakeasy_currency (Unused. Coin does not spawn in this level)
+		ouruin_speakeasy_currency (Unused)
 		ouruin_highroad_currency
-		ouruin_creshome_currency (Unused. Coin does not spawn in this level)
+		ouruin_creshome_currency (Unused)
 		ouruin_fractured_currency
-		ouruin_escape_currency
-		ouruin_ship_currency
-		ouruin_warrens_currency (Unused. Coin does not spawn in this level)
+		ouruin_escape_currency (Unused)
+		ouruin_ship_currency (Unused)
+		ouruin_warrens_currency (Unused)
 		ouruin_lvl1_currency (Obsolete)
 		ouruin_lvl2_currency (Obsolete)
 		ouruin_lvl3_currency (Obsolete)
-		ouruin_lvl4_currency (Obsolete, but used to give the player a starting +100p)
+		ouruin_lvl4_currency (Used to give the player a starting +100p)
 		ouruin_test_currency (Obsolete)
 
 

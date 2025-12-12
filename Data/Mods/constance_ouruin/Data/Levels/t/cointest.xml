@@ -1,0 +1,492 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>cointest</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<Terrain>
+    <Heightmap>Data/Textures/Terrain/flat.png</Heightmap>
+    <ShaderExtra></ShaderExtra>
+    <DetailMap></DetailMap>
+    <ColorMap>Data/Textures/black.tga</ColorMap>
+    <WeightMap>Data/Textures/black.tga</WeightMap>
+    <ModelOverride>Data/Models/lolnothing.obj</ModelOverride>
+    <DetailMaps>
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rocks.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/gravel.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/sand.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rock.xml" />
+    </DetailMaps>
+    <DetailObjects />
+</Terrain>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="#SHADOW_POINT_LIGHTS #TEST_CLOUDS_2 #OURUIN_EVENING #CLOUDS_DO_NOT_TINT_SKY #CLOUDS_DO_NOT_CAST_SHADOWS" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.12346" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="1.48148" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="2" />
+    <parameter name="Sky Rotation" type="float" val="-33" />
+    <parameter name="Sky Tint" type="string" val="160, 50, 0" />
+</LevelScriptParameters>
+<NavMeshParameters generate="false" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.0981272</SunAngularRad>
+    <SunColorAngle>123.298</SunColorAngle>
+    <RayToSun r0="-0.587034" r1="0.466881" r2="0.661373" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-13.1698" t1="6.02452" t2="-8.45977" s0="1" s1="1" s2="1" q0="-0.113569" q1="-0.602896" q2="0.0872385" q3="-0.784862" euler_x="0.287403" euler_y="1.31004" euler_z="0" id="0">
+        <parameters />
+    </CameraObject>
+    <ActorObject name="Ghost" t0="3.37316" t1="0.176522" t2="-20.6776" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1.00056" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <Prefab t0="9.1457" t1="2.83038" t2="-19.4596" s0="1.78778" s1="4.30185" s2="1.78778" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/wallets/template.xml" os0="1.78778" os1="4.30185" os2="1.78778">
+        <parameters />
+        <Hotspot name="Coin Manager" t0="9.146" t1="4.42665" t2="-19.46" s0="0.27483" s1="0.27483" s2="0.27483" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" type_file="Data/Objects/Hotspots/coin_pickup_manager.xml">
+            <parameters>
+                <parameter name="Reset Progress" type="int" val="0" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot name="test Wallet" t0="9.1457" t1="2.87005" t2="-19.4596" s0="0.444445" s1="0.444445" s2="0.444445" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="1" />
+                <parameter name="Run in EditorMode" type="int" val="0" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Precache&quot;,&quot;function&quot;:34},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;31&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;32&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;33&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;- Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;count_coin&quot;},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.70196080207824707],&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:6,&quot;fade_out_duration&quot;:1000,&quot;fade_out_tween_type&quot;:22,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1500,&quot;move_out_offset&quot;:[-700,0],&quot;move_out_tween_type&quot;:6,&quot;position&quot;:[517,78],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[-503,122],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;34&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;35&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[216,103],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_previous_wallet}p&quot;,&quot;ui_element_identifier&quot;:&quot;36&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-210,0],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[27,47],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[173,173],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;37&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;display_comment&quot;:&quot;Judge whether gain, loss or neutral&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:17,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:7,&quot;line&quot;:66},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:44,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0.000&quot;]},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Positive gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[0,1,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;38&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[229,195],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;+{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;39&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Add coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Negative gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[1,0,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;310&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[227,210],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;311&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Remove coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Neutral&quot;,&quot;function&quot;:34},{&quot;duration&quot;:3000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Neutral check&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2,3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:71,&quot;function&quot;:32,&quot;if_any_are_true&quot;:true,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;,&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:76},{&quot;display_comment&quot;:&quot;Check for wait&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:76,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_wait&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:68},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Negative/Positive Checks&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:79,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:22},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:82,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:44},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;No change and no wait&quot;,&quot;function&quot;:34},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Conclude&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;312&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,1],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;ouruin_petals_total&quot;]},{&quot;function&quot;:7,&quot;line&quot;:8}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="0" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot name="test Coin Listen" t0="9.1457" t1="1.27705" t2="-19.4596" s0="0.296297" s1="0.296297" s2="0.296297" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="0" />
+                <parameter name="Run in EditorMode" type="int" val="0" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,1],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;ouruin_petals_total&quot;]},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;]},{&quot;display_comment&quot;:&quot;- Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;display_comment&quot;:&quot;Check if neutral&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:7,&quot;line&quot;:18},{&quot;display_comment&quot;:&quot;Increment wallet displays&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;]},{&quot;display_comment&quot;:&quot;Calculate coin total&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6],&quot;parameters&quot;:[&quot;ouruin_test_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_gain_amount&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6,6,6,6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_explore_currency&quot;,&quot;ouruin_market_currency&quot;,&quot;ouruin_depot_currency&quot;,&quot;ouruin_dart_currency&quot;,&quot;ouruin_courtyard_currency&quot;,&quot;ouruin_creshome_currency&quot;,&quot;ouruin_speakeasy_currency&quot;,&quot;ouruin_agra_currency&quot;,&quot;ouruin_highroad_currency&quot;,&quot;ouruin_lvl2_currency&quot;]},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6,6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_lvl3_currency&quot;,&quot;ouruin_lvl4_currency&quot;,&quot;ouruin_fractured_currency&quot;,&quot;ouruin_ratden_currency&quot;,&quot;ouruin_escape_currency&quot;,&quot;ouruin_ship_currency&quot;,&quot;ouruin_warrens_currency&quot;,&quot;ouruin_test_currency&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;count_coin&quot;},{&quot;function&quot;:7,&quot;line&quot;:2},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;- Neutral&quot;,&quot;function&quot;:34},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;count_coin&quot;},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;function&quot;:7,&quot;line&quot;:2}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="10" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Prefab>
+    <EnvObject t0="3.39225" t1="-3.04162" t2="-20.6339" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <ItemObject t0="8.49832" t1="0.163164" t2="-14.0826" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.43094" t1="0.163164" t2="-12.58" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.41161" t1="0.163164" t2="-11.1957" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.21465" t1="0.163164" t2="-9.20504" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.45844" t1="0.163164" t2="-9.40094" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="18" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="7.49792" t1="0.163164" t2="-12.8546" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="19" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="7.00686" t1="0.163163" t2="-14.6192" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.11237" t1="0.163163" t2="-12.1816" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="10.093" t1="0.163163" t2="-9.34703" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <Hotspot name="Level State" t0="18.1178" t1="2.3002" t2="-14.4415" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="1" />
+            <parameter name="Run in EditorMode" type="int" val="0" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Thank fuck the coin scripts work.&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;231&quot;,&quot;ui_function&quot;:0},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:24,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;232&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[13,362],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;ouruin_petals_total: {ouruin_petals_total}p\nouruin_gain_amount: {ouruin_gain_amount}p\n--\nouruin_previous_wallet: {ouruin_previous_wallet}p\nouruin_wallet_toadd: {ouruin_wallet_toadd}p\nouruin_wallet_toadd_display: {ouruin_wallet_toadd_display}p\nouruin_wallet_wait: {ouruin_wallet_wait}\n.\n====\n.\nouruin_test_currency: {ouruin_test_currency}p\nouruin_lvl4_currency: {ouruin_lvl4_currency}p&quot;,&quot;ui_element_identifier&quot;:&quot;233&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;=== PLAYER EVENTS&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;player_event&quot;},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:16,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_player_event&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;deduct&quot;]},{&quot;display_comment&quot;:&quot;=== Remove 50p&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;-50&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;function&quot;:7,&quot;line&quot;:8},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:68,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_player_event&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;chooser&quot;]},{&quot;display_comment&quot;:&quot;=== Chooser&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:false},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[4.6793699264526367,0.39441600441932678,-18.787300109863281],&quot;target_actor_rotation&quot;:0},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[-8.6547155380249023,0.69173187017440796,-22.239158630371094],&quot;target_camera_rotation&quot;:[3.4025099277496338,-98.13287353515625,-0.18622642755508423],&quot;target_camera_zoom&quot;:44.575778961181641},{&quot;display_comment&quot;:&quot;Return to choice&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,0.57647061347961426,0.94117647409439087,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:40,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:false,&quot;use_voice_sounds&quot;:true},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;check_parameter_3&quot;:false,&quot;check_parameter_4&quot;:false,&quot;check_parameter_5&quot;:false,&quot;check_parameter_6&quot;:false,&quot;choice_1&quot;:&quot;+ 25p&quot;,&quot;choice_1_go_to_line&quot;:30,&quot;choice_2&quot;:&quot;- 25p&quot;,&quot;choice_2_go_to_line&quot;:41,&quot;choice_3&quot;:&quot;: 0p&quot;,&quot;choice_3_go_to_line&quot;:36,&quot;choice_4&quot;:&quot;{ Reset }&quot;,&quot;choice_4_go_to_line&quot;:47,&quot;choice_5&quot;:&quot;{ Wait }&quot;,&quot;choice_5_go_to_line&quot;:57,&quot;choice_6&quot;:&quot;[ Back ]&quot;,&quot;choice_6_go_to_line&quot;:65,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:6,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Add 25p&quot;,&quot;function&quot;:34},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/item_state.wav&quot;,&quot;sound_type&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;function&quot;:7,&quot;line&quot;:26},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Neutral&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;function&quot;:7,&quot;line&quot;:26},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Deduct 25p&quot;,&quot;function&quot;:34},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/item_state.wav&quot;,&quot;sound_type&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;-25&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;function&quot;:7,&quot;line&quot;:26},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Reset Coin&quot;,&quot;function&quot;:34},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/lugaru/consolefail_quiet.wav&quot;,&quot;sound_type&quot;:0},{&quot;display_comment&quot;:&quot;Reset wallet variables&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;,&quot;ouruin_previous_wallet&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_display&quot;,&quot;ouruin_test_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;100&quot;,&quot;100&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]},{&quot;display_comment&quot;:&quot;Reset coin totals&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_explore_currency&quot;,&quot;ouruin_market_currency&quot;,&quot;ouruin_depot_currency&quot;,&quot;ouruin_dart_currency&quot;,&quot;ouruin_ratden_currency&quot;,&quot;ouruin_courtyard_currency&quot;,&quot;ouruin_agra_currency&quot;,&quot;ouruin_speakeasy_currency&quot;,&quot;ouruin_highroad_currency&quot;,&quot;ouruin_creshome_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_fractured_currency&quot;,&quot;ouruin_escape_currency&quot;,&quot;ouruin_ship_currency&quot;,&quot;ouruin_lvl1_currency&quot;,&quot;ouruin_lvl2_currency&quot;,&quot;ouruin_lvl3_currency&quot;,&quot;ouruin_lvl4_currency&quot;,&quot;ouruin_test_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;100&quot;,&quot;0&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;reset_coin_progress&quot;},{&quot;function&quot;:7,&quot;line&quot;:26},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Toggle Wait&quot;,&quot;function&quot;:34},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/match_hit.wav&quot;,&quot;sound_type&quot;:0},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:62,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_wait&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_wait&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:7,&quot;line&quot;:26},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_wait&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:7,&quot;line&quot;:26},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Back&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:false},{&quot;function&quot;:7,&quot;line&quot;:8},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:84,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_player_event&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;reset&quot;]},{&quot;display_comment&quot;:&quot;=== Reset&quot;,&quot;function&quot;:34},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/lugaru/consolefail_quiet.wav&quot;,&quot;sound_type&quot;:0},{&quot;display_comment&quot;:&quot;Reset wallet variables&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;,&quot;ouruin_previous_wallet&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_display&quot;,&quot;ouruin_test_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;100&quot;,&quot;100&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]},{&quot;display_comment&quot;:&quot;Reset coin totals&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_explore_currency&quot;,&quot;ouruin_market_currency&quot;,&quot;ouruin_depot_currency&quot;,&quot;ouruin_dart_currency&quot;,&quot;ouruin_ratden_currency&quot;,&quot;ouruin_courtyard_currency&quot;,&quot;ouruin_agra_currency&quot;,&quot;ouruin_speakeasy_currency&quot;,&quot;ouruin_highroad_currency&quot;,&quot;ouruin_creshome_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0,0,0,0,0,0],&quot;parameters&quot;:[&quot;ouruin_fractured_currency&quot;,&quot;ouruin_escape_currency&quot;,&quot;ouruin_ship_currency&quot;,&quot;ouruin_lvl1_currency&quot;,&quot;ouruin_lvl2_currency&quot;,&quot;ouruin_lvl3_currency&quot;,&quot;ouruin_lvl4_currency&quot;,&quot;ouruin_test_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;100&quot;,&quot;0&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;reset_coin_progress&quot;},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;reset&quot;},{&quot;function&quot;:7,&quot;line&quot;:8},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Done&quot;,&quot;function&quot;:34},{&quot;function&quot;:7,&quot;line&quot;:8}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Group t0="-2.42" t1="-2.21803" t2="-17.496" s0="2.91908" s1="4.5245" s2="2.91908" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="31" version="1">
+        <parameters />
+        <EnvObject t0="-2.42" t1="-1.95147" t2="-17.496" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" color_r="1" color_g="0.0901961" color_b="0.0901961" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-2.42" t1="-2.28717" t2="-17.496" s0="0.732779" s1="0.732779" s2="0.732779" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-2.42023" t1="-2.17555" t2="-13.1914" s0="2.91908" s1="4.60955" s2="2.91908" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="32" version="1">
+        <parameters />
+        <Decal t0="-2.37215" t1="-0.0239275" t2="-13.224" s0="1.5" s1="0.296296" s2="1.5" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="26" type_file="Data/Objects/therium/ouruin/testrestartdecal.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+            <parameters />
+        </Decal>
+        <EnvObject t0="-2.42023" t1="-1.95152" t2="-13.1914" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="29" color_r="0.0901961" color_g="0.753818" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-2.42023" t1="-2.28722" t2="-13.1914" s0="0.732779" s1="0.732779" s2="0.732779" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="30" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="-2.42" t1="-2.21808" t2="-21.7354" s0="2.91908" s1="4.5245" s2="2.91908" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="33" version="1">
+        <parameters />
+        <EnvObject t0="-2.42" t1="-1.95152" t2="-21.7354" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="27" color_r="1" color_g="0.576471" color_b="0.941176" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-2.42" t1="-2.28722" t2="-21.7354" s0="0.732779" s1="0.732779" s2="0.732779" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="28" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Group t0="6.23115" t1="-2.21803" t2="-11.7595" s0="9.85189" s1="4.5245" s2="9.85189" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="36" version="1">
+        <parameters />
+        <EnvObject t0="6.23115" t1="-1.95147" t2="-11.7595" s0="2.25" s1="0.666667" s2="2.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="34" color_r="0.0901961" color_g="1" color_b="0.218639" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.23115" t1="-2.28718" t2="-11.7595" s0="2.47313" s1="0.732779" s2="2.47313" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="35" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <ItemObject t0="8.65262" t1="0.163163" t2="-14.6351" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="37" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="5.97753" t1="0.163163" t2="-10.8869" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="38" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.27794" t1="0.163163" t2="-10.2649" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="39" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="2.91515" t1="0.163163" t2="-8.91321" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="40" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="2.47845" t1="0.163163" t2="-13.3049" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="41" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="5.41342" t1="0.163163" t2="-15.2307" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="42" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.12209" t1="0.163163" t2="-15.4589" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="43" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.53197" t1="0.163163" t2="-10.705" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="44" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.78658" t1="0.163163" t2="-13.8902" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="45" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <Group t0="13.9109" t1="-3.10888" t2="-14.1507" s0="112.878" s1="6.12923" s2="58.2881" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="46" version="1">
+        <parameters />
+        <EnvObject t0="14.2789" t1="-3.18246" t2="-13.8106" s0="26.6246" s1="0.999999" s2="12.8663" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8" color_r="0.0627451" color_g="0.0627445" color_b="0.0627445" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="68.3578" t1="-3.03792" t2="-14.1147" s0="1" s1="1" s2="12.7201" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-40.5321" t1="-3.03794" t2="-14.1148" s0="1" s1="1" s2="12.7201" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.9109" t1="-3.0353" t2="-41.3047" s0="1" s1="1" s2="28.4307" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="13.9105" t1="-3.03533" t2="13.0034" s0="1" s1="1" s2="28.4305" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+    <Hotspot t0="-2.40181" t1="1.18379" t2="-13.1498" s0="0.616451" s1="0.616451" s2="0.616451" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="47" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <parameters>
+            <parameter name="Activate Once" type="int" val="0" />
+            <parameter name="Activate Player Only" type="int" val="1" />
+            <parameter name="Level Message Send" type="int" val="1" />
+            <parameter name="Level Message Value" type="string" val="player_event" />
+            <parameter name="Var Add" type="int" val="0" />
+            <parameter name="Var Add Name" type="string" val="variable_name" />
+            <parameter name="Var Add Value" type="string" val="0" />
+            <parameter name="Var Add Var" type="int" val="0" />
+            <parameter name="Var Add Var Name" type="string" val="variable_name" />
+            <parameter name="Var Add Var Value" type="string" val="variable_value" />
+            <parameter name="Var Set" type="int" val="1" />
+            <parameter name="Var Set Name" type="string" val="ouruin_player_event" />
+            <parameter name="Var Set Value" type="string" val="reset" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-2.40181" t1="1.18379" t2="-17.4913" s0="0.616451" s1="0.616451" s2="0.616451" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="48" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <parameters>
+            <parameter name="Activate Once" type="int" val="0" />
+            <parameter name="Activate Player Only" type="int" val="1" />
+            <parameter name="Level Message Send" type="int" val="1" />
+            <parameter name="Level Message Value" type="string" val="player_event" />
+            <parameter name="Var Add" type="int" val="0" />
+            <parameter name="Var Add Name" type="string" val="variable_name" />
+            <parameter name="Var Add Value" type="string" val="0" />
+            <parameter name="Var Add Var" type="int" val="0" />
+            <parameter name="Var Add Var Name" type="string" val="variable_name" />
+            <parameter name="Var Add Var Value" type="string" val="variable_value" />
+            <parameter name="Var Set" type="int" val="1" />
+            <parameter name="Var Set Name" type="string" val="ouruin_player_event" />
+            <parameter name="Var Set Value" type="string" val="deduct" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-2.40181" t1="1.18379" t2="-21.7273" s0="0.616451" s1="0.616451" s2="0.616451" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="49" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <parameters>
+            <parameter name="Activate Once" type="int" val="0" />
+            <parameter name="Activate Player Only" type="int" val="1" />
+            <parameter name="Level Message Send" type="int" val="1" />
+            <parameter name="Level Message Value" type="string" val="player_event" />
+            <parameter name="Var Add" type="int" val="0" />
+            <parameter name="Var Add Name" type="string" val="variable_name" />
+            <parameter name="Var Add Value" type="string" val="0" />
+            <parameter name="Var Add Var" type="int" val="0" />
+            <parameter name="Var Add Var Name" type="string" val="variable_name" />
+            <parameter name="Var Add Var Value" type="string" val="variable_value" />
+            <parameter name="Var Set" type="int" val="1" />
+            <parameter name="Var Set Name" type="string" val="ouruin_player_event" />
+            <parameter name="Var Set Value" type="string" val="chooser" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <ItemObject t0="7.29948" t1="0.163163" t2="-13.7804" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="50" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="7.9365" t1="0.163163" t2="-14.9741" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="51" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.15512" t1="0.163163" t2="-13.6338" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="52" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.5906" t1="0.163163" t2="-12.7541" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="53" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.79095" t1="0.163163" t2="-13.6087" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="54" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.05111" t1="0.163163" t2="-14.4043" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="55" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.98776" t1="0.163163" t2="-15.1129" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="56" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.5236" t1="0.163163" t2="-15.517" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="57" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.06093" t1="0.163163" t2="-14.4053" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="58" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.31281" t1="0.163163" t2="-14.9204" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="59" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.24904" t1="0.163163" t2="-13.7019" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="60" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="9.31077" t1="0.163163" t2="-13.0509" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="61" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.0291" t1="0.163163" t2="-12.8455" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="62" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.25817" t1="0.163163" t2="-12.4946" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="63" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+    <ItemObject t0="8.48381" t1="0.163163" t2="-13.3738" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="64" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters>
+            <parameter name="Coin Pickup" type="string" val="" />
+        </parameters>
+    </ItemObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="random_citizen.xml" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fire Wood Hot" path="Data/Objects/Environment/camp/fire_wood_hot.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood_hot.png" />
+    <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/lethality/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/lethality/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/lethality/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/lethality/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="highroad.xml" path="Data/Prefabs/ouruin/lethality/highroad.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl2.xml" path="Data/Prefabs/ouruin/lethality/lvl2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl3.xml" path="Data/Prefabs/ouruin/lethality/lvl3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl4.xml" path="Data/Prefabs/ouruin/lethality/lvl4.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/wallets/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/wallets/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="cres.xml" path="Data/Prefabs/ouruin/wallets/cres.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/wallets/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/wallets/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level1.xml" path="Data/Prefabs/ouruin/wallets/level1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level2.xml" path="Data/Prefabs/ouruin/wallets/level2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level3.xml" path="Data/Prefabs/ouruin/wallets/level3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Blood Drop Splat" path="Data/Objects/Decals/blooddropsplat.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/blooddropsplat.png" />
+    <SpawnerItem display_name="Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="Data/UI/thumbsnailsT2/Coin.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/lethality/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/lethality/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/wallets/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/wallets/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Book Open" path="Data/Objects/therium/openbook.xml" thumbnail_path="Data/UI/thumbsnailsT2/Book open.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/lethality/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/lethality/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ship.xml" path="Data/Prefabs/ouruin/lethality/ship.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/wallets/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/wallets/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ratden.xml" path="Data/Prefabs/ouruin/lethality/ratden.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Skull Rabbit" path="Data/Objects/therium/rabbit_skull.xml" thumbnail_path="Data/UI/thumbsnailsT2/Skull rabbit.png" />
+    <SpawnerItem display_name="StandardBlock.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_Red.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_Red.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_White.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="setmessages.xml" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_CageDoor.xml" path="Prototypes/Common/Wood_CageDoor.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_EndLegs.xml" path="Prototypes/Common/Wood_EndLegs.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_Gate.xml" path="Prototypes/Common/Wood_Gate.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_Scaffold.xml" path="Prototypes/Common/Wood_Scaffold.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_Wall.xml" path="Prototypes/Common/Wood_Wall.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="RaiderBase.xml" path="Prototypes/Lugaru/RaiderBase.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="RaiderBase_SandBarrier1.xml" path="Prototypes/Lugaru/RaiderBase_SandBarrier1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="RaiderBase_SandBarrier2.xml" path="Prototypes/Lugaru/RaiderBase_SandBarrier2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="template.xml" path="Data/Prefabs/ouruin/wallets/template.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Sack [Item]" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Drika&apos;s Hotspot (DHS)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="testrestartdecal.xml" path="Data/Objects/therium/ouruin/testrestartdecal.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Send/Set Messages/Variables Hotspot" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="Data/Textures/Cursors/ibeam_nocompress.png" />
+</RecentItems>
