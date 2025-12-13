@@ -5249,7 +5249,7 @@
     <SpawnerItem display_name="Mook 5" path="Data/Objects/therium/IGF_Characters/mook5spawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="Water Sponge (square)" path="Data/Objects/Decals/sponge_square.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
     <SpawnerItem display_name="Hex Crete Debris" path="Data/Objects/Decals/hex_crete_debris.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/hex_crete_debris.png" />
-    <SpawnerItem display_name="ratjunksack.xml" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ratjunksack.xml" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Ghost (object)" path="Data/Objects/therium/characters/ghostobj.xml" thumbnail_path="" />
     <SpawnerItem display_name="Apple (no decal)" path="Data/Objects/therium/apple_decal.xml" thumbnail_path="" />
     <SpawnerItem display_name="Generic Female Dog" path="Data/Objects/characters/dogs/light_armored_dog_female_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/light_armored_dog_female_actor.png" />
@@ -5879,7 +5879,7 @@
     <SpawnerItem display_name="Bin Brown Spice" path="Data/Objects/Buildings/shops/bin_fillers/bin_spice_brown.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/bin_spice_brown.png" />
     <SpawnerItem display_name="Wooden Crate Table 2" path="Data/Prototypes/CaveArena/Crate_Table2.xml" thumbnail_path="" />
     <SpawnerItem display_name="Wood Pack" path="Data/Objects/TestBackpack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/pack1.png" />
-    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
     <SpawnerItem display_name="Rat Junk Sack" path="Data/Objects/Gear/RatJunk/RatJunkSack.xml" thumbnail_path="" />
     <SpawnerItem display_name="Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="Data/UI/thumbsnailsT2/Coin.png" />
     <SpawnerItem display_name="Rat Junk Pounch" path="Data/Objects/Gear/RatJunk/RatJunkPouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacksmall.png" />
@@ -5934,7 +5934,7 @@
     <SpawnerItem display_name="Janner" path="Data/Objects/characters/dogs/janner/janner_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/janner.png" />
     <SpawnerItem display_name="Path Point" path="Data/Objects/pathpoint/pathpoint.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/pathpoint.png" />
     <SpawnerItem display_name="Light Decal (round)" path="Data/Objects/Decals/light_round.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
-    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
     <SpawnerItem display_name="rune_during.xml" path="Data/Objects/Decals/runes/rune_during.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="rune_good.xml" path="Data/Objects/Decals/runes/rune_good.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="rune_stone.xml" path="Data/Objects/Decals/runes/rune_stone.xml" thumbnail_path="empty_placeholder.png" />

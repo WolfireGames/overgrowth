@@ -237,6 +237,14 @@ bool WantsToAttack() {
     }
 }
 
+bool WantsToSwapMoveset() {
+	if(!this_mo.controlled) {
+		return false;
+	}
+	
+	return GetInputPressed(this_mo.controller_id, "swap_moveset");
+}
+
 bool WantsToRollFromRagdoll() {
     if(game_difficulty <= 0.4 && on_ground) {
         return true;

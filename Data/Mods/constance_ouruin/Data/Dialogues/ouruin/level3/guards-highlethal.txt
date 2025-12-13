@@ -44,7 +44,7 @@ set_dialogue_color 7 1.000 0.77 0.11
 set_dialogue_color 4 0.5 0.5 0.5
 set_character_pos 1 234.991 -48.2215 106.328 -180
 send_level_message "set_camera_dof 0.0 5.0 10.0 0.5 2.0 1.5"
-say 9 "Ghost" "(...[wait 0.2]Here I am again... [wait 0.15]Moritz block.)"
+say 9 "Ghost" "(...)"
 send_character_message 1 "set_head_target 233.909 -47.9965 106.602 0.980464"
 say 9 "Ghost" "(I need to look around for some way to escape... [wait 0.2]There's gotta be something.)"
 send_character_message 1 "set_torso_target 233.897 -48.0544 106.192 1"

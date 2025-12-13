@@ -3472,6 +3472,10 @@ void CheckJumpTarget(vec3 target) {
     }
 }
 
+bool WantsToSwapMoveset() {
+	return false;
+}
+
 int IsThreatToCharacter(int char_id) {
     if(chase_target_id == char_id && goal == _attack) {
         return 1;

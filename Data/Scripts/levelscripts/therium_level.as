@@ -44,6 +44,14 @@ void Init() {
         AddMusic("Data/Music/e-a4-a2.xml");
     } else if(params.GetString("music") == "lugaru"){
         AddMusic("Data/Music/lugaru.xml");
+    } else if(params.GetString("music") == "drowned"){
+        AddMusic("Data/Music/drowned.xml");
+    } else if(params.GetString("music") == "drownedtense"){
+        AddMusic("Data/Music/drownedtense.xml");
+    } else if(params.GetString("music") == "drownedstealth"){
+        AddMusic("Data/Music/drownedstealth.xml");
+    } else if(params.GetString("music") == "drownedpeace"){
+        AddMusic("Data/Music/drownedpeace.xml");
     } else if(params.GetString("music") == "empry"){
         AddMusic("Data/Music/empry.xml");
 	}

@@ -23275,7 +23275,7 @@
     <SpawnerItem display_name="hatchet.xml" path="Data/Objects/therium/hatchet.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="coin.xml" path="Data/Objects/therium/coin.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Rat Junk Pounch" path="Data/Objects/Gear/RatJunk/RatJunkPouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacksmall.png" />
-    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
     <SpawnerItem display_name="Rat Junk Sack" path="Data/Objects/Gear/RatJunk/RatJunkSack.xml" thumbnail_path="" />
     <SpawnerItem display_name="Rusted-Metal Tube(low poly)" path="Data/Custom/FnB/Objects/Simple Shapes/low poly/rustedmetal/tube.xml" thumbnail_path="" />
     <SpawnerItem display_name="Armor-Metal(no DT) Tube(low poly)" path="Data/Custom/FnB/Objects/Simple Shapes/low poly/armormetal/tube.xml" thumbnail_path="" />
@@ -23547,7 +23547,7 @@
     <SpawnerItem display_name="Sphere Crete Chip" path="Data/Objects/Decals/sphere_crete_chip.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/sphere_crete_chip.png" />
     <SpawnerItem display_name="ouruintrashshelf.xml" path="Data/Objects/therium/Prefabs/ouruintrashshelf.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Wooden Table" path="Data/Objects/Environment/Furniture/shop_tall_table.xml" thumbnail_path="" />
-    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
     <SpawnerItem display_name="barrelshelf.xml" path="Data/Objects/therium/Prefabs/barrelshelf.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="No-Grab Zone Hotspot" path="Data/Objects/Hotspots/no_grab.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/empty.png" />
     <SpawnerItem display_name="citybackground.xml" path="Data/Objects/therium/ouruin/citybackground.xml" thumbnail_path="empty_placeholder.png" />

@@ -50,7 +50,7 @@
     <RayToSun r0="-0.018649" r1="0.420417" r2="0.907139" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="251.225" t1="-29.5218" t2="-13.8985" s0="1" s1="1" s2="1" q0="0.0253567" q1="0.974626" q2="-0.160145" q3="0.154319" euler_x="-2.81587" euler_y="0.314065" euler_z="-3.14159" id="0">
+    <CameraObject t0="248.465" t1="-15.325" t2="-17.4902" s0="1" s1="1" s2="1" q0="-0.0902989" q1="-0.891311" q2="0.203876" q3="-0.394772" euler_x="-2.69186" euler_y="0.833886" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-1.38719" t1="-46.6397" t2="14.8746" s0="1" s1="1" s2="1" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="2" color_r="0.392157" color_g="0.392153" color_b="0.392153" overbright="0" type_file="Data/Prototypes/OG/WindowBlock_Mod3.xml">
@@ -99,6 +99,7 @@
             <parameter name="Lore" type="string" val="Emory" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.646155" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -112,6 +113,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -216,6 +218,7 @@
             <parameter name="Left handed" type="int" val="0" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -228,6 +231,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -592,7 +596,7 @@
             <parameter name="Placeholder Tag" type="string" val="level1_a6579184" />
         </parameters>
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="152.039" t1="-39.0512" t2="-120.039" s0="1" s1="1" s2="1" q0="0" q1="-0.998002" q2="0" q3="0.0631814" euler_x="3.14159" euler_y="-0.126447" euler_z="3.14159" id="185" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="152.039" t1="-39.0512" t2="-120.039" s0="1" s1="1" s2="1" q0="0" q1="-0.998002" q2="0" q3="0.0631814" euler_x="3.14159" euler_y="-0.126447" euler_z="3.14159" id="185" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -835,7 +839,7 @@
     <EnvObject t0="53.1605" t1="-54.0988" t2="26.7927" s0="4.13299" s1="0.764981" s2="3.87272" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="276" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="151.188" t1="-47.1051" t2="-193.074" s0="1" s1="1" s2="1" q0="0" q1="-0.954921" q2="0" q3="0.29686" euler_x="3.14159" euler_y="-0.602805" euler_z="3.14159" id="277" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="151.188" t1="-47.1051" t2="-193.074" s0="1" s1="1" s2="1" q0="0" q1="-0.954921" q2="0" q3="0.29686" euler_x="3.14159" euler_y="-0.602805" euler_z="3.14159" id="277" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -861,7 +865,7 @@
     <EnvObject t0="231.935" t1="-26.0354" t2="-21.8064" s0="1.14622" s1="1.4024" s2="1.36284" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="288" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="142.184" t1="-40.8388" t2="-110.524" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="289" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="142.184" t1="-40.8388" t2="-110.524" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="289" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -896,7 +900,7 @@
     <EnvObject t0="66.6942" t1="-50.5514" t2="13.1596" s0="0.585719" s1="0.576694" s2="0.802894" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="299" color_r="0.603922" color_g="0.603916" color_b="0.603916" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_block.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="441.974" t1="-55.3898" t2="-6.98637" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="302" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="441.974" t1="-55.3898" t2="-6.98637" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="302" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -1108,7 +1112,7 @@
     <EnvObject t0="226.879" t1="-23.9877" t2="-25.1933" s0="2.63253" s1="2.63253" s2="2.63253" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="340" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="131.167" t1="-40.0705" t2="-31.321" s0="1" s1="1" s2="1" q0="0" q1="0.999986" q2="0" q3="0.00526038" euler_x="3.14159" euler_y="0.0105208" euler_z="3.14159" id="341" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="131.167" t1="-40.0705" t2="-31.321" s0="1" s1="1" s2="1" q0="0" q1="0.999986" q2="0" q3="0.00526038" euler_x="3.14159" euler_y="0.0105208" euler_z="3.14159" id="341" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -3255,23 +3259,35 @@
     <EnvObject t0="90.1219" t1="-46.5136" t2="-64.4101" s0="1.48889" s1="1.77664" s2="1.3788" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="583" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
         <parameters />
     </EnvObject>
-    <Prefab t0="271.145" t1="-29.9062" t2="7.4091" s0="1.78778" s1="3.00515" s2="1.78778" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="584" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/wallets/agra.xml" os0="1.78778" os1="3.00515" os2="1.78778">
+    <Prefab t0="271.145" t1="-29.9062" t2="7.4091" s0="1.78778" s1="4.30185" s2="1.78778" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="584" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/wallets/agra.xml" os0="1.78778" os1="4.30185" os2="1.78778">
         <parameters />
-        <Hotspot name="Coin Manager" t0="271.145" t1="-28.9583" t2="7.4087" s0="0.27483" s1="0.27483" s2="0.27483" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/coin_pickup_manager.xml">
+        <Hotspot name="Coin Manager" t0="271.145" t1="-28.3099" t2="7.4087" s0="0.27483" s1="0.27483" s2="0.27483" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" type_file="Data/Objects/Hotspots/coin_pickup_manager.xml">
             <parameters>
                 <parameter name="Reset Progress" type="int" val="0" />
             </parameters>
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot name="agra Wallet" t0="271.145" t1="-30.5149" t2="7.4091" s0="0.444445" s1="0.444445" s2="0.444445" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <Hotspot name="agra Wallet" t0="271.145" t1="-29.8665" t2="7.4091" s0="0.444445" s1="0.444445" s2="0.444445" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
             <parameters>
                 <parameter name="Debug Current Line" type="int" val="0" />
                 <parameter name="Run in EditorMode" type="int" val="0" />
-                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;109&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;102&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;25&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_agra_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;103&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:7,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[216,103],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_petals_total}p&quot;,&quot;ui_element_identifier&quot;:&quot;104&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-210,0],&quot;move_in_tween_type&quot;:7,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[27,47],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[173,173],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;105&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;font_color&quot;:[0,1,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;106&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:1500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1000,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:3,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[229,195],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;+{ouruin_wallet_toadd_display}&quot;,&quot;ui_element_identifier&quot;:&quot;107&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:1500,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Add coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:500,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;108&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:2}]}&#x0A;' />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Precache&quot;,&quot;function&quot;:34},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;101&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;102&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;103&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;- Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;count_coin&quot;},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.70196080207824707],&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:6,&quot;fade_out_duration&quot;:1000,&quot;fade_out_tween_type&quot;:22,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1500,&quot;move_out_offset&quot;:[-700,0],&quot;move_out_tween_type&quot;:6,&quot;position&quot;:[517,78],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[-503,122],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;104&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;105&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[216,103],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_previous_wallet}p&quot;,&quot;ui_element_identifier&quot;:&quot;106&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-210,0],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[27,47],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[173,173],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;107&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;display_comment&quot;:&quot;Judge whether gain, loss or neutral&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:17,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:7,&quot;line&quot;:66},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:44,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0.000&quot;]},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Positive gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[0,1,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;108&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[229,195],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;+{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;109&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Add coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Negative gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[1,0,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;1010&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[227,210],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;1011&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Remove coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Neutral&quot;,&quot;function&quot;:34},{&quot;duration&quot;:3000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Neutral check&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2,3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:71,&quot;function&quot;:32,&quot;if_any_are_true&quot;:true,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;,&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:76},{&quot;display_comment&quot;:&quot;Check for wait&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:76,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_wait&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:68},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Negative/Positive Checks&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:79,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:22},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:82,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:44},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;No change and no wait&quot;,&quot;function&quot;:34},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Conclude&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;1012&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,1],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;ouruin_petals_total&quot;]},{&quot;function&quot;:7,&quot;line&quot;:8}]}&#x0A;' />
                 <parameter name="Show UI Grid" type="int" val="1" />
                 <parameter name="Transform Relative" type="int" val="0" />
-                <parameter name="UI Snap Scale" type="int" val="20" />
+                <parameter name="UI Snap Scale" type="int" val="0" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+        <Hotspot name="agra Coin Listen" t0="271.145" t1="-31.4595" t2="7.4091" s0="0.296297" s1="0.296297" s2="0.296297" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="486" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="0" />
+                <parameter name="Run in EditorMode" type="int" val="0" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,1],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;ouruin_petals_total&quot;]},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;]},{&quot;display_comment&quot;:&quot;- Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;wallet_gain&quot;},{&quot;display_comment&quot;:&quot;Check if neutral&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:7,&quot;line&quot;:18},{&quot;display_comment&quot;:&quot;Increment wallet displays&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_gain_amount&quot;,&quot;ouruin_gain_amount&quot;]},{&quot;display_comment&quot;:&quot;Calculate coin total&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6],&quot;parameters&quot;:[&quot;ouruin_agra_currency&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_gain_amount&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;]},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6,6,6,6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_explore_currency&quot;,&quot;ouruin_market_currency&quot;,&quot;ouruin_depot_currency&quot;,&quot;ouruin_dart_currency&quot;,&quot;ouruin_courtyard_currency&quot;,&quot;ouruin_creshome_currency&quot;,&quot;ouruin_speakeasy_currency&quot;,&quot;ouruin_agra_currency&quot;,&quot;ouruin_highroad_currency&quot;,&quot;ouruin_lvl2_currency&quot;]},{&quot;checkmodes&quot;:[0,0,0,0,0,0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[6,6,6,6,6,6,6,6],&quot;parameters&quot;:[&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;,&quot;ouruin_petals_total&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_lvl3_currency&quot;,&quot;ouruin_lvl4_currency&quot;,&quot;ouruin_fractured_currency&quot;,&quot;ouruin_ratden_currency&quot;,&quot;ouruin_escape_currency&quot;,&quot;ouruin_ship_currency&quot;,&quot;ouruin_warrens_currency&quot;,&quot;ouruin_agra_currency&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;count_coin&quot;},{&quot;function&quot;:7,&quot;line&quot;:2},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;- Neutral&quot;,&quot;function&quot;:34},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;count_coin&quot;},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;function&quot;:7,&quot;line&quot;:2}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="10" />
             </parameters>
             <Connections />
             <ConnectionsFrom />
@@ -5238,6 +5254,12 @@
         <parameters>
             <parameter name="death_message" type="string" val="Press $attack$ to try again" />
             <parameter name="music" type="string" val="" />
+            <parameter name="music_custom_defeat_sting_wav_filename" type="string" val="Data/Music/slaver_loop/the_slavers_defeat.wav" />
+            <parameter name="music_custom_is_layered" type="int" val="1" />
+            <parameter name="music_custom_layer_prefix" type="string" val="slavers_" />
+            <parameter name="music_custom_song_name" type="string" val="slavers1" />
+            <parameter name="music_custom_success_sting_wav_filename" type="string" val="Data/Music/slaver_loop/the_slavers_success.wav" />
+            <parameter name="music_custom_xml_filename" type="string" val="Data/Music/slaver_loop/layers.xml" />
             <parameter name="player_spawn" type="string" val="" />
             <parameter name="press_attack_to_restart" type="int" val="1" />
         </parameters>
@@ -5297,6 +5319,7 @@
             <parameter name="Lore" type="string" val="Hein" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.446155" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -5310,6 +5333,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -5377,6 +5401,7 @@
             <parameter name="Lore" type="string" val="Graves" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.6" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -5390,6 +5415,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -5481,7 +5507,7 @@
     <EnvObject t0="196.528" t1="-51.7926" t2="-80.364" s0="3.09638" s1="1.40613" s2="1.53704" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1145" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="196.297" t1="-36.9284" t2="-219.941" s0="1" s1="1" s2="1" q0="0.116498" q1="0.168028" q2="0.0592938" q3="0.977076" euler_x="0.26387" euler_y="0.319969" euler_z="0.164042" id="1147" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="196.297" t1="-36.9284" t2="-219.941" s0="1" s1="1" s2="1" q0="0.116498" q1="0.168028" q2="0.0592938" q3="0.977076" euler_x="0.26387" euler_y="0.319969" euler_z="0.164042" id="1147" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -5971,6 +5997,7 @@
             <parameter name="Lore" type="string" val="Kaarle" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -5983,6 +6010,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="1295" />
@@ -6263,6 +6291,7 @@
             <parameter name="Lore" type="string" val="Funs" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.36923" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -6275,6 +6304,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -9264,6 +9294,7 @@
             <parameter name="Lore" type="string" val="Yves" />
             <parameter name="Movement Speed" type="float" val="0.95" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -9276,6 +9307,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="1927" />
@@ -13256,6 +13288,13 @@
     <EnvObject t0="352.705" t1="-37.5949" t2="-286.594" s0="2.50183" s1="2.50739" s2="2.57292" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3325" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/cinderbreathe_hightower.xml">
         <parameters />
     </EnvObject>
+    <Hotspot t0="276.033" t1="-17.2126" t2="-6.25453" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3327" type_file="Data/Objects/therium/Hotspots/therium_level.xml">
+        <parameters>
+            <parameter name="music" type="string" val="drownedtense" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <Group t0="-464.499" t1="-28.83" t2="57.3746" s0="88.7043" s1="309.998" s2="209.007" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4152" version="1">
         <parameters />
         <Group t0="-460.528" t1="4.79043" t2="63.2365" s0="80.7527" s1="242.747" s2="197.273" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4105" version="1">
@@ -17113,6 +17152,7 @@
             <parameter name="Lore" type="string" val="Avva" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.615385" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -17125,6 +17165,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="4522" />
@@ -17438,6 +17479,7 @@
             <parameter name="Lore" type="string" val="Merrick" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -17450,6 +17492,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="4740" />
@@ -23120,9 +23163,6 @@
             <ConnectionsFrom />
         </Hotspot>
     </Prefab>
-    <DynamicLightObject t0="223.371" t1="-24.1099" t2="-204.703" s0="12.0091" s1="12.0091" s2="12.0091" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6578" color_r="0.462745" color_g="0.382045" color_b="0.310311" overbright="1">
-        <parameters />
-    </DynamicLightObject>
     <Hotspot name="Shortcut Entrance" t0="115.633" t1="-39.4915" t2="0.413292" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6579" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
@@ -24564,6 +24604,7 @@
             <parameter name="Lore" type="string" val="Helmut" />
             <parameter name="Movement Speed" type="string" val="0.8" />
             <parameter name="Muscle" type="string" val="0.6000000000000001" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -24576,6 +24617,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="488" />
@@ -28040,7 +28082,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="0" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_current_level&quot;,&quot;ouruin_agra_visited&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;agra&quot;,&quot;1&quot;]},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:3,&quot;music_path&quot;:&quot;Data/Music/xlkhqyqetb.xml&quot;,&quot;song_name&quot;:&quot;streets_calm.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/ouruin/streets_calm.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:1,&quot;music_path&quot;:&quot;Data/Music/ogbvzolniq.xml&quot;,&quot;song_name&quot;:&quot;lugaru2_combat2.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/lugaru2_combat2.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:2,&quot;music_path&quot;:&quot;Data/Music/qunjevypen.xml&quot;,&quot;song_name&quot;:&quot;Overgrowth_AcrossTheDarkLan.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/Overgrowth_AcrossTheDarkLan.ogg&quot;},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:9,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;agra_hood&quot;]},{&quot;checkmodes&quot;:[5],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:28,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;ouruin_current_area_stored&quot;]},{&quot;function&quot;:7,&quot;line&quot;:12},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:28,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;agra_block&quot;]},{&quot;checkmodes&quot;:[5],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:28,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;ouruin_current_area_stored&quot;]},{&quot;function&quot;:7,&quot;line&quot;:20},{&quot;display_comment&quot;:&quot;-- Agra Hood&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[1],&quot;parameters&quot;:[&quot;ouruin_current_area_stored&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_current_area&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;edosz&quot;,&quot;font_size&quot;:144,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;81481&quot;,&quot;ui_function&quot;:3},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.34509804844856262],&quot;fade_in_duration&quot;:2500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:3,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[0,-100],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[944,24],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[702,181],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;81482&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;fade_in_duration&quot;:1500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2500,&quot;fade_out_tween_type&quot;:19,&quot;function&quot;:36,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[0,-150],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[1032,28],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Agra Hood&quot;,&quot;ui_element_identifier&quot;:&quot;81483&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:4500,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Agra Block&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[1],&quot;parameters&quot;:[&quot;ouruin_current_area_stored&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_current_area&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;edosz&quot;,&quot;font_size&quot;:144,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;81484&quot;,&quot;ui_function&quot;:3},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.34509804844856262],&quot;fade_in_duration&quot;:2500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:3,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[0,-100],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[937,18],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[715,195],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;81488&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;fade_in_duration&quot;:1500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2500,&quot;fade_out_tween_type&quot;:19,&quot;function&quot;:36,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[0,-150],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[1011,28],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Agra Block&quot;,&quot;ui_element_identifier&quot;:&quot;81489&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:4500,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;==== NEUTRAL ====&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;81487&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[4],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area_stored&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;ouruin_current_area&quot;]},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:30}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_current_level&quot;,&quot;ouruin_agra_visited&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;agra&quot;,&quot;1&quot;]},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:3,&quot;music_path&quot;:&quot;Data/Music/xlkhqyqetb.xml&quot;,&quot;song_name&quot;:&quot;streets_calm.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/ouruin/streets_calm.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:1,&quot;music_path&quot;:&quot;Data/Music/ogbvzolniq.xml&quot;,&quot;song_name&quot;:&quot;lugaru2_combat2.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/lugaru2_combat2.ogg&quot;},{&quot;from_beginning_no_fade&quot;:false,&quot;function&quot;:18,&quot;music_mode&quot;:2,&quot;music_path&quot;:&quot;Data/Music/qunjevypen.xml&quot;,&quot;song_name&quot;:&quot;Overgrowth_AcrossTheDarkLan.ogg&quot;,&quot;song_path&quot;:&quot;Data/Music/Overgrowth_AcrossTheDarkLan.ogg&quot;},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:9,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;agra_hood&quot;]},{&quot;checkmodes&quot;:[5],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:28,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;ouruin_current_area_stored&quot;]},{&quot;function&quot;:7,&quot;line&quot;:12},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:28,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;agra_block&quot;]},{&quot;checkmodes&quot;:[5],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:28,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;ouruin_current_area_stored&quot;]},{&quot;function&quot;:7,&quot;line&quot;:20},{&quot;display_comment&quot;:&quot;-- Agra Hood&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[1],&quot;parameters&quot;:[&quot;ouruin_current_area_stored&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_current_area&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;edosz&quot;,&quot;font_size&quot;:144,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;81481&quot;,&quot;ui_function&quot;:3},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.34509804844856262],&quot;fade_in_duration&quot;:2500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:3,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[0,-100],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[944,24],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[702,181],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;81482&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;fade_in_duration&quot;:1500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2500,&quot;fade_out_tween_type&quot;:19,&quot;function&quot;:36,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[0,-150],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[1032,28],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Agra Hood&quot;,&quot;ui_element_identifier&quot;:&quot;81483&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:4500,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Agra Block&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[1],&quot;parameters&quot;:[&quot;ouruin_current_area_stored&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;ouruin_current_area&quot;]},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;edosz&quot;,&quot;font_size&quot;:144,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;81484&quot;,&quot;ui_function&quot;:3},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.34509804844856262],&quot;fade_in_duration&quot;:2500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:3,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[0,-100],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[937,18],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[715,195],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;81485&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;fade_in_duration&quot;:1500,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:2500,&quot;fade_out_tween_type&quot;:19,&quot;function&quot;:36,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[0,-150],&quot;move_in_tween_type&quot;:22,&quot;move_out_duration&quot;:1000,&quot;move_out_offset&quot;:[100,100],&quot;move_out_tween_type&quot;:0,&quot;position&quot;:[1011,28],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Agra Block&quot;,&quot;ui_element_identifier&quot;:&quot;81486&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:4500,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;==== NEUTRAL ====&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;81487&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[4],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:0,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_area_stored&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;ouruin_current_area&quot;]},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:30}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -30599,6 +30641,7 @@
             <parameter name="Left handed" type="int" val="0" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -30611,6 +30654,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="9590" />
@@ -31497,12 +31541,12 @@
     <EnvObject t0="224.604" t1="-22.7747" t2="-201.086" s0="0.587479" s1="0.261085" s2="0.268729" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9821" color_r="0.296928" color_g="0.639216" color_b="0.250673" overbright="0" type_file="Data/Objects/Buildings/shops/shop_tarp.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="222.997" t1="-25.4982" t2="-204.779" s0="1" s1="1" s2="1" q0="0" q1="-0.998002" q2="0" q3="0.0631814" euler_x="3.14159" euler_y="-0.126447" euler_z="3.14159" id="9822" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="222.997" t1="-25.4982" t2="-204.779" s0="1" s1="1" s2="1" q0="0" q1="-0.998002" q2="0" q3="0.0631814" euler_x="3.14159" euler_y="-0.126447" euler_z="3.14159" id="9822" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
     </ItemObject>
-    <ItemObject name="Coin Pickup" t0="223.377" t1="-25.4982" t2="-204.677" s0="1" s1="1" s2="1" q0="0" q1="-0.321179" q2="0" q3="-0.947018" euler_x="0" euler_y="0.653948" euler_z="0" id="9823" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="223.377" t1="-25.4982" t2="-204.677" s0="1" s1="1" s2="1" q0="0" q1="-0.321179" q2="0" q3="-0.947018" euler_x="0" euler_y="0.653948" euler_z="0" id="9823" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -31528,12 +31572,12 @@
     <EnvObject t0="1133.85" t1="-54.0488" t2="-52.5406" s0="649.98" s1="297.566" s2="388.897" q0="0.588924" q1="-0.392228" q2="0.502971" q3="0.496341" euler_x="1.57789" euler_y="-1.37962" euler_z="0.197573" id="9827" color_r="1" color_g="1" color_b="1" overbright="3.107" type_file="Data/Objects/therium/ouruin/citybackground.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="223.104" t1="-25.5509" t2="-204.252" s0="1" s1="1" s2="1" q0="0.629566" q1="0.615271" q2="0.467087" q3="-0.0831754" euler_x="2.43426" euler_y="-0.762146" euler_z="1.84154" id="9828" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="223.104" t1="-25.5509" t2="-204.252" s0="1" s1="1" s2="1" q0="0.629566" q1="0.615271" q2="0.467087" q3="-0.0831754" euler_x="2.43426" euler_y="-0.762146" euler_z="1.84154" id="9828" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
     </ItemObject>
-    <ItemObject name="Coin Pickup" t0="223.655" t1="-25.4982" t2="-204.247" s0="1" s1="1" s2="1" q0="0" q1="-0.142484" q2="0" q3="0.989797" euler_x="0" euler_y="-0.285941" euler_z="0" id="9829" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="223.655" t1="-25.4982" t2="-204.247" s0="1" s1="1" s2="1" q0="0" q1="-0.142484" q2="0" q3="0.989797" euler_x="0" euler_y="-0.285941" euler_z="0" id="9829" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -31602,7 +31646,7 @@
     <EnvObject t0="146.286" t1="-42.8065" t2="-186.744" s0="1" s1="1" s2="1" q0="0" q1="0.296618" q2="0" q3="0.954996" euler_x="0" euler_y="0.602298" euler_z="0" id="9849" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_Pile2.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="130.74" t1="-40.3212" t2="-81.5347" s0="1" s1="1" s2="1" q0="0" q1="0.726892" q2="0" q3="0.686751" euler_x="3.14159" euler_y="1.514" euler_z="3.14159" id="9850" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="130.74" t1="-40.3212" t2="-81.5347" s0="1" s1="1" s2="1" q0="0" q1="0.726892" q2="0" q3="0.686751" euler_x="3.14159" euler_y="1.514" euler_z="3.14159" id="9850" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -31649,7 +31693,7 @@
     <EnvObject t0="134.378" t1="-36.833" t2="-81.7797" s0="0.492685" s1="0.349952" s2="0.360698" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="9862" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/terraces/cat_stairs.xml">
         <parameters />
     </EnvObject>
-    <ItemObject name="Coin Pickup" t0="147.558" t1="-41.2384" t2="-95.6152" s0="1" s1="1" s2="1" q0="0" q1="-0.424994" q2="0" q3="0.905196" euler_x="0" euler_y="-0.87791" euler_z="0" id="9863" type_file="Data/Items/collectable/ratjunksack.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <ItemObject name="Coin Pickup" t0="147.558" t1="-41.2384" t2="-95.6152" s0="1" s1="1" s2="1" q0="0" q1="-0.424994" q2="0" q3="0.905196" euler_x="0" euler_y="-0.87791" euler_z="0" id="9863" type_file="Data/Items/collectable/coinpouch.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters>
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
@@ -47448,6 +47492,7 @@
             <parameter name="Lore" type="string" val="Ramon" />
             <parameter name="Movement Speed" type="float" val="0.95" />
             <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -47460,6 +47505,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="16367" />
@@ -47682,6 +47728,7 @@
             <parameter name="Lore" type="string" val="Baldwin" />
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.5625" />
+            <parameter name="No Idle Movement" type="int" val="0" />
             <parameter name="No Look Around" type="int" val="0" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
@@ -47694,6 +47741,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="16072" />
@@ -49284,8 +49332,8 @@
     <SpawnerItem display_name="Mook 5" path="Data/Objects/therium/IGF_Characters/mook5spawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="Water Sponge (square)" path="Data/Objects/Decals/sponge_square.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/water.png" />
     <SpawnerItem display_name="Hex Crete Debris" path="Data/Objects/Decals/hex_crete_debris.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/hex_crete_debris.png" />
-    <SpawnerItem display_name="ratjunksack.xml" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="ratjunksack.xml" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
     <SpawnerItem display_name="Rat Junk Sack" path="Data/Objects/Gear/RatJunk/RatJunkSack.xml" thumbnail_path="" />
     <SpawnerItem display_name="Ghost (object)" path="Data/Objects/therium/characters/ghostobj.xml" thumbnail_path="" />
     <SpawnerItem display_name="Apple (no decal)" path="Data/Objects/therium/apple_decal.xml" thumbnail_path="" />
@@ -49433,7 +49481,7 @@
     <SpawnerItem display_name="ladder.xml" path="Data/Objects/therium/Prefabs/ladder.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Cinderbreathe Knife (no collision object)" path="Data/Objects/therium/Weapons/cinderbreatheknifenocoll.xml" thumbnail_path="" />
     <SpawnerItem display_name="wallet.xml" path="Data/Prefabs/ouruin/wallet.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
     <SpawnerItem display_name="streetsbar.xml" path="Data/Prefabs/ouruin/streetsbar.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="cosmetictemplate.xml" path="Data/Prefabs/ouruin/equipment/cosmetictemplate.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="itemtemplate.xml" path="Data/Prefabs/ouruin/equipment/itemtemplate.xml" thumbnail_path="empty_placeholder.png" />
@@ -49694,4 +49742,5 @@
     <SpawnerItem display_name="Macbeth Cube" path="Data/Objects/macbeth_cube.xml" thumbnail_path="" />
     <SpawnerItem display_name="Dynamic Light" path="Data/Objects/default_light.xml" thumbnail_path="" />
     <SpawnerItem display_name="Display Text Hotspot" path="Data/Objects/Hotspots/displaytext.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
+    <SpawnerItem display_name="Therium Level Hotspot" path="Data/Objects/therium/Hotspots/therium_level.xml" thumbnail_path="Data/Textures/therium/logo256.png" />
 </RecentItems>

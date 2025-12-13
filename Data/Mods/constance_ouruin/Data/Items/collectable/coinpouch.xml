@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<item>
+    <type>collectable</type>
+    <appearance obj_path = "Data/Objects/Gear/RatJunk/CoinPouch.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/r_ratsackgrip.anm"/>
+    <sheathe ik_attach = "hip"
+          anim = "Data/Animations/r_ratsacksheathed.anm"/>
+    <physics mass = "0.6 kg"
+			 sound_modifier = "soft"/>
+    <label>collectable</label>
+</item>

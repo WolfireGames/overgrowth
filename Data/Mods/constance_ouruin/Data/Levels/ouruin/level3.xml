@@ -51,7 +51,7 @@
     <RayToSun r0="-0.161343" r1="0.682514" r2="-0.712841" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="232.167" t1="-25.0785" t2="106.543" s0="1" s1="1" s2="1" q0="0.190162" q1="-0.632013" q2="0.163927" q3="0.733162" euler_x="0.507561" euler_y="-1.42288" euler_z="0" id="0">
+    <CameraObject t0="235.697" t1="-44.7162" t2="106.741" s0="1" s1="1" s2="1" q0="-0.047653" q1="0.705531" q2="-0.0476573" q3="-0.705467" euler_x="-3.00651" euler_y="-1.5708" euler_z="3.14126" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="181.769" t1="-55.9922" t2="109.042" s0="0.613082" s1="0.613082" s2="0.613082" q0="0.00733727" q1="-0.681411" q2="0.0110127" q3="-0.731781" euler_x="-0.346757" euler_y="1.49496" euler_z="-0.351959" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/hex_crete_rubble_simplecol.xml">
@@ -162,6 +162,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -2179,7 +2180,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level3/guards-highlethal.txt" />
             <parameter name="DisplayName" type="string" val="Guards-HighLethal" />
-            <parameter name="NumParticipants" type="string" val="9" />
+            <parameter name="NumParticipants" type="int" val="9" />
             <parameter name="obj_1" type="int" val="10843" />
             <parameter name="obj_2" type="int" val="3109" />
             <parameter name="obj_3" type="int" val="11382" />
@@ -9084,7 +9085,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level3/guards-medium.txt" />
             <parameter name="DisplayName" type="string" val="Guards-Medium" />
-            <parameter name="NumParticipants" type="string" val="9" />
+            <parameter name="NumParticipants" type="int" val="9" />
             <parameter name="obj_1" type="int" val="3316" />
             <parameter name="obj_2" type="int" val="1050" />
             <parameter name="obj_3" type="int" val="4377" />
@@ -16191,6 +16192,7 @@
                 <parameter name="Throw Trainer" type="int" val="0" />
                 <parameter name="Weapon Catch Skill" type="float" val="1" />
                 <parameter name="Wearing Metal Armor" type="int" val="0" />
+                <parameter name="Wearing Metal Bracers" type="int" val="0" />
             </parameters>
             <Connections>
                 <Connection id="-1" />
@@ -16298,6 +16300,7 @@
                 <parameter name="Throw Trainer" type="int" val="0" />
                 <parameter name="Weapon Catch Skill" type="float" val="1" />
                 <parameter name="Wearing Metal Armor" type="int" val="1" />
+                <parameter name="Wearing Metal Bracers" type="int" val="0" />
             </parameters>
             <Connections>
                 <Connection id="-1" />
@@ -16413,12 +16416,12 @@
             <EnvObject s0="1.67193" s1="1.67193" s2="1.67193" id="5745" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_lower_arm.xml">
                 <parameters />
             </EnvObject>
-            <Group t0="0" t1="-999999" t2="0" s0="1.10668" s1="0.531751" s2="1.13631" q0="0.603305" q1="-0.000606689" q2="0.347322" q3="0.717907" euler_x="1.26635" euler_y="-0.433393" euler_z="0.580792" id="4690" version="1">
+            <Group t0="0" t1="-999999" t2="0" s0="1.10668" s1="0.531751" s2="1.13631" q0="0.594817" q1="-0.000608943" q2="0.342433" q3="0.727277" euler_x="1.24476" euler_y="-0.420543" euler_z="0.576194" id="4690" version="1">
                 <parameters />
-                <Decal t0="0" t1="-999999" t2="0" s0="0.786661" s1="0.434034" s2="0.786659" q0="-0.651857" q1="0.236596" q2="-0.161014" q3="-0.702268" euler_x="1.52531" euler_y="-0.573081" euler_z="-0.09811" id="1777" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+                <Decal t0="0" t1="-999999" t2="0" s0="0.786661" s1="0.434034" s2="0.786659" q0="-0.64195" q1="0.239093" q2="-0.159019" q3="-0.71095" euler_x="1.49746" euler_y="-0.575354" euler_z="-0.0965287" id="1777" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                     <parameters />
                 </Decal>
-                <Decal t0="0.0535952" t1="-999999" t2="0.0184532" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.671247" q1="-0.5119" q2="-0.27929" q3="0.45761" euler_x="2.01206" euler_y="-0.0936927" euler_z="-1.24368" id="3107" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
+                <Decal t0="0.0535952" t1="-999999" t2="0.0184532" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.662344" q1="-0.519675" q2="-0.276355" q3="0.463562" euler_x="2.00461" euler_y="-0.115979" euler_z="-1.25644" id="3107" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
                     <parameters />
                 </Decal>
             </Group>
@@ -25407,7 +25410,7 @@
                 <EnvObject t0="192.57" t1="-47.3391" t2="93.0773" s0="1.24237" s1="1.71362" s2="1.9707" q0="-0.507028" q1="-0.492872" q2="0.492872" q3="-0.507028" euler_x="1.57081" euler_y="1.5425" euler_z="0" id="3937" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
                     <parameters />
                 </EnvObject>
-                <EnvObject t0="192.57" t1="-46.4494" t2="93.0773" s0="1.24237" s1="1.71362" s2="1.9707" q0="0.492872" q1="0.507028" q2="0.507028" q3="-0.492872" euler_x="1.57083" euler_y="-1.54251" euler_z="3.14159" id="3938" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+                <EnvObject t0="192.57" t1="-46.4494" t2="93.0773" s0="1.24237" s1="1.71362" s2="1.9707" q0="0.492872" q1="0.507028" q2="0.507028" q3="-0.492872" euler_x="1.57081" euler_y="-1.5425" euler_z="3.14159" id="3938" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
                     <parameters />
                 </EnvObject>
                 <EnvObject t0="194.185" t1="-47.4167" t2="92.6079" s0="1" s1="1.42006" s2="1" q0="0.0141554" q1="0" q2="-0.9999" q3="0" euler_x="0" euler_y="0.0283118" euler_z="3.14159" id="3942" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -27099,6 +27102,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="15180" />
@@ -31664,6 +31668,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="4946" />
@@ -32587,7 +32592,7 @@
     <Hotspot t0="268.612" t1="-10.1935" t2="105.362" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10787" type_file="Data/Objects/Hotspots/overgrowth_level.xml">
         <parameters>
             <parameter name="death_message" type="string" val="Press $attack$ to try again" />
-            <parameter name="music" type="string" val="slaver" />
+            <parameter name="music" type="string" val="" />
             <parameter name="player_spawn" type="string" val="" />
             <parameter name="press_attack_to_restart" type="int" val="1" />
         </parameters>
@@ -38219,6 +38224,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -39393,7 +39399,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level3/guards-nonlethal.txt" />
             <parameter name="DisplayName" type="string" val="Guards-Nonlethal" />
-            <parameter name="NumParticipants" type="string" val="9" />
+            <parameter name="NumParticipants" type="int" val="9" />
             <parameter name="obj_1" type="int" val="12737" />
             <parameter name="obj_2" type="int" val="12721" />
             <parameter name="obj_3" type="int" val="12731" />
@@ -45241,6 +45247,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="15122" />
@@ -46632,6 +46639,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="15101" />
@@ -46821,6 +46829,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="15026" />
@@ -47031,6 +47040,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="15250" />
@@ -47189,6 +47199,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="1242" />
@@ -47313,6 +47324,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
             <Connection id="15151" />
@@ -54594,6 +54606,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
             <parameter name="dead_body" type="string" val="0 -29.8204 -40.6514 -78.0503 0.260401 0.634536 0.49153 0.536613 1 -29.6672 -40.6443 -78.0696 0.319069 0.731125 0.105605 0.593716 2 -29.4765 -40.6839 -78.0708 0.132736 0.619624 0.0213646 0.773298 4 -29.3744 -40.6823 -77.9561 0.126741 0.127907 -0.060832 0.981772 6 -29.3985 -40.8059 -77.8458 0.227099 0.0594131 -0.346709 0.908124 7 -29.4048 -40.8562 -77.7403 0.202948 0.0459269 -0.35061 0.913113 8 -29.3983 -40.8935 -77.6369 0.101435 0.126778 -0.326432 0.931172 9 -29.3805 -40.9192 -77.5366 0.0730487 0.115786 -0.326218 0.935328 11 -29.3707 -40.9338 -77.4722 0.097 0.0800957 -0.332686 0.93461 13 -29.353 -40.9651 -77.3462 0.0914172 0.0802665 -0.332427 0.93525 15 -29.3424 -40.8855 -77.4 -0.290507 -0.0574731 -0.384822 0.874193 17 -29.3224 -40.6533 -78.1043 0.121723 0.868033 0.070196 0.476208 19 -29.2525 -40.6743 -78.1736 0.329573 0.462755 0.80587 0.166771 20 -29.1739 -40.5995 -78.1295 0.308593 0.451519 0.821319 0.162281 21 -29.1429 -40.5974 -78.0616 0.070807 -0.294227 0.879225 0.36794 22 -29.1555 -40.6573 -77.9762 0.0439373 -0.307115 0.873744 0.374595 24 -29.1656 -40.694 -77.9214 0.0339843 -0.266692 0.8851 0.379893 26 -29.1827 -40.7648 -77.8126 0.030424 -0.270777 0.883719 0.380519 28 -29.2347 -40.7456 -77.8917 -0.336569 -0.419486 0.767384 0.349106 30 -29.3205 -40.7123 -78.0252 0.187156 0.490829 0.162971 0.835165 31 -29.2436 -40.7544 -77.9677 0.40154 0.203187 0.248049 0.857877 33 -29.2273 -40.856 -77.8801 0.131816 0.0155988 0.183635 0.973992 34 -29.2208 -40.8789 -77.7663 0.0787333 0.00524931 0.183213 0.979901 36 -29.1079 -40.7997 -77.9227 0.256544 0.448088 0.222783 0.826904 37 -29.0092 -40.8205 -77.8659 0.218083 0.436411 0.246627 0.837353 39 -29.8519 -40.7503 -77.9419 0.0743731 -0.0280315 -0.61282 0.786215 40 -29.8805 -40.7625 -77.8074 0.12112 -0.077565 -0.612912 0.776951 41 -29.9567 -40.7807 -77.7578 0.619202 -0.538734 -0.350841 0.450849 42 -30.0876 -40.8062 -77.8092 0.623375 -0.543787 -0.345217 0.443311 43 -30.159 -40.829 -77.727 0.0211483 0.0332214 -0.590889 0.805791 44 -30.0973 -40.8275 -77.5702 0.447007 0.0103441 0.885496 -0.126393 46 -29.9491 -40.5769 -78.0477 0.199695 -0.415285 -0.504919 0.729875 47 -30.0657 -40.5648 -77.9749 0.252636 -0.441499 -0.470998 0.720704 48 -30.1485 -40.588 -77.9911 0.742947 -0.607966 0.027563 0.278654 49 -30.1893 -40.6523 -78.1122 0.746942 -0.605574 0.036136 0.272125 50 -30.294 -40.666 -78.108 0.156606 -0.387187 -0.55969 0.715757 51 -30.3699 -40.6095 -77.9684 0.0541168 0.225616 0.971729 -0.0437287 " />
         </parameters>
         <Connections>
@@ -54646,10 +54659,10 @@
             <Decal t0="0.0876518" t1="-999999" t2="-0.00111833" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.264507" q1="-0.288654" q2="-0.146657" q3="0.908421" euler_x="0.683897" euler_y="-0.463247" euler_z="-0.487629" id="16518" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="-0.000179514" t1="-999999" t2="0.000706835" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.168873" q1="0.728175" q2="0.336124" q3="-0.572951" euler_x="1.74118" euler_y="-0.805091" euler_z="-1.99686" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="-0.000179514" t1="-999999" t2="0.000706835" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.168873" q1="0.728175" q2="0.336124" q3="-0.572951" euler_x="1.74118" euler_y="-0.805089" euler_z="-1.99686" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <EnvObject t0="0.144639" t1="-999999" t2="0.0111243" s0="0.0265001" s1="0.0265001" s2="0.0265001" q0="0.425192" q1="0.307713" q2="-0.0129015" q3="0.851099" euler_x="1.01053" euler_y="0.564224" euler_z="0.287632" id="16520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+            <EnvObject t0="0.144639" t1="-999999" t2="0.0111243" s0="0.0265001" s1="0.0265001" s2="0.0265001" q0="0.425192" q1="0.307713" q2="-0.0129015" q3="0.851099" euler_x="1.01053" euler_y="0.564223" euler_z="0.287632" id="16520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -54921,6 +54934,7 @@
                 <parameter name="Throw Trainer" type="int" val="0" />
                 <parameter name="Weapon Catch Skill" type="float" val="1" />
                 <parameter name="Wearing Metal Armor" type="int" val="0" />
+                <parameter name="Wearing Metal Bracers" type="int" val="0" />
             </parameters>
             <Connections>
                 <Connection id="-1" />
@@ -55162,6 +55176,13 @@
     <Decal t0="159.166" t1="-71.5723" t2="124.626" s0="1.11156" s1="0.269331" s2="1.11156" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16633" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.25098" color_g="0.250978" color_b="0.250978" overbright="0">
         <parameters />
     </Decal>
+    <Hotspot t0="266.785" t1="-9.04903" t2="93.5412" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16637" type_file="Data/Objects/therium/Hotspots/therium_level.xml">
+        <parameters>
+            <parameter name="music" type="string" val="drownedstealth" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
     <EnvObject t0="156.394" t1="-70.269" t2="125.399" s0="2.238" s1="2.238" s2="2.238" q0="0.652016" q1="-0.652016" q2="0.273634" q3="0.273634" euler_x="3.14159" euler_y="-0.794702" euler_z="-1.5708" id="16640" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Plants/Groundcover/Groundcover1.xml">
         <parameters />
     </EnvObject>
@@ -55399,7 +55420,7 @@
     <Decal t0="180.924" t1="-48.4853" t2="87.1074" s0="13.6383" s1="1.16544" s2="1.16544" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16723" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="274.63" t1="-48.401" t2="133.759" s0="2.55325" s1="2.55325" s2="2.55325" q0="-0.68845" q1="0.161359" q2="0.161359" q3="0.68845" euler_x="-1.5708" euler_y="0.46045" euler_z="0" id="16736" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
+    <EnvObject t0="274.63" t1="-48.401" t2="133.759" s0="2.55325" s1="2.55325" s2="2.55325" q0="-0.68845" q1="0.161359" q2="0.161359" q3="0.68845" euler_x="-1.5708" euler_y="0.460449" euler_z="0" id="16736" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="274.679" t1="-48.401" t2="128.51" s0="2.55325" s1="2.55325" s2="2.55325" q0="0.543511" q1="0.452323" q2="-0.452323" q3="0.543511" euler_x="1.5708" euler_y="1.38817" euler_z="0" id="16737" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
@@ -55787,7 +55808,7 @@
     <SpawnerItem display_name="Bed" path="Data/Objects/therium/bed.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="Mook 5" path="Data/Objects/therium/IGF_Characters/mook5spawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="Hex Crete Debris" path="Data/Objects/Decals/hex_crete_debris.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/hex_crete_debris.png" />
-    <SpawnerItem display_name="ratjunksack.xml" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ratjunksack.xml" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Rat Junk Sack" path="Data/Objects/Gear/RatJunk/RatJunkSack.xml" thumbnail_path="" />
     <SpawnerItem display_name="Ghost (object)" path="Data/Objects/therium/characters/ghostobj.xml" thumbnail_path="" />
     <SpawnerItem display_name="Apple (no decal)" path="Data/Objects/therium/apple_decal.xml" thumbnail_path="" />
@@ -55951,8 +55972,8 @@
     <SpawnerItem display_name="Cinderbreathe Note 2" path="Data/Objects/therium/Decals/Notes/generic/cinderbreathe/note2.xml" thumbnail_path="Data/UI/thumbsnailsT2/Notes/generic/cinderbreathe/note2.tga_converted.png" />
     <SpawnerItem display_name="Cinderbreathe Note 1" path="Data/Objects/therium/Decals/Notes/generic/cinderbreathe/note1.xml" thumbnail_path="Data/UI/thumbsnailsT2/Notes/generic/cinderbreathe/note1.tga_converted.png" />
     <SpawnerItem display_name="Cinderbreathe Pack (new)" path="Data/Objects/therium/Gear/CinderbreatheRabbitPackNew.xml" thumbnail_path="Data/UI/thumbsnailsT2/Objects/Cinderbreathe Pack (new).png" />
-    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
-    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/ratjunksack.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Rat Junk Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
+    <SpawnerItem display_name="Large Sack" path="Data/Items/collectable/coinpouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacklarge.png" />
     <SpawnerItem display_name="rune_rabbit.xml" path="Data/Objects/Decals/runes/rune_rabbit.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Small Gourd" path="Data/Objects/Environment/LitterLoads/SmallGourd.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/SmallGourd.png" />
     <SpawnerItem display_name="Book 1" path="Data/Objects/therium/book1.xml" thumbnail_path="Data/UI/thumbsnailsT2/Book 1.png" />
@@ -56346,4 +56367,5 @@
     <SpawnerItem display_name="Ambient Shadow (square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="Fence Plank" path="Data/Objects/Buildings/Fence1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Fence1.png" />
     <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Therium Level Hotspot" path="Data/Objects/therium/Hotspots/therium_level.xml" thumbnail_path="Data/Textures/therium/logo256.png" />
 </RecentItems>

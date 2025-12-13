@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Gear/RatJunk/RatJunkSack.obj</Model>
+	<ColorMap>Data/Textures/Gear/RatJunk/CoinPouch_Color.tga</ColorMap>
+	<NormalMap>Data/Textures/Gear/RatJunk/RatJunk_Normal.tga</NormalMap>
+	<ShaderName>cubemapobjitem</ShaderName>
+</Object>

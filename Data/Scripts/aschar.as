@@ -359,6 +359,7 @@ bool hit_reaction_anim_set = false;
 bool block_reaction_anim_set = false;
 bool hit_reaction_dodge = false;
 bool hit_reaction_thrown = false;
+bool moveset_swapped = false;
 int attacking_with_throw;
 
 const float _attack_range = 1.5f;
@@ -409,6 +410,9 @@ const int _num_weap_slots = 6;
 array<int> weapon_slots;
 
 bool g_wearing_metal_armor = false;
+
+//Glimpse.
+bool g_wearing_metal_bracers = false;
 
 // Pre-jump happens after jump key is pressed and before the character gets upwards velocity. The time available for the jump animation that happens on the ground.
 bool pre_jump = false;
@@ -3440,6 +3444,33 @@ void RandomizeColors() {
     }
 }
 
+//This variable exists so that EnableAuraEffect(!aura_effect_active) can be done, for toggling purposes.
+bool aura_effect_active = false;
+void EnableAuraEffect(bool enable) {
+	Object@ obj = ReadObjectFromID(this_mo.GetID());
+	vec3 curr_tint = obj.GetPaletteColor(0);
+	int red_tint_val = int(max(0.0f, min(1000.0f, floor(curr_tint.x * 1000.0f))));
+	
+	bool edge_case = red_tint_val == 0 || red_tint_val == 1;	
+	
+	if(enable) {
+		if(!edge_case && (red_tint_val - 2) % 8 <= 3) {
+			red_tint_val = max(0, red_tint_val - 4);
+		}
+	} else {
+		if(edge_case) {
+			red_tint_val = 2;
+		}
+		else if ((red_tint_val - 2) % 8 >= 4) {
+			red_tint_val = max(2, red_tint_val - 4);
+		}
+	}
+	
+	curr_tint.x = red_tint_val / 1000.0f;
+	obj.SetPaletteColor(0, curr_tint);
+	aura_effect_active = enable;
+}
+
 int ClosestContact(const vec3 &in start) {
     float closest_dist = 99999.0f;
     int closest_id = 0;
@@ -4026,6 +4057,10 @@ void UpdateState(const Timestep &in ts) {
                 }
             }
         }
+    }
+
+	if(WantsToSwapMoveset() && knocked_out == _awake) {
+		moveset_swapped = !moveset_swapped;
     }
 
     switch(state) {
@@ -5276,6 +5311,100 @@ int WasGrabbed(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
 
 array<int> flash_obj_ids;
 
+//Glimpse Collision Effects start.
+// - - - - - - - - - -
+void HandleMetalBracerCollision(int attacker_id) {
+	if(attacker_id == -1) {return;}
+
+	MovementObject@ attacker_mo = ReadCharacterID(attacker_id);
+	int enemy_weap_id = GetCharPrimaryWeapon(attacker_mo);
+	if(enemy_weap_id == -1) {return;}
+
+	ItemObject@ io = ReadItemID(enemy_weap_id);
+	int num_lines = io.GetNumLines();
+	if(num_lines == 0) {return;}
+
+	const mat4 trans = io.GetPhysicsTransform();
+	const vec3 left_hand_pos = this_mo.rigged_object().GetIKTargetTransform("leftarm").GetTranslationPart();
+	const vec3 right_hand_pos = this_mo.rigged_object().GetIKTargetTransform("rightarm").GetTranslationPart();
+
+	vec3 col_point;
+	int closest_weap_line;
+	float closest_dist = 999.0f;
+
+	for(int i = 0; i < num_lines; i++) {
+		const vec3 start = trans * io.GetLineStart(i);
+        const vec3 end = trans * io.GetLineEnd(i);
+		vec3 mu = LineLineIntersect(start, end, left_hand_pos, right_hand_pos);
+		mu.x = max(0.0f, min(1.0f, mu.x));
+		mu.y = max(0.0f, min(1.0f, mu.y));
+	
+		const vec3 closest_point_on_weap_line = mix(start, end, mu.x);
+		const vec3 closest_point_between_hands = mix(left_hand_pos, right_hand_pos, mu.y);
+		float dist = distance(closest_point_on_weap_line, closest_point_between_hands);
+		if(dist < closest_dist) {
+			closest_dist = dist;
+			closest_weap_line = i;
+			col_point = (closest_point_on_weap_line + closest_point_between_hands) * 0.5f;
+		}
+	}
+
+	int sound_priority = (this_mo.controlled || attacker_mo.controlled) ? _sound_priority_very_high : _sound_priority_high;
+	const string mat = io.GetLineMaterial(closest_weap_line);
+	if(mat == "metal") {
+		MetalHitBracersEffects(col_point, true, sound_priority);
+	} else if(mat == "wood") {
+		WoodHitBracersEffects(col_point, sound_priority);
+	}
+
+	const bool _debug_collision_point = false;
+	if(_debug_collision_point) {DebugDrawWireSphere(col_point, 0.1f, vec3(1.0f), _fade);}
+}
+
+void MetalHitBracersEffects(const vec3 &in pos, bool strong_hit, int sound_priority) {
+	const string sound = "Data/Sounds/weapon_foley/impact/weapon_metal_hit_metal_strong.xml";
+	const string spark_particle = "Data/Particles/metalspark.xml";
+	const string flash_particle = "Data/Particles/metalflash.xml";
+	const int min_particles = 3;
+	const int max_particles = 20;
+
+	PlaySoundGroup(sound, pos, sound_priority);
+
+	int flash_obj_id = CreateObject("Data/Objects/default_light.xml", true);
+	flash_obj_ids.push_back(flash_obj_id);
+	Object@ obj = ReadObjectFromID(flash_obj_id);
+	obj.SetTranslation(pos);
+	obj.SetTint(vec3(0.5f));
+
+	int num_sparks = max(min_particles, rand() % (max_particles + 1));
+    for(int i = 0; i < num_sparks; i++) {
+        MakeParticle(spark_particle, pos, vec3(RangedRandomFloat(-5.0f, 5.0f), RangedRandomFloat(-5.0f, 5.0f), RangedRandomFloat(-5.0f, 5.0f)));
+        MakeParticle(flash_particle, pos, vec3(RangedRandomFloat(-5.0f, 5.0f), RangedRandomFloat(-5.0f, 5.0f), RangedRandomFloat(-5.0f, 5.0f)));
+    }
+}
+
+void WoodHitBracersEffects(const vec3 &in pos, int sound_priority) {
+	const string sound = "Data/Sounds/weapon_foley/impact/weapon_staff_hit_staff_strong.xml";
+	const string impact_particle1 = "Data/Particles/impactfast.xml";
+	const string impact_particle2 = "Data/Particles/impactslow.xml";
+	const string wooden_speck_particle = "Data/Particles/woodspeck.xml";
+
+	PlaySoundGroup(sound, pos, sound_priority);
+
+	MakeParticle(impact_particle1, pos, vec3(0.0f));
+	MakeParticle(impact_particle2, pos, vec3(0.0f));
+
+	const int min_particles = 0;
+	const int max_particles = 5;
+	int num_specks = max(min_particles, rand() % (max_particles + 1));
+
+	for(int i = 0; i < num_specks; i++) {
+		MakeParticle(wooden_speck_particle, pos, vec3(RangedRandomFloat(-5.0f, 5.0f), RangedRandomFloat(-5.0f, 5.0f), RangedRandomFloat(-5.0f, 5.0f)));
+	}
+}
+// - - - - - - - - - -
+//Glimpse Collision Effects end.
+
 void HandleWeaponWeaponCollision(int other_held_weapon) {
     if(other_held_weapon == -1 || weapon_slots[primary_weapon_slot] == -1) {
         return;
@@ -5413,7 +5542,13 @@ int BlockedAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
 
         PlaySoundGroup(sound, pos, sound_priority);
     } else {
-        HandleWeaponCollision(attacker_id);
+		//Glimpse.
+		bool handle_metal_bracer_collision = g_wearing_metal_bracers && (weapon_slots[primary_weapon_slot] == -1 || ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel() == "knife");
+		if(handle_metal_bracer_collision) {
+			HandleMetalBracerCollision(attacker_id);
+		} else { 
+			HandleWeaponCollision(attacker_id);
+		}
     }
 
     if(this_mo.controlled) {
@@ -5428,6 +5563,11 @@ int BlockedAttack(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
     }
 
     if(species == _rat && char.GetIntVar("species") != _rat) {
+        force_mult = 4.0f;
+    }
+
+	//Glimpse push-back for blocking sharp weapon attacks with metal bracers.
+	if(g_wearing_metal_bracers && attack_getter2.GetFleshUnblockable() == 1 && (weapon_slots[primary_weapon_slot] == -1)) {
         force_mult = 4.0f;
     }
 
@@ -5482,8 +5622,9 @@ int PrepareToBlock(const vec3 &in dir, const vec3 &in pos, int attacker_id) {
     } else if(!ActiveBlocking() ||
         attack_getter2.GetUnblockable() != 0 ||
         (attack_getter2.GetFleshUnblockable() != 0 &&
-        (weapon_slots[primary_weapon_slot] == -1 || ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel() == "knife")))
+        (!g_wearing_metal_bracers && (weapon_slots[primary_weapon_slot] == -1 || ReadItemID(weapon_slots[primary_weapon_slot]).GetLabel() == "knife"))))
     {
+		//Glimpse - Line 5485 ^^^, allows sharp weapon attacks to be blocked while unarmed or wielding a knife if y'got the bracers.
         return _miss;
     } else {
         if(active_block_flinch_layer != -1) {
@@ -6779,6 +6920,16 @@ void ReceiveMessage(string msg) {
     } else if(token == "revive_and_unsave_corpse") {
         Recover();
         params.Remove("dead_body");
+    } else if(token == "aura_effect") {		// params: string toggle_on/toggle_off/toggle 
+		token_iter.FindNextToken(msg);
+		token = token_iter.GetToken(msg);
+		if(token == "toggle") {
+			EnableAuraEffect(!aura_effect_active);
+		} else if(token == "toggle_on") {
+			EnableAuraEffect(true);
+		} else if(token == "toggle_off") {
+			EnableAuraEffect(false);
+		}
     } else {
         MindReceiveMessage(msg);  // Pass message to mind if it doesn't match body messages
     }
@@ -9512,16 +9663,48 @@ void CheckPossibleAttacks() {
     CheckPossibleAttack("moving_close");
 }
 
+//Moveset swapping.
+string GetSwappedAttackPath(const string &in attack_str) {
+	string attack_path_str = character_getter.GetAttackPath(attack_str + "_swap");
+	
+	if(attack_path_str == "") {
+		attack_path_str = character_getter.GetAttackPath(attack_str);
+		//^ If swapped path doesn't exist, use default path.
+	} else {
+		int weapon_id = weapon_slots[primary_weapon_slot];
+		if(weapon_id != -1) {
+			//"Remove" weapon, so character_getter doesn't consider this_mo to be armed.
+			this_mo.rigged_object().SetPrimaryWeaponID(-1);
+
+			//Get path of unarmed swap.
+			string swapped_unarmed_path = character_getter.GetAttackPath(attack_str + "_swap");
+	
+			//"Re-equip" weapon.
+			this_mo.rigged_object().SetPrimaryWeaponID(weapon_id);
+			
+			//Prevent fall-through behaviour where character_getter would use swapped unarmed path (if it exists) 
+			//instead of default weapon attack path, if the swapped weapon attack path doesn't exist.
+			if(attack_path_str == swapped_unarmed_path) {
+				attack_path_str = character_getter.GetAttackPath(attack_str);
+			}
+		}
+	}
+	
+	return attack_path_str;
+} 
+
 void MovingAttack(string &out attack_path_str, bool orig_mirrored, float attack_distance) {
     int primary_weapon_id = weapon_slots[primary_weapon_slot];
 
     if(primary_weapon_id != -1 && (ReadItemID(primary_weapon_id).GetLabel() == "sword" || ReadItemID(primary_weapon_id).GetLabel() == "rapier") && orig_mirrored == left_handed) {
-        attack_path_str = character_getter.GetAttackPath("moving_alt");
+        attack_path_str = "Data/Attacks/smallswordslashright.xml";
+		//ouruin moving_alt stuff:
+		//attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving_alt") : character_getter.GetAttackPath("moving_alt");
     } else if(attack_distance < (_close_attack_range + range_extender * 0.5f) * this_mo.rigged_object().GetCharScale()) {
-        attack_path_str = character_getter.GetAttackPath("moving_close");
+        attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving_close") : character_getter.GetAttackPath("moving_close");
         AchievementEvent("attack_moving_close");
     } else {
-        attack_path_str = character_getter.GetAttackPath("moving");
+        attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving") : character_getter.GetAttackPath("moving");
         AchievementEvent("attack_moving_far");
     }
 }
@@ -9530,30 +9713,30 @@ void GetAttackPath(string &in attack_str, string &out attack_path_str, bool orig
     int primary_weapon_id = weapon_slots[primary_weapon_slot];
 
     if(attack_str == "moving" && ragdoll_enemy && weapon_slots[primary_weapon_slot] == -1) {
-        attack_path_str = character_getter.GetAttackPath("moving_low");
+        attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving_low") : character_getter.GetAttackPath("moving_low");
     } else if(primary_weapon_id != -1 && attack_str == "stationary" && ReadItemID(primary_weapon_id).GetLabel() == "sword") {
         MovingAttack(attack_path_str, orig_mirrored, attack_distance);
     } else if(attack_str == "stationary" ||
             (attack_str == "moving" && (ducking_enemy || ragdoll_enemy) && weapon_slots[primary_weapon_slot] == -1)) {
         if(attack_distance < GetCloseAttackRange()) {
-            attack_path_str = character_getter.GetAttackPath("stationary_close");
+            attack_path_str = moveset_swapped ? GetSwappedAttackPath("stationary_close") : character_getter.GetAttackPath("stationary_close");
             AchievementEvent("attack_stationary_close");
         } else {
-            attack_path_str = character_getter.GetAttackPath("stationary");
+            attack_path_str = moveset_swapped ? GetSwappedAttackPath("stationary") : character_getter.GetAttackPath("stationary");
             AchievementEvent("attack_stationary_far");
         }
     } else if(attack_str == "moving") {
         MovingAttack(attack_path_str, orig_mirrored, attack_distance);
     } else if(attack_str == "low") {
-        attack_path_str = character_getter.GetAttackPath("low");
+        attack_path_str = moveset_swapped ? GetSwappedAttackPath("low") : character_getter.GetAttackPath("low");
 
         if(primary_weapon_id != -1 && (ReadItemID(primary_weapon_id).GetLabel() == "sword" || ReadItemID(primary_weapon_id).GetLabel() == "rapier") && orig_mirrored == left_handed) {
-            attack_path_str = character_getter.GetAttackPath("moving_alt");
+            attack_path_str = "Data/Attacks/smallswordslashright.xml";
         }
 
         AchievementEvent("attack_low");
     } else if(attack_str == "air") {
-        attack_path_str = character_getter.GetAttackPath("air");
+        attack_path_str = moveset_swapped ? GetSwappedAttackPath("air") : character_getter.GetAttackPath("air");
         AchievementEvent("attack_air");
     }
 }
@@ -15753,6 +15936,10 @@ void SetParameters() {
     g_wearing_metal_armor = params.GetInt("Wearing Metal Armor") != 0;
 
     params.Remove("Armor");  // Remove old parameter. Replaced with "Wearing Metal Armor"
+
+	//Glimpse.
+	params.AddIntCheckbox("Wearing Metal Bracers", false);
+	g_wearing_metal_bracers = (params.GetInt("Wearing Metal Bracers") != 0);
     // --- End armor parameters
 
     params.AddFloatSlider("Weapon Catch Skill", 1.0, "min:0,max:1,step:0.1,text_mult:100");

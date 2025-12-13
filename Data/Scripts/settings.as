@@ -422,7 +422,8 @@ const array<string> keyboard_bind_names = {
     "Skip dialogue",
     "Attack",
     "Grab",
-    "Walk"
+    "Walk",
+	"Swap Moveset"
 };
 const array<string> keyboard_keybinds = {
     "up",
@@ -437,7 +438,8 @@ const array<string> keyboard_keybinds = {
     "skip_dialogue",
     "attack",
     "grab",
-    "walk"
+    "walk",
+	"swap_moveset"
 };
 void AddKeyBinds(IMContainer@ parent) {
     // Left is keybinds, right is scrollbar
