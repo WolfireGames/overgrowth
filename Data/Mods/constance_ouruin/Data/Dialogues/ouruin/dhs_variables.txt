@@ -405,6 +405,8 @@ Define variable, its values and notes for each value.
 
 		ouruin_dart_backstory
 
+		ouruin_dart_access
+
 		ouruin_dart_duel
 			0: Ghost cannot challenge
 			1: Dart can be challenged
