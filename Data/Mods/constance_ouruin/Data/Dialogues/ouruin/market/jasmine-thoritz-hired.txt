@@ -1,0 +1,20 @@
+#name "Jasmine-Thoritz-Hired"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+
+say 1 "Ghost" "Nedis hired me on behalf of the Lotus to deliver him this letter from 'R'. [wait 0.1]You mind passing it over when you see him?"
+
+say 2 "Jasmine" "A letter...[wait 0.1]? [wait 0.15]Hm."
+
+say 2 "Jasmine" "If I knew where Thoritz was, [wait 0.05]I wouldn't be standing 'ere. [wait 0.1]Find 'im yerself."
+
+say 1 "Ghost" "He must live somewhere down in the warrens, [wait 0.05]right?"
+
+say 2 "Jasmine" "Yeah, [wait 0.05]Nui. [wait 0.1]Go through yonder door and you'll find your way there just fine."
+
+say 2 "Jasmine" "And tell 'im to hurry up, [wait 0.05]would 'ya? [wait 0.1]Taking all day..."
+
+send_level_message "dialogue_done"

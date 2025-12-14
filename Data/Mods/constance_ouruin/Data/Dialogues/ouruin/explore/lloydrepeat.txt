@@ -1,0 +1,20 @@
+#name "LloydOfferRepeat"
+#participants 3
+set_character_pos 2 0.335167 -42.4001 168.739 -101
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
+send_character_message 2 "set_head_target -0.881611 -41.5181 168.846 1"
+set_character_pos 1 -1.12031 -42.458 169.053 21
+send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
+send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
+send_character_message 1 "set_head_target 0.0543995 -41.278 168.712 1"
+set_cam -0.936944 -42.3386 164.261 7.1 -172.44 0 53.156
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.66 0.33 0.2
+set_dialogue_voice 2 5
+send_level_message "disable 8496"
+send_level_message "disable 8715"
+say 2 "Lloyd" "You're to locate the fool's dwellings in the Nui warrens, [wait 0.05]steal his research, [wait 0.05]and be paid 500p for your troubles. [wait 0.1]Is this arrangement sound?"
+send_level_message "dialogue_done"

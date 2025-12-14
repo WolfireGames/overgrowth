@@ -1,0 +1,51 @@
+#name "Jasmine-Meet"
+#participants 3
+set_character_pos 2 40.2902 -54.8405 60.1371 80
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
+send_character_message 2 "set_eye_dir 40.2262 -54.3351 58.8698 1"
+send_character_message 2 "set_head_target 40.9184 -53.8055 59.0667 1"
+set_character_pos 1 40.2928 -55.1421 58.7015 -90
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 1"
+send_character_message 1 "set_torso_target 41.421 -54.5823 58.466 0"
+send_character_message 1 "set_head_target 40.2117 -54.3463 59.7505 1"
+set_cam 38.3717 -54.5072 57.068 -2.92 -146.66 0 56.2594
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+say 2 "???" "'Lo, Ghost. [wait 0.1]Decided to pay the Lotus a visit?"
+send_character_message 1 "set_animation \"Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_head_target 40.1928 -54.1824 59.8809 1"
+send_character_message 2 "set_head_target 40.9104 -54.4084 58.9935 1"
+say 1 "Ghost" "Not for long. [wait 0.1]You know me?"
+send_character_message 2 "set_head_target 40.5509 -54.0887 58.7502 1"
+set_cam 41.9911 -53.9407 59.9195 -15.19 96.09 0.9 32.2271
+say 2 "???" "Name's Jasmine. [wait 0.1]It pays to keep attention."
+send_character_message 2 "set_head_target 39.714 -54.4866 58.7737 1"
+say 2 "Jasmine" "If you're lookin' for Forten, [wait 0.05]he's up that flight of stairs."
+send_character_message 1 "set_head_target 40.2116 -54.2358 59.899 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 2 "set_head_target 39.444 -53.7448 58.8152 1"
+say 2 "Jasmine" "'Course, [wait 0.05]he might not be in the talking mood. [wait 0.1]Dunno what's gotten into 'im lately."
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target 40.5552 -54.1515 59.6509 1"
+send_character_message 2 "set_head_target 39.9833 -54.4713 58.296 1"
+set_cam 37.2212 -54.359 60.5959 -2.91 -71.07 0.01 39.686
+say 1 "Ghost" "You don't look like a servant for the Lotus. [wait 0.1]Why stick around here?"
+send_character_message 1 "set_head_target 40.5019 -54.244 59.7855 1"
+send_character_message 2 "set_eye_dir 38.2272 -54.061 60.053 0.761444"
+send_character_message 2 "set_head_target 39.9366 -54.853 57.6201 1"
+send_character_message 2 "set_morph_target angry 0.5 0.3 outExpo"
+say 2 "Jasmine" "Well, [wait 0.05]I ain't supposed to be waiting like this. [wait 0.1]Thoritz was supposed to come 'round for quite a while."
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 0.774361"
+send_character_message 1 "set_head_target 40.4683 -54.1508 59.7984 1"
+send_character_message 2 "set_eye_dir 39.6507 -54.147 60.46 0.552872"
+send_character_message 2 "set_head_target 39.6125 -54.6343 57.6352 1"
+send_character_message 2 "set_morph_target angry 0.3 0.3 outExpo"
+say 2 "Jasmine" "He ain't usually like this..."
+send_character_message 1 "set_head_target 40.4526 -54.2813 59.8644 1"
+send_character_message 2 "set_eye_dir 40.1512 -54.6686 59.9083 0.552872"
+send_character_message 2 "set_head_target 40.3002 -55.0231 57.4986 1"
+send_character_message 2 "set_morph_target angry 0.0 0.3 outExpo"
+say 2 "Jasmine" "Whatever. [wait 0.1]I doubt you're here to listen to me."
+send_level_message "dialogue_done"

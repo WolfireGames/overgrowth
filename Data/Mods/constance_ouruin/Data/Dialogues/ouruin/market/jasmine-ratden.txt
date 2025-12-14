@@ -1,0 +1,20 @@
+#name "Jasmine-Ratden"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+
+say 1 "Ghost" "You said the rat den nearby is a forward one. [wait 0.1]Just how bad is it?"
+
+say 2 "Jasmine" "Y' ask a lot o' questions, [wait 0.05]huh? [wait 0.1]Good on 'ya. [wait 0.05]Helps to keep an ear open."
+
+say 2 "Jasmine" "We've gotten a count of 'bout a dozen or so. [wait 0.1]Most of that count wouldn't try fighting, though."
+
+say 2 "Jasmine" "Forwards-facing dens this close to the surface tend to be pretty puny. [wait 0.1]Just broods and their spawn. [wait 0.1]You'd think they'd arm 'emselves a bit better, [wait 0.05]so close to the sun..."
+
+say 2 "Jasmine" "Not that I'd complain. [wait 0.1]Makes purgin' a lot easier."
+
+say 2 "Jasmine" "Still ain't easy enough to take it on by m'self, [wait 0.05]so I'll just have to do somethin' else with today."
+
+send_level_message "dialogue_done"

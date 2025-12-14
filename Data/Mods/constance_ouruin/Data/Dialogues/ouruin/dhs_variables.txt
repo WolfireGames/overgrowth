@@ -132,6 +132,7 @@ Define variable, its values and notes for each value.
 		4: Player is loading into Explore from Faas' Sanctuary (level1_dart.xml)
 		5: Player is loading into Explore from the Agra Hood shortcut (level1.xml)
 		6: Player is loading into Explore from the Upper Depot exit (depot.xml)
+		7: Player is loading into Explore from the Market shortcut (market.xml)
 
 		ouruin_agra_shortcut
 			0: Shortcut not unlocked
@@ -140,6 +141,9 @@ Define variable, its values and notes for each value.
 	ouruin_market_state
 		0: Player is loading into Market from Explore (level1_explore.xml)
 		1: Player is loading into Market from the Warrens (warrens.xml)
+		2: Player is loading into Market from Explore shortcut (level1_explore.xml)
+
+		ouruin_market_shortcut
 
 	ouruin_depot_state
 		0: Player is loading into Depot from Explore (level1_explore.xml)
@@ -185,6 +189,7 @@ Define variable, its values and notes for each value.
 			5: Player is south of the sunken square alley
 			6: Player is north of the sunken square alley
 			7: Player is at the high road entrance
+			8: Player is at Faas' shortcut
 		
 		ouruin_agra_ambush
 			0: Ambush is not prepared
@@ -385,15 +390,20 @@ Define variable, its values and notes for each value.
 		4: Ghost has entered the warrens
 		5: Ghost has stolen Branch's notes and escaped
 		6: Lloyd has paid Ghost. Quest complete!
-		7: Lloyd has received the misinformation and paid Ghost
-		8: Lloyd's head has cooled, and the whaleman book has been offered
-		9: Whaleman book has been read
+		7: Lloyd has received the misinformation and paid Ghost. Quest complete!
+		8: Lloyd's head has cooled after misinformation, and the whaleman book has been offered
+		9: Whaleman book has been offered
+		10: Whaleman book has been read
 
 	ouruin_branch_quest
-		0: Branch has not been talked to
-		1: Branch has been talked to
-		2: Player has found the whaleman statue
-		3: Player has talked to Branch and received their reward. Quest complete
+		0: Branch's door has not been found
+		1: Branch's room has been broken into
+		2: Player has taken Branch's notes
+		3: Player has talked to Branch
+		4: Branch has been returned to after turning notes over to Lloyd
+		5: Branch has been returned to after misinforming Lloyd
+		6: Branch has given Ghost the metal bracers. Quest complete!
+		7: Branch has told Ghost about House Tomerre
 
 	ouruin_dart_quest
 		0: Dart has not been met
@@ -550,6 +560,14 @@ Define variable, its values and notes for each value.
 				3: Ratty has been found, and revealed
 				4: Ratty has been found, and killed
 				5: Ratty has been found, and interrogated
+	
+	ouruin_jasmine_quest
+		0: Jasmine has not been talked to
+		1: Jasmine has been informed of the Thoritz job
+		2: Jasmine has been informed of Thoritz' condition
+		3: Jasmine has talked about the rat den
+		4: Ghost has informed Jasmine of the rat extermination. Quest complete!
+		5: Ghost has informed Jasmine of the rat extermination, including the spared mother rat. Quest complete!
 
 	ouruin_ratty_quest
 		0: Player has not met Ratty

@@ -1,0 +1,18 @@
+#name "Jasmine-Thoritz-Heard"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+
+say 1 "Ghost" "Nedis was hiring for a letter to get delivered to Thoritz. [wait 0.1]A letter from 'R'."
+
+say 2 "Jasmine" "...[wait 0.1]Weird. [wait 0.1]Sounds like a simple job, [wait 0.05]though."
+
+say 1 "Ghost" "Any ideas on who this 'R' might be?"
+
+say 2 "Jasmine" "Lots of people with a name that begins in R. [wait 0.1]I was thinking about going by something like that m'self: River."
+
+say 2 "Jasmine" "I'm no parcel bird, [wait 0.05]though. [wait 0.1]I've other things to take care of."
+
+send_level_message "dialogue_done"

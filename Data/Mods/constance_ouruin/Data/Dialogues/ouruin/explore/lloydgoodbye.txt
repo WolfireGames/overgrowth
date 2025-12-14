@@ -17,3 +17,4 @@ set_dialogue_voice 2 5
 send_level_message "enable 8715"
 send_level_message "enable 8496"
 say 2 "Lloyd" "Back to it, [wait 0.2]then."
+send_level_message "dialogue_done"

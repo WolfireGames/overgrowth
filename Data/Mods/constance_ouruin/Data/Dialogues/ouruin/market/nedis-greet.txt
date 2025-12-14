@@ -1,0 +1,20 @@
+#name "Nedis-Lotus"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.3356 -45.8876 3.79295 1"
+set_character_pos 1 29.5416 -46.6081 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 29.8059 -45.8679 4.73606 1"
+send_character_message 1 "set_torso_target 28.4223 -46.1136 3.15906 0"
+send_character_message 1 "set_head_target 28.6149 -46.5213 4.5168 1"
+set_cam 29.7481 -45.8204 4.38397 -4.19 10.69 0 30.0547
+say 2 "Nedis" "...[wait 0.1]Been a while since I saw you 'round, [wait 0.05]Ghost. [wait 0.1]Donny told me you'd visit."
+say 1 "Ghost" "I can't promise it'll be for long. 
+say 2 "Nedis" "This stock ain't much, [wait 0.1]but once I get a decent return on it I'll be able to move out of these streets..."
+say 2 "Nedis" "I've got some leads for you, [wait 0.05]if you're interested. [wait 0.1]Otherwise, [wait 0.05]feel free to spend some coin..."
+send_level_message "dialogue_done"

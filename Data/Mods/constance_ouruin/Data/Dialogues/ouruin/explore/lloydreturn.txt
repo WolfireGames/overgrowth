@@ -1,0 +1,36 @@
+#name "LloydReturn"
+#participants 3
+set_character_pos 2 0.335251 -42.4002 168.739 -131
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
+send_character_message 2 "set_head_target -0.880784 -41.519 168.846 1"
+set_character_pos 1 -1.12031 -42.458 169.053 21
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
+send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
+send_character_message 1 "set_head_target 0.124697 -41.4431 168.731 1"
+set_cam 0.432296 -42.0605 169.818 7.54 58.44 0 48.4534
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.66 0.33 0.2
+set_dialogue_voice 2 5
+say 2 "Lloyd" "All you need to know is that they currently reside in the warrens, [wait 0.05]in a room near Nui."
+send_character_message 1 "set_torso_target -0.539573 -42.2146 168.842 1"
+send_character_message 2 "set_head_target -0.902752 -41.5765 168.977 1"
+send_character_message 2 "set_torso_target -0.515321 -41.6811 169.187 0.921589"
+send_character_message 1 "set_eye_dir -0.075681 -40.8642 167.418 1"
+send_character_message 1 "set_head_target -0.309508 -41.4014 167.31 1"
+say 1 "Ghost" "[wait 0.3]Ghost."
+send_character_message 2 "set_head_target -0.970064 -41.8031 168.948 1"
+send_character_message 2 "set_torso_target -0.510581 -41.8465 169.139 1"
+send_character_message 1 "set_torso_target -0.577965 -42.0575 168.948 1"
+send_character_message 1 "set_eye_dir 0.14315 -41.201 168.777 1"
+send_character_message 1 "set_head_target 0.353875 -41.4373 168.636 1"
+say 2 "Lloyd" "You mean you were in-and-out like a ghost? [wait 0.1]That's superb news."
+send_character_message 2 "set_eye_dir -0.0434692 -41.348 169.095 0.601641"
+send_character_message 2 "set_head_target -0.977401 -41.7733 169.067 1"
+send_character_message 2 "set_torso_target -0.207718 -41.9104 169.314 0"
+say 2 "Lloyd" "Now, [wait 0.05]his manuscript on the Whaleman's tale. [wait 0.1]Where is it?"
+send_level_message "dialogue_done"
