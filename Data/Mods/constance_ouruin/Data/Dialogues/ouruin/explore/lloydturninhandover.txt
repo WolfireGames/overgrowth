@@ -1,0 +1,32 @@
+#name "LloydTurnInHandover"
+#participants 3
+set_character_pos 2 0.335167 -42.4001 168.739 -101
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book.anm\""
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
+send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
+set_character_pos 1 -1.12031 -42.458 169.053 21
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
+send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
+send_character_message 1 "set_head_target 0.0526941 -41.353 168.721 1"
+set_cam -2.20375 -41.9143 171.068 0 -38.48 0 65.7874
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.66 0.33 0.2
+set_dialogue_voice 2 5
+send_level_message "disable 8715"
+say 1 "Ghost" "Here you are. [wait 0.05]Lucky these are even intact--[wait 0.1]That room was a mess."
+say 2 "Lloyd" "Thank you. [wait 0.1]And while I don't doubt your literacy, [wait 0.05]I'd like to check this for myself..."
+say 2 "Lloyd" "[wait 0.1].[wait 0.1].[wait 0.1]."
+say 2 "Lloyd" "Hah. [wait 0.1]Of course they'd stake their claim there... [wait 0.1]Still baying to the tune of that crone."
+say 2 "Lloyd" "I guarantee they'll try to tie this to the 'inclines of House Tomerre's grasp'. [wait 0.1]They can't write a single paragraph without pinning something on them."
+say 1 "Ghost" "...[wait 0.1]Uh-huh."
+say 2 "Lloyd" "Kuukuku! [wait 0.1]There it is alright! [wait 0.1]They have no clue what they're clattering through those teeth..."
+say 1 "Ghost" "I'm sure you'll make a real impact on the scholarly scene."
+say 2 "Lloyd" "Oh, [wait 0.05]but of course. [wait 0.1]You've probably no interest in a myth so far removed from your home. [wait 0.1]I can't blame you."
+say 2 "Lloyd" "A story like this is very near and dear to many of my fellow Wynsian folk. [wait 0.1]To see it mangled this way puts my heart at ease... [wait 0.1]They'll be torn to shreds."
+say 2 "Lloyd" "...[wait 0.15]Proverbially, [wait 0.05]of course."
+say 2 "Lloyd" "Here: [wait 0.1]This is what you were waiting for... [wait 0.05]Plus a little extra, [wait 0.05]for I'm in a good mood."
+say 1 "Ghost" "Good doing business, [wait 0.1]chum."
+say 2 "Lloyd" "...[wait 0.2]The golden canvas rising? [wait 0.1]What excellently trashable decorum! [wait 0.05]My, [wait 0.05]my..."
+send_level_message "dialogue_done"

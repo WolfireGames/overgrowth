@@ -42,7 +42,7 @@ say 2 "Nedis" "I have a friend waiting on the bridge, [wait 0.1]in Saint Faas' S
 send_character_message 1 "set_head_target 29.4199 -45.8862 4.331 1"
 send_character_message 2 "set_eye_dir 30.1506 -45.802 5.0076 0.500705"
 send_character_message 2 "set_head_target 30.1818 -46.1644 4.14977 1"
-say 2 "Nedis" "Only problem is the garden's been locked down. [wait 0.2]Don't know by who... [wait 0.1]The only entrance from here's blocked and guarded by a talented Arlissian duelist named Dart."
+say 2 "Nedis" "Only problem is the garden's been locked down. [wait 0.2]Don't know by who... [wait 0.1]The only entrance from here's blocked and guarded by some Arlissian named Dart."
 send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
 send_character_message 2 "set_eye_dir 30.1506 -45.802 5.00764 1"
 send_character_message 2 "set_head_target 29.7057 -45.6081 3.33697 1"

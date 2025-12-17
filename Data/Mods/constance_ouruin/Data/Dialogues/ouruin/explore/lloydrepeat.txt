@@ -16,5 +16,5 @@ set_dialogue_color 2 0.66 0.33 0.2
 set_dialogue_voice 2 5
 send_level_message "disable 8496"
 send_level_message "disable 8715"
-say 2 "Lloyd" "You're to locate the fool's dwellings in the Nui warrens, [wait 0.05]steal his research, [wait 0.05]and be paid 500p for your troubles. [wait 0.1]Is this arrangement sound?"
+say 2 "Lloyd" "You're to locate the fool's dwellings in the Nui warrens, [wait 0.05]steal their research, [wait 0.05]and be paid 500p for your troubles. [wait 0.1]Is this arrangement sound?"
 send_level_message "dialogue_done"

@@ -1,9 +1,9 @@
-#name "LloydGoodbye"
+#name "LloydWhalemanAccept"
 #participants 3
 set_character_pos 2 0.335167 -42.4001 168.739 -101
-send_character_message 2 "set_animation \"Data/Animations/r_dialogue_bookwrite.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book.anm\""
 send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
-send_character_message 2 "set_head_target -0.86321 -41.6024 168.825 0"
+send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
 set_character_pos 1 -1.12031 -42.458 169.053 21
 send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
 send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
@@ -14,7 +14,9 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.66 0.33 0.2
 set_dialogue_voice 2 5
-send_level_message "enable 8715"
-send_level_message "enable 8496"
-say 2 "Lloyd" "Back to it, [wait 0.05]then."
+send_level_message "disable 8715"
+say 1 "Ghost" "Well... [wait 0.1]Sure. [wait 0.15]I can spare that much time."
+say 2 "Lloyd" "Here you are... [wait 0.1]The full context may not be clear, [wait 0.05]but it should at least provide a glimpse into some authentic canine culture."
+say 2 "Lloyd" "As authentic as it can get while being translated to common, [wait 0.05]of course..."
+say 1 "Ghost" "[wait 0.1].[wait 0.1].[wait 0.1]."
 send_level_message "dialogue_done"
