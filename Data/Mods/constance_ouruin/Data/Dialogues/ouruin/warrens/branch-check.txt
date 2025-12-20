@@ -1,0 +1,14 @@
+#name "Branch-Check"
+#participants 3
+
+say 2 "???" "Those old Willsbane drafts[wait 0.05].[wait 0.05].[wait 0.05]. [wait 0.01]Anstat-Kanlakti's rust ecology[wait 0.05].[wait 0.05].[wait 0.05]. I should really throw out that tatsan-darr thesis."
+
+say 2 "???" "Hm? [wait 0.2]Here still, [wait 0.05]are you? [wait 0.1]Bring those notes back to Lloyd--[wait 0.05]I haven't yet located those metal bracers."
+
+say 1 "Ghost" "It looks like you're just digging in one spot over and over."
+
+say 2 "???" "A watched pot never boils, [wait 0.05]does it? [wait 0.05]Go on, now! [wait 0.05]Fulfill your end!"
+
+say 3 "Ghost" "(...[wait 0.1]Guess I just have to go back to Lloyd on the Moritz waterfront.)"
+
+send_level_message "dialogue_done"

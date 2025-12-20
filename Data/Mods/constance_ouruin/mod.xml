@@ -28,7 +28,7 @@
         <Level id="level_2" title="Moritz Hood" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/level1_explore.xml</Level>
         <Level id="level_3" title="Lotus Market" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/market.xml</Level>
         <Level id="level_4" title="Lotus Depot" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/depot.xml</Level>
-        <Level id="level_5" title="Warrens" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/warrens.xml</Level>
+        <Level id="level_5" title="Nui Warrens" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/warrens.xml</Level>
         <Level id="level_6" title="Faas' Sanctuary" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/level1_dart.xml</Level>
         <Level id="level_7" title="Rat Den" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/ratden.xml</Level>
         <Level id="level_8" title="Agra Hood" thumbnail="Textures/ouruin/campaign_thumbnails/explore.jpg">ouruin/level1_a.xml</Level>

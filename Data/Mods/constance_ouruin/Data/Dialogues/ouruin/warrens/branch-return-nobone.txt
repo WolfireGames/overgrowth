@@ -1,0 +1,13 @@
+#name "Branch-Return-NoBone"
+#participants 3
+say 1 "Ghost" "Looks like he fell for your trick. [wait 0.1]Really is as foolish as you made 'em out to be."
+say 2 "???" "[wait 0.3]H[wait 0.05]m[wait 0.05]m[wait 0.05].[wait 0.05].[wait 0.05]."
+say 2 "???" "I take it you didn't tell him about the bone-spire, [wait 0.05]then. [wait 0.1]Oh well."
+say 1 "Ghost" "[wait 0.05]When'd I say that?"
+say 2 "???" "Believe me, if you did tell him, [wait 0.05]I'd know just from the look on your face."
+say 2 "???" "Well, [wait 0.05]you know what the deal was. [wait 0.1]No bait, [wait 0.05]no bracers. [wait 0.1]I've already gotten what I wanted."
+say 2 "???" "Of course, [wait 0.05]you could just kick my head in, [wait 0.05]dig 'round these stacks of papers for however long. [wait 0.1]See if you can find 'em!"
+say 1 "Ghost" "...[wait 0.05]So this sty you call a study is like this on purpose?"
+say 2 "???" "No, [wait 0.05]not quite... [wait 0.1]I never called this a study."
+say 2 "???" "Now, [wait 0.05]is there anything else you wanted, [wait 0.05]or are you about to try and ransack this so-called sty?"
+send_level_message "dialogue_done"
