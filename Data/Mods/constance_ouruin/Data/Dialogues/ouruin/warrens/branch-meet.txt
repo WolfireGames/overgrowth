@@ -1,5 +1,13 @@
 #name "Branch-Meet"
 #participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.52 0.28 1.0
+set_dialogue_voice 2 10
+set_dialogue_color 4 0.52 0.28 1.0
+set_dialogue_voice 4 10
 say 1 "Ghost" "Alright... [wait 0.1]I'm listening. [wait 0.05]So give me your pitch."
 say 2 "???" "Well, [wait 0.05]what I want you to do is very simple... [wait 0.1]So simple, [wait 0.05]in fact, [wait 0.05]you'll still get your pay from Lloyd. [wait 0.1]Along with a little bonus from me!"
 say 2 "???" "Simply bring back some... [wait 0.05]Information, [wait 0.05]on what some of my other notes look like."

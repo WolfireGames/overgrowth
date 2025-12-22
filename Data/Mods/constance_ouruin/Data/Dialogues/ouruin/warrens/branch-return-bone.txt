@@ -1,5 +1,13 @@
 #name "Branch-Return-Bone"
 #participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.52 0.28 1.0
+set_dialogue_voice 2 10
+set_dialogue_color 4 0.52 0.28 1.0
+set_dialogue_voice 4 10
 say 1 "Ghost" "Well... [wait 0.05]I brought the book to him."
 say 2 "Branch" "Kekeke! [wait 0.1]Tatsur, [wait 0.05]by the look in your eyes I got quite the response from him."
 say 1 "Ghost" "He labelled you a 'sweepborn'. [wait 0.05]Then 'lowly scrub'. [wait 0.1]Then he looked right at me and called me 'sootcrawler'."

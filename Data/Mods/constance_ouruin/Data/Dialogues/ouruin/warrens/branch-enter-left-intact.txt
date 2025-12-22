@@ -1,5 +1,13 @@
 #name "Branch-Enter-Left-Intact"
 #participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.52 0.28 1.0
+set_dialogue_voice 2 10
+set_dialogue_color 4 0.52 0.28 1.0
+set_dialogue_voice 4 10
 say 2 "???" "[wait 0.2]'T [wait 0.2]U [wait 0.2]O', [wait 0.1]huh? [wait 0.05]Just grand."
 say 3 "Ghost" "(...[wait 0.1]Someone's coming!)"
 say 2 "???" "At least the door's intact. [wait 0.1]I can't ask for much, [wait 0.05]here."

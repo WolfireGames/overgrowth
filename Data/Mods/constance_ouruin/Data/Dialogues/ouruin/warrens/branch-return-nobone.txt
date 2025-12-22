@@ -1,5 +1,13 @@
 #name "Branch-Return-NoBone"
 #participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.52 0.28 1.0
+set_dialogue_voice 2 10
+set_dialogue_color 4 0.52 0.28 1.0
+set_dialogue_voice 4 10
 say 1 "Ghost" "Looks like he fell for your trick. [wait 0.1]Really is as foolish as you made 'em out to be."
 say 2 "???" "[wait 0.3]H[wait 0.05]m[wait 0.05]m[wait 0.05].[wait 0.05].[wait 0.05]."
 say 2 "???" "I take it you didn't tell him about the bone-spire, [wait 0.05]then. [wait 0.1]Oh well."

@@ -1,14 +1,8 @@
 #name "Branch-Whaleman"
 #participants 3
-
 say 2 "Branch" "So, [wait 0.05]I was right on the money: [wait 0.1]You were hired to steal the whaleman notes in particular, hm?"
-
 say 1 "Ghost" "What's got him so fussy about it? [wait 0.05]Isn't that just a story for your pups?"
-
 say 2 "Branch" "And a powerful cultural tool. [wait 0.05]Stories hold sway, [wait 0.05]kit. [wait 0.1]They're memories of times that have been, [wait 0.05]feelings and choices that are paid forwards."
-
 say 2 "Branch" "Rememberances belong to history. [wait 0.05]And the clans own that history. [wait 0.05]To evaluate and reflect on the stories of the past, [wait 0.05]to fit our present..."
-
 say 2 "Branch" "Even rabbits should understand. [wait 0.05]Why else would you Cinderbreathe, [wait 0.05]of all people, [wait 0.05]employ your so-called archaeologists? [wait 0.05]They couldn't tell rock from rubble."
-
 send_level_message "dialogue_done"

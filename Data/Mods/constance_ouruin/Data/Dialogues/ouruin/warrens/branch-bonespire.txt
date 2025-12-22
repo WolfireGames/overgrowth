@@ -1,5 +1,13 @@
 #name "Branch-Bonespire"
 #participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.52 0.28 1.0
+set_dialogue_voice 2 10
+set_dialogue_color 4 0.52 0.28 1.0
+set_dialogue_voice 4 10
 say 1 "Ghost" "Just what was it about that 'bone-spire' that set Lloyd off? [wait 0.05]I've never heard of such a thing."
 say 2 "Branch" "Well, [wait 0.05]you must understand: His House Tomerre, [wait 0.05]while he doesn't serve them officially, [wait 0.05]commands all from his home to cooperate to a fine point."
 say 2 "Branch" "House Tomerre, [wait 0.05]being the longest running bloodline within Kairan, [wait 0.05]stake their ancestral claim on everything it can possibly apply to. [wait 0.05]Many times, [wait 0.05]they wield it like a weapon rather than a tool."

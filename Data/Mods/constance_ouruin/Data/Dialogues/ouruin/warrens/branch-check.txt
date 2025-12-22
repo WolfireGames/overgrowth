@@ -1,5 +1,13 @@
 #name "Branch-Check"
 #participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.52 0.28 1.0
+set_dialogue_voice 2 10
+set_dialogue_color 4 0.52 0.28 1.0
+set_dialogue_voice 4 10
 
 say 2 "???" "Those old Willsbane drafts[wait 0.05].[wait 0.05].[wait 0.05]. [wait 0.01]Anstat-Kanlakti's rust ecology[wait 0.05].[wait 0.05].[wait 0.05]. I should really throw out that tatsan-darr thesis."
 

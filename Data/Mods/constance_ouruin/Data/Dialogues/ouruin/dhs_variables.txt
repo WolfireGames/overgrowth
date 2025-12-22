@@ -388,8 +388,8 @@ Define variable, its values and notes for each value.
 		2: Ghost has discussed Lloyd's job
 		3: Ghost has accepted Lloyd's job offer
 		4: Ghost has entered the warrens
-		5: Ghost has stolen Branch's notes and escaped
-		6: Lloyd has paid Ghost. Quest complete!
+		5: Ghost has stolen Branch's notes
+		6: Lloyd has received the manuscript and paid Ghost. Quest complete!
 		7: Lloyd has received the misinformation and paid Ghost. Quest complete!
 		8: Lloyd's head has cooled after misinformation, and the whaleman book has been offered
 		9: Whaleman book has been offered
@@ -398,12 +398,22 @@ Define variable, its values and notes for each value.
 	ouruin_branch_quest
 		0: Branch's door has not been found
 		1: Branch's room has been broken into
-		2: Player has taken Branch's notes
+		2: Player has encountered Branch
 		3: Player has talked to Branch
 		4: Branch has been returned to after turning notes over to Lloyd
 		5: Branch has been returned to after misinforming Lloyd
-		6: Branch has given Ghost the metal bracers. Quest complete!
-		7: Branch has told Ghost about House Tomerre
+		6: Branch can sell bracers
+		7: Branch is available for dialogue
+		8: Branch has given Ghost the metal bracers. Quest complete!
+
+		ouruin_branch_tomerre
+
+		ouruin_branch_door
+			0: Not opened
+			1: Opened
+			2: Broken in
+
+		ouruin_branch_talked
 
 	ouruin_dart_quest
 		0: Dart has not been met

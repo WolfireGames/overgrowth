@@ -1,0 +1,25 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group name="Ship Lock" t0="58.4884" t1="-48.0398" t2="70.4376" s0="0.0312212" s1="0.100313" s2="0.0966699" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11766" version="1">
+        <parameters />
+        <EnvObject t0="58.4881" t1="-48.0108" t2="70.4376" s0="0.0109782" s1="0.0109782" s2="0.0109782" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="11760" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/low poly/armormetal/half_torusfat.xml" no_navmesh="true">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.4882" t1="-48.0554" t2="70.4376" s0="0.0433329" s1="0.0103815" s2="0.0295766" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="11761" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/cube.xml" no_navmesh="true">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.4981" t1="-48.0586" t2="70.4386" s0="0.00891606" s1="0.000915931" s2="0.0104519" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="11762" color_r="1" color_g="1" color_b="1" overbright="-1500" type_file="Data/Custom/FnB/Objects/Simple Shapes/void/hex.xml" no_navmesh="true">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.4984" t1="-48.0491" t2="70.4386" s0="0.00560733" s1="0.000492275" s2="0.00673073" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="11763" color_r="1" color_g="1" color_b="1" overbright="-1500" type_file="Data/Custom/FnB/Objects/Simple Shapes/void/hex.xml" no_navmesh="true">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.4882" t1="-48.0257" t2="70.4626" s0="0.0100938" s1="0.00659794" s2="0.00604867" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="11764" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/cube.xml" no_navmesh="true">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="58.4882" t1="-48.0257" t2="70.4136" s0="0.0100938" s1="0.00659794" s2="0.00604867" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="11765" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/armormetal/cube.xml" no_navmesh="true">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>
