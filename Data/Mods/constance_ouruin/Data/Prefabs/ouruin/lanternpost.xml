@@ -1,0 +1,19 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-35.1002" t1="-40.3303" t2="-62.0619" s0="1.33642" s1="2.08918" s2="0.275411" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1979" version="1">
+        <parameters />
+        <EnvObject t0="-35.0994" t1="-39.9121" t2="-62.0619" s0="1.33172" s1="1.01814" s2="1.33172" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="2026" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.558" t1="-39.7525" t2="-62.0587" s0="0.250239" s1="0.250239" s2="0.250239" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="2027" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/lantern.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-34.5578" t1="-39.5485" t2="-62.0592" s0="0.768096" s1="0.768096" s2="0.768096" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="9790" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Ball_01.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="-35.1011" t1="-40.7486" t2="-62.0619" s0="1.33172" s1="1.01814" s2="1.33172" q0="0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="13224" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>

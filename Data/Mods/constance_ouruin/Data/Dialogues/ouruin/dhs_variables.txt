@@ -383,16 +383,16 @@ Define variable, its values and notes for each value.
 	Multi-stage, complicated character quests. These have multiple endings depending on player choice.
 
 	ouruin_lloyd_quest
-		0: Lloyd has not been talked to
-		1: Lloyd has been talked to
-		2: Ghost has discussed Lloyd's job
-		3: Ghost has accepted Lloyd's job offer
-		4: Ghost has entered the warrens
-		5: Ghost has stolen Branch's notes
-		6: Lloyd has received the manuscript and paid Ghost. Quest complete!
-		7: Lloyd has received the misinformation and paid Ghost. Quest complete!
-		8: Lloyd's head has cooled after misinformation, and the whaleman book has been offered
-		9: Whaleman book has been offered
+		0:  Lloyd has not been talked to
+		1:  Lloyd has been talked to
+		2:  Ghost has discussed Lloyd's job
+		3:  Ghost has accepted Lloyd's job offer
+		4:  Ghost has entered the warrens
+		5:  Ghost has stolen Branch's notes
+		6:  Lloyd has received the manuscript and paid Ghost. Quest complete!
+		7:  Lloyd has received the misinformation and paid Ghost. Quest complete!
+		8:  Lloyd's head has cooled after misinformation, and the whaleman book has been offered
+		9:  Whaleman book has been offered
 		10: Whaleman book has been read
 
 	ouruin_branch_quest
