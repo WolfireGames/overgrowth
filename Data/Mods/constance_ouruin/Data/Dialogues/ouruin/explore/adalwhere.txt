@@ -18,4 +18,4 @@ send_character_message 1 "set_head_target 110.738 -51.9406 45.5024 1"
 say 1 "Ghost" "You said those snakes are holed out in the depot out on Moritz block, [wait 0.1]right...?"
 set_cam 156.914 -22.7006 128.715 -19.6 -23.42 -0.11 42.861
 say 2 "Adal" "Yeah. [wait 0.15]If you make your way by it, [wait 0.1]you should keep a look out."
-send_level_message "dialogue_end"
+send_level_message "dialogue_done"
