@@ -132,9 +132,9 @@ void SetCoinsState(){
 
 void Update(){
 	if(reset_progress){
+		ResetProgress();
 		reset_progress = false;
 		params.SetInt("Reset Progress", 0);
-		ResetProgress();
 	}
 
 	for(uint i = 0; i < coin_pickup_events.size(); i++){
@@ -153,6 +153,7 @@ void ResetProgress(){
 	coins_picked_up.resize(0);
 	WriteSavedData();
 	SetCoinsState();
+	Log(warning, "Resetting coin progress!");
 }
 
 void ReceiveMessage(string msg) {

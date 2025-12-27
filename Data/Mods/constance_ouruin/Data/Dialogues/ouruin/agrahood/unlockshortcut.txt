@@ -18,5 +18,6 @@ send_level_message "push"
 say 2 "Ghost" "([wait 0.2].[wait 0.2].[wait 0.2].)"
 send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
 send_character_message 1 "set_head_target 112.617 -43.4386 -6.39297 1"
+set_cam 116.698 -44.1498 -8.78658 13.68 115.49 0 56.221
 say 2 "Ghost" "(There we go... [wait 0.15]A path back into Moritz. [wait 0.2]I won't have to bother with the gate guards, [wait 0.1]anymore..."
 send_level_message "dialogue_done"

@@ -112,7 +112,7 @@ Define variable, its values and notes for each value.
 		ouruin_lvl2_currency (Obsolete)
 		ouruin_lvl3_currency (Obsolete)
 		ouruin_lvl4_currency (Used to give the player a starting +100p)
-		ouruin_test_currency (Obsolete)
+		ouruin_test_currency (Unused)
 
 
 == LEVEL STATE
