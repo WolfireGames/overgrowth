@@ -13,7 +13,7 @@
         <guard x="0" y="0.12" z="0"/>
         <tip x="0" y="0.4" z="0"/>
     </points>
-    <label>knife</label>
+    <label></label>
     <anim_override idle = "Data/Animations/r_knifestancerear.xml"
                    movement = "Data/Animations/r_movement_knife.xml"
                    blockflinch = "Data/Animations/r_activeblockflinchknives.anm"/>

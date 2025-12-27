@@ -9697,9 +9697,9 @@ void MovingAttack(string &out attack_path_str, bool orig_mirrored, float attack_
     int primary_weapon_id = weapon_slots[primary_weapon_slot];
 
     if(primary_weapon_id != -1 && (ReadItemID(primary_weapon_id).GetLabel() == "sword" || ReadItemID(primary_weapon_id).GetLabel() == "rapier") && orig_mirrored == left_handed) {
-        attack_path_str = "Data/Attacks/smallswordslashright.xml";
+        //attack_path_str = "Data/Attacks/smallswordslashright.xml";
 		//ouruin moving_alt stuff:
-		//attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving_alt") : character_getter.GetAttackPath("moving_alt");
+		attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving_alt") : character_getter.GetAttackPath("moving_alt");
     } else if(attack_distance < (_close_attack_range + range_extender * 0.5f) * this_mo.rigged_object().GetCharScale()) {
         attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving_close") : character_getter.GetAttackPath("moving_close");
         AchievementEvent("attack_moving_close");
@@ -9731,7 +9731,8 @@ void GetAttackPath(string &in attack_str, string &out attack_path_str, bool orig
         attack_path_str = moveset_swapped ? GetSwappedAttackPath("low") : character_getter.GetAttackPath("low");
 
         if(primary_weapon_id != -1 && (ReadItemID(primary_weapon_id).GetLabel() == "sword" || ReadItemID(primary_weapon_id).GetLabel() == "rapier") && orig_mirrored == left_handed) {
-            attack_path_str = "Data/Attacks/smallswordslashright.xml";
+            //attack_path_str = "Data/Attacks/smallswordslashright.xml";
+    		attack_path_str = moveset_swapped ? GetSwappedAttackPath("moving_alt") : character_getter.GetAttackPath("moving_alt");
         }
 
         AchievementEvent("attack_low");

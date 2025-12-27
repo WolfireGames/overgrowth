@@ -2746,7 +2746,7 @@
     <EnvObject t0="0.227768" t1="-43.4536" t2="-43.3552" s0="1.03827" s1="0.288887" s2="0.702216" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="819" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/CreteCube.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="1.39367" t1="-43.7778" t2="-52.6911" s0="0.507073" s1="0.0796843" s2="0.457087" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="820" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Buildings/arena/arena_vip_roof_woodonly.xml">
+    <EnvObject t0="1.39367" t1="-43.7778" t2="-52.6911" s0="0.507073" s1="0.0796843" s2="0.457087" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="820" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof_woodonly.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="6.86108" t1="-45.6562" t2="-12.208" s0="2.01008" s1="2.0101" s2="4.19692" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="821" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
@@ -6434,7 +6434,7 @@
     <EnvObject t0="-75.1617" t1="-59.7171" t2="-119.797" s0="2.16381" s1="3.27169" s2="1.93681" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="1958" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-75.1499" t1="-60.0813" t2="-116.636" s0="0.454942" s1="0.365044" s2="0.365044" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="1959" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Buildings/arena/arena_vip_roof_woodonly.xml">
+    <EnvObject t0="-75.1499" t1="-60.0813" t2="-116.636" s0="0.454942" s1="0.365044" s2="0.365044" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="1959" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof_woodonly.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-72.1943" t1="-59.9497" t2="-117.393" s0="2.18273" s1="2.18273" s2="1.29713" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="1960" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
@@ -10271,7 +10271,7 @@
                     </Decal>
                 </Group>
             </Group>
-            <Hotspot t0="-75.0047" t1="-46.9554" t2="-89.7333" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.976332" q1="-0.210454" q2="-0.0488468" q3="-0.0105293" euler_x="3.10029" euler_y="-0.0910754" euler_z="0.426502" id="3217" type_file="Objects/Hotspots/fire_test_cheap.xml">
+            <Hotspot t0="-75.0047" t1="-46.9554" t2="-89.7333" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.976332" q1="-0.210454" q2="-0.0488468" q3="-0.0105293" euler_x="3.10029" euler_y="-0.0910754" euler_z="0.426502" id="3217" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
                 <parameters>
                     <parameter name="Fire Ribbons" type="int" val="1" />
                     <parameter name="Ignite Characters" type="int" val="1" />
@@ -10342,7 +10342,7 @@
                     </Decal>
                 </Group>
             </Group>
-            <Hotspot t0="-76.5086" t1="-46.9488" t2="-89.9231" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="0.0746604" q1="0.0160936" q2="-0.974698" q3="-0.210102" euler_x="-0.063401" euler_y="0.139229" euler_z="2.71256" id="3237" type_file="Objects/Hotspots/fire_test_cheap.xml">
+            <Hotspot t0="-76.5086" t1="-46.9488" t2="-89.9231" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="0.0746604" q1="0.0160936" q2="-0.974698" q3="-0.210102" euler_x="-0.063401" euler_y="0.139229" euler_z="2.71256" id="3237" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
                 <parameters>
                     <parameter name="Fire Ribbons" type="int" val="1" />
                     <parameter name="Ignite Characters" type="int" val="1" />
@@ -13726,7 +13726,7 @@
     <SpawnerItem display_name="Metal Bars 1" path="Data/Prototypes/CaveArena/Banner_Bars.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/banner_bars.png" />
     <SpawnerItem display_name="Ruins Wall (Top)" path="Data/Objects/Buildings/Ruins/mysterious/ruin_wall_half.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/ruin_wall_half.png" />
     <SpawnerItem display_name="Enemy Spawn" path="Data/Objects/placeholder/placeholder_enemy_spawn.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/placeholder_enemy_spawn.png" />
-    <SpawnerItem display_name="IGF_Guard.xml" path="Objects/IGF_Characters/IGF_Guard.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="IGF_Guard.xml" path="Data/Objects/IGF_Characters/IGF_Guard.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Fire Ash" path="Data/Objects/Environment/camp/fire_ash.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_ash.png" />
     <SpawnerItem display_name="Firewood Hot" path="Data/Objects/Environment/camp/fire_wood_hot.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood_hot.png" />
     <SpawnerItem display_name="Flame Base" path="Data/Objects/Decals/flame_base.xml" thumbnail_path="" />
@@ -13738,9 +13738,9 @@
     <SpawnerItem display_name="banner_nowave_nocol.xml" path="Data/Objects/Environment/cat_props/banner_nowave_nocol.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Pot Icon [Decal]" path="Data/Objects/Decals/signs/icon_pot.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/icon_pot.png" />
     <SpawnerItem display_name="banner_lotusmarket.xml" path="Data/Prefabs/ouruin/warrens/banner_lotusmarket.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="arena_vip_roof_woodonly.xml" path="Objects/Buildings/arena/arena_vip_roof_woodonly.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="arena_vip_roof_woodonly.xml" path="Data/Objects/Buildings/arena/arena_vip_roof_woodonly.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Water Stain [Decal]" path="Data/Objects/therium/ouruin/waterstain.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/waterstain.png" />
-    <SpawnerItem display_name="IGF_Turner.xml" path="Objects/IGF_Characters/IGF_Turner.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="IGF_Turner.xml" path="Data/Objects/IGF_Characters/IGF_Turner.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Metal Bars 2" path="Data/Prototypes/CaveArena/Banner_Bars2.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/banner_bars2.png" />
     <SpawnerItem display_name="Pot" path="Data/Objects/therium/pot.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/pot.png" />
     <SpawnerItem display_name="Common Rope Straight" path="Data/Objects/Environment/SmallProps/Rope/Rope_Straight_01.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Rope_Straight_01.png" />

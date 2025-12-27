@@ -1558,7 +1558,7 @@
             </EnvObject>
         </Group>
     </Group>
-    <EnvObject t0="-31.0886" t1="37.8512" t2="-108.333" s0="4.69187" s1="0.0457689" s2="0.240661" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="629" color_r="0.054902" color_g="0.0549014" color_b="0.0549014" overbright="0" type_file="Objects/water_test.xml">
+    <EnvObject t0="-31.0886" t1="37.8512" t2="-108.333" s0="4.69187" s1="0.0457689" s2="0.240661" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="629" color_r="0.054902" color_g="0.0549014" color_b="0.0549014" overbright="0" type_file="Data/Objects/water_test.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-79.4403" t1="-0.277851" t2="-105.678" s0="0.447831" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="630" color_r="0.529412" color_g="0.529406" color_b="0.529406" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
@@ -43816,6 +43816,6 @@
     <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
     <SpawnerItem display_name="Ambient Shadow (square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="Stone Curb" path="Data/Objects/Buildings/Curb1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Curb1.png" />
-    <SpawnerItem display_name="water_test.xml" path="Objects/water_test.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="water_test.xml" path="Data/Objects/water_test.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Therium Level Hotspot" path="Data/Objects/therium/Hotspots/therium_level.xml" thumbnail_path="Data/Textures/therium/logo256.png" />
 </RecentItems>

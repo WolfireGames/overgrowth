@@ -48770,7 +48770,7 @@
     <SpawnerItem display_name="Wall Torch [Prefab]" path="Data/Prefabs/ouruin/walltorch_slotted.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/walltorch_slotted.png" />
     <SpawnerItem display_name="Rune During [Decal]" path="Data/Objects/Decals/runes/rune_during.xml" thumbnail_path="Data/Textures/Decals/runes/rune_during.png" />
     <SpawnerItem display_name="Stone Stair Stacked Double [Prefab]" path="Data/Prefabs/ouruin/stonestairdoublestacked.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/stonestairdoublestacked.png" />
-    <SpawnerItem display_name="IGF_RabbitCiv.xml" path="Objects/IGF_Characters/IGF_RabbitCiv.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="IGF_RabbitCiv.xml" path="Data/Objects/IGF_Characters/IGF_RabbitCiv.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Metal Bars 2" path="Data/Prototypes/CaveArena/Banner_Bars2.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/banner_bars2.png" />
     <SpawnerItem display_name="Old Rope Knot" path="Data/Objects/therium/Rope/knot.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/knot.png" />
     <SpawnerItem display_name="Stucco Medium Block" path="Data/Objects/Buildings/cat_town/medium_block.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/medium_block.png" />

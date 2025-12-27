@@ -7106,7 +7106,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="186.669" t1="-46.1256" t2="96.0944" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="2569" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="186.669" t1="-46.1256" t2="96.0944" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="2569" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -8943,7 +8943,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="175.727" t1="-46.1262" t2="96.0932" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="3079" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="175.727" t1="-46.1262" t2="96.0932" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="3079" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -16603,7 +16603,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="228.312" t1="-46.1261" t2="99.5766" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="5370" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="228.312" t1="-46.1261" t2="99.5766" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="5370" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -21024,7 +21024,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="302.722" t1="-45.9318" t2="106.901" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="6939" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="302.722" t1="-45.9318" t2="106.901" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="6939" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -21131,7 +21131,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="302.714" t1="-45.9271" t2="124.711" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="6973" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="302.714" t1="-45.9271" t2="124.711" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="6973" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -21334,7 +21334,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="286.024" t1="-45.9271" t2="124.711" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="7041" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="286.024" t1="-45.9271" t2="124.711" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="7041" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -22317,7 +22317,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="94.4438" t1="-46.4236" t2="80.851" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="4281" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="94.4438" t1="-46.4236" t2="80.851" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="4281" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -22424,7 +22424,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="94.4438" t1="-46.4236" t2="60.4599" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="7464" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="94.4438" t1="-46.4236" t2="60.4599" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="7464" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -29272,7 +29272,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="114.384" t1="-46.0484" t2="112.82" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9559" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="114.384" t1="-46.0484" t2="112.82" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9559" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -29379,7 +29379,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="114.389" t1="-46.0504" t2="130.94" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9593" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="114.389" t1="-46.0504" t2="130.94" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9593" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -29486,7 +29486,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="98.8859" t1="-46.0516" t2="112.825" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9627" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="98.8859" t1="-46.0516" t2="112.825" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9627" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -29593,7 +29593,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="98.8859" t1="-46.0516" t2="130.939" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9661" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="98.8859" t1="-46.0516" t2="130.939" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9661" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -29700,7 +29700,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="134.269" t1="-46.1263" t2="97.7738" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9695" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="134.269" t1="-46.1263" t2="97.7738" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="9695" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -31802,7 +31802,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="129.659" t1="-46.0516" t2="130.939" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="10521" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="129.659" t1="-46.0516" t2="130.939" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="10521" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -35525,7 +35525,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="172.264" t1="-46.1262" t2="114.974" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="11532" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="172.264" t1="-46.1262" t2="114.974" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="11532" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -36146,7 +36146,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="131.954" t1="-46.1263" t2="77.7608" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="11717" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="131.954" t1="-46.1263" t2="77.7608" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="11717" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -41786,7 +41786,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="131.954" t1="-46.1263" t2="65.7769" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="13353" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="131.954" t1="-46.1263" t2="65.7769" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="13353" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -42307,7 +42307,7 @@
                 </Decal>
             </Group>
         </Group>
-        <Hotspot t0="190.924" t1="-46.1262" t2="114.974" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="13529" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="190.924" t1="-46.1262" t2="114.974" s0="0.131687" s1="0.131687" s2="0.131687" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="13529" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="2" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -45442,7 +45442,7 @@
             <EnvObject t0="91.8746" t1="-47.8348" t2="64.7081" s0="1.17942" s1="1.17942" s2="0.78628" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="14266" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="91.8812" t1="-47.959" t2="64.7091" s0="1.05652" s1="1.05652" s2="1.05652" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="14267" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/therium/bar.xml">
+            <EnvObject t0="91.8812" t1="-47.959" t2="64.7091" s0="1.05652" s1="1.05652" s2="1.05652" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="14267" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/bar.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -45475,7 +45475,7 @@
             <EnvObject t0="91.8746" t1="-47.8348" t2="77.0297" s0="1.17942" s1="1.17942" s2="0.78628" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="14275" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/PostRound1.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="91.8812" t1="-47.959" t2="77.0307" s0="1.05652" s1="1.05652" s2="1.05652" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="14277" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/therium/bar.xml">
+            <EnvObject t0="91.8812" t1="-47.959" t2="77.0307" s0="1.05652" s1="1.05652" s2="1.05652" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="14277" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/bar.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -45483,10 +45483,10 @@
     <EnvObject t0="77.0522" t1="-49.4055" t2="64.4232" s0="2.55588" s1="2.6875" s2="3.04084" q0="0.577259" q1="0.577259" q2="0.408377" q3="0.408377" euler_x="1.91019" euler_y="0" euler_z="1.5708" id="14281" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Ball_01.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="84.5664" t1="-49.0774" t2="64.5591" s0="6.65722" s1="3.37501" s2="3.37573" q0="0.000705497" q1="-0.00955541" q2="0.0736284" q3="0.99724" euler_x="0" euler_y="-0.0191631" euler_z="0.147397" id="14282" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/SmallProps/Rope/Rope_Bend_01.xml">
+    <EnvObject t0="84.5664" t1="-49.0774" t2="64.5591" s0="6.65722" s1="3.37501" s2="3.37573" q0="0.000705497" q1="-0.00955541" q2="0.0736284" q3="0.99724" euler_x="0" euler_y="-0.0191631" euler_z="0.147397" id="14282" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Bend_01.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="84.481" t1="-49.0901" t2="76.9179" s0="6.71113" s1="3.37501" s2="3.37576" q0="0.000705497" q1="-0.00955541" q2="0.0736284" q3="0.99724" euler_x="0" euler_y="-0.0191631" euler_z="0.147397" id="14283" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/Environment/SmallProps/Rope/Rope_Bend_01.xml">
+    <EnvObject t0="84.481" t1="-49.0901" t2="76.9179" s0="6.71113" s1="3.37501" s2="3.37576" q0="0.000705497" q1="-0.00955541" q2="0.0736284" q3="0.99724" euler_x="0" euler_y="-0.0191631" euler_z="0.147397" id="14283" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Bend_01.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="76.874" t1="-49.4119" t2="76.7523" s0="2.53454" s1="2.68748" s2="2.54467" q0="0.680358" q1="0.729212" q2="-0.034758" q3="-0.0644622" euler_x="-3.00259" euler_y="-0.0467345" euler_z="1.63683" id="14284" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/SmallProps/Rope/Rope_Ball_01.xml">
@@ -48379,7 +48379,7 @@
                 <parameters />
             </EnvObject>
         </Group>
-        <Hotspot t0="-3.85023" t1="-39.0409" t2="-68.5965" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.703189" q1="-0.0743696" q2="0.703189" q3="0.0743695" euler_x="-1.57085" euler_y="1.36011" euler_z="1.57085" id="14910" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="-3.85023" t1="-39.0409" t2="-68.5965" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.703189" q1="-0.0743696" q2="0.703189" q3="0.0743695" euler_x="-1.57085" euler_y="1.36011" euler_z="1.57085" id="14910" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="4" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -48459,7 +48459,7 @@
                 <parameters />
             </EnvObject>
         </Group>
-        <Hotspot t0="-3.85023" t1="-39.0409" t2="-61.1005" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="0.703189" q1="0.0743695" q2="0.703189" q3="0.0743696" euler_x="1.57085" euler_y="-1.36011" euler_z="1.57085" id="14932" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="-3.85023" t1="-39.0409" t2="-61.1005" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="0.703189" q1="0.0743695" q2="0.703189" q3="0.0743696" euler_x="1.57085" euler_y="-1.36011" euler_z="1.57085" id="14932" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="4" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -48551,7 +48551,7 @@
                 <parameters />
             </EnvObject>
         </Group>
-        <Hotspot t0="-11.7036" t1="-39.4886" t2="-68.4317" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.994459" q1="-0.105174" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0.210739" id="14960" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="-11.7036" t1="-39.4886" t2="-68.4317" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.994459" q1="-0.105174" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0.210739" id="14960" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="4" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -48622,7 +48622,7 @@
                 <parameters />
             </EnvObject>
         </Group>
-        <Hotspot t0="-11.7036" t1="-39.4886" t2="-61.2334" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.994459" q1="-0.105174" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0.210739" id="14982" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="-11.7036" t1="-39.4886" t2="-61.2334" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.994459" q1="-0.105174" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0.210739" id="14982" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
                 <parameter name="Fire Ribbons" type="int" val="4" />
                 <parameter name="Ignite Characters" type="int" val="1" />
@@ -56186,7 +56186,7 @@
     <SpawnerItem display_name="Wooden Post Corners" path="Data/Objects/Buildings/Post1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Post1.png" />
     <SpawnerItem display_name="Invisible Block" path="Data/Objects/invisibleblock.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/invisibleblock.png" />
     <SpawnerItem display_name="citylantern_lit.xml" path="Data/Prefabs/ouruin/citylantern_lit.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="fire_test_cheap.xml" path="Objects/Hotspots/fire_test_cheap.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fire_test_cheap.xml" path="Data/Objects/Hotspots/fire_test_cheap.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="trimgate.xml" path="Data/Prefabs/ouruin/trimgate.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Sphere Crete Rubble" path="Data/Objects/Crete/sphere_crete_rubble.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/sphere_crete_rubble.png" />
     <SpawnerItem display_name="Hexcrete Rubble (simple collision)" path="Data/Objects/Crete/hex_crete_rubble_simplecol.xml" thumbnail_path="" />
@@ -56246,7 +56246,7 @@
     <SpawnerItem display_name="invisibleblockwood.xml" path="Data/Objects/invisibleblockwood.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Dog Grave Base" path="Data/Objects/Environment/DogGrave/DogGraveBase.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/DogGraveBase.png" />
     <SpawnerItem display_name="Wooden Post Round" path="Data/Objects/Buildings/PostRound1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/PostRound1.png" />
-    <SpawnerItem display_name="bar.xml" path="Objects/therium/bar.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="bar.xml" path="Data/Objects/therium/bar.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Rope Clamp" path="Data/Objects/Environment/SmallProps/Rope/Rope_Clamp.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Rope_Clamp_01.png" />
     <SpawnerItem display_name="Rope_Straight_01_nocoll.xml" path="Data/Objects/Environment/SmallProps/Rope/Rope_Straight_01_nocoll.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Rope_Bend_01_nocoll.xml" path="Data/Objects/Environment/SmallProps/Rope/Rope_Bend_01_nocoll.xml" thumbnail_path="empty_placeholder.png" />
