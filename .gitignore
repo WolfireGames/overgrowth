@@ -32,3 +32,9 @@ Data/LevelNavmeshes/**/*.obj
 tags
 *.swp
 .vscode/*
+.vs/
+*.db
+*.ipch
+FASON README.txt
+start.bat
+Data/
