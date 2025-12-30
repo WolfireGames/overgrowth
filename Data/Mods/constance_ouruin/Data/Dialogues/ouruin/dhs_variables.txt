@@ -328,7 +328,7 @@ Define variable, its values and notes for each value.
 
 
 == LETHALITY
-	At the end of every level, Ouruin adds up each elimination, kill and overkill. It also collects the names of each character.
+	At the end of every level, Ouruin adds up each elimination, kill and overkill.
 	These variables are then tallied to form a total number of points.
 	This point total is compared to a percentage of the maximum possible lethality points (not counting throats slit and overkills).
 

@@ -5,7 +5,10 @@ Used for lethality & enemy state scripts, namely this variable:
 		1: unconscious
 		2: dead
 
-
+--- HOW TO SAVE LETHALITIES
+On checkpoints, send: lethality_store
+On level transitions, send: lethality_tally
+    Then wait for level message: tally_done
 
 
 :=: POINTS CODEX
