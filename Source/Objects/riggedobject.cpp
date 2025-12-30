@@ -120,6 +120,7 @@ extern bool g_debug_runtime_disable_rigged_object_pre_draw_frame;
 
 const int kMaxBones = 200;
 
+
 //-----------------------------------------------------------------------------
 // Functions
 //-----------------------------------------------------------------------------
@@ -987,6 +988,83 @@ void RiggedObject::DrawRiggedObject(const mat4& proj_view_matrix, Object::DrawTy
     CHECK_GL_ERROR();
 }
 
+//-------------------------------------------------------------
+// Author: Fason
+// Feature: expose-armor-attachment-to-api
+// Desc: Took the attachment/detachment logic from RiggedObject::DrawBoneConnectUI and made them into reusable functions
+//-------------------------------------------------------------
+static void AttachEnvObjectToBone(std::vector<AttachedEnvObject>& children, Object* obj, int bone_id, int char_id, SceneGraph* scenegraph, Online* online) {
+    // Check if we already have a connection between this object and this character
+    bool already_attached = false;
+    for (auto& attached_env_object : children) {
+        if (attached_env_object.direct_ptr == obj) {
+            // If this object is already attached to the selected bone, increment the number of connections
+            attached_env_object.bone_connection_dirty = true;
+            already_attached = true;
+            bool already_attached_to_bone = false;
+            for (auto& bone_connect : attached_env_object.bone_connects) {
+                if (bone_connect.bone_id == bone_id) {
+                    ++bone_connect.num_connections;
+                    already_attached_to_bone = true;
+                    break;
+                }
+            }
+            // If this object is not already attached to the bone, try to attach it with a spare slot
+            if (!already_attached_to_bone) {
+                for (auto& bone_connect : attached_env_object.bone_connects) {
+                    if (bone_connect.num_connections == 0) {
+                        bone_connect.bone_id = bone_id;
+                        bone_connect.num_connections = 1;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    // If object is not attached to character, then we need a new attachment
+    if (!already_attached) {
+        children.resize(children.size() + 1);
+        AttachedEnvObject& attached_env_object = children.back();
+        attached_env_object.bone_connection_dirty = true;
+        attached_env_object.direct_ptr = obj;
+        attached_env_object.bone_connects[0].bone_id = bone_id;
+        attached_env_object.bone_connects[0].num_connections = 1;
+        obj->SetParent(scenegraph->GetObjectFromID(char_id));
+
+        if (online->IsActive()) {
+            online->Send<OnlineMessages::AttachToMessage>(char_id, obj->GetID(), bone_id, true, false);
+        }
+
+        for (unsigned j = 1; j < kMaxBoneConnects; ++j) {
+            BoneConnect& bone_connect = attached_env_object.bone_connects[j];
+            bone_connect.bone_id = -1;
+            bone_connect.num_connections = 0;
+        }
+    }
+}
+
+static void DetachEnvObjectFromBone(std::vector<AttachedEnvObject>& children, Object* obj, int bone_id, int char_id, SceneGraph* scenegraph, Online* online) {
+    for (int j = children.size() - 1; j >= 0; --j) {
+        AttachedEnvObject& attached_obj = children[j];
+        if (attached_obj.direct_ptr == obj) {
+            int total_connections = 0;
+            for (auto& bone_connect : attached_obj.bone_connects) {
+                if (bone_connect.bone_id == bone_id && bone_connect.num_connections > 0) {
+                    --bone_connect.num_connections;
+                }
+                total_connections += bone_connect.num_connections;
+            }
+            if (total_connections == 0) {
+                obj->SetParent(NULL);
+                break;
+            }
+        }
+    }
+}
+
+//-------------------------------------------------------------
+
 bool RiggedObject::DrawBoneConnectUI(Object* objects[], int num_obj_ids, IMUIContext& imui_context, EditorTypes::Tool tool, int id) {
     Online* online = Online::Instance();
     bool did_something = false;
@@ -1025,77 +1103,12 @@ bool RiggedObject::DrawBoneConnectUI(Object* objects[], int num_obj_ids, IMUICon
             if (tool == EditorTypes::CONNECT) {
                 for (int obj_id_iter = 0; obj_id_iter < num_obj_ids; ++obj_id_iter) {
                     Object* obj = objects[obj_id_iter];
-                    // Check if we already have a connection between this object and this character
-                    bool already_attached = false;
-                    for (auto& attached_env_object : children) {
-                        if (attached_env_object.direct_ptr == obj) {
-                            // If this object is already attached to the selected bone, increment the number of connections
-                            attached_env_object.bone_connection_dirty = true;
-                            already_attached = true;
-                            bool already_attached_to_bone = false;
-                            for (auto& bone_connect : attached_env_object.bone_connects) {
-                                if (bone_connect.bone_id == (int)i) {
-                                    ++bone_connect.num_connections;
-                                    already_attached_to_bone = true;
-                                    break;
-                                }
-                            }
-                            // If this object is not already attached to the bone, try to attach it with a spare slot
-                            if (!already_attached_to_bone) {
-                                for (auto& bone_connect : attached_env_object.bone_connects) {
-                                    if (bone_connect.num_connections == 0) {
-                                        bone_connect.bone_id = i;
-                                        bone_connect.num_connections = 1;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    // If object is not attached to character, then we need a new attachment
-                    if (!already_attached) {
-                        // sync_attach_1 här sker själa ändringen, detta bör syncas
-                        // Vi vill översätta detta till obj id's och replikeras hos clienten
-                        //  set parent och skapa ett attachedenvobj
-                        children.resize(children.size() + 1);
-                        AttachedEnvObject& attached_env_object = children.back();
-                        attached_env_object.bone_connection_dirty = true;
-                        attached_env_object.direct_ptr = obj;
-                        attached_env_object.bone_connects[0].bone_id = i;
-                        attached_env_object.bone_connects[0].num_connections = 1;
-                        Object* obj = attached_env_object.direct_ptr;
-                        obj->SetParent(scenegraph_->GetObjectFromID(char_id));
-
-                        if (Online::Instance()->IsActive()) {
-                            online->Send<OnlineMessages::AttachToMessage>(char_id, obj->GetID(), i, true, false);
-                        }
-                        for (unsigned j = 1; j < kMaxBoneConnects; ++j) {
-                            BoneConnect& bone_connect = attached_env_object.bone_connects[j];
-                            bone_connect.bone_id = -1;
-                            bone_connect.num_connections = 0;
-                        }
-                    }
+                    AttachEnvObjectToBone(children, obj, i, char_id, scenegraph_, online); //Fason - made reusable function
                 }
             } else if (tool == EditorTypes::DISCONNECT) {
                 for (int obj_id_iter = 0; obj_id_iter < num_obj_ids; ++obj_id_iter) {
                     Object* obj = objects[obj_id_iter];
-                    for (int j = children.size() - 1; j >= 0; --j) {
-                        AttachedEnvObject& attached_obj = children[j];
-                        if (attached_obj.direct_ptr == obj) {
-                            int total_connections = 0;  // NOTE(David): Number of connections remaining between object and character
-                            for (auto& bone_connect : attached_obj.bone_connects) {
-                                if (bone_connect.bone_id == (int)i && bone_connect.num_connections > 0) {
-                                    --bone_connect.num_connections;
-                                }
-                                total_connections += bone_connect.num_connections;
-                            }
-                            if (total_connections == 0) {
-                                Object* obj = attached_obj.direct_ptr;
-                                obj->SetParent(NULL);
-                                break;
-                            }
-                        }
-                    }
+                    DetachEnvObjectFromBone(children, obj, i, char_id, scenegraph_, online);  // Fason - made reusable function
                 }
             }
         }
@@ -3857,6 +3870,43 @@ static void ASSetWet(RiggedObject* rigged_object, float wet) {
     rigged_object->blood_surface.SetWet(wet);
 }
 
+//-------------------------------------------------------------
+// Author: Fason
+// Feature: expose-armor-attachment-to-api
+// Desc: Exposing AttachEnvObjectToBone and DetachEnvObjectFromBone to AngelScript
+//-------------------------------------------------------------
+
+static void AS_AttachEnvObjectToBone(RiggedObject* rigged_object, int obj_id, int bone_id) {
+    Object* obj = Engine::Instance()->GetSceneGraph()->GetObjectFromID(obj_id);
+    if (!obj) {
+        return;
+    }
+
+    AttachEnvObjectToBone(
+        rigged_object->children,
+        obj,
+        bone_id,
+        rigged_object->char_id,
+        rigged_object->scenegraph_,
+        Online::Instance());
+}
+
+static void AS_DetachEnvObjectFromBone(RiggedObject* rigged_object, int obj_id, int bone_id) {
+    Object* obj = Engine::Instance()->GetSceneGraph()->GetObjectFromID(obj_id);
+    if (!obj) {
+        return;
+    }
+
+    DetachEnvObjectFromBone(
+        rigged_object->children,
+        obj,
+        bone_id,
+        rigged_object->char_id,
+        rigged_object->scenegraph_,
+        Online::Instance());
+}
+//-------------------------------------------------------------
+
 void DefineRiggedObjectTypePublic(ASContext* ctx) {
     if (ctx->TypeExists("AnimationClient")) {
         return;
@@ -3964,6 +4014,15 @@ void DefineRiggedObjectTypePublic(ASContext* ctx) {
     ctx->RegisterObjectMethod("RiggedObject", "void SetDisplayBoneMatrix(int bone, const mat4 &in transform)", asFunctionPtr(SetDisplayBoneMatrix), asCALL_CDECL_OBJFIRST);
     ctx->RegisterObjectMethod("RiggedObject", "Skeleton &skeleton()", asMETHOD(RiggedObject, skeleton), asCALL_THISCALL);
     ctx->RegisterObjectMethod("RiggedObject", "AnimationClient &anim_client()", asMETHOD(RiggedObject, GetAnimClient), asCALL_THISCALL);
+
+    //-------------------------------------------------------------
+    // Author: Fason
+    // Feature: expose-armor-attachment-to-api
+    // Desc: Exposing AttachEnvObjectToBone and DetachEnvObjectFromBone to AngelScript
+    //-------------------------------------------------------------
+    ctx->RegisterObjectMethod("RiggedObject", "void AttachEnvObjectToBone(int obj_id, int bone_id)", asFUNCTION(AS_AttachEnvObjectToBone), asCALL_CDECL_OBJFIRST);
+    ctx->RegisterObjectMethod("RiggedObject", "void DetachEnvObjectFromBone(int obj_id, int bone_id)", asFUNCTION(AS_DetachEnvObjectFromBone), asCALL_CDECL_OBJFIRST);
+    //-------------------------------------------------------------
     ctx->DocsCloseBrace();
 }
 
