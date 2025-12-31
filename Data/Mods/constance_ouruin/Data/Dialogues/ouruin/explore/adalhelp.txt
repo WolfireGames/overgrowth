@@ -2,6 +2,8 @@
 #participants 3
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 0 0 0.52 0.95
+set_dialogue_voice 0 8
 set_dialogue_color 2 0.5 0.4 0.9
 set_dialogue_voice 2 9
 set_cam 113.638 -51.8858 44.062 -3.88 107.83 0 34.0532
@@ -54,7 +56,7 @@ send_character_message 2 "set_torso_target 110.705 -52.2659 44.4086 0"
 send_character_message 1 "set_eye_dir 110.62 -51.7339 45.4471 1"
 send_character_message 1 "set_head_target 112.154 -51.9979 44.8549 1"
 send_character_message 1 "set_torso_target 111.277 -51.6819 45.316 0.997246"
-say 2 "Adal" "Yes, [wait 0.1]of course; [wait 0.15]It was two cats. [wait 0.15]A short one with an eyepatch, [wait 0.1]and a tall, [wait 0.1]lanky fellow."
+say 2 "Adal" "Yes, [wait 0.1]of course; [wait 0.15]It was two cats. [wait 0.15]A short grey one with an eyepatch, [wait 0.1]and a tall, [wait 0.1]lanky fellow."
 send_character_message 1 "set_head_target 111.95 -51.6724 45.1019 1"
 send_character_message 1 "set_torso_target 111.277 -51.6819 45.316 0.279107"
 send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
@@ -64,7 +66,7 @@ send_character_message 2 "set_head_target 109.869 -51.7736 44.8228 1"
 send_character_message 1 "set_eye_dir 109.828 -51.5537 46.7748 0.750098"
 send_character_message 1 "set_head_target 109.615 -51.6241 46.7896 1"
 set_cam 111.698 -51.9478 44.2971 0 100.86 0 34.0532
-say 1 "Ghost" "(There's no way... [wait 0.2]Could it really be them? [wait 0.15]I haven't seen those two in so long...)"
+say 0 "Ghost" "(There's no way... [wait 0.2]Could it really be them? [wait 0.15]I haven't seen those two in so long...)"
 send_character_message 2 "set_eye_dir 110.056 -51.7296 44.6673 1"
 send_character_message 2 "set_head_target 109.951 -51.7941 44.7159 1"
 send_character_message 2 "set_animation \"Data/Animations/r_actionidle.anm\""
@@ -72,5 +74,5 @@ send_character_message 1 "set_torso_target 111.277 -51.6819 45.316 0"
 send_character_message 1 "set_animation \"Data/Animations/r_idle.anm\""
 send_character_message 1 "set_head_target 109.856 -51.1934 46.6281 1"
 send_character_message 1 "set_eye_dir 109.828 -51.5537 46.7748 0.521911"
-say 1 "Ghost" "(If I'm right, [wait 0.1]they might not be too happy to see me. [wait 0.15]I guess I'll just find them in the Lotus depot, [wait 0.1]first.)"
+say 0 "Ghost" "(If I'm right, [wait 0.1]they might not be too happy to see me. [wait 0.15]I guess I'll just find them in the Lotus depot, [wait 0.1]first.)"
 send_level_message "dialogue_done"
