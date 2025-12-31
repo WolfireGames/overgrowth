@@ -4,7 +4,7 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.5 0.5 0.4
 set_dialogue_voice 2 17
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 set_character_pos 2 270.306 -48.0387 88.585 171
 send_character_message 2 "set_animation \"Data/Animations/homeless_talk.anm\""
 send_character_message 2 "set_eye_dir 268.563 -47.4472 88.0548 1"
@@ -12,9 +12,20 @@ send_character_message 2 "set_head_target 268.32 -47.364 88.1009 1"
 set_character_pos 1 268.143 -48.0491 88.0341 0
 send_character_message 1 "set_eye_dir 270.334 -47.8641 88.5866 1"
 send_character_message 1 "set_torso_target 269.061 -47.6738 88.3623 0"
-send_character_message 1 "set_head_target 269.887 -47.5933 88.3805 1"
-set_cam 266.038 -47.2927 88.8049 -9.76 -82.49 0.23 51.5745
+send_character_message 1 "set_head_target 269.887 -47.5933 88.381 1"
+set_cam 268.857 -47.7331 90.5802 5.25 12.26 0 27.2037
+send_character_message 1 "set_morph_target smile 0.3 0.3 outExpo"
 say 1 "Ghost" "You need it more than I do. [wait 0.15]Keep it."
-say 2 "Varidien" "...[wait 0.15]That means more to me than you'll ever know. [wait 0.15]Thank you, [wait 0.1]Ghost."
-say 1 "Ghost" "I appreciate it."
+send_character_message 1 "set_head_target 269.969 -47.5978 88.6201 1"
+send_character_message 2 "set_eye_dir 269.904 -47.9248 88.8578 0.530384"
+send_character_message 2 "set_head_target 268.793 -48.2918 88.4315 1"
+set_cam 268.766 -47.5904 90.0942 -17.2 -47.72 -0.08 47.445
+send_character_message 2 "set_morph_target smile 0.8 0.3 outExpo"
+say 2 "Varidien" "...[wait 0.15]This means more to me than you'll ever know. [wait 0.15]Thank you, [wait 0.1]Ghost."
+send_character_message 1 "set_head_target 270.669 -47.9956 88.676 1"
+send_character_message 2 "set_eye_dir 269.335 -47.2562 88.0672 1"
+send_character_message 2 "set_head_target 268.812 -47.9813 88.3386 1"
+send_character_message 2 "set_morph_target smile 0.5 0.3 outExpo"
+send_character_message 1 "set_morph_target smile 0.0 0.3 outExpo"
+say 1 "Ghost" "No problem at all."
 send_level_message "dialogue_done"

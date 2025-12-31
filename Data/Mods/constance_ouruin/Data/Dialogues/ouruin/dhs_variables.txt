@@ -432,6 +432,7 @@ Define variable, its values and notes for each value.
 			1: Dart can be challenged
 			2: Duel is underway
 			3: Ghost has won the duel
+			4: Ghost has talked to Varidien about the duel
 
 		ouruin_dart_quest_valerian
 			0: Dart has not asked Ghost for valerian root

@@ -34,7 +34,7 @@
     <parameter name="HDR Bloom multiplier" type="float" val="0.05597" />
     <parameter name="HDR White point" type="float" val="1.06227" />
     <parameter name="Level Boundaries" type="int" val="1" />
-    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Load Tip" type="string" val="- EPILOGUE -" />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1.34799" />
     <parameter name="Shared Camera" type="int" val="0" />
