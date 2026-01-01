@@ -398,6 +398,7 @@ class DrikaElement{
 		}
 
 		ImGui_PopItemWidth();
+		ImGui_NextColumn();
 	}
 
 	void RegisterReference(DrikaElement@ element){

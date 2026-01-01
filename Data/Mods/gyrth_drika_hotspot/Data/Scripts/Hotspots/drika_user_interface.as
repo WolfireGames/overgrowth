@@ -308,7 +308,7 @@ class DrikaUserInterface : DrikaElement{
 				data["fade_out_tween_type"] = JSONValue(fade_out_tween_type);
 			}
 			data["use_move_out"] = JSONValue(use_move_out);
-			if(use_move_in){
+			if(use_move_out){
 				data["move_out_duration"] = JSONValue(move_out_duration);
 				data["move_out_tween_type"] = JSONValue(move_out_tween_type);
 				data["move_out_offset"] = JSONValue(JSONarrayValue);

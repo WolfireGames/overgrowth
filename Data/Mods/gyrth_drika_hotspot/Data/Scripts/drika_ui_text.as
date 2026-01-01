@@ -10,6 +10,7 @@ class DrikaUIText : DrikaUIElement{
 	string holder_name;
 	DrikaUIFont@ font_element = null;
 	array<FadeOut@> fade_out_animations;
+	MoveOut@ move_out;
 
 	DrikaUIText(JSONValue params = JSONValue()){
 		drika_ui_element_type = drika_ui_text;
@@ -50,6 +51,12 @@ class DrikaUIText : DrikaUIElement{
 		for(uint i = 0; i < fade_out_animations.size(); i++){
 			if(fade_out_animations[i].Update()){
 				fade_out_animations.removeAt(i);
+			}
+		}
+
+		if(move_out !is null){
+			if(move_out.Update()){
+				@move_out = null;
 			}
 		}
 	}
@@ -100,8 +107,11 @@ class DrikaUIText : DrikaUIElement{
 				int tween_type = atoi(instruction[3]);
 				string identifier = instruction[4];
 				vec2 offset(atoi(instruction[5]), atoi(instruction[6]));
+				bool preview = (instruction[7] == "true");
 
 				if(update_behaviour == "move_out"){
+					@move_out = MoveOut(update_behaviour, identifier, duration, tween_type, preview);
+
 					IMMoveIn new_move(duration, offset * -1.0f, IMTweenType(tween_type));
 					holder.addUpdateBehavior(new_move, identifier);
 
@@ -149,6 +159,15 @@ class DrikaUIText : DrikaUIElement{
 					fade_out_animations.removeAt(i);
 					i--;
 				}
+				skip = true;
+			}
+
+			if(move_out !is null && identifier == move_out.name + move_out.identifier){
+				if(!move_out.preview){
+					Log(warning, "Remove " + identifier);
+					remove_element = true;
+				}
+				@move_out = null;
 				skip = true;
 			}
 

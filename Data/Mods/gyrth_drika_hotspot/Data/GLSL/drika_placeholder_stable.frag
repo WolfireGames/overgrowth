@@ -56,13 +56,6 @@ uniform samplerCube tex3;
 
 #define ref_cap_cubemap tex19
 
-struct Instance {
-	mat4 model_mat;
-	mat3 model_rotation_mat;
-	vec4 color_tint;
-	vec4 detail_scale;
-};
-
 uniform mat4 shadow_matrix[4];
 uniform mat4 projection_view_mat;
 

@@ -2085,8 +2085,6 @@ class DrikaDialogue : DrikaElement{
 				if(dialogue_function.dialogue_function == say || dialogue_function.dialogue_function == fade_to_black){
 					continue;
 				}
-			}else if(GetCurrentElement().drika_element_type == drika_go_to_line){
-				continue;
 			}else if(GetCurrentElement().drika_element_type == drika_play_sound){
 				continue;
 			}else if(GetCurrentElement().drika_element_type == drika_animation){

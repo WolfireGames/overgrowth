@@ -8,6 +8,7 @@ class DrikaSetColor : DrikaElement{
 	int palette_slot;
 	int current_palette_slot;
 	vec3 before_color;
+	vec3 before_transition_color;
 	vec3 after_color;
 	vec3 starting_color;
 	int current_color_type;
@@ -20,6 +21,7 @@ class DrikaSetColor : DrikaElement{
 	int current_tween_type;
 	float transition_duration;
 	float timer;
+	bool got_before_transition_color;
 
 	DrikaSetColor(JSONValue params = JSONValue()){
 		color_type = color_types(GetJSONInt(params, "color_type", 0));
@@ -268,6 +270,9 @@ class DrikaSetColor : DrikaElement{
 	bool Trigger(){
 		bool done = SetColor(false);
 		triggered = true;
+		if(done){
+			triggered = false;
+		}
 		return done;
 	}
 
@@ -280,6 +285,19 @@ class DrikaSetColor : DrikaElement{
 				}
 			}else if(color_type == object_tint){
 				before_color = targets[i].GetTint();
+			}
+		}
+	}
+
+	void GetBeforeTransitionColor(){
+		array<Object@> targets = target_select.GetTargetObjects();
+		for(uint i = 0; i < targets.size(); i++){
+			if(color_type == object_palette_color){
+				if(targets[i].GetType() == _movement_object && targets[i].GetNumPaletteColors() > palette_slot){
+					before_transition_color = targets[i].GetPaletteColor(palette_slot);
+				}
+			}else if(color_type == object_tint){
+				before_transition_color = targets[i].GetTint();
 			}
 		}
 	}
@@ -314,6 +332,7 @@ class DrikaSetColor : DrikaElement{
 				}
 			}
 
+			got_before_transition_color = false;
 			return true;
 		}
 	}
@@ -327,9 +346,14 @@ class DrikaSetColor : DrikaElement{
 			timer = 0.0;
 		}
 
+		if(!got_before_transition_color){
+			GetBeforeTransitionColor();
+			got_before_transition_color = true;
+		}
+
 		timer += time_step;
 
-		vec3 transition_color = mix(starting_color, after_color, ApplyTween((timer / transition_duration), IMTweenType(tween_type)));
+		vec3 transition_color = mix(before_transition_color, after_color, ApplyTween((min(1.0, timer / transition_duration)), IMTweenType(tween_type)));
 
 		for(uint i = 0; i < targets.size(); i++){
 			if(color_type == object_palette_color){
@@ -341,7 +365,13 @@ class DrikaSetColor : DrikaElement{
 			}
 		}
 
-		return timer >= transition_duration;
+		bool done = timer >= transition_duration;
+
+		if(done){
+			got_before_transition_color = false;
+		}
+
+		return done;
 	}
 
 	void Reset(){

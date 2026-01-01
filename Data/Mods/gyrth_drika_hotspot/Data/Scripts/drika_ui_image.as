@@ -18,6 +18,7 @@ class DrikaUIImage : DrikaUIElement{
 	ivec2 size_offset;
 	bool animated;
 	FadeOut@ fade_out;
+	MoveOut@ move_out;
 	AnimatedImage@ animated_image;
 	float animation_speed;
 
@@ -92,6 +93,12 @@ class DrikaUIImage : DrikaUIElement{
 			}
 		}
 
+		if(move_out !is null){
+			if(move_out.Update()){
+				@move_out = null;
+			}
+		}
+
 		if(animated_image !is null){
 			animated_image.Update();
 		}
@@ -152,8 +159,11 @@ class DrikaUIImage : DrikaUIElement{
 				int tween_type = atoi(instruction[3]);
 				string identifier = instruction[4];
 				vec2 offset(atoi(instruction[5]), atoi(instruction[6]));
+				bool preview = (instruction[7] == "true");
 
 				if(update_behaviour == "move_out"){
+					@move_out = MoveOut(update_behaviour, identifier, duration, tween_type, preview);
+
 					IMMoveIn new_move(duration, offset * -1.0f, IMTweenType(tween_type));
 					image.addUpdateBehavior(new_move, update_behaviour + identifier);
 
@@ -183,6 +193,13 @@ class DrikaUIImage : DrikaUIElement{
 					level.SendMessage("drika_ui_remove_element " + ui_element_identifier);
 				}
 				@fade_out = null;
+				return;
+			}else if(move_out !is null && identifier == move_out.name + move_out.identifier){
+				if(!move_out.preview){
+					Log(warning, "Remove " + identifier);
+					level.SendMessage("drika_ui_remove_element " + ui_element_identifier);
+				}
+				@move_out = null;
 				return;
 			}
 		}else if(instruction[0] == "set_animated"){

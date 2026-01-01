@@ -1050,6 +1050,10 @@ void UpdateDialogueDisplacement(){
 }
 
 void DialogueNext(){
+	if(dialogue_script is null || dialogue_progress >= int(dialogue_script.size())){
+		return;
+	}
+
 	DialogueScriptEntry@ entry = dialogue_script[dialogue_progress];
 	dialogue_progress += 1;
 

@@ -43,6 +43,10 @@ class DrikaOnEnterExit : DrikaElement{
 	bool check_all;
 	bool view_obstruction_check;
 	float camera_fov;
+	array<int> characters_inside_ids;
+	bool first_characters_inside_check = true;
+	bool continue_if_false = false;
+	DrikaGoToLineSelect@ continue_element;
 
 	vec3 external_hotspot_translation;
 	quaternion external_hotspot_rotation;
@@ -64,6 +68,8 @@ class DrikaOnEnterExit : DrikaElement{
 		external_hotspot_id = GetJSONInt(params, "external_hotspot_id", -1);
 		reset_when_false = GetJSONBool(params, "reset_when_false", false);
 		check_all = GetJSONBool(params, "check_all", false);
+		continue_if_false = GetJSONBool(params, "continue_if_false", false);
+		@continue_element = DrikaGoToLineSelect("continue_line", params);
 
 		//Converting old savedata into new, to be removed later on.
 		drika_element_types function_type = drika_element_types(params["function"].asInt());
@@ -193,6 +199,11 @@ class DrikaOnEnterExit : DrikaElement{
 			data["view_obstruction_check"] = JSONValue(view_obstruction_check);
 		}
 
+		data["continue_if_false"] = JSONValue(continue_if_false);
+		if(continue_if_false){
+			continue_element.SaveGoToLine(data);
+		}
+
 		target_select.SaveIdentifier(data);
 		return data;
 	}
@@ -230,6 +241,7 @@ class DrikaOnEnterExit : DrikaElement{
 			}
 		}
 		target_select.PostInit();
+		continue_element.PostInit();
 	}
 
 	void Update(){
@@ -291,10 +303,13 @@ class DrikaOnEnterExit : DrikaElement{
 	}
 
 	string GetDisplayString(){
+		continue_element.CheckLineAvailable();
+
 		string display_string = "";
 
 		display_string += hotspot_trigger_choices[hotspot_trigger_type] + " ";
 		display_string += target_select.GetTargetDisplayText();
+		display_string += (continue_if_false?" else line " + continue_element.GetTargetLineIndex():"");
 
 		return display_string;
 	}
@@ -377,6 +392,18 @@ class DrikaOnEnterExit : DrikaElement{
 		ImGui_NextColumn();
 
 		DrawSetReferenceUI();
+
+		if(IsWhileFunction()){
+			ImGui_AlignTextToFramePadding();
+			ImGui_Text("If not, go to line");
+			ImGui_NextColumn();
+
+			ImGui_Checkbox("###If not, go to line", continue_if_false);
+			ImGui_NextColumn();
+			if(continue_if_false){
+				continue_element.DrawGoToLineUI();
+			}
+		}
 	}
 
 	void DrawEditing(){
@@ -453,6 +480,15 @@ class DrikaOnEnterExit : DrikaElement{
 
 	void CheckEvent(string event, int char_id){
 		if(hotspot_trigger_type == while_character_inside || hotspot_trigger_type == while_character_outside){
+			if(event == "enter"){
+				if(characters_inside_ids.find(char_id) == -1){
+					characters_inside_ids.insertLast(char_id);
+				}
+			}else if(event == "exit"){
+				if(characters_inside_ids.find(char_id) != -1){
+					characters_inside_ids.removeAt(characters_inside_ids.find(char_id));
+				}
+			}
 			return;
 		}
 		if(!ObjectExists(char_id)){
@@ -476,6 +512,8 @@ class DrikaOnEnterExit : DrikaElement{
 		triggered = false;
 		got_objects_inside = false;
 		initial_setup_done = false;
+		characters_inside_ids.resize(0);
+		first_characters_inside_check = true;
 	}
 
 	bool Trigger(){
@@ -503,14 +541,19 @@ class DrikaOnEnterExit : DrikaElement{
 			}else{
 				//If the while has been triggered, but the next function is not then be able to reset.
 				if(triggered && reset_when_false){
+					triggered = false;
 					//At the end of the script so can't reset the next function.
 					if(current_line == int(drika_indexes.size() - 1)){
 						Reset();
 						return true;
 					}
-					triggered = false;
 					DrikaElement@ next_element = drika_elements[drika_indexes[index + 1]];
 					next_element.Reset();
+				}else if(continue_if_false){
+					triggered = false;
+					Reset();
+					current_line = continue_element.GetTargetLineIndex();
+					display_index = drika_indexes[continue_element.GetTargetLineIndex()];
 				}
 			}
 			return false;
@@ -631,14 +674,19 @@ class DrikaOnEnterExit : DrikaElement{
 	}
 
 	bool InsideCheck(){
-		Object@ target_hotspot = external_hotspot?external_hotspot_obj:this_hotspot;
 		reference_ids.resize(0);
 		bool all_inside = true;
 		bool one_inside = false;
 
 		array<MovementObject@> chars = target_select.GetTargetMovementObjects();
 		for(uint i = 0; i < chars.size(); i++){
-			if(CharacterInside(chars[i], target_hotspot)){
+
+			if(first_characters_inside_check){
+				Object@ target_hotspot = external_hotspot?external_hotspot_obj:this_hotspot;
+				ComplexCharactersInsideCheck(chars[i], target_hotspot);
+			}
+			
+			if(characters_inside_ids.find(chars[i].GetID()) != -1){
 				if(hotspot_trigger_type == while_character_inside){
 					reference_ids.insertLast(chars[i].GetID());
 				}
@@ -650,6 +698,8 @@ class DrikaOnEnterExit : DrikaElement{
 				all_inside = false;
 			}
 		}
+
+		first_characters_inside_check = false;
 
 		if(check_all){
 			return all_inside;
@@ -712,20 +762,28 @@ class DrikaOnEnterExit : DrikaElement{
 		}
 	}
 
-	bool CharacterInside(MovementObject@ char, Object@ hotspot_obj){
+	void ComplexCharactersInsideCheck(MovementObject@ char, Object@ hotspot_obj){
 		if(hotspot_obj is null){
-			return false;
+			return;
 		}
 
 		mat4 hotspot_transform = hotspot_obj.GetTransform();
-		vec3 char_translation = char.position;
+		vec3 char_translation = char.position + vec3(0.0, 0.25, 0.0);
 		vec3 local_space_translation = invert(hotspot_transform) * char_translation;
 
-		bool is_inside = (	local_space_translation.x >= -2 && local_space_translation.x <= 2 &&
-							local_space_translation.y >= -2 && local_space_translation.y <= 2 &&
-							local_space_translation.z >= -2 && local_space_translation.z <= 2);
-
-		return is_inside;
+		// DebugDrawWireSphere(hotspot_obj.GetTranslation(), character_radius, vec3(1.0, 1.0, 0.0), _fade);
+		// DebugDrawWireBox(hotspot_obj.GetTranslation(), vec3(2.0 + character_radius), vec3(1.0, 1.0, 0.0), _fade);
+		// DebugDrawWireBox(vec3(0.0), vec3(5.0), vec3(1.0, 1.0, 0.0), _persistent);
+		
+		bool is_inside = (	local_space_translation.x >= -3.0 && local_space_translation.x <= 3.0 &&
+							local_space_translation.y >= -3.0 && local_space_translation.y <= 3.0 &&
+							local_space_translation.z >= -3.0 && local_space_translation.z <= 3.0);
+			
+		// DebugDrawLine(local_space_translation, vec3(0.0), !is_inside?vec3(1.0, 0.0, 0.0):vec3(0.0, 1.0, 0.0), _persistent);
+		
+		if(is_inside){
+			characters_inside_ids.insertLast(char.GetID());
+		}
 	}
 
 	array<int> GetItemsInside(){
@@ -760,9 +818,9 @@ class DrikaOnEnterExit : DrikaElement{
 			vec3 obj_translation = obj.GetTranslation();
 			vec3 local_space_translation = invert(hotspot_transform) * obj_translation;
 
-			if(local_space_translation.x >= -2 && local_space_translation.x <= 2 &&
-				local_space_translation.y >= -2 && local_space_translation.y <= 2 &&
-				local_space_translation.z >= -2 && local_space_translation.z <= 2){
+			if(local_space_translation.x >= -2.0 && local_space_translation.x <= 2.0 &&
+				local_space_translation.y >= -2.0 && local_space_translation.y <= 2.0 &&
+				local_space_translation.z >= -2.0 && local_space_translation.z <= 2.0){
 				inside_ids.insertLast(object_ids[i]);
 			}
 		}

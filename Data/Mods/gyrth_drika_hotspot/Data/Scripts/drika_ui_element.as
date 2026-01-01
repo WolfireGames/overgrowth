@@ -121,6 +121,52 @@ class FadeOut{
 	}
 }
 
+class MoveOut{
+	string name;
+	string identifier;
+	float timer;
+	float duration;
+	IMTweenType tween_type;
+	bool preview;
+	float previous_ui_time;
+
+	MoveOut(string _name, string _identifier, float _duration, int _tween_type, bool _preview){
+		name = _name;
+		identifier = _identifier;
+		duration = _duration / 1000.0f;
+		tween_type = IMTweenType(_tween_type);
+		preview = _preview;
+		previous_ui_time = ui_time;
+	}
+
+	bool Update(){
+		float step = (ui_time - previous_ui_time);
+		timer += step;
+		previous_ui_time = ui_time;
+
+		if(timer >= duration){
+			//Don't remove the UIELement when DHS is editing and previewing the transitions.
+			if(preview){
+				timer = duration;
+				return false;
+			}else{
+				level.SendMessage("drika_ui_remove_element " + identifier);
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	bool Remove(){
+		if(preview){
+			return false;
+		}else{
+			return true;
+		}
+	}
+}
+
 class AnimatedImage{
 	string image_path;
 	int range_min;

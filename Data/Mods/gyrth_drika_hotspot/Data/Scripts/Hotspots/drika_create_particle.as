@@ -22,7 +22,7 @@ class DrikaCreateParticle : DrikaElement{
 		tint = GetJSONVec3(params, "tint", vec3(1.0f));
 		velocity = GetJSONFloat(params, "velocity", 5.0f);
 		spread = GetJSONFloat(params, "spread", 0.0f);
-		use_blood_tint = GetJSONBool(params, "use_blood_tint", true);
+		use_blood_tint = GetJSONBool(params, "use_blood_tint", false);
 		connect_particles = GetJSONBool(params, "connect_particles", false);
 		has_settings = true;
 	}
@@ -129,6 +129,12 @@ class DrikaCreateParticle : DrikaElement{
 			ImGui_PopItemWidth();
 			ImGui_NextColumn();
 		}
+
+		ImGui_NextColumn();
+		if(ImGui_Button("Preview")){
+			Trigger();
+		}
+		ImGui_NextColumn();
 	}
 
 	void DrawEditing(){
@@ -183,6 +189,11 @@ class DrikaCreateParticle : DrikaElement{
 
 	void Reset(){
 		previous_particle_id = -1;
+	}
+
+	void StartEdit(){
+		DrikaElement::StartEdit();
+		Trigger();
 	}
 
 	bool Trigger(){

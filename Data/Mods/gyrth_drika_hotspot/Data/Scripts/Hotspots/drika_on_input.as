@@ -446,7 +446,7 @@ class DrikaOnInput : DrikaElement{
 				placeholder.Remove();
 			}
 		}
-		DrawPrompt();
+		DrawPrompt(_delete_on_draw);
 	}
 
 	void Delete(){
@@ -511,17 +511,17 @@ class DrikaOnInput : DrikaElement{
 				one_triggered = false;
 			}
 		}
-		DrawPrompt();
+		DrawPrompt(_delete_on_update);
 		return one_triggered;
 	}
 
-	void DrawPrompt(){
+	void DrawPrompt(int delete_on){
 		if(use_prompt){
 			if(placeholder.Exists()){
 				if(custom_prompt){
-					DebugDrawBillboard(custom_prompt_path, placeholder.GetTranslation(), prompt_size, prompt_color, _delete_on_draw);
+					DebugDrawBillboard(custom_prompt_path, placeholder.GetTranslation(), prompt_size, prompt_color, delete_on);
 				}else{
-					DebugDrawBillboard(current_prompt_icon, placeholder.GetTranslation(), prompt_size, prompt_color, _delete_on_draw);
+					DebugDrawBillboard(current_prompt_icon, placeholder.GetTranslation(), prompt_size, prompt_color, delete_on);
 				}
 			}
 		}

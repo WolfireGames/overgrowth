@@ -210,26 +210,32 @@ class DrikaCheckCharacterState : DrikaElement{
 
 	string GetDisplayString(){
 		continue_element.CheckLineAvailable();
-		string display_string = "CheckCharacterState ";
+		string display_string = "CheckCharacterState";
 
 		if(target_select.identifier_type == team && current_ccs_mode == ccs_check){
-			display_string += check_all?"all ":"any ";
+			display_string += check_all?" all":" any";
 		}
 
-		display_string += target_select.GetTargetDisplayText();
+		display_string += " " + target_select.GetTargetDisplayText();
 
 		if(current_ccs_mode == ccs_check){
-			display_string += (equals?" ":" not ");
-			display_string += state_choice_names[state_choice] + " ";
+			display_string += (equals?"":" not");
+			display_string +=  " " + state_choice_names[state_choice];
 
 			if(state_choice == knows_about || state_choice == in_proximity){
 				if(known_target.identifier_type == team){
-					display_string += check_all_known?"all ":"any ";
+					display_string += check_all_known?" all":" any";
 				}
 
-				display_string += known_target.GetTargetDisplayText();
+				display_string += " " + known_target.GetTargetDisplayText();
 			}else if(state_choice == item_held){
-				display_string += ": " + target_item.GetTargetDisplayText();
+				display_string += " : " + target_item.GetTargetDisplayText();
+			}else if(state_choice == current_animation){
+				display_string += " : " + animation_path;
+			}else if(state_choice == attacking && attack_path_check){
+				display_string += " : " + attack_path;
+			}else if(state_choice == ray_collides_with){
+				display_string += " " + known_target.GetTargetDisplayText();
 			}
 
 			display_string += (continue_if_false?" else line " + continue_element.GetTargetLineIndex():"");
@@ -407,10 +413,6 @@ class DrikaCheckCharacterState : DrikaElement{
 				ImGui_PushItemWidth(second_column_width);
 				ImGui_SetTextBuf(animation_path);
 
-				if(ImGui_IsRootWindowOrAnyChildFocused() && !ImGui_IsAnyItemActive() && !ImGui_IsMouseClicked(0)){
-					ImGui_SetKeyboardFocusHere(0);
-				}
-
 				if(ImGui_InputText("##Animation Path",0)){
 					animation_path = ImGui_GetTextBuf();
 				}
@@ -464,10 +466,6 @@ class DrikaCheckCharacterState : DrikaElement{
 			ImGui_NextColumn();
 			ImGui_PushItemWidth(second_column_width);
 			ImGui_SetTextBuf(variable_prefix);
-
-			if(ImGui_IsRootWindowOrAnyChildFocused() && !ImGui_IsAnyItemActive() && !ImGui_IsMouseClicked(0)){
-				ImGui_SetKeyboardFocusHere(0);
-			}
 
 			if(ImGui_InputText("##Variable Prefix",0)){
 				variable_prefix = ImGui_GetTextBuf();
