@@ -307,7 +307,7 @@ Define variable, its values and notes for each value.
 
 		ouruin_lvl3_patri
 			0: Not found
-			1: Talked to
+			1: Found/Talked to
 		
 		ouruin_lvl3_adal
 			0: Not found
@@ -511,9 +511,8 @@ Define variable, its values and notes for each value.
 		1: Player has met Patri
 		2: Patri has been talked to enough to offer quest
 		3: Player can tell Patri about Bloods
-		4: Player has completed Gunk's quest
-		5: Player has told Patri about the Cinderbloods
-		6: Player has found Patri. Quest complete!
+		4: Player has told Patri about the Cinderbloods
+		5: Player has found Patri in Waterfront Escape
 
 		ouruin_patri_talked
 			Number of times player has talked to Patri.

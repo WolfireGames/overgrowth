@@ -1,0 +1,11 @@
+#name "First-Intro"
+#participants 2
+send_character_message 1 "set_eye_dir -76.0789 1.3962 -121.811 1"
+send_character_message 1 "set_head_target -77.7064 0.932036 -124.045 1"
+set_cam -80.4916 -0.209859 -131.837 -0.5 -158.22 0 81.1491
+set_dialogue_color 0 0 0.52 0.95
+set_dialogue_voice 0 8
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+say 0 "Ghost" "(...[wait 0.05]I'm here. [wait 0.1]Let's look for Bijou.)"
+send_level_message "dialogue_done"
