@@ -54,6 +54,11 @@ Define variable, its values and notes for each value.
 
 	ouruin_current_level
 
+	ouruin_bracers
+		0: Bracers are not acquired
+		1: Bracers are acquired
+		2: Bracers are equipped
+
 	ouruin_orb
 		0: Orb is not equipped
 		1: Orb is acquired
@@ -402,8 +407,8 @@ Define variable, its values and notes for each value.
 		1: Branch's room has been broken into
 		2: Player has encountered Branch
 		3: Player has talked to Branch
-		4: Branch has been returned to after turning notes over to Lloyd
-		5: Branch has been returned to after misinforming Lloyd
+		4: Branch can be returned to after turning notes over to Lloyd
+		5: Branch can be returned to after misinforming Lloyd
 		6: Branch can sell bracers
 		7: Branch is available for dialogue
 		8: Branch has given Ghost the metal bracers. Quest complete!

@@ -1,5 +1,11 @@
 #name "Branch-Enter-Stolen-Broken"
 #participants 3
+send_character_message 1 "set_eye_dir -76.0469 -46.8004 -72.0916 1"
+send_character_message 1 "set_head_target -77.6558 -47.092 -72.6884 0"
+set_character_pos 2 -57.0667 -49.268 -91.0687 -120
+send_character_message 2 "set_animation \"Data/Animations/branch_idle.anm\""
+set_character_pos 1 -77.2476 -47.8311 -71.4657 -120
+set_cam -77.7425 -47.1444 -70.6158 0.13 -23.31 -0.47 52.7532
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.52 0.95
@@ -8,16 +14,64 @@ set_dialogue_color 2 0.52 0.28 1.0
 set_dialogue_voice 2 10
 set_dialogue_color 4 0.52 0.28 1.0
 set_dialogue_voice 4 10
+send_level_message "disable 2107"
+send_level_message "disable 5378"
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_startle_behind.anm\""
 say 2 "???" "[wait 0.2]'T [wait 0.2]U [wait 0.2]O', [wait 0.1]huh? [wait 0.05]Just grand."
+send_character_message 1 "set_torso_target -78.656 -46.7908 -71.3861 0.485323"
+send_character_message 1 "set_eye_dir -77.8817 -46.0978 -71.163 0.550489"
+send_character_message 1 "set_head_target -79.6327 -46.6215 -72.991 1"
+set_character_pos 2 -75.7445 -47.4415 -84.936 -90
 say 3 "Ghost" "(...[wait 0.1]Someone's coming!)"
+send_character_message 1 "set_eye_dir -74.602 -45.6236 -73.8949 0.550489"
+send_character_message 1 "set_animation \"Animations/r_actionidlecrouch.anm\""
+set_character_pos 1 -72.4862 -45.172 -73.2883 120
+send_character_message 1 "set_head_target -72.9563 -45.6387 -74.0421 1"
+send_character_message 1 "set_torso_target -72.123 -45.0698 -73.9875 0"
+send_character_message 2 "set_head_target -76.4477 -46.9864 -84.543 1"
+send_character_message 2 "set_torso_target -76.4018 -47.0798 -84.1658 0"
+send_character_message 2 "set_eye_dir -75.4347 -46.1186 -85.5104 1"
+set_cam -76.5022 -47.5325 -71.6453 -1.7 -1.69 0.17 29.2334
 say 2 "???" "Such brutish work made of it, [wait 0.05]too... [wait 0.05]Quite rustic. [wait 0.05]I should expect nothing less."
+send_character_message 2 "set_torso_target -76.3967 -47.0395 -84.1541 0"
+send_character_message 2 "set_head_target -76.4445 -46.9787 -84.5408 1"
+set_character_pos 2 -75.7413 -47.4338 -84.9338 -90
+send_character_message 1 "set_eye_dir -73.8982 -45.1399 -73.8148 0.550489"
+send_character_message 1 "set_head_target -73.1359 -45.5352 -74.189 1"
+set_cam -77.9521 -47.2493 -77.0498 20.53 -121.51 0 20.7917
 say 4 "???" "..."
+set_cam -77.9521 -47.2493 -77.0498 20.51 -121.64 0.01 20.7917
+send_character_message 1 "set_torso_target -72.7846 -45.7337 -73.9314 0.810637"
+send_character_message 2 "set_eye_dir -77.2488 -47.1896 -71.3542 1"
+send_character_message 2 "set_torso_target -78.0897 -47.4551 -71.1366 0"
+send_character_message 2 "set_head_target -77.3683 -47.2288 -70.9445 1"
+set_character_pos 2 -76.7358 -47.8168 -71.9307 -115
+send_character_message 1 "set_eye_dir -73.8671 -45.619 -73.648 1"
+send_character_message 1 "set_head_target -73.3404 -45.6273 -74.1344 1"
 say 2 "???" "Well, [wait 0.05]well..."
+send_character_message 2 "set_head_target -77.3683 -47.2929 -70.9445 1"
+send_character_message 1 "set_eye_dir -76.2833 -46.0859 -72.4702 1"
+send_character_message 1 "set_torso_target -75.898 -45.314 -72.9619 0"
+send_character_message 1 "set_head_target -76.9294 -46.6941 -72.2381 1"
+set_character_pos 1 -74.7805 -45.172 -72.4594 174
+set_cam -72.8741 -46.6095 -75.0683 -9.03 131.26 0.01 39.8736
 say 2 "???" "Heh. [wait 0.1]Right I was. [wait 0.05]Worked like a charm."
+send_character_message 2 "set_head_target -76.8081 -47.1837 -71.1911 1"
+send_character_message 2 "set_animation \"Data/Animations/branch_back.anm\""
 say 2 "???" "Now, [wait 0.05]if you, [wait 0.05]the thief, [wait 0.05]are still here, [wait 0.05]listening..."
+send_character_message 2 "set_eye_dir -76.9845 -47.0625 -71.5605 0"
+send_character_message 2 "set_head_target -75.832 -47.3314 -71.3394 1"
 say 2 "???" "What you're holding right now is a decoy. [wait 0.05]It's not the real manuscript: [wait 0.05]It's practically gibberish when context is applied."
+send_character_message 2 "set_eye_dir -76.9845 -47.0625 -71.5605 0.718858"
+send_character_message 2 "set_head_target -77.0717 -46.7761 -71.5498 1"
 say 2 "???" "Now, [wait 0.05]Lloyd might be dumb enough to not see that, [wait 0.05]so there's still a chance you could get him to pay your bill. [wait 0.1]A slim one."
+send_character_message 2 "set_head_target -76.5862 -46.9128 -70.7206 1"
+set_cam -75.2294 -42.3368 -71.7602 -82.54 39.92 35.46 54.126
+send_character_message 2 "set_animation \"Data/Animations/branch_backfrom.anm\""
 say 2 "???" "I hold no disrespect to you. [wait 0.1]You simply chose to work for a fool... [wait 0.05]So if you'd like to fix this mistake, [wait 0.05]step forwards, [wait 0.05]and I could give you a counter-offer."
+send_level_message "branch_walk"
 say 2 "???" "I'll give you some time to make your choice. [wait 0.1]And you'll have to walk out to where I can see you--[wait 0.1]My ears aren't what they used to be."
+send_character_message 1 "set_eye_dir -74.6124 -44.791 -72.161 0.718196"
+send_character_message 1 "set_head_target -75.847 -45.3885 -71.6491 1"
 say 3 "Ghost" "[wait 0.05].[wait 0.05].[wait 0.05]."
 send_level_message "dialogue_done"
