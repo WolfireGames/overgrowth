@@ -63,10 +63,10 @@
                 <parameters />
             </EnvObject>
         </Group>
-        <Hotspot t0="-3.83798" t1="-39.0409" t2="-68.5965" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.703189" q1="-0.0743696" q2="0.703189" q3="0.0743695" euler_x="-1.57085" euler_y="1.36011" euler_z="1.57085" id="14910" type_file="Objects/Hotspots/fire_test_cheap.xml">
+        <Hotspot t0="-3.83798" t1="-39.0409" t2="-68.5965" s0="0.0508528" s1="0.0508528" s2="0.0508528" q0="-0.703189" q1="-0.0743696" q2="0.703189" q3="0.0743695" euler_x="-1.57085" euler_y="1.36011" euler_z="1.57085" id="14910" type_file="Data/Objects/Hotspots/fire_test_cheap.xml">
             <parameters>
-                <parameter name="Fire Ribbons" type="int" val="4" />
-                <parameter name="Ignite Characters" type="int" val="1" />
+                <parameter name="Fire Ribbons" type="int" val="1" />
+                <parameter name="Ignite Characters" type="int" val="0" />
             </parameters>
             <Connections />
             <ConnectionsFrom />

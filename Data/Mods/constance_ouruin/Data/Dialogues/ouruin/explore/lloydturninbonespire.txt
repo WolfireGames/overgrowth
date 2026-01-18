@@ -10,6 +10,7 @@ send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
 send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
 send_character_message 1 "set_head_target 0.0526941 -41.353 168.721 1"
 set_cam -2.20375 -41.9143 171.068 0 -38.48 0 65.7874
+set_dialogue_color 0 1.0 0.576 0.941
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.52 0.95
@@ -34,7 +35,7 @@ say 2 "Lloyd" "First the nonsense on House Tomerre's minting, then the lackedais
 say 3 "Ghost" "[wait 0.2].[wait 0.1].[wait 0.1]."
 say 2 "Lloyd" "Here's your damned coin. [wait 0.1]Now, [wait 0.05]the whaleman pages, [wait 0.05]please."
 say 1 "Ghost" "Here 'ya go."
-*Lloyd looks down at the book, before chucking it into the water.*
+say 0 "placeholder" "*Lloyd looks down at the book, before chucking it into the water.*"
 say 4 "Lloyd" "..."
 say 2 "Lloyd" "[wait 0.3]Lousy whimperings of a lowly scrub, [wait 0.1]all of it!"
 say 1 "Ghost" "...[wait 0.1]Yeah?"
