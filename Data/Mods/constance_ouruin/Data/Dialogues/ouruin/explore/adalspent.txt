@@ -1,4 +1,4 @@
-#name "AdalKeepAll"
+#name "AdalSpent"
 #participants 3
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
@@ -15,7 +15,7 @@ send_character_message 1 "set_animation \"Data/Animations/r_dialogue_welcome.anm
 send_character_message 1 "set_eye_dir 110.655 -51.694 45.4705 0.911819"
 send_character_message 1 "set_torso_target 110.445 -51.535 45.2749 1"
 send_character_message 1 "set_head_target 110.722 -51.7741 45.5066 1"
-say 1 "Ghost" "I went and shook down the Depot snakes, [wait 0.05]but I couldn't find where they hid your coin. [wait 0.1]I'm sorry, [wait 0.05]Adal."
+say 1 "Ghost" "I got your coin back from the snakes in the depot, [wait 0.05]but to be honest... [wait 0.1]I went and spent it. [wait 0.05]Sorry."
 send_character_message 2 "set_eye_dir 110.02 -51.7229 44.6397 1"
 send_character_message 2 "set_head_target 110.144 -51.7284 44.71 1"
 send_character_message 2 "set_animation \"Data/Animations/r_dialogue_armcheck.anm\""
@@ -23,10 +23,10 @@ send_character_message 1 "set_head_target 110.782 -51.7864 45.4719 1"
 send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
 send_character_message 1 "set_torso_target 110.445 -51.535 45.2749 0"
 set_cam 108.201 -52.169 43.9144 4.72 -117.18 0 30.7515
-say 2 "Adal" "Oh, [wait 0.05]you didn't have to go through all that...! [wait 0.1]Thank you... [wait 0.1]I just don't have any way to repay you."
+say 2 "Adal" "Oh, [wait 0.05]really? [wait 0.1]I mean, [wait 0.05]that's okay... [wait 0.1]I wouldn't want to owe you anything."
 send_character_message 2 "set_torso_target 110.568 -52.2122 44.7557 1"
 send_character_message 2 "set_eye_dir 109.682 -51.6031 44.7276 0.808892"
 send_character_message 2 "set_head_target 110.481 -51.8675 44.5721 1"
 send_character_message 2 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
-say 2 "Adal" "[wait 0.3]But I really appreciate the effort, [wait 0.05]Ghost. [wait 0.1]I'm glad someone here's looking out for me..."
+say 2 "Adal" "I, [wait 0.05]well, [wait 0.05]have enough to keep track as is... [wait 0.1]And if you really did sneak in, [wait 0.05]I think you deserve it."
 send_level_message "dialogue_done"

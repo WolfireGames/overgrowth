@@ -469,10 +469,11 @@ Define variable, its values and notes for each value.
 		0: Adal has not been met
 		1: Player has met Adal
 		2: Player has offered to help Adal
-		3: Player has given Adal all her funds. Quest complete
-		4: Player has given Adal half her funds. Quest complete
-		5: Player has given Adal some of her funds. Quest complete
-		6: Player has decided to keep all of her funds. Quest complete
+		3: Player has given Adal all her funds. Quest complete!
+		4: Player has given Adal half her funds. Quest complete!
+		5: Player has given Adal some of her funds. Quest complete!
+		6: Player has decided to keep all of her funds. Quest complete!
+		7: Player has spent some of her funds and told the truth. Quest complete!
 
 		ouruin_adal_depot
 			0: Yet to be encountered
