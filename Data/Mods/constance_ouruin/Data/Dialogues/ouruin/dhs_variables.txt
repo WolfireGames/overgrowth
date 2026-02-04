@@ -394,7 +394,7 @@ Define variable, its values and notes for each value.
 		1:  Lloyd has been talked to
 		2:  Ghost has discussed Lloyd's job
 		3:  Ghost has accepted Lloyd's job offer
-		4:  Ghost has entered the warrens
+		4:  Ghost has found Branch's notes
 		5:  Ghost has stolen Branch's notes
 		6:  Lloyd has received the manuscript and paid Ghost. Quest complete!
 		7:  Lloyd has received the misinformation and paid Ghost. Quest complete!
@@ -421,6 +421,12 @@ Define variable, its values and notes for each value.
 			2: Broken in
 
 		ouruin_branch_talked
+
+		ouruin_branch_burrow
+			0: Not found
+			1: Found
+			2: Unlocked
+			3: Used
 
 	ouruin_dart_quest
 		0: Dart has not been met

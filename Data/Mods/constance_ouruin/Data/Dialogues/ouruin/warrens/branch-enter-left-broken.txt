@@ -14,8 +14,8 @@ set_dialogue_color 2 0.52 0.28 1.0
 set_dialogue_voice 2 10
 set_dialogue_color 4 0.52 0.28 1.0
 set_dialogue_voice 4 10
-send_level_message "disable 2107"
-send_level_message "disable 5378"
+send_level_message "enable 2107"
+send_level_message "enable 5378"
 send_character_message 1 "set_animation \"Data/Animations/r_dialogue_startle_behind.anm\""
 say 2 "???" "[wait 0.2]'T [wait 0.2]U [wait 0.2]O', [wait 0.1]huh? [wait 0.05]Just grand."
 send_character_message 1 "set_torso_target -78.656 -46.7908 -71.3861 0.485323"
@@ -68,6 +68,7 @@ set_cam -75.2294 -42.3368 -71.7602 -82.54 39.92 35.46 54.126
 send_character_message 2 "set_animation \"Data/Animations/branch_backfrom.anm\""
 say 2 "???" "You already know there's nothing else here. [wait 0.1]Where's the harm in it?"
 send_level_message "branch_walk"
+send_character_message 2 "set_dialogue_control false"
 say 2 "???" "...[wait 0.1]Oh, [wait 0.05]but you'll have to step out and face me... [wait 0.1]My ears aren't quite what they used to be. [wait 0.1]Take your time."
 send_character_message 1 "set_eye_dir -74.6124 -44.791 -72.161 0.718196"
 send_character_message 1 "set_head_target -75.847 -45.3885 -71.6491 1"

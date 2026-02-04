@@ -70,6 +70,7 @@ set_cam -75.2294 -42.3368 -71.7602 -82.54 39.92 35.46 54.126
 send_character_message 2 "set_animation \"Data/Animations/branch_backfrom.anm\""
 say 2 "???" "I hold no disrespect to you. [wait 0.1]You simply chose to work for a fool... [wait 0.05]So if you'd like to fix this mistake, [wait 0.05]step forwards, [wait 0.05]and I could give you a counter-offer."
 send_level_message "branch_walk"
+send_character_message 2 "set_dialogue_control false"
 say 2 "???" "I'll give you some time to make your choice. [wait 0.1]And you'll have to walk out to where I can see you--[wait 0.1]My ears aren't what they used to be."
 send_character_message 1 "set_eye_dir -74.6124 -44.791 -72.161 0.718196"
 send_character_message 1 "set_head_target -75.847 -45.3885 -71.6491 1"
