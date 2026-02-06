@@ -1,0 +1,15 @@
+<?xml version="2.0" ?>
+<Type>generic</Type>
+<Object>
+	<Model>Data/Models/Plants/Groundcover/wildflowers/blue_wildflower.obj</Model>
+	<ColorMap>Data/Textures/Plants/Groundcover/wildflowers/blue_wildflower_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Plants/Groundcover/wildflowers/blue_wildflower_n.tga</NormalMap>
+	<WindMap>Data/Textures/black.tga</WindMap>
+	<ShaderName>plant</ShaderName>
+    <avg_color r="112" g="101" b="183"/>
+         <flags
+        double_sided = "true"
+        no_collision = "true"
+        bush_collision = "true"
+    	/>
+</Object>
