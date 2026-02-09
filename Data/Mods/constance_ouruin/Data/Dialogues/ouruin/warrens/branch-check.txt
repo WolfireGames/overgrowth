@@ -8,9 +8,31 @@ set_dialogue_color 2 0.52 0.28 1.0
 set_dialogue_voice 2 10
 set_dialogue_color 4 0.52 0.28 1.0
 set_dialogue_voice 4 10
+set_character_pos 1 -75.017 -47.8972 -72.2776 0
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir -73.4968 -47.875 -72.472 1"
+send_character_message 1 "set_torso_target -74.4679 -47.5691 -72.2346 0.00492057"
+send_character_message 1 "set_head_target -72.8624 -47.523 -72.3558 1"
+set_cam -71.4129 -47.2865 -72.743 -13.67 113.14 -0.79 59.1235
+send_level_message "enable 6686"
+send_character_message 2 "set_eye_dir -72.5654 -47.5416 -71.8972 1"
+send_character_message 2 "set_head_target -72.4173 -48.3279 -71.8868 1"
+send_character_message 2 "set_animation \"Animations/r_dialogue_kneeling_low.anm\""
+set_character_pos 2 -72.7079 -47.7829 -72.883 -90
 say 2 "???" "Those old Willsbane drafts[wait 0.05].[wait 0.05].[wait 0.05]. [wait 0.01]Anstat-Kanlakti's rust ecology[wait 0.05].[wait 0.05].[wait 0.05]. I should really throw out that tatsan-darr thesis."
+send_character_message 1 "set_head_target -72.8508 -47.6607 -72.3292 1"
+send_character_message 2 "set_head_target -73.2562 -47.7842 -71.9176 1"
 say 2 "???" "Hm? [wait 0.2]Here still, [wait 0.05]are you? [wait 0.1]Bring those notes back to Lloyd--[wait 0.05]I haven't yet located those metal bracers."
+send_character_message 2 "set_head_target -73.2729 -47.7244 -71.9215 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_welcome.anm\""
 say 1 "Ghost" "It looks like you're just digging in one spot over and over."
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target -72.8707 -47.5662 -72.3089 1"
+send_character_message 2 "set_head_target -73.3013 -47.8784 -72.2245 1"
 say 2 "???" "A watched pot never boils, [wait 0.05]does it? [wait 0.05]Go on, now! [wait 0.05]Fulfill your end!"
+send_character_message 1 "set_torso_target -74.4063 -47.5416 -72.1994 1"
+send_character_message 1 "set_eye_dir -74.4507 -47.162 -73.2865 0.790553"
+send_character_message 1 "set_head_target -73.9949 -47.1119 -73.3926 1"
+send_character_message 2 "set_head_target -72.7838 -48.3959 -71.5923 1"
 say 3 "Ghost" "(...[wait 0.1]Guess I just have to go back to Lloyd on the Moritz waterfront.)"
 send_level_message "dialogue_done"

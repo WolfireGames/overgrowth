@@ -8,6 +8,18 @@ set_dialogue_color 2 0.52 0.28 1.0
 set_dialogue_voice 2 10
 set_dialogue_color 4 0.52 0.28 1.0
 set_dialogue_voice 4 10
+send_character_message 2 "set_animation \"Data/Animations/branch_idle.anm\""
+set_character_pos 1 -75.017 -47.8972 -72.2776 0
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir -73.437 -47.3283 -72.3786 1"
+send_character_message 1 "set_torso_target -74.4679 -47.5691 -72.2346 0"
+send_character_message 1 "set_head_target -73.3884 -46.7485 -72.4417 1"
+set_cam -74.0768 -47.1668 -71.4555 -2.71 43.73 0 44.9434
+set_character_pos 2 -72.6534 -47.8214 -72.4862 180
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 1"
+send_character_message 2 "set_torso_target -72.5581 -47.1464 -72.0226 0"
+send_character_message 2 "set_head_target -74.2176 -47.128 -72.2838 1"
+send_level_message "enable 6686"
 say 1 "Ghost" "Looks like he fell for your trick. [wait 0.1]Really is as foolish as you made 'em out to be."
 say 2 "???" "[wait 0.3]H[wait 0.05]m[wait 0.05]m[wait 0.05].[wait 0.05].[wait 0.05]."
 say 2 "???" "I take it you didn't tell him about the bone-spire, [wait 0.05]then. [wait 0.1]Oh well."

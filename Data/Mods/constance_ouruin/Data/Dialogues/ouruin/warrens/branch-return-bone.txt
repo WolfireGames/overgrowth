@@ -8,13 +8,45 @@ set_dialogue_color 2 0.52 0.28 1.0
 set_dialogue_voice 2 10
 set_dialogue_color 4 0.52 0.28 1.0
 set_dialogue_voice 4 10
+send_character_message 2 "set_animation \"Data/Animations/branch_idle.anm\""
+set_character_pos 1 -75.017 -47.8972 -72.2776 0
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir -73.4831 -47.1788 -73.0399 0.735539"
+send_character_message 1 "set_torso_target -74.4679 -47.5691 -72.2346 0"
+send_character_message 1 "set_head_target -73.6112 -46.9803 -73.0308 1"
+set_cam -74.6629 -47.1442 -71.4474 -2.78 13.42 0.43 54.8238
+set_character_pos 2 -72.6534 -47.8214 -72.4862 180
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 1"
+send_character_message 2 "set_torso_target -72.5581 -47.1464 -72.0226 0"
+send_character_message 2 "set_head_target -74.2189 -47.1334 -72.2838 1"
+send_level_message "enable 6686"
 say 1 "Ghost" "Well... [wait 0.05]I brought the book to him."
+send_character_message 1 "set_torso_target -74.4002 -47.3563 -72.1323 1"
+send_character_message 2 "set_head_target -74.2784 -47.3915 -72.3345 1"
+send_character_message 2 "set_animation \"Data/Animations/branch_stance.anm\""
+set_cam -76.4834 -47.333 -72.7638 0.42 -97.93 -0.72 23.7455
+send_character_message 1 "set_eye_dir -73.4831 -47.1788 -73.0399 1"
+send_character_message 1 "set_head_target -73.6581 -46.9808 -71.6112 1"
 say 2 "Branch" "Kekeke! [wait 0.1]Tatsur, [wait 0.05]by the look in your eyes I got quite the response from him."
+send_character_message 2 "set_head_target -74.2622 -47.1171 -72.3445 1"
 say 1 "Ghost" "He labelled you a 'sweepborn'. [wait 0.05]Then 'lowly scrub'. [wait 0.1]Then he looked right at me and called me 'sootcrawler'."
+send_character_message 2 "set_head_target -74.2638 -47.1835 -72.3107 1"
+send_character_message 1 "set_head_target -73.3552 -47.2041 -72.3868 1"
 say 1 "Ghost" "I gotta hand it to 'ya, [wait 0.05]you hooked out a pretty good tantrum."
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 0.566586"
+send_character_message 2 "set_head_target -74.0907 -47.2523 -73.4776 1"
+send_character_message 2 "set_animation \"Data/Animations/branch_idle.anm\""
 say 2 "Branch" "There's little valor to be held in tricking a carrier-bird, [wait 0.05]I'm afraid."
+send_character_message 2 "set_animation \"Data/Animations/branch_back.anm\""
+send_character_message 2 "set_head_target -74.166 -47.5688 -73.4483 1"
+set_cam -73.1539 -47.2337 -73.93 0 -161.61 0 40.3037
 say 2 "Branch" "I hear your folk compare yourselves and your affairs to ours, [wait 0.05]and how we seem so much more peaceful... [wait 0.1]Looking around at the state of your home, [wait 0.05]I can finally see why."
+send_character_message 2 "set_head_target -74.0853 -46.9566 -71.9794 1"
 say 2 "Branch" "Truthfully, [wait 0.05]those of us in Wynsis have the wisdom to keep our teeth in a row. [wait 0.1]That's how we're not ugly."
+send_character_message 1 "set_eye_dir -73.018 -47.0472 -72.3872 1"
+send_character_message 1 "set_head_target -73.438 -46.8519 -72.3253 1"
+set_cam -71.3848 -47.2043 -73.2582 0 112.93 0 40.3037
+send_character_message 2 "set_head_target -74.2463 -47.0527 -72.3315 1"
 say 3 "Ghost" "..."
 say 2 "Branch" "Now, [wait 0.05]what you were waiting for... [wait 0.05]Your very own plexicrete bracers."
 say 1 "Ghost" "Plexi...[wait 0.05]? [wait 0.1]Never heard of that kinda crete before."
