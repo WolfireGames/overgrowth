@@ -1,0 +1,13 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-74.3328" t1="-48.0491" t2="-72.8975" s0="0.322706" s1="0.127241" s2="0.190817" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6727" version="1">
+        <parameters />
+        <EnvObject name="Ghost Buckler" t0="-74.2547" t1="-48.0491" t2="-72.8975" s0="-0.112132" s1="0.107375" s2="0.112132" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6724" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/standard-buckler.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Ghost Buckler" t0="-74.4266" t1="-48.0491" t2="-72.8975" s0="0.880705" s1="0.7447" s2="0.77289" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6725" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/BucklerScale.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>
