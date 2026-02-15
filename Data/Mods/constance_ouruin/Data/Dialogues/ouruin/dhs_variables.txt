@@ -559,7 +559,8 @@ Define variable, its values and notes for each value.
 			-1: Reward accepted. Job complete!
 			0: Job not active
 			1: Job accepted, letter with Ghost
-			2: Letter delivered and Snakes encountered, reward ready
+			2: Letter delivered, reward ready
+			3: Reward taken
 		
 		ouruin_job_speakeasy
 			-1: Reward accepted. Job complete!
@@ -587,11 +588,15 @@ Define variable, its values and notes for each value.
 	
 	ouruin_jasmine_quest
 		0: Jasmine has not been talked to
-		1: Jasmine has been informed of the Thoritz job
-		2: Jasmine has been informed of Thoritz' condition
-		3: Jasmine has talked about the rat den
-		4: Ghost has informed Jasmine of the rat extermination. Quest complete!
-		5: Ghost has informed Jasmine of the rat extermination, including the spared mother rat. Quest complete!
+		1: Jasmine has talked about the rat den
+		2: Ghost has informed Jasmine of the rat extermination. Quest complete!
+		3: Ghost has informed Jasmine of the rat extermination, including the spared mother rat. Quest complete!
+
+		ouruin_jasmine_thoritz
+			0: Jasmine doesn't know about Thoritz
+			1: Jasmine has learned about Thoritz
+			2: Jasmine is in Thoritz' room
+			3: Jasmine is back to her spot
 
 	ouruin_ratty_quest
 		0: Player has not met Ratty

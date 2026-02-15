@@ -1,8 +1,48 @@
 #name "Branch-Whaleman"
 #participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.52 0.28 1.0
+set_dialogue_voice 2 10
+set_dialogue_color 4 0.52 0.28 1.0
+set_dialogue_voice 4 10
+send_character_message 2 "set_animation \"Data/Animations/branch_idle.anm\""
+set_character_pos 1 -75.017 -47.8972 -72.2776 0
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir -73.36 -47.0031 -72.4204 1"
+send_character_message 1 "set_torso_target -74.4679 -47.5691 -72.2346 0.0131072"
+send_character_message 1 "set_head_target -73.6131 -47.2008 -72.4513 1"
+set_cam -76.6468 -47.4308 -75.4394 0 -139.68 0 41.7149
+set_character_pos 2 -72.6534 -47.8214 -72.4862 180
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 0.550809"
+send_character_message 2 "set_torso_target -72.5701 -47.1517 -72.0195 0"
+send_character_message 2 "set_head_target -73.9231 -47.1106 -71.6626 1"
+send_level_message "enable 6686"
+send_level_message "set_camera_dof 0.0 5.0 10.0 1.5 1.0 3.0"
 say 2 "Branch" "So, [wait 0.05]I was right on the money: [wait 0.1]You were hired to steal the whaleman notes in particular, hm?"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target -73.6313 -47.0379 -72.4051 1"
+send_character_message 2 "set_torso_target -73.337 -47.6763 -72.4804 0.992783"
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 0.743437"
+send_character_message 2 "set_head_target -74.147 -47.3116 -71.9756 1"
 say 1 "Ghost" "What's got him so fussy about it? [wait 0.05]Isn't that just a story for your pups?"
+send_character_message 1 "set_head_target -73.6313 -47.0379 -72.4051 1"
+send_character_message 2 "set_animation \"Data/Animations/branch_stance.anm\""
+send_character_message 2 "set_torso_target -73.337 -47.6763 -72.4804 0.00449648"
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 1"
+send_character_message 2 "set_head_target -74.5061 -46.8673 -72.3313 1"
 say 2 "Branch" "And a powerful cultural tool. [wait 0.05]Stories hold sway, [wait 0.05]kit. [wait 0.1]They're memories of times that have been, [wait 0.05]feelings and choices that are paid forwards."
+set_cam -74.5426 -47.225 -71.6223 0 -59.44 0 33.5047
+send_character_message 1 "set_head_target -73.6129 -46.9773 -72.4273 1"
+send_character_message 2 "set_torso_target -73.6286 -47.2614 -72.2268 1"
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 0.76663"
+send_character_message 2 "set_head_target -74.5491 -47.1566 -72.33 1"
 say 2 "Branch" "Rememberances belong to history. [wait 0.05]And the clans own that history. [wait 0.05]To evaluate and reflect on the stories of the past, [wait 0.05]to fit our present..."
+send_character_message 1 "set_head_target -73.6381 -47.0986 -72.4058 1"
+send_character_message 2 "set_torso_target -73.6286 -47.1995 -72.2268 1"
+send_character_message 2 "set_eye_dir -73.1784 -46.8643 -72.4049 0"
+send_character_message 2 "set_head_target -73.701 -46.8867 -71.9693 1"
 say 2 "Branch" "Even rabbits should understand. [wait 0.05]Why else would you Cinderbreathe, [wait 0.05]of all people, [wait 0.05]employ your so-called archaeologists? [wait 0.05]They couldn't tell rock from rubble."
 send_level_message "dialogue_done"
