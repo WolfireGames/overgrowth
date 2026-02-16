@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="7.77438" t1="-48.6271" t2="5.69166" s0="1" s1="1" s2="1" q0="0.100297" q1="0.67853" q2="-0.0943168" q3="0.721555" euler_x="0.276233" euler_y="1.50936" euler_z="0" id="0">
+    <CameraObject t0="7.67987" t1="-48.7393" t2="4.53771" s0="1" s1="1" s2="1" q0="0.0623124" q1="0.814791" q2="-0.0891575" q3="0.569459" euler_x="-2.92361" euler_y="1.21998" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -67,7 +67,7 @@
     </EnvObject>
     <Prefab t0="22.1366" t1="-1.86256" t2="-43.6332" s0="1.194" s1="1.194" s2="1.194" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="22" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/equipment/cosmetictemplate.xml" os0="1.194" os1="1.194" os2="1.194">
         <parameters />
-        <Hotspot name="Ghost Equipment (Cosmetic)" t0="22.1366" t1="-1.86256" t2="-43.6332" s0="0.296" s1="0.296" s2="0.296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="21" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <Hotspot name="Ghost Equipment (Cosmetic)" t0="22.1366" t1="-1.86256" t2="-43.6332" s0="0.296" s1="0.296" s2="0.296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
             <parameters>
                 <parameter name="Debug Current Line" type="int" val="0" />
                 <parameter name="Run in EditorMode" type="int" val="1" />
@@ -19264,16 +19264,16 @@
     </EnvObject>
     <Group t0="5.72889" t1="-50.1147" t2="5.50885" s0="0.440351" s1="0.415972" s2="5.17656" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6108" version="1">
         <parameters />
-        <EnvObject t0="5.81326" t1="-50.1147" t2="7.42942" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.57045" euler_z="0" id="7320" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+        <EnvObject t0="5.81326" t1="-50.1147" t2="7.42942" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="7320" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="5.64451" t1="-50.1147" t2="6.13219" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0.982794" euler_y="1.57045" euler_z="0" id="7321" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+        <EnvObject t0="5.64451" t1="-50.1147" t2="6.13219" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="7321" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="5.81326" t1="-50.1147" t2="4.88551" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.57045" euler_z="0" id="7322" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+        <EnvObject t0="5.81326" t1="-50.1147" t2="4.88551" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="7322" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="5.64451" t1="-50.1147" t2="3.58828" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0.982794" euler_y="1.57045" euler_z="0" id="7323" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+        <EnvObject t0="5.64451" t1="-50.1147" t2="3.58828" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="7323" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -22339,7 +22339,7 @@
     <EnvObject t0="12.1603" t1="-46.9207" t2="5.63379" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7070" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/rabbit_village/rabbit_hut_square_hearth.xml">
         <parameters />
     </EnvObject>
-    <ActorObject name="Thoritz" t0="10.8857" t1="-49.8069" t2="6.46252" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="-0.678934" q2="0" q3="0.7342" euler_x="-1.25022e-06" euler_y="-1.49262" euler_z="1.17641e-06" id="7073" type_file="Data/Objects/characters/dogs/dog_soldier_actor.xml" is_player="0">
+    <ActorObject name="Thoritz" t0="10.8857" t1="-49.8069" t2="6.46252" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="-0.678934" q2="0" q3="0.7342" euler_x="0" euler_y="-1.49263" euler_z="0" id="7073" type_file="Data/Objects/characters/dogs/dog_soldier_actor.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />
@@ -22397,7 +22397,7 @@
             <Color label="Fur patches" channel="3" red="0.105882" green="0.0773979" blue="0.0564706" />
         </Palette>
     </ActorObject>
-    <EnvObject t0="11.1682" t1="-48.8741" t2="5.38914" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="7074" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+    <EnvObject t0="11.1682" t1="-48.8741" t2="5.38914" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="2.90597" euler_y="-1.5708" euler_z="-2.90597" id="7074" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="11.4728" t1="-44.4407" t2="5.09291" s0="0.909442" s1="0.470865" s2="0.45899" q0="0.92388" q1="0" q2="-0.382683" q3="0" euler_x="3.14159" euler_y="0.785398" euler_z="0" id="7075" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
@@ -22418,7 +22418,7 @@
     <EnvObject t0="11.1682" t1="-49.5829" t2="5.38914" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7080" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="11.1682" t1="-49.5829" t2="5.83232" s0="1.00653" s1="1.00653" s2="1.00653" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="7081" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
+    <EnvObject t0="11.1682" t1="-49.5829" t2="5.83232" s0="1.00653" s1="1.00653" s2="1.00653" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.00368" euler_y="-1.5708" euler_z="-3.00368" id="7081" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="11.1682" t1="-49.2235" t2="5.21219" s0="1" s1="1" s2="1" q0="0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="1.5708" id="7082" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
@@ -22427,7 +22427,7 @@
     <EnvObject t0="11.1682" t1="-49.2235" t2="6.01039" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="7083" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="12.2574" t1="-46.9666" t2="5.6333" s0="0.937885" s1="0.937885" s2="0.00214181" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="2.90597" euler_y="1.5708" euler_z="2.90597" id="7084" color_r="0.121569" color_g="0.121567" color_b="0.121567" overbright="0" type_file="Data/Objects/Buildings/rabbit_village/rabbit_hut_square_hearth.xml">
+    <EnvObject t0="12.2574" t1="-46.9666" t2="5.6333" s0="0.937885" s1="0.937885" s2="0.00214181" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="7084" color_r="0.121569" color_g="0.121567" color_b="0.121567" overbright="0" type_file="Data/Objects/Buildings/rabbit_village/rabbit_hut_square_hearth.xml">
         <parameters />
     </EnvObject>
     <EnvObject name="Thoritz Fireplace Unlit" t0="11.7525" t1="-49.4176" t2="5.60526" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7087" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/fire_wood.xml">
@@ -22870,7 +22870,7 @@
     </DynamicLightObject>
     <PathPointObject t0="10.9369" t1="-50.6238" t2="6.54769" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7247" type_file="">
         <parameters>
-            <parameter name="Type" type="string" val="Data/Animations/thoritz_curl.anm" />
+            <parameter name="Type" type="string" val="Data/Animations/thoritz_shiver.anm" />
             <parameter name="Wait" type="float" val="1" />
         </parameters>
         <Connections />
@@ -22951,7 +22951,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Decal t0="-73.5229" t1="-48.2755" t2="-73.0285" s0="0.843443" s1="0.375249" s2="0.843443" q0="0.0483766" q1="0.0273754" q2="0.071785" q3="0.995869" euler_x="0.100567" euler_y="0.0475973" euler_z="0.146312" id="7277" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.415686" color_g="0.415682" color_b="0.415682" overbright="0">
+    <Decal t0="-73.5229" t1="-48.2755" t2="-73.0285" s0="0.843443" s1="0.375249" s2="0.843443" q0="0.0483766" q1="0.0273754" q2="0.071785" q3="0.995869" euler_x="0.100567" euler_y="0.0475972" euler_z="0.146312" id="7277" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.415686" color_g="0.415682" color_b="0.415682" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-75.0126" t1="-59.2576" t2="-117.928" s0="9.08883" s1="0.1" s2="10.5365" q0="0" q1="-0.311018" q2="0" q3="0.950404" euler_x="0" euler_y="-0.632528" euler_z="0" id="7278" type_file="Data/Objects/Decals/water_froth.xml" color_r="0.12549" color_g="0.125489" color_b="0.125489" overbright="0">
@@ -23035,13 +23035,13 @@
     <EnvObject t0="-76.9996" t1="-46.6008" t2="-70.5981" s0="0.393677" s1="0.393677" s2="0.393677" q0="0" q1="0" q2="0.0100253" q3="-0.99995" euler_x="0" euler_y="0" euler_z="-0.0200509" id="7304" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-76.6457" t1="-46.444" t2="-70.5981" s0="0.393677" s1="0.393677" s2="0.393677" q0="0" q1="0" q2="0.00447974" q3="0.99999" euler_x="0" euler_y="0" euler_z="0.00895952" id="7305" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
+    <EnvObject t0="-76.6457" t1="-46.444" t2="-70.5981" s0="0.393677" s1="0.393677" s2="0.393677" q0="0" q1="0" q2="0.00447974" q3="0.99999" euler_x="0" euler_y="0" euler_z="0.00895951" id="7305" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="-76.4589" t1="-46.4606" t2="-70.5981" s0="0.393677" s1="0.393677" s2="0.393677" q0="0" q1="0" q2="0.996282" q3="0.0861542" euler_x="0" euler_y="0" euler_z="2.96907" id="7306" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-76.3329" t1="-46.7184" t2="-70.5981" s0="0.393677" s1="0.393677" s2="0.393677" q0="0" q1="0" q2="0.0362224" q3="0.999344" euler_x="0" euler_y="0" euler_z="0.0724606" id="7307" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
+    <EnvObject t0="-76.3329" t1="-46.7184" t2="-70.5981" s0="0.393677" s1="0.393677" s2="0.393677" q0="0" q1="0" q2="0.0362224" q3="0.999344" euler_x="0" euler_y="0" euler_z="0.0724607" id="7307" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/LargeNail1.xml">
         <parameters />
     </EnvObject>
     <Decal t0="-77.1582" t1="-46.4226" t2="-70.6311" s0="0.098" s1="0.391805" s2="0.461965" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7308" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.380392" color_g="0.380388" color_b="0.380388" overbright="0">
@@ -23050,7 +23050,7 @@
     <Decal t0="-76.3142" t1="-46.4226" t2="-70.6311" s0="0.098" s1="0.391805" s2="0.461965" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7309" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.380392" color_g="0.380388" color_b="0.380388" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-73.8991" t1="-48.2801" t2="-73.1445" s0="0.396906" s1="0.140041" s2="0.168684" q0="0.0360321" q1="0.291898" q2="0.142594" q3="0.945073" euler_x="0.181011" euler_y="0.572165" euler_z="0.352881" id="7310" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.415686" color_g="0.415682" color_b="0.415682" overbright="0">
+    <Decal t0="-73.8991" t1="-48.2801" t2="-73.1445" s0="0.396906" s1="0.140041" s2="0.168684" q0="0.0360321" q1="0.291898" q2="0.142594" q3="0.945073" euler_x="0.181011" euler_y="0.572166" euler_z="0.352881" id="7310" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.415686" color_g="0.415682" color_b="0.415682" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-75.4423" t1="-48.264" t2="-71.0228" s0="0.799394" s1="2.04292" s2="0.855027" q0="0" q1="-0.00431323" q2="0" q3="0.99999" euler_x="0" euler_y="-0.00862648" euler_z="0" id="7311" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.411765" color_g="0.411763" color_b="0.411761" overbright="0">
@@ -23064,12 +23064,12 @@
     </DynamicLightObject>
     <Group t0="1.67946" t1="-49.9176" t2="5.6731" s0="0.317044" s1="0.371183" s2="0.737252" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7329" version="1">
         <parameters />
-        <Group t0="1.67946" t1="-49.9176" t2="5.6731" s0="0.727252" s1="0.361181" s2="0.307044" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="-2.65398" euler_y="-1.5708" euler_z="2.65398" id="7327" version="1">
+        <Group t0="1.67946" t1="-49.9176" t2="5.6731" s0="0.727252" s1="0.361181" s2="0.307044" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7327" version="1">
             <parameters />
             <EnvObject t0="1.67946" t1="-49.9176" t2="5.6731" s0="1.94222" s1="1.85229" s2="2.51644" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="7325" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/StoneWindow1.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="1.79844" t1="-49.9176" t2="5.67011" s0="0.203344" s1="0.0417056" s2="0.314584" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="-2.65398" euler_y="1.5708" euler_z="-2.65398" id="7326" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
+            <EnvObject t0="1.79844" t1="-49.9176" t2="5.67011" s0="0.203344" s1="0.0417056" s2="0.314584" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="7326" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Banner_Bars.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -23077,16 +23077,16 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject name="Thoritz Fireplace Lit" t0="11.752" t1="-49.417" t2="5.605" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7330" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/fire_wood_hot.xml">
+    <EnvObject name="Thoritz Fireplace Lit" t0="11.752" t1="-49.417" t2="5.605" s0="1.5" s1="1.5" s2="1.5" q0="0" q1="-0.950381" q2="0" q3="0.311088" euler_x="3.14159" euler_y="-0.632675" euler_z="-3.14159" id="7330" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/fire_wood_hot.xml">
         <parameters />
     </EnvObject>
-    <Decal name="Thoritz Fireplace Lit" t0="11.7702" t1="-49.3593" t2="5.60535" s0="0.885807" s1="0.647377" s2="0.889608" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7331" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal name="Thoritz Fireplace Lit" t0="11.7702" t1="-49.3577" t2="5.60535" s0="0.792952" s1="0.39373" s2="0.796355" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7331" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal name="Thoritz Fireplace Lit" t0="11.6321" t1="-49.3" t2="5.62818" s0="0.641225" s1="0.750814" s2="0.933248" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="7332" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal name="Thoritz Fireplace Lit" t0="11.6129" t1="-49.2655" t2="5.61667" s0="0.452117" s1="0.529387" s2="0.658018" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="7332" type_file="Data/Objects/Decals/flame_base.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Hotspot name="Thoritz Fireplace Fire" t0="11.805" t1="-49.5231" t2="5.63255" s0="0.161155" s1="0.0554169" s2="0.161155" q0="1" q1="0" q2="0" q3="0" euler_x="-3.14159" euler_y="0" euler_z="0" id="7333" type_file="Data/Objects/Hotspots/fire_test.xml">
+    <Hotspot name="Thoritz Fireplace Fire" t0="11.805" t1="-49.5231" t2="5.63255" s0="0.161155" s1="0.0554169" s2="0.161155" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="7333" type_file="Data/Objects/Hotspots/fire_test.xml">
         <parameters>
             <parameter name="Campfire Sound" type="int" val="1" />
             <parameter name="Fire Ribbons" type="int" val="4" />
@@ -23121,7 +23121,7 @@
     <Decal name="Thoritz Fireplace Lit" t0="10.4588" t1="-48.4513" t2="8.33517" s0="0.176159" s1="3.83885" s2="0.570018" q0="0.0557041" q1="-0.0887668" q2="-0.00497214" q3="0.994481" euler_x="0.113692" euler_y="-0.176921" euler_z="-0.0200937" id="7342" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
         <parameters />
     </Decal>
-    <Decal name="Thoritz Fireplace Lit" t0="9.96178" t1="-48.4305" t2="8.33797" s0="0.194854" s1="3.88081" s2="0.61072" q0="0.0549293" q1="-0.187619" q2="-0.0105092" q3="0.980648" euler_x="0.120334" euler_y="-0.375591" euler_z="-0.0443266" id="7343" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
+    <Decal name="Thoritz Fireplace Lit" t0="9.96178" t1="-48.4305" t2="8.33797" s0="0.194854" s1="3.88081" s2="0.61072" q0="0.0549293" q1="-0.187619" q2="-0.0105092" q3="0.980648" euler_x="0.120334" euler_y="-0.37559" euler_z="-0.0443267" id="7343" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
         <parameters />
     </Decal>
     <Decal name="Thoritz Fireplace Lit" t0="10.1749" t1="-49.2167" t2="8.31603" s0="0.0806045" s1="0.443673" s2="0.26987" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="7344" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
@@ -23130,7 +23130,7 @@
     <Decal name="Thoritz Fireplace Lit" t0="10.1649" t1="-49.5077" t2="8.31603" s0="0.0806045" s1="0.443673" s2="0.26987" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="7345" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
         <parameters />
     </Decal>
-    <Decal name="Thoritz Fireplace Lit" t0="10.1999" t1="-49.8128" t2="8.18384" s0="0.0806045" s1="0.443673" s2="0.26987" q0="0.052834" q1="-0.052834" q2="0.70513" q3="0.70513" euler_x="0" euler_y="-0.149577" euler_z="1.5708" id="7346" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
+    <Decal name="Thoritz Fireplace Lit" t0="10.1999" t1="-49.8128" t2="8.18384" s0="0.0806045" s1="0.443673" s2="0.26987" q0="0.052834" q1="-0.052834" q2="0.70513" q3="0.70513" euler_x="0" euler_y="-0.149576" euler_z="1.5708" id="7346" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
         <parameters />
     </Decal>
     <Decal name="Thoritz Fireplace Lit" t0="10.2009" t1="-48.8787" t2="8.31661" s0="0.0806044" s1="0.418677" s2="0.268747" q0="0" q1="0" q2="0.707107" q3="0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="7347" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
@@ -23168,18 +23168,18 @@
     </Decal>
     <Group t0="8.0847" t1="-50.1147" t2="5.51134" s0="0.450351" s1="0.42597" s2="5.18155" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7358" version="1">
         <parameters />
-        <EnvObject t0="8.16908" t1="-50.1147" t2="4.8855" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.57045" euler_z="0" id="7315" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+        <EnvObject t0="8.16908" t1="-50.1147" t2="4.8855" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="7315" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="8.00033" t1="-50.1147" t2="3.58827" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0.982794" euler_y="1.57045" euler_z="0" id="7316" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+        <EnvObject t0="8.00033" t1="-50.1147" t2="3.58827" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="7316" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
             <parameters />
         </EnvObject>
         <Group t0="8.0847" t1="-50.1147" t2="6.7808" s0="0.440351" s1="0.415972" s2="2.63265" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7324" version="1">
             <parameters />
-            <EnvObject t0="8.16908" t1="-50.1147" t2="7.42941" s0="0.811301" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.57045" euler_z="0" id="7313" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+            <EnvObject t0="8.16908" t1="-50.1147" t2="7.42941" s0="0.811301" s1="0.470865" s2="0.688485" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="7313" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="8.00033" t1="-50.1147" t2="6.13218" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0.982794" euler_y="1.57045" euler_z="0" id="7314" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
+            <EnvObject t0="8.00033" t1="-50.1147" t2="6.13218" s0="0.811302" s1="0.470865" s2="0.688485" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.5708" euler_z="0" id="7314" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -23187,10 +23187,10 @@
     <Decal name="Thoritz Fireplace Lit" t0="6.64242" t1="-46.2111" t2="2.92489" s0="0.649137" s1="3.81145" s2="0.257024" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7359" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.517647" color_g="0.517642" color_b="0.517642" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="6.88792" t1="-48.4638" t2="2.98903" s0="0.0127596" s1="0.145356" s2="0.0738532" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="7360" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+    <EnvObject t0="6.88792" t1="-48.4638" t2="2.98903" s0="0.0127596" s1="0.145356" s2="0.0738532" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7360" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="6.78655" t1="-48.4529" t2="-5.87369" s0="0.0127596" s1="0.145356" s2="0.0738532" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="0" euler_y="-1.57045" euler_z="0" id="7361" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+    <EnvObject t0="6.78655" t1="-48.4529" t2="-5.87369" s0="0.0127596" s1="0.145356" s2="0.0738532" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7361" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
         <parameters />
     </EnvObject>
     <Decal t0="6.78933" t1="-48.4433" t2="-5.87013" s0="0.192741" s1="0.351435" s2="0.0895067" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7362" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
