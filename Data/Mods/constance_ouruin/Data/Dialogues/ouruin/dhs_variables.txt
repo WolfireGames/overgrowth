@@ -550,24 +550,24 @@ Define variable, its values and notes for each value.
 		ouruin_nedis_jobsdone
 
 		ouruin_job_weapondelivery
-			-1: Reward accepted. Job complete!
 			0: Job available
 			1: Job accepted, weapon with Ghost
 			2: Weapon delivered, reward ready
+			3: Reward accepted. Job complete!
 		
 		ouruin_job_thoritz
-			-1: Reward accepted. Job complete!
 			0: Job not active
 			1: Job accepted, letter with Ghost
 			2: Letter delivered, reward ready
 			3: Reward taken
+			4: Reward accepted. Job complete!
 		
 		ouruin_job_speakeasy
-			-1: Reward accepted. Job complete!
 			0: Job not active
 			1: Job accepted
 			2: Ghost is in the speakeasy
 			3: Job complete, reward ready
+			4: Reward accepted. Job complete!
 
 			ouruin_job_speakeasy_suspicion
 				0: Members trust Ghost

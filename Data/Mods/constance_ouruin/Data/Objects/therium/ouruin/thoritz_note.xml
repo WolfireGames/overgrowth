@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/thoritz_note.obj</Model>
+	<ColorMap>Data/Textures/ouruin/thoritz_note.tga</ColorMap>
+	<NormalMap>Data/Textures/blank_TS_n.tga</NormalMap>
+	<ShaderName>cubemapalpha</ShaderName>
+    <flags no_collision = "true"/>
+</Object>
