@@ -1,0 +1,49 @@
+#name "Jasmine-AboutThoritz"
+#participants 3
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+set_character_pos 2 40.2828 -54.8405 60.1791 80
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
+send_character_message 2 "set_eye_dir 40.1561 -54.2675 58.8982 0.624444"
+send_character_message 2 "set_head_target 40.6151 -54.7627 59.2452 1"
+set_character_pos 1 40.2928 -55.1421 58.7015 -90
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 0.890114"
+send_character_message 1 "set_torso_target 41.4183 -54.5819 58.4763 0"
+send_character_message 1 "set_head_target 40.3082 -54.3425 59.868 1"
+set_cam 38.9534 -52.5662 56.1228 -31.23 -161.67 0 50.0391
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+say 2 "Jasmine" "Was just about to kick 'is ass for flaking on me when you snuck in. [wait 0.1]What were 'ye doing, [wait 0.05]eavesdropping like that?"
+send_character_message 2 "set_eye_dir 40.1561 -54.2675 58.8982 0.543176"
+send_character_message 2 "set_head_target 40.6014 -54.6883 59.184 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_welcome.anm\""
+send_character_message 1 "set_head_target 40.3108 -54.1113 59.8925 1"
+say 1 "Ghost" "Thoritz was in a bad way. [wait 0.1]Just wanted to check in on him... [wait 0.1]Same as you."
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 40.3035 -54.2254 59.849 1"
+send_character_message 2 "set_eye_dir 39.0674 -54.0629 59.2798 0.355085"
+send_character_message 2 "set_head_target 40.829 -54.4742 59.2121 1"
+say 2 "Jasmine" "...[wait 0.05]Bah. [wait 0.1]Whatever. [wait 0.1]Say whatever you want, [wait 0.05]I don't care."
+send_character_message 1 "set_head_target 40.3051 -54.2842 59.8112 1"
+send_character_message 2 "set_eye_dir 39.9234 -54.1389 58.9693 0.735157"
+send_character_message 2 "set_head_target 41.2713 -54.718 59.2232 1"
+say 2 "Jasmine" "You've delivered that letter, [wait 0.05]hadn't you? [wait 0.1]So leave it all alone. [wait 0.1]Your job's done."
+send_character_message 2 "set_head_target 41.2165 -54.6188 59.1365 1"
+send_character_message 1 "set_head_target 39.2915 -54.3151 59.6241 1"
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+say 1 "Ghost" "Yeah, [wait 0.05]yeah. [wait 0.1]I've got no business, [wait 0.05]now. [wait 0.1]Quit your prodding."
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 1"
+send_character_message 1 "set_head_target 39.7277 -54.3551 59.9489 1"
+send_character_message 2 "set_eye_dir 41.1371 -54.3742 59.5073 0.441638"
+send_character_message 2 "set_head_target 41.7397 -53.8867 59.3969 1"
+say 2 "Jasmine" "Well if it's prodding you're on about, [wait 0.05]why're you here talking to me, [wait 0.05]eh? [wait 0.05]Kak!"
+send_level_message "dialogue_done"

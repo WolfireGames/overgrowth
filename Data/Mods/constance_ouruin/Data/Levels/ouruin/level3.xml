@@ -51,7 +51,7 @@
     <RayToSun r0="-0.161343" r1="0.682514" r2="-0.712841" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="294.597" t1="-39.2441" t2="106.093" s0="1" s1="1" s2="1" q0="0.110315" q1="0.72705" q2="-0.120263" q3="0.666908" euler_x="-2.81374" euler_y="1.48456" euler_z="3.14159" id="0">
+    <CameraObject t0="248.53" t1="-47.2776" t2="104.646" s0="1" s1="1" s2="1" q0="0.0309912" q1="0.936009" q2="-0.0852993" q3="0.340074" euler_x="-2.95983" euler_y="0.696989" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="181.769" t1="-55.9922" t2="109.042" s0="0.613082" s1="0.613082" s2="0.613082" q0="0.00733727" q1="-0.681411" q2="0.0110127" q3="-0.731781" euler_x="-0.346757" euler_y="1.49496" euler_z="-0.351959" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/hex_crete_rubble_simplecol.xml">
@@ -162,6 +162,7 @@
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracer" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
@@ -296,6 +297,18 @@
                 <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
                 <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
             </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="9" num_connections="1" m0="-0.0334404" m1="-0.00912303" m2="-0.999399" m3="0" m4="0.595945" m5="0.802562" m6="-0.0272667" m7="0" m8="0.802328" m9="-0.596499" m10="-0.021401" m11="0" m12="0.503387" m13="0.140205" m14="-0.026123" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="22" num_connections="1" m0="0.121327" m1="-0.116472" m2="0.985754" m3="0" m4="-0.524389" m5="0.835676" m6="0.163282" m7="0" m8="-0.842789" m9="-0.536731" m10="0.0403134" m11="0" m12="-0.486176" m13="0.144676" m14="-0.0235443" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
         </EnvObjectAttachments>
         <EnvObject name="Ghost Armor" s0="1" s1="1" s2="1" id="17272" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
             <parameters />
@@ -358,6 +371,12 @@
             <parameters />
         </EnvObject>
         <EnvObject name="Ghost Staff" s0="0.391821" s1="0.537277" s2="0.363728" id="2441" color_r="0.653749" color_g="0.720011" color_b="0.854902" overbright="0" type_file="Data/Objects/therium/rope/knot.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Ghost Buckler" s0="-0.112132" s1="0.107375" s2="0.112132" id="16807" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/standard-buckler.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Ghost Buckler" s0="0.880705" s1="0.7447" s2="0.77289" id="16808" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/BucklerScale.xml">
             <parameters />
         </EnvObject>
     </ActorObject>
@@ -3558,7 +3577,7 @@
             <parameters>
                 <parameter name="Debug Current Line" type="int" val="0" />
                 <parameter name="Run in EditorMode" type="int" val="1" />
-                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;This script gives &amp; preps items for Ghost, and then waits for sheathe_weapon and then prepare_weapon&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Init Disable &amp; Return&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Armor&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:31,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_armor&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped armor&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:36},{&quot;display_comment&quot;:&quot;Unequipped armor&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Shortsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:43,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;shortsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:48},{&quot;display_comment&quot;:&quot;Unequipped shortsword&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:55,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;broadsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped broadsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:60},{&quot;display_comment&quot;:&quot;Unequipped broadsword&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:67,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;knife&quot;]},{&quot;display_comment&quot;:&quot;Equipped knife&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:72},{&quot;display_comment&quot;:&quot;Unequipped knife&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:79,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;throwing&quot;]},{&quot;display_comment&quot;:&quot;Equipped throwing&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:84},{&quot;display_comment&quot;:&quot;Unequipped throwing&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:91,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;spear&quot;]},{&quot;display_comment&quot;:&quot;Equipped spear&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:96},{&quot;display_comment&quot;:&quot;Unequipped spear&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:103,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;staff&quot;]},{&quot;display_comment&quot;:&quot;Equip staff&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:110},{&quot;display_comment&quot;:&quot;Unequip staff&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;sheathe_weapon&quot;},{&quot;display_comment&quot;:&quot;Return weapon to Ghost doll inventory and enable cosmetic weapon&quot;,&quot;function&quot;:34},{&quot;character_message_type&quot;:0,&quot;function&quot;:29,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;message&quot;:&quot;empty_hands&quot;},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Shortsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:134,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;shortsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:138},{&quot;display_comment&quot;:&quot;Unequipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:143,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;broadsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped broadsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:147},{&quot;display_comment&quot;:&quot;Unequipped broadsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:152,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;knife&quot;]},{&quot;display_comment&quot;:&quot;Equipped knife&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:156},{&quot;display_comment&quot;:&quot;Unequipped knife&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:161,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;throwing&quot;]},{&quot;display_comment&quot;:&quot;Equipped throwing&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:165},{&quot;display_comment&quot;:&quot;Unequipped throwing&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:170,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;spear&quot;]},{&quot;display_comment&quot;:&quot;Equipped spear&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:174},{&quot;display_comment&quot;:&quot;Unequipped spear&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:180,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;staff&quot;]},{&quot;display_comment&quot;:&quot;Equip staff&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:1,&quot;message&quot;:&quot;prepare_weapon&quot;},{&quot;function&quot;:7,&quot;line&quot;:20},{&quot;display_comment&quot;:&quot;Unequipped staff&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:1,&quot;message&quot;:&quot;prepare_weapon&quot;},{&quot;function&quot;:7,&quot;line&quot;:20}]}&#x0A;' />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;This script gives &amp; preps items for Ghost, and then waits for sheathe_weapon and then prepare_weapon&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Init Disable &amp; Return&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Armor&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:32,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_armor&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped armor&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:37},{&quot;display_comment&quot;:&quot;Unequipped armor&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Bracers&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:43,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_armor&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped bracers&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:50,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:48},{&quot;display_comment&quot;:&quot;Unequipped bracers&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:50,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Shortsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:55,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;shortsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:60},{&quot;display_comment&quot;:&quot;Unequipped shortsword&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:67,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;broadsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped broadsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:72},{&quot;display_comment&quot;:&quot;Unequipped broadsword&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:79,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;knife&quot;]},{&quot;display_comment&quot;:&quot;Equipped knife&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:84},{&quot;display_comment&quot;:&quot;Unequipped knife&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:91,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;throwing&quot;]},{&quot;display_comment&quot;:&quot;Equipped throwing&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:96},{&quot;display_comment&quot;:&quot;Unequipped throwing&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:103,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;spear&quot;]},{&quot;display_comment&quot;:&quot;Equipped spear&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:108},{&quot;display_comment&quot;:&quot;Unequipped spear&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:115,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;staff&quot;]},{&quot;display_comment&quot;:&quot;Equip staff&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:122},{&quot;display_comment&quot;:&quot;Unequip staff&quot;,&quot;function&quot;:34},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;sheathe_weapon&quot;},{&quot;display_comment&quot;:&quot;Return weapon to Ghost doll inventory and enable cosmetic weapon&quot;,&quot;function&quot;:34},{&quot;character_message_type&quot;:0,&quot;function&quot;:29,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;message&quot;:&quot;empty_hands&quot;},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:1,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;attachment_type&quot;:0,&quot;character_option&quot;:47,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost Doll&quot;,&quot;identifier_item_select&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_item_select&quot;:3,&quot;mirrored&quot;:false,&quot;param_type&quot;:7,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear Item&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff Item&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Shortsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:146,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;shortsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:150},{&quot;display_comment&quot;:&quot;Unequipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:155,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;broadsword&quot;]},{&quot;display_comment&quot;:&quot;Equipped broadsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:159},{&quot;display_comment&quot;:&quot;Unequipped broadsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:164,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;knife&quot;]},{&quot;display_comment&quot;:&quot;Equipped knife&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:168},{&quot;display_comment&quot;:&quot;Unequipped knife&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:173,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_sidearm&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;throwing&quot;]},{&quot;display_comment&quot;:&quot;Equipped throwing&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:177},{&quot;display_comment&quot;:&quot;Unequipped throwing&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:182,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;spear&quot;]},{&quot;display_comment&quot;:&quot;Equipped spear&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:186},{&quot;display_comment&quot;:&quot;Unequipped spear&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;== Staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:192,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_weapon&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;staff&quot;]},{&quot;display_comment&quot;:&quot;Equip staff&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:1,&quot;message&quot;:&quot;prepare_weapon&quot;},{&quot;function&quot;:7,&quot;line&quot;:21},{&quot;display_comment&quot;:&quot;Unequipped staff&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:1,&quot;message&quot;:&quot;prepare_weapon&quot;},{&quot;function&quot;:7,&quot;line&quot;:21}]}&#x0A;' />
                 <parameter name="Show UI Grid" type="int" val="1" />
                 <parameter name="Transform Relative" type="int" val="0" />
                 <parameter name="UI Snap Scale" type="int" val="20" />
@@ -3746,8 +3765,8 @@
         <NavMeshConnections>
             <NavMeshConnection other_object_id="1460" offmesh_connection_id="1010" poly_area="8" />
             <NavMeshConnection other_object_id="1458" offmesh_connection_id="1009" poly_area="7" />
-            <NavMeshConnection other_object_id="13968" offmesh_connection_id="1160" poly_area="7" />
-            <NavMeshConnection other_object_id="13969" offmesh_connection_id="1161" poly_area="7" />
+            <NavMeshConnection other_object_id="13968" offmesh_connection_id="1146" poly_area="7" />
+            <NavMeshConnection other_object_id="13969" offmesh_connection_id="1147" poly_area="7" />
             <NavMeshConnection other_object_id="1462" offmesh_connection_id="1012" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
@@ -16661,9 +16680,9 @@
         <EnvObject s0="0.32281" s1="0.32281" s2="0.32281" id="5624" color_r="0.78131" color_g="0.764706" color_b="1" overbright="0" type_file="Data/Objects/therium/rope/rope around stump.xml">
             <parameters />
         </EnvObject>
-        <Group t0="0" t1="-999999" t2="0" s0="0.249258" s1="0.299207" s2="0.191961" q0="0.0514108" q1="0.0329482" q2="-0.0651913" q3="0.996003" euler_x="0.0985317" euler_y="0.0723994" euler_z="-0.127148" id="16774" version="1">
+        <Group t0="0" t1="-999999" t2="0" s0="0.249258" s1="0.299207" s2="0.191961" q0="0.0527243" q1="0.0341738" q2="-0.0645217" q3="0.995936" euler_x="0.101065" euler_y="0.0749437" euler_z="-0.125597" id="16774" version="1">
             <parameters />
-            <Decal t0="0" t1="-999999" t2="0" s0="0.233516" s1="0.159598" s2="0.280917" q0="0.00836163" q1="0.722878" q2="-0.686239" q3="-0.0803326" euler_x="-1.61631" euler_y="-0.104857" euler_z="3.01826" id="16773" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0" t1="-999999" t2="0" s0="0.233516" s1="0.159598" s2="0.280917" q0="0.00699803" q1="0.723764" q2="-0.68528" q3="-0.0806733" euler_x="-1.61886" euler_y="-0.107392" euler_z="3.0199" id="16773" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
         </Group>
@@ -43174,9 +43193,9 @@
     <NavmeshConnectionObject t0="238.971" t1="-35.6282" t2="114.246" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13790" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14023" offmesh_connection_id="1179" poly_area="10" />
-            <NavMeshConnection other_object_id="14024" offmesh_connection_id="1180" poly_area="9" />
-            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1181" poly_area="10" />
+            <NavMeshConnection other_object_id="14023" offmesh_connection_id="1165" poly_area="10" />
+            <NavMeshConnection other_object_id="14024" offmesh_connection_id="1166" poly_area="9" />
+            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1167" poly_area="10" />
             <NavMeshConnection other_object_id="13788" offmesh_connection_id="1043" poly_area="8" />
             <NavMeshConnection other_object_id="13789" offmesh_connection_id="1044" poly_area="9" />
         </NavMeshConnections>
@@ -43255,7 +43274,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13808" offmesh_connection_id="1055" poly_area="9" />
-            <NavMeshConnection other_object_id="15227" offmesh_connection_id="1196" poly_area="9" />
+            <NavMeshConnection other_object_id="15227" offmesh_connection_id="1182" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="145.729" t1="-37.7243" t2="126.96" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13803" type_file="">
@@ -43278,7 +43297,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13807" offmesh_connection_id="1054" poly_area="8" />
-            <NavMeshConnection other_object_id="15084" offmesh_connection_id="1195" poly_area="9" />
+            <NavMeshConnection other_object_id="15084" offmesh_connection_id="1181" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="140.185" t1="-45.0857" t2="143.112" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13807" type_file="">
@@ -43402,21 +43421,21 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13821" offmesh_connection_id="1071" poly_area="9" />
-            <NavMeshConnection other_object_id="13970" offmesh_connection_id="1162" poly_area="9" />
+            <NavMeshConnection other_object_id="13970" offmesh_connection_id="1148" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="136.177" t1="-40.1898" t2="53.5075" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13825" type_file="">
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13821" offmesh_connection_id="1072" poly_area="9" />
-            <NavMeshConnection other_object_id="13987" offmesh_connection_id="1166" poly_area="9" />
+            <NavMeshConnection other_object_id="13987" offmesh_connection_id="1152" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="131.857" t1="-45.9861" t2="61.1344" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13826" type_file="">
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13827" offmesh_connection_id="1073" poly_area="7" />
-            <NavMeshConnection other_object_id="14008" offmesh_connection_id="1172" poly_area="8" />
+            <NavMeshConnection other_object_id="14008" offmesh_connection_id="1158" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="131.877" t1="-44.3647" t2="56.795" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13827" type_file="">
@@ -43448,7 +43467,7 @@
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13832" offmesh_connection_id="1076" poly_area="9" />
             <NavMeshConnection other_object_id="13830" offmesh_connection_id="1075" poly_area="8" />
-            <NavMeshConnection other_object_id="14009" offmesh_connection_id="1173" poly_area="8" />
+            <NavMeshConnection other_object_id="14009" offmesh_connection_id="1159" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="93.0536" t1="-48.7823" t2="62.2858" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13832" type_file="">
@@ -43489,7 +43508,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13838" offmesh_connection_id="1081" poly_area="10" />
-            <NavMeshConnection other_object_id="13971" offmesh_connection_id="1163" poly_area="10" />
+            <NavMeshConnection other_object_id="13971" offmesh_connection_id="1149" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="137.264" t1="-48.2155" t2="31.3915" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13838" type_file="">
@@ -43503,8 +43522,8 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13838" offmesh_connection_id="1082" poly_area="10" />
-            <NavMeshConnection other_object_id="13975" offmesh_connection_id="1164" poly_area="8" />
-            <NavMeshConnection other_object_id="15067" offmesh_connection_id="1194" poly_area="9" />
+            <NavMeshConnection other_object_id="13975" offmesh_connection_id="1150" poly_area="8" />
+            <NavMeshConnection other_object_id="15067" offmesh_connection_id="1180" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="105.01" t1="-44.3634" t2="139.127" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13842" type_file="">
@@ -43518,21 +43537,21 @@
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13844" offmesh_connection_id="1084" poly_area="9" />
             <NavMeshConnection other_object_id="13842" offmesh_connection_id="1083" poly_area="9" />
-            <NavMeshConnection other_object_id="14015" offmesh_connection_id="1174" poly_area="9" />
+            <NavMeshConnection other_object_id="14015" offmesh_connection_id="1160" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="104.407" t1="-44.1747" t2="145.05" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13844" type_file="">
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13843" offmesh_connection_id="1084" poly_area="9" />
-            <NavMeshConnection other_object_id="14015" offmesh_connection_id="1175" poly_area="9" />
+            <NavMeshConnection other_object_id="14015" offmesh_connection_id="1161" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="134.335" t1="-44.3097" t2="92.079" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13845" type_file="">
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13846" offmesh_connection_id="1085" poly_area="9" />
-            <NavMeshConnection other_object_id="16126" offmesh_connection_id="1200" poly_area="9" />
+            <NavMeshConnection other_object_id="16126" offmesh_connection_id="1186" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="146.038" t1="-44.7462" t2="93.8917" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13846" type_file="">
@@ -43712,7 +43731,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13873" offmesh_connection_id="1101" poly_area="10" />
-            <NavMeshConnection other_object_id="15349" offmesh_connection_id="1199" poly_area="7" />
+            <NavMeshConnection other_object_id="15349" offmesh_connection_id="1185" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="128.772" t1="-59.3136" t2="124.859" s0="1.1078" s1="1.04133" s2="1.21431" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="13876" color_r="0.929227" color_g="0.898039" color_b="1" overbright="2.523" type_file="Data/Objects/Buildings/Stairs1.xml">
@@ -43752,16 +43771,16 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13877" offmesh_connection_id="1104" poly_area="8" />
-            <NavMeshConnection other_object_id="14022" offmesh_connection_id="1178" poly_area="8" />
-            <NavMeshConnection other_object_id="15249" offmesh_connection_id="1197" poly_area="9" />
+            <NavMeshConnection other_object_id="14022" offmesh_connection_id="1164" poly_area="8" />
+            <NavMeshConnection other_object_id="15249" offmesh_connection_id="1183" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="125.09" t1="-55.2428" t2="149.972" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13883" type_file="">
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13884" offmesh_connection_id="1105" poly_area="9" />
-            <NavMeshConnection other_object_id="14021" offmesh_connection_id="1177" poly_area="7" />
-            <NavMeshConnection other_object_id="15249" offmesh_connection_id="1198" poly_area="8" />
+            <NavMeshConnection other_object_id="14021" offmesh_connection_id="1163" poly_area="7" />
+            <NavMeshConnection other_object_id="15249" offmesh_connection_id="1184" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="116.015" t1="-51.4729" t2="142.186" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13884" type_file="">
@@ -43807,7 +43826,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="1451" offmesh_connection_id="1110" poly_area="10" />
-            <NavMeshConnection other_object_id="16568" offmesh_connection_id="1201" poly_area="9" />
+            <NavMeshConnection other_object_id="16568" offmesh_connection_id="1187" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="190.396" t1="-55.3324" t2="111.016" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13891" type_file="">
@@ -43858,7 +43877,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13899" offmesh_connection_id="1117" poly_area="8" />
-            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1182" poly_area="10" />
+            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1168" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="274.62" t1="-39.2758" t2="100.985" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13901" type_file="">
@@ -43872,7 +43891,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13901" offmesh_connection_id="1118" poly_area="8" />
-            <NavMeshConnection other_object_id="14027" offmesh_connection_id="1183" poly_area="9" />
+            <NavMeshConnection other_object_id="14027" offmesh_connection_id="1169" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="204.371" t1="-51.2279" t2="139.725" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13903" type_file="">
@@ -43940,7 +43959,7 @@
         <parameters />
         <NavMeshConnections>
             <NavMeshConnection other_object_id="13909" offmesh_connection_id="1127" poly_area="10" />
-            <NavMeshConnection other_object_id="14066" offmesh_connection_id="1191" poly_area="8" />
+            <NavMeshConnection other_object_id="14066" offmesh_connection_id="1177" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="104.159" t1="-44.3618" t2="135.557" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13913" type_file="">
@@ -44160,14 +44179,14 @@
     <NavmeshConnectionObject t0="195.349" t1="-41.2716" t2="146.319" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13959" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13960" offmesh_connection_id="1158" poly_area="10" />
+            <NavMeshConnection other_object_id="13960" offmesh_connection_id="1144" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="197.054" t1="-40.3299" t2="131.238" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13960" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13959" offmesh_connection_id="1158" poly_area="10" />
-            <NavMeshConnection other_object_id="14038" offmesh_connection_id="1187" poly_area="7" />
+            <NavMeshConnection other_object_id="13959" offmesh_connection_id="1144" poly_area="10" />
+            <NavMeshConnection other_object_id="14038" offmesh_connection_id="1173" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="218.854" t1="-46.8416" t2="96.2844" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13961" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -44193,7 +44212,7 @@
     <NavmeshConnectionObject t0="165.688" t1="-41.2648" t2="146.12" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13965" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13967" offmesh_connection_id="1159" poly_area="10" />
+            <NavMeshConnection other_object_id="13967" offmesh_connection_id="1145" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="219.206" t1="-47.4787" t2="97.5578" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13966" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -44204,34 +44223,34 @@
     <NavmeshConnectionObject t0="166.385" t1="-40.3301" t2="131.277" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13967" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13965" offmesh_connection_id="1159" poly_area="10" />
-            <NavMeshConnection other_object_id="14039" offmesh_connection_id="1188" poly_area="7" />
+            <NavMeshConnection other_object_id="13965" offmesh_connection_id="1145" poly_area="10" />
+            <NavMeshConnection other_object_id="14039" offmesh_connection_id="1174" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="183.462" t1="-55.3836" t2="135.565" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13968" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="1459" offmesh_connection_id="1160" poly_area="7" />
+            <NavMeshConnection other_object_id="1459" offmesh_connection_id="1146" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="178.073" t1="-55.2823" t2="136.925" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13969" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="1459" offmesh_connection_id="1161" poly_area="7" />
+            <NavMeshConnection other_object_id="1459" offmesh_connection_id="1147" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="145.965" t1="-36.9154" t2="38.0387" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13970" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13824" offmesh_connection_id="1162" poly_area="9" />
-            <NavMeshConnection other_object_id="14003" offmesh_connection_id="1168" poly_area="7" />
+            <NavMeshConnection other_object_id="13824" offmesh_connection_id="1148" poly_area="9" />
+            <NavMeshConnection other_object_id="14003" offmesh_connection_id="1154" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="120.082" t1="-48.3981" t2="47.3711" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13971" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13837" offmesh_connection_id="1163" poly_area="10" />
-            <NavMeshConnection other_object_id="13981" offmesh_connection_id="1165" poly_area="8" />
+            <NavMeshConnection other_object_id="13837" offmesh_connection_id="1149" poly_area="10" />
+            <NavMeshConnection other_object_id="13981" offmesh_connection_id="1151" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="178.298" t1="-48.8029" t2="101.144" s0="2.09176" s1="3.39195" s2="2.04803" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="13973" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
@@ -44243,7 +44262,7 @@
     <NavmeshConnectionObject t0="140.523" t1="-48.2133" t2="40.7323" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13975" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13839" offmesh_connection_id="1164" poly_area="8" />
+            <NavMeshConnection other_object_id="13839" offmesh_connection_id="1150" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="185.117" t1="-48.8029" t2="101.144" s0="2.09179" s1="3.3188" s2="2.04802" q0="0" q1="0" q2="-0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="1.5708" id="13976" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
@@ -44264,7 +44283,7 @@
     <NavmeshConnectionObject t0="116.258" t1="-48.2208" t2="40.3479" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13981" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13971" offmesh_connection_id="1165" poly_area="8" />
+            <NavMeshConnection other_object_id="13971" offmesh_connection_id="1151" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="205.704" t1="-48.8029" t2="112.014" s0="2.09179" s1="3.40723" s2="2.04803" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="13982" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
@@ -44276,7 +44295,7 @@
     <NavmeshConnectionObject t0="137.584" t1="-44.4647" t2="57.0421" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13984" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13987" offmesh_connection_id="1167" poly_area="7" />
+            <NavMeshConnection other_object_id="13987" offmesh_connection_id="1153" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="212.621" t1="-48.8029" t2="112.014" s0="2.09176" s1="3.38438" s2="2.04803" q0="-0.707107" q1="0.707107" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="-1.5708" id="13985" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
@@ -44288,8 +44307,8 @@
     <NavmeshConnectionObject t0="139.084" t1="-43.4667" t2="61.4895" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13987" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13984" offmesh_connection_id="1167" poly_area="7" />
-            <NavMeshConnection other_object_id="13825" offmesh_connection_id="1166" poly_area="9" />
+            <NavMeshConnection other_object_id="13984" offmesh_connection_id="1153" poly_area="7" />
+            <NavMeshConnection other_object_id="13825" offmesh_connection_id="1152" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="191.432" t1="-48.8029" t2="112.014" s0="2.09181" s1="3.88232" s2="2.04803" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="13988" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
@@ -44333,7 +44352,7 @@
     <NavmeshConnectionObject t0="149.192" t1="-33.9032" t2="81.8278" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14000" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14005" offmesh_connection_id="1170" poly_area="7" />
+            <NavMeshConnection other_object_id="14005" offmesh_connection_id="1156" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="232.347" t1="-49.7003" t2="106.653" s0="5.40274" s1="1" s2="5.0625" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="14001" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
@@ -44347,45 +44366,45 @@
     <NavmeshConnectionObject t0="148.694" t1="-33.9414" t2="36.9512" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14003" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13970" offmesh_connection_id="1168" poly_area="7" />
-            <NavMeshConnection other_object_id="14004" offmesh_connection_id="1169" poly_area="7" />
+            <NavMeshConnection other_object_id="13970" offmesh_connection_id="1154" poly_area="7" />
+            <NavMeshConnection other_object_id="14004" offmesh_connection_id="1155" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="151.746" t1="-30.8087" t2="38.7895" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14004" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14003" offmesh_connection_id="1169" poly_area="7" />
+            <NavMeshConnection other_object_id="14003" offmesh_connection_id="1155" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="151.379" t1="-30.8365" t2="80.2933" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14005" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14000" offmesh_connection_id="1170" poly_area="7" />
+            <NavMeshConnection other_object_id="14000" offmesh_connection_id="1156" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="148.561" t1="-33.8994" t2="58.6442" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14006" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14007" offmesh_connection_id="1171" poly_area="8" />
-            <NavMeshConnection other_object_id="16875" offmesh_connection_id="1202" poly_area="8" />
+            <NavMeshConnection other_object_id="14007" offmesh_connection_id="1157" poly_area="8" />
+            <NavMeshConnection other_object_id="16875" offmesh_connection_id="1188" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="151.51" t1="-30.5552" t2="64.4508" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14007" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14006" offmesh_connection_id="1171" poly_area="8" />
+            <NavMeshConnection other_object_id="14006" offmesh_connection_id="1157" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="126.69" t1="-48.4703" t2="62.5575" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14008" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13826" offmesh_connection_id="1172" poly_area="8" />
+            <NavMeshConnection other_object_id="13826" offmesh_connection_id="1158" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="98.6114" t1="-48.6463" t2="70.4131" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14009" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13831" offmesh_connection_id="1173" poly_area="8" />
+            <NavMeshConnection other_object_id="13831" offmesh_connection_id="1159" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="221.541" t1="-49.7003" t2="106.653" s0="5.40274" s1="1" s2="5.0625" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="14011" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
@@ -44394,8 +44413,8 @@
     <NavmeshConnectionObject t0="106.528" t1="-44.1747" t2="99.0944" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14012" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14066" offmesh_connection_id="1192" poly_area="9" />
-            <NavMeshConnection other_object_id="14057" offmesh_connection_id="1189" poly_area="8" />
+            <NavMeshConnection other_object_id="14066" offmesh_connection_id="1178" poly_area="9" />
+            <NavMeshConnection other_object_id="14057" offmesh_connection_id="1175" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="243.152" t1="-49.7003" t2="106.653" s0="5.40274" s1="1" s2="5.0625" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="14013" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
@@ -44404,14 +44423,14 @@
     <NavmeshConnectionObject t0="107.003" t1="-40.085" t2="106.788" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14014" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14066" offmesh_connection_id="1193" poly_area="9" />
+            <NavMeshConnection other_object_id="14066" offmesh_connection_id="1179" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="106.947" t1="-40.0819" t2="137.246" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14015" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13844" offmesh_connection_id="1175" poly_area="9" />
-            <NavMeshConnection other_object_id="13843" offmesh_connection_id="1174" poly_area="9" />
+            <NavMeshConnection other_object_id="13844" offmesh_connection_id="1161" poly_area="9" />
+            <NavMeshConnection other_object_id="13843" offmesh_connection_id="1160" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="248.367" t1="-48.803" t2="114.863" s0="2.09179" s1="3.3188" s2="2.04802" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="14016" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
@@ -44426,46 +44445,46 @@
     <NavmeshConnectionObject t0="134.607" t1="-45.1076" t2="142.21" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14019" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14020" offmesh_connection_id="1176" poly_area="8" />
+            <NavMeshConnection other_object_id="14020" offmesh_connection_id="1162" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="130.023" t1="-48.4684" t2="140.041" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14020" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14019" offmesh_connection_id="1176" poly_area="8" />
+            <NavMeshConnection other_object_id="14019" offmesh_connection_id="1162" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="121.926" t1="-57.2432" t2="147.116" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14021" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13883" offmesh_connection_id="1177" poly_area="7" />
+            <NavMeshConnection other_object_id="13883" offmesh_connection_id="1163" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="118.208" t1="-56.9045" t2="138.008" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14022" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13882" offmesh_connection_id="1178" poly_area="8" />
+            <NavMeshConnection other_object_id="13882" offmesh_connection_id="1164" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="223.626" t1="-33.8595" t2="121.68" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14023" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13790" offmesh_connection_id="1179" poly_area="10" />
+            <NavMeshConnection other_object_id="13790" offmesh_connection_id="1165" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="246.364" t1="-35.6244" t2="122.095" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14024" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13790" offmesh_connection_id="1180" poly_area="9" />
+            <NavMeshConnection other_object_id="13790" offmesh_connection_id="1166" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="253.656" t1="-33.9621" t2="121.151" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14025" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13900" offmesh_connection_id="1182" poly_area="10" />
-            <NavMeshConnection other_object_id="14030" offmesh_connection_id="1185" poly_area="10" />
-            <NavMeshConnection other_object_id="14031" offmesh_connection_id="1186" poly_area="10" />
-            <NavMeshConnection other_object_id="13790" offmesh_connection_id="1181" poly_area="10" />
+            <NavMeshConnection other_object_id="13900" offmesh_connection_id="1168" poly_area="10" />
+            <NavMeshConnection other_object_id="14030" offmesh_connection_id="1171" poly_area="10" />
+            <NavMeshConnection other_object_id="14031" offmesh_connection_id="1172" poly_area="10" />
+            <NavMeshConnection other_object_id="13790" offmesh_connection_id="1167" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="253.95" t1="-49.7033" t2="106.653" s0="5.40274" s1="0.996917" s2="5.0625" q0="0" q1="1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="14026" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/blockCatRoad.xml">
@@ -44474,8 +44493,8 @@
     <NavmeshConnectionObject t0="275.522" t1="-35.2499" t2="91.0348" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14027" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13902" offmesh_connection_id="1183" poly_area="9" />
-            <NavMeshConnection other_object_id="14029" offmesh_connection_id="1184" poly_area="8" />
+            <NavMeshConnection other_object_id="13902" offmesh_connection_id="1169" poly_area="9" />
+            <NavMeshConnection other_object_id="14029" offmesh_connection_id="1170" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="220.315" t1="-47.2006" t2="96.3951" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14028" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -44486,19 +44505,19 @@
     <NavmeshConnectionObject t0="268.699" t1="-33.8983" t2="91.5677" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14029" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14027" offmesh_connection_id="1184" poly_area="8" />
+            <NavMeshConnection other_object_id="14027" offmesh_connection_id="1170" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="239.35" t1="-33.9594" t2="106.737" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14030" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1185" poly_area="10" />
+            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1171" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="268.312" t1="-33.9568" t2="106.794" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14031" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1186" poly_area="10" />
+            <NavMeshConnection other_object_id="14025" offmesh_connection_id="1172" poly_area="10" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="226.207" t1="-48.8029" t2="112.014" s0="2.09179" s1="3.38607" s2="2.04802" q0="0" q1="0" q2="0.707107" q3="-0.707107" euler_x="0" euler_y="0" euler_z="-1.5708" id="14032" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/pillar1.xml">
@@ -44522,13 +44541,13 @@
     <NavmeshConnectionObject t0="197.228" t1="-37.2609" t2="128.631" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14038" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13960" offmesh_connection_id="1187" poly_area="7" />
+            <NavMeshConnection other_object_id="13960" offmesh_connection_id="1173" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="166.016" t1="-37.2885" t2="128.897" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14039" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13967" offmesh_connection_id="1188" poly_area="7" />
+            <NavMeshConnection other_object_id="13967" offmesh_connection_id="1174" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Decal t0="128.023" t1="-52.531" t2="44.0305" s0="38.5523" s1="6.45024" s2="25.7015" q0="-0.108857" q1="0.00605631" q2="0.00135024" q3="0.994039" euler_x="-0.218142" euler_y="0.0123347" euler_z="0.00136594" id="14040" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.607843" color_g="0.607837" color_b="0.607837" overbright="0">
@@ -44594,14 +44613,14 @@
     <NavmeshConnectionObject t0="104.112" t1="-46.2064" t2="95.1354" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14057" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14012" offmesh_connection_id="1189" poly_area="8" />
-            <NavMeshConnection other_object_id="14058" offmesh_connection_id="1190" poly_area="7" />
+            <NavMeshConnection other_object_id="14012" offmesh_connection_id="1175" poly_area="8" />
+            <NavMeshConnection other_object_id="14058" offmesh_connection_id="1176" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="101.021" t1="-48.6725" t2="97.2908" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14058" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14057" offmesh_connection_id="1190" poly_area="7" />
+            <NavMeshConnection other_object_id="14057" offmesh_connection_id="1176" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Decal t0="201.204" t1="-54.5831" t2="130.492" s0="6.20812" s1="4.13875" s2="4.13875" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14059" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.345098" color_g="0.345095" color_b="0.345095" overbright="0">
@@ -44622,9 +44641,9 @@
     <NavmeshConnectionObject t0="96.4479" t1="-42.0481" t2="106.047" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14066" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13912" offmesh_connection_id="1191" poly_area="8" />
-            <NavMeshConnection other_object_id="14014" offmesh_connection_id="1193" poly_area="9" />
-            <NavMeshConnection other_object_id="14012" offmesh_connection_id="1192" poly_area="9" />
+            <NavMeshConnection other_object_id="13912" offmesh_connection_id="1177" poly_area="8" />
+            <NavMeshConnection other_object_id="14014" offmesh_connection_id="1179" poly_area="9" />
+            <NavMeshConnection other_object_id="14012" offmesh_connection_id="1178" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Group t0="181.666" t1="-41.0595" t2="122.05" s0="18.146" s1="3.13611" s2="1.45193" q0="0" q1="0" q2="0" q3="-1" euler_x="0" euler_y="0" euler_z="0" id="14074" version="1">
@@ -48926,7 +48945,7 @@
     <NavmeshConnectionObject t0="128.664" t1="-48.1089" t2="51.6464" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15067" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13839" offmesh_connection_id="1194" poly_area="9" />
+            <NavMeshConnection other_object_id="13839" offmesh_connection_id="1180" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="135.549" t1="-44.7008" t2="143.349" s0="1.85003" s1="1.60499" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15068" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
@@ -48986,7 +49005,7 @@
     <NavmeshConnectionObject t0="134.324" t1="-41.0632" t2="130.97" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15084" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13806" offmesh_connection_id="1195" poly_area="9" />
+            <NavMeshConnection other_object_id="13806" offmesh_connection_id="1181" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <EnvObject t0="111.866" t1="-48.655" t2="49.4195" s0="1.03987" s1="0.529004" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="15092" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Curb1.xml">
@@ -50113,7 +50132,7 @@
     <NavmeshConnectionObject t0="145.729" t1="-37.7243" t2="124.192" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15227" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13802" offmesh_connection_id="1196" poly_area="9" />
+            <NavMeshConnection other_object_id="13802" offmesh_connection_id="1182" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <NavmeshConnectionObject t0="146.417" t1="-37.7243" t2="134.922" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15228" type_file="">
@@ -50183,8 +50202,8 @@
     <NavmeshConnectionObject t0="125.587" t1="-56.8719" t2="141.991" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15249" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13882" offmesh_connection_id="1197" poly_area="9" />
-            <NavMeshConnection other_object_id="13883" offmesh_connection_id="1198" poly_area="8" />
+            <NavMeshConnection other_object_id="13882" offmesh_connection_id="1183" poly_area="9" />
+            <NavMeshConnection other_object_id="13883" offmesh_connection_id="1184" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <PathPointObject t0="133.672" t1="-48.4487" t2="73.3888" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15250" type_file="">
@@ -50739,7 +50758,7 @@
     <NavmeshConnectionObject t0="132.707" t1="-59.6669" t2="127.38" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="15349" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13875" offmesh_connection_id="1199" poly_area="7" />
+            <NavMeshConnection other_object_id="13875" offmesh_connection_id="1185" poly_area="7" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Decal t0="152.843" t1="-66.9522" t2="121.339" s0="8.43899" s1="5.62599" s2="8.43899" q0="-0.375599" q1="0.445142" q2="-0.345418" q3="0.735841" euler_x="-1.2131" euler_y="0.406754" euler_z="-1.162" id="15350" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.466667" color_g="0.466662" color_b="0.466662" overbright="0">
@@ -53175,7 +53194,7 @@
     <NavmeshConnectionObject t0="128.332" t1="-47.3896" t2="98.1604" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16126" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13845" offmesh_connection_id="1200" poly_area="9" />
+            <NavMeshConnection other_object_id="13845" offmesh_connection_id="1186" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Decal t0="113.791" t1="-48.6527" t2="44.0994" s0="2.72361" s1="1.81907" s2="2.31612" q0="0" q1="-0.5" q2="0" q3="0.866026" euler_x="0" euler_y="-1.0472" euler_z="0" id="16127" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.607843" color_g="0.607837" color_b="0.607837" overbright="0">
@@ -54620,15 +54639,15 @@
         <EnvObject s0="1" s1="1" s2="1" id="16517" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
             <parameters />
         </EnvObject>
-        <Group t0="0" t1="-999999" t2="0" s0="0.816534" s1="0.472502" s2="0.831732" q0="0.449278" q1="0.278765" q2="0.0317281" q3="0.848194" euler_x="1.05625" euler_y="0.460486" euler_z="0.34659" id="16521" version="1">
+        <Group t0="0" t1="-999999" t2="0" s0="0.816534" s1="0.472502" s2="0.831732" q0="0.425189" q1="0.307711" q2="-0.0129013" q3="0.851095" euler_x="1.01052" euler_y="0.564216" euler_z="0.287627" id="16521" version="1">
             <parameters />
-            <Decal t0="0.0838987" t1="-999999" t2="0.00848077" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.307508" q1="-0.317281" q2="-0.128598" q3="0.88784" euler_x="0.800024" euler_y="-0.505563" euler_z="-0.505254" id="16518" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0842717" t1="-999999" t2="0.00132783" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.264507" q1="-0.288653" q2="-0.146657" q3="0.908423" euler_x="0.683898" euler_y="-0.463246" euler_z="-0.487629" id="16518" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="-0.000384337" t1="-999999" t2="0.000626359" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.216429" q1="0.73671" q2="0.343396" q3="-0.54084" euler_x="1.80832" euler_y="-0.705276" euler_z="-2.00644" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="-0.000384337" t1="-999999" t2="0.000626359" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.168874" q1="0.728175" q2="0.336125" q3="-0.572953" euler_x="1.74118" euler_y="-0.805092" euler_z="-1.99686" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <EnvObject t0="0.137438" t1="-999999" t2="0.0256901" s0="0.0265001" s1="0.0265001" s2="0.0265001" q0="0.449282" q1="0.278767" q2="0.0317273" q3="0.8482" euler_x="1.05626" euler_y="0.460495" euler_z="0.346594" id="16520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+            <EnvObject t0="0.139078" t1="-999999" t2="0.0138998" s0="0.0265001" s1="0.0265001" s2="0.0265001" q0="0.425192" q1="0.307713" q2="-0.0129025" q3="0.851101" euler_x="1.01053" euler_y="0.564227" euler_z="0.287631" id="16520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -54931,7 +54950,7 @@
     <NavmeshConnectionObject t0="203.301" t1="-52.1129" t2="102.942" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16568" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="13890" offmesh_connection_id="1201" poly_area="9" />
+            <NavMeshConnection other_object_id="13890" offmesh_connection_id="1187" poly_area="9" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Group t0="173.086" t1="-36.9528" t2="118.992" s0="3.07" s1="6.4614" s2="1.04645" q0="0" q1="0" q2="1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="16569" version="1">
@@ -55919,7 +55938,7 @@
     <NavmeshConnectionObject t0="151.51" t1="-30.5552" t2="52.8793" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16875" type_file="">
         <parameters />
         <NavMeshConnections>
-            <NavMeshConnection other_object_id="14006" offmesh_connection_id="1202" poly_area="8" />
+            <NavMeshConnection other_object_id="14006" offmesh_connection_id="1188" poly_area="8" />
         </NavMeshConnections>
     </NavmeshConnectionObject>
     <Decal t0="159.203" t1="-71.2478" t2="124.222" s0="0.712771" s1="0.146999" s2="0.511751" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="16876" type_file="Data/Objects/Decals/runes/rune_snake.xml" color_r="0.0853364" color_g="0.158798" color_b="0.701961" overbright="0">
@@ -57153,4 +57172,5 @@
     <SpawnerItem display_name="Window Box Medium" path="Data/Objects/Buildings/window_boxes/window_box_medium.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/window_box_medium.png" />
     <SpawnerItem display_name="Window Box Large" path="Data/Objects/Buildings/window_boxes/window_box_large.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/window_box_large.png" />
     <SpawnerItem display_name="Shutter Windows" path="Data/Objects/Buildings/cat_town/shutter_windows.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/shutter_windows.png" />
+    <SpawnerItem display_name="ghostbracers.xml" path="Data/Prefabs/ouruin/equipment/ghostbracers.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

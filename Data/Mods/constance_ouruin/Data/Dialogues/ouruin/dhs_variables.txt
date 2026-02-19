@@ -167,8 +167,12 @@ Define variable, its values and notes for each value.
 	
 	ouruin_ratnest_state
 		0: Player has not visited Rat's Nest
-		1: Player has visited Rat's Nest
-		2: Player has looted the crystals
+		1: Player has found Rat's Nest
+		2: Player has visited the Rat's Nest
+		3: Player has killed some rats
+		4: Player has killed all rats save for the family
+		5: Player has killed all rats save for the kits
+		6: Player has killed every single rat
 
 		ouruin_ratnest_disease
 			0: Player has not contracted disease
@@ -559,8 +563,7 @@ Define variable, its values and notes for each value.
 			0: Job not active
 			1: Job accepted, letter with Ghost
 			2: Letter delivered, reward ready
-			3: Reward taken
-			4: Reward accepted. Job complete!
+			3: Reward accepted. Job complete!
 		
 		ouruin_job_speakeasy
 			0: Job not active

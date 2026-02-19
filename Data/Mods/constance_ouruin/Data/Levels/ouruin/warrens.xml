@@ -4499,7 +4499,7 @@
         <EnvObject name="Ghost Buckler" s0="0.880705" s1="0.7447" s2="0.77289" id="6730" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/BucklerScale.xml">
             <parameters />
         </EnvObject>
-        <EnvObject name="Ghost Thoritz Letter" s0="1" s1="1" s2="1" id="7404" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/letter_thoritz.xml">
+        <EnvObject name="Ghost Thoritz Letter" s0="1" s1="1" s2="1" id="7404" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/letter.xml">
             <parameters />
         </EnvObject>
         <EnvObject name="Ghost Thoritz Page" s0="0.627228" s1="0.627228" s2="0.627228" id="7403" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/thoritz_note.xml">

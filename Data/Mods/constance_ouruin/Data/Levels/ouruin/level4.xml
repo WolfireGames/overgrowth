@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="3.6623" t1="-5.8689" t2="6.31594" s0="1" s1="1" s2="1" q0="0.0137545" q1="0.845875" q2="-0.0218384" q3="0.532756" euler_x="-3.08997" euler_y="1.12413" euler_z="3.14159" id="0">
+    <CameraObject t0="4.55651" t1="-5.63987" t2="7.9237" s0="1" s1="1" s2="1" q0="0.0198781" q1="-0.979687" q2="0.125586" q3="0.155067" euler_x="-2.8866" euler_y="-0.313961" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -3181,7 +3181,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Prefab t0="16.2671" t1="5.0222" t2="4.4219" s0="1.194" s1="1.194" s2="1.194" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="710" version="1" prefab_locked="false" prefab_path="Data/Prefabs/ouruin/equipment/equipmentunsheathe.xml" os0="1.194" os1="1.194" os2="1.194">
+    <Prefab t0="16.2671" t1="5.0222" t2="4.4219" s0="1.194" s1="1.194" s2="1.194" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="710" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/equipment/equipmentunsheathe.xml" os0="1.194" os1="1.194" os2="1.194">
         <parameters />
         <Hotspot name="Equipment (Cosmetic&gt;Item&gt;Cosmetic)" t0="16.2671" t1="5.0222" t2="4.4219" s0="0.296" s1="0.296" s2="0.296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="31" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
             <parameters>
@@ -4048,6 +4048,18 @@
                 <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
                 <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
             </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="9" num_connections="1" m0="0.127624" m1="0.0763109" m2="-0.988873" m3="0" m4="0.560109" m5="0.817276" m6="0.135366" m7="0" m8="0.818514" m9="-0.571163" m10="0.0615535" m11="0" m12="0.508375" m13="0.142249" m14="-0.0254736" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="22" num_connections="1" m0="0.176902" m1="-0.274165" m2="0.945272" m3="0" m4="-0.501205" m5="0.801469" m6="0.326254" m7="0" m8="-0.847053" m9="-0.53149" m10="0.00436848" m11="0" m12="-0.476755" m13="0.150127" m14="-0.0244379" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
         </EnvObjectAttachments>
         <EnvObject name="Ghost Armor" s0="1" s1="1" s2="1" id="308" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
             <parameters />
@@ -4110,6 +4122,12 @@
             <parameters />
         </EnvObject>
         <EnvObject name="Ghost Staff" s0="0.391821" s1="0.537277" s2="0.363728" id="866" color_r="0.653749" color_g="0.720011" color_b="0.854902" overbright="0" type_file="Data/Objects/therium/rope/knot.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Ghost Buckler" s0="-0.112132" s1="0.107375" s2="0.112132" id="911" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/standard-buckler.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject name="Ghost Buckler" s0="0.880705" s1="0.7447" s2="0.77289" id="912" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/BucklerScale.xml">
             <parameters />
         </EnvObject>
     </ActorObject>
@@ -5534,4 +5552,5 @@
     <SpawnerItem display_name="Water Froth" path="Data/Objects/Decals/water_froth.xml" thumbnail_path="" />
     <SpawnerItem display_name="Ambient Shadow (round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
     <SpawnerItem display_name="Drika&apos;s Hotspot (DHS)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="ghostbracers.xml" path="Data/Prefabs/ouruin/equipment/ghostbracers.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>
