@@ -1,6 +1,6 @@
 #name "Jasmine-Meet"
 #participants 3
-set_character_pos 2 40.2902 -54.8405 60.1371 80
+set_character_pos 2 40.2828 -54.8405 60.1791 80
 send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
 send_character_message 2 "set_eye_dir 40.2262 -54.3351 58.8698 1"
 send_character_message 2 "set_head_target 40.9184 -53.8055 59.0667 1"

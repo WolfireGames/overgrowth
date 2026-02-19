@@ -1,34 +1,72 @@
 #name "Jasmine-Thoritz-Delivered"
 #participants 3
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.56 0.07 0.79
 set_dialogue_voice 2 14
-
+set_character_pos 2 40.2828 -54.8405 60.1791 80
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
+send_character_message 2 "set_eye_dir 40.2262 -54.3351 58.8698 1"
+send_character_message 2 "set_head_target 40.8444 -54.1324 59.199 1"
+set_character_pos 1 40.2928 -55.1421 58.7015 -90
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 0.890114"
+send_character_message 1 "set_torso_target 41.4195 -54.583 58.4721 0"
+send_character_message 1 "set_head_target 40.2912 -54.2208 59.7856 1"
+set_cam 39.7932 -54.1745 60.7755 -8.13 -28.6 0.21 56.2594
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
 say 1 "Ghost" "I met Thoritz at his place in Nui--"
-
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 1"
+send_character_message 1 "set_head_target 40.2892 -54.2749 59.8095 1"
+send_character_message 2 "set_head_target 40.3438 -54.4344 59.1466 1"
+send_character_message 2 "set_torso_target 40.3821 -54.8079 59.4607 1"
 say 2 "Jasmine" "What? [wait 0.05]Really? [wait 0.1]Kak, [wait 0.05]why do I even bother..."
-
+send_character_message 1 "set_head_target 40.2889 -54.4023 59.8415 1"
+send_character_message 2 "set_torso_target 40.3588 -54.7599 59.4443 0.99694"
+send_character_message 2 "set_head_target 40.3148 -54.3587 59.1297 1"
 say 1 "Ghost" "[wait 0.1]You know him well?"
-
+send_character_message 1 "set_head_target 40.289 -54.402 59.8415 1"
+send_character_message 2 "set_eye_dir 39.405 -54.0871 60.104 0.550992"
+send_character_message 1 "set_eye_dir 40.2401 -54.1514 60.1083 1"
+send_character_message 2 "set_head_target 39.7303 -54.2627 58.9856 1"
+send_character_message 2 "set_torso_target 40.3062 -54.7599 59.3993 0.499839"
 say 2 "Jasmine" "Just well enough to know he 'as no excuse! [wait 0.1]We had a job today, [wait 0.05]and only now does 'e decide to keep 'is paws clean!?"
-
+send_character_message 1 "set_head_target 40.5747 -54.0975 59.9345 1"
+send_character_message 2 "set_eye_dir 39.4603 -54.3138 60.2911 0.645547"
+send_character_message 2 "set_head_target 39.6021 -54.4235 59.0404 0.994471"
 say 1 "Ghost" "...[wait 0.05]He didn't look too good. [wait 0.1]Shivering, [wait 0.05]barely responsive. [wait 0.1]I don't know if he was hitting the pipe or what, [wait 0.05]but he wasn't even fit for a walk down the road."
-
+send_character_message 1 "set_head_target 40.4604 -54.3281 59.9935 1"
+send_character_message 2 "set_head_target 39.6038 -54.4239 59.0404 0.575038"
+send_character_message 2 "set_eye_dir 39.711 -54.2578 60.1176 0"
 say 2 "Jasmine" "Hmph. [wait 0.1]Guess I shoulda figured. [wait 0.1]Most folks don't 'ave what it takes."
-
+send_character_message 1 "set_torso_target 40.1956 -54.5932 59.1641 1"
+send_character_message 1 "set_head_target 40.2012 -54.2319 59.9012 1"
+send_character_message 2 "set_head_target 39.8988 -54.3291 59.2403 0.575038"
+send_character_message 2 "set_eye_dir 40.0106 -54.2605 59.6582 0.980316"
 say 1 "Ghost" "And what were you two planning on doing, [wait 0.05]exactly?"
-
+send_character_message 2 "set_eye_dir 40.0022 -54.2378 59.4087 1"
+send_character_message 2 "set_head_target 39.8097 -54.8651 59.2742 0.575038"
+set_cam 38.7552 -54.4219 58.0525 -2.82 -149.4 0.22 32.0641
+send_character_message 2 "set_torso_target 40.3062 -54.7599 59.3993 0"
 say 2 "Jasmine" "Clearin' out a rat den. [wait 0.1]A forwards one, [wait 0.05]that is, [wait 0.05]not a heart. [wait 0.05]Ain't *that* scary."
-
+send_character_message 2 "set_head_target 40.8579 -54.4871 59.223 0.575038"
+send_character_message 2 "set_eye_dir 40.8947 -53.4314 59.3184 0.652642"
 say 2 "Jasmine" "Stuff ain't for the faint of heart, [wait 0.05]I s'pose. [wait 0.1]Didn't take ol' Thorz to be that cowardly, [wait 0.05]though."
-
+send_character_message 2 "set_torso_target 40.463 -54.5194 59.2977 1"
+send_character_message 2 "set_head_target 40.7592 -54.6642 59.1611 0.764256"
+send_character_message 2 "set_eye_dir 39.9847 -54.1937 59.0434 0.652642"
 say 2 "Jasmine" "Believe it or not, [wait 0.05]this job came straight from the northerners. [wait 0.1]Shocker, right?"
-
+send_character_message 2 "set_eye_dir 40.6174 -53.7525 59.1532 1"
+send_character_message 2 "set_head_target 41.588 -54.1974 59.8259 0.752404"
+send_character_message 2 "set_animation \"Data/Animations/marketguard_wave.anm\""
 say 2 "Jasmine" "They'll let us stew in the rubble, [wait 0.05]but rats walkin' the streets are just one step too far. [wait 0.1]Makes y' wonder if they're really done with these streets."
-
+send_character_message 2 "set_eye_dir 38.8051 -53.9528 59.5832 1"
+send_character_message 2 "set_head_target 41.0507 -53.8458 59.3139 0.764256"
 say 2 "Jasmine" "It's good to conduct and strategize rat-killin' matters like this on clan territory. [wait 0.1]Safer that way, [wait 0.05]and no clanfolk'll refuse an exterminator if'n they know what's good for 'em."
-
+send_character_message 2 "set_eye_dir 40.187 -54.0303 59.2146 0.69407"
+send_character_message 2 "set_head_target 40.2473 -55.2396 58.8389 0.764256"
 say 2 "Jasmine" "[wait 0.1]Last truly neutral work to be done out here, [wait 0.1]I reckon."
-
 send_level_message "dialogue_done"

@@ -4,17 +4,23 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.56 0.07 0.79
 set_dialogue_voice 2 14
-
+set_character_pos 2 40.2828 -54.8405 60.1791 80
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
+send_character_message 2 "set_eye_dir 40.2262 -54.3351 58.8698 1"
+send_character_message 2 "set_head_target 40.9184 -53.8055 59.0667 1"
+set_character_pos 1 40.2928 -55.1421 58.7015 -90
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 1"
+send_character_message 1 "set_torso_target 41.421 -54.5823 58.466 0"
+send_character_message 1 "set_head_target 40.2117 -54.3463 59.7505 1"
+set_cam 38.3717 -54.5072 57.068 -2.92 -146.66 0 56.2594
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
 say 1 "Ghost" "You said the rat den nearby is a forward one. [wait 0.1]Just how bad is it?"
-
 say 2 "Jasmine" "Y' ask a lot o' questions, [wait 0.05]huh? [wait 0.1]Good on 'ya. [wait 0.05]Helps to keep an ear open."
-
 say 2 "Jasmine" "We've gotten a count of 'bout a dozen or so. [wait 0.1]Most of that count wouldn't try fighting, though."
-
 say 2 "Jasmine" "Forwards-facing dens this close to the surface tend to be pretty puny. [wait 0.1]Just broods and their spawn. [wait 0.1]You'd think they'd arm 'emselves a bit better, [wait 0.05]so close to the sun..."
-
 say 2 "Jasmine" "Not that I'd complain. [wait 0.1]Makes purgin' a lot easier."
-
 say 2 "Jasmine" "Still ain't easy enough to take it on by m'self, [wait 0.05]so I'll just have to do somethin' else with today."
-
 send_level_message "dialogue_done"

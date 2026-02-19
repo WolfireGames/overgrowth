@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="32.2357" t1="-50.4094" t2="57.104" s0="1" s1="1" s2="1" q0="-0.0773895" q1="-0.730058" q2="0.0838522" q3="-0.673791" euler_x="-2.91288" euler_y="1.49068" euler_z="-3.14159" id="0">
+    <CameraObject t0="36.9328" t1="-52.19" t2="56.6365" s0="1" s1="1" s2="1" q0="0.0570771" q1="0.91711" q2="-0.142249" q3="0.36799" euler_x="-2.83383" euler_y="0.763166" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <Decal t0="36.4746" t1="-50.6038" t2="61.8414" s0="3.14343" s1="3.14144" s2="0.219877" q0="0.00951225" q1="0" q2="4.5635e-05" q3="0.999955" euler_x="0.0190248" euler_y="0" euler_z="9.12659e-05" id="1" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
@@ -202,7 +202,7 @@
     <EnvObject t0="33.5446" t1="-43.0275" t2="11.1101" s0="0.223109" s1="0.164977" s2="0.162841" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="42" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
         <parameters />
     </EnvObject>
-    <Decal t0="36.5885" t1="-53.7406" t2="61.6441" s0="5.21002" s1="4.1014" s2="2.9993" q0="-0.258819" q1="0" q2="0" q3="0.965926" euler_x="-0.523599" euler_y="0" euler_z="0" id="43" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.152941" color_g="0.15294" color_b="0.15294" overbright="0">
+    <Decal t0="35.8231" t1="-53.7406" t2="61.6441" s0="3.67924" s1="4.1014" s2="2.9993" q0="-0.258819" q1="0" q2="0" q3="0.965926" euler_x="-0.523599" euler_y="0" euler_z="0" id="43" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.152941" color_g="0.15294" color_b="0.15294" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="38.5097" t1="-51.817" t2="61.9547" s0="0.552744" s1="0.552744" s2="0.552744" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="44" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.403922" color_g="0.403917" color_b="0.403917" overbright="0">
@@ -8259,9 +8259,28 @@
     <EnvObject t0="31.8536" t1="-45.2575" t2="5.61842" s0="0.283102" s1="0.283109" s2="0.24752" q0="-0.712864" q1="-0.549096" q2="0.421249" q3="0.113419" euler_x="-2.35221" euler_y="0.496136" euler_z="1.52292" id="2485" color_r="1" color_g="0.872941" color_b="0.788235" overbright="0.628" type_file="Data/Objects/therium/rope/knot.xml">
         <parameters />
     </EnvObject>
+    <PlaceholderObject t0="41.8452" t1="-52.4656" t2="60.758" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2488" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/jasmine-ratden.txt" />
+            <parameter name="DisplayName" type="string" val="Jasmine-Ratden" />
+            <parameter name="NumParticipants" type="int" val="3" />
+            <parameter name="obj_1" type="int" val="2491" />
+            <parameter name="obj_2" type="int" val="2539" />
+            <parameter name="obj_3" type="int" val="2540" />
+        </parameters>
+        <Connections>
+            <Connection id="2488" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject name="Play Sound Helper" t0="38.6559" t1="-32.9476" t2="28.8938" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2489" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
+    <PlaceholderObject t0="41.9799" t1="-52.1545" t2="60.6802" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2491" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject t0="32.9774" t1="-37.7062" t2="28.7243" s0="2.32043" s1="2.16295" s2="2.32046" q0="0" q1="-0.317381" q2="0" q3="0.948298" euler_x="0" euler_y="-0.645933" euler_z="0" id="2492" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/RatJunk/RatJunkPouch.xml">
         <parameters />
     </EnvObject>
@@ -8422,6 +8441,31 @@
     <Decal t0="28.3075" t1="-45.5083" t2="-0.148322" s0="0.0245741" s1="0.022886" s2="0.0245741" q0="0.439393" q1="0.139021" q2="-0.653886" q3="0.600034" euler_x="0.540886" euler_y="0.835244" euler_z="-1.41184" id="2537" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
+    <PlaceholderObject t0="41.8452" t1="-52.1545" t2="60.758" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2539" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1447" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="41.7105" t1="-52.1545" t2="60.8358" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2540" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="41.8274" t1="-53.2367" t2="60.6846" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2541" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/jasmine-thoritz-heard.txt" />
+            <parameter name="DisplayName" type="string" val="Jasmine-Thoritz-Heard" />
+            <parameter name="NumParticipants" type="string" val="3" />
+            <parameter name="obj_1" type="int" val="2556" />
+            <parameter name="obj_2" type="int" val="2557" />
+            <parameter name="obj_3" type="int" val="2558" />
+        </parameters>
+        <Connections>
+            <Connection id="2541" />
+        </Connections>
+    </PlaceholderObject>
     <Hotspot t0="37.3283" t1="-61.7157" t2="24.0072" s0="16.6059" s1="1" s2="19.5822" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2544" type_file="Data/Objects/Hotspots/ambient_sound.xml">
         <parameters>
             <parameter name="Delay Max" type="float" val="10" />
@@ -8491,6 +8535,24 @@
             <Connection id="1108" />
         </Connections>
     </PlaceholderObject>
+    <PlaceholderObject t0="41.9621" t1="-52.9256" t2="60.6069" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2556" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="41.8274" t1="-52.9256" t2="60.6846" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2557" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1447" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="41.6927" t1="-52.9256" t2="60.7624" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2558" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <Prefab t0="40.0269" t1="-30.3722" t2="16.8961" s0="1.78778" s1="4.30186" s2="1.78778" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2559" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/wallets/market.xml" os0="1.78778" os1="4.30186" os2="1.78778">
         <parameters />
         <Hotspot name="Coin Manager" t0="40.0272" t1="-28.7759" t2="16.8957" s0="0.27483" s1="0.27483" s2="0.27483" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1582" type_file="Data/Objects/Hotspots/coin_pickup_manager.xml">
@@ -8548,6 +8610,25 @@
             <parameter name="Placeholder Tag" type="string" val="market25612562" />
         </parameters>
     </EnvObject>
+    <PlaceholderObject t0="42.5616" t1="-53.2107" t2="60.6955" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2563" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/jasmine-thoritz-delivered.txt" />
+            <parameter name="DisplayName" type="string" val="Jasmine-Thoritz-Delivered" />
+            <parameter name="NumParticipants" type="string" val="3" />
+            <parameter name="obj_1" type="int" val="2564" />
+            <parameter name="obj_2" type="int" val="2567" />
+            <parameter name="obj_3" type="int" val="2569" />
+        </parameters>
+        <Connections>
+            <Connection id="2563" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="42.6963" t1="-52.8996" t2="60.6177" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2564" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
     <Hotspot t0="28.2666" t1="-47.7201" t2="2.38541" s0="0.0877913" s1="0.0877913" s2="0.0877913" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2565" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
@@ -8565,6 +8646,49 @@
             <parameter name="Placeholder Tag" type="string" val="market25652566" />
         </parameters>
     </EnvObject>
+    <PlaceholderObject t0="42.5616" t1="-52.8996" t2="60.6955" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2567" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1447" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="42.4269" t1="-52.8996" t2="60.7733" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2569" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="43.2925" t1="-53.2139" t2="60.7203" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2573" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/jasmine-thoritz-delivered-ratden.txt" />
+            <parameter name="DisplayName" type="string" val="Jasmine-Thoritz-Delivered-Ratden" />
+            <parameter name="NumParticipants" type="int" val="3" />
+            <parameter name="obj_1" type="int" val="2574" />
+            <parameter name="obj_2" type="int" val="2576" />
+            <parameter name="obj_3" type="int" val="2577" />
+        </parameters>
+        <Connections>
+            <Connection id="2573" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="43.4273" t1="-52.9028" t2="60.6426" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2574" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="43.2925" t1="-52.9028" t2="60.7203" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2576" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1447" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="43.1578" t1="-52.9028" t2="60.7981" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2577" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <Group name="Inventory Runes" t0="28.4734" t1="-45.573" t2="4.01739" s0="0.852979" s1="0.946226" s2="0.177276" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2579" version="1">
         <parameters />
         <EnvObject t0="28.452" t1="-45.5258" t2="4.04037" s0="0.862882" s1="0.862882" s2="0.862882" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2288" color_r="0.580392" color_g="0.580386" color_b="0.580386" overbright="0" type_file="Data/Objects/Buildings/shops/sign_square_board.xml">
@@ -8752,6 +8876,9 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
+    <Decal t0="38.6262" t1="-54.934" t2="60.8906" s0="0.956513" s1="5.40705" s2="0.550646" q0="0.0257674" q1="0.257084" q2="-0.00685744" q3="0.966021" euler_x="0.0533348" euler_y="0.520196" euler_z="0" id="2605" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.192157" color_g="0.192155" color_b="0.192155" overbright="0">
+        <parameters />
+    </Decal>
     <Hotspot t0="28.1942" t1="-44.8978" t2="-0.113945" s0="1.00516" s1="0.0683278" s2="0.0683278" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2607" type_file="Data/Objects/Hotspots/ambient_sound.xml">
         <parameters>
             <parameter name="Delay Max" type="float" val="10" />
@@ -12413,11 +12540,11 @@
     <Decal t0="40.1914" t1="-54.3451" t2="62.0029" s0="3.47018" s1="2.49395" s2="3.47018" q0="-0.683083" q1="-0.122039" q2="0.1158" q3="0.7107" euler_x="-1.53378" euler_y="-0.0152648" euler_z="0.337747" id="3658" type_file="Data/Objects/Decals/hex_crete_damage.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <PlaceholderObject t0="41.0877" t1="-52.3137" t2="60.8561" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3659" type_file="" special_type="0">
+    <PlaceholderObject t0="41.1672" t1="-52.3137" t2="60.7284" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3659" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/jasmine-meet.txt" />
             <parameter name="DisplayName" type="string" val="Jasmine-Meet" />
-            <parameter name="NumParticipants" type="int" val="3" />
+            <parameter name="NumParticipants" type="string" val="3" />
             <parameter name="obj_1" type="int" val="3660" />
             <parameter name="obj_2" type="int" val="3661" />
             <parameter name="obj_3" type="int" val="3662" />
@@ -12426,25 +12553,25 @@
             <Connection id="3659" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="41.2224" t1="-52.0026" t2="60.7783" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3660" type_file="" special_type="2">
+    <PlaceholderObject t0="41.302" t1="-52.0026" t2="60.6507" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3660" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="41.0877" t1="-52.0026" t2="60.8561" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3661" type_file="" special_type="2">
+    <PlaceholderObject t0="41.1672" t1="-52.0026" t2="60.7284" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3661" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1447" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="40.953" t1="-52.0026" t2="60.9338" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3662" type_file="" special_type="2">
+    <PlaceholderObject t0="41.0325" t1="-52.0026" t2="60.8062" s0="0.133333" s1="0.133333" s2="0.133333" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3662" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <Group name="Jasmine Trigger" t0="40.3041" t1="-56.9394" t2="59.6876" s0="1.9281" s1="6.17327" s2="1.9281" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3665" version="1">
+    <Group name="Jasmine Trigger" t0="40.3041" t1="-56.9394" t2="59.6876" s0="1.92816" s1="6.17347" s2="1.92816" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3665" version="1">
         <parameters />
         <Hotspot t0="40.3041" t1="-54.8168" t2="59.6876" s0="0.479524" s1="0.479524" s2="0.479524" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3663" type_file="Data/Objects/Hotspots/setmessages.xml">
             <parameters>

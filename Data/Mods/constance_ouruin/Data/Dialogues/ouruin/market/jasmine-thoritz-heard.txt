@@ -1,18 +1,31 @@
 #name "Jasmine-Thoritz-Heard"
 #participants 3
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.56 0.07 0.79
 set_dialogue_voice 2 14
-
+set_character_pos 2 40.2902 -54.8405 60.1371 80
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
+send_character_message 2 "set_eye_dir 40.2053 -54.0223 58.9558 1"
+send_character_message 2 "set_head_target 40.7468 -54.5885 59.0974 1"
+set_character_pos 1 40.2928 -55.1421 58.7015 -90
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 1"
+send_character_message 1 "set_torso_target 41.421 -54.5823 58.466 0"
+send_character_message 1 "set_head_target 40.2117 -54.3463 59.7505 1"
+set_cam 40.636 -53.99 57.2293 -11.34 164.55 0 38.8937
 say 1 "Ghost" "Nedis was hiring for a letter to get delivered to Thoritz. [wait 0.1]A letter from 'R'."
-
+send_character_message 2 "set_eye_dir 41.5879 -53.796 59.6553 1"
+send_character_message 2 "set_head_target 41.1949 -54.5256 59.3551 1"
 say 2 "Jasmine" "...[wait 0.1]Weird. [wait 0.1]Sounds like a simple job, [wait 0.05]though."
-
+send_character_message 2 "set_eye_dir 40.2324 -54.1284 59.6307 1"
+send_character_message 2 "set_head_target 41.1453 -54.5911 59.2509 1"
 say 1 "Ghost" "Any ideas on who this 'R' might be?"
-
+send_character_message 2 "set_head_target 40.816 -54.3472 59.2052 0.578329"
+send_character_message 2 "set_eye_dir 39.6909 -54.0905 59.6309 0.794628"
+send_character_message 2 "set_animation \"Data/Animations/marketguard_wave.anm\""
 say 2 "Jasmine" "Lots of people with a name that begins in R. [wait 0.1]I was thinking about going by something like that m'self: River."
-
+send_character_message 2 "set_eye_dir 40.091 -54.4465 60.0061 0"
+send_character_message 2 "set_head_target 40.5553 -54.4857 59.0935 1"
 say 2 "Jasmine" "I'm no parcel bird, [wait 0.05]though. [wait 0.1]I've other things to take care of."
-
 send_level_message "dialogue_done"
