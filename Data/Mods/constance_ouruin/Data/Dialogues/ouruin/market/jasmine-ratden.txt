@@ -1,5 +1,6 @@
 #name "Jasmine-Ratden"
 #participants 3
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.56 0.07 0.79
@@ -7,20 +8,34 @@ set_dialogue_voice 2 14
 set_character_pos 2 40.2828 -54.8405 60.1791 80
 send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
 send_character_message 2 "set_eye_dir 40.2262 -54.3351 58.8698 1"
-send_character_message 2 "set_head_target 40.9184 -53.8055 59.0667 1"
+send_character_message 2 "set_head_target 40.9275 -54.6051 58.9356 1"
 set_character_pos 1 40.2928 -55.1421 58.7015 -90
 send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 1"
 send_character_message 1 "set_torso_target 41.421 -54.5823 58.466 0"
-send_character_message 1 "set_head_target 40.2117 -54.3463 59.7505 1"
-set_cam 38.3717 -54.5072 57.068 -2.92 -146.66 0 56.2594
+send_character_message 1 "set_head_target 40.3038 -54.408 59.8042 1"
+set_cam 44.4919 -54.7056 58.7999 0 99.33 0 32.1907
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.56 0.07 0.79
 set_dialogue_voice 2 14
 say 1 "Ghost" "You said the rat den nearby is a forward one. [wait 0.1]Just how bad is it?"
+send_character_message 1 "set_head_target 40.3313 -54.3497 59.8124 1"
+send_character_message 2 "set_animation \"Data/Animations/marketguard_wave.anm\""
+send_character_message 2 "set_head_target 40.6085 -54.3823 58.9361 0.607183"
 say 2 "Jasmine" "Y' ask a lot o' questions, [wait 0.05]huh? [wait 0.1]Good on 'ya. [wait 0.05]Helps to keep an ear open."
+send_character_message 2 "set_eye_dir 40.5602 -55.0949 59.4291 0.726396"
+send_character_message 2 "set_head_target 41.015 -54.7591 59.4098 0.607183"
+set_cam 41.2061 -54.4803 58.3171 0 147.96 0 34.8713
 say 2 "Jasmine" "We've gotten a count of 'bout a dozen or so. [wait 0.1]Most of that count wouldn't try fighting, though."
+send_character_message 2 "set_eye_dir 39.4943 -54.5048 59.4582 0.726396"
+send_character_message 2 "set_head_target 41.4867 -55.052 59.5803 0.607183"
 say 2 "Jasmine" "Forwards-facing dens this close to the surface tend to be pretty puny. [wait 0.1]Just broods and their spawn. [wait 0.1]You'd think they'd arm 'emselves a bit better, [wait 0.05]so close to the sun..."
+send_character_message 2 "set_animation \"Data/Animations/marketguard_shrug.anm\""
+send_character_message 2 "set_head_target 41.2485 -54.4868 59.2993 0.607183"
+send_character_message 2 "set_eye_dir 39.4943 -54.5048 59.4582 0"
 say 2 "Jasmine" "Not that I'd complain. [wait 0.1]Makes purgin' a lot easier."
+send_character_message 2 "set_eye_dir 39.9836 -54.0261 59.1935 1"
+send_character_message 2 "set_head_target 41.1342 -55.1638 59.2806 0.607183"
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
 say 2 "Jasmine" "Still ain't easy enough to take it on by m'self, [wait 0.05]so I'll just have to do somethin' else with today."
 send_level_message "dialogue_done"

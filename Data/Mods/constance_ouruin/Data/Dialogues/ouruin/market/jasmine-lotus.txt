@@ -1,0 +1,60 @@
+#name "Jasmine-Lotus"
+#participants 3
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+set_character_pos 2 40.2828 -54.8405 60.1791 80
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
+send_character_message 2 "set_eye_dir 40.2262 -54.3351 58.8698 1"
+send_character_message 2 "set_head_target 40.9722 -54.2673 59.2369 1"
+set_character_pos 1 40.2928 -55.1421 58.7015 -90
+send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 0.890114"
+send_character_message 1 "set_torso_target 41.4183 -54.5819 58.4763 0"
+send_character_message 1 "set_head_target 40.3385 -54.1571 59.7852 1"
+set_cam 40.5398 -54.1302 60.7769 -8.32 20.31 -0.07 50.0391
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+say 2 "Jasmine" "So. [wait 0.1]You new blood for the lotusfolk, [wait 0.05]or what?"
+send_character_message 2 "set_head_target 40.9996 -54.19 59.1966 1"
+send_character_message 1 "set_eye_dir 39.1301 -53.9604 59.2623 0.890114"
+send_character_message 1 "set_head_target 39.6693 -54.4758 59.4596 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Just passing through, [wait 0.05]really. [wait 0.1]I don't intend on getting familiar."
+send_character_message 1 "set_head_target 39.6677 -54.4898 59.4624 1"
+send_character_message 1 "set_eye_dir 40.0411 -54.0559 59.5809 0.890114"
+send_character_message 2 "set_head_target 40.8041 -54.3579 59.2475 1"
+say 2 "Jasmine" "From what I can tell, [wait 0.05]it's a decent living to be made 'round here, [wait 0.05]for decent people. [wait 0.1]Your choice whether you're one of 'em."
+send_character_message 1 "set_eye_dir 40.4733 -54.2686 59.6074 0.756607"
+send_character_message 1 "set_head_target 39.7238 -54.2074 59.5031 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_head_target 40.6729 -54.3079 59.2739 1"
+say 1 "Ghost" "Commitment is an easy way to get lowballed. [wait 0.1]Shackles are all that keep conscripts in the workforce, [wait 0.05]right?"
+send_character_message 1 "set_torso_target 40.2628 -54.5904 59.4137 1"
+send_character_message 1 "set_head_target 39.8114 -54.4406 59.5834 1"
+send_character_message 2 "set_head_target 39.6757 -54.1123 59.8226 1"
+say 2 "Jasmine" "Makes easy pickings for clansfolk. [wait 0.1]Already got a workforce ready to slave away, [wait 0.05]right?"
+send_character_message 1 "set_eye_dir 40.3708 -54.3193 59.9341 1"
+send_character_message 1 "set_head_target 39.9627 -54.2789 59.6953 1"
+send_character_message 1 "set_torso_target 40.2628 -54.5904 59.4137 0"
+send_character_message 2 "set_eye_dir 40.1418 -54.3723 59.6449 0"
+send_character_message 2 "set_head_target 40.8584 -54.3922 59.3472 1"
+set_cam 36.63 -52.3299 57.641 -31.01 -118.33 -0.3 36.554
+say 2 "Jasmine" "Good to know you've got some standards, [wait 0.05]at least. [wait 0.1]That already puts you a mark above the rest of y'all."
+send_character_message 2 "set_eye_dir 39.8565 -54.1758 59.3496 0.815416"
+send_character_message 2 "set_head_target 40.7385 -54.3308 59.2816 1"
+send_character_message 1 "set_head_target 40.3914 -54.5413 59.9481 1"
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+say 1 "Ghost" "And yet we still sleep in a damp bed, [wait 0.05]all the same."
+send_character_message 1 "set_head_target 40.3719 -54.3589 59.9798 1"
+send_character_message 2 "set_head_target 40.641 -54.5029 59.3167 1"
+send_character_message 2 "set_eye_dir 39.8565 -54.1758 59.3496 1"
+say 2 "Jasmine" "Speak for 'yerself. [wait 0.1]Decent money to be made, [wait 0.05]rippin' rats. [wait 0.1]Some standards, [wait 0.05]right?"
+send_level_message "dialogue_done"

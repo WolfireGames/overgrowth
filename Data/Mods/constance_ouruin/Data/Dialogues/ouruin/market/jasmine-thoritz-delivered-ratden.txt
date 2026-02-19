@@ -65,7 +65,7 @@ say 1 "Ghost" "Do you mean the rats right by the market's upstairs entrance? [wa
 send_character_message 2 "set_torso_target 40.463 -54.5194 59.2977 1"
 send_character_message 2 "set_head_target 40.7592 -54.6642 59.1611 0.764256"
 send_character_message 2 "set_eye_dir 39.9847 -54.1937 59.0434 0.652642"
-say 2 "Jasmine" "Believe it or not, [wait 0.05]this job came straight from the northerners. [wait 0.1]Shocker, right?"
+say 2 "Jasmine" "Yeah... [wait 0.1]Believe it or not, [wait 0.05]this job came straight from the northerners. [wait 0.1]Shocker, right?"
 send_character_message 2 "set_eye_dir 40.6174 -53.7525 59.1532 1"
 send_character_message 2 "set_head_target 41.588 -54.1974 59.8259 0.752404"
 send_character_message 2 "set_animation \"Data/Animations/marketguard_wave.anm\""

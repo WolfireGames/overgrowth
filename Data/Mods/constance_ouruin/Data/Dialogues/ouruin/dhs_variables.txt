@@ -588,9 +588,10 @@ Define variable, its values and notes for each value.
 	
 	ouruin_jasmine_quest
 		0: Jasmine has not been talked to
-		1: Jasmine has talked about the rat den
-		2: Ghost has informed Jasmine of the rat extermination. Quest complete!
-		3: Ghost has informed Jasmine of the rat extermination, including the spared mother rat. Quest complete!
+		1: Jasmine has been met
+		2: Jasmine has told Ghost about the rat den
+		3: Ghost has informed Jasmine of the rat extermination. Quest complete!
+		4: Ghost has informed Jasmine of the rat extermination, including the spared mother rat. Quest complete!
 
 		ouruin_jasmine_thoritz
 			0: Jasmine doesn't know about Thoritz

@@ -13,7 +13,7 @@ set_character_pos 1 40.2928 -55.1421 58.7015 -90
 send_character_message 1 "set_eye_dir 40.2642 -54.2171 60.0686 1"
 send_character_message 1 "set_torso_target 41.421 -54.5823 58.466 0"
 send_character_message 1 "set_head_target 40.2117 -54.3463 59.7505 1"
-set_cam 40.636 -53.99 57.2293 -11.34 164.55 0 38.8937
+set_cam 40.7977 -53.7526 57.2638 -17 160.96 0.03 38.8937
 say 1 "Ghost" "Nedis was hiring for a letter to get delivered to Thoritz. [wait 0.1]A letter from 'R'."
 send_character_message 2 "set_eye_dir 41.5879 -53.796 59.6553 1"
 send_character_message 2 "set_head_target 41.1949 -54.5256 59.3551 1"
