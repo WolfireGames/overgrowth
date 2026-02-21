@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image>Data/LevelLoading/ouruin/level1.jpg</Image>
+    <Image>Data/LevelLoading/ouruin/agra.jpg</Image>
 </LoadingScreen>
 <Terrain>
     <Heightmap>Data/Textures/Terrain/flat.png</Heightmap>

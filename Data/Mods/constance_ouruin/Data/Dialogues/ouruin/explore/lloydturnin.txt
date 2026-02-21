@@ -1,7 +1,7 @@
 #name "LloydTurnIn"
 #participants 3
 set_character_pos 2 0.335167 -42.4001 168.739 -101
-send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book_hip.anm\""
 send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
 send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
 set_character_pos 1 -1.12031 -42.458 169.053 21
@@ -16,7 +16,17 @@ set_dialogue_color 2 0.66 0.33 0.2
 set_dialogue_voice 2 5
 send_level_message "disable 8715"
 say 2 "Lloyd" "So you've returned, [wait 0.05]you..."
+send_character_message 2 "set_head_target -0.872094 -41.5355 168.847 1"
+send_character_message 1 "set_head_target 0.0247026 -41.4929 168.74 1"
 say 1 "Ghost" "Ghost."
+send_character_message 1 "set_eye_dir -1.4533 -40.9951 170.069 1"
+send_character_message 1 "set_head_target 0.176754 -41.6292 169.291 1"
+send_character_message 2 "set_head_target -0.830533 -41.6556 168.993 1"
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 1"
 say 2 "Lloyd" "You mean you were in-and-out like a ghost? [wait 0.1]That's superb news."
+send_character_message 2 "set_eye_dir -0.043552 -41.348 169.095 0.607395"
+send_character_message 2 "set_head_target 0.456633 -40.8514 170.11 1"
+send_character_message 1 "set_eye_dir -0.306659 -41.3408 169.073 0.665129"
+send_character_message 1 "set_head_target -0.156988 -41.421 168.896 1"
 say 2 "Lloyd" "Now, [wait 0.05]the manuscript on the Whaleman's tale. [wait 0.1]Where is it?"
 send_level_message "dialogue_done"

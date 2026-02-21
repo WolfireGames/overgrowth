@@ -402,9 +402,7 @@ Define variable, its values and notes for each value.
 		5:  Ghost has stolen Branch's notes
 		6:  Lloyd has received the manuscript and paid Ghost. Quest complete!
 		7:  Lloyd has received the misinformation and paid Ghost. Quest complete!
-		8:  Lloyd's head has cooled after misinformation, and the whaleman book has been offered
-		9:  Whaleman book has been offered
-		10: Whaleman book has been read
+		8:  Lloyd's head has cooled after misinformation
 
 	ouruin_branch_quest
 		0: Branch's door has not been found
@@ -594,7 +592,8 @@ Define variable, its values and notes for each value.
 		1: Jasmine has been met
 		2: Jasmine has told Ghost about the rat den
 		3: Ghost has informed Jasmine of the rat extermination. Quest complete!
-		4: Ghost has informed Jasmine of the rat extermination, including the spared mother rat. Quest complete!
+		4: Ghost has informed Jasmine of the rat extermination, including the spared family. Quest complete!
+		5: Ghost has informed Jasmine of the rat extermination, including the spared kits. Quest complete!
 
 		ouruin_jasmine_thoritz
 			0: Jasmine doesn't know about Thoritz

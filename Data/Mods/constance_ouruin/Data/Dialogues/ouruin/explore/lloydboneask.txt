@@ -1,0 +1,46 @@
+#name "LloydBoneAsk"
+#participants 3
+send_character_message 2 "set_torso_target 0.164392 -41.7377 169.786 1.20997e-05"
+set_character_pos 2 0.335167 -42.4001 168.739 -101
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book.anm\""
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
+send_character_message 2 "set_head_target -0.863145 -41.6002 168.825 1"
+set_character_pos 1 -1.12031 -42.458 169.053 21
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
+send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
+send_character_message 1 "set_head_target 0.086059 -41.1304 168.81 1"
+set_cam -0.102011 -42.7045 172.129 13.93 4.14 0 47.9314
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.66 0.33 0.2
+set_dialogue_voice 2 5
+send_level_message "disable 8715"
+say 1 "Ghost" "Do you what what ''oceanic bone-spire'' means?"
+send_character_message 1 "set_head_target 0.162341 -41.2162 168.811 1"
+send_character_message 2 "set_torso_target -0.0898042 -41.8247 169.864 0.999819"
+send_character_message 2 "set_head_target -0.690839 -41.6407 169.084 1"
+say 2 "Lloyd" "Hmm...[wait 0.05]? [wait 0.1]Where did you hear that?"
+send_character_message 2 "set_head_target -0.674102 -41.6761 169.086 1"
+send_character_message 1 "set_eye_dir -0.856017 -41.3679 170.211 1"
+send_character_message 1 "set_head_target 0.156713 -41.6186 169.194 1"
+say 1 "Ghost" "Your quarry mentioned it after I broke in. [wait 0.1]It some kind of euphamism?"
+send_character_message 1 "set_eye_dir 0.153758 -41.3169 168.832 1"
+send_character_message 1 "set_head_target 0.103567 -41.4085 169.072 1"
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book_hip.anm\""
+send_character_message 2 "set_torso_target -0.0898042 -41.8247 169.864 0.0261318"
+send_character_message 2 "set_head_target 0.343037 -41.1703 169.911 1"
+say 2 "Lloyd" "Hoh-[wait 0.05]hoh! [wait 0.1]You need not worry about that, [wait 0.05]dear rabbit. [wait 0.1]If their manuscript is anything to go off of, [wait 0.05]none of that is worth taking seriously."
+send_character_message 1 "set_eye_dir 0.224975 -41.3094 168.913 1"
+send_character_message 1 "set_head_target 0.158853 -41.5585 169.156 1"
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 1"
+send_character_message 2 "set_torso_target 0.191136 -41.193 170.049 1"
+send_character_message 2 "set_head_target -0.951474 -41.3866 169.529 1"
+say 2 "Lloyd" "Just deluded dreamings... [wait 0.1]Nobody should treat them with any gravity."
+send_character_message 1 "set_eye_dir -0.076071 -42.0284 169.119 0.846895"
+send_character_message 1 "set_head_target 0.15493 -41.5731 169.072 1"
+send_character_message 2 "set_head_target -0.936758 -41.5359 169.433 1"
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.795949"
+say 1 "Ghost" "Hm."
+send_level_message "dialogue_done"

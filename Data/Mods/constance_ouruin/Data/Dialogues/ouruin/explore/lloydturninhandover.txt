@@ -5,16 +5,18 @@ send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book.anm\""
 send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
 send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
 set_character_pos 1 -1.12031 -42.458 169.053 21
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
 send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
-send_character_message 1 "set_head_target 0.0526941 -41.353 168.721 1"
+send_character_message 1 "set_head_target -0.0422457 -41.5383 168.799 1"
 set_cam -2.20375 -41.9143 171.068 0 -38.48 0 65.7874
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.66 0.33 0.2
 set_dialogue_voice 2 5
 send_level_message "disable 8715"
+send_level_message "disable 8496"
+send_level_message "enable 20257"
 say 1 "Ghost" "Here you are. [wait 0.05]Lucky these are even intact--[wait 0.1]That room was a mess."
 say 2 "Lloyd" "Thank you. [wait 0.1]And while I don't doubt your literacy, [wait 0.05]I'd like to check this for myself..."
 say 2 "Lloyd" "[wait 0.1].[wait 0.1].[wait 0.1]."

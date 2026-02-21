@@ -21,7 +21,7 @@ send_character_message 2 "set_torso_target -72.5701 -47.1517 -72.0195 0"
 send_character_message 2 "set_head_target -74.2196 -47.1334 -72.284 1"
 send_level_message "enable 6686"
 send_level_message "set_camera_dof 0.0 5.0 10.0 1.5 1.0 3.0"
-say 1 "Ghost" "Just what was it about that 'bone-spire' that set Lloyd off? [wait 0.05]I've never heard of such a thing."
+say 1 "Ghost" "What's the point of telling him about a 'bone-spire'? [wait 0.05]I've never heard of such a thing."
 send_character_message 2 "set_head_target -74.7282 -46.8897 -72.1238 1"
 set_cam -72.9944 -47.2354 -73.8529 0 -176.47 0 51.7671
 say 2 "Branch" "Well, [wait 0.05]you must understand: His House Tomerre, [wait 0.05]while he doesn't serve them officially, [wait 0.05]commands all from his home to cooperate to a fine point."

@@ -9,14 +9,16 @@ send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.an
 send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
 send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
 send_character_message 1 "set_head_target 0.124697 -41.4431 168.731 1"
-set_cam 0.432296 -42.0605 169.818 7.54 58.44 0 48.4534
+set_cam -1.70151 -42.0269 171.899 0 -23.2 0 52.504
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.52 0.95
 set_dialogue_voice 3 8
 set_dialogue_color 2 0.66 0.33 0.2
 set_dialogue_voice 2 5
-say 2 "Lloyd" "All you need to know is that they currently reside in the warrens, [wait 0.05]in a room near Nui."
+send_level_message "disable 8496"
+send_level_message "disable 8715"
+say 2 "Lloyd" "So you've returned, [wait 0.1]you..."
 send_character_message 1 "set_torso_target -0.539573 -42.2146 168.842 1"
 send_character_message 2 "set_head_target -0.902752 -41.5765 168.977 1"
 send_character_message 2 "set_torso_target -0.515321 -41.6811 169.187 0.921589"
@@ -29,6 +31,7 @@ send_character_message 1 "set_torso_target -0.577965 -42.0575 168.948 1"
 send_character_message 1 "set_eye_dir 0.14315 -41.201 168.777 1"
 send_character_message 1 "set_head_target 0.353875 -41.4373 168.636 1"
 say 2 "Lloyd" "You mean you were in-and-out like a ghost? [wait 0.1]That's superb news."
+send_character_message 1 "set_head_target 0.356026 -41.389 168.717 1"
 send_character_message 2 "set_eye_dir -0.0434692 -41.348 169.095 0.601641"
 send_character_message 2 "set_head_target -0.977401 -41.7733 169.067 1"
 send_character_message 2 "set_torso_target -0.207718 -41.9104 169.314 0"

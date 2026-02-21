@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>true</Shadows>
 <LoadingScreen>
-    <Image></Image>
+    <Image>Data/LevelLoading/ouruin/perfection.jpg</Image>
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
 <AmbientSounds />

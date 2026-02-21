@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/Objects/book/closed_book.obj</Model>
+	<ColorMap>Data/Textures/ouruin/whaleman_book_c.tga</ColorMap>
+	<NormalMap>Data/Textures/Objects/book/closed_book_n.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemap</ShaderPath>
+	<ShaderName>cubemap</ShaderName>
+</Object>

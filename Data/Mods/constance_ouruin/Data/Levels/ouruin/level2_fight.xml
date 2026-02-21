@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>false</Shadows>
 <LoadingScreen>
-    <Image>Data/LevelLoading/ouruin/level2.jpg</Image>
+    <Image>Data/LevelLoading/ouruin/severed.jpg</Image>
 </LoadingScreen>
 <OutOfDate NavMesh="true" NavMeshParamHash="-1534981375" />
 <AmbientSounds />

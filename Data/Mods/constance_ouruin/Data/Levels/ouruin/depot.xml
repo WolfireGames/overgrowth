@@ -5,7 +5,7 @@
 <Shader>post</Shader>
 <Shadows>false</Shadows>
 <LoadingScreen>
-    <Image>Data/LevelLoading/ouruin/market.jpg</Image>
+    <Image>Data/LevelLoading/ouruin/depot.jpg</Image>
 </LoadingScreen>
 <Terrain>
     <Heightmap>Data/Textures/Terrain/flat.png</Heightmap>
