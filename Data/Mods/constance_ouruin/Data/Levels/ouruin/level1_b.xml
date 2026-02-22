@@ -255,7 +255,7 @@
             <parameters />
         </EnvObject>
     </ActorObject>
-    <EnvObject t0="332.025" t1="-51.7931" t2="-300.496" s0="42.9799" s1="41.2744" s2="43.5327" q0="0.573084" q1="-0.151112" q2="-0.436919" q3="0.676656" euler_x="1.25407" euler_y="0.300796" euler_z="-0.927992" id="56" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Objects/therium/emprystatue_iren.xml">
+    <EnvObject t0="332.025" t1="-51.7931" t2="-300.496" s0="42.9799" s1="41.2744" s2="43.5327" q0="0.573084" q1="-0.151112" q2="-0.436919" q3="0.676656" euler_x="1.25407" euler_y="0.300796" euler_z="-0.927992" id="56" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/emprystatue_iren.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="235.89" t1="-28.0264" t2="-39.9776" s0="2.59401" s1="2.13515" s2="3.53763" q0="1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="57" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Fence1.xml">
@@ -36486,7 +36486,7 @@
     <SpawnerItem display_name="Cinderbreathe Spear" path="Data/Items/cinderbreathe_weapons/cinderbreathespear.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="Cinderbreathe Broadsword" path="Data/Items/cinderbreathe_weapons/cinderbreathebroadsword.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="carriageprefab.xml" path="Data/Objects/therium/carriageprefab.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="emprystatue_iren.xml" path="Data/Objects/therium/emprystatue_iren.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="emprystatue_iren.xml" path="Data/Data/Objects/therium/emprystatue_iren.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="emprystatue_ano.xml" path="Data/Objects/therium/emprystatue_ano.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Stucco Tower" path="Data/Objects/therium/cinderbreathe_hightower.xml" thumbnail_path="" />
     <SpawnerItem display_name="Plant Medium Deciduous Winter" path="Data/Objects/Plants/Trees/temperate/medium_deciduous_winter.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/medium_deciduous_winter.png" />

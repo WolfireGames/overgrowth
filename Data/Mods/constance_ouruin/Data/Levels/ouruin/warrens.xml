@@ -25645,7 +25645,7 @@
     <SpawnerItem display_name="Mook Winter 4" path="Data/Objects/therium/IGF_Characters/mook4winterspawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="Fence Plank" path="Data/Objects/Buildings/Fence1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Fence1.png" />
     <SpawnerItem display_name="Book Open" path="Data/Objects/therium/openbook.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/openbook.png" />
-    <SpawnerItem display_name="IGF_Guard.xml" path="Objects/IGF_Characters/IGF_Guard.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="IGF_Guard.xml" path="DataObjects/IGF_Characters/IGF_Guard.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Stucco Medium Wall (Small Hole 1)" path="Data/Prototypes/OG/StuccoWall_SmallHole.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/stuccowall_smallhole.png" />
     <SpawnerItem display_name="Stucco Medium Wall (Large Hole 1)" path="Data/Prototypes/OG/StuccoWall_LargeHole.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/stuccowall_largehole.png" />
     <SpawnerItem display_name="Stucco Medium Wall (Large Hole 2)" path="Data/Prototypes/OG/StuccoWall_LargeHole2.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/stuccowall_largehole2.png" />
@@ -25658,7 +25658,7 @@
     <SpawnerItem display_name="Stucco Short Trim (Cap)" path="Data/Objects/Buildings/cat_town/short_trim_floor.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/short_trim_floor.png" />
     <SpawnerItem display_name="Rabbit Door" path="Data/Objects/Buildings/Door1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/door1.png" />
     <SpawnerItem display_name="Hanging Lantern [Prefab]" path="Data/Prefabs/ouruin/hanginglantern_2.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/hanginglantern_2.png" />
-    <SpawnerItem display_name="rug.xml" path="Objects/therium/rug.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="rug.xml" path="Data/Objects/therium/rug.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="White Art Rug [Decal]" path="Data/Objects/Decals/rugs/white_art_rug.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/white_art_rug.png" />
     <SpawnerItem display_name="Small Backed Shelf [Prefab]" path="Data/Prefabs/trashshelf.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/trashshelf.png" />
     <SpawnerItem display_name="Pot Bomb" path="Data/Objects/Environment/pots/bomb_pot.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/bomb_pot.png" />
