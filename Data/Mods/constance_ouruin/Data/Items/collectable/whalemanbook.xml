@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<item>
+    <type>misc</type>
+    <appearance obj_path = "Data/Objects/therium/ouruin/whaleman_book_item.xml"/>
+    <grip ik_attach = "rightarm"
+          anim = "Data/Animations/r_ratsackgrip.anm"
+              hands = "2"/>
+    <sheathe ik_attach = "hip"
+          anim = "Data/Animations/r_ratsacksheathed.anm"/>
+    <physics mass = "2.3 kg"
+			 sound_modifier = "soft"/>
+    <label>collectable</label>
+</item>
