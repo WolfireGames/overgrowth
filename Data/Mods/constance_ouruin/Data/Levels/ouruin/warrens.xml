@@ -34,7 +34,7 @@
     <parameter name="HDR Bloom multiplier" type="float" val="0.22388" />
     <parameter name="HDR White point" type="float" val="0.35821" />
     <parameter name="Level Boundaries" type="int" val="0" />
-    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Load Tip" type="string" val="The vast majority of Ouruin&apos;s population live in burrows, dug deep into the vast swaths of white crete the city rests upon. Thanks to this sturdy foundation, the people can tunnel deep without fear of collapses or cave-ins. However, ever since the civil war struck down the waterway, floods have been a persistent problem haunting many of the population..." />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1" />
     <parameter name="Shared Camera" type="int" val="0" />
@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-85.3551" t1="-39.7129" t2="-62.0229" s0="1" s1="1" s2="1" q0="-0.259768" q1="0.0749366" q2="-0.0202236" q3="-0.962547" euler_x="0.527192" euler_y="-0.155392" euler_z="0" id="0">
+    <CameraObject t0="-84.697" t1="-39.111" t2="-61.0795" s0="1" s1="1" s2="1" q0="0.259768" q1="-0.0749365" q2="0.0202235" q3="0.962547" euler_x="0.527192" euler_y="-0.155391" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">

@@ -19,7 +19,7 @@
     <parameter name="HDR Bloom multiplier" type="float" val="0.48718" />
     <parameter name="HDR White point" type="float" val="0.93333" />
     <parameter name="Level Boundaries" type="int" val="1" />
-    <parameter name="Load Tip" type="string" val="Amos&apos; earliest memories were spent with his father and sister, in an unsettled tundra. Those days were cut short when the men from the Empry came. They dumped the siblings on the streets of southern Ouruin, and left them to fend for themselves..." />
+    <parameter name="Load Tip" type="string" val="When the twins first found themselves in southern Ouruin, they had no choice but to take refuge in the only orphanage still standing. And then, Donatas was there for them." />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1.01875" />
     <parameter name="Shared Camera" type="int" val="0" />
@@ -35,7 +35,7 @@
     <RayToSun r0="0.0967089" r1="0.861154" r2="0.49906" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-35.4343" t1="-1.46404" t2="-6.07698" s0="1" s1="1" s2="1" q0="0.102031" q1="0.770073" q2="-0.127402" q3="0.616722" euler_x="-2.81368" euler_y="1.35053" euler_z="3.14159" id="0">
+    <CameraObject t0="-35.4426" t1="-1.46114" t2="-6.07884" s0="1" s1="1" s2="1" q0="0.102031" q1="0.770073" q2="-0.127402" q3="0.616722" euler_x="-2.81368" euler_y="1.35053" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-0.0886753" t1="-0.313565" t2="-1.27944" s0="5.33216" s1="5.33216" s2="5.33216" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" color_r="0.177301" color_g="0.192076" color_b="0.247059" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/plaster/disk.xml">

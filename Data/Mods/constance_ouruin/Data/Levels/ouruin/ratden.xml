@@ -34,7 +34,7 @@
     <parameter name="HDR Bloom multiplier" type="float" val="0" />
     <parameter name="HDR White point" type="float" val="0.98462" />
     <parameter name="Level Boundaries" type="int" val="0" />
-    <parameter name="Load Tip" type="string" val="Northern Ouruin, far away from the Drowned Streets, is in comparison " />
+    <parameter name="Load Tip" type="string" val="Consensus holds that rats are not like dogs, cats, rabbits or even wolves: They display no behavior indicating sentience, including love, language or proper civilization. Their rituals, inscrutable to all, are dismissed as blood-frenzied delusions, and their capacity for bonding together is dismissed as nothing more than the same instincts that drive insect-beasts through the wilderness. Rats, they say, are only here to cause peril and torment." />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1.09453" />
     <parameter name="Shared Camera" type="int" val="0" />
@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-2.73708" t1="-56.7355" t2="-160.037" s0="1" s1="1" s2="1" q0="0.0691655" q1="-0.74783" q2="0.0789022" q3="0.655547" euler_x="-2.93135" euler_y="-1.43947" euler_z="3.14159" id="0">
+    <CameraObject t0="-2.72835" t1="-56.7336" t2="-160.038" s0="1" s1="1" s2="1" q0="0.0691655" q1="-0.74783" q2="0.0789022" q3="0.655547" euler_x="-2.93135" euler_y="-1.43948" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-184.36" t1="-53.3321" t2="-101.271" s0="1.25413" s1="1.69404" s2="1.21732" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
@@ -9566,10 +9566,10 @@
         </Group>
         <Group t0="8.61847" t1="-50.1333" t2="-144.859" s0="0.119812" s1="4.87725" s2="5.13045" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="6659" version="1">
             <parameters />
-            <EnvObject t0="8.61847" t1="-48.8893" t2="-144.859" s0="2.68249" s1="4.28284" s2="1.68684" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6657" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <EnvObject t0="8.61847" t1="-48.8893" t2="-144.859" s0="2.6828" s1="4.28284" s2="1.68683" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6657" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="8.61847" t1="-51.3773" t2="-144.859" s0="2.68249" s1="4.28284" s2="1.68684" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="6658" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <EnvObject t0="8.61847" t1="-51.3773" t2="-144.859" s0="2.6828" s1="4.28284" s2="1.68683" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="6658" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
                 <parameters />
             </EnvObject>
         </Group>

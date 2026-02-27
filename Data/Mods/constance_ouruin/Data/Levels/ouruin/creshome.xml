@@ -34,7 +34,7 @@
     <parameter name="HDR Bloom multiplier" type="float" val="0.33951" />
     <parameter name="HDR White point" type="float" val="0.7069" />
     <parameter name="Level Boundaries" type="int" val="0" />
-    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Load Tip" type="string" val="In the crowded and desperate environment that is the drowned streets, owning a dry and sturdy home is a mark of privilege very few can afford. More often than not, shared housing is a must, regardless of whether the rooms can fit all who are packed inside. The sickness that rats carry thus decimate whole swaths of people at a time." />
     <parameter name="Objectives" type="string" val="destroy_all" />
     <parameter name="Saturation" type="float" val="1.05145" />
     <parameter name="Shared Camera" type="int" val="0" />
@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="1.02602" t1="1.91559" t2="5.24998" s0="1" s1="1" s2="1" q0="-0.0913793" q1="-0.0225549" q2="0.00207029" q3="-0.995559" euler_x="0.183061" euler_y="0.0453034" euler_z="0" id="0">
+    <CameraObject t0="0.974353" t1="2.52732" t2="6.39298" s0="1" s1="1" s2="1" q0="0.0913941" q1="0.0129892" q2="-0.00119221" q3="0.995729" euler_x="0.183059" euler_y="0.0260884" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="0.838877" t1="-7.63834e-05" t2="4.68956" s0="1" s1="1" s2="0.956974" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
@@ -1842,7 +1842,7 @@
         </EnvObject>
         <Group name="Hazel Abdomen Blood" t0="0" t1="-999999" t2="0" s0="0.399623" s1="0.342507" s2="0.401766" q0="0.00620162" q1="-0.00347254" q2="-0.82448" q3="0.565846" euler_x="0.012745" euler_y="0.00629642" euler_z="-1.9386" id="1611" version="1">
             <parameters />
-            <Decal t0="0.0106588" t1="-999999" t2="-0.019356" s0="0.140586" s1="0.0432846" s2="0.0341745" q0="-0.0801424" q1="-0.0909636" q2="-0.818902" q3="0.560991" euler_x="0.0607759" euler_y="-0.235487" euler_z="-1.94754" id="1603" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0106588" t1="-999999" t2="-0.019356" s0="0.140586" s1="0.0432846" s2="0.0341745" q0="-0.0801424" q1="-0.0909636" q2="-0.818902" q3="0.560991" euler_x="0.060776" euler_y="-0.235488" euler_z="-1.94754" id="1603" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
             <Decal t0="0.00917391" t1="-999999" t2="0.0011537" s0="0.16347" s1="0.134764" s2="0.16347" q0="-0.821928" q1="-0.563278" q2="-0.0703476" q3="0.0469284" euler_x="3.13946" euler_y="-0.169317" euler_z="1.20178" id="1604" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0784314" color_g="0" color_b="0" overbright="0">
@@ -1851,13 +1851,13 @@
             <Decal t0="0.00479944" t1="-999999" t2="0.0216504" s0="0.281515" s1="0.176952" s2="0.281515" q0="0.00319386" q1="0.000910819" q2="-0.824928" q3="0.56523" euler_x="0.00210785" euler_y="0.00629909" euler_z="-1.94016" id="1605" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.109804" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="-0.00343742" t1="-999999" t2="0.0207389" s0="0.301795" s1="0.267437" s2="0.233666" q0="0.00620127" q1="-0.00347282" q2="-0.824481" q3="0.565847" euler_x="0.0127451" euler_y="0.00629552" euler_z="-1.9386" id="1606" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.129412" color_g="0" color_b="0" overbright="0">
+            <Decal t0="-0.00343742" t1="-999999" t2="0.0207389" s0="0.301795" s1="0.267437" s2="0.233666" q0="0.00620127" q1="-0.00347282" q2="-0.824481" q3="0.565847" euler_x="0.0127451" euler_y="0.00629553" euler_z="-1.9386" id="1606" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.129412" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.00724276" t1="-999999" t2="0.0166483" s0="0.0970266" s1="0.113168" s2="0.106476" q0="-0.630932" q1="-0.431475" q2="0.531369" q3="-0.365235" euler_x="3.12775" euler_y="1.40145" euler_z="1.18793" id="1607" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0509804" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.00724276" t1="-999999" t2="0.0166483" s0="0.0970266" s1="0.113168" s2="0.106476" q0="-0.630932" q1="-0.431475" q2="0.531369" q3="-0.365235" euler_x="3.12775" euler_y="1.40145" euler_z="1.18794" id="1607" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0509804" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.00545489" t1="-999999" t2="0.000181802" s0="0.380673" s1="0.239279" s2="0.380673" q0="0.59216" q1="0.404831" q2="-0.574262" q3="0.394566" euler_x="3.06149" euler_y="1.54161" euler_z="1.12153" id="1609" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.0392157" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.00545489" t1="-999999" t2="0.000181802" s0="0.380673" s1="0.239279" s2="0.380673" q0="0.59216" q1="0.404831" q2="-0.574262" q3="0.394566" euler_x="3.0615" euler_y="1.54164" euler_z="1.12157" id="1609" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.0392157" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
         </Group>
