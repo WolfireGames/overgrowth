@@ -1,0 +1,27 @@
+#name "LloydTurnInBranchKnew-CutDeal"
+#participants 3
+set_character_pos 2 0.335167 -42.4001 168.739 -101
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book_hip.anm\""
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
+send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
+set_character_pos 1 -1.12031 -42.458 169.053 21
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
+send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
+send_character_message 1 "set_head_target 0.0526941 -41.353 168.721 1"
+set_cam -2.20375 -41.9143 171.068 0 -38.48 0 65.7874
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.66 0.33 0.2
+set_dialogue_voice 2 5
+send_level_message "disable 8715"
+say 1 "Ghost" "You really don't know where you are, [wait 0.05]huh? A debt like this is gonna hurt you real, [wait 0.05]real bad, [wait 0.05]Lloyd. [wait 0.1]You don't get away with a decision that half-baked."
+say 1 "Ghost" "But, [wait 0.05]tell y' what. [wait 0.1]I'm running late on something. [wait 0.1]So give me 300p right now and I'll let you go. [wait 0.1]Be thankful for the discount."
+say 2 "Lloyd" "300p, [wait 0.05]hmm...[wait 0.05]?"
+say 1 "Ghost" "You wanna take your chances?"
+say 2 "Lloyd" "...[wait 0.05]Well, [wait 0.05]you did put in your fair share of work. [wait 0.1]I suppose I can't deny you that."
+say 2 "Lloyd" "Here. [wait 0.1]300p, [wait 0.05]for your sincere efforts. [wait 0.1]But that's all it's worth."
+say 1 "Ghost" "You're smarter than you look."
+say 2 "Lloyd" "Oh, [wait 0.05]har-har. [wait 0.1]Won't you hop off, [wait 0.05]now? Leave me to my work... [wait 0.1]And do better on your next job, [wait 0.05]for your own sake."
+say 1 "Ghost" "Watch yourself while you sleep."
+send_level_message "dialogue_done"

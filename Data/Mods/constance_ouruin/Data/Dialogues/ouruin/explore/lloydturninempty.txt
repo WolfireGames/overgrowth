@@ -1,0 +1,24 @@
+#name "LloydTurnInEmpty"
+#participants 3
+set_character_pos 2 0.335167 -42.4001 168.739 -101
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book_hip.anm\""
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
+send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
+set_character_pos 1 -1.12031 -42.458 169.053 21
+send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
+send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
+send_character_message 1 "set_head_target 0.0526941 -41.353 168.721 1"
+set_cam -2.20375 -41.9143 171.068 0 -38.48 0 65.7874
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.66 0.33 0.2
+set_dialogue_voice 2 5
+send_level_message "disable 8715"
+say 1 "Ghost" "I got inside, [wait 0.05]but I couldn't find anything of worth. [wait 0.1]Place was absolutely covered in junk. [wait 0.1]Hard to figure any of it out."
+say 2 "Lloyd" "Mm. [wait 0.1]I've heard they don't take good care of their own quarters. [wait 0.1]Must come natural, [wait 0.05]living like that..."
+say 2 "Lloyd" "If you feel it's too late, [wait 0.05]go ahead and drop the matter completely. [wait 0.1]Just don't expect me to go paying you, [wait 0.05]coming back with nothing like that."
+say 1 "Ghost" "And you're sure you even got the right location? [wait 0.1]Could've been some scribe's quarters."
+say 2 "Lloyd" "Yes, [wait 0.05]yes, [wait 0.05]I'm quite sure. [wait 0.1]If this was truly a waste of time for the both of us, [wait 0.05]then how about you be on your way`[wait 0.1]It's best I not be seen with you for much longer, [wait 0.05]after all..."
+say 3 "Ghost" "(...[wait 0.05]Guess I could try checking the place again. [wait 0.1]If it's worth the hassle.)"
+send_level_message "dialogue_done"

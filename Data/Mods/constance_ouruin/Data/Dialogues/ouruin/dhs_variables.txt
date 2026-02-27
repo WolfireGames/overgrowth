@@ -403,6 +403,8 @@ Define variable, its values and notes for each value.
 		6:  Lloyd has received the manuscript and paid Ghost. Quest complete!
 		7:  Lloyd has received the misinformation and paid Ghost. Quest complete!
 		8:  Lloyd's head has cooled after misinformation
+		9:	Lloyd has cut a deal with Ghost after information. Quest complete!
+		10: Lloyd has been robbed. Quest complete!
 
 	ouruin_branch_quest
 		0: Branch's door has not been found
@@ -429,6 +431,8 @@ Define variable, its values and notes for each value.
 			1: Found
 			2: Unlocked
 			3: Used
+		
+		ouruin_branch_spotted
 
 	ouruin_dart_quest
 		0: Dart has not been met
