@@ -406,6 +406,7 @@ Define variable, its values and notes for each value.
 		9:	Lloyd has cut a deal with Ghost after information. Quest complete!
 		10: Lloyd has been robbed. Quest complete!
 		11: Lloyd has made a deal with Ghost. Quest complete!
+		12: Ghost has dropped the deal. Quest complete!
 
 	ouruin_branch_quest
 		0: Branch's door has not been found

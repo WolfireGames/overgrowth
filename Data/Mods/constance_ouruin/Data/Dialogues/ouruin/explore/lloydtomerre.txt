@@ -63,6 +63,7 @@ send_character_message 2 "set_animation \"Data/Animations/r_dialogue_bookwrite.a
 send_character_message 2 "set_head_target -0.702667 -41.2949 169.071 0"
 send_character_message 2 "set_morph_target afraid 0.5 0.3 outExpo"
 send_character_message 2 "set_morph_target angry 0.5 0.3 outExpo"
+sound_hotspot_play_sound "Data/Sounds/voice/animal3/voice_dog_death_1.wav" 0.331 -42.380 168.740
 say 2 "Lloyd" "I see so very little ship traffic, [wait 0.05]and so very few on the streets! [wait 0.1]I suppose your burrows really are the way to go..."
 send_character_message 2 "set_morph_target afraid 0.2 0.3 outExpo"
 send_level_message "dialogue_done"

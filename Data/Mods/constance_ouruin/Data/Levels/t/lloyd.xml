@@ -50,7 +50,7 @@
     <RayToSun r0="-0.587034" r1="0.466881" r2="0.661373" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-2.19486" t1="2.44421" t2="-5.26627" s0="1" s1="1" s2="1" q0="-0.122486" q1="-0.446736" q2="0.0618937" q3="-0.884077" euler_x="0.27534" euler_y="0.935779" euler_z="0" id="0">
+    <CameraObject t0="14.0923" t1="3.35802" t2="-17.58" s0="1" s1="1" s2="1" q0="0.0950873" q1="-0.740275" q2="0.107162" q3="0.656862" euler_x="-2.85407" euler_y="-1.45153" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <ActorObject name="Ghost" t0="4.67937" t1="0.176521" t2="-18.7873" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
@@ -258,14 +258,67 @@
             <Connection id="19" />
         </Connections>
     </PlaceholderObject>
-    <Hotspot t0="-1.53754" t1="1.15453" t2="-8.85653" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+    <Hotspot t0="-2.09726" t1="0.606003" t2="-19.4128" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="23" type_file="Data/Objects/Hotspots/setmessages.xml">
         <parameters>
-            <parameter name="Debug Current Line" type="int" val="0" />
-            <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;character_message_type&quot;:0,&quot;function&quot;:29,&quot;identifier&quot;:-1,&quot;identifier_type&quot;:0,&quot;message&quot;:&quot;restore_health&quot;}]}&#x0A;' />
-            <parameter name="Show UI Grid" type="int" val="1" />
-            <parameter name="Transform Relative" type="int" val="0" />
-            <parameter name="UI Snap Scale" type="int" val="20" />
+            <parameter name="Activate Once" type="int" val="0" />
+            <parameter name="Activate Player Only" type="int" val="1" />
+            <parameter name="Level Message Send" type="int" val="1" />
+            <parameter name="Level Message Value" type="string" val='sound_hotspot_play_sound &quot;Data/Sounds/revolver.wav&quot;' />
+            <parameter name="Var Add" type="int" val="0" />
+            <parameter name="Var Add Name" type="string" val="variable_name" />
+            <parameter name="Var Add Value" type="string" val="0" />
+            <parameter name="Var Add Var" type="int" val="0" />
+            <parameter name="Var Add Var Name" type="string" val="variable_name" />
+            <parameter name="Var Add Var Value" type="string" val="variable_value" />
+            <parameter name="Var Set" type="int" val="0" />
+            <parameter name="Var Set Name" type="string" val="variable_name" />
+            <parameter name="Var Set Value" type="string" val="variable_value" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <PlaceholderObject t0="-1.47558" t1="0.354773" t2="-13.2437" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="24" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="empty" />
+            <parameter name="DisplayName" type="string" val="Fart" />
+            <parameter name="NumParticipants" type="string" val="1" />
+            <parameter name="Script" type="string" val='#name &quot;Fart&quot;&#x0A;#participants 1&#x0A;send_level_message &quot;sound_hotspot_play_sound Data/Sounds/voice/animal3/voice_dog_idle_1.wav&quot;&#x0A;say 1 &quot;fart&quot; &quot;grrr&quot;&#x0A;send_level_message &quot;sound_hotspot_play_sound Data/Sounds/voice/animal3/voice_dog_block_1.wav&quot;&#x0A;say 1 &quot;fart&quot; &quot;arf!&quot;&#x0A;' />
+            <parameter name="obj_1" type="int" val="25" />
+        </parameters>
+        <Connections>
+            <Connection id="24" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="-1.47558" t1="0.821439" t2="-13.2437" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="25" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+    </PlaceholderObject>
+    <Hotspot t0="-1.94876" t1="0.682906" t2="-16.558" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="26" type_file="Data/Objects/Hotspots/start_dialogue.xml">
+        <parameters>
+            <parameter name="Automatic" type="int" val="0" />
+            <parameter name="Color" type="string" val="1.0 1.0 1.0" />
+            <parameter name="Dialogue" type="string" val="Fart" />
+            <parameter name="Fade" type="int" val="0" />
+            <parameter name="Force play" type="int" val="0" />
+            <parameter name="Play only once" type="int" val="0" />
+            <parameter name="Visible in game" type="int" val="1" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <Hotspot t0="-3.77381" t1="3.36249" t2="-16.9833" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="27" type_file="Data/Objects/Hotspots/sound_hotspot.xml">
+        <parameters />
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <EnvObject t0="-2.10241" t1="-0.338973" t2="-19.4031" s0="0.456824" s1="0.10082" s2="0.456824" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="28" color_r="0.627451" color_g="0.054133" color_b="0.054133" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot t0="-2.15642" t1="1.09266" t2="-7.1595" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="30" type_file="Data/Objects/Hotspots/ouruin_level.xml">
+        <parameters>
+            <parameter name="level_name" type="string" val="explore" />
         </parameters>
         <Connections />
         <ConnectionsFrom />
@@ -327,5 +380,9 @@
     <SpawnerItem display_name="RaiderBase_SandBarrier2.xml" path="Prototypes/Lugaru/RaiderBase_SandBarrier2.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="lloyd.xml" path="Data/Prefabs/ouruin/characters/lloyd.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="whalemanbook.xml" path="Data/Items/collectable/whalemanbook.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Start Dialogue Hotspot" path="Data/Objects/Hotspots/start_dialogue.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
+    <SpawnerItem display_name="Level Message Sound Hotspot" path="Data/Objects/Hotspots/sound_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Sounds/speaker_icon.png" />
+    <SpawnerItem display_name="Send/Set Messages/Variables Hotspot" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="Data/Textures/Cursors/ibeam_nocompress.png" />
     <SpawnerItem display_name="Drika&apos;s Hotspot (DHS)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="Ouruin Level Hotspot" path="Data/Objects/Hotspots/ouruin_level.xml" thumbnail_path="Data/Images/scarlogo.png" />
 </RecentItems>

@@ -1,5 +1,6 @@
 #name "Thoritz-Meet"
 #participants 5
+send_character_message 1 "set_animation \"Data/Animations/gunk_enterpre.anm\""
 send_character_message 1 "set_eye_dir 9.51422 -49.5855 5.71464 1"
 send_character_message 1 "set_torso_target 7.09848 -49.3054 4.78016 0"
 send_character_message 1 "set_head_target 9.51242 -49.2223 5.40405 1"
@@ -18,9 +19,9 @@ set_dialogue_voice 4 4
 set_dialogue_color 5 0.7 0 0
 send_level_message "enable 7404"
 send_level_message "disable 7403"
-send_character_message 1 "set_animation \"Data/Animations/gunk_enterpre.anm\""
 send_character_message 1 "set_animation \"Data/Animations/gunk_enter.anm\""
 set_cam 5.27984 -48.5137 4.03446 -12.02 -103.82 0.24 37.5964
+send_level_message "sound_hotspot_play_sound Data/Sounds/ouruin/gunk_enter.wav"
 say 1 "Ghost" "[wait 0.1].[wait 0.1].[wait 0.1]."
 send_character_message 2 "set_head_target 10.0197 -49.6191 5.75908 0"
 send_character_message 1 "set_animation \"Data/Animations/gunk_enter2.anm\""
@@ -36,6 +37,7 @@ set_character_pos 1 9.12791 -49.4565 5.48844 -60
 send_character_message 1 "set_torso_target 7.09961 -49.3029 4.78183 0"
 send_character_message 2 "set_head_target 9.87638 -49.711 5.60346 0.298174"
 send_character_message 1 "set_animation \"Data/Animations/gunk_enter.anm\""
+send_level_message "sound_hotspot_play_sound Data/Sounds/ouruin/gunk_enter.wav"
 say 2 "Thoritz" ".[wait 0.1].[wait 0.1].[wait 0.2]Mm[wait 0.1].[wait 0.1].[wait 0.1].[wait 0.2]m[wait 0.2]m[wait 0.1].[wait 0.1].[wait 0.1].[wait 0.3]?"
 send_character_message 1 "set_torso_target 9.48885 -49.3096 6.02757 1"
 send_character_message 2 "set_head_target 9.79428 -49.5356 5.57462 0.298135"
@@ -93,8 +95,9 @@ set_character_pos 1 9.84033 -49.8174 5.84714 -34
 set_cam 9.90215 -48.941 5.93238 -42.42 -97.35 -11.36 88.0923
 send_character_message 1 "set_animation \"Data/Animations/perf_tape1.anm\""
 send_character_message 1 "set_head_target 9.48481 -48.6588 7.04476 1"
+send_level_message "sound_hotspot_play_sound Data/Sounds/ouruin/letter_take.wav"
 say 1 "Ghost" "[wait 0.5].[wait 0.5].[wait 0.5]."
-send_character_message 2 "set_head_target 10.1109 -49.7839 5.91687 1.73151e-05"
+send_character_message 2 "set_head_target 10.1109 -49.7839 5.91687 0"
 send_character_message 1 "set_animation \"Data/Animations/perf_tape2.anm\""
 say 5 "''R''" "[wait 0.5]SAPPHIRE SPRINGS. [wait 0.15]Seabreeze and sandals. [wait 0.15]Five days. [wait 0.15]Full House! [wait 0.2]- R"
 send_character_message 2 "set_head_target 10.2779 -49.856 5.85488 0.649083"

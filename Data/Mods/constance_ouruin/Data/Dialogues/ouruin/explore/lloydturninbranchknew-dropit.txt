@@ -1,21 +1,32 @@
 #name "LloydTurnInBranchKnew-DropIt"
 #participants 3
 set_character_pos 2 0.335167 -42.4001 168.739 -101
-send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book_hip.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_bookwrite.anm\""
 send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
-send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
+send_character_message 2 "set_head_target -0.863206 -41.6024 168.825 0"
 set_character_pos 1 -1.12031 -42.458 169.053 21
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
-send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_welcome.anm\""
+send_character_message 1 "set_eye_dir -0.309657 -42.0082 169.188 0.715949"
 send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
-send_character_message 1 "set_head_target 0.0526941 -41.353 168.721 1"
-set_cam -2.20375 -41.9143 171.068 0 -38.48 0 65.7874
+send_character_message 1 "set_head_target 0.458352 -42.0018 169.099 1"
+set_cam -1.61234 -42.0464 170.878 2.47 -31.47 0 58.2553
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 2 0.66 0.33 0.2
 set_dialogue_voice 2 5
-send_level_message "disable 8715"
+send_level_message "enable 8715"
+send_level_message "enable 8496"
+send_character_message 1 "set_morph_target angry 0.8 0.3 outExpo"
 say 1 "Ghost" "Knew this would be a waste of my time. [wait 0.1]I don't know why I bothered."
+send_character_message 1 "set_eye_dir 0.130266 -41.5575 168.974 1"
+send_character_message 1 "set_head_target 0.343099 -41.1563 169.047 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_morph_target angry 1.0 0.3 outExpo"
 say 1 "Ghost" "Better watch your step. [wait 0.1]Any one of these planks could fall out from under you."
+send_character_message 2 "set_head_target 0.353233 -41.6937 169.516 0.412954"
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.341344"
+send_character_message 1 "set_head_target 0.324567 -41.6153 169.071 1"
+send_character_message 1 "set_morph_target angry 0.5 0.3 outExpo"
 say 2 "Lloyd" "Or I could slip and fall, [wait 0.05]yes, [wait 0.05]yes. [wait 0.1]Very precarious. [wait 0.1]I'll be so careful. [wait 0.1]Hmhm..."
+send_character_message 1 "set_morph_target angry 0.0 0.3 outExpo"
 send_level_message "dialogue_done"

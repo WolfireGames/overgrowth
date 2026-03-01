@@ -54,7 +54,6 @@ send_character_message 2 "set_head_target -0.977401 -41.6445 169.067 1"
 send_character_message 2 "set_torso_target -0.207718 -41.9104 169.314 0"
 send_character_message 2 "set_morph_target angry 0.0 0.3 outExpo"
 say 2 "Lloyd" "Nothing at all. [wait 0.1]I just had to write something down before I could be spotted."
-set_cam -1.99888 -41.9334 168.612 7.93 -104.39 0 51.5924
 send_character_message 1 "set_torso_target -0.577965 -42.0575 168.948 0.999998"
 send_character_message 1 "set_head_target 0.205252 -41.3338 168.861 1"
 send_character_message 2 "set_animation \"Data/Animations/r_dialogue_welcome.anm\""

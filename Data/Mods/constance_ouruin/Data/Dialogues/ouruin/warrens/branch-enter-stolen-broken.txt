@@ -40,7 +40,6 @@ send_character_message 1 "set_eye_dir -73.8982 -45.1399 -73.8148 0.550489"
 send_character_message 1 "set_head_target -73.1359 -45.5352 -74.189 1"
 set_cam -77.9521 -47.2493 -77.0498 20.53 -121.51 0 20.7917
 say 4 "???" "..."
-set_cam -77.9521 -47.2493 -77.0498 20.51 -121.64 0.01 20.7917
 send_character_message 1 "set_torso_target -72.7846 -45.7337 -73.9314 0.810637"
 send_character_message 2 "set_eye_dir -77.2488 -47.1896 -71.3542 1"
 send_character_message 2 "set_torso_target -78.0897 -47.4551 -71.1366 0"

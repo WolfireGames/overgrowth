@@ -1,24 +1,50 @@
 #name "LloydTurnInEmpty"
 #participants 3
 set_character_pos 2 0.335167 -42.4001 168.739 -101
-send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book_hip.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book.anm\""
 send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0.57716"
-send_character_message 2 "set_head_target -0.863209 -41.6024 168.825 1"
+send_character_message 2 "set_head_target -0.860171 -41.7005 168.872 1"
 set_character_pos 1 -1.12031 -42.458 169.053 21
-send_character_message 1 "set_animation \"Data/Animations/r_actionidle.anm\""
-send_character_message 1 "set_eye_dir 0.059226 -41.3308 168.659 1"
-send_character_message 1 "set_torso_target -1.13865 -41.9676 168.07 0"
-send_character_message 1 "set_head_target 0.0526941 -41.353 168.721 1"
-set_cam -2.20375 -41.9143 171.068 0 -38.48 0 65.7874
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir -1.84507 -41.3664 168.555 1"
+send_character_message 1 "set_torso_target -1.13564 -41.9637 168.072 0"
+send_character_message 1 "set_head_target 0.0454247 -41.5873 168.533 1"
+set_cam -1.5387 -41.888 164.04 0 -165.67 0 31.725
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
 set_dialogue_color 2 0.66 0.33 0.2
 set_dialogue_voice 2 5
 send_level_message "disable 8715"
+send_character_message 2 "set_morph_target smile 0.0 0.3 outExpo"
+send_character_message 2 "set_morph_target frown 0.0 0.3 outExpo"
 say 1 "Ghost" "I got inside, [wait 0.05]but I couldn't find anything of worth. [wait 0.1]Place was absolutely covered in junk. [wait 0.1]Hard to figure any of it out."
+send_character_message 1 "set_eye_dir -0.14825 -41.3268 168.765 1"
+send_character_message 1 "set_head_target 0.033667 -41.5076 168.588 1"
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 0"
+send_character_message 2 "set_head_target -1.10683 -40.9744 169.58 1"
 say 2 "Lloyd" "Mm. [wait 0.1]I've heard they don't take good care of their own quarters. [wait 0.1]Must come natural, [wait 0.05]living like that..."
+send_character_message 1 "set_eye_dir -0.298008 -41.1293 168.66 1"
+send_character_message 1 "set_head_target -0.0267587 -41.8726 168.746 1"
+send_character_message 2 "set_head_target -1.23837 -41.2974 169.263 1"
+send_character_message 2 "set_eye_dir -0.0435575 -41.348 169.095 1"
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_book_hip.anm\""
 say 2 "Lloyd" "If you feel it's too late, [wait 0.05]go ahead and drop the matter completely. [wait 0.1]Just don't expect me to go paying you, [wait 0.05]coming back with nothing like that."
+send_character_message 2 "set_head_target -1.29292 -41.477 169.187 1"
+send_character_message 1 "set_eye_dir -0.296307 -40.8353 168.699 0.644276"
+send_character_message 1 "set_head_target -0.329945 -41.7383 168.69 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_handneck.anm\""
 say 1 "Ghost" "And you're sure you even got the right location? [wait 0.1]Could've been some scribe's quarters."
-say 2 "Lloyd" "Yes, [wait 0.05]yes, [wait 0.05]I'm quite sure. [wait 0.1]If this was truly a waste of time for the both of us, [wait 0.05]then how about you be on your way`[wait 0.1]It's best I not be seen with you for much longer, [wait 0.05]after all..."
+send_character_message 1 "set_torso_target -0.313447 -41.8035 168.854 1"
+send_character_message 1 "set_eye_dir -0.0269695 -41.1952 168.587 1"
+send_character_message 1 "set_head_target -0.0720823 -41.4598 168.792 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 2 "set_head_target -0.396359 -40.9439 169.512 1"
+say 2 "Lloyd" "Yes, [wait 0.05]yes, [wait 0.05]I'm quite sure. [wait 0.1]If this was truly a waste of time for the both of us, [wait 0.05]then how about you be on your way? [wait 0.1]It's best I not be seen with you for much longer, [wait 0.05]after all..."
+send_character_message 1 "set_torso_target -0.313447 -41.8035 168.854 0"
+send_character_message 2 "set_head_target 0.221645 -41.046 170.078 1"
+send_character_message 1 "set_eye_dir -0.432123 -41.9425 168.911 0.642424"
+send_character_message 1 "set_head_target 0.0261024 -41.7601 169.13 1"
 say 3 "Ghost" "(...[wait 0.05]Guess I could try checking the place again. [wait 0.1]If it's worth the hassle.)"
 send_level_message "dialogue_done"
