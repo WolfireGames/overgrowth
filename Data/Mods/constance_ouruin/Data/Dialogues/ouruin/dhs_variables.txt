@@ -164,6 +164,8 @@ Define variable, its values and notes for each value.
 		1: Player is loading into Nui Warrens from Depot (depot.xml)
 		2: Player is loading into Nui Warrens from Agra Hood (level1_a.xml)
 		3: Player is loading into Nui Warrens from Zero's Arena (courtyard.xml)
+		4: Player is at Thoritz' quarters
+		5: Player is at Branch's quarters
 	
 	ouruin_ratnest_state
 		0: Player has not visited Rat's Nest

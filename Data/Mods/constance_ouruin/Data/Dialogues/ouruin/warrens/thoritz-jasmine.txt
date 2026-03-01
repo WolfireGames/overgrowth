@@ -1,0 +1,124 @@
+#name "Thoritz-Jasmine"
+#participants 6
+set_character_pos 5 9.80157 -49.8028 5.77127 32
+send_character_message 5 "set_animation \"Data/Animations/hazel_onback.anm\""
+send_character_message 5 "set_eye_dir 10.1202 -50.4449 5.9885 1"
+send_character_message 5 "set_head_target 9.88629 -49.9176 5.09534 1"
+send_character_message 2 "set_torso_target 9.95472 -50.0546 5.5337 0.872862"
+send_character_message 2 "set_head_target 9.99612 -50.4042 5.87598 1"
+send_character_message 1 "set_animation \"Data/Animations/gunk_enterpre.anm\""
+send_character_message 1 "set_eye_dir 9.11815 -49.4737 4.99764 1"
+send_character_message 1 "set_torso_target 7.09848 -49.3054 4.78016 0"
+send_character_message 1 "set_head_target 8.63482 -49.2385 4.80231 1"
+set_character_pos 2 9.46797 -49.807 5.12335 -44
+send_character_message 2 "set_animation \"Animations/r_crouch_sad.anm\""
+send_character_message 2 "set_eye_dir 9.66602 -50.2062 5.325 1"
+set_character_pos 1 6.92988 -49.5363 3.94368 -60
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+set_dialogue_color 6 0.56 0.07 0.79
+set_dialogue_voice 6 14
+set_dialogue_color 4 0.576 0.286 0.4
+set_dialogue_voice 4 4
+send_level_message "enable 7404"
+send_level_message "disable 7403"
+send_level_message "enable 7430"
+send_level_message "disable 7231"
+send_level_message "disable 7437"
+send_level_message "disable 7438"
+send_level_message "enable 7332"
+send_level_message "enable 7629"
+send_character_message 1 "set_animation \"Data/Animations/gunk_enter.anm\""
+set_cam 5.0552 -48.2883 3.78202 -16.29 -105.01 0.08 25.0283
+send_level_message "sound_hotspot_play_sound Data/Sounds/ouruin/gunk_enter.wav"
+say 2 "Jasmine" "...[wait 0.1]Come on, [wait 0.05]man. [wait 0.1]Chew the damn thing."
+send_character_message 1 "set_torso_target 7.21004 -48.9321 4.75223 1"
+send_character_message 1 "set_eye_dir 6.12135 -48.71 3.47335 1"
+send_character_message 1 "set_head_target 7.41802 -49.1567 5.72403 1"
+send_character_message 2 "set_torso_target 9.95472 -50.0546 5.5337 0.857033"
+send_character_message 2 "set_head_target 10.6649 -50.0455 5.60788 1"
+say 2 "Jasmine" "Kak, [wait 0.05]you're already going to get my ears pulled... [wait 0.1]Don't be like this."
+set_character_pos 1 6.97104 -49.5363 2.97495 -180
+send_character_message 1 "set_animation \"Data/Animations/ghost_leantalk.anm\""
+send_character_message 1 "set_torso_target 7.21004 -48.9321 4.75223 0"
+set_cam 10.0002 -50.0672 7.54284 6.74 6.63 -0.65 28.5691
+send_character_message 2 "set_eye_dir 9.77839 -50.1671 5.2885 0.57161"
+send_character_message 2 "set_torso_target 9.77383 -50.1565 5.18301 0"
+set_character_pos 2 9.82226 -49.807 4.90712 -119
+send_character_message 2 "set_head_target 9.5833 -50.0663 5.39498 1"
+send_character_message 2 "set_animation \"Animations/r_crouch.anm\""
+say 2 "Jasmine" "...[wait 0.1]There 'ye go. [wait 0.1]There, [wait 0.05]there."
+send_character_message 2 "set_eye_dir 10.503 -49.8413 5.03073 1"
+send_character_message 2 "set_head_target 9.97003 -50.0037 5.51038 1"
+say 2 "Jasmine" "'Yer gonna need water. [wait 0.1]Don't care if you're already had some, [wait 0.05]'ye need more. [wait 0.1]Flush out whatever's gotcha like this."
+set_character_pos 2 10.0268 -49.807 5.14622 -117
+send_character_message 5 "set_head_target 9.69835 -49.7708 5.41648 1"
+send_level_message "disable 6741"
+send_level_message "disable 6812"
+send_character_message 1 "set_eye_dir 7.29992 -49.0127 3.60327 1"
+send_character_message 1 "set_head_target 8.17416 -49.469 5.27978 1"
+set_character_pos 1 7.0237 -49.5363 2.9595 -180
+send_character_message 2 "set_head_target 9.45629 -50.1386 5.67705 1"
+send_character_message 2 "set_animation \"Animations/r_crouch_sad.anm\""
+set_cam 6.17454 -48.4498 2.60228 -15.98 -122.25 -0.76 31.0623
+say 4 "Thoritz" "[wait 0.1].[wait 0.1].[wait 0.1]."
+send_character_message 1 "set_eye_dir 6.88691 -49.1952 3.27536 1"
+send_character_message 1 "set_head_target 6.36899 -49.4899 5.15875 1"
+send_character_message 2 "set_head_target 9.64193 -50.1541 5.59955 1"
+say 2 "Jasmine" "You know this'll do 'ya good. [wait 0.05]You're dry as a dune. [wait 0.1]Chin up."
+send_character_message 2 "set_animation \"Animations/r_actionidlecrouch.anm\""
+send_character_message 2 "set_torso_target 9.82051 -49.6091 5.77428 0"
+send_character_message 2 "set_head_target 9.20012 -49.7552 5.55717 1"
+send_character_message 5 "set_head_target 9.35764 -49.5674 5.27592 1"
+say 4 "Thoritz" "..."
+send_character_message 1 "set_torso_target 7.20112 -48.9485 4.66218 0"
+send_character_message 2 "set_torso_target 9.00052 -49.7802 5.72029 1"
+send_character_message 2 "set_eye_dir 8.00164 -49.0649 4.71903 1"
+send_character_message 2 "set_animation \"Animations/r_actionidle_crouch_knife_threat.anm\""
+send_character_message 1 "set_eye_dir 7.21714 -48.9736 4.00323 1"
+send_character_message 1 "set_head_target 6.62504 -49.2421 5.07857 1"
+send_character_message 2 "set_head_target 7.72711 -49.0546 3.7256 1"
+say 2 "Jasmine" "...[wait 0.1]Wh--[wait 0.05]Ghost! [wait 0.05]How long've you been there!?"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_torso_target 6.4587 -49.069 -9.51209 0"
+send_character_message 1 "set_eye_dir 6.49741 -49.2158 -9.28628 0.782688"
+send_character_message 1 "set_head_target 6.95837 -49.1617 -11.2441 1"
+send_character_message 2 "set_eye_dir 8.00167 -49.0649 4.71904 0.735173"
+send_character_message 2 "set_head_target 7.73553 -49.1069 3.63752 1"
+send_character_message 2 "set_torso_target 8.96226 -50.0031 5.63433 1"
+say 3 "Ghost" "(...[wait 0.1]Time to move on. [wait 0.1]Thoritz'll be alright.)"
+send_character_message 1 "set_head_target 6.8488 -48.975 -11.22 1"
+send_character_message 1 "set_eye_dir 6.47233 -48.9728 -10.3154 1"
+set_character_pos 1 6.8563 -49.5363 -8.73827 90
+send_character_message 5 "set_head_target 9.53062 -49.5966 5.2249 1"
+send_character_message 2 "set_torso_target 9.17446 -50.0049 5.84753 0.622153"
+send_character_message 2 "set_animation \"Animations/r_actionidlecrouch.anm\""
+send_level_message "sound_hotspot_play_sound Data/Sounds/ouruin/doors/door_A_creak_3.wav"
+send_level_message "enable 6741"
+send_level_message "enable 6812"
+set_cam 11.117 -50.0948 6.96103 10.7 42.89 0 36.7785
+say 2 "Jasmine" "Dammit Thoritz! [wait 0.05]Why didn't 'ya warn me sooner! [wait 0.05]Damn tet, [wait 0.05]I shoulda washed your gums the moment I walked in!"
+send_character_message 5 "set_head_target 9.33759 -49.6309 5.34356 1"
+send_character_message 2 "set_eye_dir 10.2757 -49.2299 6.17259 0.735173"
+send_character_message 2 "set_head_target 9.18266 -50.1773 6.18459 1"
+send_character_message 2 "set_animation \"Animations/r_crouch.anm\""
+send_character_message 2 "set_torso_target 9.17446 -50.0049 5.84753 0"
+say 2 "Jasmine" "Such a damned pain! [wait 0.05]*Huff*...[wait 0.1]!"
+send_character_message 2 "set_eye_dir 9.80791 -50.0476 5.44983 0.70862"
+send_character_message 2 "set_head_target 9.29602 -50.2311 5.78723 1"
+send_character_message 2 "set_animation \"Animations/r_crouch_sad.anm\""
+say 2 "Jasmine" "...[wait 0.1]*sigh*."
+send_character_message 1 "set_torso_target 7.19099 -49.7127 -10.4177 1"
+send_character_message 1 "set_eye_dir 7.25535 -49.6044 -9.36789 0.579728"
+send_character_message 1 "set_head_target 7.56504 -49.3201 -11.1211 1"
+set_cam 5.97968 -49.1655 -12.2358 0 -167.92 0 52.1881
+say 3 "Ghost" "..."
+send_character_message 1 "set_torso_target 7.19099 -49.7127 -10.4177 0"
+send_character_message 1 "set_head_target 7.335 -49.1635 -11.2124 1"
+send_character_message 1 "set_eye_dir 6.15795 -49.0972 -8.67565 1"
+say 3 "Ghost" "(Glad he's being taken care of.)"
+send_level_message "dialogue_done"
