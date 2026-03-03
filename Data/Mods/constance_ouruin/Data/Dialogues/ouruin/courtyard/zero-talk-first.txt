@@ -1,0 +1,35 @@
+#name "Zero-Talk-First"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 2 "Zero" "Good stuff, [wait 0.05]my dude. [wait 0.1]From what I could tell, [wait 0.05]you're self-trained. [wait 0.1]Am I right?"
+
+say 1 "Ghost" "I had some good guidance growing up, [wait 0.05]but one day, [wait 0.05]it was all left to me."
+
+say 2 "Zero" "Yeah. [wait 0.1]One day, [wait 0.05]that kind of help is either ripped away, [wait 0.05]or it dries up on its own. [wait 0.1]Gets worse if you try to chase what's left of it."
+
+say 2 "Zero" "I didn't get much of a primer, [wait 0.05]myself. [wait 0.1]Just had to beg for fights enough times until I could catch on."
+
+say 1 "Ghost" "So you've always been challenging strangers?"
+
+say 2 "Zero" "Challenging is putting it nicely. [wait 0.1]My only friends in this city are ones who fight back."
+
+say 2 "Zero" "I'm a bit more nice about it nowadays... [wait 0.1]If you met me a few seasons ago, [wait 0.05]I wouldn't have let you leave this courtyard, [wait 0.05]heh!"
+
+say 1 "Ghost" "Can't say that's a common attitude..."
+
+say 2 "Zero" "Common, [wait 0.05]rare, [wait 0.05]real, [wait 0.05]not real. [wait 0.1]These things aren't relevant."
+
+say 2 "Zero" "There is only what is happening right this second. [wait 0.1]Reality bends to the will of the present day, [wait 0.05]no matter how hard you try to stop it."
+
+say 2 "Zero" "...[wait 0.1]Don't count on my clarifying, [wait 0.05]by the way. [wait 0.1]Just be prepared for what I might say."
+
+send_level_message "dialogue_done"

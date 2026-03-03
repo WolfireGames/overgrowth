@@ -1,0 +1,139 @@
+#name "Zero-Meet"
+#participants 5
+send_character_message 3 "set_animation \"Animations/r_dialogue_jeer.anm\""
+send_character_message 3 "set_head_target 166.252 -8.77705 5.77088 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+send_character_message 2 "set_head_target 166.219 -9.00966 5.93787 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+set_cam 168.667 -4.53483 0.146755 12.84 30.24 0 51.112
+set_character_pos 3 167.274 -9.21244 5.11402 -150
+send_character_message 3 "set_eye_dir 165.791 -8.51173 6.15673 1"
+set_character_pos 2 165.227 -9.20589 6.64583 60
+send_character_message 2 "set_eye_dir 166.379 -8.49881 5.70792 1"
+set_character_pos 1 166.724 -3.83741 -3.76165 -90
+send_character_message 1 "set_eye_dir 167.924 -2.86653 -4.73338 1"
+send_character_message 1 "set_torso_target 166.566 -3.33468 -2.95718 0.00322795"
+send_character_message 1 "set_head_target 166.942 -3.27514 -2.71993 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 3 "???" "That kick was underhanded as hell, [wait 0.05]Zero. [wait 0.1]Admit it."
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 166.753 -5.24183 -1.28314 1"
+send_character_message 1 "set_head_target 166.663 -3.39626 -2.60094 1"
+say 2 "Zero" "Enough with the excuses, [wait 0.05]already! [wait 0.05]Can we just get back to it?"
+send_character_message 3 "set_head_target 166.187 -8.68163 5.80399 1"
+send_character_message 2 "set_head_target 166.705 -8.69687 5.74222 1"
+send_character_message 1 "set_torso_target 166.539 -3.92223 -2.53786 1"
+send_character_message 1 "set_head_target 166.677 -3.60721 -2.44389 1"
+set_cam 166.596 -2.54542 -4.41699 -31.03 179.85 0 59.2137
+say 3 "???" "So I can get my ass slammed into the ground by your lame tricks? [wait 0.1]Absolutely not."
+send_character_message 2 "set_eye_dir 165.927 -8.28393 5.58455 1"
+set_cam 169.641 -9.03819 1.03943 3.07 145.77 0 16.575
+send_character_message 2 "set_head_target 167.622 -8.05984 6.38672 1"
+send_character_message 3 "set_head_target 166.022 -8.52993 6.00063 1"
+send_character_message 3 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 2 "set_animation \"Data/Animations/zero_mock.anm\""
+say 2 "Zero" "If it's such a lame trick, [wait 0.05]then why can't you beat it?"
+send_character_message 2 "set_eye_dir 165.927 -8.28393 5.58455 0.44531"
+send_character_message 2 "set_head_target 167.696 -8.72457 6.30259 1"
+send_character_message 3 "set_head_target 165.893 -8.28375 6.19584 1"
+send_character_message 3 "set_animation \"Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+set_character_pos 1 166.765 -3.83741 -3.2676 -94
+say 3 "???" "Because you're not even fighting! [wait 0.05]You're just flailing!"
+set_cam 164.324 -9.68165 9.2875 22.99 -16.38 1.03 19.7678
+send_character_message 3 "set_eye_dir 166.768 -8.27187 4.9017 1"
+send_character_message 1 "set_eye_dir 166.49 -4.87634 -0.820646 1"
+send_character_message 1 "set_head_target 166.576 -4.20651 -1.9106 1"
+send_character_message 1 "set_torso_target 166.539 -3.92223 -2.53786 0"
+send_character_message 1 "set_animation \"Animations/r_crouch.anm\""
+send_character_message 2 "set_animation \"Data/Animations/zero_call.anm\""
+send_character_message 2 "set_eye_dir 166.27 -6.98635 5.31012 1"
+send_character_message 2 "set_head_target 165.285 -7.65593 5.3083 1"
+send_character_message 3 "set_head_target 165.558 -8.1542 5.59341 1"
+say 2 "Zero" "You're listening to this guy, [wait 0.05]right? [wait 0.1]Doesn't sound like much worth respecting is on display, [wait 0.05]huh?"
+send_character_message 1 "set_eye_dir 167.317 -3.21964 -2.71633 1"
+send_character_message 1 "set_head_target 165.77 -4.40536 -2.14455 1"
+send_character_message 2 "set_head_target 165.424 -7.59299 5.00516 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sass.anm\""
+say 1 "Ghost" "[wait 0.2]Uh--"
+send_character_message 3 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 3 "set_head_target 169.226 -8.70131 8.74664 1"
+set_character_pos 3 169.099 -9.21249 7.25812 -60
+send_character_message 1 "set_eye_dir 167.564 -4.08429 -2.57942 1"
+send_character_message 1 "set_head_target 165.927 -4.73095 -1.97654 1"
+send_character_message 2 "set_eye_dir 166.69 -8.46289 5.60513 1"
+send_character_message 2 "set_head_target 166.368 -8.15596 5.36493 1"
+say 3 "???" "Ugh! [wait 0.05]For Priya's sake, [wait 0.05]this isn't worth my time!"
+send_character_message 3 "set_head_target 168.607 -8.98597 8.78285 1"
+send_character_message 2 "set_torso_target 165.408 -8.95702 5.63781 1"
+send_character_message 2 "set_head_target 166.648 -7.7862 6.26785 1"
+set_cam 162.322 -8.53468 4.7786 -3.05 -116.91 0 28.4535
+say 2 "Zero" "Yeah, [wait 0.05]I'm sure the cockroach you call your wife saved you some maggot for supper!"
+send_character_message 2 "set_torso_target 165.408 -8.88868 5.63781 1"
+send_character_message 2 "set_head_target 166.773 -8.32425 6.23689 1"
+send_character_message 3 "set_eye_dir 168.203 -8.49859 7.0773 0.613147"
+send_character_message 3 "set_head_target 167.975 -8.05678 8.93564 1"
+send_character_message 3 "set_animation \"Animations/r_dialogue_worriedpose_2.anm\""
+say 3 "???" "Blow off, [wait 0.05]kak!"
+send_character_message 1 "set_torso_target 167.14 -2.83524 -1.64034 0"
+send_character_message 1 "set_eye_dir 168.533 -3.30972 -1.00236 1"
+send_character_message 1 "set_animation \"Data/Animations/ghost_leantalk_cross.anm\""
+set_character_pos 1 168.551 -2.65156 -2.54801 180
+set_cam 169.994 -8.46819 8.09197 -3.66 76.29 0 24.1038
+send_character_message 2 "set_eye_dir 166.241 -8.21175 7.32011 1"
+send_character_message 2 "set_head_target 166.771 -8.61629 5.89535 1"
+send_character_message 2 "set_torso_target 165.416 -8.88673 5.64168 0"
+send_character_message 1 "set_head_target 164.431 -3.83565 -1.58357 1"
+send_character_message 3 "set_animation \"Animations/r_archwrithe.anm\""
+send_character_message 3 "set_head_target 189.712 3.55776 33.4325 1"
+set_character_pos 3 188.788 3.12071 34.0325 -60
+send_character_message 3 "set_eye_dir 189.408 3.19439 34.5189 0"
+send_character_message 3 "set_torso_target 188.199 2.84996 34.663 1"
+say 5 "Zero" "[wait 0.1].[wait 0.1].[wait 0.1]."
+send_character_message 2 "set_torso_target 165.196 -9.16932 5.42535 1"
+send_character_message 2 "set_head_target 166.529 -8.40103 5.40286 1"
+send_character_message 2 "set_eye_dir 166.225 -7.97784 7.12084 0.351681"
+say 2 "Zero" "[wait 0.3]Damn... [wait 0.1]Maybe I shouldn't have pissed 'im off. [wait 0.1]Now I ain't got no sparrin' partner."
+send_character_message 1 "set_eye_dir 169.11 -1.26403 -1.43017 1"
+send_character_message 1 "set_head_target 164.878 -4.25174 -1.42816 1"
+set_cam 164.88 -9.7748 8.93798 29.31 -13.58 -0.05 18.3953
+send_character_message 2 "set_torso_target 165.247 -9.11789 5.4373 1"
+send_character_message 2 "set_eye_dir 166.043 -7.40327 4.02641 1"
+send_character_message 2 "set_head_target 166.092 -7.2733 4.95349 1"
+say 1 "Ghost" "Does this happen often?"
+send_character_message 2 "set_animation \"Data/Animations/zero_hand.anm\""
+send_character_message 2 "set_torso_target 165.247 -9.11789 5.4373 0"
+send_character_message 2 "set_eye_dir 165.812 -7.89849 6.60023 1"
+send_character_message 2 "set_head_target 165.741 -8.41837 4.73753 1"
+send_character_message 1 "set_head_target 165.333 -4.4926 -1.17341 1"
+send_character_message 1 "set_eye_dir 168.481 -3.01541 -0.503338 1"
+say 2 "Zero" "Eventually, [wait 0.05]yeah. [wait 0.1]Sooner or later."
+send_character_message 1 "set_head_target 166.2 -4.03151 0.085294 1"
+send_character_message 2 "set_torso_target 165.946 -8.76619 5.46825 0"
+set_character_pos 2 165.684 -9.20589 6.75538 74
+set_cam 168.995 -0.465281 -4.44388 -36.31 166.98 0.32 12.8902
+send_character_message 2 "set_eye_dir 165.679 -7.72067 5.98551 1"
+send_character_message 2 "set_head_target 166.934 -8.09497 5.82717 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_goad.anm\""
+say 2 "Zero" "Hah... [wait 0.1]Well, [wait 0.05]I still need the exercise. [wait 0.05]Why don't you hop in and go for a few rounds?"
+send_character_message 2 "set_head_target 167.152 -8.00477 5.72903 1"
+send_character_message 2 "set_torso_target 165.994 -7.48713 5.77858 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+send_character_message 1 "set_animation \"Data/Animations/ghost_leantalk.anm\""
+send_character_message 1 "set_head_target 166.735 -4.44588 0.191488 1"
+say 1 "Ghost" "What, [wait 0.05]me?"
+send_character_message 1 "set_head_target 167.048 -4.73249 0.240274 1"
+send_character_message 2 "set_head_target 167.091 -7.43016 6.10833 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_hand.anm\""
+send_character_message 2 "set_torso_target 165.946 -8.76619 5.46825 0"
+say 2 "Zero" "Yeah, [wait 0.05]of course you. [wait 0.1]Y' feel like sparring? [wait 0.1]I could teach you some new moves!"
+send_level_message "dialogue_done"

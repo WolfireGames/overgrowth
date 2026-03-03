@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-95.8332" t1="-55.085" t2="-94.6052" s0="1" s1="1" s2="1" q0="-0.0950005" q1="-0.490544" q2="0.0539035" q3="-0.864544" euler_x="0.218892" euler_y="1.03221" euler_z="0" id="0">
+    <CameraObject t0="6.2215" t1="-47.4245" t2="7.51428" s0="1" s1="1" s2="1" q0="0.10484" q1="0.266698" q2="-0.0291981" q3="0.957616" euler_x="0.218091" euler_y="0.543239" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -9651,9 +9651,9 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Group name="Branch Event" t0="-73.9241" t1="-47.3749" t2="-72.4615" s0="2.0537" s1="2.12301" s2="1.9851" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3065" version="1">
+    <Group name="Branch Event" t0="-60.8221" t1="-44.8734" t2="-69.8903" s0="2.0537" s1="2.12301" s2="1.9851" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3065" version="1">
         <parameters />
-        <Hotspot name="Branch Trigger" t0="-73.9241" t1="-47.3749" t2="-72.4615" s0="0.510926" s1="0.528251" s2="0.493773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3063" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <Hotspot name="Branch Trigger" t0="-60.8221" t1="-44.8734" t2="-69.8903" s0="0.510926" s1="0.528251" s2="0.493773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3063" type_file="Data/Objects/Hotspots/setmessages.xml">
             <parameters>
                 <parameter name="Activate Once" type="int" val="0" />
                 <parameter name="Activate Player Only" type="int" val="1" />
@@ -9673,7 +9673,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot name="Branch Question" t0="-73.9198" t1="-47.4258" t2="-72.4639" s0="0.443701" s1="0.5012" s2="0.426032" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3064" type_file="Data/Objects/Hotspots/start_dialogue.xml">
+        <Hotspot name="Branch Question" t0="-60.8178" t1="-44.9243" t2="-69.8927" s0="0.443701" s1="0.5012" s2="0.426032" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3064" type_file="Data/Objects/Hotspots/start_dialogue.xml">
             <parameters>
                 <parameter name="Automatic" type="int" val="1" />
                 <parameter name="Color" type="string" val="0.52 0.28 1.0" />
@@ -10724,7 +10724,7 @@
             <parameters />
         </Decal>
     </Group>
-    <Hotspot name="Branch Door Event" t0="-55.9028" t1="-46.0856" t2="-74.8327" s0="0.351805" s1="0.615938" s2="0.346045" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3407" type_file="Data/Objects/Hotspots/setmessages.xml">
+    <Hotspot name="Branch Door Event" t0="-57.3019" t1="-48.5098" t2="-90.7296" s0="0.351805" s1="0.615938" s2="0.346045" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3407" type_file="Data/Objects/Hotspots/setmessages.xml">
         <parameters>
             <parameter name="Activate Once" type="int" val="0" />
             <parameter name="Activate Player Only" type="int" val="1" />
@@ -10743,9 +10743,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Group name="Branch Notes Group" t0="-77.2882" t1="-51.4063" t2="-66.4647" s0="0.834844" s1="8.47427" s2="0.82134" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3410" version="1">
+    <Group name="Branch Notes Group" t0="-77.2882" t1="-51.4063" t2="-71.2602" s0="0.834844" s1="8.47427" s2="0.82134" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3410" version="1">
         <parameters />
-        <Hotspot name="Branch Notes Event" t0="-77.2882" t1="-47.8986" t2="-66.4647" s0="0.206214" s1="0.36222" s2="0.202836" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3408" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <Hotspot name="Branch Notes Event" t0="-77.2882" t1="-47.8986" t2="-71.2602" s0="0.206214" s1="0.36222" s2="0.202836" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3408" type_file="Data/Objects/Hotspots/setmessages.xml">
             <parameters>
                 <parameter name="Activate Once" type="int" val="0" />
                 <parameter name="Activate Player Only" type="int" val="1" />
@@ -10764,7 +10764,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot name="Branch Notes Trigger" t0="-77.2714" t1="-51.4266" t2="-66.4842" s0="0.179771" s1="2.10591" s2="0.173563" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3409" type_file="Data/Objects/Hotspots/start_dialogue.xml">
+        <Hotspot name="Branch Notes Trigger" t0="-77.2714" t1="-51.4266" t2="-71.2797" s0="0.179771" s1="2.10591" s2="0.173563" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3409" type_file="Data/Objects/Hotspots/start_dialogue.xml">
             <parameters>
                 <parameter name="Automatic" type="int" val="0" />
                 <parameter name="Color" type="string" val="1.0 1.0 1.0" />
@@ -22975,7 +22975,7 @@
     <EnvObject t0="-1.79389" t1="-45.021" t2="-51.7559" s0="0.244927" s1="0.264088" s2="0.264088" q0="-0.0580368" q1="-0.636346" q2="0.142222" q3="-0.755956" euler_x="-0.470441" euler_y="1.36358" euler_z="-0.756149" id="7270" color_r="0.309804" color_g="0.263087" color_b="0.21747" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
-    <DynamicLightObject name="Thoritz Light" t0="10.1224" t1="-49.2641" t2="6.3073" s0="2.02809" s1="2.02809" s2="2.02809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7273" color_r="0.0473971" color_g="0.0786965" color_b="0.180392" overbright="0">
+    <DynamicLightObject name="Thoritz Light" t0="10.1584" t1="-49.232" t2="6.30234" s0="2.02809" s1="2.02809" s2="2.02809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7273" color_r="0.11188" color_g="0.175089" color_b="0.380392" overbright="0">
         <parameters />
     </DynamicLightObject>
     <ReflectionCaptureObject t0="6.97877" t1="-47.8856" t2="5.41775" s0="13.8222" s1="13.8222" s2="9.21482" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7274" gicoeff00="0.000472605" gicoeff01="0.000820875" gicoeff02="0.00131893" gicoeff03="0.000521839" gicoeff04="0.000897288" gicoeff05="0.00142646" gicoeff06="0.000368297" gicoeff07="0.000637412" gicoeff08="0.000967026" gicoeff09="0.000736356" gicoeff10="0.00127983" gicoeff11="0.00213003" gicoeff12="0.000499308" gicoeff13="0.000844836" gicoeff14="0.00135899" gicoeff15="0.000597477" gicoeff16="0.0010196" gicoeff17="0.0015676">
@@ -23317,9 +23317,9 @@
     <EnvObject name="Thoritz Dialogue Mark" t0="6.765" t1="-50.2142" t2="-6.91865" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7407" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/coin.xml">
         <parameters />
     </EnvObject>
-    <Group name="Thoritz Trigger Group" t0="6.78472" t1="-37.8473" t2="-2.25111" s0="2.67667" s1="2.84997" s2="2.67667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7408" version="1">
+    <Group name="Thoritz Trigger Group" t0="6.78792" t1="-48.7429" t2="-7.05463" s0="2.67667" s1="2.84997" s2="2.67667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7408" version="1">
         <parameters />
-        <Hotspot name="Thoritz Room Trigger" t0="6.78472" t1="-37.7606" t2="-2.25111" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5980" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <Hotspot name="Thoritz Room Trigger" t0="6.78792" t1="-48.6562" t2="-7.05463" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5980" type_file="Data/Objects/Hotspots/setmessages.xml">
             <parameters>
                 <parameter name="Activate Once" type="int" val="0" />
                 <parameter name="Activate Player Only" type="int" val="1" />
@@ -23338,7 +23338,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot name="Thoritz Dialogue Start" t0="6.7956" t1="-37.8938" t2="-2.26175" s0="0.612101" s1="0.686743" s2="0.612101" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7406" type_file="Data/Objects/Hotspots/start_dialogue.xml">
+        <Hotspot name="Thoritz Dialogue Start" t0="6.7988" t1="-48.7894" t2="-7.06527" s0="0.612101" s1="0.686743" s2="0.612101" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7406" type_file="Data/Objects/Hotspots/start_dialogue.xml">
             <parameters>
                 <parameter name="Automatic" type="int" val="0" />
                 <parameter name="Color" type="string" val="0.576 0.286 0.4" />
@@ -23346,7 +23346,7 @@
                 <parameter name="Fade" type="int" val="0" />
                 <parameter name="Force play" type="int" val="0" />
                 <parameter name="Play only once" type="int" val="0" />
-                <parameter name="Question Object" type="string" val="N/A" />
+                <parameter name="Question Object" type="string" val="7407" />
                 <parameter name="Visible in game" type="int" val="0" />
             </parameters>
             <Connections />
@@ -24313,7 +24313,7 @@
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
             <parameter name="Fade Distance" type="float" val="100" />
-            <parameter name="Gain" type="float" val="0.019" />
+            <parameter name="Gain" type="float" val="0.039" />
             <parameter name="Global" type="int" val="0" />
             <parameter name="Sound Path" type="string" val="Data/Sounds/ouran/roomtone.wav" />
             <parameter name="Wind Scale" type="int" val="0" />
@@ -24339,7 +24339,7 @@
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
             <parameter name="Fade Distance" type="float" val="10" />
-            <parameter name="Gain" type="float" val="0.083" />
+            <parameter name="Gain" type="float" val="0.147" />
             <parameter name="Global" type="int" val="0" />
             <parameter name="Sound Path" type="string" val="Data/Sounds/ambient/drip_cave.wav" />
             <parameter name="Wind Scale" type="int" val="0" />
@@ -24386,7 +24386,7 @@
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
             <parameter name="Fade Distance" type="float" val="15" />
-            <parameter name="Gain" type="float" val="0.039" />
+            <parameter name="Gain" type="float" val="0.089" />
             <parameter name="Global" type="int" val="0" />
             <parameter name="Sound Path" type="string" val="Data/Sounds/ouruin/buildinghum.wav" />
             <parameter name="Wind Scale" type="int" val="0" />
@@ -24438,7 +24438,7 @@
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
             <parameter name="Fade Distance" type="float" val="7" />
-            <parameter name="Gain" type="float" val="0.122" />
+            <parameter name="Gain" type="float" val="0.199" />
             <parameter name="Global" type="int" val="0" />
             <parameter name="Sound Path" type="string" val="Data/Sounds/ambient/wet_cave.wav" />
             <parameter name="Wind Scale" type="int" val="0" />
@@ -24492,7 +24492,7 @@
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
             <parameter name="Fade Distance" type="float" val="17" />
-            <parameter name="Gain" type="float" val="0.075" />
+            <parameter name="Gain" type="float" val="0.108" />
             <parameter name="Global" type="int" val="0" />
             <parameter name="Sound Path" type="string" val="Data/Sounds/ouruin/cityhum.wav" />
             <parameter name="Wind Scale" type="int" val="0" />
@@ -24531,7 +24531,7 @@
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
             <parameter name="Fade Distance" type="float" val="18" />
-            <parameter name="Gain" type="float" val="0.039" />
+            <parameter name="Gain" type="float" val="0.097" />
             <parameter name="Global" type="int" val="0" />
             <parameter name="Sound Path" type="string" val="Data/Sounds/ouruin/buildinghum.wav" />
             <parameter name="Wind Scale" type="int" val="0" />
@@ -24544,7 +24544,7 @@
             <parameter name="Delay Max" type="float" val="10" />
             <parameter name="Delay Min" type="float" val="3" />
             <parameter name="Fade Distance" type="float" val="15" />
-            <parameter name="Gain" type="float" val="0.039" />
+            <parameter name="Gain" type="float" val="0.083" />
             <parameter name="Global" type="int" val="0" />
             <parameter name="Sound Path" type="string" val="Data/Sounds/ouruin/buildinghum.wav" />
             <parameter name="Wind Scale" type="int" val="0" />

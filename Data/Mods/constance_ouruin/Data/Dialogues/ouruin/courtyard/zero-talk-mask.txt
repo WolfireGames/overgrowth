@@ -1,0 +1,32 @@
+#name "Zero-Talk-Mask"
+#participants 5
+set_character_pos 2 165.963 -7.19438 16.5923 18
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
+send_character_message 2 "set_eye_dir 166.661 -7.00866 16.3987 1"
+send_character_message 2 "set_head_target 166.675 -7.37331 15.8552 1"
+set_character_pos 1 167.477 -7.18023 16.137 151
+send_character_message 1 "set_animation \"Data/Animations/ghost_lounge_lean.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 1 "Ghost" "I haven't seen anything like your mask before. [wait 0.1]Did you make it yourself?"
+say 2 "Zero" "Well, [wait 0.05]I had some help. [wait 0.1]But yeah, [wait 0.05]most of this is my work. [wait 0.1]The paint was all me."
+say 2 "Zero" "I've seen people get hit in the head a ton of times, [wait 0.05]and let me tell 'ya, [wait 0.05]it is not pretty. [wait 0.1]Let it happen enough times, [wait 0.05]and your brain'll get all kinds of messed up."
+say 2 "Zero" "Y' gotta have something for protection, [wait 0.05]y'know? [wait 0.1]Some way to absorb shock."
+say 1 "Ghost" "How often do you wear it?"
+say 2 "Zero" "Sometimes, [wait 0.05]I sleep with it still on. [wait 0.1]Only when things are real rough."
+say 2 "Zero" "I keep it off when I eat, [wait 0.05]of course. [wait 0.1]If someone sees this mask and remembers the time I jabbed 'em in the teeth, [wait 0.05]I'll have my meal interrupted."
+say 1 "Ghost" "So you wear it more often than not?"
+say 2 "Zero" "Yeah. [wait 0.1]The wolf's snarl is good for me... [wait 0.1]Gives me confidence. [wait 0.1]Keeps me protected."
+say 2 "Zero" "My mama loved to tell stories about the wolves o'er on the mainland. [wait 0.1]Said she saw one, [wait 0.05]once. [wait 0.1]I wanted to borrow their spirit."
+say 1 "Ghost" "You know wolves are extinct, [wait 0.05]right? [wait 0.1]Did she really believe it?"
+say 2 "Zero" "Folks love to say they'd spotted one... [wait 0.1]Or that one ate their cattle. [wait 0.1]They see what they seek."
+say 2 "Zero" "If they see me as a wolf, [wait 0.05]then they'll see it in my eyes."
+send_level_message "dialogue_done"

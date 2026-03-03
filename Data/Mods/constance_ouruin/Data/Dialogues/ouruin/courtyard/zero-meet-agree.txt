@@ -1,0 +1,21 @@
+#name "Zero-Meet-Agree"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 1 "Ghost" "...[wait 0.1]Sure, [wait 0.05]why not."
+
+say 2 "Zero" "Hey, [wait 0.05]nice! [wait 0.05]Wasn't actually expecting you to join..."
+
+say 2 "Zero" "Come to me when you're ready. [wait 0.1]You should try taking a look around here, [wait 0.05]though!"
+
+say 2 "Zero" "I should have all the amenities you could ever desire..."
+
+send_level_message "dialogue_done"

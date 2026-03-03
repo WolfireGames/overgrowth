@@ -96,6 +96,7 @@ set_cam 9.90215 -48.941 5.93238 -42.42 -97.35 -11.36 88.0923
 send_character_message 1 "set_animation \"Data/Animations/perf_tape1.anm\""
 send_character_message 1 "set_head_target 9.48481 -48.6588 7.04476 1"
 send_level_message "sound_hotspot_play_sound Data/Sounds/ouruin/letter_take.wav"
+send_level_message "sound_hotspot_play_sound Data/Sounds/ouruin/home_drone_long.wav"
 say 1 "Ghost" "[wait 0.5].[wait 0.5].[wait 0.5]."
 send_character_message 2 "set_head_target 10.1109 -49.7839 5.91687 0"
 send_character_message 1 "set_animation \"Data/Animations/perf_tape2.anm\""

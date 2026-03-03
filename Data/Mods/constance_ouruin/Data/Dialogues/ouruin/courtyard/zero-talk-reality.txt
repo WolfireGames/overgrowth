@@ -1,0 +1,37 @@
+#name "Zero-Talk-Reality"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 1 "Ghost" "If you say the only thing that's real is the present, [wait 0.05]then how do you plan for the future?"
+
+say 2 "Zero" "I don't. [wait 0.1]Simple as that."
+
+say 2 "Zero" "My present mind may wonder what I'll eat tomorrow, [wait 0.05]and I might make some amount of effort for making sure I have a place to sleep, [wait 0.05]but even that is a concern for the present."
+
+say 2 "Zero" "Past and future are just different shades of the present. [wait 0.1]Truthfully, [wait 0.05]the makeup of existence is a tree we cannot peer out of; We only exist within its rings at any given moment."
+
+say 1 "Ghost" "All this high talk about existence and reality... [wait 0.1]What difference does it make when we're digging the same holes?"
+
+say 2 "Zero" "I dunno if this talk is very high. [wait 0.1]I'm kind of decimating it all, [wait 0.05]aren't I?"
+
+say 2 "Zero" "'Sides. [wait 0.1]You like, [wait 0.05]brought it up."
+
+say 1 "Ghost" "Just wanted to see how you'd respond."
+
+say 2 "Zero" "Someone once called me an onion."
+
+say 1 "Ghost" "What, [wait 0.05]'cause you smell like one?"
+
+say 2 "Zero" "Do I? [wait 0.1]Wait--[wait 0.1]No, [wait 0.05]that's not why."
+
+say 2 "Zero" "'Cause you peel the layers one by one, [wait 0.05]but each one ends up being the exact same. [wait 0.1]And it makes you cry."
+
+send_level_message "dialogue_done"

@@ -1,0 +1,33 @@
+#name "Zero-Talk-Fighting"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 1 "Ghost" "You said you begged for fights? [wait 0.1]What, [wait 0.05]like, [wait 0.05]on the street?"
+
+say 2 "Zero" "Heheheh. [wait 0.1]Not always on crete. [wait 0.1]Back on the mainland I'd meet whoever's willing in this picturesque little glade."
+
+say 2 "Zero" "People crossed through sometimes. [wait 0.1]Looking for food, [wait 0.05]I think. [wait 0.1]But it was my territory; I made sure people knew."
+
+say 2 "Zero" "Sometimes, [wait 0.05]some poor little thing would waltz through, [wait 0.05]and I'd just let 'em. [wait 0.1]They'd put up no fight. [wait 0.1]Why bother?"
+
+say 1 "Ghost" "So it was all for sport?"
+
+say 2 "Zero" "Well, [wait 0.05]like I said, [wait 0.05]they were usually out foraging. [wait 0.1]So I got to have a pick of their spoils."
+
+say 2 "Zero" "Word got out, [wait 0.05]and eventually only the strongest were sent in, [wait 0.05]empty-handed. [wait 0.1]No matter how many came, [wait 0.05]I always packed a punch. [wait 0.1]Doesn't matter how bruised I got."
+
+say 2 "Zero" "All too often I was too beat to move. [wait 0.1]Still growled like nothing else. [wait 0.1]I think they started to pity me a little! [wait 0.05]Pretty funny."
+
+say 1 "Ghost" "I'm surprised you're still alive. [wait 0.1]Jumping people like that for so long, [wait 0.05]I'd expect a knife in your ribs."
+
+say 2 "Zero" "That certainly wasn't out of the question!"
+
+send_level_message "dialogue_done"

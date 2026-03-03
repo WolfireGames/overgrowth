@@ -1,0 +1,34 @@
+#name "Zero-FirstSetup-ShowMe"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 1 "Ghost" "Sure... [wait 0.1]Why not? [wait 0.05]I guess I could use some pointers."
+
+say 2 "Zero" "That's what I love to hear! [wait 0.05]Now, [wait 0.05]do me a solid and go fetch that green pouch over there. [wait 0.1]The one with the rune on it?"
+
+say 1 "Ghost" "Uh... [wait 0.1]I suppose."
+
+say 2 "Zero" "Alright, [wait 0.05]lemme show you something real neat!"
+
+*Zero slams the pouch into the ground, [wait 0.05]releasing a cloud of powder-like dust.*
+
+say 1 "Ghost" "*cough*! [wait 0.05]A little warning would be appreciated!"
+
+say 2 "Zero" "Yep, [wait 0.05]that's the idea! [wait 0.05]This stuff'll make it real obvious what's going on! [wait 0.05]You'll see!"
+
+say 2 "Zero" "Now, [wait 0.05]this dust is some real fine stuff... [wait 0.1]You'll be able to read intent a lot easier. [wait 0.1]When I move to attack, [wait 0.05]it'll be impossible to miss!"
+
+say 1 "Ghost" "Really...[wait 0.1]? [wait 0.1]How's that work?"
+
+say 2 "Zero" "Beats me, [wait 0.05]but it works, [wait 0.05]and that's all I need to understand, [wait 0.05]heh."
+
+say 2 "Zero" "Now, [wait 0.05]let's try some sparring. [wait 0.1]The visual effects will have set in by now, [wait 0.05]so let's get to it!"
+send_level_message "dialogue_done"

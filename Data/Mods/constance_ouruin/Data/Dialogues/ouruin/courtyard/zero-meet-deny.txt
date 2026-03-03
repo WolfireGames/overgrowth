@@ -1,0 +1,21 @@
+#name "Zero-Meet-Deny"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 2 "Zero" "...[wait 0.1]Hm. [wait 0.1]Guess I'll... [wait 0.1]Sit and wait here."
+
+say 1 "Ghost" "Got nowhere to go?"
+
+say 2 "Zero" "I mean... [wait 0.1]I guess I can do some exercises...[wait 0.1]? [wait 0.1]I dunno."
+
+say 2 "Zero" "If you ever feel like learning some new moves, [wait 0.05]I'll be here! [wait 0.05]With nobody to fight..."
+
+send_level_message "dialogue_done"
