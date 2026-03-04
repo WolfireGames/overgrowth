@@ -1,5 +1,10 @@
 #name "Zero-Meet-Deny"
 #participants 5
+send_character_message 2 "set_eye_dir 165.831 -7.76056 6.27897 1"
+send_character_message 2 "set_head_target 166.178 -7.12292 5.36298 1"
+set_cam 168.631 -2.53164 -3.95533 -28.79 170.06 0 59.5704
+send_character_message 1 "set_eye_dir 168.192 -3.57447 -2.55792 1"
+send_character_message 1 "set_head_target 167.796 -3.37963 -1.7466 1"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
@@ -10,12 +15,37 @@ set_dialogue_color 5 0.868 0.208 0.440
 set_dialogue_voice 5 17
 set_dialogue_color 3 0.6 0.6 0.6
 set_dialogue_voice 3 13
+set_character_pos 2 165.684 -9.20589 6.75538 74
+set_character_pos 1 168.551 -3.7141 -2.52255 180
+send_character_message 1 "set_animation \"Data/Animations/ghost_leantalk_hip.anm\""
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+send_level_message "disable 1297"
+say 1 "Ghost" "I think I'm good."
+send_character_message 2 "set_eye_dir 165.884 -8.39481 6.15997 0.591004"
+send_character_message 2 "set_torso_target 165.789 -8.8467 5.72008 1"
+send_character_message 2 "set_head_target 166.451 -7.66078 5.19666 1"
 say 2 "Zero" "...[wait 0.1]Hm. [wait 0.1]Guess I'll... [wait 0.1]Sit and wait here."
-
+set_cam 168.631 -2.5316 -3.95544 -28.79 170.06 0 59.5704
+send_character_message 1 "set_head_target 168.173 -3.52839 -1.39938 1"
+send_character_message 2 "set_torso_target 165.789 -8.74485 5.72008 0.99998"
+send_character_message 2 "set_head_target 166.414 -7.47899 5.22063 1"
+send_character_message 2 "set_eye_dir 165.847 -8.13803 6.26633 1"
+send_character_message 1 "set_animation \"Data/Animations/ghost_leantalk.anm\""
 say 1 "Ghost" "Got nowhere to go?"
-
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+set_character_pos 1 166.988 -3.87908 -3.29048 -90
+send_character_message 1 "set_eye_dir 166.523 -6.64317 2.59129 1"
+send_character_message 1 "set_head_target 166.875 -3.81358 -0.411955 1"
+send_character_message 2 "set_eye_dir 165.037 -7.61218 7.14746 0.592071"
+send_character_message 2 "set_head_target 164.922 -8.27807 5.14046 1"
+send_character_message 2 "set_torso_target 165.789 -8.74485 5.72007 0"
+set_cam 163.995 -8.65273 5.40844 0 -124.26 0 40.2903
 say 2 "Zero" "I mean... [wait 0.1]I guess I can do some exercises...[wait 0.1]? [wait 0.1]I dunno."
-
+send_character_message 1 "set_eye_dir 169.202 -2.81139 -1.76018 0.74161"
+send_character_message 1 "set_head_target 166.907 -3.57641 -1.10906 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_fist.anm\""
+send_character_message 2 "set_eye_dir 166.903 -6.63537 4.08191 1"
+send_character_message 2 "set_head_target 166.067 -6.50443 4.55086 1"
 say 2 "Zero" "If you ever feel like learning some new moves, [wait 0.05]I'll be here! [wait 0.05]With nobody to fight..."
-
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
 send_level_message "dialogue_done"

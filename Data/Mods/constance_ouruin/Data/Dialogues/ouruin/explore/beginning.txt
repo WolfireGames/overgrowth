@@ -5,7 +5,7 @@ send_character_message 2 "set_animation \"Data/Animations/donatas_lean_sit.anm\"
 send_character_message 2 "set_eye_dir 38.0157 -51.3767 72.4839 1"
 send_character_message 2 "set_torso_target 37.9259 -51.6586 73.5568 0"
 send_character_message 2 "set_head_target 38.0654 -51.5467 72.6781 1"
-set_character_pos 1 37.9948 -52.114 72.4806 -90
+set_character_pos 1 37.9196 -52.114 72.6382 -90
 send_character_message 1 "set_animation \"Data/Animations/ghost_leantalk.anm\""
 send_character_message 1 "set_eye_dir 38.0706 -51.3768 73.8517 1"
 send_character_message 1 "set_torso_target 37.6247 -51.9104 72.7895 0"
@@ -17,7 +17,6 @@ set_dialogue_color 2 0.65 0.8 0.9
 set_dialogue_voice 2 1
 say 1 "Ghost" "I didn't realise how rough this hood had it... [wait 0.15]So many perfectly good houses, [wait 0.1]trapped underwater."
 say 2 "Donatas" "Hopefully it all drains away, [wait 0.1]some day... [wait 0.15]It won't be pretty, [wait 0.1]that's for sure."
-set_character_pos 1 37.9196 -52.114 72.6382 -90
 send_character_message 2 "set_torso_target 37.9259 -51.6586 73.5568 0.0475911"
 send_character_message 1 "set_head_target 38.1381 -51.5512 73.8012 1"
 send_character_message 2 "set_head_target 36.2541 -51.1042 72.5979 1"

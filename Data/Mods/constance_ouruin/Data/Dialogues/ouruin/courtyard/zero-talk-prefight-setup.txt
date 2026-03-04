@@ -1,0 +1,37 @@
+#name "Zero-Talk-PreFight-Setup"
+#participants 5
+send_character_message 2 "set_torso_target 166.099 -8.63365 5.63844 0"
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+send_character_message 2 "set_head_target 166.671 -8.74238 5.89366 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_head_target 166.773 -8.24731 5.7785 1"
+send_character_message 2 "set_eye_dir 166.479 -8.43288 5.81551 1"
+send_character_message 1 "set_eye_dir 167.644 -8.34808 5.84056 1"
+set_cam 174.445 -8.78934 11.0134 0 54.61 0 24.9256
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+set_character_pos 2 165.149 -9.227 5.86 -11
+set_character_pos 1 168.746 -9.24425 5.86 180
+say 1 "Ghost" "That's an interesting mask, [wait 0.05]there. [wait 0.1]Does it have a story to it?"
+send_character_message 2 "set_torso_target 166.099 -8.63365 5.63844 0"
+send_character_message 1 "set_head_target 166.802 -8.49559 5.77279 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_mock.anm\""
+send_character_message 2 "set_eye_dir 166.333 -8.43243 5.12696 1"
+send_character_message 2 "set_head_target 166.456 -7.74588 6.26167 1"
+say 2 "Zero" "Doesn't everything have a story tied to it? [wait 0.1]Whatever!"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 166.838 -8.67439 5.80868 1"
+send_character_message 2 "set_torso_target 166.586 -8.98601 5.74642 1"
+send_character_message 2 "set_eye_dir 166.455 -8.28319 5.21253 0.326243"
+send_character_message 2 "set_head_target 167.13 -9.13816 6.70278 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_goad.anm\""
+say 2 "Zero" "I'm not here to flap some gums! [wait 0.05]Put up a fight, [wait 0.05]and maybe then I'll talk!"
+send_level_message "dialogue_done"

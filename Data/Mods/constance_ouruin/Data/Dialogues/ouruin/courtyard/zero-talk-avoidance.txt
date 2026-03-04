@@ -1,0 +1,62 @@
+#name "Zero-Talk-Avoidance"
+#participants 5
+send_character_message 1 "set_eye_dir 166.717 -6.96326 16.6066 1"
+send_character_message 1 "set_head_target 167.557 -7.03988 15.1462 1"
+set_cam 166.426 -7.29649 17.9258 9.88 14.27 1.15 25.5187
+set_character_pos 2 165.963 -7.19438 16.5923 18
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
+send_character_message 2 "set_eye_dir 166.549 -5.6582 14.1746 1"
+send_character_message 2 "set_head_target 166.989 -7.40046 15.7454 1"
+set_character_pos 1 167.477 -7.18023 16.137 151
+send_character_message 1 "set_animation \"Data/Animations/ghost_lounge_lean.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 5.0 1.0"
+say 2 "Zero" "[wait 0.5]You ever feel like there's something hanging above you?"
+send_character_message 2 "set_torso_target 166.723 -7.23527 15.9444 1"
+send_character_message 2 "set_eye_dir 166.506 -7.29795 15.8544 1"
+send_character_message 2 "set_head_target 166.325 -6.95055 15.482 1"
+say 2 "Zero" "Not some kind of future event on the horizon. [wait 0.05]Just... [wait 0.2]Something that's supposed to happen to you."
+send_character_message 2 "set_torso_target 166.723 -7.23527 15.9444 0.387373"
+send_character_message 2 "set_eye_dir 166.507 -7.25886 16.603 0.511618"
+send_character_message 2 "set_head_target 166.643 -7.10179 15.862 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_neck.anm\""
+say 2 "Zero" "It's hard to say I'm ignoring it, [wait 0.2]but[wait 0.1].[wait 0.1].[wait 0.1]."
+send_character_message 2 "set_torso_target 166.723 -7.23527 15.9444 0"
+send_character_message 2 "set_head_target 166.677 -6.80102 15.8539 1"
+send_character_message 2 "set_eye_dir 166.47 -6.69484 16.5038 0.511618"
+say 2 "Zero" "...[wait 0.1]Maybe it's already happening. [wait 0.1]To you and me."
+send_character_message 2 "set_torso_target 166.723 -7.23527 15.9444 0.0903976"
+send_character_message 2 "set_eye_dir 166.138 -7.18892 16.1397 0.403943"
+send_character_message 2 "set_head_target 166.677 -6.80102 15.8539 0.693599"
+send_character_message 1 "set_eye_dir 166.703 -6.94694 16.533 0.800364"
+send_character_message 1 "set_head_target 167.433 -7.25834 15.1718 1"
+set_cam 162.417 -3.88413 11.9969 -29.14 -136.83 -0.06 50.908
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.0 5.0 1.0"
+send_character_message 1 "set_animation \"Data/Animations/ghost_lounge.anm\""
+say 1 "Ghost" "[wait 0.1]Supposed to?"
+send_character_message 1 "set_eye_dir 166.703 -6.94694 16.533 1"
+send_character_message 1 "set_head_target 167.105 -7.40754 15.3768 1"
+send_character_message 2 "set_head_target 167.068 -6.23472 16.2333 0.693599"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_fist.anm\""
+send_character_message 2 "set_eye_dir 167.026 -6.98536 16.2266 1"
+say 2 "Zero" "Eh. [wait 0.1]I don't care anymore."
+send_character_message 1 "set_head_target 167.065 -7.31707 15.355 1"
+send_character_message 2 "set_eye_dir 165.991 -6.73951 15.9272 1"
+send_character_message 2 "set_head_target 166.805 -7.04966 15.365 0.693599"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_shrug.anm\""
+say 2 "Zero" "Tired of sitting here."
+set_cam 166.972 -5.58098 1.50286 30.63 -180 0 59.1291
+send_character_message 2 "set_head_target 167.056 -5.96831 15.6617 0.693599"
+send_character_message 1 "set_eye_dir 167.121 -6.71332 15.2461 0.69558"
+send_character_message 1 "set_head_target 166.773 -7.26462 15.5022 1"
+say 4 "Ghost" "..."
+send_level_message "dialogue_done"

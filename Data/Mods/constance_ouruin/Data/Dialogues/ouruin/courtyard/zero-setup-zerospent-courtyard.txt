@@ -1,0 +1,24 @@
+#name "Zero-Setup-Spent-Courtyard"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+say 2 "Zero" "I, [wait 0.05]uh... [wait 0.1]I'm kind of low on money."
+
+say 2 "Zero" "Okay, [wait 0.05]no, [wait 0.05]I'm out of money. [wait 0.1]Straight up broke."
+
+say 1 "Ghost" "You... [wait 0.1]Spent every petal you had on these matches...[wait 0.1]?"
+
+say 2 "Zero" "C'mon, [wait 0.05]I was in the zone! [wait 0.05]You understand, [wait 0.05]right?"
+
+say 1 "Ghost" "...[wait 0.1]No, [wait 0.05]not really."
+
+say 2 "Zero" "Pah. [wait 0.1]Money's nothing compared to the cuffs. [wait 0.1]I thought you'd get it."
+send_level_message "dialogue_done"

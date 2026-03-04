@@ -1,5 +1,10 @@
 #name "Zero-Meet-Agree"
 #participants 5
+send_character_message 2 "set_eye_dir 165.831 -7.76056 6.27897 1"
+send_character_message 2 "set_head_target 166.195 -7.32609 5.297 1"
+set_cam 168.631 -2.53164 -3.95533 -28.79 170.06 0 59.5704
+send_character_message 1 "set_eye_dir 168.73 -2.38542 -3.13595 1"
+send_character_message 1 "set_head_target 167.131 -2.69684 -2.07844 1"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
@@ -10,12 +15,30 @@ set_dialogue_color 5 0.868 0.208 0.440
 set_dialogue_voice 5 17
 set_dialogue_color 3 0.6 0.6 0.6
 set_dialogue_voice 3 13
+set_character_pos 2 165.684 -9.20589 6.75538 74
+set_character_pos 1 168.551 -3.7141 -2.52255 180
+send_character_message 1 "set_animation \"Data/Animations/ghost_leantalk_hip.anm\""
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+send_level_message "disable 1297"
 say 1 "Ghost" "...[wait 0.1]Sure, [wait 0.05]why not."
-
+send_character_message 2 "set_eye_dir 166.057 -8.27241 6.63363 0"
+send_character_message 2 "set_head_target 165.549 -8.4855 4.89668 1"
+send_character_message 1 "set_eye_dir 167.879 -3.86755 -1.36816 1"
+send_character_message 1 "set_head_target 167.902 -3.29646 -1.63815 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_fist.anm\""
 say 2 "Zero" "Hey, [wait 0.05]nice! [wait 0.05]Wasn't actually expecting you to join..."
-
-say 2 "Zero" "Come to me when you're ready. [wait 0.1]You should try taking a look around here, [wait 0.05]though!"
-
+set_cam 166.565 -3.87434 -1.49016 -31.53 178.43 0.19 55.7035
+send_character_message 1 "set_head_target 167.919 -3.31809 -1.48627 1"
+send_character_message 2 "set_eye_dir 165.941 -7.63868 6.33476 1"
+send_character_message 2 "set_head_target 165.661 -7.92004 4.86672 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sass.anm\""
+say 2 "Zero" "Come to me when you're ready. [wait 0.1]You can take your time to get ready, [wait 0.05]though."
+send_character_message 1 "set_eye_dir 166.667 -4.45429 -0.482108 1"
+send_character_message 1 "set_head_target 165.751 -8.43735 6.66535 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+set_character_pos 1 166.766 -3.78 -3.62383 -90
+send_character_message 2 "set_eye_dir 165.997 -7.63671 6.29281 0"
+send_character_message 2 "set_head_target 164.708 -7.28174 4.92415 1"
 say 2 "Zero" "I should have all the amenities you could ever desire..."
-
+send_character_message 2 "set_eye_dir 166.168 -7.9752 6.28016 1"
 send_level_message "dialogue_done"

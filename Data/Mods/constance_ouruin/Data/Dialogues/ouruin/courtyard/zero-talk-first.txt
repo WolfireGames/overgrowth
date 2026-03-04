@@ -1,5 +1,14 @@
 #name "Zero-Talk-First"
 #participants 5
+send_character_message 1 "set_eye_dir 166.787 -6.93705 16.0835 1"
+send_character_message 1 "set_head_target 167.049 -7.14421 16.0367 1"
+set_cam 169.771 -7.00798 14.9244 -3.28 119.93 0 25.5187
+set_character_pos 2 165.963 -7.19438 16.5923 18
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
+send_character_message 2 "set_eye_dir 166.697 -6.68965 16.6193 1"
+send_character_message 2 "set_head_target 166.487 -7.3823 15.7024 1"
+set_character_pos 1 167.477 -7.18023 16.137 151
+send_character_message 1 "set_animation \"Data/Animations/ghost_lounge.anm\""
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
@@ -10,26 +19,54 @@ set_dialogue_color 5 0.868 0.208 0.440
 set_dialogue_voice 5 17
 set_dialogue_color 3 0.6 0.6 0.6
 set_dialogue_voice 3 13
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 4.0 1.0"
 say 2 "Zero" "Good stuff, [wait 0.05]my dude. [wait 0.1]From what I could tell, [wait 0.05]you're self-trained. [wait 0.1]Am I right?"
-
+send_character_message 2 "set_head_target 166.479 -7.31617 15.7112 1"
+send_character_message 1 "set_eye_dir 167.976 -7.43968 15.8718 1"
+send_character_message 1 "set_head_target 167.034 -7.27752 15.8488 1"
 say 1 "Ghost" "I had some good guidance growing up, [wait 0.05]but one day, [wait 0.05]it was all left to me."
-
+send_character_message 1 "set_eye_dir 168.36 -7.31989 15.6988 0.655016"
+send_character_message 1 "set_head_target 167.061 -7.31138 15.8027 1"
+send_character_message 2 "set_eye_dir 166.668 -7.20275 16.1683 0.706008"
+send_character_message 2 "set_head_target 166.333 -7.23623 15.5335 1"
 say 2 "Zero" "Yeah. [wait 0.1]One day, [wait 0.05]that kind of help is either ripped away, [wait 0.05]or it dries up on its own. [wait 0.1]Gets worse if you try to chase what's left of it."
-
+send_character_message 2 "set_head_target 166.341 -7.26088 15.5429 1"
+send_character_message 2 "set_eye_dir 166.896 -6.8085 16.4725 0.706008"
+send_character_message 1 "set_head_target 167.11 -7.16543 16.1335 1"
 say 2 "Zero" "I didn't get much of a primer, [wait 0.05]myself. [wait 0.1]Just had to beg for fights enough times until I could catch on."
-
+send_character_message 1 "set_head_target 167.118 -7.10633 16.2137 1"
+send_character_message 2 "set_head_target 166.371 -7.22794 15.5303 1"
+send_character_message 2 "set_eye_dir 166.896 -6.8085 16.4725 0.889162"
 say 1 "Ghost" "So you've always been challenging strangers?"
-
+set_cam 167.799 -7.20999 14.9047 0 132.64 0 24.6992
+send_character_message 2 "set_eye_dir 166.577 -7.17909 16.187 0.582083"
+send_character_message 2 "set_head_target 166.214 -7.48687 15.4995 1"
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 2.5 0.1"
 say 2 "Zero" "Challenging is putting it nicely. [wait 0.1]My only friends in this city are ones who fight back."
-
+send_character_message 1 "set_head_target 167.123 -7.21507 16.2669 1"
+send_character_message 1 "set_eye_dir 166.879 -6.94585 16.5353 1"
+send_character_message 2 "set_eye_dir 166.374 -6.42155 16.1197 1"
+send_character_message 2 "set_head_target 166.921 -7.46787 16.2152 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_neck.anm\""
 say 2 "Zero" "I'm a bit more nice about it nowadays... [wait 0.1]If you met me a few seasons ago, [wait 0.05]I wouldn't have let you leave this courtyard, [wait 0.05]heh!"
-
+send_character_message 1 "set_eye_dir 167.02 -6.4266 15.6211 1"
+send_character_message 1 "set_head_target 167.341 -6.93174 15.5728 1"
+send_character_message 2 "set_head_target 167.017 -7.27587 16.3527 1"
+set_cam 163.263 -6.69778 16.0501 -6.53 -97.18 0 16.94
+send_level_message "set_camera_dof 0.0 5.0 3.0 1.5 5.2 1.0"
 say 1 "Ghost" "Can't say that's a common attitude..."
-
+send_character_message 2 "set_head_target 167.378 -6.44025 15.1936 1"
+send_character_message 1 "set_eye_dir 166.684 -6.82252 16.0494 1"
+send_character_message 1 "set_head_target 166.681 -7.58453 15.4027 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
 say 2 "Zero" "Common, [wait 0.05]rare, [wait 0.05]real, [wait 0.05]not real. [wait 0.1]These things aren't relevant."
-
+send_character_message 2 "set_eye_dir 166.298 -7.32358 15.8619 0.886636"
+send_character_message 2 "set_head_target 167.457 -7.26695 15.7532 1"
+set_cam 165.252 -6.93821 14.2546 -3.35 -160.24 0 16.94
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 3.0 0.2"
 say 2 "Zero" "There is only what is happening right this second. [wait 0.1]Reality bends to the will of the present day, [wait 0.05]no matter how hard you try to stop it."
-
+send_character_message 2 "set_head_target 167.455 -7.38066 16.2706 1"
+send_character_message 1 "set_head_target 166.67 -7.23303 15.9779 1"
+send_character_message 2 "set_eye_dir 166.384 -7.10953 15.9308 0"
 say 2 "Zero" "...[wait 0.1]Don't count on my clarifying, [wait 0.05]by the way. [wait 0.1]Just be prepared for what I might say."
-
 send_level_message "dialogue_done"

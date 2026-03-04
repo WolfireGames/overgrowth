@@ -1,0 +1,34 @@
+#name "Zero-Talk-PreFight-Courtyard"
+#participants 5
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target 165.822 -8.28732 6.39594 1"
+set_cam 165.678 -8.63415 3.65119 0 -170.03 0 37.7853
+send_character_message 2 "set_eye_dir 166.236 -8.49483 5.95014 1"
+send_character_message 2 "set_head_target 166.086 -8.47949 5.66719 1"
+set_character_pos 1 166.376 -9.20451 5.37995 -117
+send_character_message 1 "set_eye_dir 165.808 -8.39179 6.55521 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+set_character_pos 2 165.684 -9.206 6.755 74
+say 1 "Ghost" "That's an interesting mask, [wait 0.05]there. [wait 0.1]Does it have a story to it?"
+send_character_message 2 "set_eye_dir 165.373 -7.88521 6.69594 1"
+send_character_message 2 "set_head_target 166.17 -8.78438 5.59523 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sass.anm\""
+send_character_message 1 "set_head_target 165.855 -8.47575 6.31533 1"
+say 2 "Zero" "Doesn't everything have a story tied to it? [wait 0.1]Whatever!"
+send_character_message 1 "set_head_target 165.883 -8.55494 6.29004 1"
+send_character_message 2 "set_torso_target 165.44 -8.07637 5.61141 1"
+send_character_message 1 "set_torso_target 165.939 -8.91715 6.24727 0"
+send_character_message 2 "set_eye_dir 166.152 -8.63886 5.74146 1"
+send_character_message 2 "set_head_target 166.142 -7.96872 5.60231 1"
+say 2 "Zero" "I'm not here to flap some gums! [wait 0.05]Put up a fight, [wait 0.05]and maybe then I'll talk!"
+send_level_message "dialogue_done"

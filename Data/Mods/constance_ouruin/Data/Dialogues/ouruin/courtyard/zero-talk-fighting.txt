@@ -1,5 +1,14 @@
 #name "Zero-Talk-Fighting"
 #participants 5
+send_character_message 1 "set_eye_dir 166.787 -6.93705 16.0835 1"
+send_character_message 1 "set_head_target 166.973 -7.12385 16.3202 1"
+set_cam 169.702 -3.44833 9.01659 -25.22 159.27 1.45 25.5187
+set_character_pos 2 165.963 -7.19438 16.5923 18
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
+send_character_message 2 "set_eye_dir 166.74 -6.74786 16.537 1"
+send_character_message 2 "set_head_target 166.498 -7.34367 15.4835 1"
+set_character_pos 1 167.477 -7.18023 16.137 151
+send_character_message 1 "set_animation \"Data/Animations/ghost_lounge.anm\""
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
@@ -11,23 +20,70 @@ set_dialogue_voice 5 17
 set_dialogue_color 3 0.6 0.6 0.6
 set_dialogue_voice 3 13
 say 1 "Ghost" "You said you begged for fights? [wait 0.1]What, [wait 0.05]like, [wait 0.05]on the street?"
-
+send_character_message 1 "set_head_target 166.987 -7.06375 16.3586 1"
+send_character_message 2 "set_eye_dir 166.507 -6.43396 15.9118 1"
+send_character_message 2 "set_head_target 166.437 -7.48779 15.6872 1"
 say 2 "Zero" "Heheheh. [wait 0.1]Not always on crete. [wait 0.1]Back on the mainland I'd meet whoever's willing in this picturesque little glade."
-
+send_character_message 1 "set_head_target 166.983 -7.10961 16.3091 1"
+send_character_message 2 "set_eye_dir 166.417 -7.26603 15.573 1"
+send_character_message 2 "set_head_target 166.162 -7.0351 15.4486 1"
 say 2 "Zero" "People crossed through sometimes. [wait 0.1]Looking for food, [wait 0.05]I think. [wait 0.1]But it was my territory; I made sure people knew."
-
+send_character_message 2 "set_eye_dir 166.496 -7.21493 15.8344 0.646508"
+send_character_message 2 "set_head_target 166.369 -6.69684 15.5481 1"
+send_character_message 1 "set_head_target 166.994 -7.13792 16.3393 1"
 say 2 "Zero" "Sometimes, [wait 0.05]some poor little thing would waltz through, [wait 0.05]and I'd just let 'em. [wait 0.1]They'd put up no fight. [wait 0.1]Why bother?"
-
+send_character_message 1 "set_eye_dir 166.827 -6.99483 16.4068 0.702422"
+send_character_message 1 "set_head_target 167.011 -7.19775 16.4376 1"
+send_character_message 2 "set_head_target 166.412 -6.72749 15.5601 1"
+send_character_message 2 "set_eye_dir 167.115 -6.74753 16.366 0.860491"
 say 1 "Ghost" "So it was all for sport?"
-
+send_character_message 1 "set_head_target 167.014 -7.1386 16.4943 1"
+send_character_message 2 "set_eye_dir 167.007 -6.64437 17.0923 0.860491"
+send_character_message 2 "set_head_target 166.627 -7.56896 15.8054 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_shrug.anm\""
 say 2 "Zero" "Well, [wait 0.05]like I said, [wait 0.05]they were usually out foraging. [wait 0.1]So I got to have a pick of their spoils."
-
+send_character_message 2 "set_eye_dir 166.94 -7.01741 16.7073 0.598217"
+send_character_message 2 "set_head_target 166.388 -7.5049 15.7246 1"
+set_cam 167.595 -7.38149 16.8202 5.55 77.93 0 38.8372
+send_level_message "set_camera_dof 0.0 5.0 3.0 1.5 2.5 3.0"
 say 2 "Zero" "Word got out, [wait 0.05]and eventually only the strongest were sent in, [wait 0.05]empty-handed. [wait 0.1]No matter how many came, [wait 0.05]I always packed a punch. [wait 0.1]Doesn't matter how bruised I got."
-
+send_character_message 2 "set_torso_target 166.71 -7.14591 15.9871 1"
+send_character_message 2 "set_head_target 166.295 -7.10694 15.6718 1"
+send_character_message 2 "set_eye_dir 166.551 -6.30805 16.3691 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
 say 2 "Zero" "All too often I was too beat to move. [wait 0.1]Still growled like nothing else. [wait 0.1]I think they started to pity me a little! [wait 0.05]Pretty funny."
-
+set_cam 164.863 -6.94321 16.3359 -4.74 -96.36 2.89 24.0717
+send_character_message 1 "set_head_target 166.778 -7.49273 16.4103 1"
+send_character_message 1 "set_eye_dir 166.83 -6.64719 16.383 1"
+send_character_message 2 "set_torso_target 166.71 -7.14591 15.9871 0.989242"
+send_character_message 2 "set_eye_dir 167.005 -6.93532 16.5042 1"
+send_character_message 2 "set_head_target 166.358 -7.16304 16.0632 1"
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 3.1 0.3"
 say 1 "Ghost" "I'm surprised you're still alive. [wait 0.1]Jumping people like that for so long, [wait 0.05]I'd expect a knife in your ribs."
-
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_hold.anm\""
+send_character_message 1 "set_eye_dir 167.447 -7.54208 16.5903 1"
+send_character_message 1 "set_head_target 166.774 -7.4342 16.2697 1"
+send_character_message 2 "set_eye_dir 167.249 -6.88149 16.5041 0"
+send_character_message 2 "set_head_target 165.974 -6.87141 15.4302 1"
+send_character_message 2 "set_torso_target 166.71 -7.14591 15.9871 0"
 say 2 "Zero" "That certainly wasn't out of the question!"
-
+send_character_message 2 "set_eye_dir 165.252 -6.27217 16.0633 1"
+send_character_message 2 "set_head_target 165.899 -6.90898 15.3611 1"
+send_character_message 1 "set_eye_dir 167.187 -7.58681 16.1497 0.845255"
+send_character_message 1 "set_head_target 166.787 -7.60042 16.2398 1"
+say 1 "Ghost" "[wait 0.3]So why'd you do it?"
+send_character_message 2 "set_eye_dir 165.975 -7.30436 16.1544 0.582576"
+send_character_message 1 "set_head_target 166.808 -7.63031 16.2543 1"
+send_character_message 1 "set_eye_dir 167.038 -6.62063 16.134 1"
+send_character_message 2 "set_head_target 165.975 -7.06509 15.2886 0.957553"
+say 2 "Zero" "Well. [wait 0.2]Hm. [wait 0.2]I think I did it so I'd have a reason to live."
+send_character_message 2 "set_eye_dir 166.404 -7.50352 16.614 0.286622"
+send_character_message 2 "set_head_target 166.443 -7.49176 15.9278 0.951738"
+set_cam 167.729 -7.30133 16.8162 6.09 80.94 0 24.0717
+send_level_message "set_camera_dof 0.0 5.0 3.0 1.2 2.0 1.0"
+say 2 "Zero" "Didn't matter what it was for. [wait 0.1]There's something in front of me, [wait 0.05]and I need to survive."
+send_character_message 2 "set_eye_dir 166.102 -7.4078 16.2188 0.491061"
+send_character_message 2 "set_head_target 165.81 -7.41785 15.5305 0.951738"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
+say 2 "Zero" "Simpler that way."
 send_level_message "dialogue_done"

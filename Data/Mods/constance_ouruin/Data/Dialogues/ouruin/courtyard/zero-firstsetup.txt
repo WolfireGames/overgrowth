@@ -11,11 +11,7 @@ set_dialogue_voice 5 17
 set_dialogue_color 3 0.6 0.6 0.6
 set_dialogue_voice 3 13
 say 2 "Zero" "If it's been a while, [wait 0.05]maybe we should brush up on the basics? [wait 0.1]Not that I think you're rusty, [wait 0.05]or anything."
-
 say 1 "Ghost" "What do you mean, [wait 0.05]brush up? [wait 0.1]Are you going to tell me how to swing my legs around, [wait 0.05]or something?"
-
 say 2 "Zero" "I can tell you already know how to do that much. [wait 0.1]But I've got a way to show you how deep the rabbit hole goes, [wait 0.05]heh!"
-
 say 2 "Zero" "What do you say? [wait 0.1]Wanna give it a shot?"
-
 send_level_message "dialogue_done"

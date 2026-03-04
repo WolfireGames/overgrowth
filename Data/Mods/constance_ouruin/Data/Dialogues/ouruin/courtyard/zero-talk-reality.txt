@@ -1,5 +1,14 @@
 #name "Zero-Talk-Reality"
 #participants 5
+send_character_message 1 "set_eye_dir 166.717 -6.96326 16.6066 1"
+send_character_message 1 "set_head_target 167.557 -7.03988 15.1462 1"
+set_cam 163.683 -7.25976 16.0011 1.24 -100.02 -0.01 25.5187
+set_character_pos 2 165.963 -7.19438 16.5923 18
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
+send_character_message 2 "set_eye_dir 166.697 -6.68965 16.6193 1"
+send_character_message 2 "set_head_target 166.939 -7.05281 16.1042 1"
+set_character_pos 1 167.477 -7.18023 16.137 151
+send_character_message 1 "set_animation \"Data/Animations/ghost_lounge_lean.anm\""
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
@@ -10,28 +19,63 @@ set_dialogue_color 5 0.868 0.208 0.440
 set_dialogue_voice 5 17
 set_dialogue_color 3 0.6 0.6 0.6
 set_dialogue_voice 3 13
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 5.0 1.0"
 say 1 "Ghost" "If you say the only thing that's real is the present, [wait 0.05]then how do you plan for the future?"
-
+send_character_message 1 "set_eye_dir 166.733 -6.88308 16.6672 0.87429"
+send_character_message 1 "set_head_target 167.618 -7.41884 14.8479 1"
+send_character_message 2 "set_head_target 166.905 -7.16009 16.404 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_shrug.anm\""
 say 2 "Zero" "I don't. [wait 0.1]Simple as that."
-
+send_character_message 2 "set_eye_dir 166.796 -6.86449 16.8242 1"
+send_character_message 2 "set_head_target 166.978 -7.31131 16.4104 1"
+send_character_message 2 "set_torso_target 166.64 -7.55425 15.9579 1"
+set_cam 166.6 -7.04523 14.7844 -1.98 163.13 -1.03 25.5187
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 2.2 0.3"
 say 2 "Zero" "My present mind may wonder what I'll eat tomorrow, [wait 0.05]and I might make some amount of effort for making sure I have a place to sleep, [wait 0.05]but even that is a concern for the present."
-
+send_character_message 2 "set_eye_dir 165.855 -6.61329 15.8762 1"
+send_character_message 2 "set_torso_target 166.64 -7.55425 15.9579 1"
+send_character_message 2 "set_head_target 166.859 -7.19674 16.0933 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit.anm\""
 say 2 "Zero" "Past and future are just different shades of the present. [wait 0.1]Truthfully, [wait 0.05]the makeup of existence is a tree we cannot peer out of; We only exist within its rings at any given moment."
-
+send_character_message 2 "set_eye_dir 166.608 -6.86483 16.8376 1"
+send_character_message 1 "set_eye_dir 168.778 -7.25361 15.8424 0.87429"
+send_character_message 2 "set_head_target 166.879 -7.29493 16.1251 1"
+set_cam 169.514 -7.02616 15.6093 -2.11 111.76 0.01 25.5187
+send_level_message "set_camera_dof 0.0 5.0 3.0 0.8 3.7 1.0"
 say 1 "Ghost" "All this high talk about existence and reality... [wait 0.1]What difference does it make when we're digging the same holes?"
-
+send_character_message 1 "set_eye_dir 168.725 -6.95475 16.1914 0.87429"
+send_character_message 1 "set_head_target 167.557 -7.30763 14.8353 1"
+send_character_message 2 "set_torso_target 166.64 -7.55425 15.9579 0"
+send_character_message 2 "set_head_target 166.825 -6.95136 16.0926 1"
+send_character_message 2 "set_eye_dir 166.507 -6.26601 16.2977 1"
 say 2 "Zero" "I dunno if this talk is very high. [wait 0.1]I'm kind of decimating it all, [wait 0.05]aren't I?"
-
+send_character_message 2 "set_eye_dir 167.249 -6.75099 17.134 1"
+send_character_message 2 "set_head_target 166.876 -6.84238 16.1994 1"
+send_character_message 1 "set_head_target 167.663 -7.34651 14.7979 1"
+send_character_message 1 "set_eye_dir 168.736 -6.85787 16.3601 0.446979"
 say 2 "Zero" "'Sides. [wait 0.1]You like, [wait 0.05]brought it up."
-
+send_character_message 2 "set_head_target 166.911 -7.39748 16.3205 1"
+send_character_message 1 "set_eye_dir 168.685 -7.32253 16.3599 1"
+send_character_message 1 "set_head_target 167.74 -7.02145 14.694 1"
 say 1 "Ghost" "Just wanted to see how you'd respond."
-
+send_character_message 1 "set_eye_dir 167.187 -7.42515 16.1662 1"
+send_character_message 1 "set_head_target 167.437 -7.21456 15.7964 1"
+send_character_message 2 "set_eye_dir 166.532 -6.50647 16.1827 1"
+send_character_message 2 "set_head_target 166.373 -7.07522 15.6251 1"
 say 2 "Zero" "Someone once called me an onion."
-
+send_character_message 2 "set_eye_dir 167.064 -6.88482 16.5926 1"
+send_character_message 2 "set_head_target 166.482 -7.18301 15.7059 1"
+send_character_message 1 "set_eye_dir 166.877 -7.10223 16.4357 1"
+send_character_message 1 "set_head_target 167.214 -6.86932 16.3146 1"
 say 1 "Ghost" "What, [wait 0.05]'cause you smell like one?"
-
-say 2 "Zero" "Do I? [wait 0.1]Wait--[wait 0.1]No, [wait 0.05]that's not why."
-
+send_character_message 1 "set_head_target 167.241 -7.02663 16.3782 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_neck.anm\""
+send_character_message 2 "set_eye_dir 166.821 -6.91949 16.6691 0.679817"
+send_character_message 2 "set_head_target 166.55 -7.17138 15.7396 1"
+say 2 "Zero" "Do I? [wait 0.3]Wait--[wait 0.1]No, [wait 0.05]that's not why."
+send_character_message 1 "set_head_target 167.247 -6.94583 16.3933 1"
+send_character_message 2 "set_eye_dir 166.787 -6.71182 17.2857 1"
+send_character_message 2 "set_head_target 166.791 -7.43942 15.8467 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sit_shrug.anm\""
 say 2 "Zero" "'Cause you peel the layers one by one, [wait 0.05]but each one ends up being the exact same. [wait 0.1]And it makes you cry."
-
 send_level_message "dialogue_done"

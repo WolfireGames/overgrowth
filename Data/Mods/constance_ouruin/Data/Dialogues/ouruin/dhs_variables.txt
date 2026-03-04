@@ -58,6 +58,10 @@ Define variable, its values and notes for each value.
 		0: Bracers are not acquired
 		1: Bracers are acquired
 		2: Bracers are equipped
+	
+	ouruin_drowned
+		0: Drowned moveset is locked
+		1: Drowned moveset is unlocked
 
 	ouruin_orb
 		0: Orb is not equipped
@@ -225,6 +229,8 @@ Define variable, its values and notes for each value.
 	ouruin_courtyard_state
 		0: Player is loading into Courtyard for the first time
 		1: Player has visited Courtyard
+		2: Player has fought Zero
+		3: Player has talked to Zero
 
 		ouruin_courtyard_origin
 			0: Player is coming from Faas' Sanctuary
@@ -257,8 +263,35 @@ Define variable, its values and notes for each value.
 			_opponent: Opponent's selected weapon
 		
 		ouruin_match_active
-			0: Inactive
-			1: Active
+
+		ouruin_match_drowned
+			0: No progress
+			1: Asked about
+			2: Requisite block streak acquired
+			3: Follow-up block streak acquired
+			4: Moveset unlocked
+			5: Moveset unlocked, Zero restricted to default moveset
+
+		ouruin_zero_aggro
+			0: Default
+			1: More aggro
+			2: Less aggro
+			3: No aggro
+
+		ouruin_zero_movement
+			0: Default
+			1: More movement
+			2: Less movement
+			3: No movement
+
+		ouruin_zero_counters
+			0: Default
+			1: More counters
+			2: Less counters
+			3: No counters
+			4: Always counters
+		
+		ouruin_zero_wallet
 	
 	ouruin_faas_state
 		0: Player is loading into Faas' Sanctuary from Explore (level1_explore.xml)

@@ -1,0 +1,35 @@
+#name "Zero-Talk-PreFight-Fireplace"
+#participants 5
+send_character_message 2 "set_animation \"Data/Animations/zero_leanwall.anm\""
+send_character_message 2 "set_eye_dir 167.002 -6.03053 17.0848 0.548602"
+send_character_message 2 "set_torso_target 166.686 -6.43722 16.5875 0"
+send_character_message 2 "set_head_target 167.77 -6.9089 16.0913 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_torso_target 167.068 -6.56998 17.0942 0"
+send_character_message 1 "set_head_target 167.652 -6.47246 17.1496 1"
+set_cam 165.628 -6.63753 14.3662 0 -150.34 0 25.5096
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+set_character_pos 2 167.945 -7.157 17.5431 90
+set_character_pos 1 166.293 -7.149 16.044 -49
+say 1 "Ghost" "That's an interesting mask, [wait 0.05]there. [wait 0.1]Does it have a story to it?"
+send_character_message 1 "set_head_target 167.555 -6.33838 17.2649 1"
+send_character_message 2 "set_torso_target 167.971 -6.06448 17.086 0.571003"
+send_character_message 2 "set_head_target 168.243 -6.44848 15.9055 0.979996"
+send_character_message 2 "set_eye_dir 167.402 -5.44938 17.5341 1"
+say 2 "Zero" "Doesn't everything have a story tied to it? [wait 0.1]Whatever!"
+send_character_message 2 "set_head_target 168.014 -6.11259 15.8487 0.801273"
+send_character_message 2 "set_eye_dir 166.606 -6.03228 16.7199 0.584437"
+send_character_message 1 "set_head_target 167.473 -6.53536 17.2641 1"
+send_character_message 2 "set_torso_target 167.961 -6.48454 17.0448 0"
+send_character_message 2 "set_animation \"Data/Animations/zero_leanwall_cons.anm\""
+say 2 "Zero" "I'm not here to flap some gums! [wait 0.05]Put up a fight, [wait 0.05]and maybe then I'll talk!"
+send_level_message "dialogue_done"
