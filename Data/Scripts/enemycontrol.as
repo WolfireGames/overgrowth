@@ -3473,7 +3473,7 @@ void CheckJumpTarget(vec3 target) {
 }
 
 bool WantsToSwapMoveset() {
-	return false;
+	return true;
 }
 
 int IsThreatToCharacter(int char_id) {

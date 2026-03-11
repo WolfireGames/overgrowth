@@ -1,0 +1,36 @@
+#name "RedTalk-Cinderians"
+#participants 3
+set_character_pos 2 347.598 -55.4653 -275.445 -120
+send_character_message 2 "set_animation \"Data/Animations/red_idle.anm\""
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 1"
+send_character_message 2 "set_head_target 347.078 -55.8073 -274.212 1"
+set_character_pos 1 347.668 -57.4589 -270.818 90
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 347.579 -55.7842 -274.093 1"
+send_character_message 1 "set_torso_target 347.777 -56.9267 -271.982 0"
+send_character_message 1 "set_head_target 346.372 -56.6403 -271.935 1"
+set_cam 348.669 -56.7531 -273.144 0 153.86 0 39.5908
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 0 0.15
+set_dialogue_voice 2 1
+say 1 "Ghost" "Aren't you worried about the guards patrolling 'round here? [wait 0.1]They're pretty insistent... [wait 0.05]Like they're searching for someone."
+send_character_message 2 "set_eye_dir 346.76 -54.6374 -276.376 1"
+send_character_message 2 "set_head_target 346.319 -55.3063 -274.267 1"
+send_character_message 1 "set_head_target 347.62 -55.9083 -272.386 1"
+set_cam 346.91 -54.4045 -277.297 -24.3 -167.96 -1.75 25.7464
+say 2 "Red" "Oh, [wait 0.05]no. [wait 0.1]They won't bother me. [wait 0.1]A girl like me? [wait 0.1]That'd be silly!"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_head_target 346.514 -56.2686 -272.794 1"
+send_character_message 2 "set_eye_dir 347.657 -56.1859 -273.313 1"
+send_character_message 2 "set_head_target 346.937 -55.7403 -273.957 1"
+say 1 "Ghost" "What, [wait 0.05]you just that popular?"
+send_character_message 2 "set_eye_dir 347.161 -55.4282 -274.471 0"
+send_character_message 2 "set_head_target 346.775 -55.5451 -274.659 1"
+send_character_message 1 "set_head_target 347.497 -56.3163 -272.866 1"
+say 2 "Red" "You sure are ready to show your colors, [wait 0.05]huh? [wait 0.1]Hehe!"
+send_character_message 1 "set_head_target 347.544 -56.1894 -272.876 1"
+send_character_message 2 "set_eye_dir 346.692 -54.7428 -275.222 1"
+send_character_message 2 "set_head_target 346.634 -55.4786 -274.72 1"
+say 2 "Red" "It still pays to be careful, [wait 0.05]though. [wait 0.1]Who knows what they're looking for?"
+send_level_message "dialogue_done"

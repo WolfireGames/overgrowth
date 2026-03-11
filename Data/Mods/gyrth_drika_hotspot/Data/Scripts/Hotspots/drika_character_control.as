@@ -49,6 +49,7 @@ enum character_control_options { 	aggression = 0,
 									sheathe_item = 48,
 									idle_sway = 49,
 									wearing_metal_bracer = 50,
+									g_moveset_swappable = 51,
 					};
 
 enum value_type_options			{ 	manual_input = 0,
@@ -86,7 +87,7 @@ class DrikaCharacterControl : DrikaElement{
 	array<int> string_parameters = {species, teams};
 	array<int> float_parameters = {aggression, attack_damage, attack_knockback, attack_speed, block_followup, block_skill, character_scale, damage_resistance, ear_size, fat, focus_fov_distance, focus_fov_horizontal, focus_fov_vertical, ground_aggression, movement_speed, muscle, peripheral_fov_distance, peripheral_fov_horizontal, peripheral_fov_vertical, fall_damage_mult, fear_afraid_at_health_level, throw_counter_probability, weapon_catch_skill, idle_sway};
 	array<int> int_parameters = {knocked_out_shield};
-	array<int> bool_parameters = {cannot_be_disarmed, left_handed, static_char, fear_always_afraid_on_sight, fear_causes_fear_on_sight, fear_never_afraid_on_sight, no_look_around, stick_to_nav_mesh, is_throw_trainer, wearing_metal_armor, wearing_metal_bracer};
+	array<int> bool_parameters = {cannot_be_disarmed, left_handed, static_char, fear_always_afraid_on_sight, fear_causes_fear_on_sight, fear_never_afraid_on_sight, no_look_around, stick_to_nav_mesh, is_throw_trainer, wearing_metal_armor, wearing_metal_bracer, g_moveset_swappable};
 	array<int> function_parameters = {ignite, extinguish, is_player, kill, revive, limp_ragdoll, injured_ragdoll, ragdoll, cut_throat, apply_damage, wet, attach_item, sheathe_item};
 
 	array<string> param_names = {	"Aggression",
@@ -139,7 +140,8 @@ class DrikaCharacterControl : DrikaElement{
 									"Attach Item",
 									"Sheathe Item",
 									"Idle Sway",
-									"Wearing Metal Bracer"
+									"Wearing Metal Bracer",
+									"Can Swap Movesets"
 								};
 
 	array<string> attachment_type_names = 	{	"At Grip",
@@ -723,6 +725,13 @@ class DrikaCharacterControl : DrikaElement{
 
 					ImGui_Checkbox("###" + param_name, bool_param_after);
 					break;
+				case g_moveset_swappable:
+					ImGui_AlignTextToFramePadding();
+					ImGui_Text(param_name);
+					ImGui_NextColumn();
+
+					ImGui_Checkbox("###" + param_name, bool_param_after);
+					break;
 				case ignite:
 					break;
 				case extinguish:
@@ -885,6 +894,7 @@ class DrikaCharacterControl : DrikaElement{
 				case is_throw_trainer:
 				case wearing_metal_armor:
 				case wearing_metal_bracer:
+				case g_moveset_swappable:
 				case is_player:
 				case knocked_out_shield:
 				case species:
@@ -1342,6 +1352,12 @@ class DrikaCharacterControl : DrikaElement{
 						params.SetInt(param_name, (reset?params_before[i].bool_value:bool_param_after)?1:0);
 						break;
 					case wearing_metal_bracer:
+						if(current_value_type == variable && IsValidParam(variable_input_1) == true){
+							SetParamFromVariable(variable_input_1,variable_input_2,"param_after");
+						}
+						params.SetInt(param_name, (reset?params_before[i].bool_value:bool_param_after)?1:0);
+						break;
+					case g_moveset_swappable:
 						if(current_value_type == variable && IsValidParam(variable_input_1) == true){
 							SetParamFromVariable(variable_input_1,variable_input_2,"param_after");
 						}

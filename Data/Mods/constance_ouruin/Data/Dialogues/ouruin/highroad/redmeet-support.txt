@@ -1,0 +1,42 @@
+#name "RedMeet-Support"
+#participants 3
+set_character_pos 2 347.598 -55.4653 -275.445 -120
+send_character_message 2 "set_animation \"Data/Animations/red_idle.anm\""
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 1"
+send_character_message 2 "set_head_target 347.075 -55.8073 -274.211 1"
+set_character_pos 1 347.668 -57.4589 -270.818 90
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 347.579 -55.7842 -274.093 1"
+send_character_message 1 "set_torso_target 347.777 -56.9267 -271.982 0"
+send_character_message 1 "set_head_target 347.608 -56.1339 -272.332 1"
+set_cam 346.417 -57.0999 -267.903 4.86 -17.32 0 42.2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 0 0.15
+set_dialogue_voice 2 1
+say 2 "???" "Hello, [wait 0.05]there! [wait 0.05]How are you today, [wait 0.05]Ghost?"
+send_character_message 2 "set_head_target 347.082 -55.842 -274.209 1"
+send_character_message 1 "set_head_target 347.655 -55.564 -273.029 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Well. [wait 0.2]Have I met you before?"
+send_character_message 1 "set_head_target 347.604 -55.6521 -273.047 1"
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 0"
+send_character_message 2 "set_head_target 347.043 -55.6807 -274.181 1"
+say 2 "???" "Not personally. [wait 0.1]My name's Red! [wait 0.05]It's real nice to meet you."
+send_character_message 1 "set_torso_target 347.777 -56.9267 -271.982 0.00284266"
+send_character_message 1 "set_head_target 347.623 -55.7577 -273.055 1"
+send_character_message 2 "set_head_target 346.952 -55.3406 -274.127 1"
+send_character_message 2 "set_eye_dir 348.159 -55.2283 -274.294 1"
+say 2 "Red" "You should visit these hoods more often! [wait 0.05]Plenty of friends to make, [wait 0.05]plenty of coin to be made!"
+send_character_message 2 "set_head_target 346.92 -55.5721 -274.049 1"
+send_character_message 1 "set_head_target 349.305 -56.2827 -272.455 1"
+say 1 "Ghost" "Yeah, [wait 0.05]it's a nice place. [wait 0.1]Maybe I'll visit again some time."
+send_character_message 1 "set_head_target 347.602 -56.4741 -272.8 1"
+send_character_message 2 "set_eye_dir 347.59 -55.3906 -274.387 0"
+send_character_message 2 "set_head_target 346.418 -55.088 -274.022 1"
+say 2 "Red" "Well, [wait 0.05]you know there are open arms aplenty out here! [wait 0.05]I've always admired that about these streets..."
+send_character_message 1 "set_head_target 347.704 -56.0473 -272.785 1"
+send_character_message 2 "set_eye_dir 347.509 -54.4463 -274.493 1"
+send_character_message 2 "set_head_target 346.386 -54.9783 -274.024 1"
+say 2 "Red" "No matter where you go, [wait 0.05]you'll always find a place to fit in!"
+send_level_message "dialogue_done"

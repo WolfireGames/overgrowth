@@ -584,6 +584,11 @@ Define variable, its values and notes for each value.
 		ouruin_forten_met	
 		ouruin_forten_storytold
 
+		ouruin_forten_gaggle
+			0: Not talked to
+			1: Talked to
+			2: Had goodbye argument
+
 	ouruin_nedis_quest
 		0: Player has not met Nedis
 		1: Player is not taking part in any job
@@ -673,9 +678,8 @@ Define variable, its values and notes for each value.
 
 		ouruin_talk_red
 			0: Red has not been talked to once
-			1: Player has returned from a different level once
-			2: Player has returned from a different level twice
-			3: Quest complete
+			1: Red has been talked to
+			2: Red is now in Moritz
 		
 		ouruin_talk_flute
 			0: Flute has not been met

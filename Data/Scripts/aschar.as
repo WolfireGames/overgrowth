@@ -413,6 +413,7 @@ bool g_wearing_metal_armor = false;
 
 //Glimpse.
 bool g_wearing_metal_bracers = false;
+bool g_moveset_swappable = false;
 
 // Pre-jump happens after jump key is pressed and before the character gets upwards velocity. The time available for the jump animation that happens on the ground.
 bool pre_jump = false;
@@ -4059,7 +4060,7 @@ void UpdateState(const Timestep &in ts) {
         }
     }
 
-	if(WantsToSwapMoveset() && knocked_out == _awake) {
+	if(WantsToSwapMoveset() && knocked_out == _awake && g_moveset_swappable == true) {
 		moveset_swapped = !moveset_swapped;
     }
 
@@ -15941,6 +15942,11 @@ void SetParameters() {
 	//Glimpse.
 	params.AddIntCheckbox("Wearing Metal Bracers", false);
 	g_wearing_metal_bracers = (params.GetInt("Wearing Metal Bracers") != 0);
+    // --- End armor parameters
+
+	//Glimpse.
+	params.AddIntCheckbox("Can Swap Movesets", false);
+	g_moveset_swappable = (params.GetInt("Can Swap Movesets") != 0);
     // --- End armor parameters
 
     params.AddFloatSlider("Weapon Catch Skill", 1.0, "min:0,max:1,step:0.1,text_mult:100");

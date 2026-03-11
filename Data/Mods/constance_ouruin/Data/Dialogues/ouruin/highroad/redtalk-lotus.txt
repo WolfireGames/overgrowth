@@ -1,0 +1,35 @@
+#name "RedTalk-Lotus"
+#participants 3
+set_character_pos 2 347.598 -55.4653 -275.445 -120
+send_character_message 2 "set_animation \"Data/Animations/red_idle.anm\""
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 1"
+send_character_message 2 "set_head_target 347.075 -55.8073 -274.211 1"
+set_character_pos 1 347.668 -57.4589 -270.818 90
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 347.579 -55.7842 -274.093 1"
+send_character_message 1 "set_torso_target 347.777 -56.9267 -271.982 0"
+send_character_message 1 "set_head_target 347.608 -56.1339 -272.332 1"
+set_cam 345.742 -56.2495 -273.093 -12.36 -138.97 0 33.858
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 0 0.15
+set_dialogue_voice 2 1
+say 1 "Ghost" "What do you think about the Lotus clan? [wait 0.1]They seem pretty alright to me, [wait 0.05]but I'm still kind of new to this hood's scene."
+send_character_message 2 "set_head_target 346.968 -55.3832 -274.274 1"
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 0"
+set_cam 347.435 -56.2346 -272.32 15.5 -0.89 -0.05 24.8333
+say 2 "Red" "Oh, [wait 0.05]you aren't trying to start gossip, [wait 0.05]are you? [wait 0.1]Shame on you, [wait 0.05]Ghost!"
+send_character_message 2 "set_eye_dir 347.156 -54.5546 -274.36 1"
+send_character_message 2 "set_head_target 346.825 -55.234 -274.309 1"
+say 2 "Red" "If I were to say anything about them, [wait 0.05]it'd be directly to them. [wait 0.1]Their model of operations is pretty decent: [wait 0.1]If I were to guess, [wait 0.05]they're cutting off the border between the submerged and the above-ground..."
+send_character_message 2 "set_eye_dir 348.29 -54.8693 -274.248 1"
+send_character_message 2 "set_head_target 346.867 -55.2593 -274.236 1"
+say 2 "Red" "Owning that kind of property could be quite useful once the water drains down. [wait 0.1]That is, [wait 0.05]if the smell doesn't ruin everything for them! [wait 0.05]Who knows what chaos will happen as the tide subsides?"
+send_character_message 2 "set_eye_dir 347.488 -54.377 -274.493 1"
+send_character_message 2 "set_head_target 346.953 -55.3369 -274.229 1"
+say 2 "Red" "But oh, [wait 0.05]you pancake, [wait 0.05]now you got me talking! [wait 0.05]Shame on me as well!"
+send_character_message 1 "set_eye_dir 346.619 -56.3484 -270.114 1"
+send_character_message 1 "set_head_target 347.622 -56.5976 -272.663 1"
+set_cam 346.611 -53.9997 -279.176 -19.54 -169.65 1.32 21.4716
+say 1 "Ghost" "...[wait 0.1]I really didn't, [wait 0.05]but sure."
+send_level_message "dialogue_done"

@@ -1,0 +1,38 @@
+#name "RedTalk-Snakes"
+#participants 3
+set_character_pos 2 347.598 -55.4653 -275.445 -120
+send_character_message 2 "set_animation \"Data/Animations/red_idle.anm\""
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 1"
+send_character_message 2 "set_head_target 347.074 -55.807 -274.212 1"
+set_character_pos 1 347.668 -57.4589 -270.818 90
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 347.579 -55.7842 -274.093 1"
+send_character_message 1 "set_torso_target 347.777 -56.9267 -271.982 0"
+send_character_message 1 "set_head_target 347.573 -55.9885 -272.438 1"
+set_cam 348.627 -57.0163 -269.539 8.16 24 0 54.5355
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 0 0.15
+set_dialogue_voice 2 1
+say 1 "Ghost" "Seen any snakes around? [wait 0.1]I've heard talk of 'em..."
+send_character_message 1 "set_head_target 347.595 -56.0779 -272.707 1"
+send_character_message 2 "set_eye_dir 348.333 -54.5131 -274.842 1"
+send_character_message 2 "set_head_target 346.633 -55.6275 -274.062 1"
+say 2 "Red" "Those no-good evildoers! [wait 0.05]They're likely to take whatever you've got, [wait 0.05]even if it's of no value!"
+send_character_message 1 "set_head_target 347.58 -56.0097 -272.736 1"
+send_character_message 2 "set_eye_dir 347.546 -55.0366 -274.36 0"
+send_character_message 2 "set_head_target 345.71 -55.3344 -274.156 1"
+say 2 "Red" "You've got to be real careful walking the streets now: [wait 0.1]Their territory is growing by the day, [wait 0.05]and they've got clans shaking in their boots!"
+send_character_message 2 "set_eye_dir 347.836 -55.3632 -274.24 1"
+send_character_message 2 "set_head_target 346.814 -55.5173 -273.648 1"
+send_character_message 1 "set_head_target 348.679 -56.5737 -272.511 1"
+say 1 "Ghost" "...[wait 0.05]Aren't they just street thugs, [wait 0.05]though? [wait 0.1]All I've ever heard is that they rob people."
+send_character_message 1 "set_head_target 347.581 -56.2414 -272.656 1"
+send_character_message 2 "set_eye_dir 348.612 -54.6299 -274.63 1"
+send_character_message 2 "set_head_target 347.263 -56.0681 -273.576 1"
+say 2 "Red" "Like the local clans are any different! [wait 0.05]I'm willing to bet the Snakes have got something up their sleeve... [wait 0.05]Something nasty. [wait 0.1]After all, [wait 0.05]what kind of thug doesn't start dreaming of something bigger?"
+send_character_message 2 "set_eye_dir 348.146 -55.4938 -273.769 1"
+send_character_message 2 "set_head_target 347.392 -56.2764 -273.478 1"
+send_character_message 1 "set_head_target 348.319 -56.6799 -272.58 1"
+say 1 "Ghost" "Hm."
+send_level_message "dialogue_done"

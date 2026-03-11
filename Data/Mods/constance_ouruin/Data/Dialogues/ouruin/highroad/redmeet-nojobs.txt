@@ -1,0 +1,46 @@
+#name "RedMeet-NoJobs"
+#participants 3
+set_character_pos 2 347.598 -55.4653 -275.445 -120
+send_character_message 2 "set_animation \"Data/Animations/red_idle.anm\""
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 1"
+send_character_message 2 "set_head_target 347.075 -55.8073 -274.211 1"
+set_character_pos 1 347.668 -57.4589 -270.818 90
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 347.579 -55.7842 -274.093 1"
+send_character_message 1 "set_torso_target 347.777 -56.9267 -271.982 0"
+send_character_message 1 "set_head_target 347.608 -56.1339 -272.332 1"
+set_cam 346.417 -57.0999 -267.903 4.86 -17.32 0 42.2
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 1 0 0.15
+set_dialogue_voice 2 1
+say 2 "???" "Hello, [wait 0.05]there! [wait 0.05]How are you today, [wait 0.05]Ghost?"
+send_character_message 2 "set_head_target 347.082 -55.842 -274.209 1"
+send_character_message 1 "set_head_target 347.655 -55.564 -273.029 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Well. [wait 0.2]Have I met you before?"
+send_character_message 1 "set_head_target 347.604 -55.6521 -273.047 1"
+send_character_message 2 "set_eye_dir 348.328 -55.2107 -273.779 0"
+send_character_message 2 "set_head_target 347.043 -55.6807 -274.181 1"
+say 2 "???" "Not personally. [wait 0.1]My name's Red! [wait 0.05]It's real nice to meet you."
+send_character_message 1 "set_torso_target 347.777 -56.9267 -271.982 0.00284266"
+send_character_message 1 "set_head_target 347.623 -55.7577 -273.055 1"
+send_character_message 2 "set_head_target 346.952 -55.3406 -274.127 1"
+send_character_message 2 "set_eye_dir 348.159 -55.2283 -274.294 1"
+say 2 "Red" "You don't come here too often. [wait 0.1]That's a shame! [wait 0.05]Agra and Moritz are some of my favorite places in Ouruin!"
+send_character_message 2 "set_head_target 347.04 -55.4283 -274.144 1"
+send_character_message 1 "set_torso_target 347.745 -56.9415 -271.992 1"
+send_character_message 1 "set_eye_dir 347.507 -56.3136 -269.433 1"
+send_character_message 1 "set_head_target 346.605 -56.5624 -271.973 1"
+say 1 "Ghost" "It's good to stay familiar with these places. [wait 0.1]Keep an eye on the local movements."
+send_character_message 2 "set_eye_dir 347.535 -55.3078 -275.298 0"
+send_character_message 2 "set_head_target 346.418 -55.0694 -274.1 1"
+send_character_message 1 "set_head_target 346.863 -56.6818 -272.029 1"
+send_character_message 1 "set_eye_dir 347.708 -55.795 -273.736 1"
+say 2 "Red" "Mhm! [wait 0.05]It's always good to see people are holding together. [wait 0.1]Warms my heart, [wait 0.05]it does."
+send_character_message 1 "set_torso_target 347.745 -56.9415 -271.992 0"
+send_character_message 1 "set_head_target 347.483 -56.2188 -272.195 1"
+send_character_message 2 "set_head_target 346.65 -55.3196 -274.097 1"
+send_character_message 2 "set_eye_dir 347.397 -54.6663 -274.99 1"
+say 2 "Red" "Just gotta hope a clan really knows what's best, [wait 0.05]am I right?"
+send_level_message "dialogue_done"

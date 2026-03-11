@@ -1,0 +1,48 @@
+#name "Zero-Skills-Courtyard"
+#participants 5
+send_character_message 2 "set_torso_target 166.099 -8.63365 5.63844 0"
+send_character_message 2 "set_animation \"Data/Animations/zero_goad.anm\""
+send_character_message 2 "set_head_target 166.671 -8.74238 5.89366 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_head_target 166.773 -8.24731 5.7785 1"
+send_character_message 2 "set_eye_dir 166.479 -8.43288 5.81551 1"
+send_character_message 1 "set_eye_dir 167.644 -8.34808 5.84056 1"
+set_cam 170.637 -8.57282 5.32557 0 100.1 0 27.4065
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.868 0.208 0.440
+set_dialogue_voice 2 17
+set_dialogue_color 5 0.868 0.208 0.440
+set_dialogue_voice 5 17
+set_dialogue_color 3 0.6 0.6 0.6
+set_dialogue_voice 3 13
+set_character_pos 2 165.149 -9.227 5.86 -11
+set_character_pos 1 168.746 -9.24425 5.86 180
+say 2 "Zero" "If you're interested, [wait 0.05]I know about some techniques you may not have practiced!"
+send_character_message 2 "set_head_target 166.791 -8.62568 5.94919 1"
+send_character_message 1 "set_head_target 166.617 -7.99231 5.79909 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+say 1 "Ghost" "Yeah? [wait 0.1]Like what?"
+send_character_message 1 "set_head_target 166.555 -8.14083 5.8449 1"
+send_character_message 2 "set_eye_dir 166.343 -8.28816 5.54427 1"
+send_character_message 2 "set_head_target 166.741 -8.97792 6.85297 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_hand.anm\""
+say 2 "Zero" "Mostly hand-to-hand combat, [wait 0.05]real traditional drowner stuff. [wait 0.1]But I can teach a few things about weapons, [wait 0.05]too."
+send_character_message 1 "set_head_target 166.53 -8.2141 5.88678 1"
+send_character_message 2 "set_eye_dir 166.278 -8.24899 5.34753 1"
+send_character_message 2 "set_head_target 166.643 -7.999 6.34661 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_fist.anm\""
+say 2 "Zero" "I say the best way to learn is exposure. [wait 0.1]So I'll have to demonstrate to you how the moves work in combat, [wait 0.05]first. [wait 0.1]Do well enough against it, [wait 0.05]and you'll know exactly how to do it yourself!"
+send_character_message 1 "set_torso_target 167.809 -8.7931 5.52377 1"
+send_character_message 1 "set_head_target 166.853 -8.32268 4.49102 1"
+send_character_message 2 "set_head_target 167.024 -9.02341 6.01531 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_idle.anm\""
+say 1 "Ghost" "Sounds simple enough. [wait 0.1]I presume I'll need to pay you?"
+send_character_message 2 "set_eye_dir 165.952 -9.01324 5.35609 1"
+send_character_message 2 "set_head_target 166.451 -8.64662 4.77593 1"
+send_character_message 2 "set_animation \"Data/Animations/zero_sass.anm\""
+send_character_message 1 "set_head_target 166.898 -8.20741 5.8755 1"
+say 2 "Zero" "Pay...[wait 0.1]? [wait 0.1]Oh, [wait 0.05]right! [wait 0.05]Yeah! [wait 0.05]I love money. [wait 0.1]It'll cost 100p for each technique I teach you, [wait 0.05]but remember you'll still have to put in the work to learn it!"
+send_level_message "dialogue_done"

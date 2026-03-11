@@ -22,12 +22,19 @@
                 lowleftblock = "Data/Animations/r_activeblocklowleft.anm"
                 blockflinch = "Data/Animations/r_activeblockflinch.anm"/>
     <attacks moving_close = "Data/Attacks/haymaker.xml"
+             moving_close_swap = "Data/Attacks/jab.xml"
              stationary_close = "Data/Attacks/thrustpunch.xml"
+             stationary_close_swap = "Data/Attacks/compass.xml"
              moving = "Data/Attacks/roundhouse.xml"
+             moving_swap = "Data/Attacks/suckerpunch.xml"
              stationary = "Data/Attacks/frontkick.xml"
+             stationary_swap = "Data/Attacks/highkick.xml"
              moving_low = "Data/Attacks/soccerkick.xml"
+             moving_low_swap = "Data/Attacks/thrustpunch.xml"
              low = "Data/Attacks/sweep.xml"
-             air = "Data/Attacks/legcannon.xml" />
+             low_swap = "Data/Attacks/uppercut.xml"
+             air = "Data/Attacks/legcannon.xml"
+             air_swap = "Data/Attacks/legcannon.xml" />
     <team>zero</team>
     <morphs>
         <mouth_open />

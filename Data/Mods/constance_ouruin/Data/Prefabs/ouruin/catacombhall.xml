@@ -1,0 +1,73 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="7.3566" t1="430.258" t2="-53.7922" s0="4.99577" s1="5.48684" s2="13.9739" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1668" version="1">
+        <parameters />
+        <EnvObject t0="9.6011" t1="430.989" t2="-53.1656" s0="1.16259" s1="1.05497" s2="1" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="1051" color_r="0.207843" color_g="0.19108" color_b="0.145898" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stoneblock/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.6011" t1="428.274" t2="-53.1656" s0="1.16259" s1="1.05497" s2="1" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="1052" color_r="0.207843" color_g="0.19108" color_b="0.145898" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stoneblock/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="8.739" t1="430.26" t2="-55.3024" s0="1" s1="1" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1054" color_r="0.458824" color_g="0.434966" color_b="0.370657" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="6.0114" t1="430.26" t2="-55.3024" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1646" color_r="0.458824" color_g="0.434966" color_b="0.370657" overbright="0" type_file="Data/Objects/Buildings/arena/arena_small_support.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.49105" t1="427.772" t2="-52.8173" s0="1" s1="1" s2="1" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="1647" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.3012" t1="427.772" t2="-52.8173" s0="1" s1="1" s2="1" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="1648" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.48238" t1="427.768" t2="-56.3622" s0="1" s1="0.612365" s2="0.999999" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="1649" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.3149" t1="427.77" t2="-56.3622" s0="1" s1="0.612365" s2="0.999999" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="1650" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.49105" t1="431.519" t2="-52.8173" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="1651" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.3012" t1="431.519" t2="-52.8173" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="1652" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.48238" t1="431.515" t2="-56.3622" s0="1" s1="0.612365" s2="0.999999" q0="0.5" q1="-0.5" q2="0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="1654" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.3149" t1="431.517" t2="-56.3622" s0="1" s1="0.612365" s2="0.999999" q0="-0.5" q1="0.5" q2="0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="-1.5708" id="1655" color_r="0.162956" color_g="0.168627" color_b="0.150773" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/concreteslab/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.7783" t1="429.647" t2="-50.602" s0="0.563947" s1="0.41746" s2="0.417073" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1656" color_r="0.458824" color_g="0.434966" color_b="0.370657" overbright="0" type_file="Data/Objects/Buildings/arena/arena_pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="8.9161" t1="429.647" t2="-50.602" s0="0.563947" s1="0.41746" s2="0.417073" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="1657" color_r="0.458824" color_g="0.434966" color_b="0.370657" overbright="0" type_file="Data/Objects/Buildings/arena/arena_pillar.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.6194" t1="430.478" t2="-49.9296" s0="1.54691" s1="1.9446" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1659" color_r="0.133966" color_g="0.141176" color_b="0.118478" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/roughbrick/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="9.6027" t1="430.478" t2="-56.884" s0="1.94915" s1="1.9446" s2="1" q0="0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1660" color_r="0.133966" color_g="0.141176" color_b="0.118478" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/roughbrick/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.11423" t1="430.478" t2="-49.8608" s0="1.52851" s1="1.9446" s2="1" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1661" color_r="0.133966" color_g="0.141176" color_b="0.118478" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/roughbrick/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.13016" t1="430.478" t2="-56.6964" s0="1.94915" s1="1.9446" s2="1" q0="0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="1662" color_r="0.133966" color_g="0.141176" color_b="0.118478" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/roughbrick/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="7.3508" t1="431.925" t2="-50.2488" s0="1.70279" s1="1.3261" s2="1.3261" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="1663" color_r="0.211765" color_g="0.199405" color_b="0.16609" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="7.3505" t1="431.924" t2="-56.6273" s0="1.53668" s1="1.32612" s2="1.32612" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="1664" color_r="0.211765" color_g="0.199405" color_b="0.16609" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/wall.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.11217" t1="428.274" t2="-53.1656" s0="1.16259" s1="1.05497" s2="1" q0="-0.5" q1="-0.5" q2="-0.5" q3="-0.5" euler_x="1.5708" euler_y="0" euler_z="1.5708" id="1665" color_r="0.207843" color_g="0.19108" color_b="0.145898" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stoneblock/post_corners.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject t0="5.11217" t1="430.989" t2="-53.1656" s0="1.16259" s1="1.05497" s2="1" q0="0.5" q1="0.5" q2="-0.5" q3="-0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="1666" color_r="0.207843" color_g="0.19108" color_b="0.145898" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stoneblock/post_corners.xml">
+            <parameters />
+        </EnvObject>
+    </Group>
+</ActorObjects>
