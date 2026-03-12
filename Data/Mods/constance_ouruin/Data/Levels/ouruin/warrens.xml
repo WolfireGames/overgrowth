@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-73.8057" t1="-55.2735" t2="-96.4925" s0="1" s1="1" s2="1" q0="0.0212325" q1="0.870114" q2="-0.0376303" q3="0.490953" euler_x="-3.05515" euler_y="1.02742" euler_z="3.14159" id="0">
+    <CameraObject t0="-79.238" t1="-45.9794" t2="-72.1058" s0="1" s1="1" s2="1" q0="0.154999" q1="0.663691" q2="-0.143357" q3="0.717592" euler_x="0.42546" euler_y="1.49279" euler_z="-1.91224e-06" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -2364,6 +2364,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="0.92135" />
@@ -4314,6 +4315,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
@@ -17577,7 +17579,7 @@
     <Decal t0="-77.5714" t1="-48.1665" t2="-72.9821" s0="0.530014" s1="0.510731" s2="0.556091" q0="0" q1="0.0817275" q2="0" q3="0.996655" euler_x="0" euler_y="0.163638" euler_z="0" id="5638" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.458824" color_g="0.458819" color_b="0.458819" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-69.402" t1="-47.226" t2="-74.193" s0="8.5344" s1="8.5344" s2="12.8016" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5639" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.466667" color_g="0.466662" color_b="0.466662" overbright="0">
+    <Decal t0="-69.4054" t1="-47.2286" t2="-74.2538" s0="8.5344" s1="8.5344" s2="12.8016" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5639" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.466667" color_g="0.466662" color_b="0.466662" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-78.3266" t1="-42.5031" t2="-70.8885" s0="15.6784" s1="6.9682" s2="10.4523" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5640" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.466667" color_g="0.466662" color_b="0.466662" overbright="0">
@@ -18121,6 +18123,7 @@
                 <parameter name="Attack Speed" type="float" val="1" />
                 <parameter name="Block Follow-up" type="float" val="0.5" />
                 <parameter name="Block Skill" type="float" val="0.5" />
+                <parameter name="Can Swap Movesets" type="int" val="0" />
                 <parameter name="Cannot Be Disarmed" type="int" val="0" />
                 <parameter name="Cannot Throw Weapons" type="int" val="0" />
                 <parameter name="Character Scale" type="float" val="0.3" />
@@ -22375,6 +22378,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="0.92135" />
@@ -22998,9 +23002,6 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Decal t0="-73.5229" t1="-48.2755" t2="-73.0285" s0="0.843443" s1="0.375249" s2="0.843443" q0="0.0483766" q1="0.0273754" q2="0.071785" q3="0.995869" euler_x="0.100567" euler_y="0.0475972" euler_z="0.146312" id="7277" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.415686" color_g="0.415682" color_b="0.415682" overbright="0">
-        <parameters />
-    </Decal>
     <Decal t0="-75.0126" t1="-59.2576" t2="-117.928" s0="9.08883" s1="0.1" s2="10.5365" q0="0" q1="-0.311018" q2="0" q3="0.950404" euler_x="0" euler_y="-0.632528" euler_z="0" id="7278" type_file="Data/Objects/Decals/water_froth.xml" color_r="0.12549" color_g="0.125489" color_b="0.125489" overbright="0">
         <parameters />
     </Decal>
@@ -23032,9 +23033,6 @@
         <parameters />
     </EnvObject>
     <EnvObject t0="-73.6588" t1="-47.9189" t2="-78.8822" s0="1" s1="1" s2="1" q0="0" q1="-0.999991" q2="0" q3="0.00433859" euler_x="3.14159" euler_y="-0.00867721" euler_z="3.14159" id="7288" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/LitterLoads/LargeGourd.xml">
-        <parameters />
-    </EnvObject>
-    <EnvObject t0="-73.572" t1="-48.1758" t2="-72.9869" s0="1" s1="1" s2="1" q0="-0.574507" q1="-0.036333" q2="-0.811899" q3="0.0971616" euler_x="-0.154847" euler_y="-1.22247" euler_z="-2.79476" id="7289" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_tray_dirty.xml" no_navmesh="true">
         <parameters />
     </EnvObject>
     <EnvObject t0="-73.9504" t1="-48.2611" t2="-73.1195" s0="0.875548" s1="0.875548" s2="0.875548" q0="0.753457" q1="-0.588152" q2="-0.202483" q3="0.213024" euler_x="2.54718" euler_y="0.0545705" euler_z="-1.34232" id="7290" color_r="0.576471" color_g="0.576465" color_b="0.576465" overbright="0" type_file="Data/Objects/Environment/SmallProps/BottleTall.xml">
@@ -23243,6 +23241,15 @@
             </EnvObject>
         </Group>
     </Group>
+    <Group t0="-73.5263" t1="-48.2781" t2="-73.0893" s0="0.747355" s1="0.457567" s2="0.730009" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7377" version="1">
+        <parameters />
+        <Decal t0="-73.5263" t1="-48.2781" t2="-73.0892" s0="0.664936" s1="0.295831" s2="0.664936" q0="0.0483766" q1="0.0273754" q2="0.071785" q3="0.995869" euler_x="0.100567" euler_y="0.0475972" euler_z="0.146312" id="7277" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.415686" color_g="0.415682" color_b="0.415682" overbright="0">
+            <parameters />
+        </Decal>
+        <EnvObject t0="-73.5656" t1="-48.2002" t2="-73.0566" s0="0.788359" s1="0.788359" s2="0.788359" q0="-0.574507" q1="-0.036333" q2="-0.811899" q3="0.0971616" euler_x="-0.154847" euler_y="-1.22247" euler_z="-2.79476" id="7289" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/baskets/basket_tray_dirty.xml" no_navmesh="true">
+            <parameters />
+        </EnvObject>
+    </Group>
     <Decal t0="-58.883" t1="-54.6384" t2="-85.8536" s0="1.69523" s1="2.76309" s2="0.542879" q0="-0.00731218" q1="-0.0578252" q2="0.109668" q3="0.992258" euler_x="-0.0273735" euler_y="-0.113394" euler_z="0.221708" id="7390" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.372549" color_g="0.372545" color_b="0.372545" overbright="0">
         <parameters />
     </Decal>
@@ -23279,9 +23286,9 @@
     <EnvObject name="Thoritz Dialogue Mark" t0="6.765" t1="-50.2142" t2="-6.91865" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7407" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/coin.xml">
         <parameters />
     </EnvObject>
-    <Group name="Thoritz Trigger Group" t0="6.78792" t1="-48.7429" t2="-7.05463" s0="2.67667" s1="2.84997" s2="2.67667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7408" version="1">
+    <Group name="Thoritz Trigger Group" t0="6.78472" t1="-37.8473" t2="-2.25111" s0="2.67667" s1="2.84997" s2="2.67667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7408" version="1">
         <parameters />
-        <Hotspot name="Thoritz Room Trigger" t0="6.78792" t1="-48.6562" t2="-7.05463" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5980" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <Hotspot name="Thoritz Room Trigger" t0="6.78472" t1="-37.7606" t2="-2.25111" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="5980" type_file="Data/Objects/Hotspots/setmessages.xml">
             <parameters>
                 <parameter name="Activate Once" type="int" val="0" />
                 <parameter name="Activate Player Only" type="int" val="1" />
@@ -23300,7 +23307,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot name="Thoritz Dialogue Start" t0="6.7988" t1="-48.7894" t2="-7.06527" s0="0.612101" s1="0.686743" s2="0.612101" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7406" type_file="Data/Objects/Hotspots/start_dialogue.xml">
+        <Hotspot name="Thoritz Dialogue Start" t0="6.7956" t1="-37.8938" t2="-2.26175" s0="0.612101" s1="0.686743" s2="0.612101" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7406" type_file="Data/Objects/Hotspots/start_dialogue.xml">
             <parameters>
                 <parameter name="Automatic" type="int" val="0" />
                 <parameter name="Color" type="string" val="0.576 0.286 0.4" />
@@ -23308,7 +23315,7 @@
                 <parameter name="Fade" type="int" val="0" />
                 <parameter name="Force play" type="int" val="0" />
                 <parameter name="Play only once" type="int" val="0" />
-                <parameter name="Question Object" type="string" val="7407" />
+                <parameter name="Question Object" type="string" val="N/A" />
                 <parameter name="Visible in game" type="int" val="0" />
             </parameters>
             <Connections />
@@ -23642,6 +23649,7 @@
             <parameter name="Attack Speed" type="float" val="1.05556" />
             <parameter name="Block Follow-up" type="float" val="0.50694" />
             <parameter name="Block Skill" type="float" val="0.60417" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1.1" />
