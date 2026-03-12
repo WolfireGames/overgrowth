@@ -267,10 +267,13 @@ Define variable, its values and notes for each value.
 		ouruin_match_drowned
 			0: No progress
 			1: Asked about
-			2: Requisite block streak acquired
+			2: Requisite block streak acquired, Zero now uses drowned moves
 			3: Follow-up block streak acquired
 			4: Moveset unlocked
 			5: Moveset unlocked, Zero restricted to default moveset
+
+			ouruin_match_drowned_score
+				Block streak score while Zero is using drowned moves
 
 		ouruin_zero_aggro
 			0: Default
