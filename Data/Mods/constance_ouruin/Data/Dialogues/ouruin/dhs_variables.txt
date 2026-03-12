@@ -295,6 +295,8 @@ Define variable, its values and notes for each value.
 			4: Always counters
 		
 		ouruin_zero_wallet
+
+		ouruin_match_bet
 	
 	ouruin_faas_state
 		0: Player is loading into Faas' Sanctuary from Explore (level1_explore.xml)
