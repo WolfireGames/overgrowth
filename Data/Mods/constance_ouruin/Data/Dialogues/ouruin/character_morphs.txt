@@ -10,7 +10,7 @@ send_character_message 0 "set_morph_target smile 0 0.3 outExpo"
 For a list of tweens you can use, consult https://easings.net/
 
 
-With the level message sound hotspot, type this:
+With the level message sound hotspot, type this to play a sound:
 
 sound_hotspot_play_sound "filename" x y z
 
