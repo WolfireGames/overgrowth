@@ -539,9 +539,8 @@ Define variable, its values and notes for each value.
 		0: Player has not talked to the bloods
 		1: Player has met Gunk
 		2: Player has donated medicine
-		3: Player has told Patri about the bloods
-		4: Player and Patri has forced the bloods out, peacefully. Quest complete, -5 bond points
-		5: Player and Patri has forced the bloods out, with violence. Quest complete, -20 bond points
+		3: Player has informed Gunk about Patri. Quest complete!
+		4: Player has informed Gunk about Patri after delivering medication. Quest complete!
 
 		ouruin_gunk_bond_total
 			Total Gunk Bond points.
@@ -550,13 +549,13 @@ Define variable, its values and notes for each value.
 			Increases by the amount of times you talk to Gunk
 
 		ouruin_gunk_donated_petals
-			Counts the amount of petals Gunk has received.
+			Counts the amount of petals Gunk has received. Deprecated
 
 		ouruin_gunk_donate_offer
-			Amount of petals the player selects to donate.
+			Amount of petals the player selects to donate. Deprecated
 
 		ouruin_gunk_bond_petals
-			Increases bond points for every 50 petals. Maximum of +20 bond points
+			Increases bond points for every 50 petals. Maximum of +20 bond points. Deprecated
 
 		ouruin_gunk_donated_medicine
 			0: Player has not donated medicine
