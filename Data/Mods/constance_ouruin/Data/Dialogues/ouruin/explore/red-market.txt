@@ -1,0 +1,41 @@
+#name "Red-Market"
+#participants 3
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+set_character_pos 2 179.302 -52.7398 160.762 -90
+send_character_message 2 "set_animation \"Data/Animations/red_idle.anm\""
+send_character_message 2 "set_eye_dir 178.434 -52.0578 160.672 1"
+send_character_message 2 "set_torso_target 179.414 -52.7363 161.479 0"
+send_character_message 2 "set_head_target 178.937 -52.3293 161.74 1"
+set_character_pos 1 177.802 -52.5728 159.642 -30
+send_character_message 1 "set_eye_dir 178.941 -52.4912 160.66 1"
+send_character_message 1 "set_torso_target 178.47 -52.3348 160.046 0.0170884"
+send_character_message 1 "set_head_target 178.686 -52.1835 160.354 1"
+set_cam 177.684 -52.5717 160.507 0 -106.78 0.33 35.7507
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 1 0 0.15
+set_dialogue_voice 2 1
+send_character_message 2 "set_morph_target smile 0.5 0.3 outExpo"
+say 2 "Red" "That black market the Lotus folks are running is pretty admirable, [wait 0.05]you got to say! [wait 0.05]Sure, [wait 0.05]it might be stalling out and dipping into the weeds... [wait 0.05]But it's a real nice effort."
+send_character_message 2 "set_eye_dir 179.16 -52.5671 161.068 0"
+send_character_message 2 "set_head_target 179.097 -52.248 161.782 1"
+send_character_message 2 "set_morph_target smile 0.7 0.3 outExpo"
+say 2 "Red" "Besides all their issues, [wait 0.05]I still recommend going there! [wait 0.05]The Lotus folk are lucky they've got Nedis: [wait 0.1]Without him, [wait 0.05]I think that spot would've gone under long ago."
+send_character_message 2 "set_head_target 179 -52.2907 161.787 1"
+send_character_message 2 "set_eye_dir 178.621 -52.1158 160.726 1"
+send_character_message 2 "set_morph_target smile 0.2 0.3 outExpo"
+say 2 "Red" "He might seem like an odd bird at first, [wait 0.05]but that just makes him all the better at what he does! [wait 0.05]Not many people out here carve bone charms like him, [wait 0.05]even if they are just funny little knick-knacks!"
+send_character_message 2 "set_eye_dir 178.958 -52.0008 161.193 1"
+send_character_message 2 "set_head_target 179.23 -52.4017 161.892 1"
+send_character_message 2 "set_morph_target smile 0.9 0.3 outExpo"
+say 2 "Red" "It's so, [wait 0.05]so generous of the Lotus to climb their way out here. [wait 0.1]I know I'm thankful!"
+send_character_message 1 "set_torso_target 178.714 -51.9475 160.241 1"
+send_character_message 1 "set_eye_dir 178.526 -52.3722 161.007 0.518042"
+send_character_message 1 "set_head_target 179.131 -52.0272 159.413 1"
+set_cam 180.079 -52.5694 162.339 4.84 33.66 0 35.7507
+send_character_message 2 "set_eye_dir 178.958 -52.0774 161.945 1"
+send_character_message 2 "set_morph_target smile 0.5 0.3 outExpo"
+say 3 "Ghost" "(...[wait 0.05]I didn't even say anything...)"
+send_level_message "dialogue_done"

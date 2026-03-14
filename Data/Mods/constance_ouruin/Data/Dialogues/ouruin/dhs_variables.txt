@@ -685,6 +685,7 @@ Define variable, its values and notes for each value.
 			0: Red has not been talked to once
 			1: Red has been talked to
 			2: Red is now in Moritz
+			3: Red is no longer in Moritz
 		
 		ouruin_talk_flute
 			0: Flute has not been met

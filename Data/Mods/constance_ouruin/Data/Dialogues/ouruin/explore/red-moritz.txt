@@ -1,0 +1,42 @@
+#name "Red-Moritz"
+#participants 3
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+set_character_pos 2 179.302 -52.7398 160.762 -90
+send_character_message 2 "set_animation \"Data/Animations/red_idle.anm\""
+send_character_message 2 "set_eye_dir 178.743 -52.3377 160.585 1"
+send_character_message 2 "set_torso_target 179.414 -52.7363 161.479 0"
+send_character_message 2 "set_head_target 179.063 -52.5756 161.805 1"
+set_character_pos 1 177.802 -52.5728 159.642 -30
+send_character_message 1 "set_eye_dir 177.742 -51.4776 161.756 1"
+send_character_message 1 "set_torso_target 178.474 -52.0251 160.392 1"
+send_character_message 1 "set_head_target 177.68 -51.7398 161.251 1"
+set_cam 180.586 -52.6495 162.925 4.94 35.66 0 26.2779
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 1 0 0.15
+set_dialogue_voice 2 1
+send_character_message 2 "set_morph_target smile 0.5 0.3 outExpo"
+say 1 "Ghost" "This hood... [wait 0.05]Moritz, [wait 0.05]you called it? [wait 0.1]Looks like half of it's sunk into the water."
+send_character_message 2 "set_eye_dir 179.573 -52.0974 160.89 1"
+send_character_message 2 "set_head_target 179.185 -52.6699 161.83 1"
+send_character_message 1 "set_eye_dir 178.944 -52.3913 160.399 1"
+send_character_message 1 "set_head_target 177.853 -51.844 161.446 1"
+send_character_message 2 "set_morph_target sad 0.8 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0 0.3 outExpo"
+say 2 "Red" "A terrible shame! [wait 0.05]The water's sure to drain some day... [wait 0.05]Just gotta hope it turns out well."
+send_character_message 1 "set_head_target 177.937 -51.9713 161.448 1"
+send_character_message 2 "set_eye_dir 179.435 -52.2126 161.751 1"
+send_character_message 2 "set_head_target 179.272 -52.768 161.791 1"
+send_character_message 2 "set_morph_target sad 0 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0.5 0.3 outExpo"
+say 2 "Red" "Of course, [wait 0.05]that doesn't stop Lotus from claiming this street. [wait 0.1]Not many people stick around it for a reason, [wait 0.05]and I can't tell if it's because of the water, [wait 0.05]or the clans a-gnashing..."
+send_character_message 1 "set_torso_target 178.474 -52.0251 160.392 0"
+send_character_message 2 "set_head_target 179.225 -52.5969 161.889 1"
+send_character_message 2 "set_eye_dir 179.875 -51.9064 161.486 1"
+send_character_message 1 "set_eye_dir 177.496 -51.2531 160.774 0.849478"
+send_character_message 1 "set_head_target 178.108 -51.6939 161.695 1"
+send_character_message 2 "set_morph_target smile 0.9 0.3 outExpo"
+say 2 "Red" "Oh well! [wait 0.05]At least they hand out stew, [wait 0.05]sometimes!"
+send_level_message "dialogue_done"
