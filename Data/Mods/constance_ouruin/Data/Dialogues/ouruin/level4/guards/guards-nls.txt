@@ -1,0 +1,63 @@
+#name "Guards-NLS"
+#participants 4
+set_character_pos 1 2.70036 -6.63261 1.11823 -108
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
+send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
+send_character_message 1 "set_head_target 1.41922 -6.40336 3.11339 1"
+set_cam 2.54705 -5.72807 5.41625 -5.25 0.2 0 34.291
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_voice 2 17
+set_dialogue_voice 3 5
+set_dialogue_color 2 1 1 1
+set_dialogue_color 3 0.7 0.7 0.7
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 0
+send_character_message 1 "empty_hands"
+send_character_message 2 "empty_hands"
+send_character_message 3 "empty_hands"
+send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
+say 5 "Ghost" "(Ship's truly empty, [wait 0.05]huh...? [wait 0.1]Let's hope it stays that way.)"
+
+say 5 "Ghost" "(This should be fine enough, [wait 0.05]as a hiding spot...)"
+
+say 5 "Ghost" "(...! [wait 0.1]Someone's coming.)"
+
+say 2 "???" "This ship's empty, [wait 0.05]right? [wait 0.1]It was only for carrying in a squad or two."
+
+- *If door was broken down*
+
+say 3 "????" "It should be. [wait 0.1]But didn't you see the door...? [wait 0.1]Something's wrong."
+
+say 2 "???" "I'm not convinced it wasn't some local. [wait 0.1]Maybe some wannabe stowaway. [wait 0.1]They can't stay for long."
+
+- *If door was intact*
+
+say 3 "????" "It should be. [wait 0.1]But everyone outside's come up empty..."
+
+say 2 "???" "I guess we could miss something here, [wait 0.05]yeah..."
+
+
+say 2 "???" "It's nice to get away from the rain, [wait 0.05]even if it's not for long."
+
+say 3 "????" "Respite's too brief to even consider. [wait 0.1]We're going to have to march back out, [wait 0.05]pronto."
+
+say 3 "????" "If nobody turns up with anything, [wait 0.05]someone's gonna get lashed... [wait 0.1]I'd rather that not be us. [wait 0.1]Let's go."
+
+say 2 "???" "..."
+
+say 3 "????" "C'mon. [wait 0.1]I know you heard me. [wait 0.1]We need to move."
+
+say 2 "???" "..."
+
+say 2 "???" "D'you smell that?"
+
+say 3 "????" "..."
+
+say 5 "Ghost" "(...[wait 0.1]Some blood just can't be washed away, [wait 0.05]huh...)"
+
+say 2 "???" "Someone's in here... [wait 0.1]Call for backup!"
+
+say 2 "???" "Black hand, [wait 0.05]or whoever else is in there! [wait 0.1]Come out with your hands raised and empty!"
+send_level_message "dialogue_done"

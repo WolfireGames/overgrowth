@@ -1,0 +1,50 @@
+#name "Lost-L"
+#participants 8
+set_dialogue_color 1 0 0.62 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 5 0 0.62 0.95
+set_dialogue_voice 5 8
+set_dialogue_color 2 0.9 0.9 0
+set_dialogue_voice 2 7
+set_dialogue_color 6 0.9 0.9 0
+set_dialogue_voice 6 7
+set_dialogue_color 3 0.7 0.7 0.89
+set_dialogue_voice 3 11
+set_dialogue_color 4 0.7 0.7 0.89
+set_dialogue_voice 4 11
+say 1 "Ghost" "Ngh! [wait 0.1]Bastard..."
+
+say 2 "???" "The black hand is down! [wait 0.1]We got him!"
+
+say 3 "????" "Find the High Chancellor Ano, [wait 0.05]and bring the asset here!"
+
+say 5 "Ghost" "..."
+
+say 2 "???" "The night's finally over..."
+
+say 1 "Ghost" "...[wait 0.1]Asset...?"
+
+say 3 "????" "Look sharp! [wait 0.1]She's here!"
+
+say 1 "Ghost" "She...? [wait 0.1]No..."
+
+say 5 "Ghost" "..."
+
+say 1 "Ghost" "Bijou...?"
+
+say 3 "Bijou" "Amos! [wait 0.1]A-Are you okay...?"
+
+say 1 "Ghost" "...[wait 0.1]Doing bad. [wait 0.1]Was looking everywhere for you."
+
+say 1 "Amos" "When were you..."
+
+say 3 "Bijou" "I-It doesn't matter. [wait 0.1]Just breathe..."
+
+say 1 "Amos" "Don't worry. [wait 0.1]I can take it."
+
+say 1 "Amos" "...[wait 0.1]They've done worse."
+
+say 2 "???" "The High Chancellor's coming. [wait 0.1]Line up, [wait 0.05]everyone!"
+
+say 5 "Amos" "..."
+send_level_message "dialogue_done"

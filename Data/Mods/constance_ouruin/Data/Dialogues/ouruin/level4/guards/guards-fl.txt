@@ -1,0 +1,48 @@
+#name "Guards-FL"
+#participants 4
+set_character_pos 1 2.70036 -6.63261 1.11823 -108
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
+send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
+send_character_message 1 "set_head_target 1.41922 -6.40336 3.11339 1"
+set_cam 2.54705 -5.72807 5.41625 -5.25 0.2 0 34.291
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 0
+set_dialogue_voice 2 17
+set_dialogue_voice 3 5
+set_dialogue_color 2 1 1 1
+set_dialogue_color 3 0.7 0.7 0.7
+send_character_message 1 "empty_hands"
+send_character_message 2 "empty_hands"
+send_character_message 3 "empty_hands"
+send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
+say 1 "Ghost" "So cramped in here... [wait 0.1]Guess it's better than nothing."
+
+say 5 "Ghost" "..."
+
+say 5 "Ghost" "(Oh. [wait 0.1]Sounds like someone's coming... [wait 0.1]Just my luck.)"
+
+say 2 "???" "It's a bloodbath, [wait 0.05]out there..."
+
+say 3 "????" "Still no survivors... [wait 0.1]The black hand has to be somewhere in this district."
+
+say 2 "???" "We're the first of the backup, [wait 0.05]right...? [wait 0.1]We can't just go out there alone."
+
+say 3 "????" "..."
+
+say 3 "????" "We'll wait in here. [wait 0.1]It's... [wait 0.1]Safer, [wait 0.05]in here. [wait 0.1]Less ways for him to approach us."
+
+say 2 "???" "What if they reprimand us for hiding?"
+
+say 3 "????" "I'd rather be lashed than go out there."
+
+say 2 "???" "..."
+
+say 2 "???" "Khyo's mercy on us..."
+
+say 5 "Ghost" "..."
+
+say 5 "Ghost" "(Why don't I just go ahead and clean 'em up?)"
+send_level_message "dialogue_done"

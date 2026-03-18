@@ -1,0 +1,72 @@
+#name "Surrender-NLS"
+#participants 4
+set_character_pos 1 2.70036 -6.63261 1.11823 -108
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
+send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
+send_character_message 1 "set_head_target 1.41922 -6.40336 3.11339 1"
+set_cam 2.54705 -5.72807 5.41625 -5.25 0.2 0 34.291
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_voice 2 17
+set_dialogue_voice 3 5
+set_dialogue_color 2 1 1 1
+set_dialogue_color 3 0.7 0.7 0.7
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 0
+send_character_message 1 "empty_hands"
+send_character_message 2 "empty_hands"
+send_character_message 3 "empty_hands"
+send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
+say 5 "Ghost" "(How many districts have they locked down, [wait 0.05]tonight? [wait 0.1]How many people have had their lives ruined, [wait 0.05]just to take me?)"
+
+say 5 "Ghost" "(...[wait 0.1]I can't let the city suffer any more of this.)"
+
+say 5 "Ghost" "(Turn myself in... [wait 0.1]Keep the empry's men out of Ouruin.)"
+
+say 2 "???" "..."
+
+say 1 "Ghost" "Hands are raised, [wait 0.05]right? [wait 0.1]All's good?"
+
+say 2 "???" "Get on the ground and place your hands behind your head!"
+
+say 1 "Ghost" "...[wait 0.1]Come on. [wait 0.1]Just let me stand."
+
+say 3 "???" "You're not resisting, [wait 0.05]are you?"
+
+say 1 "Ghost" "There's no point. [wait 0.1]You're bringing the High Chancellor Ano over, [wait 0.05]aren't you?"
+
+say 2 "???" "..."
+
+say 1 "Ghost" "I just want to see Bijou again. [wait 0.1]Make sure she's okay."
+
+say 3 "???" "Fine. [wait 0.1]Stay where you are."
+
+say 2 "???" "Hey! [wait 0.1]You keep your hands up!"
+
+say 1 "Ghost" "Shut up and fetch. [wait 0.1]I need answers."
+
+say 2 "???" "..."
+
+say 5 "Ghost" "..."
+
+say 3 "Bijou" "Amos...?"
+
+say 1 "Amos" "You're okay!"
+
+*The two embrace.*
+
+say 4 "Bijou" "..."
+
+say 5 "Amos" "..."
+
+say 1 "Amos" "The High Chancellor's here, [wait 0.05]isn't he?"
+
+say 3 "Bijou" "...[wait 0.1]Yeah."
+
+say 5 "Amos" "..."
+
+say 1 "Amos" "Let's talk to him."
+
+say 4 "Bijou" "..."
+send_level_message "dialogue_done"

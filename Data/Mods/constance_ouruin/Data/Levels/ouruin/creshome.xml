@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="0.974353" t1="2.52732" t2="6.39298" s0="1" s1="1" s2="1" q0="0.0913941" q1="0.0129892" q2="-0.00119221" q3="0.995729" euler_x="0.183059" euler_y="0.0260884" euler_z="0" id="0">
+    <CameraObject t0="4.74293" t1="1.60528" t2="17.0415" s0="1" s1="1" s2="1" q0="-0.0405883" q1="0.8305" q2="-0.0610469" q3="-0.552174" euler_x="-2.99484" euler_y="-1.17351" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="0.838877" t1="-7.63834e-05" t2="4.68956" s0="1" s1="1" s2="0.956974" q0="-1" q1="0" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="0" id="1" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/arena/arena_vip_roof.xml">
@@ -1765,6 +1765,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
@@ -1840,24 +1841,24 @@
         <EnvObject name="Hazel Bandage" s0="0.999974" s1="0.821324" s2="0.754447" id="700" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Custom/RagdollZombie/Gunk/Objects/Gear/Bandages/Bloody/Bandage_BLOODY_Strip_3.xml">
             <parameters />
         </EnvObject>
-        <Group name="Hazel Abdomen Blood" t0="0" t1="-999999" t2="0" s0="0.399623" s1="0.342507" s2="0.401766" q0="0.00620162" q1="-0.00347254" q2="-0.82448" q3="0.565846" euler_x="0.012745" euler_y="0.00629642" euler_z="-1.9386" id="1611" version="1">
+        <Group name="Hazel Abdomen Blood" t0="2.37457" t1="1.1966" t2="19.0209" s0="0.399623" s1="0.342507" s2="0.401766" q0="0.00738564" q1="-0.00404244" q2="-0.825342" q3="0.56457" euler_x="0.0150132" euler_y="0.00762695" euler_z="-1.94166" id="1611" version="1">
             <parameters />
-            <Decal t0="0.0106588" t1="-999999" t2="-0.019356" s0="0.140586" s1="0.0432846" s2="0.0341745" q0="-0.0801424" q1="-0.0909636" q2="-0.818902" q3="0.560991" euler_x="0.060776" euler_y="-0.235488" euler_z="-1.94754" id="1603" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="2.38528" t1="1.19657" t2="19.0016" s0="0.140586" s1="0.0432846" s2="0.0341745" q0="-0.0790023" q1="-0.0914547" q2="-0.819908" q3="0.559601" euler_x="0.0633164" euler_y="-0.234036" euler_z="-1.95125" id="1603" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.00917391" t1="-999999" t2="0.0011537" s0="0.16347" s1="0.134764" s2="0.16347" q0="-0.821928" q1="-0.563278" q2="-0.0703476" q3="0.0469284" euler_x="3.13946" euler_y="-0.169317" euler_z="1.20178" id="1604" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0784314" color_g="0" color_b="0" overbright="0">
+            <Decal t0="2.38375" t1="1.19657" t2="19.0221" s0="0.16347" s1="0.134764" s2="0.16347" q0="-0.822692" q1="-0.562058" q2="-0.0716052" q3="0.0462624" euler_x="3.13716" euler_y="-0.170649" euler_z="1.19909" id="1604" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0784314" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.00479944" t1="-999999" t2="0.0216504" s0="0.281515" s1="0.176952" s2="0.281515" q0="0.00319386" q1="0.000910819" q2="-0.824928" q3="0.56523" euler_x="0.00210785" euler_y="0.00629909" euler_z="-1.94016" id="1605" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.109804" color_g="0" color_b="0" overbright="0">
+            <Decal t0="2.37932" t1="1.19658" t2="19.0425" s0="0.281515" s1="0.176952" s2="0.281515" q0="0.00438511" q1="0.000346389" q2="-0.825792" q3="0.56396" euler_x="0.0043741" euler_y="0.00763315" euler_z="-1.94322" id="1605" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.109804" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="-0.00343742" t1="-999999" t2="0.0207389" s0="0.301795" s1="0.267437" s2="0.233666" q0="0.00620127" q1="-0.00347282" q2="-0.824481" q3="0.565847" euler_x="0.0127451" euler_y="0.00629553" euler_z="-1.9386" id="1606" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.129412" color_g="0" color_b="0" overbright="0">
+            <Decal t0="2.37108" t1="1.1966" t2="19.0416" s0="0.301795" s1="0.267437" s2="0.233666" q0="0.00738531" q1="-0.0040427" q2="-0.825343" q3="0.564571" euler_x="0.0150133" euler_y="0.00762613" euler_z="-1.94166" id="1606" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.129412" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.00724276" t1="-999999" t2="0.0166483" s0="0.0970266" s1="0.113168" s2="0.106476" q0="-0.630932" q1="-0.431475" q2="0.531369" q3="-0.365235" euler_x="3.12775" euler_y="1.40145" euler_z="1.18794" id="1607" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0509804" color_g="0" color_b="0" overbright="0">
+            <Decal t0="2.38177" t1="1.19657" t2="19.0375" s0="0.0970266" s1="0.113168" s2="0.106476" q0="-0.632435" q1="-0.430089" q2="0.53095" q3="-0.364879" euler_x="3.11327" euler_y="1.39996" euler_z="1.17054" id="1607" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0509804" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="0.00545489" t1="-999999" t2="0.000181802" s0="0.380673" s1="0.239279" s2="0.380673" q0="0.59216" q1="0.404831" q2="-0.574262" q3="0.394566" euler_x="3.0615" euler_y="1.54164" euler_z="1.12157" id="1609" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.0392157" color_g="0" color_b="0" overbright="0">
+            <Decal t0="2.38003" t1="1.19658" t2="19.0211" s0="0.380673" s1="0.239279" s2="0.380673" q0="0.593689" q1="0.403473" q2="-0.573949" q3="0.394114" euler_x="2.98504" euler_y="1.5399" euler_z="1.042" id="1609" type_file="Data/Objects/Decals/bloodspatter_tattoo.xml" color_r="0.0392157" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
         </Group>
@@ -2253,7 +2254,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;function&quot;:27,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;morph_1&quot;:&quot;sad&quot;,&quot;morph_2&quot;:&quot;mouth_open&quot;,&quot;smoothing_duration&quot;:0,&quot;two_way_morph&quot;:false,&quot;weight&quot;:0.63999998569488525},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:658,&quot;placeholder_tag&quot;:&quot;creshome701658&quot;},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:true,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_sleep_wounded.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[2.3949999809265137,1.5080000162124634,19.110000610351562],&quot;target_actor_rotation&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Knife&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Wall Shadow&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Dialogue Light&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Enter Light&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Operation Light&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Gunk Held Tonic&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Offered Healing Tonic&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hazel Couch Shadows&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hazel Back Shadows&quot;,&quot;identifier_type&quot;:3},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:16,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_tarz_talk&quot;,&quot;ouruin_gunk_donated_medicine&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;,&quot;1&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_tarz_talk&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;checkmodes&quot;:[2,3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:27,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_gunk_quest&quot;,&quot;ouruin_gunk_quest&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0.000&quot;,&quot;3.000&quot;]},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Gunk&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[3.4200000762939453,1.062999963760376,17.826999664306641],&quot;target_actor_rotation&quot;:-7},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[-3.6805274486541748,1.0729750394821167,0.0061805248260498047],&quot;target_actor_rotation&quot;:-97},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Wall Shadow&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Knife Sheathed&quot;,&quot;identifier_type&quot;:3},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Gunk&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/gunk_actionidle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;HouseFirst sound messages&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;ghost_grabbed&quot;},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:0,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:0,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/ghost_choked.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;gunk_enter&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/gunk_enter.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;tarz_release&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/tarz_release.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;tarz_walk&quot;},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:100,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:100,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;ai_goal&quot;:0,&quot;function&quot;:35,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_ai_target&quot;:774,&quot;identifier_type&quot;:3,&quot;identifier_type_ai_target&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;gunk_choices&quot;},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[-3.6805274486541748,1.0729750394821167,0.0061805248260498047],&quot;target_actor_rotation&quot;:-97},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/tarz_wall.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;function&quot;:27,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;morph_1&quot;:&quot;sad&quot;,&quot;morph_2&quot;:&quot;mouth_open&quot;,&quot;smoothing_duration&quot;:0,&quot;two_way_morph&quot;:false,&quot;weight&quot;:0.63999998569488525},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:658,&quot;placeholder_tag&quot;:&quot;creshome701658&quot;},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:true,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_sleep_wounded.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Hazel&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[2.3949999809265137,1.5080000162124634,19.110000610351562],&quot;target_actor_rotation&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Knife&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Wall Shadow&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Dialogue Light&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Enter Light&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Operation Light&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Gunk Held Tonic&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Offered Healing Tonic&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hazel Couch Shadows&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Hazel Back Shadows&quot;,&quot;identifier_type&quot;:3},{&quot;checkmodes&quot;:[0,0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:16,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_tarz_talk&quot;,&quot;ouruin_gunk_donated_medicine&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;,&quot;1&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_tarz_talk&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;checkmodes&quot;:[2,3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:47,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_gunk_quest&quot;,&quot;ouruin_gunk_quest&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0.000&quot;,&quot;3.000&quot;]},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Gunk&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[3.4200000762939453,1.062999963760376,17.826999664306641],&quot;target_actor_rotation&quot;:-7},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[-3.6805274486541748,1.0729750394821167,0.0061805248260498047],&quot;target_actor_rotation&quot;:-97},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Wall Shadow&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Tarz Knife Sheathed&quot;,&quot;identifier_type&quot;:3},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Gunk&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/gunk_actionidle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Check for Patri warn&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0,3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:42,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_patri_quest&quot;,&quot;ouruin_gunk_quest&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;4&quot;,&quot;3.000&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:36,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gunk_donated_medicine&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;display_comment&quot;:&quot;Medicine warning cutscene&quot;,&quot;function&quot;:34},{&quot;dialogue_name&quot;:&quot;PatriWarn-Meds&quot;,&quot;function&quot;:11},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gunk_quest&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;4&quot;]},{&quot;function&quot;:22,&quot;level_path&quot;:&quot;Data/Levels/ouruin/level1_b.xml&quot;},{&quot;function&quot;:7,&quot;line&quot;:62},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Normal warning cutscene&quot;,&quot;function&quot;:34},{&quot;dialogue_name&quot;:&quot;PatriWarn&quot;,&quot;function&quot;:11},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gunk_quest&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;3&quot;]},{&quot;function&quot;:22,&quot;level_path&quot;:&quot;Data/Levels/ouruin/level1_b.xml&quot;},{&quot;function&quot;:7,&quot;line&quot;:62},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;HouseFirst sound messages&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;ghost_grabbed&quot;},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:0,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:0,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/ghost_choked.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;gunk_enter&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/gunk_enter.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;tarz_release&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/tarz_release.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;tarz_walk&quot;},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:100,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;character_option&quot;:49,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:100,&quot;param_type&quot;:2,&quot;value_type_option&quot;:0},{&quot;ai_goal&quot;:0,&quot;function&quot;:35,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_ai_target&quot;:774,&quot;identifier_type&quot;:3,&quot;identifier_type_ai_target&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;gunk_choices&quot;},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[-3.6805274486541748,1.0729750394821167,0.0061805248260498047],&quot;target_actor_rotation&quot;:-97},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Tarz&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/tarz_wall.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -2377,6 +2378,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
@@ -2699,6 +2701,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
@@ -4151,7 +4154,7 @@
     <Decal t0="4.87953" t1="1.20214" t2="1.60824" s0="0.282758" s1="0.282758" s2="0.282758" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1217" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.337255" color_g="0.337252" color_b="0.337252" overbright="0">
         <parameters />
     </Decal>
-    <ActorObject name="Ghost" t0="0.948802" t1="1.16261" t2="2.07109" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1218" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+    <ActorObject name="Ghost" t0="0.948802" t1="1.16261" t2="2.07109" s0="0.444445" s1="0.444445" s2="0.444445" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1218" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />
@@ -4159,6 +4162,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
@@ -4196,7 +4200,7 @@
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Armor" type="int" val="1" />
             <parameter name="Wearing Metal Bracer" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
@@ -4204,7 +4208,12 @@
             <Connection id="-1" />
         </Connections>
         <ItemConnections />
-        <Palette />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
         <EnvObjectAttachments>
             <EnvObjectAttachment>
                 <BoneConnect bone_id="4" num_connections="1" m0="0.955152" m1="-0.01577" m2="-0.295697" m3="0" m4="-0.0680468" m5="0.960168" m6="-0.27101" m7="0" m8="0.288192" m9="0.278977" m10="0.916033" m11="0" m12="0.208628" m13="0.353775" m14="-0.028097" m15="1" />
@@ -4906,7 +4915,7 @@
     <EnvObject name="AIControl Helper" t0="2.3667" t1="4.18736" t2="17.2443" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1360" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters />
     </EnvObject>
-    <PlaceholderObject t0="-2.09004" t1="19.7725" t2="17.157" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1361" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.193545" t1="28.9032" t2="10.3662" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1361" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkwounded.txt" />
             <parameter name="DisplayName" type="string" val="GunkWounded" />
@@ -4921,37 +4930,37 @@
             <Connection id="1361" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.48382" t1="20.4725" t2="16.807" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1362" type_file="" special_type="2">
+    <PlaceholderObject t0="0.412673" t1="29.6032" t2="10.0162" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1362" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.78693" t1="20.4725" t2="16.982" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1363" type_file="" special_type="2">
+    <PlaceholderObject t0="0.109564" t1="29.6032" t2="10.1912" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1363" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.09004" t1="20.4725" t2="17.157" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1364" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.193545" t1="29.6032" t2="10.3662" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1364" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.39315" t1="20.4725" t2="17.332" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1365" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.496654" t1="29.6032" t2="10.5412" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1365" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.69625" t1="20.4725" t2="17.507" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1366" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.799763" t1="29.6032" t2="10.7162" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1366" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.19054" t1="19.8239" t2="18.6182" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1367" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.294045" t1="28.9546" t2="11.8274" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1367" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkproperty.txt" />
             <parameter name="DisplayName" type="string" val="GunkProperty" />
@@ -4966,31 +4975,31 @@
             <Connection id="1367" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.58432" t1="20.5239" t2="18.2682" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1368" type_file="" special_type="2">
+    <PlaceholderObject t0="0.312173" t1="29.6546" t2="11.4774" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1368" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.88743" t1="20.5239" t2="18.4432" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1369" type_file="" special_type="2">
+    <PlaceholderObject t0="0.00906369" t1="29.6546" t2="11.6524" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1369" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.19054" t1="20.5239" t2="18.6182" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1370" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.294045" t1="29.6546" t2="11.8274" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1370" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.49365" t1="20.5239" t2="18.7932" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1371" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.597154" t1="29.6546" t2="12.0024" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1371" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.79675" t1="20.5239" t2="18.9682" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1372" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.900263" t1="29.6546" t2="12.1774" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1372" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -5001,7 +5010,7 @@
             <parameter name="Placeholder Tag" type="string" val="creshome7971373" />
         </parameters>
     </EnvObject>
-    <PlaceholderObject t0="-2.12094" t1="18.2225" t2="21.2616" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1374" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.224445" t1="27.3532" t2="14.4708" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1374" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkcivilwar1.txt" />
             <parameter name="DisplayName" type="string" val="GunkCivilWar1" />
@@ -5016,37 +5025,37 @@
             <Connection id="1374" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.51472" t1="18.9225" t2="20.9116" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1375" type_file="" special_type="2">
+    <PlaceholderObject t0="0.381773" t1="28.0532" t2="14.1208" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1375" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.81783" t1="18.9225" t2="21.0866" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1376" type_file="" special_type="2">
+    <PlaceholderObject t0="0.0786638" t1="28.0532" t2="14.2958" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1376" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.12094" t1="18.9225" t2="21.2616" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1377" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.224445" t1="28.0532" t2="14.4708" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1377" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.42405" t1="18.9225" t2="21.4366" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1378" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.527554" t1="28.0532" t2="14.6458" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1378" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.72715" t1="18.9225" t2="21.6116" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1379" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.830663" t1="28.0532" t2="14.8208" s0="0.299997" s1="0.299997" s2="0.299997" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1379" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.17284" t1="18.2085" t2="18.475" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1380" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.276345" t1="27.3392" t2="11.6842" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1380" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkcinderbreathe.txt" />
             <parameter name="DisplayName" type="string" val="GunkCinderbreathe" />
@@ -5061,37 +5070,37 @@
             <Connection id="1380" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.56662" t1="18.9085" t2="18.125" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1381" type_file="" special_type="2">
+    <PlaceholderObject t0="0.329873" t1="28.0392" t2="11.3342" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1381" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.86973" t1="18.9085" t2="18.3" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1382" type_file="" special_type="2">
+    <PlaceholderObject t0="0.0267636" t1="28.0392" t2="11.5092" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1382" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.17284" t1="18.9085" t2="18.475" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1383" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.276345" t1="28.0392" t2="11.6842" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1383" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.47595" t1="18.9085" t2="18.65" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1384" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.579454" t1="28.0392" t2="11.8592" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1384" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.77905" t1="18.9085" t2="18.825" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1385" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.882563" t1="28.0392" t2="12.0342" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1385" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.41084" t1="18.1398" t2="17.0992" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1386" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.514345" t1="27.2705" t2="10.3084" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1386" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkhome.txt" />
             <parameter name="DisplayName" type="string" val="GunkHome" />
@@ -5106,37 +5115,37 @@
             <Connection id="1386" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.80462" t1="18.8398" t2="16.7492" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1387" type_file="" special_type="2">
+    <PlaceholderObject t0="0.0918726" t1="27.9705" t2="9.95839" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1387" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.10773" t1="18.8398" t2="16.9242" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1388" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.211236" t1="27.9705" t2="10.1334" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1388" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.41084" t1="18.8398" t2="17.0992" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1389" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.514345" t1="27.9705" t2="10.3084" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1389" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.71395" t1="18.8398" t2="17.2742" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1390" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.817454" t1="27.9705" t2="10.4834" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1390" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.01705" t1="18.8398" t2="17.4492" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1391" type_file="" special_type="2">
+    <PlaceholderObject t0="-1.12056" t1="27.9705" t2="10.6584" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1391" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.34744" t1="18.1837" t2="20.0577" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1392" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.450945" t1="27.3144" t2="13.2669" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1392" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunklugarians.txt" />
             <parameter name="DisplayName" type="string" val="GunkLugarians" />
@@ -5151,37 +5160,37 @@
             <Connection id="1392" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.74122" t1="18.8837" t2="19.7077" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1393" type_file="" special_type="2">
+    <PlaceholderObject t0="0.155273" t1="28.0144" t2="12.9169" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1393" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.04433" t1="18.8837" t2="19.8827" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1394" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.147836" t1="28.0144" t2="13.0919" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1394" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.34744" t1="18.8837" t2="20.0577" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1395" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.450945" t1="28.0144" t2="13.2669" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1395" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.65055" t1="18.8837" t2="20.2327" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1396" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.754054" t1="28.0144" t2="13.4419" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1396" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.95365" t1="18.8837" t2="20.4077" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1397" type_file="" special_type="2">
+    <PlaceholderObject t0="-1.05716" t1="28.0144" t2="13.6169" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1397" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.48454" t1="16.629" t2="17.087" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1398" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.588045" t1="25.7597" t2="10.2962" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1398" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkcivilwar2.txt" />
             <parameter name="DisplayName" type="string" val="GunkCivilWar2" />
@@ -5196,37 +5205,37 @@
             <Connection id="1398" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.87832" t1="17.329" t2="16.737" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1399" type_file="" special_type="2">
+    <PlaceholderObject t0="0.0181727" t1="26.4597" t2="9.94619" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1399" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.18143" t1="17.329" t2="16.912" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1400" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.284936" t1="26.4597" t2="10.1212" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1400" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.48454" t1="17.329" t2="17.087" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1401" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.588045" t1="26.4597" t2="10.2962" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1401" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.78765" t1="17.329" t2="17.262" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1402" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.891154" t1="26.4597" t2="10.4712" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1402" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.09075" t1="17.329" t2="17.437" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1403" type_file="" special_type="2">
+    <PlaceholderObject t0="-1.19426" t1="26.4597" t2="10.6462" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1403" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.44424" t1="16.5598" t2="18.5884" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1404" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.547745" t1="25.6905" t2="11.7976" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1404" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkoutskirts.txt" />
             <parameter name="DisplayName" type="string" val="GunkOutskirts" />
@@ -5241,37 +5250,37 @@
             <Connection id="1404" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.83802" t1="17.2598" t2="18.2384" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1405" type_file="" special_type="2">
+    <PlaceholderObject t0="0.0584726" t1="26.3905" t2="11.4476" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1405" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.14113" t1="17.2598" t2="18.4134" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1406" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.244636" t1="26.3905" t2="11.6226" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1406" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.44424" t1="17.2598" t2="18.5884" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1407" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.547745" t1="26.3905" t2="11.7976" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1407" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.74735" t1="17.2598" t2="18.7634" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1408" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.850854" t1="26.3905" t2="11.9726" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1408" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.05045" t1="17.2598" t2="18.9384" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1409" type_file="" special_type="2">
+    <PlaceholderObject t0="-1.15396" t1="26.3905" t2="12.1476" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1409" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.51914" t1="16.5837" t2="20.14" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1410" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.622645" t1="25.7144" t2="13.3492" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1410" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkmedicine.txt" />
             <parameter name="DisplayName" type="string" val="GunkMedicine" />
@@ -5286,37 +5295,37 @@
             <Connection id="1410" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.91292" t1="17.2837" t2="19.79" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1411" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.0164273" t1="26.4144" t2="12.9992" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1411" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.21603" t1="17.2837" t2="19.965" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1412" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.319536" t1="26.4144" t2="13.1742" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1412" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.51914" t1="17.2837" t2="20.14" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1413" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.622645" t1="26.4144" t2="13.3492" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1413" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.82225" t1="17.2837" t2="20.315" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1414" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.925754" t1="26.4144" t2="13.5242" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1414" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.12535" t1="17.2837" t2="20.49" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1415" type_file="" special_type="2">
+    <PlaceholderObject t0="-1.22886" t1="26.4144" t2="13.6992" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1415" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.54494" t1="16.6428" t2="21.615" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1416" type_file="" special_type="0">
+    <PlaceholderObject t0="-0.648445" t1="25.7735" t2="14.8242" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1416" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkouruin.txt" />
             <parameter name="DisplayName" type="string" val="GunkOuruin" />
@@ -5331,31 +5340,31 @@
             <Connection id="1416" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-1.93872" t1="17.3428" t2="21.265" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1417" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.0422273" t1="26.4735" t2="14.4742" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1417" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.24183" t1="17.3428" t2="21.44" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1418" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.345336" t1="26.4735" t2="14.6492" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1418" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.54494" t1="17.3428" t2="21.615" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1419" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.648445" t1="26.4735" t2="14.8242" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1419" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-2.84805" t1="17.3428" t2="21.79" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1420" type_file="" special_type="2">
+    <PlaceholderObject t0="-0.951554" t1="26.4735" t2="14.9992" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1420" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="-3.15115" t1="17.3428" t2="21.965" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1421" type_file="" special_type="2">
+    <PlaceholderObject t0="-1.25466" t1="26.4735" t2="15.1742" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1421" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -6136,7 +6145,7 @@
     <Decal name="Tarz Wall Shadow" t0="-2.8095" t1="1.28866" t2="0.570881" s0="1.23048" s1="2.14508" s2="1.19643" q0="0.00201619" q1="0.522854" q2="0.0106282" q3="0.852354" euler_x="0.0320934" euler_y="1.10014" euler_z="0.044618" id="1580" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.309804" color_g="0.309801" color_b="0.309801" overbright="0">
         <parameters />
     </Decal>
-    <PlaceholderObject t0="6.44252" t1="17.9352" t2="17.0109" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1581" type_file="" special_type="0">
+    <PlaceholderObject t0="8.33902" t1="27.0659" t2="10.2201" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1581" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/gunkgivemed.txt" />
             <parameter name="DisplayName" type="string" val="GunkGiveMed" />
@@ -6151,31 +6160,31 @@
             <Connection id="1581" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="7.04873" t1="18.6352" t2="16.6609" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1582" type_file="" special_type="2">
+    <PlaceholderObject t0="8.94523" t1="27.7659" t2="9.87009" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1582" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="6.74563" t1="18.6352" t2="16.8359" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1583" type_file="" special_type="2">
+    <PlaceholderObject t0="8.64212" t1="27.7659" t2="10.0451" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1583" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="796" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="6.44252" t1="18.6352" t2="17.0109" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1584" type_file="" special_type="2">
+    <PlaceholderObject t0="8.33902" t1="27.7659" t2="10.2201" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1584" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="736" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="6.13941" t1="18.6352" t2="17.1859" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1585" type_file="" special_type="2">
+    <PlaceholderObject t0="8.03591" t1="27.7659" t2="10.3951" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1585" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="573" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="5.8363" t1="18.6352" t2="17.3609" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1586" type_file="" special_type="2">
+    <PlaceholderObject t0="7.7328" t1="27.7659" t2="10.5701" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1586" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -6365,6 +6374,113 @@
             <parameter name="Placeholder Tag" type="string" val="creshome7971656" />
         </parameters>
     </EnvObject>
+    <PlaceholderObject t0="3.34673" t1="6.71713" t2="0.0437305" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1659" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/patriwarn.txt" />
+            <parameter name="DisplayName" type="string" val="PatriWarn" />
+            <parameter name="NumParticipants" type="int" val="6" />
+            <parameter name="obj_1" type="int" val="1660" />
+            <parameter name="obj_2" type="int" val="1661" />
+            <parameter name="obj_3" type="int" val="1662" />
+            <parameter name="obj_4" type="int" val="1663" />
+            <parameter name="obj_5" type="int" val="1664" />
+            <parameter name="obj_6" type="int" val="1665" />
+        </parameters>
+        <Connections>
+            <Connection id="1659" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.85192" t1="7.18379" t2="-0.247936" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1660" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.64984" t1="7.18379" t2="-0.131269" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1661" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="796" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.44777" t1="7.18379" t2="-0.0146028" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1662" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="736" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.2457" t1="7.18379" t2="0.102064" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1663" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.04363" t1="7.18379" t2="0.21873" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1664" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="2.84155" t1="7.18379" t2="0.335397" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1665" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.51049" t1="6.73744" t2="1.13544" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1666" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/creshome/patriwarn-meds.txt" />
+            <parameter name="DisplayName" type="string" val="PatriWarn-Meds" />
+            <parameter name="NumParticipants" type="int" val="6" />
+            <parameter name="obj_1" type="int" val="1667" />
+            <parameter name="obj_2" type="int" val="1668" />
+            <parameter name="obj_3" type="int" val="1669" />
+            <parameter name="obj_4" type="int" val="1670" />
+            <parameter name="obj_5" type="int" val="1671" />
+            <parameter name="obj_6" type="int" val="1672" />
+        </parameters>
+        <Connections>
+            <Connection id="1666" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="4.01567" t1="7.2041" t2="0.843775" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1667" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.8136" t1="7.2041" t2="0.960442" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1668" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="796" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.61153" t1="7.2041" t2="1.07711" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1669" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="736" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.40946" t1="7.2041" t2="1.19378" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1670" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.20738" t1="7.2041" t2="1.31044" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1671" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.00531" t1="7.2041" t2="1.42711" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1672" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <DynamicLightObject name="Patri Warn Lights" t0="1.3198" t1="2.49036" t2="5.24142" s0="7.92476" s1="7.92476" s2="7.92476" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1686" color_r="0.309804" color_g="0.298726" color_b="0.279431" overbright="0">
+        <parameters />
+    </DynamicLightObject>
     <Hotspot name="Debug Text" t0="4.38142" t1="6.12636" t2="-6.21185" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2433" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
@@ -6383,7 +6499,7 @@
             <parameters>
                 <parameter name="Debug Current Line" type="int" val="0" />
                 <parameter name="Run in EditorMode" type="int" val="1" />
-                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Bracers&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:15,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_armor&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped bracers&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:50,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;Unequipped bracers&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:50,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;== Armor&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:25,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_armor&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped armor&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;Unequipped armor\n&quot;,&quot;function&quot;:34},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Shortsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:33,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_shortsword&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:35},{&quot;display_comment&quot;:&quot;Unequipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:41,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_broadsword&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;broadsword&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:44},{&quot;display_comment&quot;:&quot;Unequipped broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:50,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_knife&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;knife&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:53},{&quot;display_comment&quot;:&quot;Unequipped knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:59,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_throwing&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;throwing&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:62},{&quot;display_comment&quot;:&quot;Unequipped throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:68,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_spear&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;spear&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:71},{&quot;display_comment&quot;:&quot;Unequipped spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:77,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_staff&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;staff&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:80},{&quot;display_comment&quot;:&quot;Unequip staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Sparrow&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:85,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_sparrow&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip sparrow&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;sparrow&quot;]},{&quot;function&quot;:7,&quot;line&quot;:87},{&quot;display_comment&quot;:&quot;Unequip sparrow&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;display_comment&quot;:&quot;== Talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:92,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_sparrow&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;talisman&quot;]},{&quot;function&quot;:7,&quot;line&quot;:94},{&quot;display_comment&quot;:&quot;Unequip talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;display_comment&quot;:&quot;== Healing Tonic&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:99,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_tonic&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip tonic&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;tonic&quot;]},{&quot;function&quot;:7,&quot;line&quot;:101},{&quot;display_comment&quot;:&quot;Unequip tonic&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;equipment_change&quot;},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Bracers&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:15,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_bracers&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped bracers&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:50,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:19},{&quot;display_comment&quot;:&quot;Unequipped bracers&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Buckler&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:50,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:19},{&quot;display_comment&quot;:&quot;== Armor&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:25,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_armor&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped armor&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;function&quot;:7,&quot;line&quot;:28},{&quot;display_comment&quot;:&quot;Unequipped armor\n&quot;,&quot;function&quot;:34},{&quot;character_option&quot;:35,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Armor&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Shortsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:33,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_shortsword&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:35},{&quot;display_comment&quot;:&quot;Unequipped shortsword&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Shortsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:41,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_broadsword&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;broadsword&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:44},{&quot;display_comment&quot;:&quot;Unequipped broadsword&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Broadsword&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:50,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_knife&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;knife&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:53},{&quot;display_comment&quot;:&quot;Unequipped knife&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Knife&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:59,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_throwing&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;throwing&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:62},{&quot;display_comment&quot;:&quot;Unequipped throwing&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Throwing&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:68,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_spear&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equipped spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;spear&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:71},{&quot;display_comment&quot;:&quot;Unequipped spear&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Spear&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:77,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_staff&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;staff&quot;]},{&quot;enabled&quot;:true,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;function&quot;:7,&quot;line&quot;:80},{&quot;display_comment&quot;:&quot;Unequip staff&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_weapon&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Staff&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;== Sparrow&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:85,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_sparrow&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip sparrow&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;sparrow&quot;]},{&quot;function&quot;:7,&quot;line&quot;:87},{&quot;display_comment&quot;:&quot;Unequip sparrow&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;display_comment&quot;:&quot;== Talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:92,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_sparrow&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;talisman&quot;]},{&quot;function&quot;:7,&quot;line&quot;:94},{&quot;display_comment&quot;:&quot;Unequip talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;display_comment&quot;:&quot;== Healing Tonic&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:99,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_tonic&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;2&quot;]},{&quot;display_comment&quot;:&quot;Equip tonic&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;tonic&quot;]},{&quot;function&quot;:7,&quot;line&quot;:101},{&quot;display_comment&quot;:&quot;Unequip tonic&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;nothing&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;equipment_change&quot;},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
                 <parameter name="Show UI Grid" type="int" val="1" />
                 <parameter name="Transform Relative" type="int" val="0" />
                 <parameter name="UI Snap Scale" type="int" val="20" />

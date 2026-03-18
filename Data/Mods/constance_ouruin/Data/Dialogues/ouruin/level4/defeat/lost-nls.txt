@@ -1,0 +1,48 @@
+#name "Lost-NLS"
+#participants 8
+set_dialogue_color 1 0 0.62 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 5 0 0.62 0.95
+set_dialogue_voice 5 8
+set_dialogue_color 2 0.9 0.9 0
+set_dialogue_voice 2 7
+set_dialogue_color 6 0.9 0.9 0
+set_dialogue_voice 6 7
+set_dialogue_color 3 0.7 0.7 0.89
+set_dialogue_voice 3 11
+set_dialogue_color 4 0.7 0.7 0.89
+set_dialogue_voice 4 11
+say 1 "Ghost" "...[wait 0.1]*cough*!"
+
+say 2 "???" "The black hand is down!"
+
+say 3 "????" "Locate the High Chancellor Ano. [wait 0.1]Let him know we've secured the black hand!"
+
+say 5 "Ghost" "..."
+
+say 1 "Ghost" "High Chancellor Ano...[wait 0.05]?"
+
+say 1 "Ghost" "He's... [wait 0.1]You've gotta be..."
+
+say 3 "????" "He's here. [wait 0.1]Everyone, [wait 0.05]get in order!"
+
+say 2 "???" "They're bringing her in."
+
+say 1 "Ghost" "...[wait 0.1]What...?"
+
+say 1 "Ghost" "Bijou...?"
+
+say 3 "Bijou" "Amos, [wait 0.05]are you..."
+
+say 1 "Amos" "I'm fine. [wait 0.1]Did they hurt you?"
+
+say 3 "Bijou" "No. [wait 0.1]They wouldn't."
+
+say 1 "Amos" "...[wait 0.1]Good."
+
+say 1 "Amos" "Ano's behind you, [wait 0.05]right?"
+
+say 1 "Amos" "Let him come down, [wait 0.05]already. [wait 0.1]He's got a lot to explain."
+
+say 4 "Bijou" "..."
+send_level_message "dialogue_done"

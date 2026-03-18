@@ -1,0 +1,61 @@
+#name "Guards-L"
+#participants 4
+set_character_pos 1 2.70036 -6.63261 1.11823 -108
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
+send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
+send_character_message 1 "set_head_target 1.41922 -6.40336 3.11339 1"
+set_cam 2.54705 -5.72807 5.41625 -5.25 0.2 0 34.291
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_voice 2 17
+set_dialogue_voice 3 5
+set_dialogue_color 2 1 1 1
+set_dialogue_color 3 0.7 0.7 0.7
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 0
+send_character_message 1 "empty_hands"
+send_character_message 2 "empty_hands"
+send_character_message 3 "empty_hands"
+send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
+say 5 "Ghost" "(...[wait 0.1]This was a bad idea. [wait 0.1]But I've got nowhere else to hide.)"
+
+say 5 "Ghost" "(Best be at the ready... [wait 0.1]Anyone could come in.)"
+
+say 5 "Ghost" "(...)"
+
+say 5 "Ghost" "(Is that... [wait 0.1]Pawsteps?)"
+
+say 5 "Ghost" "(Damnit... [wait 0.1]They're approaching!)"
+
+say 2 "???" "We're losing too many... [wait 0.1]Check every corner."
+
+- *Door broken down*
+
+say 2 "???" "The door wouldn't close shut... [wait 0.1]He must've broken the lock."
+
+say 3 "????" "If he really is stowed away in here... [wait 0.1]He'll be cornered. [wait 0.1]He's gonna fight with everything he's got..."
+
+say 3 "????" "Be careful."
+
+- *Door intact*
+
+say 3 "????" "You think he's stowed away in here?"
+
+say 2 "???" "We have to check. [wait 0.1]And if not... [wait 0.1]Well, [wait 0.05]it's safer in here."
+
+
+say 2 "???" "...!"
+
+say 2 "???" "...[wait 0.1]Y-You smell that too, [wait 0.05]right...?"
+
+say 3 "????" "Blood."
+
+say 5 "Ghost" "(...)"
+
+say 2 "???" "The black hand is in here! [wait 0.1]He's got to be!"
+
+say 3 "????" "Come out with your hands in the air, [wait 0.05]Amos! [wait 0.1]Backup's on its way!"
+
+say 5 "Ghost" "(...[wait 0.1]Guess it can't be helped.)"
+send_level_message "dialogue_done"

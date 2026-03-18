@@ -572,7 +572,7 @@ Define variable, its values and notes for each value.
 		1: Player has met Patri
 		2: Patri has been talked to enough to offer quest
 		3: Player can tell Patri about Bloods
-		4: Player has told Patri about the Cinderbloods
+		4: Player has told Patri about the Cinderbloods. Quest complete!
 		5: Player has found Patri in Waterfront Escape
 
 		ouruin_patri_talked

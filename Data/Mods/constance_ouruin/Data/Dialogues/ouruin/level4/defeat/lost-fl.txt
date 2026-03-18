@@ -1,0 +1,50 @@
+#name "Lost-FL"
+#participants 8
+set_dialogue_color 1 0 0.62 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 5 0 0.62 0.95
+set_dialogue_voice 5 8
+set_dialogue_color 2 0.9 0.9 0
+set_dialogue_voice 2 7
+set_dialogue_color 6 0.9 0.9 0
+set_dialogue_voice 6 7
+set_dialogue_color 3 0.7 0.7 0.89
+set_dialogue_voice 3 11
+set_dialogue_color 4 0.7 0.7 0.89
+set_dialogue_voice 4 11
+say 1 "Ghost" "...[wait 0.1]Nn! [wait 0.1]What...?"
+
+say 2 "???" "He's... [wait 0.1]He's down! [wait 0.1]The black hand is down!"
+
+say 4 "????" "Keep your weapons trained on him! [wait 0.1]Bastard'll get back up any moment...!"
+
+say 5 "Ghost" "..."
+
+say 4 "????" "The High Chancellor's coming. [wait 0.1]The target won't need cuffs."
+
+say 1 "Ghost" "High Chancellor, [wait 0.05]huh?"
+
+say 2 "???" "What...? [wait 0.1]Stay down!"
+
+say 1 "Ghost" "Fetch 'em. [wait 0.1]Now. [wait 0.1]Bring 'im over here."
+
+say 4 "????" "The asset's here."
+
+say 2 "???" "Bring her in!"
+
+say 1 "Ghost" "By asset, [wait 0.05]you don't mean..."
+
+say 1 "Ghost" "Mm. [wait 0.1]Of course."
+
+say 3 "Bijou" "Amos...!? [wait 0.1]What... [wait 0.1]What happened?"
+
+say 1 "Ghost" "You shouldn't be here, [wait 0.05]sister."
+
+say 3 "Bijou" "...[wait 0.1]I..."
+
+say 1 "Ghost" "The High Chancellor's behind you, [wait 0.05]right? [wait 0.1]Come on."
+
+say 1 "Ghost" "Let's get to talking."
+
+say 4 "Bijou" "..."
+send_level_message "dialogue_done"
