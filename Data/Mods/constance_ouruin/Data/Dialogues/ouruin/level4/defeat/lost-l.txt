@@ -1,5 +1,17 @@
 #name "Lost-L"
 #participants 8
+set_cam 2.42478 -6.28474 9.0442 -23.87 -48.18 7.09 56.6223
+send_character_message 4 "set_head_target 4.27777 -6.16748 9.60059 1"
+set_character_pos 2 2.49322 -6.65497 10.8314 61
+send_character_message 2 "set_animation \"Animations/r_smallswordfrontstance.anm\""
+send_character_message 2 "set_eye_dir 2.89696 -6.25382 9.72431 1"
+send_character_message 2 "set_torso_target 2.48001 -6.51274 10.3567 0"
+send_character_message 2 "set_head_target 2.7578 -6.16927 9.96599 1"
+set_character_pos 4 5.06852 -6.6415 10.5209 120
+send_character_message 4 "set_animation \"Animations/r_bigswordarmstance.anm\""
+set_character_pos 1 3.09344 -6.63532 7.81922 -60
+send_character_message 1 "set_animation \"Data/Animations/ghost_shipcoll.anm\""
+send_character_message 1 "set_eye_dir 3.30312 -7.06401 8.34454 1"
 set_dialogue_color 1 0 0.62 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 5 0 0.62 0.95
@@ -12,39 +24,99 @@ set_dialogue_color 3 0.7 0.7 0.89
 set_dialogue_voice 3 11
 set_dialogue_color 4 0.7 0.7 0.89
 set_dialogue_voice 4 11
+send_character_message 2 "equip_item 620"
+send_character_message 4 "equip_item 623"
+send_character_message 1 "empty_hands"
 say 1 "Ghost" "Ngh! [wait 0.1]Bastard..."
-
+send_character_message 1 "set_head_target 3.39291 -6.98169 8.35394 0.352101"
+send_character_message 1 "set_torso_target 3.49611 -7.12848 7.90859 0.720996"
 say 2 "???" "The black hand is down! [wait 0.1]We got him!"
-
-say 3 "????" "Find the High Chancellor Ano, [wait 0.05]and bring the asset here!"
-
+send_character_message 1 "set_head_target 3.32793 -7.01319 8.47299 0.352101"
+send_character_message 1 "set_torso_target 3.49085 -7.11793 7.96544 0.720996"
+say 4 "????" "Find the High Chancellor Ano, [wait 0.05]and bring the asset here!"
+send_character_message 1 "set_torso_target 3.49152 -7.11793 7.96826 0.720996"
+send_character_message 1 "set_eye_dir 3.31518 -6.94855 8.24962 0.506298"
+send_character_message 1 "set_head_target 3.21514 -7.03271 8.3044 0.352101"
+set_cam 6.11281 -6.2029 8.10562 -10.22 92.19 -0.91 26.5733
 say 5 "Ghost" "..."
-
+send_character_message 1 "set_eye_dir 3.46127 -7.02042 8.52047 0.790037"
+send_character_message 1 "set_head_target 3.28527 -7.06418 8.34037 0.352101"
 say 2 "???" "The night's finally over..."
-
+send_character_message 1 "set_torso_target 3.49152 -7.11793 7.96826 0.720996"
+send_character_message 1 "set_head_target 3.29864 -7.05146 8.40173 0.352101"
+send_character_message 1 "set_eye_dir 3.64664 -6.88187 8.30249 0.790037"
 say 1 "Ghost" "...[wait 0.1]Asset...?"
-
-say 3 "????" "Look sharp! [wait 0.1]She's here!"
-
+send_character_message 1 "set_torso_target 3.4844 -7.11793 8.03948 0.721022"
+send_character_message 1 "set_head_target 3.34846 -6.99787 8.52057 0.342516"
+send_character_message 1 "set_eye_dir 3.56865 -6.81785 8.78566 0.790037"
+say 4 "????" "Look sharp! [wait 0.1]She's here!"
+set_character_pos 1 3.09344 -6.63532 7.81923 -60
+send_character_message 1 "set_eye_dir 3.82601 -6.63868 8.40682 0.790037"
+send_character_message 1 "set_animation \"Data/Animations/ghost_shiptokneel.anm\""
+send_character_message 1 "set_head_target 3.34846 -6.99787 8.52057 0"
+send_character_message 1 "set_torso_target 3.4844 -7.11793 8.03948 0"
+send_character_message 3 "set_animation \"Data/Animations/bijou_shipenter.anm\""
+send_character_message 3 "set_head_target 2.17657 -5.95031 11.7019 0.00130358"
+send_character_message 3 "set_torso_target 4.23691 -6.07493 14.0805 0"
+set_character_pos 3 3.28111 -6.53099 14.2833 90
+send_character_message 3 "set_eye_dir 4.32055 -5.02524 10.5412 1"
 say 1 "Ghost" "She...? [wait 0.1]No..."
-
+send_character_message 1 "set_eye_dir 3.27654 -6.71519 8.3007 0"
+send_character_message 1 "set_head_target 3.64802 -7.10533 8.66066 0.831949"
+set_cam 3.00646 -6.49774 9.67827 -0.19 -15.48 3.97 33.9823
+send_character_message 1 "set_torso_target 3.45448 -6.71942 8.38006 0.17251"
 say 5 "Ghost" "..."
-
+send_character_message 1 "set_eye_dir 3.45492 -6.27393 9.06895 1"
+send_character_message 1 "set_torso_target 3.50215 -6.58156 8.53607 0.353081"
+send_character_message 1 "set_head_target 3.55373 -6.92542 8.81532 0.831949"
 say 1 "Ghost" "Bijou...?"
-
+send_character_message 3 "set_head_target 2.17657 -5.95031 11.7019 0.213787"
+send_character_message 1 "set_head_target 3.49088 -6.76212 9.06933 0.831949"
+set_cam 3.77522 -6.32848 5.98307 0 172.64 0 18.0037
 say 3 "Bijou" "Amos! [wait 0.1]A-Are you okay...?"
-
+send_character_message 3 "set_animation \"Data/Animations/bijou_shipapproach.anm\""
+send_character_message 3 "set_eye_dir 4.32055 -5.02524 10.5412 0.789233"
+send_character_message 3 "set_head_target 2.30868 -6.09704 11.7009 0.569412"
+send_character_message 1 "set_eye_dir 3.54945 -6.61518 8.07021 0.587825"
+send_character_message 1 "set_head_target 4.04175 -6.73183 8.88372 0.831949"
+send_character_message 1 "set_torso_target 3.50215 -6.58156 8.53607 2.63751e-05"
 say 1 "Ghost" "...[wait 0.1]Doing bad. [wait 0.1]Was looking everywhere for you."
-
+send_character_message 1 "set_torso_target 3.50215 -6.58156 8.53607 2.63751e-05"
+set_cam 5.69608 -5.43207 6.80051 -20.14 125.35 0 25.6176
+set_character_pos 1 3.09344 -6.63532 7.81923 -73
+send_character_message 3 "set_eye_dir 3.29447 -6.38338 8.29527 1"
+send_character_message 3 "set_animation \"Animations/r_crouch_sad.anm\""
+send_character_message 3 "set_head_target 3.30862 -6.74236 8.30493 1"
+send_character_message 3 "set_torso_target 3.24174 -6.64499 8.52166 0.00639617"
+set_character_pos 3 3.22227 -6.53099 9.16515 90
+send_character_message 1 "set_eye_dir 3.05625 -6.86821 8.56219 0.365985"
+send_character_message 1 "set_head_target 3.54151 -6.82487 8.86751 0.831949"
 say 1 "Amos" "When were you..."
-
+send_character_message 3 "set_torso_target 3.20674 -6.61193 8.49819 0.560517"
+send_character_message 1 "set_head_target 3.3825 -6.91772 8.76332 0.831949"
+send_character_message 1 "set_eye_dir 3.05625 -6.86821 8.56219 0"
+send_character_message 3 "set_eye_dir 3.29447 -6.38338 8.29527 0.728197"
+send_character_message 3 "set_head_target 3.23983 -6.61564 8.32105 1"
 say 3 "Bijou" "I-It doesn't matter. [wait 0.1]Just breathe..."
-
+send_character_message 1 "set_torso_target 3.36929 -6.75101 8.46022 0.509842"
+send_character_message 3 "set_head_target 3.20352 -6.53957 8.34636 1"
+send_character_message 1 "set_head_target 3.36947 -6.93267 8.69419 0.831949"
+send_character_message 1 "set_eye_dir 3.30186 -6.72895 8.2256 0.481442"
 say 1 "Amos" "Don't worry. [wait 0.1]I can take it."
-
+send_character_message 3 "set_eye_dir 3.29447 -6.38338 8.29527 1"
+send_character_message 3 "set_head_target 3.17762 -6.43133 8.30705 1"
+send_character_message 1 "set_eye_dir 3.34838 -6.36255 8.64824 0.481442"
+send_character_message 1 "set_head_target 3.38369 -6.85312 8.91727 0.819153"
 say 1 "Amos" "...[wait 0.1]They've done worse."
-
+send_character_message 1 "set_torso_target 3.3241 -6.75101 8.4785 0.897268"
+send_character_message 1 "set_head_target 3.64311 -6.43637 9.07069 0.712098"
+send_character_message 3 "set_eye_dir 3.84055 -6.04429 9.34694 1"
+send_character_message 3 "set_head_target 3.51867 -6.54229 8.25399 1"
 say 2 "???" "The High Chancellor's coming. [wait 0.1]Line up, [wait 0.05]everyone!"
-
+send_character_message 3 "set_torso_target 3.11287 -6.96301 8.8224 0.683314"
+send_character_message 3 "set_head_target 3.11719 -6.60662 8.26394 1"
+send_character_message 3 "set_eye_dir 3.30831 -6.76835 8.57646 0.681001"
+send_character_message 1 "set_torso_target 3.3241 -6.75101 8.4785 0"
+send_character_message 1 "set_head_target 3.64311 -6.43637 9.07069 0"
 say 5 "Amos" "..."
 send_level_message "dialogue_done"
