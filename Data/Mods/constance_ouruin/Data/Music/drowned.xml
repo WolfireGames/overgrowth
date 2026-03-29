@@ -1,6 +1,6 @@
 <?xml version="2.0" ?>
 <Music version="1">
-    <Song name="drowned_ambient-tense" type="single" file_path="Data/Music/Sleepy_Grass.ogg"           />
+    <Song name="drowned_ambient-tense" type="single" file_path="Data/Music/ouruin/streets_tense.ogg"           />
     <Song name="drowned_ambient-happy" type="single" file_path="Data/Music/ouruin/streets_calm.ogg"			/>
     <Song name="drowned_combat"        type="single" file_path="Data/Music/lugaru2_combat2.ogg"				/>
     <Song name="drowned_sad"           type="single" file_path="Data/Music/Overgrowth_AcrossTheDarkLan.ogg"						/>
