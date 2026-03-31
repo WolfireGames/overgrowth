@@ -22,6 +22,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 send_character_message 2 "set_morph_target smile 0.0 0.3 outExpo"
 send_character_message 2 "set_morph_target frown 0.0 0.3 outExpo"
 say 1 "Ghost" "You shouldn't judge a book by its cover, [wait 0.1]gentlemen. [wait 0.15]I was actually looking for some root."

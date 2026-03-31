@@ -22,6 +22,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 send_level_message "enable 7257"
 send_level_message "enable 7232"
 say 1 "Ghost" "Well, [wait 0.1]that's a shame. [wait 0.15]Suppose I can't convince you to drop the price a bit?"

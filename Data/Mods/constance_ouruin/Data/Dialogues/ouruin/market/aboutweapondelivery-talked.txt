@@ -22,5 +22,5 @@ say 2 "Nedis" "Mm... [wait 0.2]I've heard a pair of snakes are dealing out in Ag
 send_character_message 1 "set_head_target 29.7704 -45.6168 4.84317 1"
 send_character_message 2 "set_head_target 30.4801 -45.8302 4.3351 1"
 send_character_message 2 "set_eye_dir 29.8514 -45.0777 5.66258 0.423092"
-say 2 "Nedis" "Luckily, [wait 0.1]valerian's cheap stuff. [wait 0.15]Would run you back 100p at most. [wait 0.15]Just... [wait 0.1]Be careful with those snakes, [wait 0.1]yeah? [wait 0.15]They're not like us Lotus folk..."
+say 2 "Nedis" "Luckily, [wait 0.1]valerian's cheap stuff. [wait 0.1]Would run you back 100p at most. [wait 0.15]Just... [wait 0.1]Be careful with those snakes, [wait 0.05]yeah? [wait 0.1]They're not like us Lotus folk..."
 send_level_message "dialogue_done"

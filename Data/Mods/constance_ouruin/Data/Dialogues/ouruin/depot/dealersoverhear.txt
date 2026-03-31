@@ -23,6 +23,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 say 3 "???" "Red, [wait 0.1]Red, [wait 0.1]Red... [wait 0.15]Oh, [wait 0.1]what a bother!"
 send_character_message 1 "set_torso_target 32.8152 -22.384 -31.7746 1"
 send_character_message 1 "set_head_target 33.7501 -22.0884 -30.5636 1"

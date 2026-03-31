@@ -510,6 +510,8 @@ Define variable, its values and notes for each value.
 			4: Ghost has purchased Valerian!
 			5: Ghost has challenged dealers
 			6: Dealers are eliminated!
+			7: Dealers are eliminated, and ClynnWow has played
+			8: Toker has been brutalized!
 		
 		ouruin_dart_dealers_combatheard
 

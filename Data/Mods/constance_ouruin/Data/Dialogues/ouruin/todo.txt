@@ -1,0 +1,26 @@
+- adal depot dialogue should be revised/given lethality variants
+
+- depot janner dialogue
+
+- moveset swap sometimes sticks to a move, need repro
+
+- let ghost ask where to get valerian root
+
+- visible animation for door slam
+
+- give memorial note dialogue
+
+- add clynn dialogue for if ghost brutalizes toker
+
+- varidien dialogue expression morphs
+
+- adal dialogue expression morphs
+
+- ghost right now can offer valerian to dart after beating her in a duel
+
+- add dialogue for leaving behind evidence
+
+- add emotion morphs to donatas fight
+
+- consider reanimating ghost shock
+

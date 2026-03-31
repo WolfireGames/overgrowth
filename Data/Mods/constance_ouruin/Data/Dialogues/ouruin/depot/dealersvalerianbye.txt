@@ -22,6 +22,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 say 1 "Ghost" "It could not possibly be worth that much. [wait 0.15]You're just lying to me."
 send_character_message 1 "set_eye_dir 35.0755 -22.4495 -26.0023 0.552916"
 send_character_message 1 "set_head_target 34.9008 -21.9571 -26.0768 1"

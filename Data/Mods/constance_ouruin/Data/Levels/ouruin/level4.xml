@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="5.3972" t1="-5.27655" t2="7.21115" s0="1" s1="1" s2="1" q0="-0.125173" q1="0.69989" q2="-0.126656" q3="-0.691697" euler_x="-2.78353" euler_y="-1.55903" euler_z="3.14159" id="0">
+    <CameraObject t0="6.10206" t1="-5.14892" t2="-3.12031" s0="1" s1="1" s2="1" q0="0.0254279" q1="-0.956122" q2="0.0872955" q3="0.278504" euler_x="-2.95949" euler_y="-0.566885" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -3893,7 +3893,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
-            <parameter name="Can Swap Movesets" type="int" val="1" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="1" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
@@ -3930,7 +3930,7 @@
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
@@ -4304,6 +4304,20 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
+    <PlaceholderObject t0="3.80823" t1="-1.77503" t2="-6.60919" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="903" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/surrender/surrender-nl.txt" />
+            <parameter name="DisplayName" type="string" val="Surrender-NL" />
+            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="obj_1" type="int" val="908" />
+            <parameter name="obj_2" type="int" val="910" />
+            <parameter name="obj_3" type="int" val="1100" />
+            <parameter name="obj_4" type="int" val="1102" />
+        </parameters>
+        <Connections>
+            <Connection id="903" />
+        </Connections>
+    </PlaceholderObject>
     <Group t0="5.13735" t1="-5.79515" t2="-8.7398" s0="2.03815" s1="1.52011" s2="0.643591" q0="0" q1="-0.0583453" q2="0" q3="0.998296" euler_x="0" euler_y="-0.116757" euler_z="0" id="906" version="1">
         <parameters />
         <EnvObject t0="5.14431" t1="-5.94774" t2="-8.73898" s0="1.59529" s1="0.960886" s2="1" q0="0" q1="-0.0583453" q2="0" q3="0.998296" euler_x="0" euler_y="-0.116757" euler_z="0" id="566" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_post_h.xml">
@@ -4508,9 +4522,21 @@
             </Decal>
         </Group>
     </Group>
+    <PlaceholderObject t0="4.26289" t1="-1.07503" t2="-6.87169" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="908" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="867" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject t0="5.415" t1="-6.07053" t2="-9.54289" s0="1" s1="1" s2="1" q0="0" q1="0.179529" q2="0" q3="0.983753" euler_x="0" euler_y="0.361015" euler_z="0" id="909" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_1.xml">
         <parameters />
     </EnvObject>
+    <PlaceholderObject t0="3.95979" t1="-1.07503" t2="-6.69669" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="910" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="503" />
+        </Connections>
+    </PlaceholderObject>
     <PlaceholderObject t0="-7.23302" t1="-0.776909" t2="2.32013" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="913" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/defeat/lost-fl.txt" />
@@ -5741,6 +5767,12 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
+    <PlaceholderObject t0="3.65668" t1="-1.07503" t2="-6.52169" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1100" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1049" />
+        </Connections>
+    </PlaceholderObject>
     <PlaceholderObject t0="-3.486" t1="2.27787" t2="5.57689" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1101" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/survive/survive-nlg-kill.txt" />
@@ -5755,7 +5787,27 @@
             <Connection id="1101" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="3.85205" t1="-1.73532" t2="-8.36361" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1104" type_file="" special_type="0">
+    <PlaceholderObject t0="3.35357" t1="-1.07503" t2="-6.34669" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1102" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="498" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.82783" t1="-1.72209" t2="-5.07983" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1103" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/surrender/surrender-l.txt" />
+            <parameter name="DisplayName" type="string" val="Surrender-L" />
+            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="obj_1" type="int" val="1116" />
+            <parameter name="obj_2" type="int" val="1117" />
+            <parameter name="obj_3" type="int" val="1123" />
+            <parameter name="obj_4" type="int" val="1124" />
+        </parameters>
+        <Connections>
+            <Connection id="1103" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.85466" t1="-1.73532" t2="-8.23674" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1104" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/surrender/surrender-nls.txt" />
             <parameter name="DisplayName" type="string" val="Surrender-NLS" />
@@ -5769,7 +5821,7 @@
             <Connection id="1104" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="4.30672" t1="-1.03532" t2="-8.62611" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1105" type_file="" special_type="2">
+    <PlaceholderObject t0="4.30932" t1="-1.03532" t2="-8.49924" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1105" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="867" />
@@ -5781,7 +5833,7 @@
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="4.00361" t1="-1.03532" t2="-8.45111" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1107" type_file="" special_type="2">
+    <PlaceholderObject t0="4.00621" t1="-1.03532" t2="-8.32424" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1107" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="503" />
@@ -5799,13 +5851,13 @@
             <Connection id="867" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="3.7005" t1="-1.03532" t2="-8.27611" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1110" type_file="" special_type="2">
+    <PlaceholderObject t0="3.7031" t1="-1.03532" t2="-8.14925" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1110" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1049" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="3.39739" t1="-1.03532" t2="-8.10111" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1111" type_file="" special_type="2">
+    <PlaceholderObject t0="3.39999" t1="-1.03532" t2="-7.97425" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1111" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="498" />
@@ -5829,6 +5881,18 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
+    <PlaceholderObject t0="4.28249" t1="-1.02209" t2="-5.34233" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1116" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="867" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.97938" t1="-1.02209" t2="-5.16733" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1117" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="503" />
+        </Connections>
+    </PlaceholderObject>
     <PlaceholderObject t0="-4.55991" t1="13.4303" t2="1.8747" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1118" type_file="" special_type="2">
         <parameters />
         <Connections>
@@ -5847,12 +5911,100 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
+    <PlaceholderObject t0="3.67627" t1="-1.02209" t2="-4.99233" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1123" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1049" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.37317" t1="-1.02209" t2="-4.81733" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1124" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="498" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.82876" t1="-1.7277" t2="-3.58522" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1125" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/surrender/surrender-fl.txt" />
+            <parameter name="DisplayName" type="string" val="Surrender-FL" />
+            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="obj_1" type="int" val="1126" />
+            <parameter name="obj_2" type="int" val="1127" />
+            <parameter name="obj_3" type="int" val="1128" />
+            <parameter name="obj_4" type="int" val="1129" />
+        </parameters>
+        <Connections>
+            <Connection id="1125" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="4.28343" t1="-1.0277" t2="-3.84772" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1126" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="867" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.98032" t1="-1.0277" t2="-3.67272" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1127" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="503" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.67721" t1="-1.0277" t2="-3.49772" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1128" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1049" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.3741" t1="-1.0277" t2="-3.32272" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1129" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="498" />
+        </Connections>
+    </PlaceholderObject>
     <Decal t0="3.85019" t1="-2.91651" t2="13.6451" s0="1.82317" s1="3.24675" s2="1.2371" q0="-0.187999" q1="0" q2="0" q3="0.982169" euler_x="-0.378249" euler_y="0" euler_z="0" id="1130" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.4" color_g="0.399996" color_b="0.399996" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="7.04186" t1="-6.63874" t2="-3.59421" s0="0.623922" s1="0.623922" s2="0.623922" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1131" type_file="Data/Objects/Decals/water_froth.xml" color_r="0.207843" color_g="0.207841" color_b="0.207841" overbright="0">
         <parameters />
     </Decal>
+    <PlaceholderObject t0="3.63393" t1="-1.73217" t2="-2.05135" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1132" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/surrender/surrender-sfl.txt" />
+            <parameter name="DisplayName" type="string" val="Surrender-SFL" />
+            <parameter name="NumParticipants" type="string" val="4" />
+            <parameter name="obj_1" type="int" val="1133" />
+            <parameter name="obj_2" type="int" val="1137" />
+            <parameter name="obj_3" type="int" val="1138" />
+            <parameter name="obj_4" type="int" val="1139" />
+        </parameters>
+        <Connections>
+            <Connection id="1132" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="4.08859" t1="-1.03217" t2="-2.31385" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1133" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="867" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.78548" t1="-1.03217" t2="-2.13885" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1137" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="503" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.48237" t1="-1.03217" t2="-1.96385" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1138" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="3.17927" t1="-1.03217" t2="-1.78885" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1139" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="498" />
+        </Connections>
+    </PlaceholderObject>
     <DynamicLightObject name="Ano Light" t0="4.86166" t1="-5.78582" t2="6.49654" s0="1.82859" s1="1.82859" s2="1.82859" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1148" color_r="0.294118" color_g="0.200692" color_b="0.284226" overbright="0">
         <parameters />
     </DynamicLightObject>

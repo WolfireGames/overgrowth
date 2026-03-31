@@ -22,6 +22,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 say 2 "Toker" "If'n you wanna cut in on this exclusive deal, [wait 0.1]you're gonna have to fork over the fee. [wait 0.15]300 petals, [wait 0.1]no less."
 say 3 "Clynn" "If we're overcharging him, [wait 0.1]shouldn't we not specify its exclusivity...?"
 send_level_message "dialogue_done"

@@ -20,6 +20,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 say 1 "Ghost" "Hey there. [wait 0.15]Waiting for somebody?"
 send_character_message 1 "set_head_target 34.8225 -21.8495 -26.0005 1"
 send_character_message 2 "set_head_target 34.59 -22.2077 -27.1776 1"

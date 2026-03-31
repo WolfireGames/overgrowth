@@ -22,6 +22,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 say 2 "Toker" "What's up with him, [wait 0.1]huh? [wait 0.15]Clearly the snakes want him out of here. [wait 0.15]He lost or somethin'?"
 send_character_message 2 "set_eye_dir 34.1828 -21.7408 -26.0605 0.667404"
 send_character_message 2 "set_head_target 34.7459 -22.0019 -26.2589 1"

@@ -1,11 +1,15 @@
-#name "Surrender-NLS"
+#name "Surrender-FL"
 #participants 4
-set_character_pos 1 2.70036 -6.63261 1.11823 -108
-send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
+send_character_message 4 "set_eye_dir 4.65358 -5.65367 8.65322 1"
+send_character_message 4 "set_head_target 4.61696 -5.69128 8.51201 1"
+send_character_message 2 "set_eye_dir 3.49684 -5.69374 9.22831 1"
+send_character_message 2 "set_head_target 3.69977 -6.07058 9.12703 1"
+set_character_pos 1 3.23453 -6.63261 -2.64786 21
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
 send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
-send_character_message 1 "set_head_target 1.41922 -6.40336 3.11339 1"
-set_cam 2.54705 -5.72807 5.41625 -5.25 0.2 0 34.291
+send_character_message 1 "set_head_target 4.66359 -6.21408 -2.87295 1"
+set_cam 2.90226 -5.01988 -4.60532 -29.25 -166.38 0 34.291
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_voice 2 17
@@ -16,53 +20,38 @@ set_dialogue_color 4 0 0.52 0.95
 set_dialogue_voice 4 0
 send_character_message 1 "empty_hands"
 send_character_message 2 "empty_hands"
-send_character_message 3 "empty_hands"
-send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
+send_character_message 4 "empty_hands"
+send_level_message "set_camera_dof 0.0 3.0 2.0 0.0 10.0 3.0"
+send_character_message 1 "set_torso_target 4.01163 -6.2622 -3.21835 0"
+send_character_message 1 "set_eye_dir 3.93073 -6.46024 -2.89721 1"
+set_character_pos 4 4.51261 -6.65617 10.8968 87
+set_character_pos 2 3.19055 -6.65538 10.7062 82
+send_character_message 4 "equip_item 617"
+send_character_message 2 "equip_item 618"
+send_character_message 4 "set_animation \"Animations/r_smallswordfrontstanceclose.anm\""
+send_character_message 2 "set_animation \"Animations/r_smallswordfrontstance.anm\""
 say 5 "Ghost" "..."
-
 say 1 "Ghost" "[wait 0.3]*Ahem*."
-
 say 2 "???" "Wh--[wait 0.1]...!"
-
 say 3 "???" "Holy shit, [wait 0.05]it's the black hand! [wait 0.1]Run!"
-
 say 2 "???" "Backup! [wait 0.1]We need backup!"
-
 say 5 "Ghost" "..."
-
 say 1 "Ghost" "Seriously? [wait 0.1]Is that how it always goes?"
-
 say 1 "Ghost" "...[wait 0.1]I should surrender more often."
-
 say 5 "Ghost" "..."
-
 say 5 "Ghost" "(Guess I'll just wait. [wait 0.1]High Chancellor's bound to come in, [wait 0.05]some time.)"
-
 say 5 "Ghost" "..."
-
 say 1 "Ghost" "...[wait 0.1]Oh."
-
 say 3 "Bijou" "Amos...? [wait 0.1]Y-You're okay..."
-
 say 1 "Ghost" "...[wait 0.1]And so are you."
-
 say 1 "Ghost" "That's a relief."
-
 say 4 "Bijou" "..."
-
 say 3 "Bijou" "What happened to Donatas?"
-
 say 5 "Ghost" "[wait 0.1].[wait 0.1].[wait 0.1]."
-
 say 1 "Ghost" "[wait 0.3]They took him."
-
 say 3 "Bijou" "Khyo's heart..."
-
 say 5 "Ghost" "..."
-
 say 1 "Ghost" "C'mon. [wait 0.1]Don't make me wait..."
-
 say 1 "Ghost" "High Chancellor Ano."
-
 say 4 "Bijou" "[wait 0.1].[wait 0.1].[wait 0.1]."
 send_level_message "dialogue_done"

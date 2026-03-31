@@ -22,6 +22,7 @@ set_dialogue_color 3 0.27 0.6 0.58
 set_dialogue_voice 3 7
 set_dialogue_color 2 0.71 0.43 0.63
 set_dialogue_voice 2 6
+send_character_message 1 "empty_hands"
 say 3 "Clynn" "He don't look like a snake. [wait 0.15]Mayhaps he rallies with the Lotus?"
 send_character_message 2 "set_torso_target 34.675 -22.3577 -26.4879 1"
 send_character_message 3 "set_eye_dir 35.2055 -22.0698 -27.487 0.469377"

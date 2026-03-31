@@ -8,7 +8,7 @@ set_cam -60.1943 -37.9957 -12.7679 -7.93 48 -0.03 10.6609
 set_dialogue_color 2 0 0.52 0.95
 set_dialogue_voice 2 8
 send_level_message "set_camera_dof 0.3 5.0 10.0 0.3 20.0 10.0"
-say 2 "Ghost" "Really, [wait 0.3]Ghost...[wait 0.3]? [wait 0.5]A steak knife?"
+say 2 "Ghost" "Really, [wait 0.05]Ghost...[wait 0.1]? [wait 0.1]A steak knife?"
 send_character_message 1 "set_eye_dir -62.0315 -38.7933 -15.0403 1"
 send_character_message 1 "set_head_target -63.32 -38.2621 -15.24 1"
 send_character_message 1 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
