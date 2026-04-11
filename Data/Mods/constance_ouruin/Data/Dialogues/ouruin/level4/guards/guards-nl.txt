@@ -19,35 +19,19 @@ send_character_message 2 "empty_hands"
 send_character_message 3 "empty_hands"
 send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
 say 5 "Ghost" "(All empty, [wait 0.05]then... [wait 0.1]I should hide, [wait 0.05]now.)"
-
 say 5 "Ghost" "(I think this is the cargo hold... [wait 0.1]There's plenty of containers here I can hide inside.)"
-
 say 5 "Ghost" "(...! [wait 0.1]Wait--[wait 0.1]Someone's coming!)"
-
 - *Door broken down*
-
 say 2 "???" "Y'see that door? [wait 0.1]You think a local did it?"
-
 say 3 "????" "Can't be. [wait 0.1]We had this block surrounded and emptied of civilians by sundown."
-
 say 3 "????" "The black hand... [wait 0.1]He's probably right in here."
-
 - *Door intact*
-
 say 2 "???" "Damn these streets... [wait 0.1]Hope we find him soon."
-
 say 3 "????" "He grew up here, [wait 0.05]right...? [wait 0.1]Why would Edsel throw 'im into this ditch?"
-
 say 2 "???" "Focus. [wait 0.1]He could be inside, [wait 0.05]here."
-
-
 say 2 "???" "...[wait 0.1]No way... [wait 0.1]You smell that?"
-
 say 3 "????" "Blood. [wait 0.1]And wet fur."
-
 say 5 "Ghost" "(...[wait 0.1]Damn it.)"
-
 say 2 "???" "The black hand must be in here! [wait 0.1]Call for backup!"
-
 say 2 "???" "Come out with your hands raised! [wait 0.1]You're cornered, [wait 0.05]now!"
 send_level_message "dialogue_done"

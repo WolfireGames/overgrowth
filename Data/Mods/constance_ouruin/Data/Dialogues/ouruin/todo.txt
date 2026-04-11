@@ -25,3 +25,11 @@
 - consider reanimating ghost shock
 
 - add lethality book to moritz (or warrens?)
+
+- block off rat den
+
+- add cres to depot and fractured home
+
+- add sfx to ship collapse
+
+- add sfx to donatas fight collapse anims

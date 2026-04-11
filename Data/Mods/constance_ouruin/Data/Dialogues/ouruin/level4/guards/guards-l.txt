@@ -19,43 +19,23 @@ send_character_message 2 "empty_hands"
 send_character_message 3 "empty_hands"
 send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
 say 5 "Ghost" "(...[wait 0.1]This was a bad idea. [wait 0.1]But I've got nowhere else to hide.)"
-
 say 5 "Ghost" "(Best be at the ready... [wait 0.1]Anyone could come in.)"
-
 say 5 "Ghost" "(...)"
-
 say 5 "Ghost" "(Is that... [wait 0.1]Pawsteps?)"
-
 say 5 "Ghost" "(Damnit... [wait 0.1]They're approaching!)"
-
 say 2 "???" "We're losing too many... [wait 0.1]Check every corner."
-
 - *Door broken down*
-
 say 2 "???" "The door wouldn't close shut... [wait 0.1]He must've broken the lock."
-
 say 3 "????" "If he really is stowed away in here... [wait 0.1]He'll be cornered. [wait 0.1]He's gonna fight with everything he's got..."
-
 say 3 "????" "Be careful."
-
 - *Door intact*
-
 say 3 "????" "You think he's stowed away in here?"
-
 say 2 "???" "We have to check. [wait 0.1]And if not... [wait 0.1]Well, [wait 0.05]it's safer in here."
-
-
 say 2 "???" "...!"
-
 say 2 "???" "...[wait 0.1]Y-You smell that too, [wait 0.05]right...?"
-
 say 3 "????" "Blood."
-
 say 5 "Ghost" "(...)"
-
 say 2 "???" "The black hand is in here! [wait 0.1]He's got to be!"
-
 say 3 "????" "Come out with your hands in the air, [wait 0.05]Amos! [wait 0.1]Backup's on its way!"
-
 say 5 "Ghost" "(...[wait 0.1]Guess it can't be helped.)"
 send_level_message "dialogue_done"

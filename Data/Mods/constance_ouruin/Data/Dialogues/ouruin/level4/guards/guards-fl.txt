@@ -19,30 +19,17 @@ send_character_message 2 "empty_hands"
 send_character_message 3 "empty_hands"
 send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
 say 1 "Ghost" "So cramped in here... [wait 0.1]Guess it's better than nothing."
-
 say 5 "Ghost" "..."
-
 say 5 "Ghost" "(Oh. [wait 0.1]Sounds like someone's coming... [wait 0.1]Just my luck.)"
-
 say 2 "???" "It's a bloodbath, [wait 0.05]out there..."
-
 say 3 "????" "Still no survivors... [wait 0.1]The black hand has to be somewhere in this district."
-
 say 2 "???" "We're the first of the backup, [wait 0.05]right...? [wait 0.1]We can't just go out there alone."
-
 say 3 "????" "..."
-
 say 3 "????" "We'll wait in here. [wait 0.1]It's... [wait 0.1]Safer, [wait 0.05]in here. [wait 0.1]Less ways for him to approach us."
-
 say 2 "???" "What if they reprimand us for hiding?"
-
 say 3 "????" "I'd rather be lashed than go out there."
-
 say 2 "???" "..."
-
 say 2 "???" "Khyo's mercy on us..."
-
 say 5 "Ghost" "..."
-
 say 5 "Ghost" "(Why don't I just go ahead and clean 'em up?)"
 send_level_message "dialogue_done"

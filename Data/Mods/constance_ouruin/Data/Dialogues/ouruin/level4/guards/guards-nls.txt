@@ -5,9 +5,21 @@ send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.
 send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
 send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
 send_character_message 1 "set_head_target 1.41922 -6.40336 3.11339 1"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_worriedpose_2.anm\""
+send_character_message 3 "set_head_target 3.63264 -6.09925 9.96869 1"
+send_character_message 3 "set_torso_target 4.53165 -6.01232 11.8708 0"
+set_character_pos 3 4.51261 -6.65617 10.8968 117
+send_character_message 3 "set_eye_dir 3.34489 -5.96028 10.6465 1"
+send_character_message 2 "set_head_target 3.69797 -6.536 9.357 1"
+send_character_message 2 "set_torso_target 3.51583 -6.17763 9.8702 0"
+set_character_pos 2 3.19055 -6.65538 10.7062 76
+send_character_message 2 "set_eye_dir 3.3697 -6.38607 10.1204 1"
 set_cam 2.54705 -5.72807 5.41625 -5.25 0.2 0 34.291
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 5 0 0.52 0.95
+set_dialogue_voice 5 8
 set_dialogue_voice 2 17
 set_dialogue_voice 3 5
 set_dialogue_color 2 1 1 1
@@ -19,45 +31,106 @@ send_character_message 2 "empty_hands"
 send_character_message 3 "empty_hands"
 send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
 say 5 "Ghost" "(Ship's truly empty, [wait 0.05]huh...? [wait 0.1]Let's hope it stays that way.)"
-
+send_character_message 1 "set_eye_dir 1.60528 -5.2092 1.94957 0.799832"
+send_character_message 1 "set_head_target 1.35115 -6.42761 2.42717 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 say 5 "Ghost" "(This should be fine enough, [wait 0.05]as a hiding spot...)"
-
+send_character_message 1 "set_eye_dir 2.72009 -5.74308 2.95947 0.799832"
+send_character_message 1 "set_head_target 1.59659 -6.94531 2.47721 1"
+send_character_message 1 "set_animation \"Animations/r_actionidlecrouch.anm\""
+send_character_message 1 "set_torso_target 2.26671 -6.29258 1.49919 0"
+send_character_message 1 "set_eye_dir 2.70763 -5.8392 2.92062 1"
 say 5 "Ghost" "(...! [wait 0.1]Someone's coming.)"
-
+send_character_message 3 "set_head_target 3.5015 -5.91709 10.1161 1"
+send_character_message 2 "set_eye_dir 2.81294 -6.22825 9.73841 1"
+send_character_message 2 "set_head_target 2.90743 -6.4497 9.24831 1"
+set_cam 2.32975 -5.73741 1.92424 -3.6 -170.07 -0.04 21.5106
+send_character_message 1 "set_eye_dir 2.5013 -5.92517 4.44684 1"
+send_character_message 1 "set_head_target 1.59659 -6.94531 2.47721 0"
+send_character_message 1 "set_animation \"Data/Animations/ghost_shipsneak.anm\""
+set_character_pos 1 1.64623 -6.63262 3.54405 0
 say 2 "???" "This ship's empty, [wait 0.05]right? [wait 0.1]It was only for carrying in a squad or two."
-
 - *If door was broken down*
-
 say 3 "????" "It should be. [wait 0.1]But didn't you see the door...? [wait 0.1]Something's wrong."
-
 say 2 "???" "I'm not convinced it wasn't some local. [wait 0.1]Maybe some wannabe stowaway. [wait 0.1]They can't stay for long."
-
 - *If door was intact*
-
 say 3 "????" "It should be. [wait 0.1]But everyone outside's come up empty..."
-
 say 2 "???" "I guess we could miss something here, [wait 0.05]yeah..."
-
-
+send_character_message 2 "set_torso_target 3.60295 -6.44709 9.67919 1"
+send_character_message 2 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 2 "set_eye_dir 3.27535 -4.93212 10.1243 1"
+send_character_message 2 "set_head_target 3.75012 -6.22841 9.02979 1"
+send_character_message 3 "set_eye_dir 4.17915 -6.33139 10.3451 1"
+send_character_message 3 "set_head_target 4.13489 -6.07102 9.6438 1"
+set_cam 1.69914 -5.94208 9.81052 0 -113.88 0 21.5106
 say 2 "???" "It's nice to get away from the rain, [wait 0.05]even if it's not for long."
-
+send_character_message 3 "set_torso_target 4.20938 -6.05093 10.1533 0.365603"
+send_character_message 3 "set_eye_dir 5.04395 -5.6296 8.85363 1"
+send_character_message 3 "set_head_target 4.68549 -5.61399 9.35557 1"
+send_character_message 2 "set_torso_target 3.60295 -6.50058 9.67919 1"
+send_character_message 2 "set_eye_dir 3.1053 -5.9751 9.69565 1"
+send_character_message 2 "set_head_target 3.99177 -6.24629 9.23184 1"
 say 3 "????" "Respite's too brief to even consider. [wait 0.1]We're going to have to march back out, [wait 0.05]pronto."
-
+send_character_message 2 "set_eye_dir 2.34495 -6.0078 10.1602 1"
+send_character_message 2 "set_head_target 2.87633 -6.3277 9.13004 1"
+send_character_message 3 "set_eye_dir 4.21815 -6.34265 10.3305 1"
+send_character_message 3 "set_head_target 4.82272 -6.08896 9.19342 1"
+send_character_message 3 "set_torso_target 4.20938 -6.08121 10.1533 1"
 say 3 "????" "If nobody turns up with anything, [wait 0.05]someone's gonna get lashed... [wait 0.1]I'd rather that not be us. [wait 0.1]Let's go."
-
+send_character_message 3 "set_eye_dir 3.95412 -5.84243 10.8065 1"
+send_character_message 3 "set_head_target 4.5966 -6.1647 9.12354 1"
+send_character_message 3 "set_torso_target 4.2092 -6.08179 10.1531 0.375085"
+send_character_message 2 "set_head_target 2.69898 -5.93026 9.21158 1"
+send_character_message 2 "set_torso_target 3.56919 -6.41389 9.59945 1"
 say 2 "???" "..."
-
+send_character_message 2 "set_head_target 2.66796 -5.81635 9.2011 1"
+send_character_message 3 "set_head_target 4.35261 -6.31061 9.16497 1"
+send_character_message 3 "set_torso_target 4.20674 -5.63588 10.1739 1"
+send_character_message 3 "set_animation \"Animations/r_dialogue_armcross.anm\""
 say 3 "????" "C'mon. [wait 0.1]I know you heard me. [wait 0.1]We need to move."
-
+send_character_message 3 "set_eye_dir 3.95174 -5.77406 10.8489 0.816063"
+send_character_message 3 "set_head_target 4.20144 -6.20582 9.10187 1"
+send_character_message 2 "set_eye_dir 2.83014 -5.89664 9.61746 0.607996"
+send_character_message 2 "set_head_target 2.70258 -5.76853 9.12717 1"
+send_character_message 2 "set_torso_target 3.65721 -6.62479 9.57683 1"
 say 2 "???" "..."
-
+send_character_message 2 "set_eye_dir 3.13014 -6.33976 9.93907 0.607996"
+send_character_message 2 "set_head_target 2.94052 -6.13482 9.33443 1"
+send_character_message 3 "set_head_target 3.89073 -6.16236 9.08177 1"
+send_character_message 3 "set_torso_target 4.14151 -6.00264 10.1276 1"
+send_character_message 3 "set_eye_dir 3.92945 -5.7678 10.8159 1"
 say 2 "???" "D'you smell that?"
-
+send_character_message 1 "set_head_target 2.68278 -6.20867 3.52244 1"
+send_character_message 1 "set_eye_dir 1.37783 -5.659 3.06463 1"
+set_cam 1.86287 -5.82821 1.23849 -5.72 -174.72 0 28.4101
+send_character_message 2 "set_torso_target 3.49675 -6.9053 9.68684 1"
+send_character_message 2 "set_head_target 2.92008 -6.03798 9.26092 1"
+send_character_message 3 "set_torso_target 4.13381 -5.98186 10.0425 1"
+send_character_message 3 "set_eye_dir 3.83195 -5.67007 9.81562 1"
+send_character_message 3 "set_head_target 3.99563 -5.81843 8.80307 1"
+send_character_message 3 "set_animation \"Animations/r_actionidle.anm\""
 say 3 "????" "..."
-
+send_character_message 2 "set_torso_target 3.42593 -6.90142 9.63682 1"
+send_character_message 2 "set_head_target 2.96949 -5.91633 9.14819 1"
+send_character_message 2 "set_eye_dir 3.32671 -5.78114 9.23969 1"
+send_character_message 3 "set_head_target 3.95591 -5.89009 8.79864 0.248354"
+send_character_message 3 "set_animation \"Animations/r_actionidle_glance.anm\""
+send_character_message 3 "set_torso_target 4.13381 -5.98186 10.0425 0"
+send_character_message 1 "set_eye_dir 1.77401 -6.25883 3.2023 0.685457"
+send_character_message 1 "set_head_target 2.59767 -6.39759 3.30015 1"
 say 5 "Ghost" "(...[wait 0.1]Some blood just can't be washed away, [wait 0.05]huh...)"
-
+send_character_message 1 "set_animation \"Animations/r_actionidlecrouch.anm\""
+set_character_pos 1 2.95113 -6.63262 -3.46737 -13
+set_cam 5.54988 -6.02421 10.1016 0 111.96 0 52.1099
+send_character_message 1 "set_head_target 4.51488 -6.54772 -2.03642 1"
+send_character_message 1 "set_eye_dir 4.78697 -6.37899 -2.30093 1"
+send_character_message 3 "set_eye_dir 3.65852 -5.98313 10.1148 1"
+send_character_message 3 "set_head_target 3.52738 -5.89143 9.67516 1"
+send_character_message 2 "set_eye_dir 4.03464 -5.8422 10.3001 1"
+send_character_message 2 "set_animation \"Animations/r_actionidlethreat.anm\""
+send_character_message 2 "set_torso_target 3.42593 -6.90142 9.63682 0"
+send_character_message 2 "set_head_target 4.16296 -5.92188 10.0728 1"
 say 2 "???" "Someone's in here... [wait 0.1]Call for backup!"
-
+set_cam 3.4753 -6.36646 -6.53158 0 -179.35 0 63.8898
 say 2 "???" "Black hand, [wait 0.05]or whoever else is in there! [wait 0.1]Come out with your hands raised and empty!"
 send_level_message "dialogue_done"
