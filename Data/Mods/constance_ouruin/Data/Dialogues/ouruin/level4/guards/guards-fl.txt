@@ -1,35 +1,118 @@
 #name "Guards-FL"
 #participants 4
-set_character_pos 1 2.70036 -6.63261 1.11823 -108
-send_character_message 1 "set_animation \"Data/Animations/r_dialogue_thoughtful.anm\""
-send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
+set_character_pos 1 2.70861 -6.67999 -0.0157271 -138
+send_character_message 1 "set_animation \"Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_eye_dir 2.07639 -5.50478 -1.00493 0.799832"
 send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
-send_character_message 1 "set_head_target 1.41922 -6.40336 3.11339 1"
-set_cam 2.54705 -5.72807 5.41625 -5.25 0.2 0 34.291
+send_character_message 1 "set_head_target 1.62988 -5.68594 0.193286 1"
+send_character_message 3 "set_animation \"Data/Animations/r_dialogue_handhips.anm\""
+send_character_message 2 "set_animation \"Data/Animations/r_dialogue_worriedpose_2.anm\""
+send_character_message 3 "set_head_target 3.63264 -6.09925 9.96869 1"
+send_character_message 3 "set_torso_target 4.53165 -6.01232 11.8708 0"
+set_character_pos 3 4.51261 -6.65617 10.8968 117
+send_character_message 3 "set_eye_dir 3.34489 -5.96028 10.6465 1"
+send_character_message 2 "set_head_target 3.69797 -6.536 9.357 1"
+send_character_message 2 "set_torso_target 3.51583 -6.17763 9.8702 0"
+set_character_pos 2 3.19055 -6.65538 10.7062 76
+send_character_message 2 "set_eye_dir 3.3697 -6.38607 10.1204 1"
+set_cam 3.76602 -6.0548 -5.46778 0 169.36 0 34.5888
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
-set_dialogue_color 4 0 0.52 0.95
-set_dialogue_voice 4 0
+set_dialogue_color 5 0 0.52 0.95
+set_dialogue_voice 5 8
 set_dialogue_voice 2 17
 set_dialogue_voice 3 5
 set_dialogue_color 2 1 1 1
 set_dialogue_color 3 0.7 0.7 0.7
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 0
 send_character_message 1 "empty_hands"
 send_character_message 2 "empty_hands"
 send_character_message 3 "empty_hands"
-send_level_message "set_camera_dof 0.5 3.0 2.0 1.0 10.0 3.0"
 say 1 "Ghost" "So cramped in here... [wait 0.1]Guess it's better than nothing."
+send_character_message 3 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 2 "set_head_target 3.34505 -6.39889 9.5926 1"
+send_character_message 2 "set_eye_dir 3.12651 -6.60725 9.98143 1"
+send_character_message 3 "set_eye_dir 3.32811 -5.91652 8.51904 1"
+send_character_message 3 "set_head_target 3.6265 -6.10854 9.28641 1"
+set_character_pos 2 3.3467 -6.65538 8.05581 -92
+set_character_pos 3 4.48542 -6.65617 8.20302 -108
+send_character_message 1 "set_torso_target 2.26612 -6.29002 1.48835 0"
+set_cam 13.6807 -4.54767 -6.41962 0 -70.64 0 34.5888
+send_character_message 1 "set_eye_dir 1.44454 -6.53039 -0.292556 0"
+send_character_message 1 "set_head_target 2.18617 -6.40316 -0.606823 0"
+send_character_message 1 "set_animation \"Data/Animations/perf_wait1.anm\""
+set_character_pos 1 0.977156 -6.14871 -0.441388 16
 say 5 "Ghost" "..."
+set_cam 5.47213 -3.72193 -5.00097 -19.82 139.13 0.59 24.5117
+say 5 "Ghost" "[wait 0.3].[wait 0.3].[wait 0.3]."
+send_character_message 1 "set_eye_dir 1.79397 -5.34008 -0.892666 0"
+send_character_message 1 "set_head_target 2.12857 -5.64968 -0.871422 1"
 say 5 "Ghost" "(Oh. [wait 0.1]Sounds like someone's coming... [wait 0.1]Just my luck.)"
-say 2 "???" "It's a bloodbath, [wait 0.05]out there..."
+send_character_message 1 "set_head_target 2.14307 -5.74324 -0.549996 1"
+send_character_message 1 "set_eye_dir 2.07121 -5.57442 -0.698637 0.868318"
+say 2 "???" "[wait 0.3]It's a bloodbath, [wait 0.05]out there..."
+send_character_message 1 "set_torso_target 2.06226 -5.81506 -0.798718 0.55929"
+send_character_message 1 "set_eye_dir 1.8072 -5.69601 0.0398131 0.626882"
+send_character_message 1 "set_head_target 2.22075 -5.38124 0.288474 1"
 say 3 "????" "Still no survivors... [wait 0.1]The black hand has to be somewhere in this district."
+set_cam 1.82119 -5.79078 1.39992 -2.35 -165.59 0 24.5117
+send_character_message 3 "set_head_target 3.5166 -5.97815 9.09746 1"
+send_character_message 2 "set_head_target 2.63237 -6.38367 9.75822 1"
 say 2 "???" "We're the first of the backup, [wait 0.05]right...? [wait 0.1]We can't just go out there alone."
+send_character_message 2 "set_torso_target 3.20268 -6.80228 9.16971 1"
+send_character_message 2 "set_head_target 3.08227 -6.31776 9.80256 1"
+send_character_message 3 "set_head_target 4.41783 -5.44289 9.27212 1"
 say 3 "????" "..."
+send_character_message 2 "set_head_target 3.85866 -5.93764 9.32221 1"
+send_character_message 3 "set_head_target 4.57233 -5.91765 9.36775 1"
+send_character_message 3 "set_animation \"Animations/r_idle.anm\""
 say 3 "????" "We'll wait in here. [wait 0.1]It's... [wait 0.1]Safer, [wait 0.05]in here. [wait 0.1]Less ways for him to approach us."
+send_character_message 3 "set_head_target 4.24749 -5.84752 9.36404 1"
+send_character_message 2 "set_eye_dir 3.99575 -5.53501 8.06376 1"
+send_character_message 2 "set_head_target 4.34969 -5.87086 8.86829 1"
+send_character_message 2 "set_torso_target 3.54789 -6.64149 8.96249 1"
 say 2 "???" "What if they reprimand us for hiding?"
+send_character_message 1 "set_eye_dir 5.83486 -5.77116 1.0396 1"
+send_character_message 1 "set_torso_target 5.96983 -6.11999 -0.14313 0"
+send_character_message 1 "set_head_target 5.67634 -5.86494 1.17547 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+set_character_pos 1 6.61594 -6.67728 -1.37767 -104
+send_character_message 2 "set_torso_target 3.54789 -6.46255 8.96249 0.995203"
+send_character_message 3 "set_torso_target 4.21406 -6.41151 9.25405 1"
+send_character_message 3 "set_eye_dir 4.31293 -6.16931 8.46123 1"
+send_character_message 3 "set_head_target 3.87274 -6.09849 9.24533 1"
+send_character_message 2 "set_head_target 4.28045 -5.78066 8.61381 1"
+set_cam 1.72745 -5.91818 8.5752 0 -81.09 0 24.5117
 say 3 "????" "I'd rather be lashed than go out there."
+send_character_message 2 "set_torso_target 3.54789 -6.46255 8.96249 0.995203"
+send_character_message 2 "set_eye_dir 3.19946 -6.273 8.4666 0.683889"
+send_character_message 3 "set_head_target 3.86861 -6.022 9.32858 1"
+send_character_message 2 "set_head_target 3.94368 -6.21039 9.14977 1"
 say 2 "???" "..."
+set_cam 1.74497 -5.9181 8.58037 0 -81.09 0 24.5117
+send_character_message 1 "set_head_target 5.67594 -5.86532 1.17761 1"
+send_character_message 1 "set_torso_target 5.96983 -6.11999 -0.14313 0.0466301"
+send_character_message 3 "set_torso_target 4.29733 -6.23245 9.25774 0.999987"
+send_character_message 2 "set_head_target 3.18162 -6.87204 9.20898 1"
+send_character_message 3 "set_head_target 3.94409 -6.23984 9.45588 1"
+send_character_message 2 "set_torso_target 3.54789 -6.46255 8.96249 0.0401851"
+send_character_message 2 "set_eye_dir 3.19709 -6.28303 8.24344 0"
 say 2 "???" "Khyo's mercy on us..."
+send_character_message 3 "set_eye_dir 3.72864 -6.03001 8.32785 1"
+send_character_message 3 "set_torso_target 4.23493 -6.27258 9.26843 0.999987"
+send_character_message 3 "set_head_target 3.56009 -6.01946 9.32113 1"
+send_character_message 1 "set_torso_target 6.06282 -7.00581 -0.354922 0.986039"
+send_character_message 1 "set_head_target 6.14913 -5.43262 1.41389 0.99119"
+set_cam 6.63012 -5.87706 -3.48946 -8.58 169.62 0 61.7233
 say 5 "Ghost" "..."
+send_character_message 2 "set_eye_dir 3.52782 -6.15471 8.76849 0.314673"
+send_character_message 3 "set_eye_dir 4.13171 -5.909 10.8544 1"
+send_character_message 2 "set_head_target 2.83664 -6.42108 9.16725 1"
+send_character_message 3 "set_head_target 4.27695 -5.59975 10.1133 1"
+send_character_message 3 "set_torso_target 4.29733 -6.23245 9.25774 0"
+send_character_message 1 "set_animation \"Animations/r_actionidle_yawn.anm\""
+send_character_message 1 "set_head_target 6.14913 -5.43262 1.41389 0"
+send_character_message 1 "set_torso_target 6.06282 -5.92918 -0.354922 0"
 say 5 "Ghost" "(Why don't I just go ahead and clean 'em up?)"
 send_level_message "dialogue_done"

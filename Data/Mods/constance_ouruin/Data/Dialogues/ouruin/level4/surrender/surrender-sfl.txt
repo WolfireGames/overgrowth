@@ -1,17 +1,22 @@
 #name "Surrender-SFL"
 #participants 4
+set_character_pos 2 3.3467 -6.65538 8.05581 -92
+set_character_pos 4 4.48542 -6.65617 8.20302 -108
+send_character_message 2 "set_animation \"Animations/r_dialogue_worriedpose_2.anm\""
 send_character_message 4 "set_eye_dir 4.65358 -5.65367 8.65322 1"
 send_character_message 4 "set_head_target 4.61696 -5.69128 8.51201 1"
 send_character_message 2 "set_eye_dir 3.49684 -5.69374 9.22831 1"
 send_character_message 2 "set_head_target 3.69977 -6.07058 9.12703 1"
-set_character_pos 1 3.23453 -6.63261 -2.64786 21
-send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+set_character_pos 1 5.89787 -6.63267 0.0129433 -99
+send_character_message 1 "set_animation \"Data/Animations/ghost_surrender.anm\""
 send_character_message 1 "set_eye_dir 1.2497 -6.14634 2.61403 0.799832"
 send_character_message 1 "set_torso_target 2.26612 -6.29001 1.48835 0"
-send_character_message 1 "set_head_target 4.66359 -6.21408 -2.87295 1"
+send_character_message 1 "set_head_target 5.47821 -5.89489 2.03575 1"
 set_cam 2.90226 -5.01988 -4.60532 -29.25 -166.38 0 34.291
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 5 0 0.52 0.95
+set_dialogue_voice 5 8
 set_dialogue_voice 2 17
 set_dialogue_voice 3 5
 set_dialogue_color 2 1 1 1
@@ -22,16 +27,21 @@ send_character_message 1 "empty_hands"
 send_character_message 2 "empty_hands"
 send_character_message 4 "empty_hands"
 send_level_message "set_camera_dof 0.0 3.0 2.0 0.0 10.0 3.0"
-send_character_message 1 "set_torso_target 4.01163 -6.2622 -3.21835 0"
-send_character_message 1 "set_eye_dir 3.93073 -6.46024 -2.89721 1"
-set_character_pos 4 4.51261 -6.65617 10.8968 87
-set_character_pos 2 3.19055 -6.65538 10.7062 82
-send_character_message 4 "equip_item 617"
-send_character_message 2 "equip_item 618"
-send_character_message 4 "set_animation \"Animations/r_smallswordfrontstanceclose.anm\""
-send_character_message 2 "set_animation \"Animations/r_smallswordfrontstance.anm\""
+send_character_message 1 "set_torso_target 5.8549 -6.24965 0.576553 0"
+send_character_message 1 "set_eye_dir 3.54521 -5.79639 7.68209 1"
+set_cam 7.33495 -5.6827 -1.5651 -8.21 151.04 0 45.8043
+send_character_message 4 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 2 "set_head_target 3.012 -6.57311 9.59649 0.995059"
+send_character_message 2 "set_eye_dir 3.12651 -6.60725 9.98143 1"
+send_character_message 4 "set_eye_dir 4.26355 -5.82264 9.03971 1"
+send_character_message 4 "set_head_target 3.98386 -5.94887 9.78666 1"
 say 5 "Ghost" "..."
+send_character_message 1 "set_head_target 5.42373 -5.67261 2.10276 1"
 say 5 "Ghost" "(Am I even doing this right? [wait 0.1]I'm not used to this.)"
+send_character_message 1 "set_head_target 5.39795 -5.5015 2.15771 1"
 say 5 "Ghost" "..."
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 6.48268 -5.69258 0.385893 0.706329"
+send_character_message 1 "set_head_target 6.75606 -6.10683 1.58724 1"
 say 5 "Ghost" "(Well, [wait 0.05]I gave it a shot. [wait 0.1]So let's just stop wasting time.)"
 send_level_message "dialogue_done"

@@ -12,6 +12,8 @@ send_character_message 1 "set_head_target 4.66359 -6.21408 -2.87295 1"
 set_cam 2.90226 -5.01988 -4.60532 -29.25 -166.38 0 34.291
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
+set_dialogue_color 5 0 0.52 0.95
+set_dialogue_voice 5 8
 set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 17
 set_dialogue_voice 3 5
