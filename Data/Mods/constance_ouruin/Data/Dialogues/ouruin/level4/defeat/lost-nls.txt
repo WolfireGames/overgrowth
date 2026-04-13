@@ -53,6 +53,7 @@ say 3 "????" "He's here. [wait 0.1]Everyone, [wait 0.05]get in order!"
 send_character_message 1 "set_head_target 3.63291 -6.67454 8.54321 0.788384"
 send_character_message 1 "set_torso_target 3.44857 -6.83739 8.3775 0.711177"
 say 2 "???" "They're bringing her in."
+send_level_message "banishment"
 send_character_message 1 "set_eye_dir 3.59086 -6.7998 8.55527 0.658278"
 send_character_message 1 "set_head_target 3.76402 -6.62493 8.80252 0.831949"
 set_cam 5.13664 -6.41033 8.36669 0 84.85 0 18.1812

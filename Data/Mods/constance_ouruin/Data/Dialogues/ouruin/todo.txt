@@ -6,7 +6,7 @@
 
 - let ghost ask where to get valerian root
 
-- visible animation for door slam
+- visible animation for branch door slam
 
 - give memorial note dialogue
 
@@ -26,10 +26,16 @@
 
 - add lethality book to moritz (or warrens?)
 
-- block off rat den
-
 - add cres to depot and fractured home
 
 - add sfx to ship collapse
 
 - add sfx to donatas fight collapse anims
+
+- make ano approach smoother for surrender and lost dialogues
+
+- rewrite surrender dialogues to mesh more smoothly with ano meet
+
+- animate and implement forten quest
+
+- fix DHS bracer script

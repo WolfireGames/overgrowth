@@ -22,8 +22,6 @@ set_dialogue_color 6 0.9 0.9 0
 set_dialogue_voice 6 7
 set_dialogue_color 3 0.7 0.7 0.89
 set_dialogue_voice 3 11
-set_dialogue_color 4 0.7 0.7 0.89
-set_dialogue_voice 4 11
 send_character_message 2 "equip_item 620"
 send_character_message 4 "equip_item 623"
 send_character_message 1 "empty_hands"
@@ -31,14 +29,15 @@ say 1 "Ghost" "[wait 0.2]Agh...!"
 send_character_message 1 "set_head_target 3.40122 -6.99439 8.34339 0.210573"
 send_character_message 1 "set_torso_target 3.52016 -6.97932 8.795 0.00402379"
 send_character_message 1 "set_eye_dir 3.30312 -7.06401 8.34454 0.480412"
-say 4 "???" "Target is down! [wait 0.1]I repeat, [wait 0.05]the target has been incapacitated!"
+say 7 "???" "Target is down! [wait 0.1]I repeat, [wait 0.05]the target has been incapacitated!"
 send_character_message 1 "set_torso_target 3.53358 -7.02636 8.17817 0.295389"
 send_character_message 1 "set_head_target 3.30604 -6.95474 8.35738 0.210573"
-say 6 "????" "Locate the High Chancellor Ano. [wait 0.1]Get him here, [wait 0.05]pronto!"
+say 4 "????" "Locate the High Chancellor Ano. [wait 0.1]Get him here, [wait 0.05]pronto!"
 send_character_message 1 "set_eye_dir 3.30312 -7.06401 8.34454 0"
 send_character_message 1 "set_head_target 3.30604 -6.95474 8.35738 0"
 send_character_message 1 "set_torso_target 3.53358 -7.02636 8.17817 0"
 set_cam 2.73277 -7.05468 9.38039 22.69 -28.88 1.13 32.7517
+send_level_message "banishment"
 say 5 "Ghost" "..."
 send_character_message 1 "set_eye_dir 3.30312 -7.06401 8.34454 0.364882"
 send_character_message 1 "set_head_target 3.70822 -6.50428 8.77722 0"
@@ -51,15 +50,14 @@ say 1 "Ghost" "...[wait 0.1]Ano?"
 send_character_message 2 "set_eye_dir 3.14628 -5.55084 11.3874 1"
 send_character_message 2 "set_head_target 3.2787 -5.98196 10.2351 1"
 send_character_message 4 "set_head_target 4.26367 -5.72979 10.2053 1"
-set_cam 7.1614 -5.50566 11.3287 -12.56 64.71 0 48.4735
-say 6 "????" "Get ready. [wait 0.1]The asset's coming, [wait 0.05]too."
+say 4 "????" "Get ready. [wait 0.1]The asset's coming, [wait 0.05]too."
 send_character_message 1 "set_head_target 3.70693 -6.50674 8.77758 0.831949"
 send_character_message 4 "set_head_target 4.38725 -5.91219 9.71573 1"
 send_character_message 2 "set_head_target 2.9439 -5.94253 9.98885 1"
-say 4 "???" "..."
+say 7 "???" "..."
 send_character_message 1 "set_eye_dir 2.70782 -5.92611 9.29846 1"
 send_character_message 1 "set_head_target 3.6997 -6.57724 8.86499 0.831949"
-set_cam 3.00646 -6.49774 9.67827 -0.19 -15.48 3.97 33.9823
+set_cam 2.6298 -6.44459 9.71682 0.51 -25.57 3.94 24.6096
 send_character_message 1 "set_torso_target 3.45448 -6.71943 8.38006 0.17251"
 send_character_message 3 "set_animation \"Data/Animations/bijou_shipenter.anm\""
 send_character_message 3 "set_head_target 2.17657 -5.95031 11.7019 0.00130358"
@@ -95,6 +93,7 @@ set_cam 1.93151 -6.21125 8.74225 -7.69 -83.31 0 42.7934
 say 5 "Amos" "..."
 send_character_message 1 "set_torso_target 3.75998 -6.7144 8.56314 0.166221"
 send_character_message 1 "set_head_target 4.35595 -6.85265 8.62422 0.816508"
+send_level_message "banishment"
 say 1 "Amos" "I'll be fine. [wait 0.1]They've done worse."
 send_character_message 1 "set_eye_dir 3.86608 -5.72734 9.0654 1"
 send_character_message 1 "set_head_target 4.04175 -6.78652 9.08619 0.816508"

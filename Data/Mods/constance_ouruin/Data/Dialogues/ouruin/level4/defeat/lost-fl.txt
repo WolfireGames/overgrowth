@@ -77,6 +77,7 @@ send_character_message 2 "set_eye_dir 3.47638 -5.81662 11.1979 1"
 send_character_message 2 "set_head_target 3.92032 -6.30208 10.6491 1"
 send_character_message 2 "set_torso_target 2.38674 -6.70774 10.1119 1"
 say 2 "???" "Bring her in!"
+send_level_message "banishment"
 send_character_message 1 "set_eye_dir 2.9653 -6.28501 8.49131 0.633727"
 send_character_message 1 "set_head_target 3.74223 -6.2847 9.0653 0.831949"
 set_cam 4.28568 -5.24342 8.66363 -33.96 60.5 0.62 33.9823
