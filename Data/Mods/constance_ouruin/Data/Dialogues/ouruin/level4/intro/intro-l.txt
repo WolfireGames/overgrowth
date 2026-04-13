@@ -10,7 +10,6 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 5 0 0.52 0.95
 set_dialogue_voice 5 8
-send_level_message "enable 656"
 send_level_message "music_layer_override -2"
 say 5 "Ghost" "..."
 send_character_message 1 "set_torso_target 4.39429 -5.87818 9.1254 0.466402"
@@ -25,5 +24,3 @@ send_character_message 1 "set_eye_dir 3.79601 -5.5199 7.70452 1"
 send_character_message 1 "set_torso_target 3.9376 -6.18741 10.7581 1"
 send_character_message 1 "set_head_target 2.39716 -5.34696 7.93169 1"
 say 5 "Ghost" "(Now, [wait 0.05]to find somewhere to hide...)"
-send_level_message "disable 656"
-send_level_message "dialogue_done"

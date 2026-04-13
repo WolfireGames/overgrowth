@@ -52,7 +52,6 @@ say 5 "Ghost" "(Oh. [wait 0.1]Sounds like someone's coming... [wait 0.1]Just my 
 send_character_message 1 "set_head_target 2.14307 -5.74324 -0.549996 1"
 send_character_message 1 "set_eye_dir 2.07121 -5.57442 -0.698637 0.868318"
 say 2 "???" "[wait 0.3]It's a bloodbath, [wait 0.05]out there..."
-say 3 "????" "Still no survivors... [wait 0.1]The black hand has to be somewhere in this district."
 send_character_message 1 "set_torso_target 2.06226 -5.81506 -0.798718 0.55929"
 send_character_message 1 "set_eye_dir 1.8072 -5.69601 0.0398131 0.626882"
 send_character_message 1 "set_head_target 2.22075 -5.38124 0.288474 1"
