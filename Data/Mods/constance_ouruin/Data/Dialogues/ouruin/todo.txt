@@ -32,4 +32,4 @@
 
 - animate and implement forten quest
 
-- fix DHS bracer script
+- make sure boat guy and red only appear in moritz with the right progress

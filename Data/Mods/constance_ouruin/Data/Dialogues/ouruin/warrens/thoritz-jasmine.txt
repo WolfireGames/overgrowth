@@ -24,7 +24,7 @@ set_dialogue_color 6 0.56 0.07 0.79
 set_dialogue_voice 6 14
 set_dialogue_color 4 0.576 0.286 0.4
 set_dialogue_voice 4 4
-send_level_message "enable 7404"
+send_level_message "disable 7404"
 send_level_message "disable 7403"
 send_level_message "enable 7430"
 send_level_message "disable 7231"
