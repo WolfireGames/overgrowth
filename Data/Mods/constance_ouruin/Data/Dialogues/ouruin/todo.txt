@@ -2,8 +2,6 @@
 
 - depot janner dialogue
 
-- moveset swap sometimes sticks to a move, need repro
-
 - let ghost ask where to get valerian root
 
 - visible animation for branch door slam
@@ -31,10 +29,6 @@
 - add sfx to ship collapse
 
 - add sfx to donatas fight collapse anims
-
-- make ano approach smoother for surrender and lost dialogues
-
-- rewrite surrender dialogues to mesh more smoothly with ano meet
 
 - animate and implement forten quest
 

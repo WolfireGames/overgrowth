@@ -119,5 +119,7 @@ send_character_message 3 "set_head_target 3.11719 -6.60662 8.26394 1"
 send_character_message 3 "set_eye_dir 3.30831 -6.76835 8.57646 0.681001"
 send_character_message 1 "set_torso_target 3.3241 -6.75101 8.4785 0"
 send_character_message 1 "set_head_target 3.64311 -6.43637 9.07069 0"
+send_character_message 8 "set_animation \"Data/Animations/ano_shipenter_prep.anm\""
+set_character_pos 8 3.871 -4.888 18.763 90
 say 5 "Amos" "..."
 send_level_message "dialogue_done"

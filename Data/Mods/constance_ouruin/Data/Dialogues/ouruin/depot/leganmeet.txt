@@ -1,0 +1,28 @@
+#name "LeganMeet"
+#participants 4
+set_character_pos 2 22.3536 -30.6534 -10.6827 75
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sit.anm\""
+set_character_pos 1 23.3143 -31.2309 -14.3324 -103
+send_character_message 1 "set_eye_dir 22.4487 -30.3562 -10.8726 1"
+send_character_message 1 "set_torso_target 24.7019 -30.62 -11.5964 0"
+send_character_message 1 "set_head_target 24.7112 -30.5429 -11.5445 0"
+set_dialogue_color 1 0 0.62 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.62 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 1 0.82 0.56
+set_dialogue_voice 4 11
+say 4 "???" "..."
+say 2 "???" "Not often someone bothers to come down here. [wait 0.1]Especially not someone like you... [wait 0.1]An outsider to clan politics."
+say 1 "Ghost" "Who the hell are you?"
+say 2 "???" "Just another stranger."
+say 1 "Ghost" "...[wait 0.1]You don't strike me as one of the snakes."
+say 2 "???" "They wouldn't consider me one, [wait 0.05]no."
+say 1 "Ghost" "Then what are you doing here?"
+say 2 "???" "Well, [wait 0.05]you're here, [wait 0.05]aren't you? I could ask you the same."
+say 2 "???" "Belonging is a falsehood... [wait 0.1]Even if it's a convincing one."
+say 3 "Ghost" "..."
+say 2 "???" "My name is Legan."
+say 1 "Ghost" "My name is Ghost."
+say 2 "Legan" "And so it shall be."
+send_level_message "dialogue_done"

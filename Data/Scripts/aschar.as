@@ -4063,6 +4063,9 @@ void UpdateState(const Timestep &in ts) {
 	if(WantsToSwapMoveset() && knocked_out == _awake && g_moveset_swappable == true) {
 		moveset_swapped = !moveset_swapped;
     }
+	if(g_moveset_swappable == false) {
+		moveset_swapped = false;
+    }
 
     switch(state) {
         case _movement_state:

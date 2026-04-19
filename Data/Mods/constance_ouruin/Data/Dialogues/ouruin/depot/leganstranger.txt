@@ -1,0 +1,36 @@
+#name "LeganStranger"
+#participants 4
+set_dialogue_color 1 0 0.62 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.62 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 1 0.82 0.56
+set_dialogue_voice 4 11
+
+say 1 "Ghost" "You're not from around here, [wait 0.05]are you?"
+
+say 2 "Legan" "Hm. [wait 0.1]I'm not one to pretend... [wait 0.1]But I was hoping it wouldn't be that obvious."
+
+say 2 "Legan" "Where do you think I'm from?"
+
+say 3 "Ghost" "..."
+
+say 1 "Ghost" "Somewhere rural. [wait 0.1]Somewhere tight-knit. [wait 0.1]But if you're traveled enough to end up here..."
+
+say 1 "Ghost" "My guess is you're a monastery type. [wait 0.1]Like you're on a pilgrimage."
+
+say 2 "Legan" "I suppose that's close enough. [wait 0.1]But no, [wait 0.05]I carry not the words of a deity."
+
+say 1 "Ghost" "You carry someone's words, [wait 0.05]then."
+
+say 2 "Legan" "I am on a mission. [wait 0.1]It is one I believe in."
+
+say 1 "Ghost" "[wait 0.05].[wait 0.05].[wait 0.05].[wait 0.1]You're alone."
+
+say 4 "Legan" "..."
+
+say 1 "Ghost" "I recognise that look."
+
+say 2 "Legan" "I carry it forwards. [wait 0.1]That's all I will say."
+
+send_level_message "dialogue_done"

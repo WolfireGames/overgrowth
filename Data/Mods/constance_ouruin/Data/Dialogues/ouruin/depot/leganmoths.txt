@@ -1,0 +1,22 @@
+#name "LeganMoths"
+#participants 4
+set_dialogue_color 1 0 0.62 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.62 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 1 0.82 0.56
+set_dialogue_voice 4 11
+
+say 2 "Legan" "You're... [wait 0.1]There's moths following you."
+
+say 1 "Ghost" "What, [wait 0.05]you sniff those out or something? I haven't seen any holes in my clothes form."
+
+say 2 "Legan" "You don't see them?"
+
+say 1 "Ghost" "If you're trying to talk in code, [wait 0.05]I don't know you well enough to put up with it."
+
+say 2 "Legan" "If you're... [wait 0.1]Then the tides will..."
+
+say 2 "Legan" "Nevermind me."
+
+send_level_message "dialogue_done"

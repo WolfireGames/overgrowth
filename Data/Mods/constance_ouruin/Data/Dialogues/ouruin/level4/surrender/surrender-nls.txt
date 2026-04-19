@@ -16,10 +16,10 @@ set_dialogue_color 5 0 0.52 0.95
 set_dialogue_voice 5 8
 set_dialogue_color 2 1 1 1
 set_dialogue_voice 2 17
+set_dialogue_color 3 0 0.52 0.95
 set_dialogue_voice 3 5
-set_dialogue_color 3 0.7 0.7 0.7
-set_dialogue_color 4 0 0.52 0.95
 set_dialogue_voice 4 0
+set_dialogue_color 4 0.7 0.7 0.7
 send_character_message 1 "empty_hands"
 send_character_message 2 "empty_hands"
 send_character_message 4 "empty_hands"

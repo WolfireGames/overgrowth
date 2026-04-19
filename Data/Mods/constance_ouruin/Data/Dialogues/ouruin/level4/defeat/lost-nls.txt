@@ -111,6 +111,8 @@ send_character_message 1 "set_eye_dir 3.41294 -6.56776 8.76118 1"
 send_character_message 1 "set_head_target 4.12712 -6.61882 8.72215 1"
 send_character_message 1 "set_torso_target 3.44643 -6.83644 8.30673 0.648878"
 say 1 "Amos" "Let him come down, [wait 0.05]already. [wait 0.1]He's got a lot to explain."
+send_character_message 8 "set_animation \"Data/Animations/ano_shipenter_prep.anm\""
+set_character_pos 8 3.871 -4.888 18.763 90
 send_character_message 1 "set_eye_dir 3.09043 -5.60512 9.40162 1"
 send_character_message 1 "set_torso_target 3.44643 -6.83644 8.30673 0"
 send_character_message 1 "set_head_target 3.98439 -6.16124 8.93377 1"

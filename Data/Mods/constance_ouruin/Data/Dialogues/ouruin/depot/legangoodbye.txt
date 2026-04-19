@@ -1,0 +1,13 @@
+#name "LeganGoodbye"
+#participants 4
+set_dialogue_color 1 0 0.62 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.62 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 1 0.82 0.56
+set_dialogue_voice 4 11
+
+say 2 "Legan" "I hope we meet again, [wait 0.05]Ghost."
+
+say 2 "Legan" "One day..."
+send_level_message "dialogue_done"

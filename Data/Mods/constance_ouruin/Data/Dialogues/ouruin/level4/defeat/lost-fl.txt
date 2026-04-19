@@ -134,5 +134,7 @@ send_character_message 4 "set_head_target 3.604 -5.96477 8.77852 1"
 send_character_message 3 "set_eye_dir 3.64169 -5.3702 14.7226 1"
 send_character_message 3 "set_head_target 3.87611 -5.97395 13.5093 1"
 send_character_message 3 "set_animation \"Data/Animations/bijou_shipapproach.anm\""
+send_character_message 8 "set_animation \"Data/Animations/ano_shipenter_prep.anm\""
+set_character_pos 8 3.871 -4.888 18.763 90
 say 4 "Bijou" "..."
 send_level_message "dialogue_done"
