@@ -1,0 +1,472 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<Name>charms</Name>
+<Description></Description>
+<Shader>post</Shader>
+<Shadows>true</Shadows>
+<LoadingScreen>
+    <Image></Image>
+</LoadingScreen>
+<Terrain>
+    <Heightmap>Data/Textures/Terrain/flat.png</Heightmap>
+    <ShaderExtra></ShaderExtra>
+    <DetailMap></DetailMap>
+    <ColorMap>Data/Textures/black.tga</ColorMap>
+    <WeightMap>Data/Textures/black.tga</WeightMap>
+    <ModelOverride>Data/Models/lolnothing.obj</ModelOverride>
+    <DetailMaps>
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rocks.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/gravel.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/sand.xml" />
+        <DetailMap colorpath="Data/Textures/black.tga" normalpath="Data/Textures/normal.tga" materialpath="Data/Materials/rock.xml" />
+    </DetailMaps>
+    <DetailObjects />
+</Terrain>
+<OutOfDate NavMesh="true" NavMeshParamHash="-1674835251" />
+<AmbientSounds />
+<Script></Script>
+<LevelScriptParameters>
+    <parameter name="Achievements" type="string" val="flawless, no_injuries, no_kills" />
+    <parameter name="Custom Shader" type="string" val="#SHADOW_POINT_LIGHTS #TEST_CLOUDS_2 #OURUIN_EVENING #CLOUDS_DO_NOT_TINT_SKY #CLOUDS_DO_NOT_CAST_SHADOWS" />
+    <parameter name="Fog amount" type="float" val="1" />
+    <parameter name="GPU Particle Field" type="string" val="" />
+    <parameter name="HDR Black point" type="float" val="0.12346" />
+    <parameter name="HDR Bloom multiplier" type="float" val="1" />
+    <parameter name="HDR White point" type="float" val="1.48148" />
+    <parameter name="Level Boundaries" type="int" val="1" />
+    <parameter name="Load Tip" type="string" val="" />
+    <parameter name="Objectives" type="string" val="destroy_all" />
+    <parameter name="Saturation" type="float" val="1" />
+    <parameter name="Shared Camera" type="int" val="0" />
+    <parameter name="Sky Brightness" type="float" val="2" />
+    <parameter name="Sky Rotation" type="float" val="-33" />
+    <parameter name="Sky Tint" type="string" val="160, 50, 0" />
+</LevelScriptParameters>
+<NavMeshParameters generate="false" cell_size="0.3" cell_height="0.2" agent_height="1.7" agent_radius="0.4" agent_max_climb="1.5" agent_max_slope="60" />
+<Sky>
+    <DomeTexture>Data/Textures/skies/CloudySunset.tga</DomeTexture>
+    <SunAngularRad>0.0981272</SunAngularRad>
+    <SunColorAngle>123.298</SunColorAngle>
+    <RayToSun r0="-0.587034" r1="0.466881" r2="0.661373" />
+</Sky>
+<ActorObjects>
+    <CameraObject t0="-6.65219" t1="6.32942" t2="-22.3126" s0="1" s1="1" s2="1" q0="0.0331193" q1="0.918977" q2="-0.0790793" q3="0.384877" euler_x="-2.96991" euler_y="0.793232" euler_z="3.14159" id="0">
+        <parameters />
+    </CameraObject>
+    <ActorObject name="Ghost" t0="4.67937" t1="0.176521" t2="-18.7873" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="1">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="1" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="2" />
+        </Connections>
+        <ItemConnections>
+            <ItemConnection id="20" type="1" mirrored="0" attachment="" />
+        </ItemConnections>
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
+    <EnvObject t0="4.73299" t1="1.49922" t2="-8.25718" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="11.0136" t1="1.49918" t2="-1.6817" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="6" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.539577" t1="1.49938" t2="-4.11106" s0="1" s1="1" s2="1" q0="0" q1="0" q2="-1" q3="0" euler_x="0" euler_y="0" euler_z="3.14159" id="7" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.70738" t1="-3.18228" t2="-5.59049" s0="5.02451" s1="0.999999" s2="9.16589" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="8" color_r="0.0627451" color_g="0.0627445" color_b="0.0627445" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock.xml">
+        <parameters />
+    </EnvObject>
+    <ActorObject t0="3.90281" t1="0.318866" t2="4.24883" s0="1" s1="1" s2="1" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="9" type_file="Data/Objects/IGF_Characters/IGF_RabbitCivActor.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="1" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="9" />
+        </Connections>
+        <ItemConnections />
+        <Palette />
+    </ActorObject>
+    <EnvObject t0="16.6655" t1="-3.03798" t2="-5.5974" s0="1" s1="1" s2="9.16955" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="10" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-7.22785" t1="-3.03798" t2="-5.59744" s0="1" s1="1" s2="9.16955" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.7161" t1="-3.03531" t2="-25.7397" s0="1" s1="1" s2="7.02007" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="12" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="4.69846" t1="-3.04162" t2="-18.7436" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <Hotspot name="Debug" t0="-0.390824" t1="2.40333" t2="-8.88168" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <parameters>
+            <parameter name="Debug Current Line" type="int" val="0" />
+            <parameter name="Run in EditorMode" type="int" val="1" />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;171&quot;,&quot;ui_function&quot;:0},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:16,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;172&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[46,164],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;press [ to enable khyo talisman\npress ] to enable sparrow charm&quot;,&quot;ui_element_identifier&quot;:&quot;173&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Inconsolata&quot;,&quot;font_size&quot;:32,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;174&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;position&quot;:[32,207],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;current_item: {ouruin_current_item}&quot;,&quot;ui_element_identifier&quot;:&quot;175&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;display_comment&quot;:&quot;Wait for input&quot;,&quot;function&quot;:34},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:2,&quot;input_identifier&quot;:13,&quot;input_mode&quot;:1,&quot;input_type&quot;:0,&quot;inputline0&quot;:9,&quot;inputline1&quot;:15,&quot;multi_input_buttons&quot;:[13,13],&quot;multi_input_others&quot;:[&quot;[&quot;,&quot;]&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0,0],&quot;other_input&quot;:&quot;[&quot;,&quot;use_prompt&quot;:false},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Khyo Talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;talisman&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/item_state.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;reset&quot;},{&quot;function&quot;:7,&quot;line&quot;:6},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Sparrow Charm&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;sparrow&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/item_state.wav&quot;,&quot;sound_type&quot;:0},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;reset&quot;},{&quot;function&quot;:7,&quot;line&quot;:6},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Show UI Grid" type="int" val="1" />
+            <parameter name="Transform Relative" type="int" val="0" />
+            <parameter name="UI Snap Scale" type="int" val="20" />
+        </parameters>
+        <Connections />
+        <ConnectionsFrom />
+    </Hotspot>
+    <ItemObject t0="5.44323" t1="0.457888" t2="-20.1917" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="20" type_file="Data/Items/DogWeapons/DogSword.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+        <parameters />
+    </ItemObject>
+    <ActorObject t0="16.7687" t1="0.219685" t2="-24.5279" s0="1" s1="1" s2="1" q0="0" q1="0.965926" q2="0" q3="0.258819" euler_x="3.14159" euler_y="0.523599" euler_z="3.14159" id="31" type_file="Data/Objects/therium/IGF_Characters/heavy.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="string" val="0.5" />
+            <parameter name="Attack Damage" type="string" val="1.2000000000000002" />
+            <parameter name="Attack Knockback" type="string" val="1.2000000000000002" />
+            <parameter name="Attack Speed" type="string" val="0.9" />
+            <parameter name="Block Follow-up" type="string" val="0.5" />
+            <parameter name="Block Skill" type="string" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="string" val="1.12" />
+            <parameter name="Damage Resistance" type="string" val="1.3" />
+            <parameter name="Ear Size" type="string" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="string" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="string" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="string" val="0" />
+            <parameter name="Lives" type="string" val="1" />
+            <parameter name="Movement Speed" type="string" val="0.8" />
+            <parameter name="Muscle" type="string" val="0.6000000000000001" />
+            <parameter name="No Idle Movement" type="int" val="0" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="guard" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="1" red="0.94902" green="0.776471" blue="0.776471" />
+        </Palette>
+        <EnvObjectAttachments>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="8" num_connections="1" m0="0.992683" m1="0.0885316" m2="-0.0821117" m3="0" m4="-0.0884124" m5="0.996071" m6="0.00509082" m7="0" m8="0.0822398" m9="0.00220612" m10="0.99661" m11="0" m12="0.477864" m13="0.178791" m14="-0.042398" m15="1" />
+                <BoneConnect bone_id="9" num_connections="1" m0="0.994642" m1="0.0995123" m2="-0.0279994" m3="0" m4="-0.0969801" m5="0.992016" m6="0.0806188" m7="0" m8="0.0357984" m9="-0.0774715" m10="0.996352" m11="0" m12="0.468111" m13="0.185038" m14="-0.040561" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="31" num_connections="1" m0="0.994659" m1="0.0105678" m2="0.102674" m3="0" m4="0.0129891" m5="0.974021" m6="-0.226085" m7="0" m8="-0.102396" m9="0.226211" m10="0.968681" m11="0" m12="-0.0171747" m13="0.531875" m14="0.158254" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="31" num_connections="1" m0="-0.999741" m1="0.0168711" m2="0.0152465" m3="0" m4="0.0121648" m5="0.963273" m6="-0.268248" m7="0" m8="-0.0192122" m9="-0.267993" m10="-0.963229" m11="0" m12="-9.63211e-05" m13="0.545089" m14="-0.012471" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="17" num_connections="1" m0="0.174599" m1="0.984625" m2="-0.00540553" m3="0" m4="-0.973496" m5="0.171797" m6="-0.150969" m7="0" m8="-0.147719" m9="0.0316214" m10="0.988524" m11="0" m12="-0.173287" m13="0.382465" m14="-0.0386772" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="4" num_connections="1" m0="0.988239" m1="0.0394262" m2="0.147745" m3="0" m4="-0.0387359" m5="0.999221" m6="-0.00754833" m7="0" m8="-0.147927" m9="0.00173653" m10="0.988997" m11="0" m12="0.16363" m13="0.391085" m14="-0.0226479" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="2" num_connections="1" m0="0.997077" m1="0.00314165" m2="0.0763447" m3="0" m4="0.0763887" m5="-0.0177931" m6="-0.996919" m7="0" m8="-0.00177363" m9="0.999837" m10="-0.0179811" m11="0" m12="0.0016098" m13="0.147119" m14="-0.0463133" m15="1" />
+                <BoneConnect bone_id="1" num_connections="1" m0="0.988814" m1="0.00237626" m2="0.149138" m3="0" m4="0.149156" m5="-0.0118009" m6="-0.988743" m7="0" m8="-0.000589613" m9="0.999928" m10="-0.0120234" m11="0" m12="0.00465965" m13="0.170673" m14="-0.0475111" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="21" num_connections="1" m0="0.524977" m1="0.830048" m2="-0.188201" m3="0" m4="-0.820881" m5="0.552208" m6="0.145675" m7="0" m8="0.224843" m9="0.0780146" m10="0.971267" m11="0" m12="-0.476912" m13="0.193991" m14="-0.00105286" m15="1" />
+                <BoneConnect bone_id="22" num_connections="1" m0="0.522497" m1="0.840166" m2="-0.145318" m3="0" m4="-0.808535" m5="0.542326" m6="0.228374" m7="0" m8="0.270682" m9="-0.00183022" m10="0.962667" m11="0" m12="-0.465107" m13="0.196769" m14="0.00174713" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="20" num_connections="1" m0="0.633664" m1="0.759257" m2="-0.148282" m3="0" m4="-0.756339" m5="0.567771" m6="-0.324926" m7="0" m8="-0.162514" m9="0.318048" m10="0.934042" m11="0" m12="-0.338108" m13="0.282831" m14="-0.0254936" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="7" num_connections="1" m0="-0.705413" m1="0.655901" m2="0.268692" m3="0" m4="0.605444" m5="0.360448" m6="0.709596" m7="0" m8="0.368576" m9="0.663229" m10="-0.651378" m11="0" m12="0.319079" m13="0.300425" m14="0.00167084" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="47" num_connections="1" m0="0.0869137" m1="-0.636547" m2="0.766325" m3="0" m4="0.0661185" m5="0.771226" m6="0.633119" m7="0" m8="-0.994019" m9="-0.00435842" m10="0.109118" m11="0" m12="-0.0865965" m13="-0.294477" m14="0.0922546" m15="1" />
+                <BoneConnect bone_id="46" num_connections="1" m0="-0.00652869" m1="-0.627044" m2="0.778956" m3="0" m4="-0.0521252" m5="0.778128" m6="0.62594" m7="0" m8="-0.998619" m9="-0.0365167" m10="-0.0377649" m11="0" m12="-0.0972579" m13="-0.307133" m14="0.0966644" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+            <EnvObjectAttachment>
+                <BoneConnect bone_id="40" num_connections="1" m0="0.17154" m1="-0.583619" m2="0.793702" m3="0" m4="0.0260875" m5="0.808052" m6="0.588533" m7="0" m8="-0.984832" m9="-0.0802509" m10="0.153838" m11="0" m12="0.109909" m13="-0.286672" m14="0.0954132" m15="1" />
+                <BoneConnect bone_id="39" num_connections="1" m0="0.215759" m1="-0.583133" m2="0.783202" m3="0" m4="0.0772928" m5="0.809776" m6="0.581626" m7="0" m8="-0.973383" m9="-0.064955" m10="0.219788" m11="0" m12="0.115436" m13="-0.300282" m14="0.0974655" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+                <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
+            </EnvObjectAttachment>
+        </EnvObjectAttachments>
+        <EnvObject s0="1.35441" s1="1.35441" s2="1.35441" id="19" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_lower_arm.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.09475" s1="1.09475" s2="1.09475" id="21" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_helmet.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1" s1="1" s2="1" id="22" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_head_straps.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.41525" s1="1.41525" s2="1.41525" id="23" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_b.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.41525" s1="1.41525" s2="1.41525" id="24" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_b.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="-0.378" s1="0.408" s2="-0.387" id="25" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/standard-buckler.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.06226" s1="0.655558" s2="0.655556" id="26" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.26528" s1="0.780845" s2="0.780842" id="27" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.26528" s1="0.780845" s2="0.780842" id="28" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.67193" s1="1.67193" s2="1.67193" id="29" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_lower_arm.xml">
+            <parameters />
+        </EnvObject>
+        <EnvObject s0="1.67193" s1="1.67193" s2="1.67193" id="30" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_lower_arm.xml">
+            <parameters />
+        </EnvObject>
+    </ActorObject>
+    <EnvObject t0="8.98457" t1="0.671709" t2="-6.68344" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="37" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="8.98452" t1="-1.45405" t2="-6.68337" s0="0.515536" s1="0.515536" s2="0.515536" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="38" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.2677" t1="1.49922" t2="2.3036" s0="1" s1="1" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="39" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.384832" t1="0.671709" t2="-12.0763" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="40" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-0.384877" t1="-1.45405" t2="-12.0762" s0="0.515536" s1="0.515536" s2="0.515536" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="41" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.3614" t1="5.57201" t2="0.0447087" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="42" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.3614" t1="3.44625" t2="0.044784" s0="0.515536" s1="0.515536" s2="0.515536" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="43" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.3614" t1="1.93571" t2="5.86966" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="44" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="10.3614" t1="-0.190053" t2="5.86974" s0="0.515536" s1="0.515536" s2="0.515536" q0="-0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="45" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+    <Prefab t0="4.78262" t1="6.82108" t2="-11.5234" s0="1.19518" s1="1.19518" s2="1.19518" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="47" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/equipment/charmscript.xml" os0="1.19518" os1="1.19518" os2="1.19518">
+        <parameters />
+        <Hotspot name="Charms" t0="4.78262" t1="6.82108" t2="-11.5234" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="0" />
+                <parameter name="Run in EditorMode" type="int" val="1" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;character_option&quot;:52,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;-- Sparrow Charm&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:20,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;sparrow&quot;]},{&quot;character_option&quot;:52,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;Sparrow Neutral&quot;,&quot;function&quot;:34},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:13,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;11&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;enemy_alerted&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/stealth/alert.wav&quot;,&quot;sound_type&quot;:0},{&quot;color&quot;:[1,1,1,0.50196081399917603],&quot;fade_in_duration&quot;:300,&quot;fade_in_tween_type&quot;:22,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:6,&quot;fullscreen_image_path&quot;:&quot;Data/Textures/talisman_vignette.tga&quot;,&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;12&quot;,&quot;ui_function&quot;:6,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;13&quot;,&quot;ui_function&quot;:0},{&quot;duration&quot;:5000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:5},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Khyo Talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:33,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;talisman&quot;]},{&quot;display_comment&quot;:&quot;Talisman Neutral&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;14&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;enemy_killed&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/stealth/kill.wav&quot;,&quot;sound_type&quot;:0},{&quot;character_message_type&quot;:0,&quot;function&quot;:29,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;message&quot;:&quot;restore_health&quot;},{&quot;color&quot;:[0,0.89411759376525879,1,0.65882354974746704],&quot;fade_in_duration&quot;:300,&quot;fade_in_tween_type&quot;:22,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:6,&quot;fullscreen_image_path&quot;:&quot;Data/Textures/talisman_vignette.tga&quot;,&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;15&quot;,&quot;ui_function&quot;:6,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:300,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:21},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- No Item!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;equipment_change&quot;},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="20" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Prefab>
+    <EnvObject t0="4.71637" t1="-3.03556" t2="14.5872" s0="1" s1="1" s2="7.02002" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="72" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml">
+        <parameters />
+    </EnvObject>
+</ActorObjects>
+<RecentItems>
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="random_citizen.xml" path="Data/Objects/Hotspots/random_citizen.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/empty_placeholder.png" />
+    <SpawnerItem display_name="Magma Floor" path="Data/Prototypes/MagmaArena/MagmaFloor.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Fire Wood Hot" path="Data/Objects/Environment/camp/fire_wood_hot.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood_hot.png" />
+    <SpawnerItem display_name="Fire" path="Data/Objects/fire.xml" thumbnail_path="" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/lethality/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/lethality/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/lethality/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/lethality/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="highroad.xml" path="Data/Prefabs/ouruin/lethality/highroad.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl2.xml" path="Data/Prefabs/ouruin/lethality/lvl2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl3.xml" path="Data/Prefabs/ouruin/lethality/lvl3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="lvl4.xml" path="Data/Prefabs/ouruin/lethality/lvl4.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="explore.xml" path="Data/Prefabs/ouruin/wallets/explore.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="agra.xml" path="Data/Prefabs/ouruin/wallets/agra.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="cres.xml" path="Data/Prefabs/ouruin/wallets/cres.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="dart.xml" path="Data/Prefabs/ouruin/wallets/dart.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="depot.xml" path="Data/Prefabs/ouruin/wallets/depot.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level1.xml" path="Data/Prefabs/ouruin/wallets/level1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level2.xml" path="Data/Prefabs/ouruin/wallets/level2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="level3.xml" path="Data/Prefabs/ouruin/wallets/level3.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="template.xml" path="Data/Prefabs/ouruin/wallets/template.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Blood Drop Splat" path="Data/Objects/Decals/blooddropsplat.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/blooddropsplat.png" />
+    <SpawnerItem display_name="Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="Data/UI/thumbsnailsT2/Coin.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/lethality/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/lethality/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="speakeasy.xml" path="Data/Prefabs/ouruin/wallets/speakeasy.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="warrens.xml" path="Data/Prefabs/ouruin/wallets/warrens.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Book Open" path="Data/Objects/therium/openbook.xml" thumbnail_path="Data/UI/thumbsnailsT2/Book open.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/lethality/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/lethality/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ship.xml" path="Data/Prefabs/ouruin/lethality/ship.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="fractured.xml" path="Data/Prefabs/ouruin/wallets/fractured.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="escape.xml" path="Data/Prefabs/ouruin/wallets/escape.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ratden.xml" path="Data/Prefabs/ouruin/lethality/ratden.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Skull Rabbit" path="Data/Objects/therium/rabbit_skull.xml" thumbnail_path="Data/UI/thumbsnailsT2/Skull rabbit.png" />
+    <SpawnerItem display_name="StandardBlock.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_Red.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_Red.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="StandardBlock_White.xml" path="Data/Objects/therium/ouruin/marble/StandardBlock_White.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Drika Hotspot (dev)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="setmessages.xml" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_CageDoor.xml" path="Prototypes/Common/Wood_CageDoor.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_EndLegs.xml" path="Prototypes/Common/Wood_EndLegs.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_Gate.xml" path="Prototypes/Common/Wood_Gate.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_Scaffold.xml" path="Prototypes/Common/Wood_Scaffold.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Wood_Wall.xml" path="Prototypes/Common/Wood_Wall.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="RaiderBase.xml" path="Prototypes/Lugaru/RaiderBase.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="RaiderBase_SandBarrier1.xml" path="Prototypes/Lugaru/RaiderBase_SandBarrier1.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="RaiderBase_SandBarrier2.xml" path="Prototypes/Lugaru/RaiderBase_SandBarrier2.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="Rabbit Civilian [Char]" path="Data/Objects/IGF_Characters/IGF_RabbitCivActor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/IGF_RabbitCivActor.png" />
+    <SpawnerItem display_name="Drika&apos;s Hotspot (DHS)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="Dog Sword [Item]" path="Data/Items/DogWeapons/DogSword.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/wsword.png" />
+    <SpawnerItem display_name="Cinderian Heavy [Char] [Prefab]" path="Data/Objects/therium/Prefabs/heavy.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/heavy.png" />
+</RecentItems>

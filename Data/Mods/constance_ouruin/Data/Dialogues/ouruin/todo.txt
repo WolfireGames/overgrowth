@@ -31,5 +31,3 @@
 - add sfx to donatas fight collapse anims
 
 - animate and implement forten quest
-
-- make sure boat guy and red only appear in moritz with the right progress

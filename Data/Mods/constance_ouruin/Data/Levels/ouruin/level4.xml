@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-4.76792" t1="15.811" t2="-5.86869" s0="1" s1="1" s2="1" q0="-0.13315" q1="-0.857515" q2="0.412866" q3="-0.276551" euler_x="-2.24417" euler_y="0.623942" euler_z="-3.14159" id="0">
+    <CameraObject t0="-5.02252" t1="9.98301" t2="-5.47402" s0="1" s1="1" s2="1" q0="0.0999655" q1="0.899607" q2="-0.285619" q3="0.314859" euler_x="-2.52674" euler_y="0.673343" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -1360,6 +1360,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0.35" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -1369,7 +1370,7 @@
             <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
-            <Connection id="-1" />
+            <Connection id="659" />
         </Connections>
         <ItemConnections>
             <ItemConnection id="618" type="1" mirrored="0" attachment="" />
@@ -1450,6 +1451,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0.35" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -1459,7 +1461,7 @@
             <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
-            <Connection id="-1" />
+            <Connection id="660" />
         </Connections>
         <ItemConnections>
             <ItemConnection id="617" type="1" mirrored="0" attachment="" />
@@ -1508,6 +1510,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -1706,6 +1709,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -1903,6 +1907,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -2082,6 +2087,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -2250,6 +2256,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -2411,6 +2418,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -2615,6 +2623,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -2877,7 +2886,7 @@
             <parameter name="death_message" type="string" val="" />
             <parameter name="goal_0" type="string" val="reach 0" />
             <parameter name="goal_1" type="string" val="defeat 698" />
-            <parameter name="goal_1_pre" type="string" val="dialogue Hide-Murder" />
+            <parameter name="goal_1_pre" type="string" val="dialogue Guards-NLS-Intact" />
             <parameter name="music" type="string" val="" />
             <parameter name="music_custom_defeat_sting_wav_filename" type="string" val="Data/Music/slaver_loop/the_slavers_defeat.wav" />
             <parameter name="music_custom_is_layered" type="int" val="1" />
@@ -3149,6 +3158,7 @@
                 <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
                 <parameter name="Species" type="string" val="rabbit" />
                 <parameter name="Static" type="int" val="1" />
+                <parameter name="Stealth Proficiency" type="int" val="0" />
                 <parameter name="Stick To Nav Mesh" type="int" val="0" />
                 <parameter name="Teams" type="string" val="player, Ghost" />
                 <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -3653,6 +3663,7 @@
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Startle Modifier" type="string" val="0" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="1" />
             <parameter name="Teams" type="string" val="guard, reinforcement" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -3950,6 +3961,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="1" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="player, Ghost" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -5264,6 +5276,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="player" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -5438,6 +5451,7 @@
             <parameter name="Peripheral FOV vertical" type="string" val="1.4100000000000001" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="player, ghost" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -6234,6 +6248,21 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <Prefab t0="16.2688" t1="5.03332" t2="2.78158" s0="1.19518" s1="1.19518" s2="1.19518" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1196" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/equipment/charmscript.xml" os0="1.19518" os1="1.19518" os2="1.19518">
+        <parameters />
+        <Hotspot name="Charms" t0="16.2688" t1="5.03332" t2="2.78158" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1195" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="0" />
+                <parameter name="Run in EditorMode" type="int" val="1" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;character_option&quot;:52,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;-- Sparrow Charm&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:17,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;sparrow&quot;]},{&quot;character_option&quot;:52,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;Sparrow Neutral&quot;,&quot;function&quot;:34},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:10,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:10,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;function&quot;:1,&quot;message&quot;:&quot;enemy_alerted&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/stealth/alert.wav&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:5000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:5},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Khyo Talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:30,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;talisman&quot;]},{&quot;display_comment&quot;:&quot;Talisman Neutral&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;11951&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;enemy_killed&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/stealth/kill.wav&quot;,&quot;sound_type&quot;:0},{&quot;character_message_type&quot;:0,&quot;function&quot;:29,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;message&quot;:&quot;restore_health&quot;},{&quot;color&quot;:[0,0.89411759376525879,1,0.65882354974746704],&quot;fade_in_duration&quot;:300,&quot;fade_in_tween_type&quot;:22,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:6,&quot;fullscreen_image_path&quot;:&quot;Data/Textures/talisman_vignette.tga&quot;,&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;11952&quot;,&quot;ui_function&quot;:6,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:300,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:18},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- No Item!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;equipment_change&quot;},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="20" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Prefab>
     <PlaceholderObject t0="0.739291" t1="-0.4006" t2="-2.31341" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1206" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/guards/guards-l-intact.txt" />
@@ -6696,4 +6725,5 @@
     <SpawnerItem display_name="Simple Decal: I" path="Data/Custom/FnB/Objects/Decals/Arial_I.xml" thumbnail_path="Data/Custom/FnB/Images/Thumbnails/arial_I.png" />
     <SpawnerItem display_name="Simple Decal: R" path="Data/Custom/FnB/Objects/Decals/Arial_R.xml" thumbnail_path="Data/Custom/FnB/Images/Thumbnails/arial_R.png" />
     <SpawnerItem display_name="Drika&apos;s Hotspot (DHS)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="charmscript.xml" path="Data/Prefabs/ouruin/equipment/charmscript.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

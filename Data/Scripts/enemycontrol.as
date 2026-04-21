@@ -1626,7 +1626,6 @@ void UpdateBrain(const Timestep &in ts) {
                 array<int> enemies;
                 GetMatchingCharactersInArray(visible_characters, enemies, _TC_ENEMY | _TC_CONSCIOUS);
                 int closest_id = GetClosestCharacterInArray(this_mo.position, enemies, 0.0f);
-
                 if(closest_id != -1 && goal == _patrol) {
                     MovementObject@ target = ReadCharacterID(closest_id);
                     nav_target = this_mo.position + normalize(target.position - this_mo.position) * 3.0f;
@@ -1634,8 +1633,9 @@ void UpdateBrain(const Timestep &in ts) {
                     SetSubGoal(_investigate_slow);
                     investigate_target_id = -1;
                 }
+            } else if(enemy_seen > 0.1f) {
+                level.SendMessage("enemy_suspicious");
             }
-
             // DebugText("a", "num_enemies_visible: " + num_enemies_visible, 0.5f);
             // DebugText("b", "enemy_seen: " + enemy_seen, 0.5f);
         }

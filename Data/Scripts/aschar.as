@@ -415,6 +415,8 @@ bool g_wearing_metal_armor = false;
 bool g_wearing_metal_bracers = false;
 bool g_moveset_swappable = false;
 
+bool g_stealth_proficiency = false;
+
 // Pre-jump happens after jump key is pressed and before the character gets upwards velocity. The time available for the jump animation that happens on the ground.
 bool pre_jump = false;
 float pre_jump_time;
@@ -7469,7 +7471,7 @@ void HandleAnimationMaterialEvent(const string &in event, const vec3 &in world_p
             event == "leftrunstep" || event == "rightrunstep" ||
             event == "leftwalkstep" || event == "rightwalkstep" ||
             event == "leftstep" || event == "rightstep") {
-        if(character_getter.GetTag("species") == "cat") {
+        if(character_getter.GetTag("species") == "cat" || g_stealth_proficiency == true) {
             this_mo.MaterialEvent("leftcrouchwalkstep", world_pos);
             AISound(world_pos, QUIET_SOUND_RADIUS, _sound_type_foley);
         } else {
@@ -7489,7 +7491,7 @@ void HandleAnimationMaterialEvent(const string &in event, const vec3 &in world_p
             }
         }
     } else if(event == "leftcrouchwalkstep" || event == "rightcrouchwalkstep") {
-        if(character_getter.GetTag("species") == "cat") {
+        if(character_getter.GetTag("species") == "cat" || g_stealth_proficiency == true) {
             this_mo.MaterialEvent(event, world_pos, 0.3f);
         } else {
             if(this_mo.controlled) {
@@ -8709,7 +8711,7 @@ void Land(vec3 vel, const Timestep &in ts) {
         // Print("Slide vel: " + slide_amount * length(this_mo.velocity) + "\n");
 
         if(water_depth < 0.25) {
-            if(character_getter.GetTag("species") == "cat") {
+            if(character_getter.GetTag("species") == "cat" || g_stealth_proficiency == true) {
                 this_mo.MaterialEvent("land", this_mo.position - vec3(0.0f, _leg_sphere_size, 0.0f), 0.5f);
                 AISound(this_mo.position, QUIET_SOUND_RADIUS, _sound_type_foley);
             } else {
@@ -8722,7 +8724,7 @@ void Land(vec3 vel, const Timestep &in ts) {
             float slide_vel = slide_amount * length(this_mo.velocity);
             float vol = min(1.0f, slide_amount * slide_vel * 0.2f);
 
-            if(character_getter.GetTag("species") == "cat") {
+            if(character_getter.GetTag("species") == "cat" || g_stealth_proficiency == true) {
                 vol *= 0.5f;
             }
 
@@ -8735,7 +8737,7 @@ void Land(vec3 vel, const Timestep &in ts) {
         target_duck_amount = 1.0;
         duck_vel = land_speed * 0.3f;
     } else {
-        if(character_getter.GetTag("species") == "cat") {
+        if(character_getter.GetTag("species") == "cat" || g_stealth_proficiency == true) {
             this_mo.MaterialEvent("land_soft", this_mo.position - vec3(0.0f, _leg_sphere_size, 0.0f), 0.5f);
         } else {
             this_mo.MaterialEvent("land_soft", this_mo.position - vec3(0.0f, _leg_sphere_size, 0.0f));
@@ -15950,7 +15952,9 @@ void SetParameters() {
 	//Glimpse.
 	params.AddIntCheckbox("Can Swap Movesets", false);
 	g_moveset_swappable = (params.GetInt("Can Swap Movesets") != 0);
-    // --- End armor parameters
+
+	params.AddIntCheckbox("Stealth Proficiency", false);
+	g_stealth_proficiency = (params.GetInt("Stealth Proficiency") != 0);
 
     params.AddFloatSlider("Weapon Catch Skill", 1.0, "min:0,max:1,step:0.1,text_mult:100");
     g_weapon_catch_skill = min(1.0f, max(0.0f, params.GetFloat("Weapon Catch Skill")));

@@ -51,7 +51,7 @@
     <RayToSun r0="-0.161343" r1="0.682514" r2="-0.712841" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="290.02" t1="-29.5242" t2="99.3738" s0="1" s1="1" s2="1" q0="0.11241" q1="-0.788847" q2="0.151607" q3="0.584893" euler_x="-2.76185" euler_y="-1.27602" euler_z="3.14159" id="0">
+    <CameraObject t0="257.711" t1="-16.0992" t2="120.226" s0="1" s1="1" s2="1" q0="0.164827" q1="-0.390148" q2="0.071209" q3="0.903076" euler_x="0.361061" euler_y="-0.815606" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="181.769" t1="-55.9922" t2="109.042" s0="0.613082" s1="0.613082" s2="0.613082" q0="0.00733727" q1="-0.681411" q2="0.0110127" q3="-0.731781" euler_x="-0.346757" euler_y="1.49496" euler_z="-0.351959" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/hex_crete_rubble_simplecol.xml">
@@ -125,7 +125,7 @@
             <parameter name="Attack Speed" type="float" val="1" />
             <parameter name="Block Follow-up" type="float" val="0.5" />
             <parameter name="Block Skill" type="float" val="0.5" />
-            <parameter name="Can Swap Movesets" type="int" val="1" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
             <parameter name="Cannot Be Disarmed" type="int" val="0" />
             <parameter name="Cannot Throw Weapons" type="int" val="0" />
             <parameter name="Character Scale" type="float" val="1" />
@@ -157,12 +157,13 @@
             <parameter name="Peripheral FOV vertical" type="float" val="0.0100008" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="1" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="player, Ghost" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
             <parameter name="Wearing Metal Bracer" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
@@ -16610,6 +16611,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="cat" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -16687,9 +16689,9 @@
         <EnvObject s0="0.32281" s1="0.32281" s2="0.32281" id="5624" color_r="0.78131" color_g="0.764706" color_b="1" overbright="0" type_file="Data/Objects/therium/rope/rope around stump.xml">
             <parameters />
         </EnvObject>
-        <Group t0="0" t1="-999999" t2="0" s0="0.249258" s1="0.299207" s2="0.191961" q0="0.0505359" q1="0.0337777" q2="-0.0644658" q3="0.996067" euler_x="0.0967334" euler_y="0.0738725" euler_z="-0.125683" id="16774" version="1">
+        <Group t0="0" t1="-999999" t2="0" s0="0.249258" s1="0.299207" s2="0.191961" q0="0.0509331" q1="0.0329392" q2="-0.0650628" q3="0.996036" euler_x="0.0975857" euler_y="0.072308" euler_z="-0.126926" id="16774" version="1">
             <parameters />
-            <Decal t0="0" t1="-999999" t2="0" s0="0.233516" s1="0.159598" s2="0.280917" q0="0.00726954" q1="0.722269" q2="-0.686886" q3="-0.0803877" euler_x="-1.61451" euler_y="-0.106337" euler_z="3.01967" id="16773" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0" t1="-999999" t2="0" s0="0.233516" s1="0.159598" s2="0.280917" q0="0.0082846" q1="0.722553" q2="-0.686594" q3="-0.080239" euler_x="-1.61536" euler_y="-0.104769" euler_z="3.01845" id="16773" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
         </Group>
@@ -16780,6 +16782,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="corpse" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -16876,9 +16879,9 @@
         <EnvObject s0="1.26528" s1="0.780845" s2="0.780842" id="5736" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
             <parameters />
         </EnvObject>
-        <Group t0="0" t1="-999999" t2="0" s0="1.10668" s1="0.531751" s2="1.13631" q0="0.696116" q1="-0.317856" q2="0.504313" q3="0.400073" euler_x="2.19764" euler_y="-1.27459" euler_z="-0.134033" id="4690" version="1">
+        <Group t0="0" t1="-999999" t2="0" s0="1.10668" s1="0.531751" s2="1.13631" q0="0.696116" q1="-0.317856" q2="0.504313" q3="0.400073" euler_x="2.19764" euler_y="-1.27459" euler_z="-0.134031" id="4690" version="1">
             <parameters />
-            <Decal t0="0" t1="-999999" t2="0" s0="0.786661" s1="0.434034" s2="0.786659" q0="-0.794805" q1="0.451391" q2="-0.266537" q3="-0.30576" euler_x="2.79093" euler_y="-0.775011" euler_z="-0.888651" id="1777" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0" t1="-999999" t2="0" s0="0.786661" s1="0.434034" s2="0.786659" q0="-0.794805" q1="0.451391" q2="-0.266537" q3="-0.30576" euler_x="2.79093" euler_y="-0.775012" euler_z="-0.888651" id="1777" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
             <Decal t0="0.0359802" t1="-999999" t2="0.0399933" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.858384" q1="-0.460447" q2="-0.225628" q3="0.0167212" euler_x="2.884" euler_y="0.381112" euler_z="-1.03468" id="3107" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
@@ -27104,6 +27107,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, block" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -31671,6 +31675,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, player" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -38228,6 +38233,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, patri" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -45180,6 +45186,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, waterfront" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -46576,6 +46583,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, block" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -46767,6 +46775,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, block" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -46979,6 +46988,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, block" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -47139,6 +47149,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, block" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -47265,6 +47276,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, waterfront" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -54603,6 +54615,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, player" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -54657,15 +54670,15 @@
         <EnvObject s0="1" s1="1" s2="1" id="16517" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/Gear/dog_armour_grey/dog_armor_shoulder_a.xml">
             <parameters />
         </EnvObject>
-        <Group t0="0" t1="-999999" t2="0" s0="0.816534" s1="0.472502" s2="0.831732" q0="0.481252" q1="0.284757" q2="0.0640091" q3="0.826567" euler_x="1.14773" euler_y="0.421503" euler_z="0.42941" id="16521" version="1">
+        <Group t0="0" t1="-999999" t2="0" s0="0.816534" s1="0.472502" s2="0.831732" q0="0.425189" q1="0.307711" q2="-0.0129013" q3="0.851095" euler_x="1.01052" euler_y="0.564216" euler_z="0.287627" id="16521" version="1">
             <parameters />
-            <Decal t0="0.0835673" t1="-999999" t2="0.00944373" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.354876" q1="-0.306397" q2="-0.122789" q3="0.874719" euler_x="0.892991" euler_y="-0.465504" euler_z="-0.50493" id="16518" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0.0838917" t1="-999999" t2="0.00224728" s0="0.227052" s1="0.227052" s2="0.227052" q0="0.264507" q1="-0.288653" q2="-0.146658" q3="0.908424" euler_x="0.683898" euler_y="-0.463246" euler_z="-0.48763" id="16518" type_file="Data/Objects/Decals/blooddropsplat_tattoo.xml" color_r="0.0745098" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="-0.000384337" t1="-999999" t2="0.000626359" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.257748" q1="0.716648" q2="0.364253" q3="-0.536017" euler_x="1.76862" euler_y="-0.619343" euler_z="-1.93826" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="-0.000384337" t1="-999999" t2="0.000626359" s0="0.557139" s1="0.307397" s2="0.557138" q0="-0.168874" q1="0.728175" q2="0.336125" q3="-0.572953" euler_x="1.74118" euler_y="-0.805093" euler_z="-1.99686" id="16519" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
-            <EnvObject t0="0.13693" t1="-999999" t2="0.02709" s0="0.0265001" s1="0.0265001" s2="0.0265001" q0="0.481256" q1="0.284759" q2="0.0640085" q3="0.826574" euler_x="1.14775" euler_y="0.42151" euler_z="0.429415" id="16520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+            <EnvObject t0="0.138583" t1="-999999" t2="0.0150959" s0="0.0265001" s1="0.0265001" s2="0.0265001" q0="0.425192" q1="0.307713" q2="-0.0129025" q3="0.851102" euler_x="1.01053" euler_y="0.564227" euler_z="0.28763" id="16520" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -54932,6 +54945,7 @@
                 <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
                 <parameter name="Species" type="string" val="rabbit" />
                 <parameter name="Static" type="int" val="1" />
+                <parameter name="Stealth Proficiency" type="int" val="0" />
                 <parameter name="Stick To Nav Mesh" type="int" val="0" />
                 <parameter name="Teams" type="string" val="player, Ghost, cat, guard" />
                 <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -55834,7 +55848,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <PlaceholderObject t0="315.855" t1="-41.5132" t2="108.861" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16837" type_file="" special_type="2">
+    <PlaceholderObject t0="315.854" t1="-41.5132" t2="108.861" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16837" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -55895,7 +55909,7 @@
     <Decal t0="317.134" t1="-47.5524" t2="105.613" s0="0.666667" s1="0.14379" s2="0.97703" q0="-0.707107" q1="0" q2="0" q3="0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="16852" type_file="Data/Objects/Decals/runes/rune_tree.xml" color_r="0.22399" color_g="0.20549" color_b="0.4" overbright="0">
         <parameters />
     </Decal>
-    <PlaceholderObject t0="315.552" t1="-41.5132" t2="108.686" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16853" type_file="" special_type="2">
+    <PlaceholderObject t0="315.551" t1="-41.5132" t2="108.687" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16853" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -55921,7 +55935,7 @@
             <Connection id="54" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="316.118" t1="-41.5134" t2="110.561" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16856" type_file="" special_type="2">
+    <PlaceholderObject t0="316.118" t1="-41.5134" t2="110.562" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16856" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="5633" />
@@ -56014,13 +56028,13 @@
     <Decal t0="117.118" t1="-32.6702" t2="152.374" s0="3.01229" s1="0.475076" s2="3.01229" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="16864" type_file="Data/Objects/therium/Decals/ya.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <PlaceholderObject t0="315.815" t1="-41.5134" t2="110.386" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16865" type_file="" special_type="2">
+    <PlaceholderObject t0="315.814" t1="-41.5134" t2="110.386" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16865" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="315.512" t1="-41.5134" t2="110.211" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16869" type_file="" special_type="2">
+    <PlaceholderObject t0="315.511" t1="-41.5134" t2="110.212" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16869" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -56302,6 +56316,21 @@
             <parameters />
         </EnvObject>
     </Group>
+    <Prefab t0="245.728" t1="-10.6719" t2="87.7817" s0="1.19518" s1="1.19518" s2="1.19518" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16973" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/equipment/charmscript.xml" os0="1.19518" os1="1.19518" os2="1.19518">
+        <parameters />
+        <Hotspot name="Charms" t0="245.728" t1="-10.6719" t2="87.7817" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16972" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+            <parameters>
+                <parameter name="Debug Current Line" type="int" val="0" />
+                <parameter name="Run in EditorMode" type="int" val="1" />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;character_option&quot;:52,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;-- Sparrow Charm&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:17,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;sparrow&quot;]},{&quot;character_option&quot;:52,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;display_comment&quot;:&quot;Sparrow Neutral&quot;,&quot;function&quot;:34},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:10,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:10,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;function&quot;:1,&quot;message&quot;:&quot;enemy_alerted&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/stealth/alert.wav&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:5000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:5},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Khyo Talisman&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:30,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_current_item&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;talisman&quot;]},{&quot;display_comment&quot;:&quot;Talisman Neutral&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;169721&quot;,&quot;ui_function&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;enemy_killed&quot;},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:0,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/stealth/kill.wav&quot;,&quot;sound_type&quot;:0},{&quot;character_message_type&quot;:0,&quot;function&quot;:29,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;message&quot;:&quot;restore_health&quot;},{&quot;color&quot;:[0,0.89411759376525879,1,0.65882354974746704],&quot;fade_in_duration&quot;:300,&quot;fade_in_tween_type&quot;:22,&quot;fade_out_duration&quot;:2000,&quot;fade_out_tween_type&quot;:6,&quot;fullscreen_image_path&quot;:&quot;Data/Textures/talisman_vignette.tga&quot;,&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;169722&quot;,&quot;ui_function&quot;:6,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:300,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:18},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- No Item!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;equipment_change&quot;},{&quot;function&quot;:7,&quot;line&quot;:0}]}&#x0A;' />
+                <parameter name="Show UI Grid" type="int" val="1" />
+                <parameter name="Transform Relative" type="int" val="0" />
+                <parameter name="UI Snap Scale" type="int" val="20" />
+            </parameters>
+            <Connections />
+            <ConnectionsFrom />
+        </Hotspot>
+    </Prefab>
     <PlaceholderObject t0="316.012" t1="-42.2124" t2="111.891" s0="1" s1="1" s2="1" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16978" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level3/adalmeet-gavesome.txt" />
@@ -56322,19 +56351,19 @@
             <Connection id="54" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="316.164" t1="-41.5124" t2="111.978" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16980" type_file="" special_type="2">
+    <PlaceholderObject t0="316.164" t1="-41.5124" t2="111.979" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16980" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="5633" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="315.861" t1="-41.5124" t2="111.803" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16981" type_file="" special_type="2">
+    <PlaceholderObject t0="315.86" t1="-41.5124" t2="111.803" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16981" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="315.558" t1="-41.5124" t2="111.628" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16982" type_file="" special_type="2">
+    <PlaceholderObject t0="315.557" t1="-41.5124" t2="111.629" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16982" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -56360,19 +56389,19 @@
             <Connection id="54" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="316.228" t1="-41.5129" t2="113.506" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16985" type_file="" special_type="2">
+    <PlaceholderObject t0="316.228" t1="-41.5129" t2="113.507" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16985" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="5633" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="315.925" t1="-41.5129" t2="113.331" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16986" type_file="" special_type="2">
+    <PlaceholderObject t0="315.924" t1="-41.5129" t2="113.331" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16986" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="315.622" t1="-41.5129" t2="113.156" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16987" type_file="" special_type="2">
+    <PlaceholderObject t0="315.621" t1="-41.5129" t2="113.157" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16987" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -56404,13 +56433,13 @@
             <Connection id="5633" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="315.862" t1="-41.5121" t2="114.819" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16991" type_file="" special_type="2">
+    <PlaceholderObject t0="315.861" t1="-41.5121" t2="114.819" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16991" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="315.559" t1="-41.5121" t2="114.644" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16992" type_file="" special_type="2">
+    <PlaceholderObject t0="315.558" t1="-41.5121" t2="114.645" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16992" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -56436,19 +56465,19 @@
             <Connection id="54" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="317.745" t1="-41.5172" t2="114.962" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16995" type_file="" special_type="2">
+    <PlaceholderObject t0="317.745" t1="-41.5172" t2="114.963" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16995" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="5633" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="317.442" t1="-41.5172" t2="114.787" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16996" type_file="" special_type="2">
+    <PlaceholderObject t0="317.441" t1="-41.5172" t2="114.787" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16996" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="317.139" t1="-41.5172" t2="114.612" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16997" type_file="" special_type="2">
+    <PlaceholderObject t0="317.138" t1="-41.5172" t2="114.613" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="16997" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -56470,7 +56499,7 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Decal t0="311.597" t1="-46.1069" t2="92.9885" s0="4.44777" s1="4.44777" s2="4.44777" q0="0.562653" q1="0.018795" q2="-0.466758" q3="0.682065" euler_x="1.11664" euler_y="0.583423" euler_z="-0.82947" id="17011" type_file="Data/Objects/Decals/crete_impact.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="311.597" t1="-46.1069" t2="92.9885" s0="4.44777" s1="4.44777" s2="4.44777" q0="0.562653" q1="0.018795" q2="-0.466758" q3="0.682065" euler_x="1.11664" euler_y="0.583424" euler_z="-0.829471" id="17011" type_file="Data/Objects/Decals/crete_impact.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="258.946" t1="-49.0876" t2="28.8855" s0="0.011561" s1="0.011561" s2="0.011561" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="17906" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
@@ -57444,4 +57473,5 @@
     <SpawnerItem display_name="ghostbracers.xml" path="Data/Prefabs/ouruin/equipment/ghostbracers.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Crete Impact [Decal]" path="Data/Objects/Decals/crete_impact.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/crete_impact.png" />
     <SpawnerItem display_name="Start Dialogue Hotspot" path="Data/Objects/Hotspots/start_dialogue.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
+    <SpawnerItem display_name="charmscript.xml" path="Data/Prefabs/ouruin/equipment/charmscript.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>
