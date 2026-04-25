@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="35.4665" t1="-43.6925" t2="3.44679" s0="1" s1="1" s2="1" q0="0.108815" q1="-0.673948" q2="0.10134" q3="0.72366" euler_x="0.298498" euler_y="-1.49969" euler_z="0" id="0">
+    <CameraObject t0="34.891" t1="-36.5106" t2="26.8711" s0="1" s1="1" s2="1" q0="-0.166015" q1="-0.625029" q2="0.138335" q3="-0.750094" euler_x="0.43563" euler_y="1.3894" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <Decal t0="36.4746" t1="-50.6038" t2="61.8414" s0="3.14343" s1="3.14144" s2="0.219877" q0="0.00951225" q1="0" q2="4.5635e-05" q3="0.999955" euler_x="0.0190248" euler_y="0" euler_z="9.12659e-05" id="1" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
@@ -2919,7 +2919,7 @@
     <Decal t0="40.5352" t1="-34.88" t2="49.8952" s0="0.630207" s1="8.72182" s2="0.478472" q0="0" q1="0" q2="0.0261769" q3="0.999657" euler_x="0" euler_y="0" euler_z="0.0523598" id="969" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.564706" color_g="0.5647" color_b="0.5647" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="36.6189" t1="-46.6422" t2="57.0354" s0="0.13953" s1="0.093938" s2="0.13953" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="970" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+    <Decal t0="36.5434" t1="-46.6422" t2="57.0359" s0="0.13953" s1="0.093938" s2="0.13953" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="970" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="39.577" t1="-55.6576" t2="61.3929" s0="2.95651" s1="0.528359" s2="2.67481" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="971" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.458824" color_g="0.458819" color_b="0.458819" overbright="0">
@@ -4044,7 +4044,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
-            <parameter name="Stealth Proficiency" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="player, Ghost" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -4052,7 +4052,7 @@
             <parameter name="Weapon Catch Skill" type="float" val="1" />
             <parameter name="Wearing Metal Armor" type="int" val="0" />
             <parameter name="Wearing Metal Bracer" type="int" val="0" />
-            <parameter name="Wearing Metal Bracers" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="1" />
         </parameters>
         <Connections>
             <Connection id="-1" />
@@ -4555,7 +4555,7 @@
     <EnvObject t0="28.2525" t1="-45.9913" t2="-0.233097" s0="1" s1="1" s2="1.17666" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="1319" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="24.9921" t1="-39.0483" t2="44.1086" s0="0.96018" s1="0.677056" s2="1.04506" q0="0" q1="-0.866253" q2="0" q3="0.499606" euler_x="3.14159" euler_y="-1.04629" euler_z="3.14159" id="1326" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/book2.xml">
+    <EnvObject t0="24.9921" t1="-38.9873" t2="44.1086" s0="0.96018" s1="0.677056" s2="1.04506" q0="0" q1="-0.866253" q2="0" q3="0.499606" euler_x="3.14159" euler_y="-1.04629" euler_z="3.14159" id="1326" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/book2.xml">
         <parameters />
     </EnvObject>
     <EnvObject name="Play Sound Helper" t0="38.6559" t1="-32.9476" t2="28.8938" s0="0.25" s1="0.25" s2="0.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1327" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -4804,7 +4804,7 @@
     <Decal t0="34.843" t1="-35.58" t2="45.1724" s0="1.13603" s1="0.115594" s2="1.18884" q0="0" q1="0.166923" q2="0" q3="0.98597" euler_x="0" euler_y="0.335416" euler_z="0" id="1420" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.137255" color_g="0.137254" color_b="0.137254" overbright="0">
         <parameters />
     </Decal>
-    <EnvObject t0="25.2405" t1="-39.056" t2="43.8232" s0="0.695718" s1="0.695718" s2="0.695718" q0="0" q1="-0.991315" q2="0" q3="0.131508" euler_x="3.14159" euler_y="-0.26378" euler_z="3.14159" id="1421" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/plate.xml">
+    <EnvObject t0="25.2405" t1="-38.995" t2="43.8232" s0="0.695718" s1="0.695718" s2="0.695718" q0="0" q1="-0.991315" q2="0" q3="0.131508" euler_x="3.14159" euler_y="-0.26378" euler_z="3.14159" id="1421" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/plate.xml">
         <parameters />
     </EnvObject>
     <Decal t0="38.3446" t1="-35.572" t2="44.9805" s0="1.04398" s1="0.691549" s2="3.07741" q0="0" q1="-0.283665" q2="0" q3="0.958923" euler_x="0" euler_y="-0.575228" euler_z="0" id="1422" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.137255" color_g="0.137254" color_b="0.137254" overbright="0">
@@ -8540,11 +8540,37 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <PlaceholderObject t0="23.3303" t1="-39.0903" t2="46.0214" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="2545" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/forten-meet.txt" />
+            <parameter name="DisplayName" type="string" val="Forten-Meet" />
+            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="obj_1" type="int" val="2546" />
+            <parameter name="obj_2" type="int" val="2548" />
+            <parameter name="obj_3" type="int" val="2583" />
+            <parameter name="obj_4" type="int" val="2994" />
+        </parameters>
+        <Connections>
+            <Connection id="2545" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="23.6334" t1="-38.6236" t2="46.1964" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="2546" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="40.2701" t1="-54.4428" t2="59.7775" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2547" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters>
             <parameter name="Placeholder Tag" type="string" val="market23332547" />
         </parameters>
     </EnvObject>
+    <PlaceholderObject t0="23.4313" t1="-38.6236" t2="46.0798" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="2548" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3199" />
+        </Connections>
+    </PlaceholderObject>
     <PlaceholderObject t0="32.4114" t1="-46.6803" t2="3.47286" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2549" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/shopfirst.txt" />
@@ -8632,7 +8658,7 @@
             <parameters>
                 <parameter name="Debug Current Line" type="int" val="0" />
                 <parameter name="Run in EditorMode" type="int" val="0" />
-                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Precache&quot;,&quot;function&quot;:34},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185533&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185534&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;18553&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;- Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;count_coin&quot;},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.70196080207824707],&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:6,&quot;fade_out_duration&quot;:1000,&quot;fade_out_tween_type&quot;:22,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;position&quot;:[517,78],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[-503,122],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185515&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;18555&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;position&quot;:[216,103],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_previous_wallet}p&quot;,&quot;ui_element_identifier&quot;:&quot;185516&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-210,0],&quot;move_in_tween_type&quot;:22,&quot;position&quot;:[27,47],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[173,173],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185517&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;display_comment&quot;:&quot;Judge whether gain, loss or neutral&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:17,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:7,&quot;line&quot;:66},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:44,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0.000&quot;]},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Positive gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[0,1,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;18558&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;position&quot;:[229,195],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;+{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;185518&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Add coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Negative gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[1,0,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;185510&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;position&quot;:[227,210],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;185511&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Remove coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Neutral&quot;,&quot;function&quot;:34},{&quot;duration&quot;:3000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Neutral check&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2,3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:71,&quot;function&quot;:32,&quot;if_any_are_true&quot;:true,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;,&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:76},{&quot;display_comment&quot;:&quot;Check for wait&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:76,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_wait&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:68},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Negative/Positive Checks&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:79,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:22},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:82,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:44},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;No change and no wait&quot;,&quot;function&quot;:34},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Conclude&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;185512&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,1],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;ouruin_petals_total&quot;]},{&quot;function&quot;:7,&quot;line&quot;:8}]}&#x0A;' />
+                <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Precache&quot;,&quot;function&quot;:34},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185522&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;position&quot;:[0,0],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[1,1],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185523&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:false,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;18553&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;- Reset!&quot;,&quot;function&quot;:34},{&quot;function&quot;:1,&quot;message&quot;:&quot;count_coin&quot;},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,0.70196080207824707],&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:6,&quot;fade_out_duration&quot;:1000,&quot;fade_out_tween_type&quot;:22,&quot;function&quot;:36,&quot;image_path&quot;:&quot;Textures/ui/menus/main/brushStroke.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;position&quot;:[517,78],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[-503,122],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185519&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:75,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;18555&quot;,&quot;ui_function&quot;:3},{&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[-700,0],&quot;move_in_tween_type&quot;:22,&quot;position&quot;:[216,103],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_previous_wallet}p&quot;,&quot;ui_element_identifier&quot;:&quot;185520&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;animated&quot;:false,&quot;animation_speed&quot;:60,&quot;color&quot;:[1,1,1,1],&quot;function&quot;:36,&quot;image_path&quot;:&quot;Images/ouruin/petal.png&quot;,&quot;keep_aspect&quot;:false,&quot;move_in_duration&quot;:2000,&quot;move_in_offset&quot;:[-210,0],&quot;move_in_tween_type&quot;:22,&quot;position&quot;:[27,47],&quot;position_offset&quot;:[0,0],&quot;rotation&quot;:0,&quot;size&quot;:[173,173],&quot;size_offset&quot;:[0,0],&quot;ui_element_identifier&quot;:&quot;185521&quot;,&quot;ui_function&quot;:1,&quot;use_fade_in&quot;:false,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;display_comment&quot;:&quot;Judge whether gain, loss or neutral&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:17,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_gain_amount&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:7,&quot;line&quot;:66},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:44,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0.000&quot;]},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Positive gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[0,1,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;18558&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;position&quot;:[229,195],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;+{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;18559&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Add coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Negative gain&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[1,0,0,1],&quot;font_name&quot;:&quot;Cella&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;185510&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:3,&quot;fade_out_duration&quot;:250,&quot;fade_out_tween_type&quot;:0,&quot;function&quot;:36,&quot;move_in_duration&quot;:1500,&quot;move_in_offset&quot;:[100,0],&quot;move_in_tween_type&quot;:2,&quot;position&quot;:[227,210],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;{ouruin_wallet_toadd_display}p&quot;,&quot;ui_element_identifier&quot;:&quot;185518&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:true,&quot;use_move_out&quot;:false},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Remove coin&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[3],&quot;parameters&quot;:[&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[2],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;25.000&quot;]},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/coin/coin_add.xml&quot;,&quot;sound_type&quot;:0},{&quot;duration&quot;:100,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:26,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:48,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Neutral&quot;,&quot;function&quot;:34},{&quot;duration&quot;:3000,&quot;function&quot;:2},{&quot;display_comment&quot;:&quot;Neutral check&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2,3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:71,&quot;function&quot;:32,&quot;if_any_are_true&quot;:true,&quot;operatormodes&quot;:[0,0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;,&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:76},{&quot;display_comment&quot;:&quot;Check for wait&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:76,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_wait&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;duration&quot;:1000,&quot;function&quot;:2},{&quot;function&quot;:7,&quot;line&quot;:68},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;Negative/Positive Checks&quot;,&quot;function&quot;:34},{&quot;checkmodes&quot;:[2],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:79,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:22},{&quot;checkmodes&quot;:[3],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:82,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;-1.000&quot;]},{&quot;function&quot;:7,&quot;line&quot;:44},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;No change and no wait&quot;,&quot;function&quot;:34},{&quot;function&quot;:7,&quot;line&quot;:88},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;..&quot;,&quot;function&quot;:34},{&quot;display_comment&quot;:&quot;-- Conclude&quot;,&quot;function&quot;:34},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;185512&quot;,&quot;ui_function&quot;:0},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,1],&quot;parameters&quot;:[&quot;ouruin_wallet_toadd&quot;,&quot;ouruin_wallet_toadd_display&quot;,&quot;ouruin_previous_wallet&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;ouruin_petals_total&quot;]},{&quot;function&quot;:7,&quot;line&quot;:8}]}&#x0A;' />
                 <parameter name="Show UI Grid" type="int" val="1" />
                 <parameter name="Transform Relative" type="int" val="0" />
                 <parameter name="UI Snap Scale" type="int" val="0" />
@@ -8826,6 +8852,12 @@
             <parameter name="Placeholder Tag" type="string" val="market23332582" />
         </parameters>
     </EnvObject>
+    <PlaceholderObject t0="23.2292" t1="-38.6236" t2="45.9631" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="2583" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <PlaceholderObject t0="28.7084" t1="-44.3649" t2="4.93204" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="2584" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/jobthoritz.txt" />
@@ -9651,7 +9683,7 @@
     <EnvObject t0="33.5482" t1="-42.13" t2="47.2626" s0="1.13063" s1="1.67058" s2="0.972919" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2718" color_r="0.266667" color_g="0.238267" color_b="0.189281" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/platform.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="24.9684" t1="-39.0059" t2="42.6297" s0="1" s1="1" s2="1" q0="0" q1="-0.641317" q2="0" q3="0.767276" euler_x="0" euler_y="-1.39243" euler_z="0" id="2719" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/RatJunk/RatJunkBottle.xml">
+    <EnvObject t0="24.9684" t1="-38.9449" t2="42.6297" s0="1" s1="1" s2="1" q0="0" q1="-0.641317" q2="0" q3="0.767276" euler_x="0" euler_y="-1.39243" euler_z="0" id="2719" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/RatJunk/RatJunkBottle.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="40.2483" t1="-35.6817" t2="48.7035" s0="1.21019" s1="1" s2="1.976" q0="-0.5" q1="-0.5" q2="-0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="2744" color_r="0.266667" color_g="0.238267" color_b="0.189281" overbright="0" type_file="Data/Custom/FnB/Objects/Simple Shapes/stonerough/wall.xml">
@@ -10134,7 +10166,7 @@
             </EnvObject>
         </Group>
     </Group>
-    <EnvObject t0="25.0606" t1="-39.0408" t2="42.7075" s0="1" s1="1" s2="1" q0="0.69902" q1="-0.106639" q2="0.106639" q3="0.699019" euler_x="1.5708" euler_y="-0.302776" euler_z="0" id="2902" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/bottle.xml">
+    <EnvObject t0="25.0606" t1="-38.9798" t2="42.7075" s0="1" s1="1" s2="1" q0="0.69902" q1="-0.106639" q2="0.106639" q3="0.699019" euler_x="1.5708" euler_y="-0.302776" euler_z="0" id="2902" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/bottle.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="26.4317" t1="-37.8954" t2="39.5596" s0="4.24186" s1="1.80697" s2="0.493035" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2903" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblock.xml">
@@ -10263,7 +10295,7 @@
             <parameters />
         </EnvObject>
     </Group>
-    <EnvObject t0="24.8886" t1="-39.048" t2="42.9055" s0="1" s1="1" s2="1" q0="-0.584008" q1="-0.398667" q2="-0.398667" q3="0.584008" euler_x="-1.5708" euler_y="-1.19796" euler_z="0" id="2920" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/dog_armor/dog_armor_bag.xml">
+    <EnvObject t0="24.8928" t1="-38.987" t2="42.7991" s0="1" s1="1" s2="1" q0="-0.584008" q1="-0.398667" q2="-0.398667" q3="0.584008" euler_x="-1.5708" euler_y="-1.19796" euler_z="0" id="2920" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Gear/dog_armor/dog_armor_bag.xml">
         <parameters />
     </EnvObject>
     <Decal t0="35.2723" t1="-40.592" t2="41.967" s0="0.895229" s1="0.176835" s2="0.895229" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="2921" type_file="Data/Objects/Decals/runes/rune_forest.xml" color_r="0.465986" color_g="0" color_b="0.584314" overbright="0">
@@ -10393,7 +10425,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="0" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_intro_played&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;billboard_type&quot;:0,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:31,&quot;image_color&quot;:[1,1,1,1],&quot;image_path&quot;:&quot;Data/Images/icon-door.png&quot;,&quot;image_size&quot;:0.5,&quot;overbright&quot;:0,&quot;placeholder_id&quot;:2935,&quot;placeholder_tag&quot;:&quot;market29462935&quot;,&quot;reference_string&quot;:&quot;Market Exit Icon&quot;},{&quot;continue_if_false&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:2931,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:10,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;use_prompt&quot;:false},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_known_target&quot;:&quot;Market Exit&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_known_target&quot;:3,&quot;proximity_distance&quot;:3,&quot;state_check&quot;:13,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:24,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:7,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;display_comment&quot;:&quot;-- Choice&quot;,&quot;function&quot;:34},{&quot;billboard_type&quot;:4,&quot;function&quot;:31,&quot;reference_string&quot;:&quot;Market Exit Icon&quot;},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,1,1,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:48,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:true,&quot;use_voice_sounds&quot;:true},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_idle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[38.406013488769531,-38.383056640625,26.997276306152344],&quot;target_actor_rotation&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:2609,&quot;placeholder_tag&quot;:&quot;market29462609&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:2949,&quot;placeholder_tag&quot;:&quot;market29462949&quot;},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[37.406368255615234,-37.606193542480469,26.18147087097168],&quot;target_camera_rotation&quot;:[-7.1010980606079102,-111.35085296630859,-0.034342832863330841],&quot;target_camera_zoom&quot;:71.239418029785156},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;choice_1&quot;:&quot;Exit to Moritz Hood&quot;,&quot;choice_1_go_to_line&quot;:22,&quot;choice_2&quot;:&quot;[ Nevermind ]&quot;,&quot;choice_2_go_to_line&quot;:32,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:2,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;- Exit to Moritz Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[38.406013488769531,-38.383056640625,26.997276306152344],&quot;target_actor_rotation&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:2951,&quot;placeholder_tag&quot;:&quot;market29462951&quot;},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/lanterntouch.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/doors/door_A_creak.xml&quot;,&quot;sound_type&quot;:0},{&quot;dialogue_function&quot;:9,&quot;fade_to_black_duration&quot;:1.5,&quot;function&quot;:33,&quot;target_fade_to_black&quot;:1},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,2],&quot;parameters&quot;:[&quot;ouruin_intro_played&quot;,&quot;ouruin_explore_state&quot;,&quot;ouruin_progress&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;0.1&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;loadlevel \&quot;Data/Levels/ouruin/level1_explore.xml\&quot;&quot;},{&quot;function&quot;:1,&quot;message&quot;:&quot;done&quot;},{&quot;display_comment&quot;:&quot;- Nevermind&quot;,&quot;function&quot;:34},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:3228,&quot;placeholder_tag&quot;:&quot;market29463228&quot;},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;function&quot;:7,&quot;line&quot;:2}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_intro_played&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;billboard_type&quot;:0,&quot;bounding_box&quot;:[1,1,1],&quot;function&quot;:31,&quot;image_color&quot;:[1,1,1,1],&quot;image_path&quot;:&quot;Data/Images/icon-door.png&quot;,&quot;image_size&quot;:0.5,&quot;overbright&quot;:0,&quot;placeholder_id&quot;:2935,&quot;placeholder_tag&quot;:&quot;market29462935&quot;,&quot;reference_string&quot;:&quot;Market Exit Icon&quot;},{&quot;continue_if_false&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:2931,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;reference_string&quot;:&quot;&quot;},{&quot;function&quot;:26,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;input_count&quot;:1,&quot;input_identifier&quot;:10,&quot;input_mode&quot;:0,&quot;input_type&quot;:0,&quot;inputline0&quot;:2,&quot;multi_input_buttons&quot;:[0],&quot;multi_input_others&quot;:[&quot;w&quot;],&quot;multi_input_type&quot;:0,&quot;multi_input_types&quot;:[0],&quot;use_prompt&quot;:false},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_known_target&quot;:&quot;Market Exit&quot;,&quot;identifier_type&quot;:3,&quot;identifier_type_known_target&quot;:3,&quot;proximity_distance&quot;:3,&quot;state_check&quot;:13,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:0,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:true,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:24,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:4,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;ccs_mode&quot;:0,&quot;check_all&quot;:false,&quot;check_all_known&quot;:false,&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:2,&quot;equals&quot;:false,&quot;function&quot;:23,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;state_check&quot;:7,&quot;variable_prefix&quot;:&quot;character_var&quot;},{&quot;display_comment&quot;:&quot;-- Choice&quot;,&quot;function&quot;:34},{&quot;billboard_type&quot;:4,&quot;function&quot;:31,&quot;reference_string&quot;:&quot;Market Exit Icon&quot;},{&quot;dialogue_function&quot;:11,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;dialogue_function&quot;:10,&quot;dialogue_layout&quot;:1,&quot;dialogue_location&quot;:0,&quot;dialogue_text_color&quot;:[1,1,1,1],&quot;dialogue_text_font&quot;:&quot;Data/Fonts/arial.ttf&quot;,&quot;dialogue_text_shadow&quot;:true,&quot;dialogue_text_size&quot;:48,&quot;dialogue_text_speed&quot;:125,&quot;function&quot;:33,&quot;show_avatar&quot;:false,&quot;show_names&quot;:true,&quot;use_voice_sounds&quot;:true},{&quot;dialogue_control&quot;:true,&quot;dialogue_function&quot;:13,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/r_idle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[38.406013488769531,-38.383056640625,26.997276306152344],&quot;target_actor_rotation&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:2609,&quot;placeholder_tag&quot;:&quot;market29462609&quot;},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:4,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:2949,&quot;placeholder_tag&quot;:&quot;market29462949&quot;},{&quot;add_camera_shake&quot;:false,&quot;camera_transition&quot;:0,&quot;dialogue_function&quot;:8,&quot;dof_settings&quot;:[0,0,0,0,0,0],&quot;enable_look_at_target&quot;:false,&quot;enable_move_with_target&quot;:false,&quot;function&quot;:33,&quot;target_camera_position&quot;:[37.406368255615234,-37.606193542480469,26.18147087097168],&quot;target_camera_rotation&quot;:[-7.1010980606079102,-111.35085296630859,-0.034342832863330841],&quot;target_camera_zoom&quot;:71.239418029785156},{&quot;check_parameter_1&quot;:false,&quot;check_parameter_2&quot;:false,&quot;choice_1&quot;:&quot;Exit to Moritz Hood&quot;,&quot;choice_1_go_to_line&quot;:22,&quot;choice_2&quot;:&quot;[ Nevermind ]&quot;,&quot;choice_2_go_to_line&quot;:32,&quot;click_sound_path&quot;:&quot;Data/Sounds/ui_click.xml&quot;,&quot;dialogue_function&quot;:14,&quot;function&quot;:33,&quot;hover_sound_path&quot;:&quot;Data/Sounds/ui_hover.xml&quot;,&quot;nr_choices&quot;:2,&quot;ui_sounds&quot;:true},{&quot;display_comment&quot;:&quot;- Exit to Moritz Hood&quot;,&quot;function&quot;:34},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[38.406013488769531,-38.383056640625,26.997276306152344],&quot;target_actor_rotation&quot;:0},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:2951,&quot;placeholder_tag&quot;:&quot;market29462951&quot;},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/lanterntouch.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;ai_sound&quot;:false,&quot;function&quot;:6,&quot;gain&quot;:1,&quot;max_range&quot;:5,&quot;play_sound_method&quot;:4,&quot;priority&quot;:0,&quot;sound_path&quot;:&quot;Data/Sounds/ouruin/doors/door_A_creak.xml&quot;,&quot;sound_type&quot;:0},{&quot;dialogue_function&quot;:9,&quot;fade_to_black_duration&quot;:1.5,&quot;function&quot;:33,&quot;target_fade_to_black&quot;:1},{&quot;duration&quot;:2000,&quot;function&quot;:2},{&quot;checkmodes&quot;:[0,0,0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0,0,2],&quot;parameters&quot;:[&quot;ouruin_intro_played&quot;,&quot;ouruin_explore_state&quot;,&quot;ouruin_progress&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;0.1&quot;]},{&quot;function&quot;:10,&quot;level_message_type&quot;:0,&quot;message&quot;:&quot;loadlevel \&quot;Data/Levels/ouruin/level1_explore.xml\&quot;&quot;},{&quot;function&quot;:1,&quot;message&quot;:&quot;done&quot;},{&quot;display_comment&quot;:&quot;- Nevermind&quot;,&quot;function&quot;:34},{&quot;bounding_box&quot;:[1,1,1],&quot;dialogue_function&quot;:6,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Ghost&quot;,&quot;identifier_type&quot;:3,&quot;placeholder_id&quot;:3228,&quot;placeholder_tag&quot;:&quot;market29463228&quot;},{&quot;dialogue_function&quot;:12,&quot;function&quot;:33,&quot;use_fade&quot;:true},{&quot;function&quot;:7,&quot;line&quot;:2}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -11373,6 +11405,12 @@
     <EnvObject t0="39.6892" t1="-42.3203" t2="43.0696" s0="0.4855" s1="0.29979" s2="0.460956" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="2993" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_block.xml">
         <parameters />
     </EnvObject>
+    <PlaceholderObject t0="23.0272" t1="-38.6236" t2="45.8464" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="2994" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject t0="31.2234" t1="-34.4568" t2="44.7039" s0="0.57439" s1="0.590606" s2="0.511533" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="2995" color_r="1" color_g="0.999993" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
         <parameters />
     </EnvObject>
@@ -11508,12 +11546,12 @@
     <EnvObject t0="25.7962" t1="-31.1915" t2="43.3642" s0="0.454627" s1="0.134704" s2="0.513909" q0="0.707107" q1="0" q2="-0.707107" q3="0" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3035" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/window_block.xml">
         <parameters />
     </EnvObject>
-    <Group t0="21.821" t1="-35.5896" t2="43.2919" s0="4.25769" s1="0.943037" s2="1.31752" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="3042" version="1">
+    <Group t0="21.7989" t1="-35.5896" t2="43.2919" s0="4.25769" s1="0.943037" s2="1.31752" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="3042" version="1">
         <parameters />
-        <EnvObject t0="21.821" t1="-35.4024" t2="43.2919" s0="0.219408" s1="0.146271" s2="0.250636" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="3040" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="21.7989" t1="-35.4024" t2="43.2919" s0="0.219408" s1="0.146271" s2="0.250636" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="3040" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
-        <EnvObject t0="21.821" t1="-35.8703" t2="43.2919" s0="0.219408" s1="-0.0975145" s2="0.250636" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="3041" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
+        <EnvObject t0="21.7989" t1="-35.8703" t2="43.2919" s0="0.219408" s1="-0.0975145" s2="0.250636" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="3041" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/long_trim.xml">
             <parameters />
         </EnvObject>
     </Group>
@@ -11734,7 +11772,7 @@
             <Decal t0="26.4759" t1="-37.0357" t2="43.3838" s0="0.403697" s1="0.391844" s2="0.402859" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3109" type_file="Data/Objects/Decals/light_square.xml" color_r="0" color_g="0.494117" color_b="1" overbright="0">
                 <parameters />
             </Decal>
-            <Decal t0="26.485" t1="-36.7813" t2="43.3753" s0="0.803746" s1="0.293656" s2="0.803746" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3110" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
+            <Decal t0="26.485" t1="-36.5361" t2="43.3753" s0="0.803746" s1="0.992879" s2="0.803746" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3110" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.0352941" color_g="0.0352938" color_b="0.0352938" overbright="0">
                 <parameters />
             </Decal>
         </Group>
@@ -11748,18 +11786,33 @@
     <EnvObject t0="39.5867" t1="-39.3704" t2="42.2388" s0="1" s1="1" s2="1" q0="0" q1="-0.0406292" q2="0" q3="0.999174" euler_x="0" euler_y="-0.0812807" euler_z="0" id="3115" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/shop_display.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="25.1449" t1="-39.4172" t2="43.3228" s0="0.657354" s1="0.657354" s2="0.657354" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3116" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_Table2.xml">
+    <EnvObject t0="25.1449" t1="-39.3836" t2="43.3228" s0="0.657354" s1="0.708872" s2="0.657354" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3116" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Prototypes/CaveArena/Crate_Table2.xml">
         <parameters />
     </EnvObject>
-    <Group t0="24.363" t1="-39.2754" t2="43.311" s0="0.444746" s1="0.965387" s2="0.448263" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3119" version="1">
+    <PathPointObject t0="24.5824" t1="-40.1027" t2="43.3149" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3117" type_file="">
+        <parameters>
+            <parameter name="Type" type="string" val="Data/Animations/thoritz_sithead.anm" />
+            <parameter name="Wait" type="float" val="1" />
+        </parameters>
+        <Connections />
+    </PathPointObject>
+    <EnvObject t0="24.5109" t1="-39.5507" t2="43.2944" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/shop_stool.xml">
         <parameters />
-        <EnvObject t0="24.1772" t1="-39.081" t2="43.3101" s0="0.5428" s1="0.635384" s2="1" q0="-0.5" q1="0.5" q2="-0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="-1.5708" id="3117" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_short_board.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="24.363" t1="-39.5445" t2="43.3114" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3118" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/shop_stool.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
+    </EnvObject>
+    <PlaceholderObject t0="24.3417" t1="-39.0896" t2="46.0221" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3119" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/forten-meet-job.txt" />
+            <parameter name="DisplayName" type="string" val="FortenMeet-Job" />
+            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="obj_1" type="int" val="3236" />
+            <parameter name="obj_2" type="int" val="3345" />
+            <parameter name="obj_3" type="int" val="3703" />
+            <parameter name="obj_4" type="int" val="3706" />
+        </parameters>
+        <Connections>
+            <Connection id="3119" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject t0="35.3229" t1="-35.5592" t2="49.6788" s0="1.68462" s1="1.43189" s2="1.34601" q0="-0.501305" q1="0.499956" q2="0.498694" q3="0.500041" euler_x="-2.32352" euler_y="1.56695" euler_z="-0.752746" id="3123" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
         <parameters />
     </EnvObject>
@@ -11988,7 +12041,7 @@
     <Decal t0="35.4498" t1="-41.9185" t2="42.4846" s0="7.33017" s1="1.25939" s2="2.21382" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3198" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.223529" color_g="0.223527" color_b="0.223527" overbright="0">
         <parameters />
     </Decal>
-    <ActorObject name="Forten" t0="23.7679" t1="-39.2989" t2="44.386" s0="1" s1="1" s2="1" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3199" type_file="Data/Objects/characters/rabbits/male_rabbit_1_actor.xml" is_player="0">
+    <ActorObject name="Forten" t0="24.6056" t1="-38.9258" t2="43.3041" s0="0.197531" s1="0.197531" s2="0.197531" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="3199" type_file="Data/Objects/characters/rabbits/male_rabbit_1_actor.xml" is_player="0">
         <parameters>
             <parameter name="Aggression" type="float" val="0.5" />
             <parameter name="Attack Damage" type="float" val="1" />
@@ -12012,7 +12065,7 @@
             <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
             <parameter name="Focus FOV vertical" type="float" val="0.62834" />
             <parameter name="Ground Aggression" type="float" val="0.5" />
-            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Idle Sway" type="float" val="0" />
             <parameter name="Jump - Air Control" type="float" val="3" />
             <parameter name="Jump - Initial Velocity" type="float" val="5" />
             <parameter name="Jump - Jump Sustain" type="float" val="5" />
@@ -12022,7 +12075,7 @@
             <parameter name="Movement Speed" type="float" val="1" />
             <parameter name="Muscle" type="float" val="0.54815" />
             <parameter name="No Idle Movement" type="int" val="0" />
-            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="No Look Around" type="int" val="1" />
             <parameter name="Peripheral FOV distance" type="float" val="4" />
             <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
@@ -12038,7 +12091,7 @@
             <parameter name="Wearing Metal Bracers" type="int" val="0" />
         </parameters>
         <Connections>
-            <Connection id="3199" />
+            <Connection id="3117" />
         </Connections>
         <ItemConnections />
         <Palette>
@@ -12049,8 +12102,8 @@
         </Palette>
         <EnvObjectAttachments>
             <EnvObjectAttachment>
-                <BoneConnect bone_id="2" num_connections="2" m0="-0.997837" m1="0.0310301" m2="-0.0579471" m3="0" m4="0.0357049" m5="-0.484305" m6="-0.874171" m7="0" m8="-0.0551897" m9="-0.874349" m10="0.482149" m11="0" m12="-0.00736237" m13="0.32085" m14="-0.0284538" m15="1" />
-                <BoneConnect bone_id="30" num_connections="0" m0="-0.999595" m1="0.0271204" m2="0.0085822" m3="0" m4="-0.0225343" m5="-0.570838" m6="-0.820753" m7="0" m8="-0.0173602" m9="-0.820614" m10="0.571218" m11="0" m12="-0.00714493" m13="0.317104" m14="-0.0168934" m15="1" />
+                <BoneConnect bone_id="2" num_connections="2" m0="-0.997839" m1="0.0309715" m2="-0.0579491" m3="0" m4="0.0357213" m5="-0.48452" m6="-0.87405" m7="0" m8="-0.0551481" m9="-0.874232" m10="0.482367" m11="0" m12="-0.00779724" m13="0.33374" m14="-0.0249977" m15="1" />
+                <BoneConnect bone_id="30" num_connections="0" m0="-0.996968" m1="0.0704636" m2="-0.0330094" m3="0" m4="-0.0124926" m5="-0.563661" m6="-0.825912" m7="0" m8="-0.0768028" m9="-0.822996" m10="0.562832" m11="0" m12="-0.0112648" m13="0.327883" m14="-0.0179825" m15="1" />
                 <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
                 <BoneConnect bone_id="-1" num_connections="0" m0="1" m1="0" m2="0" m3="0" m4="0" m5="1" m6="0" m7="0" m8="0" m9="0" m10="1" m11="0" m12="0" m13="0" m14="0" m15="1" />
             </EnvObjectAttachment>
@@ -12122,7 +12175,7 @@
     <Decal t0="24.8138" t1="-39.7162" t2="43.3488" s0="1.29047" s1="1.02831" s2="5.04605" q0="0" q1="0" q2="0.258819" q3="0.965926" euler_x="0" euler_y="0" euler_z="0.523599" id="3210" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.2" color_g="0.199998" color_b="0.199998" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="25.0932" t1="-39.3607" t2="43.2351" s0="0.770201" s1="0.579088" s2="3.56674" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3211" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.101961" color_g="0.10196" color_b="0.10196" overbright="0">
+    <Decal t0="25.0932" t1="-39.4362" t2="43.2351" s0="0.770201" s1="0.730086" s2="3.56674" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3211" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.101961" color_g="0.10196" color_b="0.10196" overbright="0">
         <parameters />
     </Decal>
     <EnvObject t0="31.2739" t1="-38.1446" t2="47.6412" s0="0.39372" s1="0.441824" s2="0.381637" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="3212" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
@@ -12191,6 +12244,12 @@
             <parameters />
         </EnvObject>
     </Group>
+    <PlaceholderObject t0="24.6448" t1="-38.6229" t2="46.1971" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3236" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject name="Billboard Helper" t0="45.0433" t1="-54.2515" t2="55.0183" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3239" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters>
             <parameter name="Placeholder Tag" type="string" val="market23333239" />
@@ -12503,6 +12562,12 @@
     <Decal t0="45.7423" t1="-54.3781" t2="58.0503" s0="0.358957" s1="3.17696" s2="0.358957" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3344" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.454902" color_g="0.454897" color_b="0.454897" overbright="0">
         <parameters />
     </Decal>
+    <PlaceholderObject t0="24.4427" t1="-38.6229" t2="46.0804" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3345" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3199" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject name="Billboard Helper" t0="40.1315" t1="-37.6273" t2="26.9997" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3346" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters>
             <parameter name="Placeholder Tag" type="string" val="market23333346" />
@@ -12559,7 +12624,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="0" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;continue_if_false&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:3361,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:1218,&quot;identifier_type&quot;:4,&quot;reference_string&quot;:&quot;&quot;},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_nedis_talked&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;dialogue_name&quot;:&quot;ShopFirst&quot;,&quot;function&quot;:11},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_nedis_talked&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_indialogue&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;arial&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;33601&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:22,&quot;fade_out_duration&quot;:1500,&quot;fade_out_tween_type&quot;:2,&quot;function&quot;:36,&quot;position&quot;:[103,115],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Press [Pick-Up] to inspect and purchase items&quot;,&quot;ui_element_identifier&quot;:&quot;33608&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:4000,&quot;function&quot;:2},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;33603&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;Done&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;continue_if_false&quot;:false,&quot;external_hotspot&quot;:true,&quot;external_hotspot_id&quot;:3361,&quot;function&quot;:8,&quot;hotspot_trigger_type&quot;:0,&quot;identifier&quot;:1218,&quot;identifier_type&quot;:4,&quot;reference_string&quot;:&quot;&quot;},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:true,&quot;continue_line&quot;:7,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_nedis_talked&quot;],&quot;read_write_mode&quot;:0,&quot;values&quot;:[&quot;0&quot;]},{&quot;dialogue_name&quot;:&quot;ShopFirst&quot;,&quot;function&quot;:11},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_nedis_talked&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;checkmodes&quot;:[0],&quot;continue_if_false&quot;:false,&quot;function&quot;:32,&quot;if_any_are_true&quot;:false,&quot;operatormodes&quot;:[0],&quot;parameters&quot;:[&quot;ouruin_shop_indialogue&quot;],&quot;read_write_mode&quot;:1,&quot;values&quot;:[&quot;1&quot;]},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;display_comment&quot;:&quot;.&quot;,&quot;function&quot;:34},{&quot;font_color&quot;:[1,1,1,1],&quot;font_name&quot;:&quot;arial&quot;,&quot;font_size&quot;:48,&quot;function&quot;:36,&quot;shadowed&quot;:true,&quot;ui_element_identifier&quot;:&quot;33601&quot;,&quot;ui_function&quot;:3},{&quot;fade_in_duration&quot;:2000,&quot;fade_in_tween_type&quot;:22,&quot;fade_out_duration&quot;:1500,&quot;fade_out_tween_type&quot;:2,&quot;function&quot;:36,&quot;position&quot;:[103,115],&quot;rotation&quot;:0,&quot;text_content&quot;:&quot;Press [Pick-Up] to inspect and purchase items&quot;,&quot;ui_element_identifier&quot;:&quot;33604&quot;,&quot;ui_function&quot;:2,&quot;use_fade_in&quot;:true,&quot;use_fade_out&quot;:true,&quot;use_move_in&quot;:false,&quot;use_move_out&quot;:false},{&quot;duration&quot;:4000,&quot;function&quot;:2},{&quot;function&quot;:36,&quot;ui_element_identifier&quot;:&quot;33603&quot;,&quot;ui_function&quot;:0},{&quot;display_comment&quot;:&quot;Done&quot;,&quot;function&quot;:34}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -12980,6 +13045,12 @@
             <parameter name="Placeholder Tag" type="string" val="market26813702" />
         </parameters>
     </EnvObject>
+    <PlaceholderObject t0="24.2407" t1="-38.6229" t2="45.9637" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3703" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <EnvObject t0="28.0414" t1="-46.6735" t2="-0.0589179" s0="2.14972" s1="0.435739" s2="0.29059" q0="-0.0519519" q1="0" q2="0" q3="0.99865" euler_x="-0.103951" euler_y="0" euler_z="0" id="3704" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/invisibleblockwood.xml">
         <parameters />
     </EnvObject>
@@ -12988,6 +13059,12 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
+    <PlaceholderObject t0="24.0386" t1="-38.6229" t2="45.8471" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3706" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <Prefab t0="39.9445" t1="-30.342" t2="13.4685" s0="1.19518" s1="1.19518" s2="1.19518" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3707" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/equipment/charmscript.xml" os0="1.19518" os1="1.19518" os2="1.19518">
         <parameters />
         <Hotspot name="Charms" t0="39.9445" t1="-30.342" t2="13.4685" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2303" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
@@ -13003,6 +13080,120 @@
             <ConnectionsFrom />
         </Hotspot>
     </Prefab>
+    <PlaceholderObject t0="23.3035" t1="-37.8215" t2="45.9916" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3708" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/forten-confront.txt" />
+            <parameter name="DisplayName" type="string" val="Forten-Confront" />
+            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="obj_1" type="int" val="3709" />
+            <parameter name="obj_2" type="int" val="3710" />
+            <parameter name="obj_3" type="int" val="3711" />
+            <parameter name="obj_4" type="int" val="3712" />
+        </parameters>
+        <Connections>
+            <Connection id="3708" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="23.6066" t1="-37.3549" t2="46.1666" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3709" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="23.4045" t1="-37.3549" t2="46.0499" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3710" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3199" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="23.2024" t1="-37.3549" t2="45.9333" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3711" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="23.0004" t1="-37.3549" t2="45.8166" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3712" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="24.3131" t1="-37.8242" t2="45.9915" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3713" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/forten-confront-cleared.txt" />
+            <parameter name="DisplayName" type="string" val="Forten-Confront-Cleared" />
+            <parameter name="NumParticipants" type="int" val="4" />
+            <parameter name="obj_1" type="int" val="3714" />
+            <parameter name="obj_2" type="int" val="3715" />
+            <parameter name="obj_3" type="int" val="3716" />
+            <parameter name="obj_4" type="int" val="3717" />
+        </parameters>
+        <Connections>
+            <Connection id="3713" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="24.6162" t1="-37.3575" t2="46.1665" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3714" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="24.4141" t1="-37.3575" t2="46.0498" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3715" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3199" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="24.2121" t1="-37.3575" t2="45.9331" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3716" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="24.01" t1="-37.3575" t2="45.8165" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3717" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.3079" t1="-37.8325" t2="45.9756" s0="0.666667" s1="0.666667" s2="0.666667" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3718" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/forten-confront-job.txt" />
+            <parameter name="DisplayName" type="string" val="Forten-Confront-Job" />
+            <parameter name="NumParticipants" type="string" val="4" />
+            <parameter name="obj_1" type="int" val="3719" />
+            <parameter name="obj_2" type="int" val="3720" />
+            <parameter name="obj_3" type="int" val="3721" />
+            <parameter name="obj_4" type="int" val="3722" />
+        </parameters>
+        <Connections>
+            <Connection id="3718" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.611" t1="-37.3659" t2="46.1506" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3719" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.409" t1="-37.3659" t2="46.0339" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3720" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3199" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.2069" t1="-37.3659" t2="45.9172" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3721" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.0048" t1="-37.3659" t2="45.8006" s0="0.2" s1="0.2" s2="0.2" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3722" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Ghost" path="Data/Objects/therium/IGF_Characters/ghostspawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
@@ -13917,4 +14108,7 @@
     <SpawnerItem display_name="No Grab Zone" path="Data/Objects/Hotspots/no_grab.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/empty.png" />
     <SpawnerItem display_name="Therium Level Hotspot" path="Data/Objects/therium/Hotspots/therium_level.xml" thumbnail_path="Data/Textures/therium/logo256.png" />
     <SpawnerItem display_name="charmscript.xml" path="Data/Prefabs/ouruin/equipment/charmscript.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="AI Pathing Point" path="Data/Objects/pathpoint/pathpoint.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/pathpoint.png" />
+    <SpawnerItem display_name="Ambient Light Decal (Round)" path="Data/Objects/Decals/light_round.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Drika&apos;s Hotspot (DHS)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
 </RecentItems>

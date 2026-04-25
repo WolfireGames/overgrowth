@@ -1,0 +1,63 @@
+#name "Forten-Confront-Cleared"
+#participants 4
+set_character_pos 2 24.6056 -38.9258 43.3041 0
+send_character_message 2 "set_animation \"Data/Animations/forten_sithead.anm\""
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0.18059"
+send_character_message 2 "set_torso_target 25.0999 -38.9631 43.589 0"
+send_character_message 2 "set_head_target 25.3908 -39.07 43.2114 7.4476e-05"
+set_character_pos 1 26.138 -39.3398 42.6345 -154
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 25.5127 -38.0478 42.6642 1"
+send_character_message 1 "set_torso_target 25.5822 -38.8635 42.7846 0.00561768"
+send_character_message 1 "set_head_target 24.7067 -38.6446 42.4547 1"
+set_cam 24.1099 -38.6435 44.6839 -4.63 -32.39 0 43.1462
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 101 139 54
+set_dialogue_voice 2 15
+set_dialogue_color 4 101 139 54
+set_dialogue_voice 4 15
+say 1 "Ghost" "So... [wait 0.1]You messed up, [wait 0.05]and now the depot's filled with snakes. [wait 0.1]Is that right?"
+send_character_message 1 "set_eye_dir 25.4085 -38.8224 43.5161 1"
+send_character_message 1 "set_head_target 24.6617 -38.7874 42.4849 1"
+send_character_message 2 "set_head_target 25.3908 -39.07 43.2114 1"
+say 2 "Forten" "Close enough."
+send_character_message 2 "set_head_target 25.3858 -39.0947 43.2151 1"
+send_character_message 1 "set_head_target 24.553 -38.6006 42.0408 1"
+say 1 "Ghost" "There's more to it?"
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0"
+send_character_message 1 "set_eye_dir 25.4085 -38.8224 43.5161 0.761511"
+send_character_message 1 "set_head_target 24.533 -38.752 42.1775 1"
+say 2 "Forten" "No."
+send_character_message 1 "set_head_target 24.5225 -39.1975 42.4871 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+say 1 "Ghost" "So what, [wait 0.05]it's just not worth talking about?"
+send_character_message 1 "set_head_target 24.536 -38.9706 42.6621 1"
+send_character_message 2 "set_head_target 25.4552 -38.8606 43.2806 0.9941"
+send_character_message 2 "set_animation \"Data/Animations/forten_sithead_both.anm\""
+say 2 "Forten" "With you? [wait 0.05]No. [wait 0.1]You can't fix what's gone wrong."
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0"
+send_character_message 1 "set_head_target 24.9274 -38.6105 43.2107 1"
+send_character_message 2 "set_head_target 25.3657 -38.9789 43.2466 0.9941"
+set_cam 23.4052 -38.1119 40.9961 -16.15 -137.38 0 50.3478
+say 1 "Ghost" "You don't want things to work out? [wait 0.05]Or do you just doubt it?"
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0.289975"
+send_character_message 1 "set_eye_dir 25.4201 -38.0893 43.8383 1"
+send_character_message 1 "set_head_target 25.1602 -38.5424 43.121 1"
+send_character_message 2 "set_head_target 25.4669 -39.0174 43.14 0.00316086"
+say 2 "Forten" "...[wait 0.1]I was a dead man walking, [wait 0.05]from the very start. [wait 0.1]Now let me be."
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0"
+send_character_message 1 "set_head_target 25.4262 -38.3929 43.5962 1"
+say 1 "Ghost" "You talking about the snakes in the depot? [wait 0.05]They're cleared out of there, [wait 0.05]now."
+send_character_message 1 "set_head_target 25.0452 -38.5829 42.9921 1"
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0.421767"
+send_character_message 2 "set_head_target 25.386 -39.0301 43.0807 1"
+send_character_message 2 "set_animation \"Data/Animations/forten_sit_shift.anm\""
+say 2 "Forten" "...[wait 0.1]Huh? [wait 0.05]The hell did you just say...[wait 0.05]?"
+send_character_message 1 "set_head_target 24.9182 -38.7614 43.0856 1"
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0.674888"
+send_character_message 2 "set_head_target 25.5942 -38.7739 42.8956 1"
+say 2 "Forten" "Who was responsible for that...[wait 0.05]?"
+send_level_message "dialogue_done"

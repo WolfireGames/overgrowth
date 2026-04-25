@@ -3,5 +3,5 @@
     <Song name="drownedstealth_ambient-tense" type="single" file_path="Data/Music/stealth1.ogg"           />
     <Song name="drownedstealth_ambient-happy" type="single" file_path="Data/Music/ouruin/streets_calm.ogg"			/>
     <Song name="drownedstealth_combat"        type="single" file_path="Data/Music/lugaru2_combat2.ogg"				/>
-    <Song name="drownedstealth_sad"           type="single" file_path="Data/Music/Overgrowth_AcrossTheDarkLan.ogg"						/>
+    <Song name="drownedstealth_sad"           type="single" file_path="Data/Music/stealth1.ogg"						/>
 </Music>

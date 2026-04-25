@@ -1,0 +1,52 @@
+#name "Gaggle-Meet"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 101 139 54
+set_dialogue_voice 2 15
+set_dialogue_color 4 101 139 54
+set_dialogue_voice 4 15
+
+say 1 "Ghost" "(This must be the guys Forten told me about... [wait 0.1]I'll ask them what's up.)"
+
+say 3 "???" "...[wait 0.1]And that's their idea of support?"
+
+say 2 "????" "I'm not kidding you. [wait 0.1]Chancellor Elke outright admitted it."
+
+say 2 "????" "It earned him cheers... [wait 0.1]It was horrible!"
+
+say 1 "Ghost" "*knock*, [wait 0.05]*knock*"
+
+say 1 "Ghost" "Hey, [wait 0.05]all. [wait 0.1]Forten sent me."
+
+say 1 "Ghost" "..."
+
+say 3 "???" "...[wait 0.1]What for?"
+
+say 1 "Ghost" "The snakes that robbed his place. [wait 0.1]What's the big deal?"
+
+say 3 "???" "[wait 0.1]Oh boy..."
+
+say 2 "????" "Are you sure he didn't misplace his words? [wait 0.05]He's had such an awful habit of doing that!"
+
+say 3 "???" "Misplacing things--[wait 0.1]Very important things! [wait 0.05]Things like, [wait 0.05]say, [wait 0.05]the keys to the damn depot!?"
+
+say 2 "????" "Now they've got it all to themselves! [wait 0.05]Better yet, [wait 0.05]Forten's too pissed to do anything about it!"
+
+say 3 "???" "Yeah, [wait 0.05]like Vando said! [wait 0.05]He keeps losing things; First his dirt, [wait 0.05]then his depot, [wait 0.05]and soon his job!"
+
+say 3 "???" "Mark my words, [wait 0.05]as soon as word travels up the chain, [wait 0.05]Forten is done for."
+
+say 2 "Vando" "You sure he isn't already done for, [wait 0.05]Erdi? [wait 0.05]He's been nodding off constantly, [wait 0.05]lately. [wait 0.1]Not a single useful word out of him."
+
+say 1 "Ghost" "So, [wait 0.05]he lost the key to the depot, [wait 0.05]and now some snakes robbed the place?"
+
+say 3 "Erdi" "Yeah, [wait 0.05]but that's not all! [wait 0.05]The snakes--"
+
+say 2 "Vando" "They're still there! [wait 0.05]Like, [wait 0.05]a dozen of them, [wait 0.05]all lounging about like the place belongs to them!"
+
+say 3 "Erdi" "And it may as well! [wait 0.05]Forten's too far down the pipe to bother mounting an offense, [wait 0.05]so we're practically just handing over the building!"
+
+send_level_message "dialogue_done"

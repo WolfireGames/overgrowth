@@ -1,0 +1,34 @@
+#name "Gaggle-Snakes"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 101 139 54
+set_dialogue_voice 2 15
+set_dialogue_color 4 101 139 54
+set_dialogue_voice 4 15
+
+say 1 "Ghost" "Lots of people on the hood are afraid of the snakes. [wait 0.1]Think it's warranted?"
+
+say 2 "Vando" "Well, [wait 0.05]'course they are. [wait 0.1]They make a real show of what they're trying to do, [wait 0.05]wherever they spit."
+
+say 3 "Erdi" "Type of moves they make, [wait 0.05]they're not too worried about popularity. [wait 0.1]They just want results."
+
+say 1 "Ghost" "'Sides scraping coins together, [wait 0.05]what are they trying to do? [wait 0.05]They got any goals?"
+
+say 2 "Vando" "How the hell should we know? [wait 0.05]We're left guessing!"
+
+say 3 "Erdi" "Plenty of big talk about taking the streets... [wait 0.1]You ask me, [wait 0.05]they're just riling themselves up over nuffin'."
+
+say 4 "???" "You've gottit all wrong. [wait 0.1]The big ones have vision. [wait 0.1]Bloodletting."
+
+say 4 "???" "If we don't keep up, [wait 0.05]the future's theirs."
+
+say 2 "Vando" "Wot you finally decidin' to pipe up for? [wait 0.05]Noone asked you!"
+
+say 3 "Erdi" "We liked 'ya better when you were dozin' off, [wait 0.05]puddle-sipper!"
+
+say 2 "Vando" "Talkin' up the small fry like that... [wait 0.1]No better than the damn newts."
+
+send_level_message "dialogue_done"

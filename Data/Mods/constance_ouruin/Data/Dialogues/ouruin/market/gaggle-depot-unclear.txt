@@ -1,0 +1,37 @@
+#name "Gaggle-Depot-Unclear"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 101 139 54
+set_dialogue_voice 2 15
+set_dialogue_color 4 101 139 54
+set_dialogue_voice 4 15
+
+say 1 "Ghost" "What do you think the Lotus will do to take it back?"
+
+say 2 "Vando" "Sack Forten, [wait 0.05]first and foremost."
+
+say 3 "Erdi" "Kak, [wait 0.05]the Lotus aren't *that* keen on punishment."
+
+say 2 "Vando" "Yeah, [wait 0.05]they would normally wait for after Forten does something to take it back. [wait 0.1]But you and I know that's not happening."
+
+say 3 "Erdi" "How 'bout we keep that talk for another time? [wait 0.05]Mister tets-fur is right here!"
+
+say 1 "Ghost" "If it ain't for my ears, [wait 0.05]it never reached 'em."
+
+say 2 "Vando" "Oi yeah, [wait 0.05]what a real favor you're doin' us! [wait 0.05]No, [wait 0.05]I stand by what I said."
+
+say 3 "Erdi" "Whatever. [wait 0.1]By the time you start your kak-talk, [wait 0.05]someone will have cut those snakes off."
+
+say 1 "Ghost" "Maybe they won't. [wait 0.1]What good's the depot for? [wait 0.05]What's being stored there?"
+
+say 3 "Erdi" "It's not about that. [wait 0.1]It's about controlling the snakes' slitherin'."
+
+say 4 "???" "Territory games. [wait 0.1]Every clan's got'ta play 'em. [wait 0.1]Even the birds."
+
+say 3 "Erdi" "Quit 'yer damn moaning... [wait 0.1]All day with that crap. [wait 0.1]The hell does 'the birds' mean?"
+
+say 2 "Vando" "Who cares? [wait 0.05]Let 'em snore."
+send_level_message "dialogue_done"

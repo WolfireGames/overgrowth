@@ -1,0 +1,21 @@
+#name "Gaggle-Depot-Unclear"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 101 139 54
+set_dialogue_voice 2 15
+set_dialogue_color 4 101 139 54
+set_dialogue_voice 4 15
+
+say 1 "Ghost" "Dunno if you've heard, [wait 0.05]but the whole depot's cleared now. [wait 0.1]Snakes are real 'vacated' now."
+
+say 2 "Vando" "Oh, [wait 0.05]really? [wait 0.05]Did someone hold a stake over 'em?"
+
+say 3 "Erdi" "I don't think that'll help Forten's case, [wait 0.05]to be honest. [wait 0.1]Needing some outsider work to flick out the tats... [wait 0.1]It don't look good for him."
+
+say 2 "Vando" "Yea, [wait 0.05]but eh! [wait 0.05]Guy was never really good for the place. [wait 0.1]I always doubted he'd stick 'round."
+
+say 3 "Erdi" "May the rattletails never scrape those walls again..."
+send_level_message "dialogue_done"

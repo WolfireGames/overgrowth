@@ -1,0 +1,26 @@
+#name "Gaggle-Forten"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 101 139 54
+set_dialogue_voice 2 15
+set_dialogue_color 4 101 139 54
+set_dialogue_voice 4 15
+say 1 "Ghost" "Forten's doing... [wait 0.1]Real bad. [wait 0.1]Like he's given up completely."
+
+say 2 "Vando" "Makes you wonder just how much he really cared to begin with."
+
+say 2 "Vando" "The Lotus has got ways of making people care. [wait 0.1]Even for someone as detached as him."
+
+say 3 "Erdi" "I don't know if they'll actually rip 'im apart like that. [wait 0.1]The clan won't gain anything from losing another to the empry's waves."
+
+say 1 "Ghost" "The Lotus can't make him want to work like the empry can. [wait 0.1]There's no way he'll stick around."
+
+say 2 "Vando" "...[wait 0.1]Here's hoping he will."
+
+say 3 "Erdi" "Yea. [wait 0.1]He sucks and all, [wait 0.05]but..."
+
+say 3 "Erdi" "Conscription's seriously bad."
+send_level_message "dialogue_done"

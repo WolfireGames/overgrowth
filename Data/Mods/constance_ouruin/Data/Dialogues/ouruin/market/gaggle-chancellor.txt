@@ -1,0 +1,41 @@
+#name "Gaggle-Chancellor"
+#participants 5
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 101 139 54
+set_dialogue_voice 2 15
+set_dialogue_color 4 101 139 54
+set_dialogue_voice 4 15
+say 2 "Vando" "Yesterday, [wait 0.05]Chancellor Elke from the Empry came and spoke. [wait 0.1]Didja hear?"
+
+say 1 "Ghost" "Only that it happened. [wait 0.1]What, [wait 0.05]did you sneak out and attend?"
+
+say 3 "Erdi" "Decent pickings. [wait 0.1]I even nicked an amber ring! [wait 0.05]The gem was better than the piece itself; Such a waste."
+
+say 2 "Vando" "You'd have better luck just giving the shank to me. [wait 0.1]I have someone who can make something out of that little thing..."
+
+say 1 "Ghost" "Were you listening to the speech at all? [wait 0.05]What was he saying?"
+
+say 3 "Erdi" "A lot of it was filler. [wait 0.1]Crap to rile us up, [wait 0.05]remind us of the longtails down south. [wait 0.1]Meant people were paying less attention to the speech itself... [wait 0.1]Made things harder."
+
+say 2 "Vando" "Yeah, [wait 0.05]but it got easier when his point started forming: He picked up momentum, [wait 0.05]got people perked up and listening. [wait 0.1]Something about crete?"
+
+say 3 "Erdi" "Yeah, [wait 0.05]yeah--[wait 0.1]He said metalworks are picking up. [wait 0.1]Black crete's gettin' mined like never before. [wait 0.1]Dogs in the east are cranking out weapons..."
+
+say 2 "Vando" "Sounds like war, [wait 0.05]right? [wait 0.05]That gets the merchants in a buzz. [wait 0.1]No wonder they picked northern Ouruin to give this speech."
+
+say 1 "Ghost" "Was that all? [wait 0.05]That the empry needs more metal?"
+
+say 3 "Erdi" "Well, [wait 0.05]merchants can only circulate so much of what we have now. [wait 0.1]He said expansion's coming. [wait 0.1]Like, [wait 0.05]where else would we expand but southwards, [wait 0.05]right?"
+
+say 2 "Vando" "This is the crazy part! [wait 0.05]He said the Empry is pushing right into the Therium; They're gonna defile the graveyard of gods, [wait 0.05]for war's sake!"
+
+say 2 "Vando" "Of course, [wait 0.05]none of the merchants cared. [wait 0.1]They were happy to hear it, [wait 0.05]even! [wait 0.05]In their eyes, [wait 0.05]that land was just rich with stuff, [wait 0.05]waiting to be exploited!"
+
+say 3 "Erdi" "You can't deny there came a certain... [wait 0.1]Hush, [wait 0.05]you could call it. [wait 0.1]Many in the crowd were unsettled."
+
+say 2 "Vando" "Chancellor Elke turned them 'round by the end. [wait 0.1]Whoever writes the Empry's speeches, [wait 0.05]they're good at twisting senses."
+
+send_level_message "dialogue_done"
