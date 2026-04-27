@@ -33,3 +33,11 @@
 *- animate and implement forten quest
 
 *- implement stingers
+
+*- add continue progress recap
+
+*- nedis reports the wrong location for valerian
+
+*- change weapon delivery to be less shit
+
+*- branch walk not work
