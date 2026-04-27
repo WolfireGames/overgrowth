@@ -1,8 +1,8 @@
 - adal depot dialogue should be revised/given lethality variants
 
-- depot janner dialogue
+*- depot janner dialogue
 
-- let ghost ask where to get valerian root
+*- let ghost ask where to get valerian root
 
 - visible animation for branch door slam
 
@@ -30,4 +30,6 @@
 
 - add sfx to donatas fight collapse anims
 
-- animate and implement forten quest
+*- animate and implement forten quest
+
+*- implement stingers
