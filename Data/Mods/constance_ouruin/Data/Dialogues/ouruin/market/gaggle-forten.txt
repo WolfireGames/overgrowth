@@ -2,12 +2,12 @@
 #participants 5
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
-set_dialogue_color 3 0 0.52 0.95
-set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
-set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
-set_dialogue_voice 4 15
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.6 0.33 0.6
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.7 0.23 0.48
+set_dialogue_voice 3 17
 say 1 "Ghost" "Forten's doing... [wait 0.1]Real bad. [wait 0.1]Like he's given up completely."
 
 say 2 "Vando" "Makes you wonder just how much he really cared to begin with."

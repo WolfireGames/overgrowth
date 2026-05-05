@@ -18,10 +18,10 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
 set_dialogue_voice 4 8
-set_dialogue_color 2 101 139 54
-set_dialogue_voice 2 15
-set_dialogue_color 3 101 139 54
-set_dialogue_voice 3 15
+set_dialogue_color 2 0.6 0.33 0.6
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.7 0.23 0.48
+set_dialogue_voice 3 17
 send_level_message "disable 3907"
 say 4 "Ghost" "(This must be the room Forten told me about... [wait 0.1]I'll ask them what's up.)"
 set_cam 35.1048 -41.6484 10.1606 0 122.95 0 37.7953
@@ -44,7 +44,7 @@ send_character_message 1 "set_head_target 32.9009 -41.2808 11.1476 1"
 send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
 say 1 "Ghost" "Hey, [wait 0.05]all. [wait 0.1]Forten sent me."
 send_character_message 1 "set_head_target 32.8165 -41.5903 11.0837 1"
-say 1 "Ghost" "..."
+say 4 "Ghost" "..."
 send_character_message 1 "set_eye_dir 32.8132 -41.6054 11.245 1"
 send_character_message 1 "set_head_target 32.6992 -41.3856 11.1946 1"
 send_character_message 2 "set_animation \"Data/Animations/vando_greet.anm\""
@@ -52,7 +52,6 @@ set_character_pos 2 31.05 -42.3289 11.2415 8
 say 3 "???" "...[wait 0.1]What for?"
 send_character_message 1 "set_eye_dir 32.7467 -40.9193 11.29 1"
 send_character_message 1 "set_head_target 32.9096 -41.815 11.4026 1"
-send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 say 1 "Ghost" "The snakes that robbed his place. [wait 0.1]What's the big deal?"
 set_cam 33.0385 -41.2703 12.385 -16.13 -30.64 0 43.2656
 send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
@@ -62,8 +61,9 @@ send_character_message 3 "set_eye_dir 29.1651 -41.6867 10.1718 1"
 send_character_message 3 "set_head_target 28.8014 -42.3411 10.7753 1"
 send_level_message "disable 2626"
 send_level_message "enable 3907"
-sound_hotspot_play_sound "Data/Sounds/ouruin/doors/door_A_creak.xml" 32.664 -41.638 11.258
+sound_hotspot_play_sound "Data/Sounds/ouruin/doors/door_lock_slide.xml" 32.664 -41.638 11.258
 say 3 "???" "[wait 0.1]Oh boy..."
+sound_hotspot_play_sound "Data/Sounds/ouruin/doors/door_A_creak.xml" 32.664 -41.638 11.258
 send_character_message 1 "set_head_target 31.737 -41.3594 11.2788 1"
 send_character_message 2 "set_head_target 33.4986 -41.7551 11.3018 1"
 set_cam 36.3415 -41.1242 12.1354 -7.54 76.57 -0.4 22.8049
@@ -88,21 +88,22 @@ send_character_message 2 "set_torso_target 32.213 -41.6275 11.3769 1"
 send_character_message 1 "set_head_target 31.6754 -41.3466 11.2047 1"
 send_character_message 1 "set_torso_target 33.0971 -42.5206 11.105 0"
 set_character_pos 1 33.8952 -42.3464 11.2193 -180
-send_character_message 3 "set_eye_dir 29.5002 -41.4353 10.649 1"
-set_cam 28.624 -42.0873 9.69368 -10.54 147.48 -0.22 81.5961
+send_character_message 3 "set_eye_dir 29.4446 -41.4574 9.96786 1"
+set_cam 28.9747 -41.9172 10.1855 -20.94 79.85 -0.7 39.9382
 send_character_message 3 "set_head_target 29.285 -42.2687 10.814 1"
-set_character_pos 2 28.8122 -42.3289 9.67834 70
+set_character_pos 2 28.9832 -42.3289 9.2085 70
 send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
 send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 1"
 send_character_message 2 "set_head_target 29.4804 -42.2397 10.0417 0.000127256"
 say 3 "???" "Yeah, [wait 0.05]like Vando said! [wait 0.05]He keeps losing things; First his dirt, [wait 0.05]then his depot, [wait 0.05]and soon his job!"
+set_character_pos 2 28.8122 -42.3289 9.67834 70
 send_character_message 1 "set_head_target 28.8847 -41.8914 9.726 1"
 send_character_message 1 "set_eye_dir 29.3035 -41.4994 9.82781 1"
 send_character_message 1 "set_torso_target 30.007 -42.5205 9.73901 0"
 set_character_pos 1 30.3624 -42.3463 10.0562 -180
 send_character_message 2 "set_torso_target 29.3639 -42.4394 9.93888 0"
 send_character_message 3 "set_eye_dir 28.9029 -41.7577 9.39095 1"
-send_character_message 3 "set_head_target 29.4148 -42.5804 10.5789 1"
+send_character_message 3 "set_head_target 29.1392 -42.3421 10.9808 1"
 send_character_message 3 "set_animation \"Data/Animations/erdi_sit_lean.anm\""
 say 3 "???" "Mark my words, [wait 0.05]as soon as word travels up the chain, [wait 0.05]Forten is done for."
 send_character_message 1 "set_torso_target 30.0047 -42.5205 9.74098 0"
@@ -128,7 +129,22 @@ send_character_message 1 "set_head_target 28.7283 -41.7253 10.5896 1"
 send_character_message 1 "set_torso_target 29.2553 -41.7763 10.0475 1"
 send_character_message 3 "set_animation \"Data/Animations/erdi_sit.anm\""
 say 3 "Erdi" "Yeah, [wait 0.05]but that's not all! [wait 0.05]The snakes--"
+send_character_message 2 "set_torso_target 29.3939 -42.5274 9.90778 1"
+send_character_message 3 "set_eye_dir 28.6336 -41.9953 9.79384 1"
+send_character_message 3 "set_head_target 28.9989 -42.4793 10.9324 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_hands.anm\""
+send_character_message 2 "set_eye_dir 29.0471 -42.0938 9.71506 1"
+send_character_message 2 "set_head_target 29.6625 -41.7952 9.92513 1"
+send_character_message 1 "set_head_target 28.8996 -41.7851 10.0667 1"
+send_character_message 1 "set_torso_target 29.2553 -41.7763 10.0475 0"
 say 2 "Vando" "They're still there! [wait 0.05]Like, [wait 0.05]a dozen of them, [wait 0.05]all lounging about like the place belongs to them!"
+send_character_message 2 "set_torso_target 29.3616 -42.3752 9.89272 0.697539"
+send_character_message 1 "set_head_target 28.9087 -41.8457 10.1723 1"
+send_character_message 2 "set_eye_dir 29.0471 -42.0938 9.71506 0.716339"
+send_character_message 2 "set_head_target 29.7451 -41.9276 9.91002 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
+send_character_message 3 "set_eye_dir 28.4292 -41.619 10.1723 1"
+send_character_message 3 "set_head_target 28.2555 -41.9542 11.1095 1"
 say 3 "Erdi" "And it may as well! [wait 0.05]Forten's too far down the pipe to bother mounting an offense, [wait 0.05]so we're practically just handing over the building!"
 send_level_message "disable 3907"
 send_level_message "dialogue_done"

@@ -13,10 +13,10 @@ send_character_message 1 "set_eye_dir 27.1974 -44.6545 2.8224 0.764242"
 send_character_message 1 "set_torso_target 28.4192 -46.1107 3.1588 0"
 send_character_message 1 "set_head_target 29.0374 -46.1376 4.56645 1"
 set_cam 28.2809 -45.9256 3.36933 0 -81.32 0 42.8823
-say 1 "Ghost" "Sounds tedious... [wait 0.2]I prefer being light on my paws, [wait 0.1]anyways."
+say 1 "Ghost" "Sounds tedious... [wait 0.1]I prefer being light on my paws, [wait 0.05]anyways."
 send_character_message 1 "set_eye_dir 29.6385 -45.7828 4.39299 1"
 send_character_message 1 "set_head_target 29.539 -45.862 4.62709 1"
 send_character_message 2 "set_head_target 29.5664 -45.6612 3.59217 1"
 set_cam 28.8465 -45.8464 4.07546 0 -127.97 0 50.3476
-say 2 "Nedis" "No problem. [wait 0.2]Someone else will be sure to run it over, [wait 0.1]once the path isn't blocked."
+say 2 "Nedis" "No problem. [wait 0.1]Someone else will be sure to run it over, [wait 0.05]once the path isn't blocked."
 send_level_message "dialogue_done"

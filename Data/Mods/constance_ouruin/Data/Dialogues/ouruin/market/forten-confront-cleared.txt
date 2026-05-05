@@ -15,9 +15,9 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.52 0.95
 set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
+set_dialogue_color 2 0.39 0.54 0.212
 set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
+set_dialogue_color 4 0.39 0.54 0.212
 set_dialogue_voice 4 15
 say 1 "Ghost" "So... [wait 0.1]You messed up, [wait 0.05]and now the depot's filled with snakes. [wait 0.1]Is that right?"
 send_character_message 1 "set_eye_dir 25.4085 -38.8224 43.5161 1"

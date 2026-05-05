@@ -15,9 +15,9 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.52 0.95
 set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
+set_dialogue_color 2 0.39 0.54 0.212
 set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
+set_dialogue_color 4 0.39 0.54 0.212
 set_dialogue_voice 4 15
 say 2 "Forten" "So you babbled and gaggled. [wait 0.1]What do you want, [wait 0.05]now?"
 send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0"

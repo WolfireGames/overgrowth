@@ -1,34 +1,104 @@
 #name "Gaggle-Snakes"
 #participants 5
+set_character_pos 5 31.5411 -41.8806 14.0975 115
+send_character_message 5 "set_animation \"Data/Animations/tathfold_sit.anm\""
+send_character_message 5 "set_eye_dir 30.9825 -42.2587 13.1301 0.597107"
+send_character_message 5 "set_head_target 30.9264 -42.4829 12.8323 0"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
-set_dialogue_color 3 0 0.52 0.95
-set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
-set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
-set_dialogue_voice 4 15
-
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.6 0.33 0.6
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.7 0.23 0.48
+set_dialogue_voice 3 17
+set_dialogue_color 5 0.52 0.2 0.8
+set_dialogue_voice 5 6
+send_character_message 2 "set_torso_target 29.4891 -41.9117 9.88928 0.00268421"
+set_cam 29.2438 -41.6558 10.9684 0.07 -50.64 -0.31 38.5544
+set_character_pos 3 28.3086 -42.3534 10.0198 -36
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit.anm\""
+send_character_message 3 "set_eye_dir 28.5343 -42.1591 9.77693 1"
+send_character_message 3 "set_head_target 29.0233 -42.1434 10.3251 1"
+set_character_pos 2 28.8122 -42.3289 9.67834 70
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.772173"
+send_character_message 2 "set_head_target 29.652 -42.0949 10.3689 1"
+set_character_pos 1 30.3624 -42.386 10.0562 -180
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 29.7413 -41.8956 10.1333 1"
+send_character_message 1 "set_torso_target 29.9244 -41.7706 10.0611 0"
+send_character_message 1 "set_head_target 29.3016 -41.7027 9.78433 1"
 say 1 "Ghost" "Lots of people on the hood are afraid of the snakes. [wait 0.1]Think it's warranted?"
-
+send_character_message 3 "set_eye_dir 28.5104 -42.1306 9.74626 0.87415"
+send_character_message 3 "set_head_target 29.0499 -42.2731 10.3444 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 1"
+send_character_message 2 "set_head_target 29.5295 -42.222 10.7396 1"
+set_cam 30.2381 -42.2918 9.53185 0.07 102.75 0.31 38.5544
 say 2 "Vando" "Well, [wait 0.05]'course they are. [wait 0.1]They make a real show of what they're trying to do, [wait 0.05]wherever they spit."
-
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.811513"
+send_character_message 2 "set_head_target 29.7438 -42.2756 10.4949 1"
+send_character_message 3 "set_head_target 29.0195 -42.2038 10.4257 1"
+send_character_message 3 "set_eye_dir 28.4493 -41.925 10.1122 0.87415"
 say 3 "Erdi" "Type of moves they make, [wait 0.05]they're not too worried about popularity. [wait 0.1]They just want results."
-
+send_character_message 1 "set_torso_target 29.7093 -42.08 10.1155 1"
+send_character_message 1 "set_eye_dir 31.0546 -41.3397 10.9548 1"
+send_character_message 1 "set_head_target 29.4826 -41.6179 10.3663 1"
+send_character_message 2 "set_head_target 29.7563 -41.9803 10.1093 1"
+send_character_message 3 "set_head_target 29.1139 -42.112 10.3578 1"
+set_cam 31.5896 -40.6599 12.0855 -28.3 44.47 4.11 40.3695
 say 1 "Ghost" "'Sides scraping coins together, [wait 0.05]what are they trying to do? [wait 0.05]They got any goals?"
-
+send_character_message 2 "set_head_target 29.7933 -41.9091 9.98983 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.613632"
+send_character_message 3 "set_eye_dir 28.6405 -42.1419 9.76741 0.87415"
+send_character_message 3 "set_head_target 29.1244 -42.0689 10.3218 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_hands.anm\""
+send_character_message 1 "set_eye_dir 29.4727 -42.1007 10.3743 1"
+send_character_message 1 "set_head_target 29.4102 -41.7496 10.3203 1"
+send_character_message 1 "set_torso_target 29.655 -42.059 10.0771 1"
 say 2 "Vando" "How the hell should we know? [wait 0.05]We're left guessing!"
-
+send_character_message 1 "set_eye_dir 29.4215 -42.0648 10.2827 1"
+send_character_message 1 "set_head_target 29.3137 -41.7812 10.2158 1"
+send_character_message 3 "set_eye_dir 28.4479 -42.3333 10.3965 0.87415"
+send_character_message 3 "set_head_target 28.5782 -42.1983 10.9566 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.760994"
+send_character_message 2 "set_head_target 29.802 -42.0051 9.97581 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
 say 3 "Erdi" "Plenty of big talk about taking the streets... [wait 0.1]You ask me, [wait 0.05]they're just riling themselves up over nuffin'."
-
-say 4 "???" "You've gottit all wrong. [wait 0.1]The big ones have vision. [wait 0.1]Bloodletting."
-
-say 4 "???" "If we don't keep up, [wait 0.05]the future's theirs."
-
+send_character_message 1 "set_torso_target 29.6551 -42.0584 10.0773 1"
+send_character_message 5 "set_head_target 30.9264 -42.4829 12.8323 0.00410739"
+send_character_message 1 "set_eye_dir 29.4408 -41.6589 10.2032 1"
+send_character_message 1 "set_head_target 29.3118 -41.6743 10.273 1"
+set_cam 29.4207 -41.5112 8.51488 -4.1 -156.48 0.22 24.2646
+say 5 "???" "You've gottit all wrong. [wait 0.1]The big ones have vision. [wait 0.1]Bloodletting."
+send_character_message 5 "set_eye_dir 30.9825 -42.2587 13.1301 0"
+send_character_message 1 "set_torso_target 29.6688 -41.9813 10.1173 1"
+send_character_message 5 "set_head_target 30.9264 -42.403 12.8323 1"
+send_character_message 1 "set_eye_dir 30.2963 -41.6812 10.8568 0.658622"
+send_character_message 1 "set_head_target 29.4279 -41.7922 10.546 1"
+say 5 "???" "If we don't keep up, [wait 0.05]the future's theirs."
+send_character_message 1 "set_eye_dir 29.3774 -41.9842 9.89999 1"
+send_character_message 1 "set_head_target 29.4007 -41.9916 10.1543 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_leanhands.anm\""
+send_character_message 3 "set_eye_dir 28.5458 -41.6332 10.5939 0.549408"
+send_character_message 3 "set_head_target 28.8807 -42.545 10.8718 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 1"
+send_character_message 2 "set_head_target 29.2635 -42.0836 10.7475 1"
+send_character_message 1 "set_torso_target 30.044 -41.7535 9.95121 0"
+set_cam 27.9007 -42.3005 11.0933 2.32 -26.84 5.61 42.6802
 say 2 "Vando" "Wot you finally decidin' to pipe up for? [wait 0.05]Noone asked you!"
-
+send_character_message 3 "set_head_target 29.0821 -42.4468 10.6656 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.622655"
+send_character_message 2 "set_head_target 29.2939 -42.2053 10.8515 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_lean.anm\""
+send_character_message 3 "set_eye_dir 28.4236 -41.8246 10.9184 0.74587"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_mock.anm\""
 say 3 "Erdi" "We liked 'ya better when you were dozin' off, [wait 0.05]puddle-sipper!"
-
+send_character_message 1 "set_head_target 29.4343 -41.9748 10.2194 1"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_lean.anm\""
+send_character_message 3 "set_eye_dir 28.784 -41.922 10.5126 0.74587"
+send_character_message 3 "set_head_target 29.032 -41.9748 10.8821 1"
+send_character_message 2 "set_head_target 29.5495 -41.5359 10.5843 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_chest.anm\""
 say 2 "Vando" "Talkin' up the small fry like that... [wait 0.1]No better than the damn newts."
-
 send_level_message "dialogue_done"

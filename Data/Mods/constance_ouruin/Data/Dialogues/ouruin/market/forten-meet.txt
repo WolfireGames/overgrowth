@@ -15,9 +15,9 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.52 0.95
 set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
+set_dialogue_color 2 0.39 0.54 0.212
 set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
+set_dialogue_color 4 0.39 0.54 0.212
 set_dialogue_voice 4 15
 say 1 "Ghost" "Hey, [wait 0.05]Forten. [wait 0.1]Got a moment?"
 send_character_message 2 "set_head_target 25.3908 -39.07 43.2114 1"
@@ -59,7 +59,7 @@ set_cam 25.841 -38.6641 41.712 -5.51 143.14 0 27.6577
 send_character_message 2 "set_eye_dir 25.0293 -38.8439 42.9123 0.40454"
 send_character_message 2 "set_head_target 25.3152 -38.9848 42.7513 1"
 send_character_message 2 "set_torso_target 24.9772 -39.3552 43.1953 1"
-say 3 "Forten" "..."
+say 4 "Forten" "..."
 send_character_message 2 "set_eye_dir 25.0293 -38.8439 42.9123 0"
 send_character_message 2 "set_head_target 25.2844 -39.1398 43.3767 1"
 send_character_message 2 "set_torso_target 24.9863 -39.3729 43.2191 1"

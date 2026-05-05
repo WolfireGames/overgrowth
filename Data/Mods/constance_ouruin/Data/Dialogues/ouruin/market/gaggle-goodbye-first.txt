@@ -1,113 +1,180 @@
 #name "Gaggle-Goodbye-First"
 #participants 5
+set_character_pos 5 31.5411 -41.8806 14.0975 115
+send_character_message 5 "set_animation \"Data/Animations/tathfold_sit.anm\""
+send_character_message 5 "set_eye_dir 30.9825 -42.2587 13.1301 0.597107"
+send_character_message 5 "set_head_target 30.9264 -42.4829 12.8323 0"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
-set_dialogue_color 3 0 0.52 0.95
-set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
-set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
-set_dialogue_voice 4 15
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.6 0.33 0.6
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.7 0.23 0.48
+set_dialogue_voice 3 17
+set_dialogue_color 5 0.52 0.2 0.8
+set_dialogue_voice 5 6
+send_character_message 2 "set_torso_target 29.4891 -41.9117 9.88928 0.00268421"
+set_cam 32.1412 -41.1595 9.49749 -17.27 100.57 0 32.1203
+set_character_pos 3 28.3086 -42.3534 10.0198 -36
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit.anm\""
+send_character_message 3 "set_eye_dir 28.4699 -42.2654 10.4733 1"
+send_character_message 3 "set_head_target 28.4189 -42.2532 10.7261 1"
+set_character_pos 2 28.8122 -42.3289 9.67834 70
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.478999"
+send_character_message 2 "set_head_target 29.6336 -41.9924 9.87697 1"
+set_character_pos 1 30.3624 -42.386 10.0562 -180
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir 31.542 -41.3972 9.50728 1"
+send_character_message 1 "set_torso_target 29.9244 -41.7706 10.0611 0"
+send_character_message 1 "set_head_target 29.5816 -41.7912 9.14523 1"
 say 1 "Ghost" "I'll leave you to... [wait 0.1]Whatever it is you're doing, [wait 0.05]here."
-
+send_character_message 3 "set_eye_dir 28.5996 -42.0579 9.86439 1"
+send_character_message 3 "set_head_target 28.5219 -42.3925 10.7479 1"
+send_character_message 2 "set_head_target 29.6346 -41.9067 9.77077 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_leanpalms.anm\""
+send_character_message 1 "set_eye_dir 29.9947 -41.8743 9.91558 1"
+send_character_message 1 "set_head_target 29.5321 -41.8142 9.84009 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 1"
 say 2 "Vando" "Hey, [wait 0.05]wait just a tick!"
-
+send_character_message 2 "set_head_target 29.8663 -41.9878 9.86802 1"
+send_character_message 1 "set_head_target 29.2694 -41.9461 9.8912 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_lean.anm\""
 say 2 "Vando" "You're that one guy, [wait 0.05]right?"
-
+send_character_message 3 "set_eye_dir 28.5996 -42.0579 9.86439 0"
+send_character_message 3 "set_head_target 28.67 -42.2388 10.6557 1"
+send_character_message 2 "set_head_target 29.8573 -41.8854 9.86802 1"
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
 say 1 "Ghost" "...[wait 0.1]Good question."
-
+set_cam 32.1414 -41.1594 9.49748 -17.27 100.57 0 32.1203
+send_character_message 1 "set_head_target 29.2887 -41.9291 9.97543 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.648955"
+send_character_message 2 "set_head_target 29.8079 -42.0857 10.1665 1"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_shrug.anm\""
+send_character_message 3 "set_head_target 28.6928 -42.1386 10.6842 1"
+send_character_message 3 "set_eye_dir 28.441 -41.8787 10.0867 1"
 say 3 "Erdi" "Kak, [wait 0.05]Vando, [wait 0.05]aren't you a talker."
-
+send_character_message 1 "set_head_target 29.234 -41.9634 9.83187 1"
+send_character_message 3 "set_head_target 28.9333 -42.1031 10.3216 1"
+set_cam 27.4169 -42.1427 9.74564 3.02 -97.16 -0.04 36.9775
+send_character_message 2 "set_head_target 29.8695 -41.7091 9.92438 1"
 say 2 "Vando" "You're that guy that likes books! [wait 0.05]What, [wait 0.05]you collect 'em or somethin'? [wait 0.05]What's up with that?"
-
+send_character_message 1 "set_eye_dir 29.9489 -41.3509 9.97191 1"
+send_character_message 3 "set_head_target 28.9262 -42.1785 10.3875 1"
+send_character_message 2 "set_head_target 29.8671 -41.7701 9.89437 1"
+send_character_message 1 "set_head_target 29.2256 -41.826 9.32139 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
 say 1 "Ghost" "The hell makes you say that?"
-
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_hands.anm\""
+send_character_message 1 "set_eye_dir 29.4284 -42.0611 10.525 1"
+send_character_message 1 "set_head_target 29.2055 -41.9724 9.20821 1"
+send_character_message 2 "set_head_target 29.7242 -41.8723 10.2414 1"
+send_character_message 3 "set_head_target 28.6416 -42.0495 9.92188 1"
 say 3 "Erdi" "'Ey saw you with a stack of books under 'yer arm, [wait 0.05]like, [wait 0.05]once."
-
+send_character_message 3 "set_eye_dir 28.7188 -42.166 9.88112 1"
+send_character_message 3 "set_head_target 28.7054 -42.0376 9.83813 1"
+send_character_message 1 "set_head_target 29.2132 -41.9207 9.17119 1"
+send_character_message 2 "set_head_target 29.3366 -42.125 10.5823 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_leanpalms.anm\""
 say 2 "Vando" "Just three books ain't a stack! [wait 0.05]That's, [wait 0.05]like... [wait 0.1]A fraction of a pile."
-
+send_character_message 3 "set_eye_dir 28.544 -41.9521 10.0151 0"
+send_character_message 1 "set_head_target 29.2132 -41.9207 9.17119 1"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_shrug.anm\""
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_lean.anm\""
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.751124"
+send_character_message 2 "set_head_target 29.0588 -42.2265 10.5955 1"
+send_character_message 3 "set_head_target 28.6727 -42.08 9.80005 1"
 say 3 "Erdi" "That's literally what a stack is."
-
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit.anm\""
+send_character_message 3 "set_eye_dir 28.544 -41.9521 10.0151 0.962735"
+send_character_message 3 "set_head_target 28.7183 -42.1084 9.81686 1"
+send_character_message 2 "set_head_target 29.5131 -41.998 9.80134 1"
+send_character_message 1 "set_head_target 28.9825 -42.1758 9.29317 1"
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
 say 1 "Ghost" "What's got you interested in books?"
-
+send_character_message 3 "set_eye_dir 28.4347 -42.0799 9.67383 0.962735"
+send_character_message 3 "set_head_target 28.7236 -42.1618 10.0169 1"
+set_cam 30.2427 -42.3122 9.80845 -3.15 93.2 0.25 44.3081
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_chest.anm\""
 say 2 "Vando" "Nothin' personal, [wait 0.05]nothin' crazy. [wait 0.1]Really. [wait 0.1]I was just tryin' to think of a gift for my lord, [wait 0.05]get 'im to cut me slack on rent."
-
+send_character_message 3 "set_eye_dir 28.5715 -42.0875 9.78285 0.962735"
+send_character_message 3 "set_head_target 28.7703 -42.3394 10.4179 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.603696"
+send_character_message 2 "set_head_target 29.5559 -42.0338 9.43161 1"
 say 2 "Vando" "He's a bit of a stickler for like... [wait 0.1]Uhh..."
-
+send_character_message 3 "set_eye_dir 28.539 -41.8903 10.1656 0.962735"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.849845"
+send_character_message 2 "set_head_target 29.6631 -42.2715 9.57848 1"
 say 3 "Erdi" "This is that ecological nationalist fellow, [wait 0.05]innit?"
-
+set_cam 30.2427 -42.3122 9.80846 -3.15 93.2 0.25 44.3081
+send_character_message 3 "set_eye_dir 28.5086 -42.0835 9.80262 0.811563"
+send_character_message 3 "set_head_target 28.8272 -42.4222 10.3776 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.549839"
+send_character_message 2 "set_head_target 29.3781 -42.0311 10.3665 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_hand.anm\""
 say 2 "Vando" "Y-Yeah, [wait 0.05]but. [wait 0.1]Saying that right out the gate's a bit weird, [wait 0.05]right?"
-
+send_character_message 1 "set_torso_target 29.7113 -41.8181 10.0452 1"
+send_character_message 2 "set_torso_target 29.2286 -42.0596 9.83539 0.00268421"
+send_character_message 1 "set_eye_dir 29.9442 -41.2295 9.69731 0.712133"
+send_character_message 1 "set_head_target 29.3154 -41.5526 8.8056 1"
+send_character_message 3 "set_head_target 28.8861 -42.3604 10.2079 1"
+set_cam 27.6952 -42.3571 10.8205 5.01 -53.74 0 60.4612
+send_character_message 3 "set_eye_dir 28.6223 -41.9334 9.96896 0.811563"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.776487"
+send_character_message 2 "set_head_target 29.5578 -41.8775 10.0243 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
 say 1 "Ghost" "Pretty weird, [wait 0.05]yeah."
-
+send_character_message 3 "set_head_target 28.8329 -42.1945 10.1081 1"
+send_character_message 2 "set_head_target 29.6656 -42.0198 9.99267 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_leanhands.anm\""
+send_character_message 1 "set_torso_target 29.7086 -41.8311 10.0384 1"
+send_character_message 1 "set_head_target 29.3045 -41.726 8.87406 1"
+send_character_message 1 "set_eye_dir 29.6604 -41.7292 10.0701 0.712133"
 say 2 "Vando" "Look, [wait 0.05]I know this is a long shot, [wait 0.05]but a long shot's all I got... [wait 0.1]Do you know about any books that are like... [wait 0.1]Proud of the flora in north Preuwyn?"
-
+send_character_message 2 "set_head_target 29.6409 -42.126 9.82712 1"
+send_character_message 1 "set_eye_dir 29.7453 -41.86 10.3267 0.891586"
+send_character_message 1 "set_head_target 29.1278 -41.9487 9.46621 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_lean.anm\""
+send_character_message 3 "set_eye_dir 28.6223 -41.9334 9.96896 1"
+send_character_message 3 "set_head_target 28.825 -42.1063 10.0464 1"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_mock.anm\""
 say 3 "Erdi" "And cue 'im walking right out the door in three, [wait 0.05]two..."
-
+set_cam 29.5712 -41.8082 8.94045 0 -148.42 0 42.6439
+send_character_message 1 "set_animation \"Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_torso_target 29.7086 -41.8311 10.0384 0"
 say 1 "Ghost" "Let me get this straight. [wait 0.1]You want a book about patriotic plants so you can skip rent."
-
 say 3 "Erdi" "Hehahah! [wait 0.05]Right!?"
-
 say 2 "Vando" "Oh, [wait 0.05]come on! [wait 0.05]How's that not feasible!? [wait 0.05]The quill-spinners in the force have so much to proselie... [wait 0.1]Er, [wait 0.05]preach about! [wait 0.05]Why wouldn't they try their hand at gassing up some local flowers?"
-
 say 1 "Ghost" "Look, [wait 0.05]buddy. [wait 0.1]You could not be barking up a tree more wrong. [wait 0.1]I was collecting tinder for the fire that night."
-
 say 1 "Ghost" "I have no interest in books."
-
+say 0 "" "[wait 0.5].[wait 0.2].[wait 0.2]."
 *The screen cuts to black before fading back in, implying a minor time-skip.*
-
 say 3 "Erdi" "Spurhelm being a lauded period of change is shit and you know it. [wait 0.1]The world's only waking up then! [wait 0.05]We only burn wood for the year like a shrug and a nod."
-
 say 1 "Ghost" "You can say that all you want, [wait 0.05]but every single time a scribe writes flowery prose about the turning of time, [wait 0.05]they bring up dew on the grass."
-
 say 1 "Ghost" "And when do you get dew on the grass in Preuwyn? [wait 0.05]Spur! [wait 0.05]That's THE time for the sun to melt the snow."
-
 say 3 "Erdi" "That happens every day, [wait 0.05]tet-wash! [wait 0.05]The sun melts the snow in th' morning, [wait 0.05]and that's what authors are really evoking with dew, [wait 0.05]whether they like it or not!"
-
 say 1 "Ghost" "And pray tell, [wait 0.05]in what season does the sun come out? [wait 0.05]Hmm? [wait 0.05]It sure as hell isn't in Wick! [wait 0.05]Ice only starts melting when the birds are free!"
-
 say 3 "Erdi" "Why do you always have to evoke Lugarian symbology, [wait 0.05]huh? [wait 0.05]Aren't we trying to describe Preuwynian metaphors? [wait 0.05]The snow don't melt here!"
-
 say 1 "Ghost" "Look, [wait 0.05]your favorite little Klaasjie wrote about the snow melting as a way to escape the ever-the-same tundra she was surrounded by! [wait 0.05]That was the whole point!"
-
 say 1 "Ghost" "The sparkling of the snow under the sun was to denote static, [wait 0.05]never-changing stillness! [wait 0.05]That was literally in the text, [wait 0.05]and you can't get more north than that!"
-
 say 3 "Erdi" "Who gives a shit about the sparkling of the snow? [wait 0.05]That's not dew, [wait 0.05]that's not what we're talking about!"
-
 say 1 "Ghost" "It's relevant because that's the device used in the writing to contrast the dew! [wait 0.05]You're supposed to compare the two states of ice to reflect on what the author was saying! [wait 0.05]You did read all of The Storm With No Eye, [wait 0.05]right? [wait 0.05]You aren't just spitballing?"
-
 say 3 "Erdi" "Yeah, [wait 0.05]I read it like three times. [wait 0.1]It sucked. [wait 0.1]Easily her worst work."
-
 say 1 "Ghost" "Okay, [wait 0.05]whatever. [wait 0.1]All that aside, [wait 0.05]the sparkling snow is literally the same thing as dew. [wait 0.1]It's the same substance, [wait 0.05]just at a different point in time. [wait 0.1]It's just water, [wait 0.05]dude."
-
 say 3 "Erdi" "If you want to split hairs..."
-
 say 1 "Ghost" "That was the whole point! [wait 0.05]How did you read it three times and not get that!?"
-
 say 2 "Vando" "Umm..."
-
 say 3 "Erdi" "I meant you're splitting hairs with Klaasjie's crap. [wait 0.1]That's just one author, [wait 0.05]she's not th' sole arbiter of Spur and Sail and what they mean."
-
 say 1 "Ghost" "Yeah, [wait 0.05]obviously. [wait 0.1]That makes me really wonder why you kept bringing her up."
-
 say 3 "Erdi" "Didn't you Just bring her up a second ago? [wait 0.05]Vando, [wait 0.05]you were listenin', [wait 0.05]right? [wait 0.05]Did he not just throw out Klaasjie's name without prompt?"
-
 say 2 "Vando" "I mean--"
-
 say 1 "Ghost" "I only brought her up because you wouldn't let her so-called crap drop. [wait 0.1]You're obviously the one obsessed."
-
 say 2 "Vando" "How long have you two been at this? [wait 0.05]I think I must'a spaced out."
-
 say 3 "Erdi" "Too long. [wait 0.1]We're not even talkin' about anything real, [wait 0.05]anymore. [wait 0.1]Just harping on made-up cloudtalk."
-
 say 1 "Ghost" "Damn it all--[wait 0.1]I have wasted a lot of time, [wait 0.05]haven't I?"
-
 say 2 "Vando" "So... [wait 0.1]Do I recommend my lord read Klaasjie, [wait 0.05]or...[wait 0.05]?"
-
 say 3 "Erdi" "Priya's heart, [wait 0.05]no. [wait 0.1]That stuff's depressing. [wait 0.1]Frontier style, [wait 0.05]sure, [wait 0.05]but..."
-
 say 1 "Ghost" "Do or don't, [wait 0.05]I don't care. [wait 0.1]I don't know."
-
 say 1 "Ghost" "Whatever! [wait 0.05]I'm out of here."
-
 send_level_message "dialogue_done"

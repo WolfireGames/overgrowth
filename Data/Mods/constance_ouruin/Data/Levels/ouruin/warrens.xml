@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-70.0168" t1="-55.176" t2="-96.1959" s0="1" s1="1" s2="1" q0="-0.0265773" q1="0.753442" q2="-0.0305126" q3="-0.656268" euler_x="-3.06064" euler_y="-1.43315" euler_z="-3.14159" id="0">
+    <CameraObject t0="-77.5445" t1="-46.7628" t2="-72.2076" s0="1" s1="1" s2="1" q0="0.0792148" q1="0.681704" q2="-0.0746401" q3="0.723487" euler_x="0.21811" euler_y="1.51134" euler_z="-1.88094e-06" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -2396,6 +2396,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="dog" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard, player, ghost" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -3504,7 +3505,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/warrens/branch-enter-stolen-broken.txt" />
             <parameter name="DisplayName" type="string" val="Branch-Enter-Stolen-Broken" />
-            <parameter name="NumParticipants" type="int" val="3" />
+            <parameter name="NumParticipants" type="string" val="3" />
             <parameter name="obj_1" type="int" val="1130" />
             <parameter name="obj_2" type="int" val="1148" />
             <parameter name="obj_3" type="int" val="1152" />
@@ -4347,6 +4348,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="0" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="player, Ghost" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -9658,9 +9660,9 @@
             <parameters />
         </EnvObject>
     </Group>
-    <Group name="Branch Event" t0="-60.8221" t1="-44.8734" t2="-69.8903" s0="2.0537" s1="2.12301" s2="1.9851" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3065" version="1">
+    <Group name="Branch Event" t0="-73.9241" t1="-47.3749" t2="-72.4615" s0="2.0537" s1="2.12301" s2="1.9851" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3065" version="1">
         <parameters />
-        <Hotspot name="Branch Trigger" t0="-60.8221" t1="-44.8734" t2="-69.8903" s0="0.510926" s1="0.528251" s2="0.493773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3063" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <Hotspot name="Branch Trigger" t0="-73.9241" t1="-47.3749" t2="-72.4615" s0="0.510926" s1="0.528251" s2="0.493773" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3063" type_file="Data/Objects/Hotspots/setmessages.xml">
             <parameters>
                 <parameter name="Activate Once" type="int" val="0" />
                 <parameter name="Activate Player Only" type="int" val="1" />
@@ -9680,7 +9682,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot name="Branch Question" t0="-60.8178" t1="-44.9243" t2="-69.8927" s0="0.443701" s1="0.5012" s2="0.426032" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3064" type_file="Data/Objects/Hotspots/start_dialogue.xml">
+        <Hotspot name="Branch Question" t0="-73.9198" t1="-47.4258" t2="-72.4639" s0="0.443701" s1="0.5012" s2="0.426032" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3064" type_file="Data/Objects/Hotspots/start_dialogue.xml">
             <parameters>
                 <parameter name="Automatic" type="int" val="0" />
                 <parameter name="Color" type="string" val="0.52 0.28 1.0" />
@@ -10731,7 +10733,7 @@
             <parameters />
         </Decal>
     </Group>
-    <Hotspot name="Branch Door Event" t0="-57.3019" t1="-48.5098" t2="-90.7296" s0="0.351805" s1="0.615938" s2="0.346045" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3407" type_file="Data/Objects/Hotspots/setmessages.xml">
+    <Hotspot name="Branch Door Event" t0="-55.9028" t1="-46.0856" t2="-74.8327" s0="0.351805" s1="0.615938" s2="0.346045" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="3407" type_file="Data/Objects/Hotspots/setmessages.xml">
         <parameters>
             <parameter name="Activate Once" type="int" val="0" />
             <parameter name="Activate Player Only" type="int" val="1" />
@@ -10750,9 +10752,9 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Group name="Branch Notes Group" t0="-77.2882" t1="-51.4063" t2="-71.2602" s0="0.834844" s1="8.47427" s2="0.82134" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3410" version="1">
+    <Group name="Branch Notes Group" t0="-77.2882" t1="-51.4063" t2="-66.4647" s0="0.834844" s1="8.47427" s2="0.82134" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3410" version="1">
         <parameters />
-        <Hotspot name="Branch Notes Event" t0="-77.2882" t1="-47.8986" t2="-71.2602" s0="0.206214" s1="0.36222" s2="0.202836" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3408" type_file="Data/Objects/Hotspots/setmessages.xml">
+        <Hotspot name="Branch Notes Event" t0="-77.2882" t1="-47.8986" t2="-66.4647" s0="0.206214" s1="0.36222" s2="0.202836" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3408" type_file="Data/Objects/Hotspots/setmessages.xml">
             <parameters>
                 <parameter name="Activate Once" type="int" val="0" />
                 <parameter name="Activate Player Only" type="int" val="1" />
@@ -10771,7 +10773,7 @@
             <Connections />
             <ConnectionsFrom />
         </Hotspot>
-        <Hotspot name="Branch Notes Trigger" t0="-77.2714" t1="-51.4266" t2="-71.2797" s0="0.179771" s1="2.10591" s2="0.173563" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3409" type_file="Data/Objects/Hotspots/start_dialogue.xml">
+        <Hotspot name="Branch Notes Trigger" t0="-77.2714" t1="-51.4266" t2="-66.4842" s0="0.179771" s1="2.10591" s2="0.173563" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3409" type_file="Data/Objects/Hotspots/start_dialogue.xml">
             <parameters>
                 <parameter name="Automatic" type="int" val="0" />
                 <parameter name="Color" type="string" val="1.0 1.0 1.0" />
@@ -16857,7 +16859,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;character_option&quot;:23,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;ai_goal&quot;:0,&quot;function&quot;:35,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_ai_target&quot;:1625,&quot;identifier_type&quot;:3,&quot;identifier_type_ai_target&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;branch_walk&quot;},{&quot;character_option&quot;:23,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;ai_goal&quot;:0,&quot;function&quot;:35,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_ai_target&quot;:5551,&quot;identifier_type&quot;:3,&quot;identifier_type_ai_target&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;character_option&quot;:23,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[-72.719535827636719,-47.840377807617188,-72.320236206054688],&quot;target_actor_rotation&quot;:180},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset&quot;,&quot;function&quot;:34},{&quot;character_option&quot;:23,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;ai_goal&quot;:0,&quot;function&quot;:35,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_ai_target&quot;:1625,&quot;identifier_type&quot;:3,&quot;identifier_type_ai_target&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;branch_walk&quot;},{&quot;character_option&quot;:23,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:false,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;ai_goal&quot;:0,&quot;function&quot;:35,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_ai_target&quot;:5551,&quot;identifier_type&quot;:3,&quot;identifier_type_ai_target&quot;:0},{&quot;function&quot;:1,&quot;message&quot;:&quot;dialogue_done&quot;},{&quot;character_option&quot;:23,&quot;function&quot;:19,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;param_after&quot;:true,&quot;param_type&quot;:6,&quot;value_type_option&quot;:0},{&quot;dialogue_function&quot;:2,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_position&quot;:[-72.719535827636719,-47.840377807617188,-72.320236206054688],&quot;target_actor_rotation&quot;:180},{&quot;anim_from_start&quot;:true,&quot;anim_mirrored&quot;:false,&quot;anim_mobile&quot;:false,&quot;anim_super_mobile&quot;:false,&quot;custom_animation&quot;:false,&quot;dialogue_function&quot;:3,&quot;function&quot;:33,&quot;identifier&quot;:&quot;Branch&quot;,&quot;identifier_type&quot;:3,&quot;target_actor_animation&quot;:&quot;Data/Animations/branch_idle.anm&quot;,&quot;use_ik&quot;:true,&quot;wait_anim_end&quot;:false},{&quot;display_comment&quot;:&quot;Done!&quot;,&quot;function&quot;:34}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -18155,6 +18157,7 @@
                 <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
                 <parameter name="Species" type="string" val="rabbit" />
                 <parameter name="Static" type="int" val="1" />
+                <parameter name="Stealth Proficiency" type="int" val="0" />
                 <parameter name="Stick To Nav Mesh" type="int" val="0" />
                 <parameter name="Teams" type="string" val="player, Ghost" />
                 <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -19037,7 +19040,7 @@
     <EnvObject t0="-72.3884" t1="-48.2365" t2="-71.5354" s0="0.726997" s1="0.879388" s2="0.460575" q0="0.566756" q1="0.422833" q2="0.422833" q3="-0.566756" euler_x="-1.5708" euler_y="-1.28195" euler_z="0" id="6026" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/book1.xml">
         <parameters />
     </EnvObject>
-    <Hotspot t0="-55.3426" t1="-49.6161" t2="-98.7102" s0="5.78605" s1="2.91823" s2="3.01802" q0="0" q1="-0.282295" q2="0" q3="0.959328" euler_x="0" euler_y="-0.572371" euler_z="0" id="6027" type_file="Data/Objects/Hotspots/setmessages.xml">
+    <Hotspot t0="-55.3425" t1="-47.7586" t2="-98.7102" s0="5.78605" s1="1.98942" s2="3.01802" q0="0" q1="-0.282295" q2="0" q3="0.959328" euler_x="0" euler_y="-0.572371" euler_z="0" id="6027" type_file="Data/Objects/Hotspots/setmessages.xml">
         <parameters>
             <parameter name="Activate Once" type="int" val="0" />
             <parameter name="Activate Player Only" type="int" val="1" />
@@ -22410,6 +22413,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="dog" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard" />
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
@@ -22989,6 +22993,12 @@
     <EnvObject t0="-1.79389" t1="-45.021" t2="-51.7559" s0="0.244927" s1="0.264088" s2="0.264088" q0="-0.0580368" q1="-0.636346" q2="0.142222" q3="-0.755956" euler_x="-0.470441" euler_y="1.36358" euler_z="-0.756149" id="7270" color_r="0.309804" color_g="0.263087" color_b="0.21747" overbright="0" type_file="Data/Objects/Environment/Rocks/BlockyStone1.xml">
         <parameters />
     </EnvObject>
+    <Decal t0="-69.8151" t1="-66.6837" t2="-208.219" s0="4.61462" s1="4.61462" s2="4.61462" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7271" type_file="Data/Objects/Decals/light_round.xml" color_r="0.682353" color_g="0.406736" color_b="0.644073" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="-57.1506" t1="-67.3142" t2="-249.983" s0="4.61462" s1="4.61462" s2="4.61462" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7272" type_file="Data/Objects/Decals/light_round.xml" color_r="0.682353" color_g="0.406736" color_b="0.644073" overbright="0">
+        <parameters />
+    </Decal>
     <DynamicLightObject name="Thoritz Light" t0="10.1584" t1="-49.232" t2="6.30234" s0="2.02809" s1="2.02809" s2="2.02809" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7273" color_r="0.11188" color_g="0.175089" color_b="0.380392" overbright="0">
         <parameters />
     </DynamicLightObject>
@@ -23035,7 +23045,7 @@
     <EnvObject t0="-73.6588" t1="-47.9189" t2="-78.8822" s0="1" s1="1" s2="1" q0="0" q1="-0.999991" q2="0" q3="0.00433859" euler_x="3.14159" euler_y="-0.00867721" euler_z="3.14159" id="7288" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/LitterLoads/LargeGourd.xml">
         <parameters />
     </EnvObject>
-    <EnvObject t0="-73.9504" t1="-48.2611" t2="-73.1195" s0="0.875548" s1="0.875548" s2="0.875548" q0="0.753457" q1="-0.588152" q2="-0.202483" q3="0.213024" euler_x="2.54718" euler_y="0.0545705" euler_z="-1.34232" id="7290" color_r="0.576471" color_g="0.576465" color_b="0.576465" overbright="0" type_file="Data/Objects/Environment/SmallProps/BottleTall.xml">
+    <EnvObject t0="-73.9504" t1="-48.2611" t2="-73.1195" s0="0.875548" s1="0.875548" s2="0.875548" q0="0.651921" q1="-0.625288" q2="-0.428598" q3="0.0177905" euler_x="2.41722" euler_y="0.566374" euler_z="-1.74874" id="7290" color_r="0.576471" color_g="0.576465" color_b="0.576465" overbright="0" type_file="Data/Objects/Environment/SmallProps/BottleTall.xml">
         <parameters />
     </EnvObject>
     <Decal t0="-73.1301" t1="-46.9663" t2="-70.4685" s0="5.15037" s1="0.248875" s2="2.45718" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="7291" type_file="Data/Objects/Decals/Cliffs/CliffDecal_02.xml" color_r="0.501961" color_g="0.501956" color_b="0.501956" overbright="0">
@@ -23250,6 +23260,12 @@
             <parameters />
         </EnvObject>
     </Group>
+    <EnvObject t0="-53.8143" t1="-44.6002" t2="-96.8116" s0="2.07919" s1="2.07919" s2="2.07919" q0="0.562316" q1="0" q2="0" q3="0.826922" euler_x="1.19437" euler_y="0" euler_z="0" id="7378" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Drainspout1.xml">
+        <parameters />
+    </EnvObject>
+    <Decal t0="-53.809" t1="-45.1487" t2="-96.6201" s0="0.277797" s1="0.506" s2="0.277797" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7379" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+        <parameters />
+    </Decal>
     <Decal t0="-58.883" t1="-54.6384" t2="-85.8536" s0="1.69523" s1="2.76309" s2="0.542879" q0="-0.00731218" q1="-0.0578252" q2="0.109668" q3="0.992258" euler_x="-0.0273735" euler_y="-0.113394" euler_z="0.221708" id="7390" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.372549" color_g="0.372545" color_b="0.372545" overbright="0">
         <parameters />
     </Decal>
@@ -23257,6 +23273,12 @@
         <parameters />
     </Decal>
     <Decal t0="-39.822" t1="-50.212" t2="-82.1974" s0="1.41836" s1="0.358" s2="1.41836" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7392" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+        <parameters />
+    </Decal>
+    <EnvObject t0="-97.4031" t1="-60.1776" t2="-239.411" s0="424.345" s1="424.345" s2="424.345" q0="-0.273183" q1="0.562332" q2="0.191287" q3="0.756678" euler_x="-0.737384" euler_y="1.27142" euler_z="-0.0602352" id="7393" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/characters/beheaded.xml">
+        <parameters />
+    </EnvObject>
+    <Decal t0="-53.8173" t1="-45.1035" t2="-96.6312" s0="0.414557" s1="0.100408" s2="0.395609" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7394" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.427451" color_g="0.427447" color_b="0.427447" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-66.3176" t1="-55.9118" t2="-94.4203" s0="2.07938" s1="6.89215" s2="1.99953" q0="0" q1="-0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="-0.523599" euler_z="0" id="7395" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.486274" color_g="0.48627" color_b="0.48627" overbright="0">
@@ -23703,6 +23725,7 @@
             <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
             <parameter name="Species" type="string" val="rabbit" />
             <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
             <parameter name="Stick To Nav Mesh" type="int" val="0" />
             <parameter name="Teams" type="string" val="guard" />
             <parameter name="Throw Counter Probability" type="string" val="0.0" />
@@ -24289,7 +24312,7 @@
         <parameters>
             <parameter name="Debug Current Line" type="int" val="0" />
             <parameter name="Run in EditorMode" type="int" val="1" />
-            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Thoritz Letter&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Held Branch Book&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Thoritz Page&quot;,&quot;identifier_type&quot;:3},{&quot;display_comment&quot;:&quot;Done&quot;,&quot;function&quot;:34}]}&#x0A;' />
+            <parameter name="Script Data" type="string" val='{&quot;functions&quot;:[{&quot;display_comment&quot;:&quot;Reset!&quot;,&quot;function&quot;:34},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Thoritz Letter&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Held Branch Book&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:&quot;Ghost Thoritz Page&quot;,&quot;identifier_type&quot;:3},{&quot;enabled&quot;:false,&quot;function&quot;:3,&quot;identifier&quot;:5408,&quot;identifier_type&quot;:0},{&quot;display_comment&quot;:&quot;Done&quot;,&quot;function&quot;:34}]}&#x0A;' />
             <parameter name="Show UI Grid" type="int" val="1" />
             <parameter name="Transform Relative" type="int" val="0" />
             <parameter name="UI Snap Scale" type="int" val="20" />
@@ -24559,24 +24582,6 @@
         <Connections />
         <ConnectionsFrom />
     </Hotspot>
-    <Group t0="-96.3145" t1="-64.3954" t2="-238.997" s0="75.7209" s1="180.804" s2="114.156" q0="-0.273183" q1="0.562332" q2="0.191287" q3="0.756678" euler_x="-0.737386" euler_y="1.27142" euler_z="-0.0602363" id="7608" version="1">
-        <parameters />
-        <EnvObject t0="-97.4031" t1="-60.1776" t2="-239.411" s0="424.345" s1="424.345" s2="424.345" q0="-0.273183" q1="0.562332" q2="0.191287" q3="0.756678" euler_x="-0.737387" euler_y="1.27142" euler_z="-0.0602366" id="7393" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/characters/beheaded.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="-68.8336" t1="-129.338" t2="-229.147" s0="236.969" s1="216.299" s2="43.6282" q0="-0.669747" q1="0.343672" q2="0.458259" q3="0.472575" euler_x="-1.96781" euler_y="1.21872" euler_z="-0.0790205" id="7394" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/ribcage_meat.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="-68.8336" t1="-129.338" t2="-229.147" s0="227.485" s1="207.642" s2="41.8821" q0="-0.357497" q1="-0.66247" q2="-0.462963" q3="0.467968" euler_x="2.0169" euler_y="-1.2566" euler_z="3.01063" id="7576" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/ribcage_meat.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="-92.0914" t1="-139.32" t2="-237.679" s0="151.743" s1="151.746" s2="94.8759" q0="0.687088" q1="0.0113176" q2="0.217103" q3="0.693286" euler_x="1.51284" euler_y="-0.28655" euler_z="0.336345" id="7577" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/arm_meat.xml">
-            <parameters />
-        </EnvObject>
-        <EnvObject t0="-41.6912" t1="-119.615" t2="-220.698" s0="151.745" s1="122.974" s2="99.6137" q0="0.659895" q1="0.0029536" q2="0.217377" q3="0.719217" euler_x="1.43584" euler_y="-0.286549" euler_z="0.336344" id="7607" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/camp/arm_meat.xml">
-            <parameters />
-        </EnvObject>
-    </Group>
     <PlaceholderObject t0="9.08677" t1="-45.8079" t2="5.29416" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7609" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/warrens/thoritz-jasmine.txt" />
@@ -24670,10 +24675,10 @@
     <NavmeshHintObject t0="-39.798" t1="-51.603" t2="-82.1991" s0="2.2665" s1="3.16603" s2="2.23126" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7623">
         <parameters />
     </NavmeshHintObject>
-    <Decal t0="-36.8182" t1="-85.5293" t2="-219.892" s0="9.1712" s1="9.1712" s2="9.1712" q0="0.107881" q1="0.580059" q2="-0.0941066" q3="0.801898" euler_x="0.207149" euler_y="1.25516" euler_z="-0.0831199" id="7624" type_file="Data/Objects/therium/Decals/ya.xml" color_r="1" color_g="1" color_b="1" overbright="0">
+    <Decal t0="-36.8182" t1="-85.5293" t2="-219.892" s0="9.1712" s1="9.1712" s2="9.1712" q0="0.107881" q1="0.580059" q2="-0.0941066" q3="0.801898" euler_x="0.207147" euler_y="1.25517" euler_z="-0.0831215" id="7624" type_file="Data/Objects/therium/Decals/ya.xml" color_r="1" color_g="1" color_b="1" overbright="0">
         <parameters />
     </Decal>
-    <Decal t0="-109.236" t1="-55.7677" t2="-96.2857" s0="0.429133" s1="5.70067" s2="0.0780204" q0="0.0119846" q1="0" q2="0" q3="0.999928" euler_x="0.0239699" euler_y="0" euler_z="0" id="7625" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.25098" color_g="0.250978" color_b="0.250978" overbright="0">
+    <Decal t0="-109.236" t1="-55.7677" t2="-96.2857" s0="0.429133" s1="5.70067" s2="0.0780204" q0="0.0119846" q1="0" q2="0" q3="0.999928" euler_x="0.0239698" euler_y="0" euler_z="0" id="7625" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.25098" color_g="0.250978" color_b="0.250978" overbright="0">
         <parameters />
     </Decal>
     <Decal t0="-69.7133" t1="-56.6498" t2="-90.3969" s0="1.71403" s1="3.01247" s2="1.71403" q0="0" q1="-0.173544" q2="0" q3="0.984826" euler_x="0" euler_y="-0.348854" euler_z="0" id="7626" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.25098" color_g="0.250978" color_b="0.250978" overbright="0">
@@ -24682,7 +24687,13 @@
     <Decal t0="-76.7731" t1="-56.6081" t2="-94.2493" s0="1.71403" s1="3.01247" s2="1.71403" q0="0" q1="-0.173544" q2="0" q3="0.984826" euler_x="0" euler_y="-0.348854" euler_z="0" id="7627" type_file="Data/Objects/Decals/env_blob_shadow.xml" color_r="0.25098" color_g="0.250978" color_b="0.250978" overbright="0">
         <parameters />
     </Decal>
+    <EnvObject t0="-69.6712" t1="-67.5585" t2="-209.87" s0="1" s1="1" s2="1" q0="-0.223156" q1="-0.0934634" q2="0.00376071" q3="0.970285" euler_x="-0.456634" euler_y="-0.180675" euler_z="0.0498433" id="7628" color_r="1" color_g="0.576471" color_b="0.941176" overbright="0" type_file="Data/Objects/Crete/hex_crete_boulder.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject name="Thoritz Fireplace Lit" t0="9.49836" t1="-50.1984" t2="5.40048" s0="0.322258" s1="0.397435" s2="0.277852" q0="0" q1="0.388287" q2="0" q3="0.921538" euler_x="0" euler_y="0.797543" euler_z="0" id="7629" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Environment/Furniture/SquarePillow.xml">
+        <parameters />
+    </EnvObject>
+    <EnvObject t0="-57.5862" t1="-68.1406" t2="-248.294" s0="1" s1="1" s2="1" q0="-0.0570647" q1="-0.604566" q2="-0.22469" q3="0.762075" euler_x="0.613184" euler_y="-1.24405" euler_z="-1.01982" id="7630" color_r="1" color_g="0.576471" color_b="0.941176" overbright="0" type_file="Data/Objects/Crete/hex_crete_boulder.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="7.98821" t1="-48.334" t2="2.00859" s0="0.423065" s1="0.423065" s2="0.188029" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7632" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
@@ -25866,7 +25877,6 @@
     <SpawnerItem display_name="Box Crete Full" path="Data/Objects/Crete/box_full.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/box_full.png" />
     <SpawnerItem display_name="Village Hut Hearth Square" path="Data/Objects/Buildings/rabbit_village/rabbit_hut_square_hearth.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/rabbit_hut_square_hearth.png" />
     <SpawnerItem display_name="Hanging Garden Bricks" path="Data/Objects/Buildings/hanging_garden_arena/hanging_garden_bricks.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/hanging_garden_bricks.png" />
-    <SpawnerItem display_name="Drain Spout" path="Data/Objects/Buildings/Drainspout1.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/Drain.png" />
     <SpawnerItem display_name="Firewood" path="Data/Objects/Environment/camp/fire_wood.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_wood.png" />
     <SpawnerItem display_name="Suspended Shelf [Prefab]" path="Data/Objects/therium/Prefabs/shelves.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/shelves.png" />
     <SpawnerItem display_name="Shop Sign Short Board" path="Data/Objects/Buildings/shops/sign_short_board.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/sign_short_board.png" />
@@ -25910,14 +25920,12 @@
     <SpawnerItem display_name="Fire Hotspot" path="Data/Objects/Hotspots/fire_test.xml" thumbnail_path="" />
     <SpawnerItem display_name="Fire Ash" path="Data/Objects/Environment/camp/fire_ash.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/fire_ash.png" />
     <SpawnerItem display_name="Ash Stony [Decal]" path="Data/Objects/therium/ouruin/ash/ash_stony.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/ash_stony.png" />
-    <SpawnerItem display_name="Ambient Light Decal (Round)" path="Data/Objects/Decals/light_round.xml" thumbnail_path="" />
     <SpawnerItem display_name="Pouch" path="Data/Objects/Gear/RatJunk/RatJunkPouch.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/sacksmall.png" />
     <SpawnerItem display_name="Basket Square" path="Data/Objects/Environment/baskets/basket_square.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/basket_square.png" />
     <SpawnerItem display_name="Start Dialogue Hotspot" path="Data/Objects/Hotspots/start_dialogue.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
     <SpawnerItem display_name="Cinderbreathe Coin" path="Data/Objects/therium/coin.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/coin.png" />
     <SpawnerItem display_name="letter_thoritz.xml" path="Data/Objects/therium/ouruin/letter_thoritz.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="thoritz_note.xml" path="Data/Objects/therium/ouruin/thoritz_note.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Ambient Shadow Blob Decal (Square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="jasmine.xml" path="Data/Prefabs/ouruin/characters/jasmine.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="whaleman_book.xml" path="Data/Objects/therium/ouruin/whaleman_book.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="whaleman_book_open.xml" path="Data/Objects/therium/ouruin/whaleman_book_open.xml" thumbnail_path="empty_placeholder.png" />
@@ -25945,4 +25953,8 @@
     <SpawnerItem display_name="Severed Head [Prefab]" path="Data/Prefabs/beheaded.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/prefabs/beheaded.png" />
     <SpawnerItem display_name="El Fary!!!" path="Data/Objects/therium/Decals/ya.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/ya.png" />
     <SpawnerItem display_name="Ambient Shadow Blob Decal (Round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Hex Crete Boulder" path="Data/Objects/Crete/hex_crete_boulder.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/hex_crete_boulder.png" />
+    <SpawnerItem display_name="Ambient Light Decal (Round)" path="Data/Objects/Decals/light_round.xml" thumbnail_path="" />
+    <SpawnerItem display_name="Drain Spout" path="Data/Objects/Buildings/Drainspout1.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/Drain.png" />
+    <SpawnerItem display_name="Ambient Shadow Blob Decal (Square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
 </RecentItems>

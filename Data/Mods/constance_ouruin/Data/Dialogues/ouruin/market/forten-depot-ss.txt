@@ -15,9 +15,9 @@ set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.52 0.95
 set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
+set_dialogue_color 2 0.39 0.54 0.212
 set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
+set_dialogue_color 4 0.39 0.54 0.212
 set_dialogue_voice 4 15
 say 1 "Ghost" "I took care of the snakes in the depot. [wait 0.1]The ones inside aren't coming back."
 say 2 "Forten" "...[wait 0.1]What do you mean by 'take care'."
@@ -25,7 +25,7 @@ say 1 "Ghost" "What do I mean? [wait 0.05]I mean there's nothing left for them."
 say 1 "Ghost" "Real quiet, [wait 0.05]too. [wait 0.1]Like a slow, [wait 0.05]cold blanket. [wait 0.1]Couldn't ask for any better."
 say 2 "Forten" "Y-You mean you... [wait 0.1]Slaughtered them?"
 say 1 "Ghost" "Their leaders will find the place to be a butcher's shop."
-say 3 "Forten" "..."
+say 4 "Forten" "..."
 say 1 "Ghost" "Now, [wait 0.05]my pay?"
 say 2 "Forten" "...[wait 0.1]Well... [wait 0.1]As a member of the Lotus, [wait 0.05]I am obligated to pay you for your service. [wait 0.1]Even if I never wanted it to begin with."
 say 2 "Forten" "Here. [wait 0.1]700 petals. [wait 0.1]The whole plate of 'em... [wait 0.1]Straight from my damned paypurse."

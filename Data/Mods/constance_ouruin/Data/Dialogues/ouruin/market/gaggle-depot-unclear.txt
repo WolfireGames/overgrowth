@@ -2,14 +2,30 @@
 #participants 5
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
-set_dialogue_color 3 0 0.52 0.95
-set_dialogue_voice 3 8
-set_dialogue_color 2 101 139 54
-set_dialogue_voice 2 15
-set_dialogue_color 4 101 139 54
-set_dialogue_voice 4 15
-
-say 1 "Ghost" "What do you think the Lotus will do to take it back?"
+set_dialogue_color 4 0 0.52 0.95
+set_dialogue_voice 4 8
+set_dialogue_color 2 0.6 0.33 0.6
+set_dialogue_voice 2 14
+set_dialogue_color 3 0.7 0.23 0.48
+set_dialogue_voice 3 17
+set_dialogue_color 5 0.52 0.2 0.8
+set_dialogue_voice 5 6
+send_character_message 2 "set_torso_target 29.4891 -41.9117 9.88928 0.00268421"
+set_cam 29.8564 -42.3492 11.5321 0.31 38.97 0.07 38.5544
+set_character_pos 3 28.3086 -42.3534 10.0198 -36
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit.anm\""
+send_character_message 3 "set_eye_dir 28.5343 -42.1591 9.77693 1"
+send_character_message 3 "set_head_target 29.0233 -42.1434 10.3251 1"
+set_character_pos 2 28.8122 -42.3289 9.67834 70
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.772173"
+send_character_message 2 "set_head_target 29.652 -42.0949 10.3689 1"
+set_character_pos 1 30.3624 -42.386 10.0562 -180
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 29.483 -41.8678 10.1366 1"
+send_character_message 1 "set_torso_target 29.9244 -41.7706 10.0611 0"
+send_character_message 1 "set_head_target 29.5337 -41.8421 10.0403 1"
+say 1 "Ghost" "What do you think the Lotus will do to take back the depot?"
 
 say 2 "Vando" "Sack Forten, [wait 0.05]first and foremost."
 
@@ -29,7 +45,7 @@ say 1 "Ghost" "Maybe they won't. [wait 0.1]What good's the depot for? [wait 0.05
 
 say 3 "Erdi" "It's not about that. [wait 0.1]It's about controlling the snakes' slitherin'."
 
-say 4 "???" "Territory games. [wait 0.1]Every clan's got'ta play 'em. [wait 0.1]Even the birds."
+say 5 "???" "Territory games. [wait 0.1]Every clan's got'ta play 'em. [wait 0.1]Even the birds."
 
 say 3 "Erdi" "Quit 'yer damn moaning... [wait 0.1]All day with that crap. [wait 0.1]The hell does 'the birds' mean?"
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/hookah.obj</Model>
+	<ColorMap>Data/Textures/ouruin/hookah_c.tga</ColorMap>
+	<NormalMap>Data/Textures/ouruin/hookah_n.tga</NormalMap>
+	<ShaderName>envobject #TANGENT</ShaderName>
+</Object>

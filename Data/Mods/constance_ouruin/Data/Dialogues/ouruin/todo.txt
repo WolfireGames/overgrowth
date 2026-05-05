@@ -39,5 +39,3 @@
 *- nedis reports the wrong location for valerian
 
 *- change weapon delivery to be less shit
-
-*- branch walk not work
