@@ -163,6 +163,10 @@ Define variable, its values and notes for each value.
 			0: Locked
 			1: Unlocked
 		
+		ouruin_depot_cleared
+			0: More than zero snakes still awake
+			1: All snakes eliminated
+		
 	ouruin_warrens_state
 		0: Player is loading into Nui Warrens from Market (market.xml)
 		1: Player is loading into Nui Warrens from Depot (depot.xml)
@@ -584,11 +588,10 @@ Define variable, its values and notes for each value.
 		0: Player has not talked to Forten
 		1: Player has permission to enter gaggle room
 		2: Player can confront Forten
-		3: Player has investigated Depot
+		3: Player can inform Forten about cleared depot
 		4: Player can talk to Nedis and/or Forten. Quest complete!
 
-		ouruin_forten_met	
-		ouruin_forten_storytold
+		ouruin_forten_met
 
 		ouruin_forten_gaggle
 			0: Not talked to
@@ -614,6 +617,11 @@ Define variable, its values and notes for each value.
 			1: Job accepted, letter with Ghost
 			2: Letter delivered, reward ready
 			3: Reward accepted. Job complete!
+		
+		ouruin_job_forten
+			0: Job not active
+			1: Job accepted
+			2: Turned in to Forten. Job complete!
 		
 		ouruin_job_speakeasy
 			0: Job not active

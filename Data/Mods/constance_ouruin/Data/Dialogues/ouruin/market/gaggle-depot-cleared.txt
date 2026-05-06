@@ -1,4 +1,4 @@
-#name "Gaggle-Depot-Unclear"
+#name "Gaggle-Depot-Cleared"
 #participants 5
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
@@ -8,14 +8,43 @@ set_dialogue_color 2 0.6 0.33 0.6
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.7 0.23 0.48
 set_dialogue_voice 3 17
-
+send_character_message 2 "set_torso_target 29.4891 -41.9117 9.88928 0.00268421"
+set_cam 29.3008 -42.0517 11.2007 7.46 -41.74 0 48.9608
+set_character_pos 3 28.3086 -42.3534 10.0198 -36
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit.anm\""
+send_character_message 3 "set_eye_dir 28.8735 -41.9761 9.92716 1"
+send_character_message 3 "set_head_target 28.8244 -42.2778 10.7597 1"
+set_character_pos 2 28.8122 -42.3289 9.67834 70
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.772173"
+send_character_message 2 "set_head_target 29.6294 -41.9123 9.93233 1"
+set_character_pos 1 30.3624 -42.386 10.0562 -180
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 29.6362 -41.9321 10.4796 1"
+send_character_message 1 "set_torso_target 29.9244 -41.7706 10.0611 0.000190914"
+send_character_message 1 "set_head_target 28.8735 -41.8759 9.57574 1"
 say 1 "Ghost" "Dunno if you've heard, [wait 0.05]but the whole depot's cleared now. [wait 0.1]Snakes are real 'vacated' now."
-
+send_character_message 3 "set_head_target 28.9041 -42.3144 10.7438 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.83138"
+send_character_message 2 "set_head_target 29.6076 -41.8422 9.86107 1"
+set_cam 30.1559 -41.5859 9.98318 -26.9 88.18 0.12 54.5522
 say 2 "Vando" "Oh, [wait 0.05]really? [wait 0.05]Did someone hold a stake over 'em?"
-
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.630264"
+send_character_message 2 "set_head_target 29.5155 -42.0288 10.1417 1"
+send_character_message 3 "set_eye_dir 28.618 -41.9712 10.1942 0.689337"
+send_character_message 3 "set_head_target 28.6929 -42.1061 10.9104 1"
 say 3 "Erdi" "I don't think that'll help Forten's case, [wait 0.05]to be honest. [wait 0.1]Needing some outsider work to flick out the tats... [wait 0.1]It don't look good for him."
-
+send_character_message 3 "set_eye_dir 28.5564 -42.0379 9.86314 1"
+send_character_message 3 "set_head_target 28.8489 -42.2336 10.7138 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_hand.anm\""
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 1"
+send_character_message 2 "set_head_target 29.4988 -41.8081 9.50621 1"
 say 2 "Vando" "Yea, [wait 0.05]but eh! [wait 0.05]Guy was never really good for the place. [wait 0.1]I always doubted he'd stick 'round."
-
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.748015"
+send_character_message 2 "set_head_target 29.4991 -41.8835 9.80189 1"
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
+send_character_message 3 "set_eye_dir 28.4146 -41.859 10.1442 1"
+send_character_message 3 "set_head_target 28.8226 -42.0723 10.8435 1"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_shrug.anm\""
 say 3 "Erdi" "May the rattletails never scrape those walls again..."
 send_level_message "dialogue_done"
