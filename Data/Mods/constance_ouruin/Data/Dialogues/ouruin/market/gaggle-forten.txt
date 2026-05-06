@@ -1,5 +1,9 @@
 #name "Gaggle-Forten"
 #participants 5
+set_character_pos 5 31.5411 -41.8806 14.0975 115
+send_character_message 5 "set_animation \"Data/Animations/tathfold_sit.anm\""
+send_character_message 5 "set_eye_dir 30.9825 -42.2587 13.1301 0.597107"
+send_character_message 5 "set_head_target 30.9264 -42.4829 12.8323 0"
 set_dialogue_color 1 0 0.52 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 4 0 0.52 0.95
@@ -8,19 +12,68 @@ set_dialogue_color 2 0.6 0.33 0.6
 set_dialogue_voice 2 14
 set_dialogue_color 3 0.7 0.23 0.48
 set_dialogue_voice 3 17
+set_dialogue_color 5 0.52 0.2 0.8
+set_dialogue_voice 5 6
+send_character_message 2 "set_torso_target 29.4891 -41.9117 9.88928 0.00268421"
+set_cam 29.2492 -41.6621 10.9692 0.07 -50.64 -0.31 38.5544
+set_character_pos 3 28.3086 -42.3534 10.0198 -36
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit.anm\""
+send_character_message 3 "set_eye_dir 28.5343 -42.1591 9.77693 1"
+send_character_message 3 "set_head_target 29.0217 -42.1347 10.3239 1"
+set_character_pos 2 28.8122 -42.3289 9.67834 70
+send_character_message 2 "set_animation \"Data/Animations/vando_lie.anm\""
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.772173"
+send_character_message 2 "set_head_target 29.6575 -42.096 10.3593 1"
+set_character_pos 1 30.3624 -42.386 10.0562 -180
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+send_character_message 1 "set_eye_dir 29.497 -41.2446 9.49143 1"
+send_character_message 1 "set_torso_target 29.9244 -41.7706 10.0611 0.00363621"
+send_character_message 1 "set_head_target 29.5827 -41.6151 9.32182 1"
+send_character_message 1 "set_morph_target angry 0 0.3 outExpo"
+send_character_message 3 "set_morph_target angry 0 0.3 outExpo"
 say 1 "Ghost" "Forten's doing... [wait 0.1]Real bad. [wait 0.1]Like he's given up completely."
-
+send_character_message 3 "set_head_target 29.0354 -42.0483 10.2845 1"
+send_character_message 2 "set_head_target 29.6441 -41.9056 9.64905 1"
+set_cam 29.0658 -42.2743 11.1416 0.32 24.41 -0.01 44.2085
 say 2 "Vando" "Makes you wonder just how much he really cared to begin with."
-
+send_character_message 3 "set_head_target 28.9608 -42.0928 10.0227 1"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.550244"
+send_character_message 2 "set_head_target 29.5714 -41.7792 9.84888 1"
 say 2 "Vando" "The Lotus has got ways of making people care. [wait 0.1]Even for someone as detached as him."
-
+set_cam 29.0658 -42.2743 11.1416 0.32 24.41 -0.01 44.2085
+send_character_message 1 "set_head_target 29.5827 -41.6151 9.32182 1"
+send_character_message 3 "set_eye_dir 28.7763 -42.3628 10.3135 0.814794"
+send_character_message 2 "set_eye_dir 29.1356 -42.1811 9.74222 0.774161"
+send_character_message 2 "set_head_target 29.5287 -41.9896 10.3163 1"
+send_character_message 3 "set_head_target 29.165 -42.1213 10.4367 1"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_arm.anm\""
 say 3 "Erdi" "I don't know if they'll actually rip 'im apart like that. [wait 0.1]The clan won't gain anything from losing another to the empry's waves."
-
+send_character_message 2 "set_head_target 29.6138 -41.87 9.98024 1"
+send_character_message 3 "set_eye_dir 29.1408 -41.9087 9.95468 0.814794"
+send_character_message 3 "set_head_target 29.1763 -42.0603 10.2428 1"
+set_cam 27.7509 -42.447 10.632 11.26 -57.51 -0.32 59.7834
+send_character_message 1 "set_eye_dir 29.2334 -42.1106 10.4836 1"
+send_character_message 1 "set_head_target 29.3577 -41.8675 9.42288 1"
 say 1 "Ghost" "The Lotus can't make him want to work like the empry can. [wait 0.1]There's no way he'll stick around."
-
+send_character_message 2 "set_animation \"Data/Animations/vando_lie_chest.anm\""
+send_character_message 3 "set_head_target 29.1515 -42.1494 9.96676 1"
+send_character_message 2 "set_head_target 29.5032 -41.9666 9.40917 1"
+send_character_message 1 "set_torso_target 29.9242 -41.9742 10.0601 1"
+send_character_message 1 "set_head_target 29.3002 -41.949 9.47863 1"
+send_character_message 1 "set_eye_dir 28.9948 -42.1301 10.2833 1"
 say 2 "Vando" "...[wait 0.1]Here's hoping he will."
-
+send_character_message 3 "set_eye_dir 28.3496 -42.3857 10.4532 0.814794"
+send_character_message 1 "set_head_target 29.2433 -41.9467 9.53598 1"
+send_character_message 2 "set_head_target 29.1555 -42.2171 10.0114 1"
+send_character_message 2 "set_eye_dir 28.8225 -42.2238 9.99847 0.774161"
+send_character_message 3 "set_head_target 28.7281 -42.3472 10.5587 1"
+send_character_message 3 "set_animation \"Data/Animations/erdi_sit_hands.anm\""
 say 3 "Erdi" "Yea. [wait 0.1]He sucks and all, [wait 0.05]but..."
-
+send_character_message 1 "set_head_target 29.1525 -41.8026 9.62333 1"
+send_character_message 1 "set_torso_target 29.8717 -41.9468 10.0728 1"
+send_character_message 2 "set_eye_dir 28.8225 -42.2238 9.99847 0"
+send_character_message 2 "set_head_target 29.1617 -42.133 10.0486 1"
+send_character_message 3 "set_head_target 28.6302 -42.4799 10.6543 1"
+send_character_message 3 "set_eye_dir 27.5924 -42.1794 10.6436 1"
 say 3 "Erdi" "Conscription's seriously bad."
 send_level_message "dialogue_done"

@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="28.724" t1="-41.7417" t2="8.59918" s0="1" s1="1" s2="1" q0="-0.027696" q1="-0.928544" q2="0.0707756" q3="-0.363359" euler_x="-2.98944" euler_y="0.746004" euler_z="3.14159" id="0">
+    <CameraObject t0="25.543" t1="-32.416" t2="6.36544" s0="1" s1="1" s2="1" q0="0.0626847" q1="0.936125" q2="-0.267856" q3="0.219075" euler_x="-2.58422" euler_y="0.459773" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <Decal t0="36.4746" t1="-50.6038" t2="61.8414" s0="3.14343" s1="3.14144" s2="0.219877" q0="0.00951225" q1="0" q2="4.5635e-05" q3="0.999955" euler_x="0.0190248" euler_y="0" euler_z="9.12659e-05" id="1" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
@@ -14139,7 +14139,7 @@
     <EnvObject t0="25.2846" t1="-38.9701" t2="43.8358" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="3881" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/therium/inkpot.xml">
         <parameters />
     </EnvObject>
-    <PlaceholderObject t0="26.6507" t1="-39.1351" t2="14.272" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3882" type_file="" special_type="0">
+    <PlaceholderObject t0="26.1892" t1="-39.1332" t2="14.2358" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3882" type_file="" special_type="0">
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/gaggle-meet.txt" />
             <parameter name="DisplayName" type="string" val="Gaggle-Meet" />
@@ -14154,31 +14154,31 @@
             <Connection id="3882" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="27.2569" t1="-38.4351" t2="13.922" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3883" type_file="" special_type="2">
+    <PlaceholderObject t0="26.7954" t1="-38.4332" t2="13.8858" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3883" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="1218" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="26.9538" t1="-38.4351" t2="14.097" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3884" type_file="" special_type="2">
+    <PlaceholderObject t0="26.4923" t1="-38.4332" t2="14.0608" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3884" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="3866" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="26.6507" t1="-38.4351" t2="14.272" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3885" type_file="" special_type="2">
+    <PlaceholderObject t0="26.1892" t1="-38.4332" t2="14.2358" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3885" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="3117" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="26.3475" t1="-38.4351" t2="14.447" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3886" type_file="" special_type="2">
+    <PlaceholderObject t0="25.8861" t1="-38.4332" t2="14.4108" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3886" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <PlaceholderObject t0="26.0444" t1="-38.4351" t2="14.622" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3887" type_file="" special_type="2">
+    <PlaceholderObject t0="25.583" t1="-38.4332" t2="14.5858" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3887" type_file="" special_type="2">
         <parameters />
         <Connections>
             <Connection id="-1" />
@@ -14490,6 +14490,102 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
+    <PlaceholderObject t0="26.1759" t1="-35.4109" t2="14.2369" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3989" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/gaggle-forten.txt" />
+            <parameter name="DisplayName" type="string" val="Gaggle-Forten" />
+            <parameter name="NumParticipants" type="int" val="5" />
+            <parameter name="obj_1" type="int" val="3990" />
+            <parameter name="obj_2" type="int" val="3991" />
+            <parameter name="obj_3" type="int" val="3992" />
+            <parameter name="obj_4" type="int" val="3993" />
+            <parameter name="obj_5" type="int" val="3994" />
+        </parameters>
+        <Connections>
+            <Connection id="3989" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="26.7821" t1="-34.7109" t2="13.8869" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3990" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="26.479" t1="-34.7109" t2="14.0619" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3991" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3866" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="26.1759" t1="-34.7109" t2="14.2369" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3992" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3117" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.8728" t1="-34.7109" t2="14.4119" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3993" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.5696" t1="-34.7109" t2="14.5869" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3994" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="26.2028" t1="-33.8016" t2="14.2633" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3995" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/gaggle-depot-unclear.txt" />
+            <parameter name="DisplayName" type="string" val="Gaggle-Depot-Unclear" />
+            <parameter name="NumParticipants" type="string" val="5" />
+            <parameter name="obj_1" type="int" val="3996" />
+            <parameter name="obj_2" type="int" val="3997" />
+            <parameter name="obj_3" type="int" val="3998" />
+            <parameter name="obj_4" type="int" val="3999" />
+            <parameter name="obj_5" type="int" val="4000" />
+        </parameters>
+        <Connections>
+            <Connection id="3995" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="26.809" t1="-33.1016" t2="13.9133" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3996" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="1218" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="26.5059" t1="-33.1016" t2="14.0883" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3997" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3866" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="26.2028" t1="-33.1016" t2="14.2633" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3998" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3117" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.8996" t1="-33.1016" t2="14.4383" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="3999" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="25.5965" t1="-33.1016" t2="14.6133" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="4000" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="3813" />
+        </Connections>
+    </PlaceholderObject>
+    <EnvObject t0="28.1969" t1="-32.9466" t2="8.47853" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4005" color_r="0" color_g="0" color_b="0" overbright="0" type_file="Data/Objects/primitives/edged_cube.xml">
+        <parameters />
+    </EnvObject>
+    <Decal t0="28.2788" t1="-32.799" t2="7.66009" s0="2.9993" s1="2.9993" s2="2.9993" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4006" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
+        <parameters />
+    </Decal>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Ghost" path="Data/Objects/therium/IGF_Characters/ghostspawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
@@ -14728,7 +14824,6 @@
     <SpawnerItem display_name="Book 7" path="Data/Objects/therium/book_bloody.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="Book 4" path="Data/Objects/therium/book4.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
     <SpawnerItem display_name="branchbook.xml" path="Data/Objects/therium/Decals/branchbook.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Edged Stone Cube" path="Data/Objects/primitives/edged_cube.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/edged_cube.png" />
     <SpawnerItem display_name="StuccoWall_SmallHole.xml" path="Data/Prototypes/OG/StuccoWall_SmallHole.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="lantern.xml" path="Data/Objects/therium/lantern.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Thatch Cube" path="Data/Custom/FnB/Objects/Simple Shapes/roof_thatch/cube.xml" thumbnail_path="" />
@@ -15423,7 +15518,6 @@
     <SpawnerItem display_name="AI Pathing Point" path="Data/Objects/pathpoint/pathpoint.xml" thumbnail_path="Data/UI/spawner/thumbs/Utility/pathpoint.png" />
     <SpawnerItem display_name="Female Rabbit 3 Tunic [Char]" path="Data/Objects/characters/rabbits/female_rabbit_3_actor.xml" thumbnail_path="Data/UI/spawner/thumbs/Character/female_rabbit_3_actor.png" />
     <SpawnerItem display_name="hookah.xml" path="Data/Objects/therium/ouruin/hookah.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="Ambient Shadow Blob Decal (Square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="Inkpot" path="Data/Objects/therium/inkpot.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/inkpot.png" />
     <SpawnerItem display_name="Feather" path="Data/Objects/therium/feather.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/feather.png" />
     <SpawnerItem display_name="Coal Pen 1" path="Data/Objects/therium/coalpen1.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/coalpen1.png" />
@@ -15456,4 +15550,6 @@
     <SpawnerItem display_name="Common Rope Bend 2" path="Data/Objects/Environment/SmallProps/Rope/Rope_Bend_02.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/Rope_Bend_01.png" />
     <SpawnerItem display_name="Fabric Scarf" path="Data/Objects/therium/scarf.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/scarf.png" />
     <SpawnerItem display_name="Drika&apos;s Hotspot (DHS)" path="Data/Objects/Hotspots/drika_hotspot.xml" thumbnail_path="Data/Textures/drika_hotspot.png" />
+    <SpawnerItem display_name="Edged Stone Cube" path="Data/Objects/primitives/edged_cube.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/edged_cube.png" />
+    <SpawnerItem display_name="Ambient Shadow Blob Decal (Square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
 </RecentItems>
