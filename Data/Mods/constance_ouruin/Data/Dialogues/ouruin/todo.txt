@@ -30,7 +30,9 @@
 
 - add sfx to donatas fight collapse anims
 
-*- animate and implement forten quest
+*- rewrite end of forten confront dialogue
+
+*- add nedis' part in forten's quest
 
 *- write out music/stinger doc
 
