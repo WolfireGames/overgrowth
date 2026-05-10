@@ -24,7 +24,7 @@
 
 - add lethality book to moritz (or warrens?)
 
-- add cres to depot and fractured home
+- add cres to fractured home
 
 - add sfx to ship collapse
 
