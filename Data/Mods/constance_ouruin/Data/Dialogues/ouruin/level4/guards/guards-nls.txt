@@ -130,6 +130,7 @@ send_character_message 2 "set_eye_dir 4.03464 -5.8422 10.3001 1"
 send_character_message 2 "set_animation \"Animations/r_actionidlethreat.anm\""
 send_character_message 2 "set_torso_target 3.42593 -6.90142 9.63682 0"
 send_character_message 2 "set_head_target 4.16296 -5.92188 10.0728 1"
+send_level_message "prepare_weapon"
 say 2 "???" "Someone's in here... [wait 0.1]Call for backup!"
 set_cam 3.4753 -6.36646 -6.53158 0 -179.35 0 63.8898
 send_character_message 2 "equip_item 617"

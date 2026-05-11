@@ -104,6 +104,7 @@ send_character_message 3 "set_torso_target 4.23493 -6.27258 9.26843 0.999987"
 send_character_message 3 "set_head_target 3.56009 -6.01946 9.32113 1"
 send_character_message 1 "set_torso_target 6.06282 -7.00581 -0.354922 0.986039"
 send_character_message 1 "set_head_target 6.14913 -5.43262 1.41389 0.99119"
+send_level_message "prepare_weapon"
 set_cam 6.63012 -5.87706 -3.48946 -8.58 169.62 0 61.7233
 say 5 "Ghost" "..."
 send_character_message 2 "set_eye_dir 3.52782 -6.15471 8.76849 0.314673"

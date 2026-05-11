@@ -2,7 +2,7 @@
 
 *- depot janner dialogue
 
-*- let ghost ask where to get valerian root
+- let ghost ask where to get valerian root
 
 - visible animation for branch door slam
 
@@ -13,6 +13,8 @@
 - varidien dialogue expression morphs
 
 - adal dialogue expression morphs
+
+- gaggle dialogue morphs
 
 - ghost right now can offer valerian to dart after beating her in a duel
 
@@ -46,3 +48,5 @@ send_level_message "set_camera_dof 0.0 5.0 10.0 0.0 20.0 10.0"
 *- cinderian ship lethality for epilogue
 
 *- finish epilogue trackers
+
+*- cinderian ship different state dialogue anims

@@ -105,6 +105,7 @@ send_character_message 2 "set_animation \"Animations/dialogue_guard_swordprevoke
 send_character_message 3 "set_animation \"Animations/r_dialogue_welcome.anm\""
 send_character_message 3 "set_head_target 4.69117 -5.79734 8.25966 1"
 send_character_message 2 "set_head_target 3.69047 -5.74535 8.70638 1"
+send_level_message "prepare_weapon"
 say 3 "????" "Come out with your hands in the air, [wait 0.05]Amos! [wait 0.1]Backup's on its way!"
 send_character_message 1 "set_head_target 4.63383 -6.06977 -1.43116 1"
 set_cam 5.6589 -6.25574 -5.65575 0 155.45 0 52.4603
