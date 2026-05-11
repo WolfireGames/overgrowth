@@ -182,6 +182,7 @@ On level transitions, send: lethality_tally
 
 
 
+
 === FRACTURED HOME [13 Enemies]
     -- ENEMIES
         Streets Heavy 1                 Ingrid
@@ -305,3 +306,47 @@ On level transitions, send: lethality_tally
         50%: 76
         75%: 104
 
+
+
+
+==== CINDERIAN SHIP [10 Enemies]
+    -- ENEMIES
+        Dialogue Guard 1                Tollie
+            503
+        Dialogue Guard 2                Leaf-Treed
+            498
+        Mook 1                          Sworn-Tooth
+            534
+        Mook 2                          Garrat
+            517
+        Mook 3                          Felton
+            596
+        Mook 4                          Alrick
+            613
+        Mook 5                          Audis
+            821
+        Heavy 1                         Narra
+            549
+        Heavy 2                         Enko
+            564
+        Heavy 3                         Taurien
+            579
+
+    -- VARIABLES
+            ouruin_ship_enemy_503_status
+            ouruin_ship_enemy_498_status
+            ouruin_ship_enemy_534_status
+            ouruin_ship_enemy_517_status
+            ouruin_ship_enemy_596_status
+            ouruin_ship_enemy_613_status
+            ouruin_ship_enemy_821_status
+            ouruin_ship_enemy_549_status
+            ouruin_ship_enemy_564_status
+            ouruin_ship_enemy_579_status
+
+    -- POINTS TOTAL
+        kills: 80 points
+        10%: 8
+        25%: 20
+        50%: 40
+        75%: 60
