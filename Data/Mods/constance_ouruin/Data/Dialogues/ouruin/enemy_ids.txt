@@ -176,7 +176,6 @@ On level transitions, send: lethality_tally
 
 
 
-
 === RAT DEN
     ???
 
