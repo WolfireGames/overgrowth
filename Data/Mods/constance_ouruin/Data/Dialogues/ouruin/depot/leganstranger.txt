@@ -1,36 +1,91 @@
 #name "LeganStranger"
 #participants 4
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 1"
+send_character_message 2 "set_head_target 22.6076 -30.5722 -11.8649 1"
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+set_cam 21.4809 -30.3885 -13.8243 -5.6 -77.99 0 23.6438
+set_character_pos 2 22.3536 -30.6534 -10.6827 75
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sit.anm\""
+set_character_pos 1 23.3143 -31.2309 -14.3324 -103
+send_character_message 1 "set_eye_dir 22.4487 -30.3562 -10.8726 1"
+send_character_message 1 "set_torso_target 23.0676 -30.8019 -13.4096 1"
+send_character_message 1 "set_head_target 23.5851 -30.6259 -12.0786 1"
 set_dialogue_color 1 0 0.62 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.62 0.95
 set_dialogue_voice 3 8
 set_dialogue_color 2 1 0.82 0.56
+set_dialogue_voice 2 11
+set_dialogue_color 4 1 0.82 0.56
 set_dialogue_voice 4 11
-
+send_level_message "enable 7390"
+send_level_message "sheathe_weapon"
+send_character_message 2 "set_morph_target sad 0 0.3 outExpo"
+send_character_message 1 "set_morph_target sad 0 0.3 outExpo"
+send_character_message 1 "set_morph_target think 0 0.3 outExpo"
 say 1 "Ghost" "You're not from around here, [wait 0.05]are you?"
-
+send_character_message 1 "set_head_target 23.2294 -30.527 -12.1449 1"
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0"
+send_character_message 2 "set_head_target 22.1403 -30.8235 -11.8252 1"
+set_cam 24.7054 -30.7911 -15.5795 2.8 143.08 0 41.3184
 say 2 "Legan" "Hm. [wait 0.1]I'm not one to pretend... [wait 0.1]But I was hoping it wouldn't be that obvious."
-
+send_character_message 1 "set_head_target 22.917 -30.4594 -12.1128 1"
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0.775148"
+send_character_message 2 "set_head_target 22.6543 -30.5989 -11.8105 1"
 say 2 "Legan" "Where do you think I'm from?"
-
+send_character_message 1 "set_eye_dir 22.4487 -30.3562 -10.8726 0.689896"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+set_cam 24.4486 -31.0651 -13.1268 11.71 48.34 0 48.8794
+send_character_message 1 "set_head_target 22.0513 -30.4452 -12.8752 1"
+send_character_message 1 "set_torso_target 22.804 -30.7583 -13.3263 0"
 say 3 "Ghost" "..."
-
-say 1 "Ghost" "Somewhere rural. [wait 0.1]Somewhere tight-knit. [wait 0.1]But if you're traveled enough to end up here..."
-
+send_character_message 1 "set_eye_dir 21.2433 -30.6852 -13.4434 1"
+send_character_message 1 "set_head_target 21.59 -30.5564 -13.2535 1"
+send_character_message 1 "set_morph_target think 1 0.3 outExpo"
+say 1 "Ghost" "Somewhere by the sea. [wait 0.1]Somewhere tight-knit. [wait 0.1]But if you're traveled enough to end up here..."
+send_character_message 1 "set_eye_dir 22.7345 -30.3145 -11.4516 0.821637"
+send_character_message 1 "set_head_target 21.6863 -31.0134 -13.1089 1"
 say 1 "Ghost" "My guess is you're a monastery type. [wait 0.1]Like you're on a pilgrimage."
-
+send_character_message 1 "set_head_target 22.5447 -30.8543 -12.7721 1"
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0.268772"
+send_character_message 2 "set_head_target 22.0735 -30.7436 -12.008 1"
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sitlean.anm\""
+set_cam 23.0873 -30.7204 -15.3995 0 178.87 0 37.693
 say 2 "Legan" "I suppose that's close enough. [wait 0.1]But no, [wait 0.05]I carry not the words of a deity."
-
+send_character_message 1 "set_head_target 22.6599 -30.6736 -12.7726 1"
+send_character_message 1 "set_torso_target 22.804 -30.8051 -13.3263 1"
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0.873748"
+send_character_message 2 "set_head_target 22.5002 -30.6081 -11.9737 1"
+send_character_message 1 "set_morph_target think 0 0.3 outExpo"
 say 1 "Ghost" "You carry someone's words, [wait 0.05]then."
-
-say 2 "Legan" "I am on a mission. [wait 0.1]It is one I believe in."
-
+send_character_message 1 "set_head_target 22.7303 -30.6568 -12.761 1"
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0.771151"
+send_character_message 2 "set_head_target 22.7585 -30.7098 -11.882 1"
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_hand.anm\""
+say 2 "Legan" "I am still on a mission. [wait 0.1]It is one I believe in."
+send_character_message 2 "set_head_target 22.7283 -30.6257 -11.8731 1"
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 1"
+send_character_message 1 "set_eye_dir 22.7345 -30.3145 -11.4516 0.68396"
+send_character_message 1 "set_head_target 22.7291 -30.5467 -12.6502 1"
+send_character_message 1 "set_torso_target 22.7955 -31.0848 -13.2408 1"
+set_cam 22.328 -30.7247 -14.1652 0 -88.11 0 37.693
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sit.anm\""
+send_character_message 1 "set_morph_target sad 0.6 0.3 outExpo"
 say 1 "Ghost" "[wait 0.05].[wait 0.05].[wait 0.05].[wait 0.1]You're alone."
-
-say 4 "Legan" "..."
-
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0.493888"
+send_character_message 2 "set_head_target 22.4134 -30.8204 -11.8779 1"
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sitsquint.anm\""
+set_cam 21.4288 -30.7097 -13.1786 0 -156.76 0 27.7834
+send_character_message 2 "set_morph_target sad 0.4 0.3 outExpo"
+say 4 "Legan" "[wait 0.3]..."
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0"
+send_character_message 2 "set_head_target 22.5025 -30.878 -11.8648 1"
+send_character_message 2 "set_morph_target sad 0.6 0.3 outExpo"
 say 1 "Ghost" "I recognise that look."
-
+send_character_message 2 "set_eye_dir 22.1743 -30.4619 -11.2469 0.320472"
+send_character_message 2 "set_head_target 22.8125 -30.7499 -11.7173 1"
+send_character_message 2 "set_morph_target sad 0.8 0.3 outExpo"
 say 2 "Legan" "I carry it forwards. [wait 0.1]That's all I will say."
-
+send_character_message 2 "set_morph_target sad 0.4 0.3 outExpo"
+send_character_message 1 "set_morph_target sad 0 0.3 outExpo"
 send_level_message "dialogue_done"

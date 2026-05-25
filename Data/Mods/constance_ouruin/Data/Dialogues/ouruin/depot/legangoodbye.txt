@@ -1,13 +1,33 @@
 #name "LeganGoodbye"
 #participants 4
+send_character_message 2 "set_eye_dir 22.1742 -30.4619 -11.2469 0.384403"
+send_character_message 2 "set_head_target 22.6195 -30.4692 -11.9358 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+set_cam 24.4054 -30.272 -15.3232 -9.17 144.88 0.09 55.4611
+set_character_pos 2 22.3536 -30.6534 -10.6827 75
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sit.anm\""
+set_character_pos 1 23.3143 -31.2309 -14.3324 -103
+send_character_message 1 "set_eye_dir 22.4056 -30.3903 -10.8109 1"
+send_character_message 1 "set_torso_target 23.0676 -30.8019 -13.4096 0"
+send_character_message 1 "set_head_target 22.7864 -30.5845 -12.4311 1"
 set_dialogue_color 1 0 0.62 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.62 0.95
 set_dialogue_voice 3 8
 set_dialogue_color 2 1 0.82 0.56
+set_dialogue_voice 2 11
+set_dialogue_color 4 1 0.82 0.56
 set_dialogue_voice 4 11
-
+send_level_message "enable 7390"
+send_level_message "prepare_weapon"
+send_character_message 2 "set_morph_target sad 0 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0.2 0.3 outExpo"
 say 2 "Legan" "I hope we meet again, [wait 0.05]Ghost."
-
+send_character_message 1 "set_head_target 22.7642 -30.4921 -12.4134 1"
+send_character_message 2 "set_eye_dir 22.1726 -30.4618 -11.2471 0"
+send_character_message 2 "set_head_target 22.5687 -30.3885 -11.9254 1"
+send_character_message 2 "set_morph_target smile 0.6 0.3 outExpo"
 say 2 "Legan" "One day..."
+send_character_message 2 "set_morph_target smile 0.2 0.3 outExpo"
+send_level_message "disable 7390"
 send_level_message "dialogue_done"

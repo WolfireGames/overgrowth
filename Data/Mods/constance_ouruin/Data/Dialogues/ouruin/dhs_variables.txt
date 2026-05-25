@@ -697,6 +697,11 @@ Define variable, its values and notes for each value.
 			0: Flute has not been met
 			1: Flute has been met
 			2: Flute has talked about the builders
+		
+		ouruin_talk_stranger
+			0: Stranger has not been met
+			1: Stranger has been met
+			2: Stranger has been talked to
 
 
 == MARKET

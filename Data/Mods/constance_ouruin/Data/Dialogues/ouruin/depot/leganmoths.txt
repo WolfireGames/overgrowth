@@ -1,22 +1,63 @@
 #name "LeganMoths"
 #participants 4
+send_character_message 2 "set_eye_dir 22.4569 -30.5507 -11.1885 0.495389"
+send_character_message 2 "set_head_target 22.7435 -30.4871 -12.0064 1"
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+set_cam 24.784 -30.3454 -16.6909 -4.15 152.52 2.96 20.6497
+set_character_pos 2 22.3536 -30.6534 -10.6827 75
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sitsquint.anm\""
+set_character_pos 1 23.3143 -31.2309 -14.3324 -103
+send_character_message 1 "set_eye_dir 22.4487 -30.3562 -10.8726 1"
+send_character_message 1 "set_torso_target 23.0979 -30.7942 -13.4019 0"
+send_character_message 1 "set_head_target 22.9759 -30.5009 -12.9521 1"
 set_dialogue_color 1 0 0.62 0.95
 set_dialogue_voice 1 8
 set_dialogue_color 3 0 0.62 0.95
 set_dialogue_voice 3 8
 set_dialogue_color 2 1 0.82 0.56
+set_dialogue_voice 2 11
+set_dialogue_color 4 1 0.82 0.56
 set_dialogue_voice 4 11
-
+send_level_message "enable 7390"
+send_level_message "sheathe_weapon"
+send_character_message 2 "set_morph_target smile 0 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0 0.3 outExpo"
+send_character_message 2 "set_morph_target sad 0 0.3 outExpo"
+send_character_message 2 "set_morph_target afraid 0 0.3 outExpo"
 say 2 "Legan" "You're... [wait 0.1]There's moths following you."
-
-say 1 "Ghost" "What, [wait 0.05]you sniff those out or something? I haven't seen any holes in my clothes form."
-
+send_character_message 2 "set_eye_dir 22.4569 -30.5507 -11.1885 0.363793"
+send_character_message 2 "set_head_target 22.7485 -30.503 -12.0037 1"
+send_character_message 1 "set_eye_dir 24.147 -30.5451 -13.9405 0.580758"
+send_character_message 1 "set_animation \"Animations/r_actionidle_glance.anm\""
+send_character_message 1 "set_head_target 22.9995 -30.6172 -12.9213 0.00653738"
+say 1 "Ghost" "What, [wait 0.05]you sniff those out or something? [wait 0.1]I haven't seen any holes in my clothes form."
+set_cam 24.7806 -30.3478 -16.6843 -4.15 152.52 2.96 20.6497
+send_character_message 1 "set_head_target 22.9981 -30.3019 -12.8428 1"
+send_character_message 2 "set_eye_dir 22.4569 -30.5507 -11.1885 1"
+send_character_message 2 "set_head_target 22.7767 -30.421 -12.0079 1"
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sit.anm\""
+send_character_message 2 "set_morph_target afraid 0.3 0.3 outExpo"
 say 2 "Legan" "You don't see them?"
-
+send_character_message 2 "set_head_target 22.7868 -30.4674 -12.0052 1"
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 21.9688 -30.3707 -14.0852 1"
+send_character_message 1 "set_head_target 22.2723 -30.3077 -13.6919 1"
+send_character_message 2 "set_morph_target afraid 0.2 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0.2 0.3 outExpo"
 say 1 "Ghost" "If you're trying to talk in code, [wait 0.05]I don't know you well enough to put up with it."
-
+send_character_message 2 "set_eye_dir 22.4569 -30.5507 -11.1885 0.385535"
+send_character_message 2 "set_head_target 23.5645 -30.535 -11.7357 1"
+set_cam 24.1003 -30.2622 -12.7699 -5.59 138.55 0 18.1173
+send_character_message 2 "set_animation \"Data/Animations/swordmaker_sitlean.anm\""
+send_character_message 2 "set_morph_target afraid 0 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0.5 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0 0.3 outExpo"
 say 2 "Legan" "If you're... [wait 0.1]Then the tides will..."
-
+send_character_message 2 "set_eye_dir 22.4569 -30.5507 -11.1885 0"
+send_character_message 2 "set_head_target 22.3424 -30.7695 -12.1131 1"
+send_character_message 2 "set_morph_target angry 0 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0.5 0.3 outExpo"
 say 2 "Legan" "Nevermind me."
-
+send_character_message 2 "set_morph_target angry 0 0.3 outExpo"
+send_character_message 2 "set_morph_target smile 0.3 0.3 outExpo"
 send_level_message "dialogue_done"
