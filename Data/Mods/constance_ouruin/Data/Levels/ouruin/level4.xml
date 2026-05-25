@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="13.175" t1="11.9425" t2="-14.7284" s0="1" s1="1" s2="1" q0="0.0429136" q1="-0.95426" q2="0.243386" q3="0.168254" euler_x="-2.64214" euler_y="-0.349051" euler_z="3.14159" id="0">
+    <CameraObject t0="6.31263" t1="-4.35751" t2="-6.3118" s0="1" s1="1" s2="1" q0="-0.0297539" q1="0.96593" q2="-0.129359" q3="-0.222174" euler_x="-2.87533" euler_y="-0.452156" euler_z="3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -6622,6 +6622,9 @@
             <parameter name="Placeholder Tag" type="string" val="level47691248" />
         </parameters>
     </EnvObject>
+    <EnvObject t0="14.0945" t1="-37.4197" t2="-63.4317" s0="1" s1="1" s2="1" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1250" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/terrain/sea_cliffs/sea_cliffs_sea.xml">
+        <parameters />
+    </EnvObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="3.61642" t1="-6.79793" t2="8.29972" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1251" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
         <parameters>
             <parameter name="Placeholder Tag" type="string" val="level47691251" />
@@ -6790,4 +6793,5 @@
     <SpawnerItem display_name="charmscript.xml" path="Data/Prefabs/ouruin/equipment/charmscript.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Start Dialogue Hotspot" path="Data/Objects/Hotspots/start_dialogue.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
     <SpawnerItem display_name="Thick Tan Rug [Decal]" path="Data/Objects/Decals/rugs/thick_tan_rug.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/thick_tan_rug.png" />
+    <SpawnerItem display_name="sea_cliffs_sea.xml" path="Data/Objects/terrain/sea_cliffs/sea_cliffs_sea.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

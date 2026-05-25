@@ -1,0 +1,29 @@
+#name "Jasmine-Weapon"
+#participants 3
+send_character_message 2 "set_torso_target 40.4471 -54.6033 59.6051 0.000127375"
+send_character_message 1 "set_animation \"Animations/r_idle.anm\""
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0.56 0.07 0.79
+set_dialogue_voice 2 14
+set_character_pos 2 40.2902 -54.8405 60.1371 80
+send_character_message 2 "set_animation \"Data/Animations/marketguard_idle.anm\""
+send_character_message 2 "set_eye_dir 40.2053 -54.0223 58.9558 1"
+send_character_message 2 "set_head_target 40.5507 -54.5708 59.0699 1"
+set_character_pos 1 40.2928 -55.1421 58.7015 -90
+send_character_message 1 "set_eye_dir 39.8409 -54.9295 59.6308 0.761683"
+send_character_message 1 "set_torso_target 40.2003 -54.7366 59.4489 1"
+send_character_message 1 "set_head_target 39.7902 -54.5018 59.7565 1"
+set_cam 43.5194 -52.9377 56.5209 -20.13 131.68 0 24.4581
+say 1 "Ghost" "Those swords... [wait 0.1]That's refined steel, [wait 0.05]isn't it?"
+send_character_message 1 "set_eye_dir 40.2683 -54.2264 60.0675 1"
+send_character_message 1 "set_torso_target 40.2599 -54.7081 59.471 0.960928"
+send_character_message 1 "set_head_target 40.0786 -54.3477 59.8107 1"
+send_character_message 2 "set_head_target 39.9296 -54.345 58.8954 1"
+say 2 "Jasmine" "It's a worthy investment. [wait 0.1]Only want the best, [wait 0.05]when it comes to saving 'yer ass from rats..."
+send_character_message 2 "set_torso_target 40.4134 -54.5422 59.54 1"
+send_character_message 2 "set_eye_dir 40.2053 -54.0223 58.9558 0.817523"
+send_character_message 2 "set_head_target 40.4384 -53.9935 59.1141 1"
+send_character_message 1 "set_head_target 40.215 -54.3728 59.7938 1"
+send_character_message 1 "set_torso_target 40.2599 -54.7081 59.471 0"
+say 2 "Jasmine" "Keen of you to notice while it's still in its sheath."

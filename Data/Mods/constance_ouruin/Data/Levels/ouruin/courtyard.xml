@@ -4843,7 +4843,7 @@
             <Connection id="-1" />
         </Connections>
     </PlaceholderObject>
-    <EnvObject t0="169.873" t1="-8.971" t2="163.852" s0="0.625487" s1="0.625487" s2="0.625487" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="1368" color_r="1" color_g="0.576471" color_b="0.941176" overbright="0" type_file="Objects/therium/nevergonnafindthis.xml">
+    <EnvObject t0="169.873" t1="-8.971" t2="163.852" s0="0.625487" s1="0.625487" s2="0.625487" q0="0.707107" q1="0" q2="0" q3="0.707107" euler_x="1.5708" euler_y="0" euler_z="0" id="1368" color_r="1" color_g="0.576471" color_b="0.941176" overbright="0" type_file="Data/Objects/therium/nevergonnafindthis.xml">
         <parameters />
     </EnvObject>
     <EnvObject name="Set Actor Head Direction Helper" t0="167.91" t1="-3.08595" t2="-2.30438" s0="0.35" s1="0.35" s2="0.35" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1369" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/drika_hotspot_cube.xml">
@@ -6205,7 +6205,7 @@
     <SpawnerItem display_name="Rope Ball" path="Data/Objects/Buildings/RopeBall1.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/RopeBall1.png" />
     <SpawnerItem display_name="Ambient Light Decal (Square)" path="Data/Objects/Decals/light_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="Long Banner (No Wave)" path="Data/Objects/Environment/cat_props/banner_nowave.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/banner.png" />
-    <SpawnerItem display_name="nevergonnafindthis.xml" path="Objects/therium/nevergonnafindthis.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="nevergonnafindthis.xml" path="Data/Objects/therium/nevergonnafindthis.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Invisible Block" path="Data/Objects/invisibleblock.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/invisibleblock.png" />
     <SpawnerItem display_name="Invisible Block Wood" path="Data/Objects/invisibleblockwood.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/invisibleblock.png" />
     <SpawnerItem display_name="Start Dialogue Hotspot" path="Data/Objects/Hotspots/start_dialogue.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />

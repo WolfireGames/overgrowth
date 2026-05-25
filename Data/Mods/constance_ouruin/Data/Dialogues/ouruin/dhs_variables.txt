@@ -618,6 +618,7 @@ Define variable, its values and notes for each value.
 			0: Job not active
 			1: Job accepted
 			2: Turned in to Forten. Job complete!
+			3: Talked to Nedis. Job complete!
 		
 		ouruin_job_speakeasy
 			0: Job not active

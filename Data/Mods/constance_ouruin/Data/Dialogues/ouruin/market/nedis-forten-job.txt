@@ -1,0 +1,31 @@
+#name "Nedis-Forten-Job"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.3362 -45.8876 3.79275 1"
+set_character_pos 1 29.5416 -46.6081 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 29.8059 -45.8679 4.73606 1"
+send_character_message 1 "set_torso_target 28.4223 -46.1136 3.15906 0"
+send_character_message 1 "set_head_target 28.6149 -46.5213 4.51683 1"
+set_cam 30.4627 -45.6167 6.42273 -4.92 22.63 -0.01 30.0547
+say 1 "Ghost" "Well, [wait 0.05]it took some time, [wait 0.05]but I got the rundown. [wait 0.1]What now?"
+send_character_message 1 "set_eye_dir 29.6285 -45.8464 4.69508 1"
+send_character_message 1 "set_head_target 28.9837 -46.1214 4.07541 1"
+send_character_message 2 "set_head_target 30.0742 -45.5993 4.11934 1"
+say 2 "Nedis" "So he didn't even try to hire you, [wait 0.05]huh? [wait 0.1]Sorry for the time it took..."
+send_character_message 1 "set_head_target 29.027 -46.0554 4.1267 1"
+send_character_message 2 "set_head_target 29.7015 -45.6241 4.00012 1"
+say 2 "Nedis" "The Lotus wants those snakes out of the depot, [wait 0.05]and soon. [wait 0.1]This is an offer that'll extend beyond just today, [wait 0.05]mind you..."
+send_character_message 1 "set_head_target 29.0513 -46.0943 4.12885 1"
+send_character_message 2 "set_head_target 29.8067 -45.8957 4.03263 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
+say 2 "Nedis" "In quarters like that, [wait 0.05]it'll take a team to wipe 'em all out. [wait 0.1]Our scout counted about 8 of 'em in there... [wait 0.1]Too many for one person."
+send_character_message 1 "set_head_target 28.5993 -46.1886 4.2178 1"
+send_character_message 2 "set_head_target 29.571 -45.5397 4.00536 1"
+say 2 "Nedis" "Regardless... [wait 0.1]Anyone who successfully clears the place should inform Forten, [wait 0.05]not me. [wait 0.1]Even if it doesn't seem like it, [wait 0.05]he's in charge, [wait 0.05]and he's obligated to pay for services rendered..."
+send_level_message "dialogue_done"

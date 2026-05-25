@@ -502,7 +502,7 @@
             <parameter name="Coin Pickup" type="string" val="" />
         </parameters>
     </ItemObject>
-    <EnvObject t0="-508.564" t1="-17.0106" t2="838.899" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="83" color_r="1" color_g="0.576471" color_b="0.941176" overbright="0" type_file="Objects/therium/nevergonnafindthis.xml">
+    <EnvObject t0="-508.564" t1="-17.0106" t2="838.899" s0="1" s1="1" s2="1" q0="0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="-1.5708" euler_z="0" id="83" color_r="1" color_g="0.576471" color_b="0.941176" overbright="0" type_file="Data/Objects/therium/nevergonnafindthis.xml">
         <parameters />
     </EnvObject>
     <EnvObject t0="393.259" t1="0.706957" t2="-130.208" s0="1.68491" s1="4.06981" s2="2.25" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="84" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/window1.xml">
@@ -30584,6 +30584,6 @@
     <SpawnerItem display_name="Dynamic Light" path="Data/Objects/default_light.xml" thumbnail_path="" />
     <SpawnerItem display_name="Send/Set Messages/Variables Hotspot" path="Data/Objects/Hotspots/setmessages.xml" thumbnail_path="Data/Textures/Cursors/ibeam_nocompress.png" />
     <SpawnerItem display_name="Start Dialogue Hotspot" path="Data/Objects/Hotspots/start_dialogue.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
-    <SpawnerItem display_name="nevergonnafindthis.xml" path="Objects/therium/nevergonnafindthis.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="nevergonnafindthis.xml" path="Data/Objects/therium/nevergonnafindthis.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="charmscript.xml" path="Data/Prefabs/ouruin/equipment/charmscript.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

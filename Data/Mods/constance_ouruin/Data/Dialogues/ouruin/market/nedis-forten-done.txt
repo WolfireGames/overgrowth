@@ -1,0 +1,23 @@
+#name "Nedis-Forten-Done"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.6313 -45.7759 3.84442 1"
+set_character_pos 1 29.5416 -46.6081 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 29.6674 -45.7567 4.73928 1"
+send_character_message 1 "set_torso_target 28.4223 -46.1136 3.15906 0"
+send_character_message 1 "set_head_target 29.575 -45.5448 3.83495 1"
+set_cam 30.3438 -44.4956 1.09829 -28.31 162.61 0 43.5933
+say 1 "Ghost" "Cleared the depot, [wait 0.05]and Forten gave me the money for it. [wait 0.1]All's taken care of."
+send_character_message 1 "set_head_target 29.6035 -45.6045 3.84772 1"
+send_character_message 2 "set_head_target 29.6403 -45.942 3.76554 1"
+say 2 "Nedis" "Really...? [wait 0.1]I didn't expect you to be so motivated. [wait 0.05]I'll bet the Lotus will take notice, [wait 0.05]if that's what you're after..."
+send_character_message 2 "set_head_target 29.2711 -45.9531 3.99762 1"
+send_character_message 1 "set_head_target 29.5156 -45.6675 3.87288 1"
+say 2 "Nedis" "...[wait 0.1]I hope they treat Moritz right."
+send_level_message "dialogue_done"

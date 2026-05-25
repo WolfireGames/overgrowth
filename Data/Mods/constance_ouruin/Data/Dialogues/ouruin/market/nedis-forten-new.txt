@@ -1,0 +1,24 @@
+#name "Nedis-Forten-New"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 30.0884 -45.6105 4.17154 1"
+set_character_pos 1 29.5416 -46.6081 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 29.8059 -45.8679 4.73606 1"
+send_character_message 1 "set_torso_target 28.4223 -46.1136 3.15906 0"
+send_character_message 1 "set_head_target 28.6149 -46.5213 4.51683 1"
+set_cam 28.909 -45.9026 3.99676 0 -125.58 0 55.9619
+say 2 "Nedis" "Y'know the buildings atop Moritz block? [wait 0.1]That place is Lotus-owned, [wait 0.05]but some snakes found their way in. [wait 0.05]They've taken it over."
+send_character_message 2 "set_eye_dir 29.3387 -45.2481 5.54997 0.540111"
+send_character_message 2 "set_head_target 30.0807 -45.9824 4.1258 1"
+say 2 "Nedis" "Higher-ups don't like that... [wait 0.05]So now we need some folk to take it back."
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_gesture.anm\""
+send_character_message 2 "set_eye_dir 29.3387 -45.2481 5.54997 1"
+send_character_message 2 "set_head_target 29.5818 -45.9244 3.98141 1"
+say 2 "Nedis" "The building belongs to Forten, [wait 0.05]so you're going to have to talk to him about it... [wait 0.1]He's in this building, [wait 0.05]you've just gotta find 'em up the pipe and down the stairs."
+send_level_message "dialogue_done"

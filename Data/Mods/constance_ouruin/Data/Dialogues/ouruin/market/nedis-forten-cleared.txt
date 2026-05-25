@@ -1,0 +1,32 @@
+#name "Nedis-Forten-Cleared"
+#participants 3
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+set_character_pos 1 29.5416 -46.6081 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_torso_target 28.4223 -46.1136 3.15906 0"
+send_character_message 2 "set_head_target 29.6142 -45.8349 3.83453 1"
+send_character_message 1 "set_eye_dir 28.8473 -45.8006 2.7118 1"
+send_character_message 1 "set_head_target 29.3052 -45.9642 3.75538 1"
+set_cam 28.1284 -45.4542 1.94304 -11.29 -139.89 0 43.5933
+say 1 "Ghost" "Cleared the depot. [wait 0.1]I heard something about a reward...?"
+send_character_message 2 "set_eye_dir 29.4556 -45.8249 4.7063 0.449651"
+send_character_message 1 "set_head_target 29.394 -45.9444 3.78042 1"
+send_character_message 1 "set_eye_dir 29.4223 -45.7649 3.68952 1"
+send_character_message 2 "set_head_target 30.0385 -46.0062 3.88051 1"
+say 2 "Nedis" "You'll want to go to Forten about that... [wait 0.1]He owns the place, [wait 0.05]after all."
+send_character_message 1 "set_head_target 29.4922 -45.8005 4.01013 1"
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_back.anm\""
+send_character_message 2 "set_head_target 29.5638 -45.68 3.86498 1"
+send_character_message 2 "set_eye_dir 29.4556 -45.8249 4.7063 0.384555"
+say 2 "Nedis" "And hey, [wait 0.05]you 'cleared' the place...? [wait 0.1]Best hope it wasn't too bloody..."
+send_character_message 1 "set_head_target 29.4006 -45.8811 4.02402 1"
+send_character_message 1 "set_eye_dir 29.3208 -46.0781 3.4915 0.539198"
+send_character_message 2 "set_eye_dir 29.4556 -45.8249 4.7063 0"
+send_character_message 2 "set_head_target 29.3115 -45.6824 4.58341 1"
+say 2 "Nedis" "Despite it all, [wait 0.05]that's a holy place. [wait 0.1]It means a lot to everyone..."
+send_level_message "dialogue_done"

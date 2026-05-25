@@ -1,0 +1,32 @@
+#name "Nedis-Forten-Gaggle"
+#participants 3
+send_character_message 2 "set_eye_dir 29.7437 -45.2451 5.75822 1"
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 2 0 0.17 0.73
+set_dialogue_voice 2 3
+set_character_pos 2 29.693 -46.616 5.39275 98
+send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable.anm\""
+send_character_message 2 "set_head_target 29.766 -45.6946 4.13027 1"
+set_character_pos 1 29.5416 -46.6081 3.0181 -110
+send_character_message 1 "set_animation \"Data/Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 29.0008 -45.3882 3.38819 1"
+send_character_message 1 "set_torso_target 28.4223 -46.1136 3.15906 0"
+send_character_message 1 "set_head_target 28.4304 -45.8346 3.65657 1"
+set_cam 29.0497 -45.0175 5.9612 -28.31 -19.23 0 55.9619
+say 1 "Ghost" "Forten told me to talk to... [wait 0.1]Someone, [wait 0.05]'round here. [wait 0.1]Said they'd give me some information on the depot."
+send_character_message 2 "set_eye_dir 29.3433 -45.5156 4.67595 0.582602"
+send_character_message 2 "set_head_target 29.5287 -45.8787 4.20273 1"
+send_character_message 1 "set_eye_dir 29.5529 -45.7512 3.85582 1"
+send_character_message 1 "set_head_target 28.5824 -45.9939 3.7796 1"
+say 2 "Forten" "He's not so talkative, [wait 0.05]huh...? [wait 0.1]Oh well."
+send_character_message 1 "set_eye_dir 30.1979 -45.6275 3.38168 1"
+send_character_message 1 "set_head_target 29.2491 -45.9216 3.9369 1"
+send_character_message 2 "set_head_target 30.376 -45.6035 4.39498 1"
+send_character_message 2 "set_eye_dir 29.3868 -45.5556 4.70608 1"
+say 2 "Forten" "Go right back up there, [wait 0.05]you just missed the door. [wait 0.1]It's in the hall."
+send_character_message 1 "set_torso_target 29.3337 -46.1723 3.6369 1"
+send_character_message 1 "set_head_target 30.1304 -45.8209 3.39569 1"
+set_cam 28.1828 -45.9245 3.40676 0 -83 0 55.9619
+say 2 "Forten" "Just go ahead and knock, [wait 0.05]introduce yourself. [wait 0.1]They have no reason to turn you away."
+send_level_message "dialogue_done"
