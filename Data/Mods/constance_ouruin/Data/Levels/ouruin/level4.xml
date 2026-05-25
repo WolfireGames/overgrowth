@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="6.31263" t1="-4.35751" t2="-6.3118" s0="1" s1="1" s2="1" q0="-0.0297539" q1="0.96593" q2="-0.129359" q3="-0.222174" euler_x="-2.87533" euler_y="-0.452156" euler_z="3.14159" id="0">
+    <CameraObject t0="6.25966" t1="-5.66669" t2="1.22841" s0="1" s1="1" s2="1" q0="0.00850721" q1="-0.986566" q2="0.0545936" q3="0.153733" euler_x="-3.03103" euler_y="-0.309167" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -4771,7 +4771,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/level4/defeat/lost-nl.txt" />
             <parameter name="DisplayName" type="string" val="Lost-NL" />
-            <parameter name="NumParticipants" type="string" val="8" />
+            <parameter name="NumParticipants" type="int" val="8" />
             <parameter name="obj_1" type="int" val="939" />
             <parameter name="obj_2" type="int" val="940" />
             <parameter name="obj_3" type="int" val="941" />
