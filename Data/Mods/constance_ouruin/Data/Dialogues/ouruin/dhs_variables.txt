@@ -12,6 +12,7 @@ Define variable, its values and notes for each value.
 		2: New Game+
 	
 	ouruin_newgames_verified
+		Used in prologue for checking whether Ouruin has any save data.
 
 	ouruin_progress
 		Increments when quests are completed, coin is spent and levels are travelled
@@ -60,9 +61,6 @@ Define variable, its values and notes for each value.
 		1: Drowned moveset is unlocked
 
 	ouruin_orb
-		0: Orb is not equipped
-		1: Orb is acquired
-		2: Orb has been equipped
 	
 	ouruin_[levelname]_enemy_[id]_status
 		Updated by Ouruin Level hotspot
@@ -103,21 +101,21 @@ Define variable, its values and notes for each value.
 		ouruin_market_currency
 		ouruin_depot_currency
 		ouruin_dart_currency
-		ouruin_ratden_currency (Unused)
+		ouruin_ratden_currency {UNUSED}
 		ouruin_courtyard_currency
 		ouruin_agra_currency
-		ouruin_speakeasy_currency (Unused)
+		ouruin_speakeasy_currency {UNUSED}
 		ouruin_highroad_currency
-		ouruin_creshome_currency (Unused)
+		ouruin_creshome_currency {UNUSED}
 		ouruin_fractured_currency
-		ouruin_escape_currency (Unused)
-		ouruin_ship_currency (Unused)
-		ouruin_warrens_currency (Unused)
+		ouruin_escape_currency {UNUSED}
+		ouruin_ship_currency {UNUSED}
+		ouruin_warrens_currency {UNUSED}
 		ouruin_lvl1_currency (Obsolete)
 		ouruin_lvl2_currency (Obsolete)
 		ouruin_lvl3_currency (Obsolete)
 		ouruin_lvl4_currency (Used to give the player a starting +100p)
-		ouruin_test_currency (Unused)
+		ouruin_test_currency {UNUSED}
 
 
 == LEVEL STATE
@@ -171,7 +169,7 @@ Define variable, its values and notes for each value.
 		4: Player is at Thoritz' quarters
 		5: Player is at Branch's quarters
 	
-	ouruin_ratnest_state
+	ouruin_ratnest_state {UNUSED}
 		0: Player has not visited Rat's Nest
 		1: Player has found Rat's Nest
 		2: Player has visited the Rat's Nest
@@ -180,7 +178,7 @@ Define variable, its values and notes for each value.
 		5: Player has killed all rats save for the kits
 		6: Player has killed every single rat
 
-		ouruin_ratnest_disease
+		ouruin_ratnest_disease {UNUSED}
 			0: Player has not contracted disease
 			1: Player might have contracted disease
 			2: Player has received treatment for potential disease
@@ -419,7 +417,7 @@ Define variable, its values and notes for each value.
 			Tallies up alerts from each Cinderbreathe occupied level.
 		ouruin_snakes_alerts
 			Tallies up alerts from each Snake occupied level.
-		ouruin_rats_alerts
+		ouruin_rats_alerts {UNUSED}
 			Tallies up alerts from the Rat Den.
 
 	-- Suffixes
@@ -442,11 +440,11 @@ Define variable, its values and notes for each value.
 		5:  Ghost has stolen Branch's notes
 		6:  Lloyd has received the manuscript and paid Ghost. Quest complete!
 		7:  Lloyd has received the misinformation and paid Ghost. Quest complete!
-		8:  Lloyd's head has cooled after misinformation
-		9:	Lloyd has cut a deal with Ghost after information. Quest complete!
-		10: Lloyd has been robbed. Quest complete!
-		11: Lloyd has made a deal with Ghost. Quest complete!
-		12: Ghost has dropped the deal. Quest complete!
+		8:  Lloyd's head has cooled after misinformation {UNUSED}
+		9:	Lloyd has cut a deal with Ghost after information. Quest complete! {UNUSED}
+		10: Lloyd has been robbed. Quest complete! {UNUSED}
+		11: Lloyd has made a deal with Ghost. Quest complete! {UNUSED}
+		12: Ghost has dropped the deal. Quest complete! {UNUSED}
 
 	ouruin_branch_quest
 		0: Branch's door has not been found
@@ -484,7 +482,7 @@ Define variable, its values and notes for each value.
 		4: Dart has beaten Ghost in dueling
 		5: Dart has been beaten. Quest complete!
 
-		ouruin_dart_backstory
+		ouruin_dart_backstory {UNUSED}
 
 		ouruin_dart_access
 
@@ -550,13 +548,13 @@ Define variable, its values and notes for each value.
 		ouruin_gunk_bond_talk
 			Increases by the amount of times you talk to Gunk
 
-		ouruin_gunk_donated_petals
+		ouruin_gunk_donated_petals {UNUSED}
 			Counts the amount of petals Gunk has received. Deprecated
 
-		ouruin_gunk_donate_offer
+		ouruin_gunk_donate_offer {UNUSED}
 			Amount of petals the player selects to donate. Deprecated
 
-		ouruin_gunk_bond_petals
+		ouruin_gunk_bond_petals {UNUSED}
 			Increases bond points for every 50 petals. Maximum of +20 bond points. Deprecated
 
 		ouruin_gunk_donated_medicine
@@ -620,23 +618,23 @@ Define variable, its values and notes for each value.
 			2: Turned in to Forten. Job complete!
 			3: Talked to Nedis. Job complete!
 		
-		ouruin_job_speakeasy
+		ouruin_job_speakeasy {UNUSED}
 			0: Job not active
 			1: Job accepted
 			2: Ghost is in the speakeasy
 			3: Job complete, reward ready
 			4: Reward accepted. Job complete!
 
-			ouruin_job_speakeasy_suspicion
+			ouruin_job_speakeasy_suspicion {UNUSED}
 				0: Members trust Ghost
 				1: Members don't suspect Ghost
 				2: Members are wary
 				3: Members are suspicious of Ghost
 				4: Members are certain Ghost is a double agent
 			
-			ouruin_job_speakeasy_kills
+			ouruin_job_speakeasy_kills {UNUSED}
 
-			ouruin_job_speakeasy_ratty
+			ouruin_job_speakeasy_ratty {UNUSED}
 				0: Unseen
 				1: Traces have been found
 				2: Ratty has been found, and let go
@@ -648,9 +646,9 @@ Define variable, its values and notes for each value.
 		0: Jasmine has not been talked to
 		1: Jasmine has been met
 		2: Jasmine has told Ghost about the rat den
-		3: Ghost has informed Jasmine of the rat extermination. Quest complete!
-		4: Ghost has informed Jasmine of the rat extermination, including the spared family. Quest complete!
-		5: Ghost has informed Jasmine of the rat extermination, including the spared kits. Quest complete!
+		3: Ghost has informed Jasmine of the rat extermination. Quest complete! {UNUSED}
+		4: Ghost has informed Jasmine of the rat extermination, including the spared family. Quest complete! {UNUSED}
+		5: Ghost has informed Jasmine of the rat extermination, including the spared kits. Quest complete! {UNUSED}
 
 		ouruin_jasmine_thoritz
 			0: Jasmine doesn't know about Thoritz
@@ -658,12 +656,12 @@ Define variable, its values and notes for each value.
 			2: Jasmine is in Thoritz' room
 			3: Jasmine is back to her spot
 
-	ouruin_ratty_quest
+	ouruin_ratty_quest {UNUSED}
 		0: Player has not met Ratty
 		1: Player has met Ratty
 		2: Player has talked to Ratty
 
-		ouruin_ratty_bond
+		ouruin_ratty_bond {UNUSED}
 
 	ouruin_gateguards_met
 
@@ -673,15 +671,15 @@ Define variable, its values and notes for each value.
 		
 		ouruin_gateguards_ambushed
 
-		ouruin_gateguards_fight
+		ouruin_gateguards_fight {UNUSED}
 			0: Not challenged
-			1: Fight in progress (Deprecated)
-			2: Fight lost (Deprecated)
-			3: Fight won (Deprecated)
-			4: Fight abandoned (Deprecated)
+			1: Fight in progress
+			2: Fight lost
+			3: Fight won
+			4: Fight abandoned
 			5: Considered fighting
 
-		ouruin_gateguards_fleed
+		ouruin_gateguards_fleed {UNUSED}
 
 
 	-- Dialogue
@@ -689,7 +687,7 @@ Define variable, its values and notes for each value.
 
 		ouruin_talk_red
 			0: Red has not been talked to once
-			1: Red has been talked to
+			1: Red has been talked to in High Road
 			2: Red is now in Moritz
 			3: Red is no longer in Moritz
 		
@@ -710,7 +708,7 @@ Define variable, its values and notes for each value.
 	ouruin_current_selected
 		Dictates which item the player is closest to
 
-	ouruin_shop_job_accepted
+	ouruin_shop_job_accepted {UNUSED}
 		Last job accepted.
 
 	ouruin_shop_jobs_accepted
@@ -761,15 +759,6 @@ Define variable, its values and notes for each value.
 	ouruin_donatas_state
 		0: Alive
 		1: Dead
-
-
-== DIALOGUE
-	Each variable is based off the dialogue file's name
-		0: Not talked to
-		1: Talked to
-
-	-- Explore
-	TBD
 
 
 == DONATAS TALK
