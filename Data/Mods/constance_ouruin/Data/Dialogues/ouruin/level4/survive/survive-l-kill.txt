@@ -59,6 +59,7 @@ send_character_message 1 "set_eye_dir 3.42359 -6.58714 9.70902 1"
 send_character_message 1 "set_head_target 2.26363 -6.43022 8.99632 0"
 send_character_message 1 "set_torso_target 2.93965 -6.12031 9.05436 0.0102144"
 send_character_message 3 "set_eye_dir 4.32055 -5.02524 10.5412 1"
+sound_hotspot_play_sound "Data/Sounds/ouruin/ghost_shipcoll.wav" 3.09344 -6.63532 7.81922
 say 1 "Amos" "Ngh...[wait 0.1]!"
 send_character_message 3 "set_eye_dir 3.03604 -6.67466 8.59772 1"
 send_character_message 1 "set_head_target 3.06373 -7.14168 8.56123 0"

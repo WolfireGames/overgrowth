@@ -1,7 +1,5 @@
 - adal depot dialogue should be revised/given lethality variants
 
-*- depot janner dialogue
-
 - let ghost ask where to get valerian root
 
 - visible animation for branch door slam
@@ -24,13 +22,7 @@
 
 - add lethality book to moritz (or warrens?)
 
-- add cres to fractured home
-
-- add sfx to ship collapse
-
-- add sfx to donatas fight collapse anims
-
-*- write out music/stinger doc
+*- add cres to fractured home
 
 - add continue progress recap
 

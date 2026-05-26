@@ -27,6 +27,7 @@ set_dialogue_voice 4 11
 send_character_message 2 "equip_item 620"
 send_character_message 4 "equip_item 623"
 send_character_message 1 "empty_hands"
+sound_hotspot_play_sound "Data/Sounds/ouruin/ghost_shipcoll.wav" 3.09344 -6.63532 7.81922
 say 1 "Ghost" "...[wait 0.1]Nn! [wait 0.1]What...?"
 send_character_message 1 "set_head_target 3.40122 -6.99439 8.34339 0.210573"
 send_character_message 1 "set_torso_target 3.52016 -6.97932 8.795 0.00402379"

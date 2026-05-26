@@ -16,6 +16,7 @@ send_level_message "set_camera_dof 0.0 5.0 10.0 0.8 4.5 3.0"
 send_character_message 1 "set_animation \"Data/Animations/staggerback_lie.anm\""
 send_character_message 2 "set_animation \"Data/Animations/donatas_suckerpunch.anm\""
 send_level_message "enable 2299"
+sound_hotspot_play_sound "Data/Sounds/ouruin/staggerback_lie.wav" -28.464 -3.775 -2.788
 say 1 "Ghost" "...[wait 0.15]Damn it!"
 send_character_message 1 "set_head_target -29.6017 -3.08566 -4.15018 0.402059"
 send_character_message 1 "set_eye_dir -29.8602 -2.82548 -4.2716 1"
