@@ -50,7 +50,7 @@
     <RayToSun r0="0.160482" r1="0.679393" r2="0.71601" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-113.967" t1="-55.2827" t2="-97.9079" s0="1" s1="1" s2="1" q0="-0.046569" q1="-0.759541" q2="0.0547134" q3="-0.646479" euler_x="-2.99777" euler_y="1.41032" euler_z="3.14159" id="0">
+    <CameraObject t0="-108.99" t1="-36.2662" t2="-127.485" s0="1" s1="1" s2="1" q0="-0.0623963" q1="-0.935584" q2="0.211928" q3="-0.275456" euler_x="-2.69607" euler_y="0.572662" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="13.4338" t1="-27.1994" t2="-39.4379" s0="1.21132" s1="1.92436" s2="1.68494" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="11" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -4354,7 +4354,7 @@
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
             <parameter name="Wearing Metal Bracer" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="1" />
         </parameters>
@@ -24792,6 +24792,27 @@
     <EnvObject t0="6.78061" t1="-47.6854" t2="2.10194" s0="0.392625" s1="0.630558" s2="0.441109" q0="0.707107" q1="0" q2="0.707107" q3="0" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="7633" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower_floor.xml">
         <parameters />
     </EnvObject>
+    <Group t0="54.0154" t1="-30.3028" t2="-156.962" s0="3.61259" s1="0.612592" s2="0.612592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7651" version="1">
+        <parameters />
+        <Prefab t0="55.5154" t1="-30.3028" t2="-156.962" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7646" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_1.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="55.5154" t1="-30.3028" t2="-156.962" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7645" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="54.0154" t1="-30.3028" t2="-156.962" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7648" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_2.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="54.0154" t1="-30.3028" t2="-156.962" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7647" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="52.5154" t1="-30.3028" t2="-156.962" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7650" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_3.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="52.5154" t1="-30.3028" t2="-156.962" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7649" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+    </Group>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Ghost" path="Data/Objects/therium/IGF_Characters/ghostspawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
@@ -26048,4 +26069,5 @@
     <SpawnerItem display_name="Drain Spout" path="Data/Objects/Buildings/Drainspout1.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/Drain.png" />
     <SpawnerItem display_name="Ambient Shadow Blob Decal (Square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="ghostcosmetic.xml" path="Data/Prefabs/ouruin/equipment/ghostcosmetic.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="grouped_customprefabs.xml" path="Data/Prefabs/ouruin/custom/grouped_customprefabs.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

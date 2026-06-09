@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0869436" r1="0.995285" r2="0.0430051" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="12.9932" t1="5.68808" t2="-11.0207" s0="1" s1="1" s2="1" q0="0.0196146" q1="-0.98018" q2="0.128885" q3="0.149171" euler_x="-2.88011" euler_y="-0.302056" euler_z="3.14159" id="0">
+    <CameraObject t0="-13.1951" t1="16.479" t2="-13.6457" s0="1" s1="1" s2="1" q0="0.130133" q1="0.868903" q2="-0.315037" q3="0.35892" euler_x="-2.44594" euler_y="0.78345" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="3.81014" t1="-1.09578" t2="14.119" s0="1.45858" s1="1.06749" s2="1.19068" q0="0" q1="0.703807" q2="0" q3="0.710392" euler_x="0" euler_y="1.5616" euler_z="0" id="1" color_r="1" color_g="0.99999" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/arena/arena_door.xml">
@@ -2847,7 +2847,7 @@
             <parameter name="death_message" type="string" val="" />
             <parameter name="goal_0" type="string" val="reach 0" />
             <parameter name="goal_1" type="string" val="defeat 698" />
-            <parameter name="goal_1_pre" type="string" val="dialogue Guards-NL-Intact" />
+            <parameter name="goal_1_pre" type="string" val="dialogue Guards-NLS-Intact" />
             <parameter name="music" type="string" val="" />
             <parameter name="music_custom_defeat_sting_wav_filename" type="string" val="Data/Music/slaver_loop/the_slavers_defeat.wav" />
             <parameter name="music_custom_is_layered" type="int" val="1" />
@@ -3921,7 +3921,7 @@
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="1" />
         </parameters>
         <Connections>
@@ -6640,6 +6640,27 @@
             <parameter name="Placeholder Tag" type="string" val="level47691253" />
         </parameters>
     </EnvObject>
+    <Group t0="39.9488" t1="6.9773" t2="11.3256" s0="3.61259" s1="0.612592" s2="0.612592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1260" version="1">
+        <parameters />
+        <Prefab t0="41.4488" t1="6.9773" t2="11.3256" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1255" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_1.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="41.4488" t1="6.9773" t2="11.3256" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1254" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="39.9488" t1="6.9773" t2="11.3256" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1257" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_2.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="39.9488" t1="6.9773" t2="11.3256" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1256" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="38.4488" t1="6.9773" t2="11.3256" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1259" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_3.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="38.4488" t1="6.9773" t2="11.3256" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1258" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+    </Group>
     <Hotspot t0="1.45114" t1="36.3591" t2="4.27743" s0="125.462" s1="18.0023" s2="115.401" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="1345" type_file="Data/Objects/Hotspots/resetcharacter.xml">
         <parameters />
         <Connections />
@@ -6800,4 +6821,6 @@
     <SpawnerItem display_name="Thick Tan Rug [Decal]" path="Data/Objects/Decals/rugs/thick_tan_rug.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/thick_tan_rug.png" />
     <SpawnerItem display_name="sea_cliffs_sea.xml" path="Data/Objects/terrain/sea_cliffs/sea_cliffs_sea.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Level Message Sound Hotspot" path="Data/Objects/Hotspots/sound_hotspot.xml" thumbnail_path="Data/UI/spawner/thumbs/Sounds/speaker_icon.png" />
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="grouped_customprefabs.xml" path="Data/Prefabs/ouruin/custom/grouped_customprefabs.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

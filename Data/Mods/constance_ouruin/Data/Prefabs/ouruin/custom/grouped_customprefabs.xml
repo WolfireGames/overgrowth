@@ -1,0 +1,25 @@
+<?xml version="2.0" ?>
+<Type>saved</Type>
+<ActorObjects>
+    <Group t0="-5.52051" t1="-1.25592" t2="9.93638" s0="3.61259" s1="0.612592" s2="0.612592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7421" version="1">
+        <parameters />
+        <Prefab t0="-4.02051" t1="-1.25592" t2="9.93638" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7418" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_1.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="-4.02051" t1="-1.25592" t2="9.93638" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7415" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="-5.52051" t1="-1.25592" t2="9.93638" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7419" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_2.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="-5.52051" t1="-1.25592" t2="9.93638" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7416" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="-7.02051" t1="-1.25592" t2="9.93638" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7420" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_3.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="-7.02051" t1="-1.25592" t2="9.93638" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="7417" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+    </Group>
+</ActorObjects>

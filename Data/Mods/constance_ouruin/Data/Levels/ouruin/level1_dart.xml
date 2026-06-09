@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-30.4632" t1="-50.8279" t2="-163.986" s0="1" s1="1" s2="1" q0="0.126101" q1="0.802239" q2="-0.182521" q3="0.554254" euler_x="-2.69418" euler_y="1.20916" euler_z="3.14159" id="0">
+    <CameraObject t0="-22.6568" t1="-34.1755" t2="-137.642" s0="1" s1="1" s2="1" q0="-0.0330713" q1="0.96496" q2="-0.150016" q3="-0.212727" euler_x="-2.83314" euler_y="-0.433963" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-55.1616" t1="-35.8701" t2="-64.7071" s0="2.30048" s1="3.44219" s2="2.30048" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="1" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -3055,6 +3055,27 @@
         <EnvObject t0="286.698" t1="-29.9879" t2="13.2987" s0="0.534266" s1="1.72214" s2="1.21732" q0="0" q1="0.707107" q2="0" q3="-0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="939" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_wall.xml">
             <parameters />
         </EnvObject>
+    </Group>
+    <Group t0="5.97566" t1="-49.9852" t2="-150.82" s0="3.61259" s1="0.612592" s2="0.612592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="940" version="1">
+        <parameters />
+        <Prefab t0="7.47566" t1="-49.9852" t2="-150.82" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="856" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_1.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="7.47566" t1="-49.9852" t2="-150.82" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="855" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="5.97566" t1="-49.9852" t2="-150.82" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="934" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_2.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="5.97566" t1="-49.9852" t2="-150.82" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="870" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="4.47566" t1="-49.9852" t2="-150.82" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="936" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_3.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="4.47566" t1="-49.9852" t2="-150.82" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="935" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
     </Group>
     <Group t0="286.933" t1="-29.2358" t2="1.37888" s0="15.9573" s1="17.3622" s2="6.44004" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="944" version="1">
         <parameters />
@@ -17114,7 +17135,7 @@
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
             <parameter name="Wearing Metal Bracer" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="1" />
         </parameters>
@@ -18867,10 +18888,10 @@
         </Group>
         <Group t0="8.61847" t1="-50.1333" t2="-144.859" s0="0.119812" s1="4.87725" s2="5.13045" q0="0" q1="-0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="-1.5708" euler_z="3.14159" id="6659" version="1">
             <parameters />
-            <EnvObject t0="8.61847" t1="-48.8893" t2="-144.859" s0="2.69561" s1="4.28284" s2="1.68681" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6657" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <EnvObject t0="8.61847" t1="-48.8893" t2="-144.859" s0="2.69592" s1="4.28284" s2="1.68681" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="6657" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
                 <parameters />
             </EnvObject>
-            <EnvObject t0="8.61847" t1="-51.3773" t2="-144.859" s0="2.69561" s1="4.28284" s2="1.68681" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="6658" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
+            <EnvObject t0="8.61847" t1="-51.3773" t2="-144.859" s0="2.69592" s1="4.28284" s2="1.68681" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="6658" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/shops/sign_long_board.xml">
                 <parameters />
             </EnvObject>
         </Group>
@@ -41915,7 +41936,7 @@
     </EnvObject>
     <Prefab t0="-38.7291" t1="-18.4908" t2="-56.3379" s0="7.11096" s1="7.48687" s2="3.02337" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="14947" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/lethality/dart.xml" os0="7.11097" os1="7.48686" os2="3.02337">
         <parameters />
-        <Hotspot name="dart Count" t0="-36.515" t1="-16.0857" t2="-56.4858" s0="0.666666" s1="0.666666" s2="0.666666" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="798" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
+        <Hotspot name="dart Count" t0="-36.5151" t1="-16.0857" t2="-56.4858" s0="0.666666" s1="0.666666" s2="0.666666" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="798" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
             <parameters>
                 <parameter name="Debug Current Line" type="int" val="0" />
                 <parameter name="Run in EditorMode" type="int" val="0" />
@@ -45402,4 +45423,5 @@
     <SpawnerItem display_name="Stucco Short Trim (Cap)" path="Data/Objects/Buildings/cat_town/short_trim_floor.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/short_trim_floor.png" />
     <SpawnerItem display_name="Cinderian Heavy [Char] [Prefab]" path="Data/Objects/therium/Prefabs/heavy.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/heavy.png" />
     <SpawnerItem display_name="Manhole [Decal]" path="Data/Objects/therium/Decals/manhole.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/manhole.png" />
+    <SpawnerItem display_name="grouped_customprefabs.xml" path="Data/Prefabs/ouruin/custom/grouped_customprefabs.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>

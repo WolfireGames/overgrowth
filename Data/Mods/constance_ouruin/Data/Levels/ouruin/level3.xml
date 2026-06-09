@@ -51,7 +51,7 @@
     <RayToSun r0="-0.161343" r1="0.682514" r2="-0.712841" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="72.042" t1="-39.5585" t2="62.504" s0="1" s1="1" s2="1" q0="-0.130799" q1="0.802229" q2="-0.190632" q3="-0.550436" euler_x="-2.67499" euler_y="-1.20272" euler_z="-3.14159" id="0">
+    <CameraObject t0="184.806" t1="-25.1905" t2="106.339" s0="1" s1="1" s2="1" q0="-0.0599895" q1="-0.681274" q2="0.0561854" q3="-0.7274" euler_x="0.164571" euler_y="1.50533" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="181.769" t1="-55.9922" t2="109.042" s0="0.613082" s1="0.613082" s2="0.613082" q0="0.00733727" q1="-0.681411" q2="0.0110127" q3="-0.731781" euler_x="-0.346757" euler_y="1.49496" euler_z="-0.351959" id="5" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Crete/hex_crete_rubble_simplecol.xml">
@@ -163,7 +163,7 @@
             <parameter name="Throw Counter Probability" type="float" val="0.4" />
             <parameter name="Throw Trainer" type="int" val="0" />
             <parameter name="Weapon Catch Skill" type="float" val="1" />
-            <parameter name="Wearing Metal Armor" type="int" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
             <parameter name="Wearing Metal Bracer" type="int" val="0" />
             <parameter name="Wearing Metal Bracers" type="int" val="1" />
         </parameters>
@@ -16689,9 +16689,9 @@
         <EnvObject s0="0.32281" s1="0.32281" s2="0.32281" id="5624" color_r="0.78131" color_g="0.764706" color_b="1" overbright="0" type_file="Data/Objects/therium/rope/rope around stump.xml">
             <parameters />
         </EnvObject>
-        <Group t0="0" t1="-999999" t2="0" s0="0.249258" s1="0.299207" s2="0.191961" q0="0.0531984" q1="0.0341922" q2="-0.0646984" q3="0.995899" euler_x="0.102" euler_y="0.0750582" euler_z="-0.125914" id="16774" version="1">
+        <Group t0="0" t1="-999999" t2="0" s0="0.249258" s1="0.299207" s2="0.191961" q0="0.0504772" q1="0.0329306" q2="-0.0649401" q3="0.996067" euler_x="0.0966826" euler_y="0.072221" euler_z="-0.126713" id="16774" version="1">
             <parameters />
-            <Decal t0="0" t1="-999999" t2="0" s0="0.233516" s1="0.159598" s2="0.280917" q0="0.00710137" q1="0.724084" q2="-0.684925" q3="-0.0808077" euler_x="-1.6198" euler_y="-0.107502" euler_z="3.01961" id="16773" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
+            <Decal t0="0" t1="-999999" t2="0" s0="0.233516" s1="0.159598" s2="0.280917" q0="0.00821103" q1="0.722242" q2="-0.686932" q3="-0.0801499" euler_x="-1.61445" euler_y="-0.104686" euler_z="3.01864" id="16773" type_file="Data/Objects/Decals/crete_stains/dripping_rust_spot_white_tattoo.xml" color_r="0.313725" color_g="0" color_b="0" overbright="0">
                 <parameters />
             </Decal>
         </Group>
@@ -55614,6 +55614,27 @@
             </Decal>
         </Group>
     </Group>
+    <Group t0="100.198" t1="-32.297" t2="39.3068" s0="3.61259" s1="0.612592" s2="0.612592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16778" version="1">
+        <parameters />
+        <Prefab t0="101.698" t1="-32.297" t2="39.3068" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16771" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_1.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="101.698" t1="-32.297" t2="39.3068" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16757" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="100.198" t1="-32.297" t2="39.3068" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16775" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_2.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="100.198" t1="-32.297" t2="39.3068" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16772" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+        <Prefab t0="98.6977" t1="-32.297" t2="39.3068" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16777" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_3.xml" os0="0.602592" os1="0.602592" os2="0.602592">
+            <parameters />
+            <EnvObject t0="98.6977" t1="-32.297" t2="39.3068" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16776" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
+                <parameters />
+            </EnvObject>
+        </Prefab>
+    </Group>
     <Group t0="268.802" t1="-46.7949" t2="128.023" s0="1.61663" s1="3.36593" s2="2.44568" q0="0" q1="-1" q2="0" q3="0" euler_x="3.14159" euler_y="0" euler_z="3.14159" id="16784" version="1">
         <parameters />
         <EnvObject t0="268.802" t1="-46.7949" t2="128.023" s0="0.363536" s1="0.363536" s2="0.363536" q0="0" q1="-0.707107" q2="0" q3="-0.707107" euler_x="-3.14159" euler_y="1.5708" euler_z="-3.14159" id="16782" color_r="0.572549" color_g="0.572543" color_b="0.572543" overbright="0" type_file="Data/Objects/Buildings/cat_town/large_door.xml">
@@ -56316,6 +56337,66 @@
             <parameters />
         </EnvObject>
     </Group>
+    <ActorObject name="Ghost Doll" t0="182.037" t1="-6.55728" t2="49.0989" s0="0.444444" s1="0.444444" s2="0.444444" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16969" type_file="Data/Objects/therium/IGF_Characters/ghostouruin.xml" is_player="0">
+        <parameters>
+            <parameter name="Aggression" type="float" val="0.5" />
+            <parameter name="Attack Damage" type="float" val="1" />
+            <parameter name="Attack Knockback" type="float" val="1" />
+            <parameter name="Attack Speed" type="float" val="1" />
+            <parameter name="Block Follow-up" type="float" val="0.5" />
+            <parameter name="Block Skill" type="float" val="0.5" />
+            <parameter name="Can Swap Movesets" type="int" val="0" />
+            <parameter name="Cannot Be Disarmed" type="int" val="0" />
+            <parameter name="Cannot Throw Weapons" type="int" val="0" />
+            <parameter name="Character Scale" type="float" val="0.6" />
+            <parameter name="Damage Resistance" type="float" val="1" />
+            <parameter name="Ear Size" type="float" val="1" />
+            <parameter name="Fall Damage Multiplier" type="float" val="1" />
+            <parameter name="Fat" type="float" val="0.5" />
+            <parameter name="Fear - Afraid At Health Level" type="float" val="0" />
+            <parameter name="Fear - Always Afraid On Sight" type="int" val="0" />
+            <parameter name="Fear - Causes Fear On Sight" type="int" val="0" />
+            <parameter name="Fear - Never Afraid On Sight" type="int" val="0" />
+            <parameter name="Focus FOV distance" type="float" val="100" />
+            <parameter name="Focus FOV horizontal" type="float" val="0.62834" />
+            <parameter name="Focus FOV vertical" type="float" val="0.62834" />
+            <parameter name="Ground Aggression" type="float" val="0.5" />
+            <parameter name="Idle Sway" type="float" val="1" />
+            <parameter name="Jump - Air Control" type="float" val="3" />
+            <parameter name="Jump - Initial Velocity" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain" type="float" val="5" />
+            <parameter name="Jump - Jump Sustain Boost" type="float" val="10" />
+            <parameter name="Knockout Shield" type="int" val="0" />
+            <parameter name="Left handed" type="int" val="0" />
+            <parameter name="Movement Speed" type="float" val="1" />
+            <parameter name="Muscle" type="float" val="0.5" />
+            <parameter name="No Idle Movement" type="int" val="0" />
+            <parameter name="No Look Around" type="int" val="0" />
+            <parameter name="Peripheral FOV distance" type="float" val="4" />
+            <parameter name="Peripheral FOV horizontal" type="float" val="1.41376" />
+            <parameter name="Peripheral FOV vertical" type="float" val="1.41376" />
+            <parameter name="Species" type="string" val="rabbit" />
+            <parameter name="Static" type="int" val="1" />
+            <parameter name="Stealth Proficiency" type="int" val="0" />
+            <parameter name="Stick To Nav Mesh" type="int" val="0" />
+            <parameter name="Teams" type="string" val="player, Ghost" />
+            <parameter name="Throw Counter Probability" type="float" val="0.4" />
+            <parameter name="Throw Trainer" type="int" val="0" />
+            <parameter name="Weapon Catch Skill" type="float" val="1" />
+            <parameter name="Wearing Metal Armor" type="int" val="0" />
+            <parameter name="Wearing Metal Bracers" type="int" val="0" />
+        </parameters>
+        <Connections>
+            <Connection id="16969" />
+        </Connections>
+        <ItemConnections />
+        <Palette>
+            <Color label="Fur" channel="0" red="1" green="1" blue="1" />
+            <Color label="Pants" channel="1" red="1" green="1" blue="1" />
+            <Color label="Shirt" channel="2" red="1" green="1" blue="1" />
+            <Color label="Leather" channel="3" red="1" green="1" blue="1" />
+        </Palette>
+    </ActorObject>
     <Prefab t0="245.728" t1="-10.6719" t2="87.7817" s0="1.19518" s1="1.19518" s2="1.19518" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="16973" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/equipment/charmscript.xml" os0="1.19518" os1="1.19518" os2="1.19518">
         <parameters />
         <Hotspot name="Charms" t0="245.728" t1="-10.6719" t2="87.7817" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="13940" type_file="Data/Objects/Hotspots/drika_hotspot.xml">
@@ -56651,7 +56732,6 @@
     <SpawnerItem display_name="Dog Armor Detail Strut" path="Data/Objects/Gear/dog_armor/dog_armor_detail_strut.xml" thumbnail_path="Data/UI/spawner/thumbs/Object/dog_armor_detail_strut.png" />
     <SpawnerItem display_name="GardenDuelPavement.xml" path="Data/Prototypes/OG/GardenDuelPavement.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="TutorialArena.xml" path="Data/Prototypes/Common/TutorialArena.xml" thumbnail_path="empty_placeholder.png" />
-    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
     <SpawnerItem display_name="Stucco House 1" path="Data/Prototypes/OG/WindowBlock_Mod1.xml" thumbnail_path="" />
     <SpawnerItem display_name="Stucco House 3" path="Data/Prototypes/OG/WindowBlock_Mod3.xml" thumbnail_path="" />
     <SpawnerItem display_name="Stucco Wall (large hole 1)" path="Data/Prototypes/OG/StuccoWall_LargeHole.xml" thumbnail_path="" />
@@ -57474,4 +57554,6 @@
     <SpawnerItem display_name="Crete Impact [Decal]" path="Data/Objects/Decals/crete_impact.xml" thumbnail_path="Data/UI/spawner/thumbs/Decal/crete_impact.png" />
     <SpawnerItem display_name="Start Dialogue Hotspot" path="Data/Objects/Hotspots/start_dialogue.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
     <SpawnerItem display_name="charmscript.xml" path="Data/Prefabs/ouruin/equipment/charmscript.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="grouped_customprefabs.xml" path="Data/Prefabs/ouruin/custom/grouped_customprefabs.xml" thumbnail_path="empty_placeholder.png" />
+    <SpawnerItem display_name="ghostouruin.xml" path="Data/Objects/therium/IGF_Characters/ghostouruin.xml" thumbnail_path="empty_placeholder.png" />
 </RecentItems>
