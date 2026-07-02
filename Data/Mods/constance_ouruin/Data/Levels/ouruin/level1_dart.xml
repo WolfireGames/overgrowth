@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="-51.6951" t1="-38.9346" t2="-66.2809" s0="1" s1="1" s2="1" q0="0.0566391" q1="0.713188" q2="-0.0580154" q3="0.696268" euler_x="-2.97926" euler_y="1.54678" euler_z="3.14159" id="0">
+    <CameraObject t0="-63.5997" t1="-27.7331" t2="-108.444" s0="1" s1="1" s2="1" q0="0.0867288" q1="-0.758585" q2="0.103206" q3="0.637476" euler_x="-2.87115" euler_y="-1.39773" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <EnvObject t0="-55.1616" t1="-35.8701" t2="-64.7071" s0="2.30048" s1="3.44219" s2="2.30048" q0="0.707107" q1="0" q2="0" q3="-0.707107" euler_x="-1.5708" euler_y="0" euler_z="0" id="1" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/Post1.xml">
@@ -3277,6 +3277,25 @@
     <EnvObject t0="-55.9256" t1="-30.0586" t2="-83.3153" s0="1.5541" s1="1.5541" s2="1.5541" q0="-0.5" q1="-0.5" q2="0.5" q3="0.5" euler_x="-1.5708" euler_y="0" euler_z="1.5708" id="1006" color_r="0.999991" color_g="1" color_b="0.99999" overbright="0" type_file="Data/Objects/Buildings/window_boxes/box_base_angled.xml">
         <parameters />
     </EnvObject>
+    <PlaceholderObject t0="-70.1873" t1="-32.6187" t2="-102.659" s0="1" s1="1" s2="1" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1007" type_file="" special_type="0">
+        <parameters>
+            <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/dart/deliverycat-whereabout.txt" />
+            <parameter name="DisplayName" type="string" val="WeaponDelivery-Whereabout" />
+            <parameter name="NumParticipants" type="int" val="3" />
+            <parameter name="obj_1" type="int" val="1008" />
+            <parameter name="obj_2" type="int" val="1012" />
+            <parameter name="obj_3" type="int" val="1013" />
+        </parameters>
+        <Connections>
+            <Connection id="1007" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="-69.8842" t1="-31.9187" t2="-102.834" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1008" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="5750" />
+        </Connections>
+    </PlaceholderObject>
     <Group t0="286.933" t1="-29.2358" t2="-13.7402" s0="15.9573" s1="17.3622" s2="6.44004" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1009" version="1">
         <parameters />
         <EnvObject t0="286.933" t1="-28.7346" t2="-9.35005" s0="1.48889" s1="1.77664" s2="1.3788" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1010" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
@@ -3286,6 +3305,18 @@
             <parameters />
         </EnvObject>
     </Group>
+    <PlaceholderObject t0="-70.1873" t1="-31.9187" t2="-102.659" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1012" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="5754" />
+        </Connections>
+    </PlaceholderObject>
+    <PlaceholderObject t0="-70.4904" t1="-31.9187" t2="-102.484" s0="0.3" s1="0.3" s2="0.3" q0="0" q1="0.258819" q2="0" q3="0.965926" euler_x="0" euler_y="0.523599" euler_z="0" id="1013" type_file="" special_type="2">
+        <parameters />
+        <Connections>
+            <Connection id="-1" />
+        </Connections>
+    </PlaceholderObject>
     <Group t0="286.933" t1="-29.2358" t2="-28.8898" s0="15.9573" s1="17.3622" s2="6.44004" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1016" version="1">
         <parameters />
         <EnvObject t0="286.933" t1="-28.7346" t2="-24.4997" s0="1.48889" s1="1.77664" s2="1.3788" q0="0" q1="0.707107" q2="0" q3="0.707107" euler_x="3.14159" euler_y="1.5708" euler_z="3.14159" id="1017" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/Buildings/cat_town/medium_tower.xml">
@@ -18938,7 +18969,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/dart/weapondelivery.txt" />
             <parameter name="DisplayName" type="string" val="WeaponDelivery" />
-            <parameter name="NumParticipants" type="string" val="3" />
+            <parameter name="NumParticipants" type="int" val="3" />
             <parameter name="obj_1" type="int" val="6676" />
             <parameter name="obj_2" type="int" val="6677" />
             <parameter name="obj_3" type="int" val="6678" />

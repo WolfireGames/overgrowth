@@ -1,0 +1,19 @@
+#name "WeaponDelivery-Whereabout"
+#participants 3
+set_character_pos 2 -74.5284 -32.7503 -104.022 90
+send_character_message 2 "set_animation \"Data/Animations/ghost_leantalk_hip.anm\""
+send_character_message 2 "set_head_target -74.5479 -32.3655 -105.371 1"
+set_character_pos 1 -74.4473 -32.8766 -105.842 -90
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+send_character_message 1 "set_eye_dir -74.5025 -31.9185 -103.944 1"
+send_character_message 1 "set_torso_target -73.4641 -32.4301 -105.348 0"
+send_character_message 1 "set_head_target -74.3804 -31.817 -104.107 1"
+set_cam -76.5816 -31.9098 -103.866 -10.12 -69.89 0 68.2084
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_voice 2 4
+say 1 "Ghost" "I'm not too familiar with this area. [wait 0.1]You know how I can get to Agra from here?"
+send_character_message 1 "set_head_target -73.2717 -31.8443 -104.722 1"
+send_character_message 2 "set_head_target -73.7335 -31.8316 -105.017 1"
+say 2 "???" "Really? [wait 0.1]Just climb over that wall. [wait 0.05]Take care to stay away from the hole in the wall, [wait 0.05]down by the water."
+send_level_message "dialogue_done"
