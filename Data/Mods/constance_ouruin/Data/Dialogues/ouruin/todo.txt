@@ -14,10 +14,6 @@
 
 - gaggle dialogue morphs
 
-- ghost right now can offer valerian to dart after beating her in a duel
-
-- add emotion morphs to donatas fight
-
 - consider reanimating ghost shock
 
 - add lethality book to moritz (or warrens?)

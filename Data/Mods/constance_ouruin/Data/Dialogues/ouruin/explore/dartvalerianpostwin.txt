@@ -1,0 +1,60 @@
+#name "DartValerian-PostWin"
+#participants 4
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.6 0.22 0.4
+set_dialogue_voice 2 2
+set_dialogue_color 4 0.6 0.22 0.4
+set_dialogue_voice 4 2
+set_character_pos 2 -33.5393 -40.7371 -64.9707 0
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0.767093"
+send_character_message 2 "set_head_target -30.545 -40.1545 -64.9787 1"
+set_character_pos 1 -30.2524 -40.5866 -64.8993 -180
+send_character_message 1 "set_animation \"Animations/r_dialogue_handhips.anm\""
+send_character_message 1 "set_eye_dir -33.3949 -39.6933 -65.0243 1"
+send_character_message 1 "set_torso_target -29.3845 -40.0883 -64.6678 0"
+send_character_message 1 "set_head_target -33.2687 -39.7624 -64.7279 1"
+set_cam -30.9111 -39.9933 -63.1079 0 -20.24 0 34.9662
+send_character_message 2 "set_animation \"Data/Animations/dart_idle.anm\""
+say 1 "Ghost" "Y'know, [wait 0.05]I do have some valerian root on me..."
+send_character_message 1 "set_eye_dir -31.2624 -40.0538 -65.9539 1"
+send_character_message 1 "set_head_target -32.7465 -39.1452 -65.7203 1"
+say 1 "Ghost" "I'd be willing to let it go, [wait 0.05]for the right price."
+send_character_message 1 "set_torso_target -29.3845 -40.0884 -64.6678 0"
+send_character_message 2 "set_head_target -30.565 -40.07 -64.993 1"
+send_character_message 1 "set_head_target -32.8444 -39.1282 -65.1883 1"
+set_cam -29.0425 -39.6997 -64.4682 -7.32 75.72 2.93 39.9482
+send_character_message 2 "set_morph_target smile 0 0.3 outExpo"
+send_character_message 2 "set_morph_target afraid 0.5 0.3 outExpo"
+send_character_message 2 "set_morph_target angry 0.0 2.3 outExpo"
+say 4 "Dart" "..."
+send_character_message 2 "set_torso_target -32.6313 -40.1541 -64.5438 0.00550628"
+send_character_message 1 "set_eye_dir -32.9996 -39.6972 -65.0266 1"
+send_character_message 1 "set_torso_target -31.018 -40.3889 -64.9061 1"
+send_character_message 1 "set_head_target -32.737 -39.7506 -65.0547 1"
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0"
+send_character_message 2 "set_head_target -31.5199 -40.2262 -64.9021 1"
+send_character_message 2 "set_morph_target afraid 0.0 2.3 outExpo"
+send_character_message 2 "set_morph_target angry 1.0 2.3 outExpo"
+say 1 "Ghost" "Well? [wait 0.1]How about it?"
+set_cam -30.4679 -39.7859 -64.8549 -7.46 87.77 -0.1 39.9482
+send_character_message 2 "set_torso_target -32.6313 -40.1541 -64.5438 0.00550628"
+send_character_message 2 "set_animation \"Animations/r_dialogue_welcome.anm\""
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 1"
+send_character_message 2 "set_head_target -30.7075 -39.9905 -64.9021 1"
+sound_hotspot_play_sound "Data/Sounds/voice/animal3/voice_cat_attack.xml" -33.5393 -40.7371 -64.9707
+say 2 "Dart" "You think I'm... [wait 0.1]That low? [wait 0.05]That weak!?"
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0.700357"
+send_character_message 2 "set_head_target -30.7075 -39.7659 -64.9021 1"
+send_character_message 2 "set_animation \"Animations/lanterntouch_lethal.anm\""
+sound_hotspot_play_sound "Data/Sounds/voice/animal3/voice_cat_attack.xml" -33.5393 -40.7371 -64.9707
+say 2 "Dart" "You best watch your tail, [wait 0.05]'friend'. [wait 0.1]Say things like that, [wait 0.05]and you'll be cut even shorter."
+send_character_message 2 "set_eye_dir -32.9501 -39.4154 -64.1712 0"
+send_character_message 2 "set_head_target -31.6991 -40.1265 -64.602 1"
+send_character_message 2 "set_torso_target -32.4447 -40.6024 -64.8262 1"
+sound_hotspot_play_sound "Data/Sounds/voice/animal3/voice_cat_exertion.xml" -33.5393 -40.7371 -64.9707
+send_character_message 2 "set_animation \"Data/Animations/dart_idle.anm\""
+say 2 "Dart" "The absolute audacity... [wait 0.1]Fuiot tot kaikaalk!"
+send_level_message "dialogue_done"
