@@ -32,4 +32,4 @@ say 2 "Dart" "Iiktra voldta. [wait 0.15]You are a true friend, [wait 0.1]indeed.
 send_level_message "disable 5483"
 send_level_message "disable 5490"
 send_level_message "disable 12176"
-send_level_message "dart_done"
+send_level_message "dialogue_done"

@@ -19,7 +19,7 @@ send_character_message 2 "set_eye_dir -43.9881 -39.8559 -65.9076 1"
 send_character_message 2 "set_animation \"Data/Animations/dart_cross.anm\""
 set_character_pos 2 -43.9281 -40.6042 -68.1903 -73
 say 1 "Ghost" "It's nothing. [wait 0.1]Just hanging around."
-send_level_message "dart_done"
+send_level_message "dialogue_done"
 send_level_message "disable 5483"
 send_level_message "disable 5490"
 send_level_message "disable 12176"
