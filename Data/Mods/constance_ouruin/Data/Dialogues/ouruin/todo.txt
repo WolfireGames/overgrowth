@@ -12,8 +12,6 @@
 
 - adal dialogue expression morphs
 
-- gaggle dialogue morphs
-
 - consider reanimating ghost shock
 
 - add lethality book to moritz (or warrens?)
