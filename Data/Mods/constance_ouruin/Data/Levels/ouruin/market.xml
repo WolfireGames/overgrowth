@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="34.1496" t1="-39.7177" t2="22.9452" s0="1" s1="1" s2="1" q0="0.113153" q1="0.155758" q2="-0.0179634" q3="0.981129" euler_x="0.229643" euler_y="0.31488" euler_z="0" id="0">
+    <CameraObject t0="35.0241" t1="-36.4828" t2="24.6945" s0="1" s1="1" s2="1" q0="-0.00314985" q1="-0.995466" q2="0.0355687" q3="-0.0881554" euler_x="-3.07016" euler_y="0.176653" euler_z="-3.14159" id="0">
         <parameters />
     </CameraObject>
     <Decal t0="36.4746" t1="-50.6038" t2="61.8414" s0="3.14343" s1="3.14144" s2="0.219877" q0="0.00951225" q1="0" q2="4.5635e-05" q3="0.999955" euler_x="0.0190248" euler_y="0" euler_z="9.12659e-05" id="1" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
@@ -4285,7 +4285,7 @@
         <EnvObject name="Ghost Buckler" s0="0.880705" s1="0.7447" s2="0.77289" id="3238" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/BucklerScale.xml">
             <parameters />
         </EnvObject>
-        <EnvObject name="Ghost Buckler" s0="-0.112132" s1="0.107375" s2="0.112132" id="3237" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/standard-buckler.xml">
+        <EnvObject name="Ghost Buckler" s0="-0.112" s1="0.107375" s2="0.112132" id="3237" color_r="1" color_g="1" color_b="1" overbright="0" type_file="Data/Objects/standard-buckler.xml">
             <parameters />
         </EnvObject>
     </ActorObject>
@@ -12735,7 +12735,7 @@
         <parameters>
             <parameter name="Dialogue" type="string" val="Data/Dialogues/ouruin/market/jasmine-meet.txt" />
             <parameter name="DisplayName" type="string" val="Jasmine-Meet" />
-            <parameter name="NumParticipants" type="string" val="3" />
+            <parameter name="NumParticipants" type="int" val="3" />
             <parameter name="obj_1" type="int" val="3660" />
             <parameter name="obj_2" type="int" val="3661" />
             <parameter name="obj_3" type="int" val="3662" />
@@ -15202,6 +15202,12 @@
     <Decal t0="36.8331" t1="-41.4145" t2="20.8605" s0="1.97321" s1="0.233669" s2="1.97321" q0="-0.5" q1="0.5" q2="0.5" q3="0.5" euler_x="0" euler_y="1.57031" euler_z="0" id="4124" type_file="Data/Objects/Decals/runes/rune_hill.xml" color_r="0.0423683" color_g="0.205516" color_b="0.372549" overbright="0">
         <parameters />
     </Decal>
+    <Decal t0="22.2803" t1="-37.399" t2="45.2093" s0="0.819643" s1="4.44895" s2="0.31117" q0="0" q1="0.188349" q2="0" q3="0.982102" euler_x="0" euler_y="0.378961" euler_z="0" id="4125" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.454902" color_g="0.454897" color_b="0.454897" overbright="0">
+        <parameters />
+    </Decal>
+    <Decal t0="22.28" t1="-37.399" t2="41.569" s0="0.819643" s1="4.44895" s2="0.31117" q0="0" q1="-0.190809" q2="0" q3="0.981627" euler_x="0" euler_y="-0.383972" euler_z="0" id="4126" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0.454902" color_g="0.454897" color_b="0.454897" overbright="0">
+        <parameters />
+    </Decal>
 </ActorObjects>
 <RecentItems>
     <SpawnerItem display_name="Ghost" path="Data/Objects/therium/IGF_Characters/ghostspawn.xml" thumbnail_path="Data/Textures/ui/t2/spawner.jpg" />
@@ -16176,7 +16182,6 @@
     <SpawnerItem display_name="Shop Sign Long Board" path="Data/Objects/Buildings/shops/sign_long_board.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/sign_long_board.png" />
     <SpawnerItem display_name="Shop Sign Short Board" path="Data/Objects/Buildings/shops/sign_short_board.xml" thumbnail_path="Data/UI/spawner/thumbs/Static Objects/sign_short_board.png" />
     <SpawnerItem display_name="Ambient Shadow Blob Decal (Round)" path="Data/Objects/default_env_blob_shadow_decal.xml" thumbnail_path="" />
-    <SpawnerItem display_name="Ambient Shadow Blob Decal (Square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
     <SpawnerItem display_name="White Art Rug [Decal]" path="Data/Objects/Decals/rugs/white_art_rug.xml" thumbnail_path="Data/Textures/ui/spawner_thumbs_new/white_art_rug.png" />
     <SpawnerItem display_name="Weapon Grab Dialogue Hotspot" path="Data/Objects/therium/Hotspots/dialogue_weapon.xml" thumbnail_path="Data/UI/spawner/thumbs/Hotspot/sign_icon.png" />
     <SpawnerItem display_name="Rune Moon [Decal]" path="Data/Objects/Decals/runes/rune_moon.xml" thumbnail_path="Data/Textures/Decals/runes/rune_moon.png" />
@@ -16187,4 +16192,5 @@
     <SpawnerItem display_name="Rune Mountain [Decal]" path="Data/Objects/Decals/runes/rune_mountain.xml" thumbnail_path="Data/Textures/Decals/runes/rune_mountain.png" />
     <SpawnerItem display_name="Rune Bird [Decal]" path="Data/Objects/Decals/runes/rune_bird.xml" thumbnail_path="Data/Textures/Decals/runes/rune_bird.png" />
     <SpawnerItem display_name="Rune Hill [Decal]" path="Data/Objects/Decals/runes/rune_hill.xml" thumbnail_path="Data/Textures/Decals/runes/rune_hill.png" />
+    <SpawnerItem display_name="Ambient Shadow Blob Decal (Square)" path="Data/Objects/default_env_blob_shadow_decal_square.xml" thumbnail_path="" />
 </RecentItems>

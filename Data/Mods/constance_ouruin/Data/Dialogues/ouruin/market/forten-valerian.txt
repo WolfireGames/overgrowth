@@ -1,0 +1,38 @@
+#name "Forten-Valerian"
+#participants 4
+set_character_pos 2 24.6056 -38.9258 43.3041 0
+send_character_message 2 "set_animation \"Data/Animations/forten_sithead.anm\""
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0.18059"
+send_character_message 2 "set_torso_target 25.0999 -38.9631 43.589 0"
+send_character_message 2 "set_head_target 25.3908 -39.07 43.2114 7.4476e-05"
+set_character_pos 1 26.138 -39.3398 42.6345 -154
+send_character_message 1 "set_animation \"Animations/r_dialogue_armcross.anm\""
+send_character_message 1 "set_eye_dir 25.5127 -38.0478 42.6642 1"
+send_character_message 1 "set_torso_target 25.5822 -38.8635 42.7846 0.00561768"
+send_character_message 1 "set_head_target 24.7067 -38.6446 42.4547 1"
+set_cam 24.1099 -38.6435 44.6839 -4.63 -32.39 0 43.1462
+set_dialogue_color 1 0 0.52 0.95
+set_dialogue_voice 1 8
+set_dialogue_color 3 0 0.52 0.95
+set_dialogue_voice 3 8
+set_dialogue_color 2 0.39 0.54 0.212
+set_dialogue_voice 2 15
+set_dialogue_color 4 0.39 0.54 0.212
+set_dialogue_voice 4 15
+send_character_message 2 "set_morph_target sad 1.0 0.3 outExpo"
+say 1 "Ghost" "Weird question, [wait 0.05]but..."
+send_character_message 1 "set_eye_dir 25.4085 -38.8224 43.5161 1"
+send_character_message 1 "set_head_target 24.6617 -38.7874 42.4849 1"
+send_character_message 2 "set_head_target 25.3908 -39.07 43.2114 1"
+say 1 "Ghost" "You know where I could buy some valerian root?"
+send_character_message 2 "set_head_target 25.3858 -39.0947 43.2151 1"
+send_character_message 1 "set_head_target 24.553 -38.6006 42.0408 1"
+say 2 "Forten" "Lotus depot. [wait 0.1]They'll run you 'bout 100p. [wait 0.1]Look for two snakes; [wait 0.1]a rabbit, and a dog."
+send_character_message 2 "set_eye_dir 25.122 -38.851 43.0622 0"
+send_character_message 1 "set_eye_dir 25.4085 -38.8224 43.5161 0.761511"
+send_character_message 1 "set_head_target 24.533 -38.752 42.1775 1"
+say 1 "Ghost" "...[wait 0.1]Oh. [wait 0.05]Thanks."
+send_character_message 1 "set_head_target 24.5225 -39.1975 42.4871 1"
+send_character_message 1 "set_animation \"Animations/r_actionidle.anm\""
+say 4 "Forten" "..."
+send_level_message "dialogue_done"
