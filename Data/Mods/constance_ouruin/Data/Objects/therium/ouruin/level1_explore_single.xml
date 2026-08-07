@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<Object>
+	<Model>Data/Models/therium/ouruin/level1_explore_single.obj</Model>
+	<ColorMap>Data/Textures/diffusegreyalpha.tga</ColorMap>
+	<NormalMap>Data/Textures/diffuseblackalpha.tga</NormalMap>
+	<ShaderPath>Data/GLSL/cubemapobj</ShaderPath>
+    <MaterialPath>Data/Materials/ya.xml</MaterialPath>
+	<ShaderName>cubemapobj</ShaderName>
+</Object>

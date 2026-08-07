@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<material>
+    <events>
+        <leftrunstep soundgroup="Data/Sounds/footstep_mud.xml" attached="false"/>
+        <rightrunstep soundgroup="Data/Sounds/footstep_mud.xml" attached="false"/>
+        <leftwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <rightwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <leftwallstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <rightwallstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/footstep_mud.xml" attached="true"/>
+        <land soundgroup="Data/Sounds/FistImpact.xml" attached="true"/>
+        <slide soundgroup="Data/Sounds/ui_click.xml" attached="true"/>
+        <kick soundgroup="Data/Sounds/ice_foley/fs_light_ice_kick.xml" attached="true"/>
+        <sweep soundgroup="Data/Sounds/ice_foley/fs_light_ice_sweep.xml" attached="true"/>
+        <jump soundgroup="Data/Sounds/ui_click.xml" attached="true"/>
+        <roll soundgroup="Data/Sounds/voice/torikamal/groan.xml" attached="true"/>
+        <bodyfall_light soundgroup="Data/Sounds/ui_hover.xml" attached="true"/>
+        <bodyfall_medium soundgroup="Data/Sounds/ui_hover.xml" attached="true"/>
+        <bodyfall_heavy soundgroup="Data/Sounds/ui_hover.xml" attached="false"/>
+        <weapon_drop_light soundgroup="Data/Sounds/ui_hover.xml" attached="true"/>
+        <weapon_drop_medium soundgroup="Data/Sounds/ui_hover.xml" attached="true"/>
+        <weapon_drop_heavy soundgroup="Data/Sounds/ui_hover.xml" attached="true"/>
+        <blood_spatter soundgroup="Data/Sounds/ui_click.xml"/>
+        <blood_drip soundgroup="Data/Sounds/ui_click.xml"/>
+    </events>	
+	<events mod="soft">
+        <weapon_drop_light soundgroup="Data/Sounds/weapon_foley/impact/soft_bag_on_hard.xml" attached="true"/>
+        <weapon_drop_medium soundgroup="Data/Sounds/weapon_foley/impact/soft_bag_on_hard.xml" attached="true"/>
+        <weapon_drop_heavy soundgroup="Data/Sounds/weapon_foley/impact/soft_bag_on_hard.xml" attached="true"/>
+    </events>
+    <events mod="heavy">
+        <slide soundgroup="Data/Sounds/voice/torikamal/hit_taunt.xml" attached="true"/>
+        <leftrunstep soundgroup="Data/Sounds/voice/torikamal/losefooting.xml" attached="true"/>
+        <rightrunstep soundgroup="Data/Sounds/voice/torikamal/losefooting.xml" attached="true"/>
+        <leftwalkstep soundgroup="Data/Sounds/voice/torikamal/stomachhit.xml" attached="true"/>
+        <rightwalkstep soundgroup="Data/Sounds/voice/torikamal/stomachhit.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/voice/torikamal/throwingpunch.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/voice/torikamal/throwingpunch.xml" attached="true"/>
+        <leftcrouchwalkstep soundgroup="Data/Sounds/voice/torikamal/throwingpunch.xml" attached="true"/>
+        <rightcrouchwalkstep soundgroup="Data/Sounds/voice/torikamal/throwingpunch.xml" attached="true"/>
+        <land soundgroup="Data/Sounds/ice_foley/fs_heavy_ice_jump_land.xml" attached="true"/>
+        <kick soundgroup="Data/Sounds/ice_foley/fs_heavy_ice_kick.xml" attached="true"/>
+        <sweep soundgroup="Data/Sounds/ice_foley/fs_heavy_ice_sweep.xml" attached="true"/>
+        <jump soundgroup="Data/Sounds/voice/torikamal/jump.xml" attached="true"/>
+        <roll soundgroup="Data/Sounds/voice/torikamal/groan.xml" attached="true"/>
+    </events>
+	<physics hardness = "-52.8" friction = "2.1" sharp_penetration = "1.0" />
+</material>

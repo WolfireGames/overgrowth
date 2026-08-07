@@ -72,10 +72,11 @@ class Bullet{
 				MovementObject@ char = ReadCharacterID(char_id);
 				char.rigged_object().Stab(collision_position, forward_direction, 1, 0);
 				vec3 force = forward_direction * 5000.0f;
-				float damage = 0.25;
+				float damage = 0.50;
 
 				char.Execute("vec3 impulse = vec3(" + force.x + ", " + force.y + ", " + force.z + ");" +
 							"vec3 pos = vec3(" + collision_position.x + ", " + collision_position.y + ", " + collision_position.z + ");" +
+							"TakeBloodDamage(" + damage + ");if(knocked_out != _awake){Ragdoll(_RGDL_LIMP);}" +
 							"HandleRagdollImpactImpulse(impulse, pos, " + damage + ");");
 				
 				end = collision_position;
