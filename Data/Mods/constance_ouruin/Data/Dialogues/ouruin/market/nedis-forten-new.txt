@@ -20,5 +20,5 @@ say 2 "Nedis" "Higher-ups don't like that... [wait 0.05]So now we need some folk
 send_character_message 2 "set_animation \"Data/Animations/shopkeep_leantable_gesture.anm\""
 send_character_message 2 "set_eye_dir 29.3387 -45.2481 5.54997 1"
 send_character_message 2 "set_head_target 29.5818 -45.9244 3.98141 1"
-say 2 "Nedis" "The building belongs to Forten, [wait 0.05]so you're going to have to talk to him about it... [wait 0.1]He's in this building, [wait 0.05]you've just gotta find 'em up the pipe and down the stairs."
+say 2 "Nedis" "The building belongs to Forten, [wait 0.05]so you're going to have to talk to him about it... [wait 0.1]He's in this building, [wait 0.05]you've just gotta find 'em up the pipe and down the stairs. [wait 0.1]Right above the warrens entrance."
 send_level_message "dialogue_done"

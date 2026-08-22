@@ -1342,6 +1342,12 @@ void ModInstance::Reload() {
         is_core = true;
     } else if (strmtch("com-wolfire-arena", id)) {
         is_core = true;
+    } else if (strmtch("drika-hotspot", id)) {
+        is_core = true;
+    } else if (strmtch("const-ouruin", id)) {
+        is_core = true;
+    } else if (strmtch("simple-shapes", id)) {
+        is_core = true;
     } else {
         is_core = false;
     }

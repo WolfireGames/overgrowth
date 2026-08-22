@@ -28,5 +28,5 @@ say 2 "Forten" "Go right back up there, [wait 0.05]you just missed the door. [wa
 send_character_message 1 "set_torso_target 29.3337 -46.1723 3.6369 1"
 send_character_message 1 "set_head_target 30.1304 -45.8209 3.39569 1"
 set_cam 28.1828 -45.9245 3.40676 0 -83 0 55.9619
-say 2 "Forten" "Just go ahead and knock, [wait 0.05]introduce yourself. [wait 0.1]They have no reason to turn you away."
+say 2 "Forten" "Just go ahead and knock, [wait 0.05]introduce yourself. [wait 0.1]Make sure they don't chat your ears off..."
 send_level_message "dialogue_done"

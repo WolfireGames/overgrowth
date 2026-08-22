@@ -50,7 +50,7 @@
     <RayToSun r0="-0.0361799" r1="0.661442" r2="0.749123" />
 </Sky>
 <ActorObjects>
-    <CameraObject t0="35.8542" t1="-41.5905" t2="5.53035" s0="1" s1="1" s2="1" q0="0.0226555" q1="-0.974485" q2="0.115529" q3="0.191098" euler_x="-2.90559" euler_y="-0.387289" euler_z="-3.14159" id="0">
+    <CameraObject t0="34.9339" t1="-42.2617" t2="4.05073" s0="1" s1="1" s2="1" q0="0.120585" q1="-0.65536" q2="0.107097" q3="0.737897" euler_x="0.323972" euler_y="-1.45245" euler_z="0" id="0">
         <parameters />
     </CameraObject>
     <Decal t0="36.4746" t1="-50.6038" t2="61.8414" s0="3.14343" s1="3.14144" s2="0.219877" q0="0.00951225" q1="0" q2="4.5635e-05" q3="0.999955" euler_x="0.0190248" euler_y="0" euler_z="9.12659e-05" id="1" type_file="Data/Objects/Decals/env_blob_shadow_square.xml" color_r="0" color_g="0" color_b="0" overbright="0">
@@ -15162,19 +15162,19 @@
     </Decal>
     <Group t0="58.9792" t1="-21.9449" t2="38.7355" s0="3.61259" s1="0.612592" s2="0.612592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4117" version="1">
         <parameters />
-        <Prefab t0="60.4792" t1="-21.9449" t2="38.7355" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4109" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_1.xml" os0="0.60259" os1="0.602594" os2="0.602598">
+        <Prefab t0="60.4792" t1="-21.9449" t2="38.7355" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4109" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_1.xml" os0="0.60259" os1="0.60259" os2="0.602583">
             <parameters />
             <EnvObject t0="60.4792" t1="-21.9449" t2="38.7355" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2202" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
                 <parameters />
             </EnvObject>
         </Prefab>
-        <Prefab t0="58.9792" t1="-21.9449" t2="38.7355" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4114" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_2.xml" os0="0.60259" os1="0.602594" os2="0.602598">
+        <Prefab t0="58.9792" t1="-21.9449" t2="38.7355" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4114" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_2.xml" os0="0.60259" os1="0.60259" os2="0.602583">
             <parameters />
             <EnvObject t0="58.9792" t1="-21.9449" t2="38.7355" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2303" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
                 <parameters />
             </EnvObject>
         </Prefab>
-        <Prefab t0="57.4792" t1="-21.9449" t2="38.7355" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4116" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_3.xml" os0="0.60259" os1="0.602594" os2="0.602598">
+        <Prefab t0="57.4792" t1="-21.9449" t2="38.7355" s0="0.602592" s1="0.602592" s2="0.602592" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="4116" version="1" prefab_locked="true" prefab_path="Data/Prefabs/ouruin/custom/customprefab_3.xml" os0="0.60259" os1="0.60259" os2="0.602583">
             <parameters />
             <EnvObject t0="57.4792" t1="-21.9449" t2="38.7355" s0="0.296296" s1="0.296296" s2="0.296296" q0="0" q1="0" q2="0" q3="1" euler_x="0" euler_y="0" euler_z="0" id="2362" color_r="1" color_g="0.576471" color_b="0.941176" overbright="50" type_file="Data/Custom/FnB/Objects/Simple Shapes/plain/cube.xml">
                 <parameters />
