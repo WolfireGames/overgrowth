@@ -55,7 +55,7 @@ send_character_message 1 "set_animation \"Animations/r_idle.anm\""
 say 1 "Ghost" "Nothing in particular. [wait 0.1]Is... [wait 0.1]Everything okay, [wait 0.05]here?"
 send_character_message 2 "set_head_target 25.303 -38.6541 42.9136 1"
 send_character_message 2 "set_animation \"Data/Animations/forten_sit_shift.anm\""
-say 2 "Forten" "What? [wait 0.05]Y' walked in here and you haven't already heard? [wait 0.05]It's..."
+say 2 "Forten" "What? [wait 0.05]Y' walked in here and you haven't already heard? [wait 0.05]The depot, [wait 0.05]it's..."
 set_cam 25.841 -38.6641 41.712 -5.51 143.14 0 27.6577
 send_character_message 2 "set_eye_dir 25.0293 -38.8439 42.9123 0.40454"
 send_character_message 2 "set_head_target 25.3152 -38.9848 42.7513 1"
