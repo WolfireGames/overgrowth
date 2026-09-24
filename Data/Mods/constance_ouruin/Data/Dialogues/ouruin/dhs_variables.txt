@@ -482,7 +482,7 @@ Define variable, its values and notes for each value.
 		4: Dart has beaten Ghost in dueling
 		5: Dart has been beaten. Quest complete!
 
-		ouruin_dart_backstory {UNUSED}
+		ouruin_dart_backstory
 
 		ouruin_dart_access
 
